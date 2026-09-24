@@ -48,7 +48,7 @@ Polymarket Builder Fees ограничивает ставку по типу ис
 
 ### B9. Архитектура Limitless
 
-Для Limitless не подтверждены полнота публичной истории, пригодность WebSocket/REST для лидеров, стабильные идентификаторы, order lifecycle, фактическая задержка, GEO-доступность и безопасная модель автоматической подписи. EOA, HMAC token и partner managed wallet имеют разные границы доверия; их нельзя считать эквивалентом Polymarket session key.
+Read-only аудит подтвердил публичную историю, позиции, PnL, market events и достаточные идентификаторы для backfill/paper trading. Публичного WebSocket для сделок произвольного лидера не обнаружено; user order events доступны только аутентифицированному владельцу, а REST market events уже финализированы и имеют статус `MINED`. EOA требует подпись каждого ордера, автоматический partner flow использует managed server wallet и `delegated_signing`. Не подтверждены end-to-end latency, revocation/recovery, коммерческое использование публичных данных и GEO-доступность. Подробности: [14_limitless_read_only_audit.md](14_limitless_read_only_audit.md).
 
 ### B10. GEO и выбор execution-площадки
 
@@ -76,7 +76,7 @@ Spike начинается только после отдельной коман
 | 6 | Fee attribution | Read-only и sandbox | Реальная ставка maker/taker, builder attribution, отчёт по полученной комиссии |
 | 7 | Virtual lot state machine | Recorded data | Полная таблица переходов и инварианты ручного/автоматического закрытия |
 | 8 | Reconciliation fault injection | Paper trading | Восстановление после дубля, пропуска, таймаута, перестановки и частичного fill |
-| 9 | Limitless adapter feasibility | Read-only | Публичная история, latency, identifiers, orders/positions, auth и отличие от Polymarket |
+| 9 | Limitless adapter feasibility | Read-only | Документальный/API-аудит завершён; следующий шаг — 72 часа recorded latency на 3–5 адресах и письменные ответы Limitless |
 | 10 | Funding route | Отдельно разрешённая минимальная транзакция | Фактический капитал после USDT, bridge, gas, конвертации и вывода |
 | 11 | Personal live order lifecycle | Только после предыдущих gates | Минимальный buy/partial/cancel/sell на отдельном кошельке с полной сверкой |
 
