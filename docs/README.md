@@ -45,6 +45,7 @@
 | 23 | [Контракт адаптеров двух площадок](23_dual_venue_adapter_contract.md) | общие модели, состояния, интерфейсы, reconciliation и contract tests |
 | 24 | [Параллельные потоки работ](24_parallel_workstreams.md) | распределение ближайших задач и gate перехода к paper MVP |
 | 29 | [Двуязычная продуктовая основа](29_bilingual_product_language.md) | English/Russian, словарь, безопасные тексты и Figma checklist |
+| 30 | [Benchmark Binance Copy Trading](30_binance_copy_trading_ui_benchmark.md) | функции, UX-путь и рекомендации Take / Adapt / Avoid для MVP |
 
 ## Источники правды по темам
 
@@ -63,6 +64,7 @@
 | Как разделены общий core и площадки? | `23_dual_venue_adapter_contract.md`, ADR-0008 |
 | Что можно выполнять параллельно сейчас? | `24_parallel_workstreams.md` |
 | Как закладываем мультиязычность? | `29_bilingual_product_language.md`, ADR-0006 и ADR-0009 |
+| Что подсмотреть у Binance Copy Trading? | `30_binance_copy_trading_ui_benchmark.md` |
 | Когда можно писать MVP? | ADR-0002 и gate в `ROADMAP.md` |
 
 ## Правило при конфликте

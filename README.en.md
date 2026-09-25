@@ -92,6 +92,8 @@ The check verifies that key documents exist and that Markdown relative links are
 - [UX audit and user journey](docs/06_ux_audit_and_user_flow.md)
 - [Target audience and personas](docs/15_target_audience_and_personas.md)
 - [Positioning without profit promises](docs/18_first_validation_positioning.md)
+- [Bilingual product language foundation](docs/29_bilingual_product_language.md)
+- [Binance Copy Trading benchmark](docs/30_binance_copy_trading_ui_benchmark.md)
 - [Dual-venue adapter contract](docs/23_dual_venue_adapter_contract.md)
 - [Trust, permissions, and state model](docs/13_trust_permissions_and_state_model.md)
 - [Full documentation map](docs/README.md)

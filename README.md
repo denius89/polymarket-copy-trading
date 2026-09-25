@@ -92,6 +92,8 @@ npm run check
 - [UX-аудит и пользовательский путь](docs/06_ux_audit_and_user_flow.md)
 - [Целевая аудитория и персоны](docs/15_target_audience_and_personas.md)
 - [Позиционирование без обещаний дохода](docs/18_first_validation_positioning.md)
+- [Двуязычная продуктовая основа](docs/29_bilingual_product_language.md)
+- [Benchmark Binance Copy Trading](docs/30_binance_copy_trading_ui_benchmark.md)
 - [Контракт двух площадок](docs/23_dual_venue_adapter_contract.md)
 - [Модель доверия, полномочий и состояний](docs/13_trust_permissions_and_state_model.md)
 - [Полная карта документации](docs/README.md)
