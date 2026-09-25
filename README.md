@@ -12,7 +12,7 @@
 
 Пересмотр идеи, рынка, экономики и архитектуры. По решению основателя разработка MVP и интерактивного прототипа приостановлена до согласования концепции.
 
-Актуальный статус: [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md). Первая итерация пересмотра: [docs/07_strategy_architecture_review.md](docs/07_strategy_architecture_review.md). Агентский канал и простой вход: [документ 08](docs/08_agent_distribution_and_onboarding.md). Рейтинг, комиссия и настраиваемая реферальная лестница: [документ 09](docs/09_product_decisions_and_partner_tiers.md). Существующая презентация описывает предыдущую гипотезу и требует обновления после согласования.
+Актуальный статус: [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md). Первая итерация пересмотра: [docs/07_strategy_architecture_review.md](docs/07_strategy_architecture_review.md). Агентский канал и простой вход: [документ 08](docs/08_agent_distribution_and_onboarding.md). Рейтинг, комиссия и настраиваемая реферальная лестница: [документ 09](docs/09_product_decisions_and_partner_tiers.md). Целевая аудитория: [документ 15](docs/15_target_audience_and_personas.md). Безопасное привлечение: [документ 16](docs/16_acquisition_and_safe_messaging.md). Экономические предложения коллеги и новые защитные ограничения: [документ 17](docs/17_colleague_ideas_economics_and_controls.md). Существующая презентация описывает предыдущую гипотезу и требует обновления после согласования.
 
 ## Структура
 
