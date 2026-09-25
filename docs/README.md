@@ -38,6 +38,7 @@
 | 16 | [Привлечение без обещаний дохода](16_acquisition_and_safe_messaging.md) | shadow copy, сообщения и cashback-гипотеза |
 | 17 | [Экономика и защитные ограничения](17_colleague_ideas_economics_and_controls.md) | расчёты коллеги, тарифный вариант и risk controls |
 | 18 | [Позиционирование первой проверки](18_first_validation_positioning.md) | пользователь, проблема, обещание, отличие и критерии исследования |
+| 19 | [Доступ к API Polymarket](19_polymarket_api_access.md) | публичные API, CLOB credentials, Builder Program и session-key request |
 
 ## Источники правды по темам
 
@@ -51,6 +52,8 @@
 | Как устроены кошелёк и полномочия? | `13_trust_permissions_and_state_model.md`, ADR-0003 |
 | Какие технические вопросы ещё не доказаны? | `12_architecture_blockers_and_spikes.md` |
 | Какая площадка первая? | ADR-0001, `10_geo_shortlist.md`, `14_limitless_read_only_audit.md` |
+| Что нужно для API Polymarket? | `19_polymarket_api_access.md`, ADR-0003 |
+| Как закладываем мультиязычность? | ADR-0006 и раздел 4 технической концепции |
 | Когда можно писать MVP? | ADR-0002 и gate в `ROADMAP.md` |
 
 ## Правило при конфликте
