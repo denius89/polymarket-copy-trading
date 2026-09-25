@@ -19,9 +19,11 @@ const requiredPaths = [
   "docs/22_limitless_access_and_spike_plan.md",
   "docs/23_dual_venue_adapter_contract.md",
   "docs/24_parallel_workstreams.md",
+  "docs/29_bilingual_product_language.md",
   "docs/decisions/README.md",
   "docs/decisions/0007_limitless_first_integration.md",
   "docs/decisions/0008_dual_venue_product_scope.md",
+  "docs/decisions/0009_novice_first_direct_mvp.md",
   "references/README.md",
   ".env.example",
 ];

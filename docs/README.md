@@ -44,15 +44,16 @@
 | 22 | [План доступа и spikes Limitless](22_limitless_access_and_spike_plan.md) | FutureHaus, partner application, письменные вопросы и критерии GO/NO-GO |
 | 23 | [Контракт адаптеров двух площадок](23_dual_venue_adapter_contract.md) | общие модели, состояния, интерфейсы, reconciliation и contract tests |
 | 24 | [Параллельные потоки работ](24_parallel_workstreams.md) | распределение ближайших задач и gate перехода к paper MVP |
+| 29 | [Двуязычная продуктовая основа](29_bilingual_product_language.md) | English/Russian, словарь, безопасные тексты и Figma checklist |
 
 ## Источники правды по темам
 
 | Вопрос | Сначала открыть |
 |---|---|
 | Что делаем сейчас? | `PROJECT_STATE.md`, затем `ROADMAP.md` |
-| Для кого продукт? | `15_target_audience_and_personas.md` |
+| Для кого MVP? | ADR-0009, затем `15_target_audience_and_personas.md` как история исследования |
 | Как мы объясняем первую проверку? | `18_first_validation_positioning.md`, затем `16_acquisition_and_safe_messaging.md` |
-| Как привлекаем через агентов? | `08_agent_distribution_and_onboarding.md`, `16_acquisition_and_safe_messaging.md` |
+| Как привлекаем через агентов позже? | `08_agent_distribution_and_onboarding.md`, `16_acquisition_and_safe_messaging.md`; агентский канал не входит в MVP |
 | Какая комиссия? | `09_product_decisions_and_partner_tiers.md`, затем раздел открытых решений в `17_colleague_ideas_economics_and_controls.md` |
 | Как устроены кошелёк и полномочия? | `13_trust_permissions_and_state_model.md`, ADR-0003 |
 | Какие технические вопросы ещё не доказаны? | `12_architecture_blockers_and_spikes.md`, затем исполнимые планы `21` и `22` |
@@ -61,7 +62,7 @@
 | Что нужно для API Limitless? | `20_limitless_partner_integration.md`, затем checklist `22_limitless_access_and_spike_plan.md` |
 | Как разделены общий core и площадки? | `23_dual_venue_adapter_contract.md`, ADR-0008 |
 | Что можно выполнять параллельно сейчас? | `24_parallel_workstreams.md` |
-| Как закладываем мультиязычность? | ADR-0006 и раздел 4 технической концепции |
+| Как закладываем мультиязычность? | `29_bilingual_product_language.md`, ADR-0006 и ADR-0009 |
 | Когда можно писать MVP? | ADR-0002 и gate в `ROADMAP.md` |
 
 ## Правило при конфликте
