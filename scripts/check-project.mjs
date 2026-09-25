@@ -14,7 +14,9 @@ const requiredPaths = [
   "docs/01_product_and_economics.md",
   "docs/02_technical_concept.md",
   "docs/03_execution_plan.md",
+  "docs/20_limitless_partner_integration.md",
   "docs/decisions/README.md",
+  "docs/decisions/0007_limitless_first_integration.md",
   "references/README.md",
   ".env.example",
 ];

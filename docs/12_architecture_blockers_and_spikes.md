@@ -8,7 +8,7 @@
 - Сервис не принимает и не обменивает деньги, не хранит баланс клиента и не проводит собственный KYC.
 - Основной кошелёк контролирует пользователь. Сервису может выдаваться отдельное ограниченное торговое разрешение без права вывода.
 - Первая версия копирует сделки и позволяет управлять скопированными позициями; произвольная самостоятельная торговля не входит в первую версию.
-- Polymarket остаётся первым кандидатом execution-площадки. Limitless исследуется как отдельный адаптер и возможная площадка для GEO, где Polymarket не открывает новые позиции.
+- Limitless выбран первой интеграционной проверкой по ADR-0007. Polymarket остаётся вторым adapter-кандидатом и контрольным сравнением.
 - Сервисная комиссия начисляется только на автоматические fills по версионируемой maker/taker сетке; ручные, защитные и аварийные закрытия имеют сервисную ставку 0%.
 - Автоматизация выключена по умолчанию. До live-режима обязательны recorded data, paper trading и ручные технические gates.
 
@@ -48,11 +48,11 @@ Privy выбран первым кандидатом, Dynamic — контрол
 
 ### B9. Архитектура Limitless
 
-Read-only аудит подтвердил публичную историю, позиции, PnL, market events и достаточные идентификаторы для backfill/paper trading. Публичного WebSocket для сделок произвольного лидера не обнаружено; user order events доступны только аутентифицированному владельцу, а REST market events уже финализированы и имеют статус `MINED`. EOA требует подпись каждого ордера, автоматический partner flow использует managed server wallet и `delegated_signing`. Не подтверждены end-to-end latency, revocation/recovery, коммерческое использование публичных данных и GEO-доступность. Подробности: [14_limitless_read_only_audit.md](14_limitless_read_only_audit.md).
+Read-only аудит подтвердил публичную историю, позиции, PnL, market events и достаточные идентификаторы для backfill/paper trading. Команда Limitless подтвердила готовность поддерживать проект, а Programmatic API публично документирует partner sub-accounts и `delegated_signing`. Доступ к партнёрскому пути больше не считается неизвестной возможностью, но остаются технические блокеры: end-to-end latency, revocation/recovery, безопасный вывод без `withdrawal` у execution worker, коммерческое использование данных, GEO и полный round-trip cost. Подробности: [14_limitless_read_only_audit.md](14_limitless_read_only_audit.md) и [20_limitless_partner_integration.md](20_limitless_partner_integration.md).
 
 ### B10. GEO и выбор execution-площадки
 
-Сомали и Таиланд остаются продуктовым GEO, но Polymarket сейчас не открывает там новые позиции. Архитектура должна выбирать только поддерживаемый адаптер, проверять доступность до включения копирования и не проектировать обход геоблокировки. До выбора первого GEO нельзя окончательно утвердить первую execution-площадку.
+Сомали и Таиланд остаются продуктовым GEO, но Polymarket сейчас не открывает там новые позиции. Limitless выбран первым техническим кандидатом, однако архитектура должна проверять доступность до включения копирования и не проектировать обход геоблокировки. До выбора первого GEO нельзя утвердить рынок запуска.
 
 ### B11. Малый бюджет и путь пополнения
 
@@ -68,15 +68,15 @@ Spike начинается только после отдельной коман
 
 | № | Spike | Режим | Проверяемый результат |
 |---:|---|---|---|
-| 1 | Polymarket leader ingestion | Read-only | Полнота и задержка событий 3–5 адресов, дубли, порядок, доступные типы действий |
+| 1 | Limitless leader ingestion | Read-only | Полнота и задержка событий 3–5 адресов, дубли, порядок, доступные типы действий |
 | 2 | Нормализованный event contract | Recorded data | Стабильный `source_event_key`, схема события, правила дедупликации и пропуска |
 | 3 | Orderbook execution simulator | Recorded/read-only | Достижимая цена, глубина, проскальзывание и решение копировать/пропустить для $10/$50/$200 |
 | 4 | Wallet ownership and recovery | Sandbox без средств | Вход, восстановление, экспорт, смена устройства, вывод без нашего backend |
-| 5 | Polymarket session permission lifecycle | Sandbox/минимальный test environment | Выдача, scope, подпись, отзыв, отмена и отсутствие права вывода |
+| 5 | Limitless partner permission lifecycle | Sandbox/минимальный test environment | Capabilities, sub-account, delegated signing, revoke, recovery и отсутствие `withdrawal` у execution worker |
 | 6 | Fee attribution | Read-only и sandbox | Реальная ставка maker/taker, builder attribution, отчёт по полученной комиссии |
 | 7 | Virtual lot state machine | Recorded data | Полная таблица переходов и инварианты ручного/автоматического закрытия |
 | 8 | Reconciliation fault injection | Paper trading | Восстановление после дубля, пропуска, таймаута, перестановки и частичного fill |
-| 9 | Limitless adapter feasibility | Read-only | Документальный/API-аудит завершён; следующий шаг — 72 часа recorded latency на 3–5 адресах и письменные ответы Limitless |
+| 9 | Limitless adapter feasibility | Read-only/partner sandbox | Поддержка подтверждена; следующий шаг — FutureHaus registration, capabilities, 72 часа latency и sub-account lifecycle |
 | 10 | Funding route | Отдельно разрешённая минимальная транзакция | Фактический капитал после USDT, bridge, gas, конвертации и вывода |
 | 11 | Personal live order lifecycle | Только после предыдущих gates | Минимальный buy/partial/cancel/sell на отдельном кошельке с полной сверкой |
 
