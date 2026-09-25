@@ -248,7 +248,7 @@ API дополнительно показывал `gasUsd ≈ $1,68`, котор
 
 ## 11. Основные источники
 
-- Исходный handoff-бриф проекта: `sources/Polymarket_Project_Dialogue_Handoff.md`.
+- Исходный handoff-бриф проекта: локальный `references/Polymarket_Project_Dialogue_Handoff.md`, если доступен. Публичные документы не зависят от него.
 - Polymarket Documentation: https://docs.polymarket.com/
 - Limitless Documentation: https://docs.limitless.exchange/
 - Limitless Whitepaper: https://limitless.exchange/whitepaper.pdf

@@ -1,30 +1,83 @@
-import { access } from "node:fs/promises";
+import { access, readdir, readFile, stat } from "node:fs/promises";
+import { dirname, extname, join, normalize, resolve, sep } from "node:path";
+
+const root = process.cwd();
 
 const requiredPaths = [
+  "README.md",
+  "CONTRIBUTING.md",
+  "SECURITY.md",
+  "AGENTS.md",
+  "docs/README.md",
+  "docs/ROADMAP.md",
   "docs/PROJECT_STATE.md",
   "docs/01_product_and_economics.md",
   "docs/02_technical_concept.md",
   "docs/03_execution_plan.md",
-  "docs/04_project_outlook.md",
-  "docs/05_vibecoding_operating_plan.md",
-  "docs/06_ux_audit_and_user_flow.md",
-  "references/Polymarket_Project_Dialogue_Handoff.md",
+  "docs/decisions/README.md",
+  "references/README.md",
   ".env.example",
 ];
 
-const missing = [];
+const ignoredDirectories = new Set([".git", "node_modules", ".next", "dist", "build", "coverage"]);
 
-for (const path of requiredPaths) {
+async function exists(path) {
   try {
     await access(path);
+    return true;
   } catch {
-    missing.push(path);
+    return false;
   }
 }
 
-if (missing.length > 0) {
-  console.error(`Missing required project files:\n${missing.join("\n")}`);
+async function collectMarkdown(directory, result = []) {
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    if (entry.isDirectory() && ignoredDirectories.has(entry.name)) continue;
+    const path = join(directory, entry.name);
+    if (entry.isDirectory()) await collectMarkdown(path, result);
+    else if (entry.isFile() && extname(entry.name) === ".md") result.push(path);
+  }
+  return result;
+}
+
+function relativeLinkTargets(markdown) {
+  const targets = [];
+  const pattern = /!?(?:\[[^\]]*\])\(([^)]+)\)/g;
+  for (const match of markdown.matchAll(pattern)) {
+    let target = match[1].trim();
+    if (target.startsWith("<") && target.endsWith(">")) target = target.slice(1, -1);
+    if (!target || target.startsWith("#") || /^[a-z][a-z0-9+.-]*:/i.test(target)) continue;
+    target = target.split("#", 1)[0].split("?", 1)[0];
+    if (target) targets.push(decodeURIComponent(target));
+  }
+  return targets;
+}
+
+const errors = [];
+
+for (const path of requiredPaths) {
+  if (!(await exists(join(root, path)))) errors.push(`Missing required path: ${path}`);
+}
+
+for (const markdownPath of await collectMarkdown(root)) {
+  const markdown = await readFile(markdownPath, "utf8");
+  for (const target of relativeLinkTargets(markdown)) {
+    const destination = normalize(resolve(dirname(markdownPath), target));
+    if (destination !== root && !destination.startsWith(`${root}${sep}`)) {
+      errors.push(`Link escapes repository: ${markdownPath.slice(root.length + 1)} -> ${target}`);
+      continue;
+    }
+    try {
+      await stat(destination);
+    } catch {
+      errors.push(`Broken relative link: ${markdownPath.slice(root.length + 1)} -> ${target}`);
+    }
+  }
+}
+
+if (errors.length > 0) {
+  console.error(errors.join("\n"));
   process.exitCode = 1;
 } else {
-  console.log("Project structure is valid.");
+  console.log(`Project structure and Markdown links are valid (${requiredPaths.length} required paths).`);
 }
