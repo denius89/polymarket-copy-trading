@@ -66,6 +66,9 @@
 - Код приложения не создавался и реальные сделки не выполнялись.
 - Создана актуальная партнёрская презентация `artifacts/Controlled_Copy_Trading_Project_RU_v5.pptx`; версии v2–v4 сохранены как исторические.
 - Завершён read-only аудит Limitless: публичные wallet history/positions пригодны для рейтинга и paper trading, но публичного user-trade WebSocket нет. Полная автоматизация требует partner server wallet с delegated signing; GEO, коммерческое использование данных, revocation/recovery и фактическая задержка остаются блокерами. CLOB taker fee и minimum size создают отдельный риск для бюджета $10. Отчёт: docs/14_limitless_read_only_audit.md.
+- Подготовлены два исполнимых плана доступа и безопасных 72-часовых spikes: docs/21_polymarket_access_and_spike_plan.md и docs/22_limitless_access_and_spike_plan.md. В них зафиксированы данные от основателя, вопросы площадкам, критерии успеха и остановки.
+- Подготовлен venue-neutral контракт двух адаптеров с нормализованными моделями, состояниями, reason codes, reconciliation и общей матрицей contract tests: docs/23_dual_venue_adapter_contract.md.
+- Ближайшие задачи распределены на четыре параллельных потока без запуска MVP: docs/24_parallel_workstreams.md.
 
 ## Следующие результаты
 
@@ -75,8 +78,8 @@
 4. Согласовать формулировку сегмента, проблемы и ценности.
 5. Пересчитать экономическую модель с расходами, удержанием и проверкой цены.
 6. Зафиксировать архитектуру с границами доверия, моделью доступа и таблицей торговых состояний.
-7. Зарегистрировать Limitless только через FutureHaus, подать partner application и получить capabilities для `trading`, `account_creation`, `delegated_signing`.
-8. Создать Polymarket Builder profile и запросить доступ к Session Keys по документу 19.
+7. Зарегистрировать Limitless только через FutureHaus, подать partner application и получить capabilities для `trading`, `account_creation`, `delegated_signing` по документу 22.
+8. Создать Polymarket Builder profile и запросить доступ к Session Keys по документу 21.
 9. Получить письменные условия Limitless по скидке, GEO, data use, recovery и withdrawal path; отдельно проверить Polymarket GEO и Builder limits.
 10. Провести параллельные read-only latency spikes на 3–5 адресах каждой площадки, затем изолированные permission/order lifecycle spikes без пользовательских средств.
 11. Консолидировать документы 01–03; презентация v5 уже отражает ADR-0008.
@@ -87,4 +90,4 @@
 
 ## Следующая команда Codex
 
-> Возьми ближайший цикл из docs/ROADMAP.md: подготовь данные для Limitless partner application и письменный список вопросов по скидке, GEO, recovery и data use; после регистрации проверь capabilities без реальных сделок. Параллельно подготовь модель привлечения агента v0. Не создавать MVP.
+> Возьми четыре потока из docs/24_parallel_workstreams.md. Начни с оформления Limitless через FutureHaus и Polymarket Builder profile по документам 22 и 21. Параллельно закрывай открытые вопросы контракта адаптеров и готовь модель привлечения агента v0. Не создавать MVP и не использовать реальные пользовательские средства.

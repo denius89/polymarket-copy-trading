@@ -128,6 +128,8 @@ Scope `admin` не является self-service. Токен с торговым
 - условия скидки FutureHaus записаны однозначно;
 - измерены задержка, ликвидность и полный round-trip cost для бюджетов $10/$50/$200.
 
+Форма данных для заявки, письменные вопросы Limitless, программа 72-часового наблюдения и критерии `GO / CONDITIONAL GO / NO-GO` находятся в [исполняемом плане доступа и spikes](22_limitless_access_and_spike_plan.md).
+
 ## 10. Источники
 
 - [Programmatic API](https://docs.limitless.exchange/developers/programmatic-api)

@@ -40,6 +40,10 @@
 | 18 | [Позиционирование первой проверки](18_first_validation_positioning.md) | пользователь, проблема, обещание, отличие и критерии исследования |
 | 19 | [Доступ к API Polymarket](19_polymarket_api_access.md) | публичные API, CLOB credentials, Builder Program и session-key request |
 | 20 | [Партнёрская интеграция Limitless](20_limitless_partner_integration.md) | FutureHaus, Programmatic API, scopes, комиссии и gates |
+| 21 | [План доступа и spikes Polymarket](21_polymarket_access_and_spike_plan.md) | исполнимый checklist регистрации, запросов и безопасных проверок |
+| 22 | [План доступа и spikes Limitless](22_limitless_access_and_spike_plan.md) | FutureHaus, partner application, письменные вопросы и критерии GO/NO-GO |
+| 23 | [Контракт адаптеров двух площадок](23_dual_venue_adapter_contract.md) | общие модели, состояния, интерфейсы, reconciliation и contract tests |
+| 24 | [Параллельные потоки работ](24_parallel_workstreams.md) | распределение ближайших задач и gate перехода к paper MVP |
 
 ## Источники правды по темам
 
@@ -51,10 +55,12 @@
 | Как привлекаем через агентов? | `08_agent_distribution_and_onboarding.md`, `16_acquisition_and_safe_messaging.md` |
 | Какая комиссия? | `09_product_decisions_and_partner_tiers.md`, затем раздел открытых решений в `17_colleague_ideas_economics_and_controls.md` |
 | Как устроены кошелёк и полномочия? | `13_trust_permissions_and_state_model.md`, ADR-0003 |
-| Какие технические вопросы ещё не доказаны? | `12_architecture_blockers_and_spikes.md` |
-| Какие площадки обязательны и в каком порядке? | ADR-0008, затем ADR-0007, документы `19_polymarket_api_access.md` и `20_limitless_partner_integration.md` |
-| Что нужно для API Polymarket? | `19_polymarket_api_access.md`, ADR-0003 |
-| Что нужно для API Limitless? | `20_limitless_partner_integration.md`, ADR-0007 |
+| Какие технические вопросы ещё не доказаны? | `12_architecture_blockers_and_spikes.md`, затем исполнимые планы `21` и `22` |
+| Какие площадки обязательны и в каком порядке? | ADR-0008, затем ADR-0007 и `24_parallel_workstreams.md` |
+| Что нужно для API Polymarket? | `19_polymarket_api_access.md`, затем checklist `21_polymarket_access_and_spike_plan.md` |
+| Что нужно для API Limitless? | `20_limitless_partner_integration.md`, затем checklist `22_limitless_access_and_spike_plan.md` |
+| Как разделены общий core и площадки? | `23_dual_venue_adapter_contract.md`, ADR-0008 |
+| Что можно выполнять параллельно сейчас? | `24_parallel_workstreams.md` |
 | Как закладываем мультиязычность? | ADR-0006 и раздел 4 технической концепции |
 | Когда можно писать MVP? | ADR-0002 и gate в `ROADMAP.md` |
 

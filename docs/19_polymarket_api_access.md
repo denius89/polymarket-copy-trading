@@ -96,6 +96,8 @@ Partner tier имеет смысл только после работающей 
 - Как ведут себя session keys, открытые ордера и reconciliation при expiry, revoke и сетевом сбое.
 - Какая execution-площадка допустима в каждом исследуемом GEO.
 
+Подробный порядок регистрации, готовый запрос на Session Keys, программа 72-часового наблюдения и критерии `GO / CONSTRAIN / STOP` вынесены в [исполняемый план доступа и spikes](21_polymarket_access_and_spike_plan.md).
+
 ## Официальные источники
 
 - API и уровни аутентификации: https://docs.polymarket.com/getting-started/api

@@ -49,6 +49,8 @@
 
 Полный список и порядок работы находятся в [дорожной карте](docs/ROADMAP.md).
 
+Текущий параллельный пакет работ: [план Polymarket](docs/21_polymarket_access_and_spike_plan.md), [план Limitless](docs/22_limitless_access_and_spike_plan.md), [контракт двух адаптеров](docs/23_dual_venue_adapter_contract.md) и [распределение следующих потоков](docs/24_parallel_workstreams.md).
+
 ## Структура репозитория
 
 ```text
