@@ -21,6 +21,7 @@ const requiredPaths = [
   "docs/24_parallel_workstreams.md",
   "docs/29_bilingual_product_language.md",
   "docs/30_binance_copy_trading_ui_benchmark.md",
+  "docs/31_project_readiness_audit.md",
   "docs/decisions/README.md",
   "docs/decisions/0007_limitless_first_integration.md",
   "docs/decisions/0008_dual_venue_product_scope.md",
