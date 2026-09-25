@@ -37,6 +37,7 @@
 | 15 | [Целевая аудитория](15_target_audience_and_personas.md) | сегменты, персона и план проверки |
 | 16 | [Привлечение без обещаний дохода](16_acquisition_and_safe_messaging.md) | shadow copy, сообщения и cashback-гипотеза |
 | 17 | [Экономика и защитные ограничения](17_colleague_ideas_economics_and_controls.md) | расчёты коллеги, тарифный вариант и risk controls |
+| 18 | [Позиционирование первой проверки](18_first_validation_positioning.md) | пользователь, проблема, обещание, отличие и критерии исследования |
 
 ## Источники правды по темам
 
@@ -44,6 +45,7 @@
 |---|---|
 | Что делаем сейчас? | `PROJECT_STATE.md`, затем `ROADMAP.md` |
 | Для кого продукт? | `15_target_audience_and_personas.md` |
+| Как мы объясняем первую проверку? | `18_first_validation_positioning.md`, затем `16_acquisition_and_safe_messaging.md` |
 | Как привлекаем через агентов? | `08_agent_distribution_and_onboarding.md`, `16_acquisition_and_safe_messaging.md` |
 | Какая комиссия? | `09_product_decisions_and_partner_tiers.md`, затем раздел открытых решений в `17_colleague_ideas_economics_and_controls.md` |
 | Как устроены кошелёк и полномочия? | `13_trust_permissions_and_state_model.md`, ADR-0003 |
