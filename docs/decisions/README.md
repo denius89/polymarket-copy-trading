@@ -10,7 +10,8 @@
 | [0004](0004_legal_first_geo_filter.md) | GEO остаются в исследовании | принято | не разрешает обход ограничений площадок |
 | [0005](0005_execution_fee_and_partner_policy.md) | Комиссия и партнёрская политика | принято | заменяет стандартную формулировку «1% с каждого исполнения» |
 | [0006](0006_multilingual_product_foundation.md) | Мультиязычная основа продукта | принято | i18n и RTL закладываются до дизайна и frontend-разработки |
-| [0007](0007_limitless_first_integration.md) | Limitless как первая интеграция | принято | регистрация через FutureHaus; Programmatic API и trust spikes до MVP |
+| [0007](0007_limitless_first_integration.md) | Limitless как первый партнёрский spike | принято частично | порядок spike действует; опциональность Polymarket заменена ADR-0008 |
+| [0008](0008_dual_venue_product_scope.md) | Обязательная поддержка Polymarket и Limitless | принято | общий core, два adapters, раздельные live-gates |
 
 ## Как добавить решение
 

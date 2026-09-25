@@ -52,7 +52,7 @@
 | Какая комиссия? | `09_product_decisions_and_partner_tiers.md`, затем раздел открытых решений в `17_colleague_ideas_economics_and_controls.md` |
 | Как устроены кошелёк и полномочия? | `13_trust_permissions_and_state_model.md`, ADR-0003 |
 | Какие технические вопросы ещё не доказаны? | `12_architecture_blockers_and_spikes.md` |
-| Какая площадка первая? | ADR-0007, `20_limitless_partner_integration.md`, затем `14_limitless_read_only_audit.md` |
+| Какие площадки обязательны и в каком порядке? | ADR-0008, затем ADR-0007, документы `19_polymarket_api_access.md` и `20_limitless_partner_integration.md` |
 | Что нужно для API Polymarket? | `19_polymarket_api_access.md`, ADR-0003 |
 | Что нужно для API Limitless? | `20_limitless_partner_integration.md`, ADR-0007 |
 | Как закладываем мультиязычность? | ADR-0006 и раздел 4 технической концепции |

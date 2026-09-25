@@ -4,9 +4,9 @@
 
 ## 1. Решение проекта
 
-Limitless становится первой площадкой для интеграционных проверок и кандидатом на первый execution adapter. Причина — подтверждённая основателем готовность команды Limitless поддерживать проект и наличие отдельного Programmatic API для платформ, которые создают sub-accounts и торгуют от имени пользователей.
+Limitless становится первым партнёрским integration spike и обязательным execution adapter целевого продукта. Причина — подтверждённая основателем готовность команды Limitless поддерживать проект и наличие отдельного Programmatic API для платформ, которые создают sub-accounts и торгуют от имени пользователей.
 
-Polymarket остаётся важным контрольным сравнением и кандидатом на второй адаптер. Решение не разрешает MVP или реальные пользовательские сделки: сначала должны пройти GEO, trust, fee и execution spikes.
+Polymarket также обязателен для целевого продукта и исследуется параллельно по документу 19. Решение не разрешает реальные пользовательские сделки: каждая площадка сначала проходит собственные GEO, trust, fee и execution gates.
 
 ## 2. Обязательная регистрация
 
@@ -137,4 +137,3 @@ Scope `admin` не является self-service. Токен с торговым
 - [Maintenance Mode](https://docs.limitless.exchange/developers/maintenance-mode)
 - [Responsible Trading Agents](https://docs.limitless.exchange/developers/responsible-agents)
 - [Migrate from Polymarket](https://docs.limitless.exchange/developers/migrate-from-polymarket)
-
