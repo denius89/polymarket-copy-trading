@@ -56,6 +56,7 @@
 | 35 | [EN/RU тексты low-fidelity](35_bilingual_low_fidelity_flow.md) | исходные английские и русские строки ключевого пути |
 | 36 | [Выбор бесплатного Figma kit](36_figma_kit_selection.md) | shortlist, лицензии, рекомендация Obra и план проверки |
 | 37 | [Передача в дизайн и Figma](37_design_task_handoff.md) | точное задание, результаты, порядок работы и gate завершения |
+| 38 | [Прогресс low-fidelity дизайна](38_figma_low_fidelity_progress.md) | ссылка на рабочий Figma-файл, созданные foundations и компоненты, ограничения Starter и точка продолжения |
 
 ## Источники правды по темам
 
@@ -77,6 +78,7 @@
 | Что подсмотреть у Binance Copy Trading? | `30_binance_copy_trading_ui_benchmark.md` |
 | Готовы ли мы двигаться дальше? | `31_project_readiness_audit.md`, затем `ROADMAP.md` |
 | Что передать в дизайн-задачу? | `37_design_task_handoff.md`, затем документы 33–36 |
+| Где текущий Figma-файл и что в нём готово? | `38_figma_low_fidelity_progress.md` и `design/figma-build-manifest.json` |
 | Когда можно писать MVP? | ADR-0002 и gate в `ROADMAP.md` |
 
 ## Правило при конфликте

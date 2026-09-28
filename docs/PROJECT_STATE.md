@@ -4,7 +4,7 @@
 
 ## Текущий этап
 
-Продуктовый scope и документационный handoff для low-fidelity дизайна готовы. После совместного анализа приняты ADR-0010 и [ADR-0011](decisions/0011_shadow_controls_rating_admin_and_ui_foundation.md). Документы 33–37 содержат утверждённый brief, карту экранов и состояний, EN/RU copy, Figma kit shortlist и точное задание для отдельной дизайн-задачи. Следующий результат — проверка Obra Community Edition и кликабельный low-fidelity прототип в Figma. Разработка frontend и реальные сделки ещё не начаты.
+Продуктовый scope и документационный handoff для low-fidelity дизайна готовы. После совместного анализа приняты ADR-0010 и [ADR-0011](decisions/0011_shadow_controls_rating_admin_and_ui_foundation.md). Создан рабочий [Figma-файл](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T), dark-first foundations и первый проверенный компонент Button. Дальнейшая запись остановлена лимитом Figma MCP на Starter; точка продолжения и ограничения зафиксированы в [документе 38](38_figma_low_fidelity_progress.md) и `design/figma-build-manifest.json`. Разработка frontend и реальные сделки ещё не начаты.
 
 ## Основной документ текущего этапа
 
@@ -76,6 +76,8 @@
 
 ## Результат текущего блока
 
+- Создан отдельный Figma Design-файл для paper MVP. В нём находятся обложка, foundations, 60 variables, 9 text styles, effect style и Button с восемью вариантами; визуальная проверка пройдена.
+- Из-за лимитов Starter структура 00–08 распределена по трём страницам, а Light mode отложен. Это не меняет scope dark-first MVP; точная карта находится в документе 38.
 - Репозиторий подготовлен к подключению команды: добавлены понятный README, карта документов, актуальная дорожная карта, правила совместной работы, таблица статусов ADR, шаблон pull request и проверка относительных ссылок. Старый конфликт `desktop-first` исправлен в пользу mobile-first web app; локальный handoff исключён из будущей публикации.
 - Сравнены публичная стоимость и восстановление Privy, Dynamic и Turnkey. Для будущего spike первым выбран Privy, контрольным — Dynamic; выбор не окончательный.
 - Проверен текущий публичный маршрут Tron USDT через Polymarket Bridge. Минимум API — $2; read-only котировки для 10/50/200 USDT дали разницу примерно $0,05/$0,11/$0,32 до комиссии агента и отправки.
@@ -90,11 +92,10 @@
 
 ## Следующие результаты
 
-1. Передать документ 37 в отдельную дизайн-задачу.
-2. Проверить Obra Community Edition, его версию, лицензию и атрибуцию в Figma.
-3. Собрать и совместно проверить EN/RU low-fidelity прототип.
-3. Подготовить user flow, bilingual copy и low-fidelity прототип на English/Russian.
-4. Спроектировать минимальную операционную консоль и встроенный сбор обратной связи после выпуска.
+1. После сброса Figma MCP завершить Status, Field, Trader Card и остальные составные компоненты по manifest.
+2. Собрать и совместно проверить EN/RU low-fidelity mobile flow.
+3. Собрать state library и минимальную операционную консоль с reconciliation и audit log.
+4. Проверить Obra Community Edition в интерфейсе Figma и зафиксировать version/license/attribution перед возможным импортом.
 5. После утверждения дизайна отдельно снять паузу frontend-разработки и передать работу в архитектурно-разработческую задачу.
 6. Регистрации и API-spikes Polymarket/Limitless выполнить позднее перед интеграционным этапом по документам 21 и 22.
 
@@ -104,4 +105,4 @@
 
 ## Следующая команда Codex
 
-> В отдельной дизайн-задаче выполни `docs/37_design_task_handoff.md`: проверь Obra Community Edition и собери EN/RU low-fidelity прототип. Не начинай frontend до утверждения прототипа и снятия паузы.
+> Продолжи Figma по `docs/38_figma_low_fidelity_progress.md` и `design/figma-build-manifest.json`: заверши компоненты, EN/RU flow, state library и admin path. Не начинай frontend до утверждения прототипа и снятия паузы.

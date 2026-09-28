@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "updatedAt": "2026-09-28",
+  "file": {
+    "name": "Controlled Copy Trading — Paper MVP",
+    "fileKey": "lxPP2um7FvIbt02K8eeH4T",
+    "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T",
+    "plan": "Starter",
+    "constraints": [
+      "Maximum three pages",
+      "One variable mode per collection",
+      "Figma MCP call limit reached after foundations and Button"
+    ]
+  },
+  "pages": [
+    {"name": "00 Overview & Foundations", "nodeId": "0:1"},
+    {"name": "01 Mobile Flows & States", "nodeId": "2:78"},
+    {"name": "02 Components, Admin & Prototype", "nodeId": "2:79"}
+  ],
+  "completed": {
+    "sections": [
+      {"name": "00 Cover and decisions", "nodeId": "3:2"},
+      {"name": "01 Foundations", "nodeId": "3:21"}
+    ],
+    "collections": [
+      {"name": "Primitives", "nodeId": "VariableCollectionId:2:2", "mode": "Value", "count": 22},
+      {"name": "Color", "nodeId": "VariableCollectionId:2:3", "mode": "Dark", "count": 22},
+      {"name": "Spacing", "nodeId": "VariableCollectionId:2:4", "mode": "Default", "count": 11},
+      {"name": "Radius", "nodeId": "VariableCollectionId:2:5", "mode": "Default", "count": 5}
+    ],
+    "components": [
+      {
+        "name": "Button",
+        "nodeId": "4:22",
+        "variants": {
+          "Size": ["Medium"],
+          "Style": ["Primary", "Secondary", "Destructive", "Ghost"],
+          "State": ["Default", "Disabled"]
+        },
+        "properties": ["Label"]
+      }
+    ]
+  },
+  "pendingComponents": [
+    "Status",
+    "Field",
+    "Trader Card",
+    "Session Card",
+    "Activity Row",
+    "Metric Card",
+    "Progress Requirement",
+    "Risk Controls",
+    "Confirmation Drawer",
+    "Result Summary",
+    "Incident Table",
+    "Audit Log"
+  ],
+  "mobileScreens": [
+    "U01 Language",
+    "U02 Intro",
+    "U03 Traders",
+    "U04 Trader profile",
+    "U05 Budget",
+    "U06 Risk limits",
+    "U07 Account gate",
+    "U08 Review",
+    "U09 Home",
+    "U10 Active shadow",
+    "U11 Activity",
+    "U12 Event detail",
+    "U13 Result",
+    "U14 Controls",
+    "U15 Profile and notifications"
+  ],
+  "stateLibrary": [
+    "loading",
+    "empty",
+    "error",
+    "stale data",
+    "venue unavailable",
+    "insufficient budget",
+    "daily limit reached",
+    "signal too old",
+    "insufficient liquidity",
+    "partially simulated",
+    "unknown and reconciliation",
+    "paused",
+    "closing requested",
+    "partially closed",
+    "close failed",
+    "permission revoked",
+    "not enough shadow data"
+  ],
+  "adminScreens": [
+    "Overview",
+    "Users",
+    "User detail",
+    "Shadow session",
+    "Incident queue",
+    "Incident detail",
+    "Reconciliation result",
+    "Audit log",
+    "Fees",
+    "Feedback"
+  ],
+  "prototypeEdges": [
+    "Language -> Intro -> Traders -> Trader profile -> Budget -> Risk limits -> Account -> Review -> Active shadow -> Activity -> Result",
+    "Budget -> Insufficient budget",
+    "Activity -> Stale or skipped",
+    "Activity -> Partial",
+    "Activity -> Unknown and reconciliation",
+    "Controls -> Pause -> Resume",
+    "Controls -> Disconnect and keep positions",
+    "Controls -> Close -> Partial or failed -> Resolved",
+    "Active shadow day 14 -> Not enough data",
+    "Admin Overview -> Incident queue -> Incident detail -> Reconciliation result -> Audit log",
+    "Admin Users -> User detail -> Shadow session"
+  ],
+  "qa": {
+    "widths": [320, 360, 390],
+    "languages": ["en", "ru"],
+    "textZoomPercent": 200,
+    "minimumTouchTarget": 44,
+    "requirements": [
+      "No horizontal scroll",
+      "Status uses icon and text in addition to color",
+      "Language switch preserves screen and draft state",
+      "Unknown blocks new risk and never offers Retry order",
+      "Partial and close-failed states retain remaining risk until reconciliation",
+      "No manual trade, withdrawal, key access or blind retry in admin"
+    ]
+  },
+  "sources": [
+    "docs/33_approved_design_brief.md",
+    "docs/34_screen_and_state_map.md",
+    "docs/35_bilingual_low_fidelity_flow.md",
+    "docs/36_figma_kit_selection.md",
+    "docs/37_design_task_handoff.md",
+    "docs/38_figma_low_fidelity_progress.md"
+  ]
+}
