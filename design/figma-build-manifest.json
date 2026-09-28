@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "updatedAt": "2026-09-28",
   "file": {
     "name": "Controlled Copy Trading — Paper MVP",
@@ -7,72 +7,363 @@
     "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T",
     "plan": "Professional",
     "seat": "Full",
-    "status": "modern interactive prototype review ready"
+    "status": "quality rebuild; founder approval pending"
   },
   "pages": [
-    {"name": "00 Cover and decisions", "nodeId": "0:1"},
-    {"name": "01 Foundations", "nodeId": "7:9"},
-    {"name": "02 Components", "nodeId": "2:79"},
-    {"name": "03 Mobile flow EN", "nodeId": "2:78", "startingPoint": "12:2"},
-    {"name": "04 Mobile flow RU", "nodeId": "7:10", "startingPoint": "14:2"},
-    {"name": "05 State library", "nodeId": "7:11"},
-    {"name": "06 Admin desktop", "nodeId": "7:12"},
-    {"name": "07 Prototype", "nodeId": "7:13"},
-    {"name": "08 Review notes", "nodeId": "7:14"},
-    {"name": "09 Modern prototype EN", "nodeId": "29:2", "startingPoint": "29:3"},
-    {"name": "10 Modern prototype RU", "nodeId": "33:2", "startingPoint": "33:3"},
-    {"name": "11 Modern admin", "nodeId": "51:2", "startingPoint": "51:3"}
+    {
+      "name": "00 · Начать здесь",
+      "nodeId": "0:1",
+      "status": "active"
+    },
+    {
+      "name": "01 · Приложение · EN",
+      "nodeId": "29:2",
+      "startingPoint": "29:3",
+      "status": "active"
+    },
+    {
+      "name": "02 · Приложение · RU",
+      "nodeId": "33:2",
+      "startingPoint": "33:3",
+      "status": "active"
+    },
+    {
+      "name": "03 · Админка",
+      "nodeId": "51:2",
+      "startingPoint": "51:3",
+      "status": "active"
+    },
+    {
+      "name": "04 · Правила дизайна",
+      "nodeId": "7:9",
+      "status": "active"
+    },
+    {
+      "name": "05 · Компоненты",
+      "nodeId": "2:79",
+      "status": "active"
+    },
+    {
+      "name": "06 · Проверка качества",
+      "nodeId": "7:14",
+      "status": "active"
+    },
+    {
+      "name": "90 · Архив · Схема EN",
+      "nodeId": "2:78",
+      "startingPoint": "12:2",
+      "status": "reference"
+    },
+    {
+      "name": "91 · Архив · Схема RU",
+      "nodeId": "7:10",
+      "startingPoint": "14:2",
+      "status": "reference"
+    },
+    {
+      "name": "92 · Справочник состояний",
+      "nodeId": "7:11",
+      "status": "reference"
+    },
+    {
+      "name": "93 · Архив · Схема админки",
+      "nodeId": "7:12",
+      "status": "reference"
+    },
+    {
+      "name": "94 · Архив · Карта переходов",
+      "nodeId": "7:13",
+      "status": "reference"
+    },
+    {
+      "nodeId": "121:1943",
+      "name": "95 · Архив восстановления",
+      "status": "reference"
+    }
   ],
   "foundations": {
     "collections": [
-      {"name": "Primitives", "nodeId": "VariableCollectionId:2:2"},
-      {"name": "Color", "nodeId": "VariableCollectionId:2:3", "modes": ["Dark", "Light"]},
-      {"name": "Spacing", "nodeId": "VariableCollectionId:2:4"},
-      {"name": "Radius", "nodeId": "VariableCollectionId:2:5"}
+      {
+        "name": "Primitives",
+        "nodeId": "VariableCollectionId:2:2"
+      },
+      {
+        "name": "Color",
+        "nodeId": "VariableCollectionId:2:3",
+        "modes": [
+          "Dark",
+          "Light"
+        ]
+      },
+      {
+        "name": "Spacing",
+        "nodeId": "VariableCollectionId:2:4"
+      },
+      {
+        "name": "Radius",
+        "nodeId": "VariableCollectionId:2:5"
+      }
     ],
     "textStyles": 9,
-    "effectStyles": ["Elevation/Dialog"]
+    "effectStyles": [
+      "Elevation/Dialog"
+    ]
   },
   "dataVisualization": {
-    "style": "smooth gradient area",
-    "appliesTo": ["modern EN mobile", "modern RU mobile", "modern admin"],
-    "rules": ["smooth curve", "soft gradient fill", "restrained glow", "low-contrast grid", "compact endpoint", "comparison line only when meaningful"]
+    "style": "single series with restrained area fill and labelled period",
+    "appliesTo": [
+      "modern EN mobile",
+      "modern RU mobile",
+      "modern admin"
+    ],
+    "rules": [
+      "one coherent path per series",
+      "period and units match metric",
+      "illustrative data disclosed",
+      "no leftover line segments",
+      "no unnecessary comparison series",
+      "no decorative glow"
+    ]
   },
   "components": [
-    {"name": "Button", "nodeId": "4:22", "variants": 8},
-    {"name": "Status", "nodeId": "9:20", "variants": 6},
-    {"name": "Field", "nodeId": "9:21"},
-    {"name": "Trader Card", "nodeId": "9:26"}
+    {
+      "name": "Button",
+      "nodeId": "4:22",
+      "variants": 8
+    },
+    {
+      "name": "Status",
+      "nodeId": "9:20",
+      "variants": 6
+    },
+    {
+      "name": "Field",
+      "nodeId": "9:21"
+    },
+    {
+      "name": "Trader Card",
+      "nodeId": "9:26"
+    }
   ],
   "mobile": {
     "screenCountPerLocale": 15,
-    "locales": ["en", "ru"],
-    "primaryFlow": ["Language", "Value", "Traders", "Trader", "Budget", "Risk", "Account", "Review", "Active", "Activity", "Event", "Result"],
-    "branches": ["Home", "Session controls", "Profile and notifications"]
+    "locales": [
+      "en",
+      "ru"
+    ],
+    "primaryFlow": [
+      "Language",
+      "Value",
+      "Traders",
+      "Trader",
+      "Budget",
+      "Risk",
+      "Account",
+      "Review",
+      "Active",
+      "Activity",
+      "Event",
+      "Result"
+    ],
+    "branches": [
+      "Home",
+      "Session controls",
+      "Profile and notifications"
+    ],
+    "status": "historical wireframe inventory; active coverage listed separately"
   },
   "stateLibrary": {
     "count": 17,
-    "states": ["loading", "empty", "error", "stale data", "venue unavailable", "insufficient budget", "daily limit", "signal too old", "low liquidity", "unknown", "paused", "closing", "partially closed", "close failed", "permission revoked", "insufficient data", "ready"]
+    "states": [
+      "loading",
+      "empty",
+      "error",
+      "stale data",
+      "venue unavailable",
+      "insufficient budget",
+      "daily limit",
+      "signal too old",
+      "low liquidity",
+      "unknown",
+      "paused",
+      "closing",
+      "partially closed",
+      "close failed",
+      "permission revoked",
+      "insufficient data",
+      "ready"
+    ]
   },
   "admin": {
     "screenCount": 6,
-    "screens": ["Overview", "Users", "User detail", "Incident queue", "Incident detail", "Fees and feedback"],
-    "forbiddenControls": ["manual trade", "withdrawal", "key access", "blind retry"]
+    "screens": [
+      "Overview",
+      "Users",
+      "User detail",
+      "Incident queue",
+      "Incident detail",
+      "Fees and feedback"
+    ],
+    "forbiddenControls": [
+      "manual trade",
+      "withdrawal",
+      "key access",
+      "blind retry"
+    ],
+    "status": "historical wireframe inventory; active operational flow listed separately"
   },
   "prototype": {
-    "wiredInteractions": 37,
-    "modernMobileWiredTargets": 44,
-    "modernAdminWiredTargets": 14,
-    "startingPoints": ["EN — shadow session", "RU — shadow session", "Modern EN — paper flow", "Modern RU — демо-сценарий"],
+    "startingPoints": [
+      "EN · First run",
+      "EN · Session controls",
+      "RU · Первый запуск",
+      "RU · Управление сессией"
+    ],
     "modernPrototypeUrls": {
       "en": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=29-3&starting-point-node-id=29%3A3&scaling=scale-down&content-scaling=fixed&page-id=29%3A2",
       "ru": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=33-3&starting-point-node-id=33%3A3&scaling=scale-down&content-scaling=fixed&page-id=33%3A2"
     },
-    "modernAdminPrototypeUrl": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=51-3&starting-point-node-id=51%3A3&scaling=scale-down&content-scaling=fixed&page-id=51%3A2"
+    "modernAdminPrototypeUrl": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=51-3&starting-point-node-id=51%3A3&scaling=scale-down&content-scaling=fixed&page-id=51%3A2",
+    "historicalWiredInteractions": 37,
+    "modernMobileReactedNodes": 88,
+    "modernAdminNavigationLinks": 18,
+    "legacyComponentsAndWireframesPreserved": true
   },
   "qa": {
-    "completed": ["EN visual review", "RU visual review", "component instance sizing", "state library screenshot", "admin screenshot", "prototype map screenshot", "review page screenshot", "modern EN screen-by-screen QA", "modern RU screen-by-screen QA", "prototype interaction audit", "modern admin workflow QA", "global chart style consistency"],
-    "deferredToHighFidelity": ["320 px", "360 px", "200% text zoom", "final responsive rules", "production copy review"]
+    "completed": [
+      "independent baseline audit",
+      "primary guideline research",
+      "shared token contrast calculation",
+      "cover and foundations screenshot review",
+      "32 mobile screenshots at readable scale",
+      "4 admin screens and reconciliation preview",
+      "auto-layout child bounds: no overflow in both mobile locales",
+      "minimum 44px reacted mobile targets",
+      "88 mobile reacted nodes; 18 admin links validated",
+      "native chart geometry and correct periods",
+      "fee example consistency and simulator wording",
+      "strong input outline contrast",
+      "Russian decimal separator readback: no dot decimal candidates",
+      "component sources and recovery archive separated"
+    ],
+    "deferredToHighFidelity": [
+      "320/360 responsive verification",
+      "200% text zoom",
+      "keyboard and focus behaviour",
+      "screen reader semantics",
+      "complete rare state coverage",
+      "light mode review"
+    ],
+    "previousPassSuperseded": true,
+    "pending": [
+      "founder visual approval"
+    ],
+    "evidence": "docs/39_design_quality_audit.md",
+    "reports": [
+      "docs/39_design_quality_audit.md",
+      "design/qa-2026-09-28-mobile/README.md",
+      "design/qa-2026-09-28-admin/README.md"
+    ],
+    "limitations": [
+      "Figma prototype, not running application",
+      "curated dashboard/report examples",
+      "profile and account integrations illustrative",
+      "switch state is not full persistent risk configuration",
+      "complete rare-state modern coverage pending"
+    ]
   },
-  "nextGate": "Founder and colleague approve the modern interactive EN/RU direction before extending the full high-fidelity UI kit or starting frontend implementation"
+  "nextGate": "Founder reviews the rebuilt Figma design; no frontend authorization implied",
+  "activeDesign": {
+    "mobile": {
+      "screenCountPerLocale": 16,
+      "width": 390,
+      "height": 844,
+      "coreScreenIds": {
+        "en": [
+          "29:3",
+          "29:31",
+          "29:90",
+          "29:127",
+          "29:158",
+          "29:187",
+          "29:210",
+          "29:236",
+          "29:289",
+          "29:328"
+        ],
+        "ru": [
+          "33:3",
+          "33:31",
+          "33:90",
+          "33:127",
+          "33:158",
+          "33:187",
+          "33:210",
+          "33:236",
+          "33:289",
+          "33:328"
+        ]
+      },
+      "additionalScreenIds": {
+        "en": [
+          "133:44",
+          "133:45",
+          "133:46",
+          "133:47",
+          "133:48",
+          "133:49"
+        ],
+        "ru": [
+          "133:575",
+          "133:576",
+          "133:577",
+          "133:578",
+          "133:579",
+          "133:580"
+        ]
+      },
+      "sectionsPerLocale": 4,
+      "reactedNodesPerLocale": 44,
+      "controls": [
+        "session management",
+        "paused",
+        "disconnect confirmation",
+        "close confirmation",
+        "example result",
+        "profile"
+      ]
+    },
+    "admin": {
+      "screenIds": [
+        "51:3",
+        "51:89",
+        "51:159",
+        "51:222"
+      ],
+      "width": 1440,
+      "height": 1000,
+      "previewNodeId": "121:1513",
+      "navigationLinksIncludingPreview": 18,
+      "locale": "en"
+    },
+    "componentSources": {
+      "pageId": "2:79",
+      "mobileContainerId": "113:239",
+      "mobileVariantCount": 8,
+      "adminContainerId": "113:203",
+      "adminComponentCount": 11
+    },
+    "recovery": {
+      "pageId": "121:1943",
+      "mobileContainers": [
+        "121:981",
+        "121:1526"
+      ]
+    },
+    "guides": {
+      "start": "3:2",
+      "foundations": "3:21",
+      "qualityReview": "134:187"
+    }
+  }
 }
