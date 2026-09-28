@@ -1,0 +1,29 @@
+name: Repository check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  docs-and-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check repository structure and links
+        run: npm run check
+      - name: Check whitespace in changed files
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD_SHA: ${{ github.sha }}
+        run: |
+          if [ -n "$BASE_SHA" ] && [ "$BASE_SHA" != "0000000000000000000000000000000000000000" ]; then
+            git diff --check "$BASE_SHA" "$HEAD_SHA"
+          else
+            git show --format= --check "$HEAD_SHA"
+          fi

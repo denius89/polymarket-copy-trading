@@ -26,6 +26,8 @@ const requiredPaths = [
   "docs/decisions/0007_limitless_first_integration.md",
   "docs/decisions/0008_dual_venue_product_scope.md",
   "docs/decisions/0009_novice_first_direct_mvp.md",
+  "artifacts/README.md",
+  ".github/workflows/repository-check.yml",
   "references/README.md",
   ".env.example",
 ];

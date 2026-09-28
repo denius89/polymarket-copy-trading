@@ -2,11 +2,15 @@
 
 [Русский](README.md) · **English**
 
+[![Repository check](https://github.com/denius89/polymarket-copy-trading/actions/workflows/repository-check.yml/badge.svg)](https://github.com/denius89/polymarket-copy-trading/actions/workflows/repository-check.yml)
+
 Controlled Copy Trading is a mobile-first product concept for controlled copy trading on prediction markets. A user will be able to choose a trader, test whether that trader's activity can be reproduced with a specific budget, set clear limits, and understand why every action was executed, adjusted, or skipped.
 
 The target product includes both **Polymarket** and **Limitless** as required venues. The service is being designed as an independent control layer: it will not accept customer payments, hold customer funds, or promise to reproduce a trader's results.
 
 > **Current status: pre-MVP.** The team is defining the product, interfaces, economics, and architecture. The user application, trading integrations, and live trading are not available yet. This repository documents decisions, hypotheses, and the development plan; it is not documentation for a finished service.
+
+**Current work:** the team is collecting design briefs and references. Two independent responses have arrived; joint analysis will start after the colleague's final file. The next outcomes are an agreed screen map and Figma foundations. See the [readiness audit](docs/31_project_readiness_audit.md) for design and development gates and [ADR-0009](docs/decisions/0009_novice_first_direct_mvp.md) for the current MVP audience.
 
 ## Why this product
 
@@ -14,7 +18,7 @@ Copying a trade only looks simple before execution. A follower may have a differ
 
 The project is built around five principles:
 
-- **Test before live trading.** A backtest and a 72-hour shadow mode should show which trades can be reproduced with the selected budget.
+- **Test before live trading.** A backtest and shadow mode should show which trades can be reproduced with the selected budget; the shadow duration is still to be decided.
 - **Risk expressed in clear amounts.** Users set a budget per trader, a daily limit for new buys, a maximum trade size, and a free reserve.
 - **Explainable actions.** Every execution, partial fill, skip, delay, and stop receives a human-readable reason.
 - **Control after entry.** The planned controls include pause, manual close, detaching a position from a trader, and a global stop.
@@ -71,9 +75,17 @@ Most project documentation is currently written in Russian. This overview is ava
 
 ## Contributor quick start
 
-1. Read the [current project state](docs/PROJECT_STATE.md).
+Issues and pull requests may be written in Russian or English. Start with the materials for your role:
+
+| Role | Read first |
+|---|---|
+| Product and economics | [current state](docs/PROJECT_STATE.md), [roadmap](docs/ROADMAP.md), [product document](docs/01_product_and_economics.md) |
+| Design | [readiness audit](docs/31_project_readiness_audit.md), [ADR-0009](docs/decisions/0009_novice_first_direct_mvp.md), [bilingual foundation](docs/29_bilingual_product_language.md) |
+| Architecture and development | [technical concept](docs/02_technical_concept.md), [trust model](docs/13_trust_permissions_and_state_model.md), [gates](docs/ROADMAP.md) |
+
+1. Read the [current roadmap](docs/ROADMAP.md). The [detailed project state](docs/PROJECT_STATE.md) records decisions and research but is updated less often.
 2. Use the [documentation map](docs/README.md) to find the source of truth for your area.
-3. Review the [current roadmap](docs/ROADMAP.md) and active [architecture decisions](docs/decisions/README.md).
+3. Review the active [architecture decisions](docs/decisions/README.md).
 4. Read the [contribution guide](CONTRIBUTING.md) and [security policy](SECURITY.md) before making changes.
 5. Define one verifiable outcome, state its dependencies, and do not present a hypothesis as an accepted decision.
 6. Run the repository check before submitting changes.
@@ -90,8 +102,10 @@ The check verifies that key documents exist and that Markdown relative links are
 
 - [Product and economics](docs/01_product_and_economics.md)
 - [UX audit and user journey](docs/06_ux_audit_and_user_flow.md)
-- [Target audience and personas](docs/15_target_audience_and_personas.md)
-- [Positioning without profit promises](docs/18_first_validation_positioning.md)
+- [Current MVP audience — ADR-0009](docs/decisions/0009_novice_first_direct_mvp.md)
+- [Design and development readiness audit](docs/31_project_readiness_audit.md)
+- [Historical audience research](docs/15_target_audience_and_personas.md)
+- [Working first-validation positioning](docs/18_first_validation_positioning.md)
 - [Bilingual product language foundation](docs/29_bilingual_product_language.md)
 - [Binance Copy Trading benchmark](docs/30_binance_copy_trading_ui_benchmark.md)
 - [Dual-venue adapter contract](docs/23_dual_venue_adapter_contract.md)
