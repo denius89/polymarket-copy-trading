@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "updatedAt": "2026-09-28",
   "file": {
     "name": "Controlled Copy Trading — Paper MVP",
@@ -32,6 +32,11 @@
     ],
     "textStyles": 9,
     "effectStyles": ["Elevation/Dialog"]
+  },
+  "dataVisualization": {
+    "style": "smooth gradient area",
+    "appliesTo": ["modern EN mobile", "modern RU mobile", "modern admin"],
+    "rules": ["smooth curve", "soft gradient fill", "restrained glow", "low-contrast grid", "compact endpoint", "comparison line only when meaningful"]
   },
   "components": [
     {"name": "Button", "nodeId": "4:22", "variants": 8},
@@ -66,7 +71,7 @@
     "modernAdminPrototypeUrl": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=51-3&starting-point-node-id=51%3A3&scaling=scale-down&content-scaling=fixed&page-id=51%3A2"
   },
   "qa": {
-    "completed": ["EN visual review", "RU visual review", "component instance sizing", "state library screenshot", "admin screenshot", "prototype map screenshot", "review page screenshot", "modern EN screen-by-screen QA", "modern RU screen-by-screen QA", "prototype interaction audit", "modern admin workflow QA"],
+    "completed": ["EN visual review", "RU visual review", "component instance sizing", "state library screenshot", "admin screenshot", "prototype map screenshot", "review page screenshot", "modern EN screen-by-screen QA", "modern RU screen-by-screen QA", "prototype interaction audit", "modern admin workflow QA", "global chart style consistency"],
     "deferredToHighFidelity": ["320 px", "360 px", "200% text zoom", "final responsive rules", "production copy review"]
   },
   "nextGate": "Founder and colleague approve the modern interactive EN/RU direction before extending the full high-fidelity UI kit or starting frontend implementation"

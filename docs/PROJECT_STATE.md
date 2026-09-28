@@ -4,7 +4,7 @@
 
 ## Текущий этап
 
-Продуктовый scope и документационный handoff для low-fidelity дизайна готовы. После совместного анализа приняты ADR-0010 и [ADR-0011](decisions/0011_shadow_controls_rating_admin_and_ui_foundation.md). В рабочем [Figma-файле](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T) сохранена полная low-fidelity схема и добавлены современные кликабельные v2-сценарии EN/RU и operational admin. Проведены отдельные визуальные и interaction-аудиты, исправлены наложения, переполнения, контраст, safe area и неверные переходы. Пакет готов к внутренней проверке основателем; прямые prototype-ссылки и состояние зафиксированы в [документе 38](38_figma_low_fidelity_progress.md) и `design/figma-build-manifest.json`. Разработка frontend и реальные сделки ещё не начаты.
+Продуктовый scope и документационный handoff для low-fidelity дизайна готовы. После совместного анализа приняты ADR-0010 и [ADR-0011](decisions/0011_shadow_controls_rating_admin_and_ui_foundation.md). В рабочем [Figma-файле](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T) сохранена полная low-fidelity схема и добавлены современные кликабельные v2-сценарии EN/RU и operational admin. Проведены отдельные визуальные и interaction-аудиты, исправлены наложения, переполнения, контраст, safe area и неверные переходы. Все актуальные графики EN/RU/admin переведены на единую современную gradient-area систему с плавными кривыми и сдержанным свечением. Пакет готов к внутренней проверке основателем; прямые prototype-ссылки и состояние зафиксированы в [документе 38](38_figma_low_fidelity_progress.md) и `design/figma-build-manifest.json`. Разработка frontend и реальные сделки ещё не начаты.
 
 ## Основной документ текущего этапа
 
