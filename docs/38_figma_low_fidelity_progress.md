@@ -2,74 +2,77 @@
 
 Обновлено: 28 сентября 2026 года.
 
-## Результат текущего цикла
+## Результат цикла
 
-Создан отдельный Figma Design-файл: [Controlled Copy Trading — Paper MVP](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T).
+Рабочий файл: [Controlled Copy Trading — Paper MVP](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T).
 
-В файле уже находятся:
+Тариф команды обновлён до Figma Professional, место владельца — Full. Работа ведётся через официальный Figma connector/plugin Codex. Дополнительный UI-плагин для записи макетов не требуется; Obra Community Edition остаётся визуальным reference kit.
 
-- обложка с четырьмя утверждёнными принципами продукта;
-- dark-first foundations: палитра, типографика, spacing и radius;
-- локальные Figma variables с WEB code syntax;
-- текстовые и effect styles;
-- компонент `Button` с вариантами Primary, Secondary, Destructive и Ghost, а также Default и Disabled;
-- визуальная проверка обложки, foundations и исправленного Button.
+Low-fidelity пакет собран и готов к совместной проверке основателем и коллегой:
 
-Работа выполнялась по [утверждённому брифу](33_approved_design_brief.md), [карте экранов](34_screen_and_state_map.md), [EN/RU copy](35_bilingual_low_fidelity_flow.md) и [handoff](37_design_task_handoff.md).
+- девять отдельных страниц 00–08;
+- dark-first foundations и связанный Light mode;
+- локальные variables, text styles и effect style;
+- Button, Status, Field и Trader Card;
+- 15 мобильных экранов EN и 15 эквивалентных экранов RU;
+- 17 обязательных продуктовых состояний;
+- шесть desktop-представлений операционной админки;
+- 37 основных и ветвящихся переходов;
+- отдельная review page с решениями, QA и следующим gate.
+
+Работа выполнена по [утверждённому брифу](33_approved_design_brief.md), [карте экранов](34_screen_and_state_map.md), [EN/RU copy](35_bilingual_low_fidelity_flow.md) и [handoff](37_design_task_handoff.md).
 
 ## Структура файла
 
-Тариф Figma Starter допускает только три страницы и один mode в каждой коллекции variables. Поэтому исходные разделы 00–08 распределены по трём страницам, а внутри оформляются именованными секциями:
-
-| Страница Figma | Разделы handoff |
+| Страница | Содержимое |
 |---|---|
-| `00 Overview & Foundations` | `00 Cover and decisions`, `01 Foundations` |
-| `01 Mobile Flows & States` | `03 Mobile flow EN`, `04 Mobile flow RU`, `05 State library` |
-| `02 Components, Admin & Prototype` | `02 Components`, `06 Admin desktop`, `07 Prototype`, `08 Review notes` |
+| `00 Cover and decisions` | утверждённые продуктовые принципы |
+| `01 Foundations` | цвета, типографика, spacing, radius и режимы |
+| `02 Components` | локальные интерактивные компоненты |
+| `03 Mobile flow EN` | 15 экранов английского сценария |
+| `04 Mobile flow RU` | 15 экранов русского сценария |
+| `05 State library` | 17 состояний продукта и восстановления |
+| `06 Admin desktop` | обзор, пользователи, инциденты, комиссии и feedback |
+| `07 Prototype` | карта двух сценариев и кликабельные переходы |
+| `08 Review notes` | зафиксированные решения и следующий gate |
 
-Это ограничение не меняет scope. После перехода на Professional секции можно разнести по отдельным страницам без изменения компонентов или экранов.
+## Foundations и компоненты
 
-## Foundations
+Сохранены четыре коллекции variables: `Primitives`, `Color`, `Spacing` и `Radius`. В `Color` работают связанные режимы `Dark` и `Light`; dark остаётся режимом MVP по умолчанию. Созданы девять стилей Inter и эффект `Elevation/Dialog`.
 
-Созданы четыре коллекции:
+Компоненты текущего low-fi:
 
-| Коллекция | Mode | Состав |
-|---|---|---:|
-| `Primitives` | `Value` | 22 цвета |
-| `Color` | `Dark` | 22 семантических цвета |
-| `Spacing` | `Default` | 11 значений |
-| `Radius` | `Default` | 5 значений |
+- `Button`: Primary, Secondary, Destructive, Ghost; Default и Disabled;
+- `Status`: Paper, Active, Warning, Error, Info и Paused;
+- `Field`: label, value и hint;
+- `Trader Card`: имя, источник, показатели и выделенный бюджет.
 
-Также созданы девять стилей Inter (`Display`, три heading, два body, `Label`, `Caption`, `Numeric`) и эффект `Elevation/Dialog`. Все семантические цвета связаны с primitives, scopes заданы явно, broken aliases отсутствуют.
+Составные экраны пока используют эти primitives напрямую. Выделять Session Card, Activity Row, Incident Table и другие крупные блоки в отдельные компоненты следует на high-fidelity этапе после проверки структуры.
 
-Светлая тема остаётся подготовленной спецификацией. Добавить второй mode на текущем Starter-плане нельзя; это не блокирует утверждённый dark-first MVP.
+## Пользовательский сценарий
 
-## Проверенный компонент
+Обе локали используют одинаковую последовательность:
 
-`Button` содержит восемь вариантов:
+`Language → Value → Traders → Trader → Budget → Risk → Account → Review → Active → Activity → Event → Result`.
 
-- Style: `Primary`, `Secondary`, `Destructive`, `Ghost`;
-- State: `Default`, `Disabled`;
-- Size: `Medium`, минимальная высота 44 px;
-- редактируемое TEXT-свойство `Label`.
+Дополнительные ветки ведут к Home, управлению сессией, профилю и уведомлениям. Просмотр доступен без аккаунта; регистрация появляется при сохранении и запуске shadow-сессии. Все исполнения симулируются, а интерфейс не обещает заработок.
 
-Фон, текст, радиусы и padding связаны с variables. После визуальной проверки исправлен fallback primary-цвета; повторный screenshot прошёл проверку.
+## State library и админка
 
-## Что остановило цикл
+State library включает загрузку, пустое состояние, ошибку, устаревшие данные, недоступную площадку, недостаточный бюджет, дневной лимит, старый сигнал, низкую ликвидность, `UNKNOWN`, паузу, закрытие, частичное закрытие, ошибку закрытия, отзыв разрешения, недостаточные данные и готовность к review.
 
-После создания foundations и Button Figma MCP вернул лимит вызовов Starter. Операция создания `Status`, `Field` и `Trader Card` не была записана. Проектные данные не потеряны: полный следующий объём закреплён в [manifest](../design/figma-build-manifest.json) и документах 34–37.
+Админка покрывает Overview, Users, User detail, Incident queue, Incident detail с reconciliation/audit log и Fees & feedback. В ней нет ручной отправки сделки, вывода, доступа к ключам или слепого retry.
 
-## Следующий Figma-сеанс
+## Проведённая проверка
 
-1. Продолжить с `Status`, `Field`, `Trader Card`, `Session Card`, `Activity Row` и `Confirmation Drawer`.
-2. Собрать основной EN flow: Language → Intro → Traders → Profile → Budget → Risk → Account → Review → Active shadow → Activity → Result.
-3. Собрать RU-версию теми же компонентами и проверить расширение строк.
-4. Добавить state library: loading, empty, stale, partial, unknown/reconciliation, closing, close failed и insufficient data.
-5. Собрать desktop admin: Overview → Incident → Reconciliation → Audit log и Users → Session.
-6. Соединить обязательные переходы и провести QA на 320/360/390 px и text zoom 200%.
+- EN и RU экраны визуально просмотрены; длинные русские строки не обрезают основной сценарий.
+- Исправлены размеры Field и Trader Card после проверки экземпляров.
+- State library, admin, prototype map и review page проверены по screenshot.
+- Для EN и RU назначены отдельные prototype starting points.
+- `UNKNOWN` блокирует новый риск; остаток после частичного или неудачного закрытия остаётся видимым.
 
-Obra Community Edition остаётся рекомендуемым reference kit, но импорт не является блокером: локальная основа уже совпадает с shadcn-подходом и продуктовой моделью состояний.
+Проверка 320/360 px и text zoom 200% переносится на high-fidelity, где будут утверждены окончательные размеры, responsive rules и production copy.
 
-## Gate
+## Следующий gate
 
-Frontend-разработка остаётся на паузе. Дизайн-гейт считается закрытым после сборки и совместной проверки EN/RU flow, state library, admin path и обязательных прототипных веток.
+Основатель и коллега проходят два кликабельных сценария и отмечают только блокирующие изменения. После согласования порядка экранов, формулировок и границ админки можно переходить к high-fidelity UI kit и детальному интерфейсу. Frontend-разработка остаётся на паузе до отдельного решения.
