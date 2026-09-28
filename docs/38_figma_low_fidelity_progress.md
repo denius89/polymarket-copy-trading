@@ -29,6 +29,20 @@
 
 В v2 добавлены градиентные продуктовые карточки, графики активности, рейтинг трейдера, slider-представление бюджета, risk toggles, активная dashboard, журнал событий и визуальная timeline для UNKNOWN. Основные CTA используют Smart Animate; нижняя навигация на ключевых экранах имеет отдельные кликабельные зоны.
 
+После pre-handoff QA исправлены наложение CTA на график, переполнения русских бейджей, прижатый рейтинг, заголовок active dashboard, safe area нижней навигации и контраст основных кнопок. На шагах настройки добавлен возврат назад; onboarding больше нельзя обойти через нижнее меню; Manage ведёт к изменению risk controls, а не к повторному запуску.
+
+Серый элемент `Inline Preview`, который может появляться поверх макета, отсутствует в дереве Figma и чистых exports. Это служебный overlay среды просмотра.
+
+## Современная интерактивная админка
+
+Добавлена страница `11 Modern admin` и отдельный operational flow:
+
+`Operations overview → Incident queue → Incident reconciliation → User session`.
+
+- [Запустить admin-прототип](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=51-3&starting-point-node-id=51%3A3&scaling=scale-down&content-scaling=fixed&page-id=51%3A2)
+
+Overview показывает health площадок, активные paper-сессии, поток событий и приоритетные инциденты. Очередь сортируется по остающемуся риску. Incident detail объясняет timeline, evidence и следующий шаг сверки. User session связывает настройки, события, стоимость поддержки и feedback. Навигация и основной incident workflow кликабельны; ручная сделка, вывод, доступ к ключу и blind retry по-прежнему отсутствуют.
+
 Работа выполнена по [утверждённому брифу](33_approved_design_brief.md), [карте экранов](34_screen_and_state_map.md), [EN/RU copy](35_bilingual_low_fidelity_flow.md) и [handoff](37_design_task_handoff.md).
 
 ## Структура файла
@@ -46,6 +60,7 @@
 | `08 Review notes` | зафиксированные решения и следующий gate |
 | `09 Modern prototype EN` | современный кликабельный EN-сценарий |
 | `10 Modern prototype RU` | локализованный современный RU-сценарий |
+| `11 Modern admin` | кликабельный operational workflow админки |
 
 ## Foundations и компоненты
 
