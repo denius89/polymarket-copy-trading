@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "updatedAt": "2026-09-28",
   "file": {
     "name": "Controlled Copy Trading — Paper MVP",
@@ -7,7 +7,7 @@
     "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T",
     "plan": "Professional",
     "seat": "Full",
-    "status": "low-fidelity review ready"
+    "status": "modern interactive prototype review ready"
   },
   "pages": [
     {"name": "00 Cover and decisions", "nodeId": "0:1"},
@@ -18,7 +18,9 @@
     {"name": "05 State library", "nodeId": "7:11"},
     {"name": "06 Admin desktop", "nodeId": "7:12"},
     {"name": "07 Prototype", "nodeId": "7:13"},
-    {"name": "08 Review notes", "nodeId": "7:14"}
+    {"name": "08 Review notes", "nodeId": "7:14"},
+    {"name": "09 Modern prototype EN", "nodeId": "29:2", "startingPoint": "29:3"},
+    {"name": "10 Modern prototype RU", "nodeId": "33:2", "startingPoint": "33:3"}
   ],
   "foundations": {
     "collections": [
@@ -53,11 +55,16 @@
   },
   "prototype": {
     "wiredInteractions": 37,
-    "startingPoints": ["EN — shadow session", "RU — shadow session"]
+    "modernWiredTargets": 40,
+    "startingPoints": ["EN — shadow session", "RU — shadow session", "Modern EN — paper flow", "Modern RU — демо-сценарий"],
+    "modernPrototypeUrls": {
+      "en": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=29-3&starting-point-node-id=29%3A3&scaling=scale-down&content-scaling=fixed&page-id=29%3A2",
+      "ru": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=33-3&starting-point-node-id=33%3A3&scaling=scale-down&content-scaling=fixed&page-id=33%3A2"
+    }
   },
   "qa": {
     "completed": ["EN visual review", "RU visual review", "component instance sizing", "state library screenshot", "admin screenshot", "prototype map screenshot", "review page screenshot"],
     "deferredToHighFidelity": ["320 px", "360 px", "200% text zoom", "final responsive rules", "production copy review"]
   },
-  "nextGate": "Founder and colleague approve the clickable low-fidelity flow before high-fidelity UI or frontend implementation"
+  "nextGate": "Founder and colleague approve the modern interactive EN/RU direction before extending the full high-fidelity UI kit or starting frontend implementation"
 }

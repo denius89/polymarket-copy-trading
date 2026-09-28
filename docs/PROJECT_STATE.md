@@ -4,7 +4,7 @@
 
 ## Текущий этап
 
-Продуктовый scope и документационный handoff для low-fidelity дизайна готовы. После совместного анализа приняты ADR-0010 и [ADR-0011](decisions/0011_shadow_controls_rating_admin_and_ui_foundation.md). В рабочем [Figma-файле](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T) собраны foundations, компоненты, 15 EN и 15 RU экранов, state library, desktop admin и кликабельный прототип. Пакет готов к совместной проверке основателем и коллегой; состояние зафиксировано в [документе 38](38_figma_low_fidelity_progress.md) и `design/figma-build-manifest.json`. Разработка frontend и реальные сделки ещё не начаты.
+Продуктовый scope и документационный handoff для low-fidelity дизайна готовы. После совместного анализа приняты ADR-0010 и [ADR-0011](decisions/0011_shadow_controls_rating_admin_and_ui_foundation.md). В рабочем [Figma-файле](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T) сохранена полная low-fidelity схема и добавлены современные кликабельные v2-сценарии EN/RU с графиками, dashboard, Smart Animate и интерактивной навигацией. Пакет готов к совместной проверке основателем и коллегой; прямые prototype-ссылки и состояние зафиксированы в [документе 38](38_figma_low_fidelity_progress.md) и `design/figma-build-manifest.json`. Разработка frontend и реальные сделки ещё не начаты.
 
 ## Основной документ текущего этапа
 
