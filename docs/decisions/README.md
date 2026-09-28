@@ -13,6 +13,8 @@
 | [0007](0007_limitless_first_integration.md) | Limitless как первый партнёрский spike | принято частично | порядок spike действует; опциональность Polymarket заменена ADR-0008 |
 | [0008](0008_dual_venue_product_scope.md) | Обязательная поддержка Polymarket и Limitless | принято | общий core, два adapters, раздельные live-gates |
 | [0009](0009_novice_first_direct_mvp.md) | MVP для неопытного пользователя без агентского кабинета | принято | прямой вход, отзывы после выпуска, English/Russian |
+| [0010](0010_design_direction_and_paper_mvp.md) | Первый paper MVP и направление дизайна | принято | гостевой просмотр, регистрация для shadow, proportional sizing, dark-first, Telegram |
+| [0011](0011_shadow_controls_rating_admin_and_ui_foundation.md) | Shadow, управление, рейтинг, админка и UI foundation | принято | завершает продуктовые решения для low-fidelity дизайна |
 
 ## Как добавить решение
 
