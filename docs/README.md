@@ -58,6 +58,8 @@
 | 37 | [Передача в дизайн и Figma](37_design_task_handoff.md) | точное задание, результаты, порядок работы и gate завершения |
 | 38 | [Прогресс дизайна Figma](38_figma_low_fidelity_progress.md) | актуальные прототипы, структура файла, проверенный объём и ограничения |
 | 39 | [Аудит качества дизайна](39_design_quality_audit.md) | подтверждённые причины дефектов, первичные руководства и критерии повторной проверки |
+| 40 | [Benchmark betting, casino и trading](40_cross_industry_product_logic_benchmark.md) | Copy ticket, состояния исполнения, баланс, PnL, safety controls и responsive-логика |
+| 41 | [Стандарт интерфейса и frontend](41_product_design_and_frontend_standards.md) | обязательные правила сетки, типографики, доступности, графиков, Figma, реализации и QA |
 
 ## Источники правды по темам
 
@@ -77,6 +79,8 @@
 | Что можно выполнять параллельно сейчас? | `ROADMAP.md` и `31_project_readiness_audit.md` |
 | Как закладываем мультиязычность? | `29_bilingual_product_language.md`, ADR-0006 и ADR-0009 |
 | Что подсмотреть у Binance Copy Trading? | `30_binance_copy_trading_ui_benchmark.md` |
+| Что взять из betting, casino и бирж? | `40_cross_industry_product_logic_benchmark.md`, затем `13_trust_permissions_and_state_model.md` |
+| По каким правилам проектировать и реализовывать интерфейс? | `41_product_design_and_frontend_standards.md`, затем критерии конкретного макета в документе 39 |
 | Готовы ли мы двигаться дальше? | `31_project_readiness_audit.md`, затем `ROADMAP.md` |
 | Что передать в дизайн-задачу? | `37_design_task_handoff.md`, затем документы 33–36 |
 | Где текущий Figma-файл и что в нём готово? | `38_figma_low_fidelity_progress.md` и `design/figma-build-manifest.json` |
