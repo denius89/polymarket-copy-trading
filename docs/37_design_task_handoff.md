@@ -1,10 +1,10 @@
 # Передача в задачу дизайна и Figma
 
-Дата: 28.09.2026. Статус: готово к выполнению в отдельной дизайн-задаче.
+Дата: 29.09.2026. Статус: обновлённое задание следующего Figma-цикла.
 
 ## Цель следующей задачи
 
-Создать кликабельный low-fidelity прототип mobile-first paper MVP и минимальной desktop-админки на основе уже принятых решений. Прототип должен проверить структуру, тексты, состояния и последствия действий до high-fidelity и frontend-разработки.
+Обновить кликабельный прототип полноценного responsive paper MVP: mobile EN/RU, самостоятельные desktop-композиции, виртуальный баланс, recovery states и desktop-админка. Прототип должен проверить структуру, тексты, состояния и последствия действий до high-fidelity и frontend-разработки.
 
 ## Источники в порядке чтения
 
@@ -13,7 +13,9 @@
 3. [EN/RU тексты ключевого пути](35_bilingual_low_fidelity_flow.md).
 4. [Выбор бесплатного Figma kit](36_figma_kit_selection.md).
 5. [Двуязычная основа](29_bilingual_product_language.md).
-6. [ADR-0010](decisions/0010_design_direction_and_paper_mvp.md) и [ADR-0011](decisions/0011_shadow_controls_rating_admin_and_ui_foundation.md).
+6. [Benchmark betting, casino и trading](40_cross_industry_product_logic_benchmark.md).
+7. [Стандарт интерфейса и frontend](41_product_design_and_frontend_standards.md).
+8. [ADR-0010](decisions/0010_design_direction_and_paper_mvp.md), [ADR-0011](decisions/0011_shadow_controls_rating_admin_and_ui_foundation.md) и [ADR-0012](decisions/0012_paper_mvp_defaults.md).
 
 При конфликте действующие ADR имеют приоритет. Неподтверждённые wallet/API возможности в макетах не обещаются.
 
@@ -24,10 +26,11 @@
 3. Page `02 Components` с использованными вариантами и состояниями.
 4. Page `03 Mobile flow EN`.
 5. Page `04 Mobile flow RU`.
-6. Page `05 State library` для loading, empty, stale, partial, unknown, error и закрытия.
-7. Page `06 Admin desktop`.
-8. Page `07 Prototype` с кликабельным основным путём и обязательными ответвлениями.
-9. Page `08 Review notes` с открытыми визуальными вопросами, без повторного открытия продуктовых решений.
+6. Page `05 Desktop user` с каталогом, профилем, Copy Ticket, главной, сессией, активностью, результатом и paper balance.
+7. Page `06 State library` для loading, empty, stale, partial, unknown, error и закрытия.
+8. Page `07 Admin desktop`.
+9. Page `08 Prototype` с кликабельным основным путём и обязательными ответвлениями.
+10. Page `09 Review notes` с открытыми визуальными вопросами, без повторного открытия продуктовых решений.
 
 ## Порядок работы
 
@@ -65,7 +68,11 @@
 - Close → partial/failed → resolved;
 - 14 дней → недостаточно данных.
 
-### Шаг 4. Админка
+### Шаг 4. Desktop user
+
+Собрать самостоятельные desktop-композиции каталога, профиля, настройки, review, главной, активной сессии, позиций/активности, результата и paper balance. Использовать боковую навигацию, постоянную Copy setup summary там, где она полезна, и detail drawer для таблиц. Не растягивать мобильные карточки.
+
+### Шаг 5. Админка
 
 Собрать desktop Overview и путь инцидента:
 
@@ -73,23 +80,23 @@
 
 Дополнительно показать `Users → User detail → Shadow session`. Не проектировать ручную торговлю, вывод или доступ к ключам.
 
-### Шаг 5. Двуязычная проверка
+### Шаг 6. Двуязычная проверка
 
 Основной путь создаётся на English и Russian. Проверяются 320, 360 и 390 px, расширение строк, увеличение текста до 200%, locale formatting и сохранение состояния при смене языка.
 
-### Шаг 6. Совместная проверка
+### Шаг 7. Совместная проверка
 
 Основатель и коллега проходят прототип без объяснений. Фиксируются только наблюдаемые затруднения: где остановились, что поняли иначе, какое действие не нашли и какой текст истолковали неверно.
 
 ## Что нельзя решать в дизайне самостоятельно
 
 - название и логотип продукта;
-- численные значения risk presets;
-- конкретный способ регистрации email/social/passkey;
 - реальные wallet permissions, funding и withdrawal;
 - live GEO/eligibility flow;
 - неподтверждённые возможности API;
 - расширение scope на light theme, WhatsApp, email, web push, агентский кабинет или подписку.
+
+Defaults ADR-0012 используются без переоткрытия: $200, одна активная сессия, 10%/15%/30 секунд, passwordless email, 7/30/90 дней, добровольный Telegram и 60-минутное напоминание. Выбор конкретного auth-провайдера, live stale thresholds и модель partial fill остаются техническими задачами и не меняются в Figma самостоятельно.
 
 Эти места отмечаются нейтральными placeholders или открытыми заметками, если они нужны для композиции.
 

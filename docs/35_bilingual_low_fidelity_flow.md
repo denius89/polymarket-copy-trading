@@ -1,6 +1,6 @@
 # EN RU тексты ключевого пути paper MVP
 
-Дата: 28.09.2026. Статус: рабочий каталог для low-fidelity прототипа. English — исходная версия, русский — полноценная первая локаль.
+Дата: 29.09.2026. Статус: рабочий каталог для следующего Figma-прототипа. English — исходная версия, русский — полноценная первая локаль. Численные defaults приняты в ADR-0012.
 
 ## Правила прототипа
 
@@ -36,12 +36,19 @@
 | `trader.profile.venue` | Activity source: {venue} | Источник действий: {venue} |
 | `trader.profile.disclaimer` | Past and simulated results do not predict future results. | Прошлые и смоделированные результаты не определяют будущий результат. |
 | `shadow.setup.action` | Try in shadow mode | Проверить в демо-режиме |
+| `backtest.period.7d` | 7 days | 7 дней |
+| `backtest.period.30d` | 30 days | 30 дней |
+| `backtest.period.90d` | 90 days | 90 дней |
+| `backtest.period.unavailable` | Not enough reliable data for this period | Недостаточно надёжных данных за этот период |
 | `budget.title` | Set your copying budget | Задайте бюджет копирования |
+| `budget.paper.default` | Starting paper balance: $200 | Начальный демо-баланс: 200 $ |
 | `budget.rangeHint` | A budget from {min} to {max} covers this trader’s typical activity more reliably. | Бюджет от {min} до {max} лучше покрывает обычную активность этого трейдера. |
 | `budget.insufficient` | This budget may cause more actions to be skipped. | С таким бюджетом больше действий может быть пропущено. |
 | `risk.maxPosition.label` | Maximum per position | Максимум на одну позицию |
 | `risk.dailyLimit.label` | Daily limit for new positions | Дневной лимит новых позиций |
 | `risk.maxAge.label` | Do not copy events older than | Не копировать события старше |
+| `risk.default.summary` | 10% per position · 15% new buys per day · 30 sec signal age | 10% на позицию · 15% новых покупок в день · давность сигнала 30 сек |
+| `risk.reentry.manual` | Do not reopen this market after a manual close unless I allow it | Не открывать этот рынок снова после ручного закрытия без моего разрешения |
 | `risk.explanation` | These limits reduce new exposure. They cannot guarantee a maximum loss. | Эти ограничения уменьшают новое увеличение риска, но не гарантируют максимальный убыток. |
 
 ## Регистрация и подтверждение
@@ -50,6 +57,8 @@
 |---|---|---|
 | `account.gate.title` | Save and start your shadow session | Сохраните и запустите демо-сессию |
 | `account.gate.body` | Create an account to keep the session and receive important updates. No wallet is required for paper mode. | Создайте аккаунт, чтобы сохранить сессию и получать важные обновления. Для демо-режима кошелёк не нужен. |
+| `account.email.label` | Email | Электронная почта |
+| `account.email.code.body` | We’ll email you a one-time link or code. No password is required. | Мы отправим одноразовую ссылку или код на почту. Пароль не нужен. |
 | `account.create.action` | Create account | Создать аккаунт |
 | `account.signIn.action` | Sign in | Войти |
 | `review.title` | Review your shadow setup | Проверьте настройки демо-сессии |
@@ -65,6 +74,7 @@
 | Key | English source | Русский |
 |---|---|---|
 | `shadow.active.title` | Shadow session active | Демо-сессия активна |
+| `shadow.singleSession` | Stop and reconcile the current session before starting another. | Остановите и завершите сверку текущей сессии перед запуском новой. |
 | `shadow.progress` | {days} of 7 days · {count} of 10 eligible actions | {days} из 7 дней · {count} из 10 подходящих действий |
 | `shadow.result.ready` | Enough data to review this session | Данных достаточно для просмотра результата |
 | `shadow.result.insufficient` | Not enough activity to assess this session | Недостаточно действий для оценки этой сессии |
@@ -102,6 +112,7 @@
 | `result.title` | Your simulated result | Ваш результат симуляции |
 | `result.balance.start` | Starting virtual balance | Начальный виртуальный баланс |
 | `result.balance.end` | Ending virtual balance | Итоговый виртуальный баланс |
+| `result.balance.changed` | Balance changed during this session. Do not compare this result directly with an uninterrupted session. | Баланс изменялся во время этой сессии. Не сравнивайте результат напрямую с непрерывной сессией. |
 | `result.pnlAfterFees` | Simulated profit/loss after virtual fees | Виртуальная прибыль или убыток после расчётных комиссий |
 | `result.maxDrawdown` | Largest simulated decline | Максимальное снижение симуляции |
 | `result.copySummary` | {copied} simulated · {partial} partial · {skipped} skipped | {copied} смоделировано · {partial} частично · {skipped} пропущено |
@@ -122,6 +133,11 @@
 | `notification.critical.unknown` | We are checking an event with an unknown result. New risk-increasing actions are paused. | Мы уточняем результат события. Новые действия, увеличивающие риск, приостановлены. |
 | `notification.critical.closeIssue` | Some positions are still open after your close request. | После запроса на закрытие некоторые позиции всё ещё открыты. |
 | `notification.summary.title` | Daily shadow summary | Ежедневный итог демо-сессии |
+| `notification.sessionReminder.title` | You’ve been viewing this session for 60 minutes | Вы просматриваете эту сессию уже 60 минут |
+| `notification.sessionReminder.body` | Review what changed or pause new positions. | Проверьте изменения или приостановите новые позиции. |
+| `notification.sessionReminder.continue` | Continue viewing | Продолжить просмотр |
+| `notification.sessionReminder.history` | Open history | Открыть историю |
+| `notification.sessionReminder.pause` | Pause new positions | Приостановить новые позиции |
 
 ## Проверка макетов
 

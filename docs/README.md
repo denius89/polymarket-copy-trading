@@ -81,6 +81,7 @@
 | Что подсмотреть у Binance Copy Trading? | `30_binance_copy_trading_ui_benchmark.md` |
 | Что взять из betting, casino и бирж? | `40_cross_industry_product_logic_benchmark.md`, затем `13_trust_permissions_and_state_model.md` |
 | По каким правилам проектировать и реализовывать интерфейс? | `41_product_design_and_frontend_standards.md`, затем критерии конкретного макета в документе 39 |
+| Какие defaults приняты для paper MVP? | ADR-0012, затем экранное применение в документах 34 и 35 |
 | Готовы ли мы двигаться дальше? | `31_project_readiness_audit.md`, затем `ROADMAP.md` |
 | Что передать в дизайн-задачу? | `37_design_task_handoff.md`, затем документы 33–36 |
 | Где текущий Figma-файл и что в нём готово? | `38_figma_low_fidelity_progress.md` и `design/figma-build-manifest.json` |

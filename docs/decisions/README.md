@@ -15,6 +15,7 @@
 | [0009](0009_novice_first_direct_mvp.md) | MVP для неопытного пользователя без агентского кабинета | принято | прямой вход, отзывы после выпуска, English/Russian |
 | [0010](0010_design_direction_and_paper_mvp.md) | Первый paper MVP и направление дизайна | принято | гостевой просмотр, регистрация для shadow, proportional sizing, dark-first, Telegram |
 | [0011](0011_shadow_controls_rating_admin_and_ui_foundation.md) | Shadow, управление, рейтинг, админка и UI foundation | принято | завершает продуктовые решения для low-fidelity дизайна |
+| [0012](0012_paper_mvp_defaults.md) | Стартовые параметры paper MVP | принято | $200, одна сессия, risk preset, 7/30/90 дней, passwordless email, Telegram и 60-минутное напоминание |
 
 ## Как добавить решение
 
