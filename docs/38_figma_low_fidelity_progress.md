@@ -1,15 +1,17 @@
 # Рабочий дизайн и прототип Figma
 
+> **Текущий статус, 30 сентября 2026:** этот текст ниже сохраняет историю ревизии 29 сентября. Актуальные исправления и ограничения перечислены в [документе 51](51_figma_remediation_2026-09-30.md); [полный аудит 47](47_full_project_design_audit_2026-09-30.md) остаётся исходным списком замечаний. Стартовые ссылки теперь ведут на новые лендинги. Прототип ещё не утверждён к вёрстке.
+
 Обновлено: 29 сентября 2026 года. Статус: ревизия после аудита и частичное расширение UX-архитектуры; окончательное визуальное утверждение основателем не получено.
 
 ## Открыть актуальную версию
 
 [Рабочий файл — Controlled Copy Trading / Paper MVP](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T). Работа выполнена через официальный Figma connector/plugin; команда Professional, место Full.
 
-- [Прототип English](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=29-3&starting-point-node-id=29%3A3&scaling=scale-down&content-scaling=fixed&page-id=29%3A2)
-- [Прототип Русский](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=33-3&starting-point-node-id=33%3A3&scaling=scale-down&content-scaling=fixed&page-id=33%3A2)
-- [Desktop English](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=188-3&starting-point-node-id=188%3A3&scaling=scale-down&content-scaling=fixed&page-id=186%3A2)
-- [Desktop Русский](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=205-4&starting-point-node-id=205%3A4&scaling=scale-down&content-scaling=fixed&page-id=205%3A2)
+- [Прототип English](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=584-85&starting-point-node-id=584%3A85&scaling=scale-down&content-scaling=fixed&page-id=29%3A2)
+- [Прототип Русский](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=584-196&starting-point-node-id=584%3A196&scaling=scale-down&content-scaling=fixed&page-id=33%3A2)
+- [Desktop English](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=584-225&starting-point-node-id=584%3A225&scaling=scale-down&content-scaling=fixed&page-id=186%3A2)
+- [Desktop Русский](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=584-265&starting-point-node-id=584%3A265&scaling=scale-down&content-scaling=fixed&page-id=205%3A2)
 - [Прототип админки](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=51-3&starting-point-node-id=51%3A3&scaling=scale-down&content-scaling=fixed&page-id=51%3A2)
 
 Страница `00 · Начать здесь` также содержит кликабельные ссылки на EN/RU mobile и desktop-прототипы. Основные mobile frame IDs сохранены, поэтому прежние стартовые ссылки ведут к обновлённым экранам.

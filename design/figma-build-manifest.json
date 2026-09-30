@@ -1,13 +1,13 @@
 {
-  "version": 8,
-  "updatedAt": "2026-09-29",
+  "version": 10,
+  "updatedAt": "2026-09-30",
   "file": {
     "name": "Controlled Copy Trading — Paper MVP",
     "fileKey": "lxPP2um7FvIbt02K8eeH4T",
     "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T",
     "plan": "Professional",
     "seat": "Full",
-    "status": "quality rebuild; founder approval pending"
+    "status": "prototype remediation in progress; founder approval and final responsive/runtime QA pending"
   },
   "pages": [
     {
@@ -18,26 +18,30 @@
     {
       "name": "01 · Приложение · EN",
       "nodeId": "29:2",
-      "startingPoint": "29:3",
-      "status": "active"
+      "startingPoint": "584:85",
+      "status": "active",
+      "prototypeEntryNode": "584:85"
     },
     {
       "name": "02 · Приложение · RU",
       "nodeId": "33:2",
-      "startingPoint": "33:3",
-      "status": "active"
+      "startingPoint": "584:196",
+      "status": "active",
+      "prototypeEntryNode": "584:196"
     },
     {
       "name": "03 · Desktop · EN",
       "nodeId": "186:2",
-      "prototypeEntryNode": "188:3",
-      "status": "active"
+      "prototypeEntryNode": "584:225",
+      "status": "active",
+      "startingPoint": "584:225"
     },
     {
       "name": "04 · Desktop · RU",
       "nodeId": "205:2",
-      "prototypeEntryNode": "205:4",
-      "status": "active"
+      "prototypeEntryNode": "584:265",
+      "status": "active",
+      "startingPoint": "584:265"
     },
     {
       "name": "05 · Админка",
@@ -506,5 +510,112 @@
       "privateUserLabel": "editable and user-private; not verification",
       "stableAddressFallback": "always visible"
     }
+  },
+  "currentRevision": {
+    "date": "2026-09-30",
+    "status": "reviewable Figma iteration; not approved for frontend",
+    "remediationReport": "docs/51_figma_remediation_2026-09-30.md",
+    "supportAndAuthReport": "docs/52_support_tickets_and_auth_figma_progress.md",
+    "cycleReport": "docs/53_design_cycle_final_report_2026-09-30.md",
+    "colleagueClickthroughGuide": "docs/54_colleague_figma_clickthrough_guide.md",
+    "supportTickets": {
+      "mobileEN": "669:441",
+      "mobileRU": "663:88",
+      "desktopEN": "671:2",
+      "desktopRU": "673:2",
+      "contextualFlows": {
+        "mobileEN": "710:716",
+        "mobileRU": "710:96",
+        "desktopEN": "710:2083",
+        "desktopRU": "710:1242"
+      },
+      "generalQuestionFlows": {
+        "mobileEN": "714:2101",
+        "mobileRU": "714:96",
+        "desktopEN": "714:1535",
+        "desktopRU": "714:969"
+      },
+      "signInRecoveryStates": {
+        "mobileEN": "724:979",
+        "mobileRU": "724:734",
+        "desktopEN": "724:2",
+        "desktopRU": "724:825"
+      },
+      "exampleLinkedObjects": ["position", "event", "session", "paper balance"],
+      "status": "reviewable user-side prototype; live transfer context and backend pending"
+    },
+    "publicEmailEntry": {
+      "mobileEN": "681:88",
+      "mobileRU": "681:239",
+      "desktopEN": "682:2",
+      "desktopRU": "682:107"
+    },
+    "demoFixture": "design/demo-snapshot-2026-09-30.json",
+    "historicalCoreGraph": {
+      "mobileEN": 58,
+      "mobileRU": 58,
+      "desktopEN": 63,
+      "desktopRU": 63,
+      "reachable": 242,
+      "brokenNodeLinks": 0
+    },
+    "landing": {
+      "mobileEN": "584:85",
+      "mobileRU": "584:196",
+      "desktopEN": "584:225",
+      "desktopRU": "584:265"
+    },
+    "authRecovery": {
+      "mobileEN": [
+        "571:79",
+        "571:105",
+        "571:131"
+      ],
+      "mobileRU": [
+        "571:261",
+        "571:287",
+        "571:313"
+      ],
+      "desktopEN": [
+        "575:3",
+        "575:51",
+        "575:99"
+      ],
+      "desktopRU": [
+        "575:164",
+        "575:212",
+        "575:260"
+      ]
+    },
+    "responsiveReferences": {
+      "mobileEN": "619:84",
+      "mobileRU": "605:84",
+      "desktopEN": [
+        "560:3",
+        "563:3",
+        "568:3"
+      ],
+      "desktopRU": [
+        "560:228",
+        "563:322",
+        "568:270"
+      ],
+      "landingMobileEN": "637:88",
+      "landingMobileRU": "637:225",
+      "traderProfileDesktopEN": "652:2",
+      "traderProfileDesktopRU": "652:211"
+    },
+    "futureLiveTransfers": {
+      "mobileEN": "627:88",
+      "mobileRU": "627:673",
+      "desktopEN": "627:782",
+      "desktopRU": "627:891"
+    },
+    "adminQueueStates": "589:127",
+    "adminAssignmentStates": "593:171",
+    "qualityEvidence": "597:2",
+    "mobileVisibleTextBelow12": 0,
+    "mobileInteractiveTargetsBelow44": 0,
+    "baselineDisclaimer": "Legacy counts and screen lists elsewhere in this manifest describe the 29 Sep baseline; use currentRevision and docs/51-52 for the 30 Sep iteration."
   }
 }
