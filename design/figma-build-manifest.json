@@ -1,13 +1,13 @@
 {
-  "version": 10,
-  "updatedAt": "2026-09-30",
+  "version": 12,
+  "updatedAt": "2026-10-02",
   "file": {
     "name": "Controlled Copy Trading — Paper MVP",
     "fileKey": "lxPP2um7FvIbt02K8eeH4T",
     "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T",
     "plan": "Professional",
     "seat": "Full",
-    "status": "prototype remediation in progress; founder approval and final responsive/runtime QA pending"
+    "status": "remediation package implemented and structurally checked; colleague acceptance and runtime/live contracts pending"
   },
   "pages": [
     {
@@ -18,30 +18,30 @@
     {
       "name": "01 · Приложение · EN",
       "nodeId": "29:2",
-      "startingPoint": "584:85",
+      "startingPoint": "742:215",
       "status": "active",
-      "prototypeEntryNode": "584:85"
+      "prototypeEntryNode": "742:215"
     },
     {
       "name": "02 · Приложение · RU",
       "nodeId": "33:2",
-      "startingPoint": "584:196",
+      "startingPoint": "742:96",
       "status": "active",
-      "prototypeEntryNode": "584:196"
+      "prototypeEntryNode": "742:96"
     },
     {
       "name": "03 · Desktop · EN",
       "nodeId": "186:2",
-      "prototypeEntryNode": "584:225",
+      "prototypeEntryNode": "742:240",
       "status": "active",
-      "startingPoint": "584:225"
+      "startingPoint": "742:240"
     },
     {
       "name": "04 · Desktop · RU",
       "nodeId": "205:2",
-      "prototypeEntryNode": "584:265",
+      "prototypeEntryNode": "742:317",
       "status": "active",
-      "startingPoint": "584:265"
+      "startingPoint": "742:317"
     },
     {
       "name": "05 · Админка",
@@ -512,7 +512,7 @@
     }
   },
   "currentRevision": {
-    "date": "2026-09-30",
+    "date": "2026-10-01",
     "status": "reviewable Figma iteration; not approved for frontend",
     "remediationReport": "docs/51_figma_remediation_2026-09-30.md",
     "supportAndAuthReport": "docs/52_support_tickets_and_auth_figma_progress.md",
@@ -541,7 +541,12 @@
         "desktopEN": "724:2",
         "desktopRU": "724:825"
       },
-      "exampleLinkedObjects": ["position", "event", "session", "paper balance"],
+      "exampleLinkedObjects": [
+        "position",
+        "event",
+        "session",
+        "paper balance"
+      ],
       "status": "reviewable user-side prototype; live transfer context and backend pending"
     },
     "publicEmailEntry": {
@@ -616,6 +621,39 @@
     "qualityEvidence": "597:2",
     "mobileVisibleTextBelow12": 0,
     "mobileInteractiveTargetsBelow44": 0,
-    "baselineDisclaimer": "Legacy counts and screen lists elsewhere in this manifest describe the 29 Sep baseline; use currentRevision and docs/51-52 for the 30 Sep iteration."
+    "baselineDisclaimer": "Legacy counts and screen lists elsewhere in this manifest describe the 29 Sep baseline; use currentRevision and docs/51-52 for the 30 Sep iteration.",
+    "reviewerNavigation": {
+      "mobileRU": "742:96",
+      "mobileEN": "742:215",
+      "desktopRU": "742:317",
+      "desktopEN": "742:240",
+      "flowsPerPage": 4,
+      "journeys": [
+        "first launch",
+        "active session",
+        "help"
+      ],
+      "readyDesktopRU": "742:341",
+      "readyDesktopEN": "742:264"
+    }
+  },
+  "remediation20261002": {
+    "report": "docs/58_figma_implementation_and_review_2026-10-02.md",
+    "guide": "docs/54_colleague_figma_clickthrough_guide.md",
+    "evidence": "design/qa-2026-10-02/final-review-evidence.json",
+    "baselineRetained": 534,
+    "newStateScreens": 212,
+    "newScenariosPerLocaleDevice": 53,
+    "responsiveReferenceControls": 40,
+    "ownerProposedWireframes": 14,
+    "nativeContext": "before / empty / active via three flat binary actions",
+    "masters": {
+      "mobileHeader": "819:294",
+      "mobileNavigation": "819:312",
+      "desktopHeader": "819:330",
+      "warningButtonSet": "824:12",
+      "dangerButtonSet": "824:23"
+    },
+    "approval": "colleague review pending; not frontend/API/live approval"
   }
 }
