@@ -1,5 +1,7 @@
 # Controlled Copy Trading
 
+Current Figma review / Актуальная проверка: [report62](docs/62_visual_audit_fixes_2026-10-02.md), [four starts / четыре старта61](docs/61_colleague_corrections_implementation_2026-10-02.md).53×4 connected states;1440/390.
+
 Populated Figma review: [report 59](docs/59_interactive_test_data_implementation_2026-10-02.md), [review guide 54](docs/54_colleague_figma_clickthrough_guide.md). Long lists, prepared filters, sorting and contextual details are available in four variants.
 
 Figma package 2026-10-02: [implementation and QA](docs/58_figma_implementation_and_review_2026-10-02.md), [review guide](docs/54_colleague_figma_clickthrough_guide.md). Ready for colleague review; not runtime or live approval.

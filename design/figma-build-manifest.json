@@ -18,30 +18,30 @@
     {
       "name": "01 · Приложение · EN",
       "nodeId": "29:2",
-      "startingPoint": "742:215",
+      "startingPoint": "905:8563",
       "status": "active",
-      "prototypeEntryNode": "742:215"
+      "prototypeEntryNode": "905:8563"
     },
     {
       "name": "02 · Приложение · RU",
       "nodeId": "33:2",
-      "startingPoint": "742:96",
+      "startingPoint": "888:2163",
       "status": "active",
-      "prototypeEntryNode": "742:96"
+      "prototypeEntryNode": "888:2163"
     },
     {
       "name": "03 · Desktop · EN",
       "nodeId": "186:2",
-      "prototypeEntryNode": "742:240",
+      "prototypeEntryNode": "905:10021",
       "status": "active",
-      "startingPoint": "742:240"
+      "startingPoint": "905:10021"
     },
     {
       "name": "04 · Desktop · RU",
       "nodeId": "205:2",
-      "prototypeEntryNode": "742:317",
+      "prototypeEntryNode": "905:9382",
       "status": "active",
-      "startingPoint": "742:317"
+      "startingPoint": "905:9382"
     },
     {
       "name": "05 · Админка",
@@ -929,5 +929,24 @@
         "overflows": []
       }
     ]
+  },
+  "visualRemediation20261002": {
+    "report": "docs/62_visual_audit_fixes_2026-10-02.md",
+    "guide": "docs/61_colleague_corrections_implementation_2026-10-02.md",
+    "evidence": "design/qa-2026-10-02/visual-fixes-evidence.json",
+    "status": "implemented; structural and selected visual/runtime checks completed; full colleague acceptance pending",
+    "canonicalWidths": {
+      "desktop": 1440,
+      "mobile": 390
+    },
+    "canonicalFrames": 212,
+    "archive": "unchanged reference material",
+    "frontendAndApi": "not implemented",
+    "startingPoints": {
+      "29:2": "905:8563",
+      "33:2": "888:2163",
+      "186:2": "905:10021",
+      "205:2": "905:9382"
+    }
   }
 }
