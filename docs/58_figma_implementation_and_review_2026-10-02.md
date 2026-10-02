@@ -101,7 +101,7 @@
 | Финансы владельца · RU | [Proposed wireframe](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=801-192) |
 | Финансы владельца · EN | [Proposed wireframe](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=801-1272) |
 | Manifest и реестр | [Manifest](../design/figma-build-manifest.json), [фактические IDs, routes и QA](../design/qa-2026-10-02/final-review-evidence.json), [исходный инвентарь](../design/qa-2026-10-02/baseline-inventory.json) |
-| Передача в GitHub | Пакет публикуется через GitHub plugin в [PR 13](https://github.com/denius89/polymarket-copy-trading/pull/13); состояние публикации уточняется после подтверждения commit/ref |
+| Передача в GitHub | Пакет опубликован через GitHub plugin в [PR 13](https://github.com/denius89/polymarket-copy-trading/pull/13), [commit 6298496](https://github.com/denius89/polymarket-copy-trading/commit/629849657549a552afe8ab0f0b15c8a340ae532b); SHA ветки подтверждён чтением GitHub ref |
 | Инструкция коллеге | [54: задания, входы и формат замечаний](54_colleague_figma_clickthrough_guide.md) |
 
 Структурный scan четырёх пользовательских страниц, включая вложенные назначения условных действий:
