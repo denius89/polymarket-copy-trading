@@ -1,5 +1,7 @@
 # Controlled Copy Trading
 
+Current plan / Актуальный план: [55](docs/55_consolidated_product_plan_2026-10-02.md), [GitHub work plan 56](docs/56_git_work_plan_2026-10-02.md), [ADR-0013](docs/decisions/0013_consolidated_ux_and_risk_boundaries.md). Demo must be offered, but individual completion is optional; service verification and separate live gates remain mandatory. Демо предлагается при первом входе, прохождение необязательно; проверка сервиса и отдельные live-gates сохраняются. These are requirements, not implemented application features.
+
 **Русский** · [English](README.en.md)
 
 [![Проверка репозитория](https://github.com/denius89/polymarket-copy-trading/actions/workflows/repository-check.yml/badge.svg)](https://github.com/denius89/polymarket-copy-trading/actions/workflows/repository-check.yml)

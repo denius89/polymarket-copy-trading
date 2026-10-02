@@ -1,5 +1,7 @@
 # EN RU тексты ключевого пути paper MVP
 
+Уточнение 02.10.2026: [ADR-0013](decisions/0013_consolidated_ux_and_risk_boundaries.md) и [план 55](55_consolidated_product_plan_2026-10-02.md) имеют приоритет в изменённых правилах. При первом входе показать демо, прохождение необязательно; будущая реальная ветка имеет отдельные gates. Мониторинг предлагает ручные действия, финансовые пороги ещё не утверждены.
+
 Дата: 29.09.2026. Статус: рабочий каталог для следующего Figma-прототипа. English — исходная версия, русский — полноценная первая локаль. Численные defaults приняты в ADR-0012.
 
 ## Правила прототипа
@@ -132,7 +134,9 @@
 | `notification.telegram.optional` | Optional. You can use the product without Telegram. | Необязательно. Продукт работает без Telegram. |
 | `notification.critical.unknown` | We are checking an event with an unknown result. New risk-increasing actions are paused. | Мы уточняем результат события. Новые действия, увеличивающие риск, приостановлены. |
 | `notification.critical.closeIssue` | Some positions are still open after your close request. | После запроса на закрытие некоторые позиции всё ещё открыты. |
-| `notification.summary.title` | Daily shadow summary | Ежедневный итог демо-сессии |
+| `notification.summary.title` | Weekly shadow summary | Недельный итог демо-сессии |
+| `notification.summary.daily` | Daily summary | Дневная сводка |
+| `notification.summary.weekly` | Weekly summary (default) | Недельная сводка (по умолчанию) |
 | `notification.sessionReminder.title` | You’ve been viewing this session for 60 minutes | Вы просматриваете эту сессию уже 60 минут |
 | `notification.sessionReminder.body` | Review what changed or pause new positions. | Проверьте изменения или приостановите новые позиции. |
 | `notification.sessionReminder.continue` | Continue viewing | Продолжить просмотр |
