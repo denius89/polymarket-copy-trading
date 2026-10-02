@@ -14,7 +14,7 @@ The target product includes both **Polymarket** and **Limitless** as required ve
 
 > **Current status: pre-MVP.** The team is defining the product, interfaces, economics, and architecture. The user application, trading integrations, and live trading are not available yet. This repository documents decisions, hypotheses, and the development plan; it is not documentation for a finished service.
 
-**Current work:** the team is collecting design briefs and references. Two independent responses have arrived; joint analysis will start after the colleague's final file. The next outcomes are an agreed screen map and Figma foundations. See the [readiness audit](docs/31_project_readiness_audit.md) for design and development gates and [ADR-0009](docs/decisions/0009_novice_first_direct_mvp.md) for the current MVP audience.
+**Current work:** the Figma package dated 2026-10-02 is ready for colleague review. Start with the [review guide 54](docs/54_colleague_figma_clickthrough_guide.md); completed changes, evidence and limits are in [report 58](docs/58_figma_implementation_and_review_2026-10-02.md). Documents 38–53 preserve earlier iterations. User acceptance, frontend implementation and real-money operations remain separate stages.
 
 ## Why this product
 
