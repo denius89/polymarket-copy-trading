@@ -1,5 +1,7 @@
 # Controlled Copy Trading
 
+Populated Figma review: [report 59](docs/59_interactive_test_data_implementation_2026-10-02.md), [review guide 54](docs/54_colleague_figma_clickthrough_guide.md). Long lists, prepared filters, sorting and contextual details are available in four variants.
+
 Figma package 2026-10-02: [implementation and QA](docs/58_figma_implementation_and_review_2026-10-02.md), [review guide](docs/54_colleague_figma_clickthrough_guide.md). Ready for colleague review; not runtime or live approval.
 
 Current plan / Актуальный план: [55](docs/55_consolidated_product_plan_2026-10-02.md), [GitHub work plan 56](docs/56_git_work_plan_2026-10-02.md), [ADR-0013](docs/decisions/0013_consolidated_ux_and_risk_boundaries.md). Demo must be offered, but individual completion is optional; service verification and separate live gates remain mandatory. Демо предлагается при первом входе, прохождение необязательно; проверка сервиса и отдельные live-gates сохраняются. These are requirements, not implemented application features.
