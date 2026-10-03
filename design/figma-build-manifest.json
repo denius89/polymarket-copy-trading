@@ -1,13 +1,13 @@
 {
-  "version": 13,
-  "updatedAt": "2026-10-02",
+  "version": 14,
+  "updatedAt": "2026-10-03",
   "file": {
     "name": "Controlled Copy Trading — Paper MVP",
     "fileKey": "lxPP2um7FvIbt02K8eeH4T",
     "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T",
     "plan": "Professional",
     "seat": "Full",
-    "status": "remediation package implemented and structurally checked; colleague acceptance and runtime/live contracts pending"
+    "status": "current prototype organized; unused originals archived; full visual/functional colleague acceptance pending"
   },
   "pages": [
     {
@@ -18,30 +18,34 @@
     {
       "name": "01 · Приложение · EN",
       "nodeId": "29:2",
-      "startingPoint": "905:8563",
+      "startingPoint": "905:1754",
       "status": "active",
-      "prototypeEntryNode": "905:8563"
+      "prototypeEntryNode": "905:1754",
+      "firstEntryNode": "954:19101"
     },
     {
       "name": "02 · Приложение · RU",
       "nodeId": "33:2",
-      "startingPoint": "888:2163",
+      "startingPoint": "888:1701",
       "status": "active",
-      "prototypeEntryNode": "888:2163"
+      "prototypeEntryNode": "888:1701",
+      "firstEntryNode": "954:4956"
     },
     {
-      "name": "03 · Desktop · EN",
+      "name": "03 · Десктоп · EN",
       "nodeId": "186:2",
-      "prototypeEntryNode": "905:10021",
+      "prototypeEntryNode": "905:9713",
       "status": "active",
-      "startingPoint": "905:10021"
+      "startingPoint": "905:9713",
+      "firstEntryNode": "955:18385"
     },
     {
-      "name": "04 · Desktop · RU",
+      "name": "04 · Десктоп · RU",
       "nodeId": "205:2",
-      "prototypeEntryNode": "905:9382",
+      "prototypeEntryNode": "905:9074",
       "status": "active",
-      "startingPoint": "905:9382"
+      "startingPoint": "905:9074",
+      "firstEntryNode": "955:3790"
     },
     {
       "name": "05 · Админка",
@@ -67,13 +71,11 @@
     {
       "name": "90 · Архив · Схема EN",
       "nodeId": "2:78",
-      "startingPoint": "12:2",
       "status": "reference"
     },
     {
       "name": "91 · Архив · Схема RU",
       "nodeId": "7:10",
-      "startingPoint": "14:2",
       "status": "reference"
     },
     {
@@ -95,6 +97,11 @@
       "nodeId": "121:1943",
       "name": "95 · Архив восстановления",
       "status": "reference"
+    },
+    {
+      "name": "96 · Архив · Неиспользуемые экраны · 03.10.2026",
+      "nodeId": "1099:2",
+      "status": "archived"
     }
   ],
   "foundations": {
@@ -940,13 +947,53 @@
       "mobile": 390
     },
     "canonicalFrames": 212,
-    "archive": "unchanged reference material",
+    "archive": "Unused route chooser and replaced controls moved to archive 96; use archiveRevision20261003 for current entries.",
     "frontendAndApi": "not implemented",
     "startingPoints": {
       "29:2": "905:8563",
       "33:2": "888:2163",
       "186:2": "905:10021",
       "205:2": "905:9382"
-    }
+    },
+    "historical": true
+  },
+  "archiveRevision20261003": {
+    "report": "docs/67_figma_archive_revision_2026-10-03.md",
+    "ledger": "design/qa-2026-10-03/archive-final-ledger.json",
+    "componentQa": "design/qa-2026-10-03/archive-component-qa.json",
+    "archivePage": "1099:2",
+    "archivedOriginalRoots": 551,
+    "deletedNodes": 0,
+    "retainedUserRootObjects": 543,
+    "retainedAdminRootObjects": 25,
+    "retainedQaRootObjects": 1,
+    "activeActionsIntoArchive": 0,
+    "missingActionTargets": 0,
+    "checkedUserComponentInstances": 5481,
+    "status": "organization complete; full product acceptance remains pending",
+    "startingPoints": {
+      "29:2": {
+        "activeDemo": "905:1754",
+        "firstEntry": "954:19101"
+      },
+      "33:2": {
+        "activeDemo": "888:1701",
+        "firstEntry": "954:4956"
+      },
+      "186:2": {
+        "activeDemo": "905:9713",
+        "firstEntry": "955:18385"
+      },
+      "205:2": {
+        "activeDemo": "905:9074",
+        "firstEntry": "955:3790"
+      }
+    },
+    "historicalEntries": [
+      "888:2163",
+      "905:8563",
+      "905:9382",
+      "905:10021"
+    ]
   }
 }
