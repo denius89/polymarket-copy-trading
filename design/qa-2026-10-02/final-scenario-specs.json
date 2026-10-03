@@ -1,0 +1,126 @@
+{
+  "beforeRU": [
+    {
+      "key": "before-funds",
+      "title": "Средства",
+      "status": "Демо · начальный виртуальный бюджет",
+      "body": "Для знакомства с копированием доступен виртуальный бюджет 200 $. Демо-сессия ещё не запущена. Эти средства нельзя пополнить или вывести; реальные счета площадок подключаются отдельно.",
+      "rows": [
+        [
+          "Виртуальный бюджет",
+          "200,00 $"
+        ]
+      ],
+      "action": "Выбрать трейдера",
+      "target": "return"
+    },
+    {
+      "key": "before-positions",
+      "title": "Позиции",
+      "status": "Копирование ещё не запущено",
+      "body": "Выберите трейдера, проверьте настройки и запустите демо-копирование. Позиции появятся после исполнения покупки. Отправленная заявка сама по себе не является позицией.",
+      "action": "Выбрать трейдера",
+      "target": "return"
+    },
+    {
+      "key": "before-activity",
+      "title": "События",
+      "status": "Копирование ещё не запущено",
+      "body": "После запуска здесь появятся действия трейдера, проверки ограничений, заявки, исполнения и причины пропуска.",
+      "action": "Выбрать трейдера",
+      "target": "return"
+    }
+  ],
+  "beforeEN": [
+    {
+      "key": "before-funds",
+      "title": "Funds",
+      "status": "Demo · initial virtual budget",
+      "body": "Try copying with a $200 virtual budget. No demo session has started yet. Virtual funds cannot be deposited or withdrawn; real venue accounts are connected separately.",
+      "rows": [
+        [
+          "Virtual budget",
+          "$200.00"
+        ]
+      ],
+      "action": "Choose a trader",
+      "target": "return"
+    },
+    {
+      "key": "before-positions",
+      "title": "Positions",
+      "status": "Copying has not started",
+      "body": "Choose a trader, review settings and start demo copying. Positions appear after a buy fills. A submitted order alone is not a position.",
+      "action": "Choose a trader",
+      "target": "return"
+    },
+    {
+      "key": "before-activity",
+      "title": "Activity",
+      "status": "Copying has not started",
+      "body": "After launch, trader activity, limit checks, orders, fills and skip reasons will appear here.",
+      "action": "Choose a trader",
+      "target": "return"
+    }
+  ],
+  "telegramRU": [
+    {
+      "key": "telegram-off",
+      "title": "Telegram-уведомления",
+      "status": "Не подключён · необязательно",
+      "body": "Основные уведомления доступны в приложении. Telegram можно подключить отдельно для выбранной сводки и существенных событий. Подключение не меняет права на деньги или копирование.",
+      "action": "Открыть инструкцию подключения",
+      "next": "telegram-pending"
+    },
+    {
+      "key": "telegram-pending",
+      "title": "Подключение Telegram",
+      "status": "Ожидаем подтверждение",
+      "body": "Откройте бота по ссылке продукта, подтвердите связь с этой учётной записью и вернитесь для проверки. До подтверждения сообщения в Telegram не отправляются. Этот прототип показывает подготовленные состояния, а не реальную авторизацию бота.",
+      "action": "Посмотреть подтверждённый пример",
+      "next": "telegram-connected",
+      "secondary": "Отменить подключение",
+      "secondaryNext": "telegram-off"
+    },
+    {
+      "key": "telegram-connected",
+      "title": "Telegram подключён",
+      "status": "Подготовленный пример подключения",
+      "body": "Выбранная сводка приходит в одном ритме: недельная по умолчанию или дневная по выбору. Существенные события остаются отдельными. Подключение можно отключить; сообщения в приложении продолжат работать.",
+      "action": "Изменить частоту сводки",
+      "next": "notifications-weekly",
+      "secondary": "Отключить Telegram",
+      "secondaryNext": "telegram-off"
+    }
+  ],
+  "telegramEN": [
+    {
+      "key": "telegram-off",
+      "title": "Telegram notifications",
+      "status": "Not connected · optional",
+      "body": "Core notifications are available in the app. Connect Telegram separately for your chosen summary and significant events. Connecting does not change money or copying permissions.",
+      "action": "Open connection instructions",
+      "next": "telegram-pending"
+    },
+    {
+      "key": "telegram-pending",
+      "title": "Connect Telegram",
+      "status": "Waiting for confirmation",
+      "body": "Open the bot through the product link, confirm this account connection and return to check. Telegram messages are not sent before confirmation. This prototype shows prepared states, not real bot authorisation.",
+      "action": "View confirmed example",
+      "next": "telegram-connected",
+      "secondary": "Cancel connection",
+      "secondaryNext": "telegram-off"
+    },
+    {
+      "key": "telegram-connected",
+      "title": "Telegram connected",
+      "status": "Prepared connection example",
+      "body": "Summaries follow one chosen frequency: weekly by default or daily by choice. Significant events remain separate. You can disconnect Telegram; in-app notifications continue to work.",
+      "action": "Change summary frequency",
+      "next": "notifications-weekly",
+      "secondary": "Disconnect Telegram",
+      "secondaryNext": "telegram-off"
+    }
+  ]
+}
