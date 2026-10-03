@@ -1,5 +1,9 @@
 # Controlled Copy Trading
 
+Current Figma iteration: [compact filters, shared header and separate accounts — report 66](docs/66_compact_filters_header_and_funds_2026-10-03.md).
+
+Current design status: visual regression confirmed; the prototype is not approved. [Diagnosis and proposed recovery — report 63 (RU)](docs/63_design_regression_and_recovery_report_2026-10-02.md). No Figma rebuild was performed in this review cycle.
+
 Current Figma review / Актуальная проверка: [report62](docs/62_visual_audit_fixes_2026-10-02.md), [four starts / четыре старта61](docs/61_colleague_corrections_implementation_2026-10-02.md).53×4 connected states;1440/390.
 
 Populated Figma review: [report 59](docs/59_interactive_test_data_implementation_2026-10-02.md), [review guide 54](docs/54_colleague_figma_clickthrough_guide.md). Long lists, prepared filters, sorting and contextual details are available in four variants.

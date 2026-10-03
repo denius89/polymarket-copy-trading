@@ -1,5 +1,9 @@
 # Controlled Copy Trading
 
+Актуальная итерация Figma: [компактные фильтры, шапка и средства — отчёт 66](docs/66_compact_filters_header_and_funds_2026-10-03.md).
+
+Актуальный статус дизайна: визуальная регрессия подтверждена; прототип не утверждён. [Причины и план восстановления — отчёт 63](docs/63_design_regression_and_recovery_report_2026-10-02.md). Перестройка Figma в этом цикле не выполнялась.
+
 Current Figma review / Актуальная проверка: [report62](docs/62_visual_audit_fixes_2026-10-02.md), [four starts / четыре старта61](docs/61_colleague_corrections_implementation_2026-10-02.md).53×4 connected states;1440/390.
 
 Наполненный кликабельный пример: [отчёт 59](docs/59_interactive_test_data_implementation_2026-10-02.md) и [инструкция 54](docs/54_colleague_figma_clickthrough_guide.md). Добавлены длинные списки, фильтры, сортировка и связанные детали для четырёх версий Figma.
