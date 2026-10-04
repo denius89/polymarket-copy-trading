@@ -1,0 +1,5387 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "interactive-2026-10-02",
+  "synthetic": true,
+  "purpose": "Figma review data only; not production math, prices, tariffs or API responses",
+  "asOf": "2026-10-02T12:00:00Z",
+  "currency": "USD",
+  "amountUnit": "integer cents",
+  "feePolicy": {
+    "feeCentsPerFill": 1,
+    "syntheticOnly": true,
+    "serviceFeeCents": 0,
+    "note": "Fixed test execution expense; not a proposed product tariff or venue fee.",
+    "reserveAssumption": "Each remaining order has one additional synthetic fill fee reserved. Production partial-fill fee rules are not inferred."
+  },
+  "contexts": {
+    "first_launch": {
+      "sessionStage": "empty",
+      "startingCents": 20000,
+      "availableCents": 20000,
+      "reservedCents": 0,
+      "positionIds": [],
+      "eventIds": []
+    },
+    "active_review": {
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "traderId": "trader-01",
+      "startingCents": 20000,
+      "cashCents": 18617,
+      "reservedCents": 579,
+      "availableCents": 18038,
+      "costBasisCents": 1505,
+      "markValueCents": 2360,
+      "equityCents": 20977,
+      "realizedPnlCents": 122,
+      "unrealizedPnlCents": 855,
+      "totalPnlCents": 977,
+      "executionExpensesCents": 33,
+      "note": "Separate prepared review history. Does not appear after a new user launch."
+    },
+    "future_accounts": {
+      "accountIds": [
+        "account-polymarket-future",
+        "account-limitless-future"
+      ],
+      "state": "not_connected",
+      "balances": null,
+      "note": "No fabricated deposits, payouts or spendable pooled balance."
+    }
+  },
+  "accounts": [
+    {
+      "id": "account-demo",
+      "mode": "demo",
+      "currency": "USD"
+    },
+    {
+      "id": "account-polymarket-future",
+      "mode": "future",
+      "venue": "polymarket",
+      "currency": "USD",
+      "state": "not_connected"
+    },
+    {
+      "id": "account-limitless-future",
+      "mode": "future",
+      "venue": "limitless",
+      "currency": "USD",
+      "state": "not_connected"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "session-active",
+      "traderId": "trader-01",
+      "accountId": "account-demo",
+      "status": "active",
+      "startingCents": 20000,
+      "startedAt": "2026-09-30T08:00:00Z",
+      "newBuyLimitCents": 3000,
+      "positionLimitCents": 2000,
+      "staleSignalSeconds": 30
+    }
+  ],
+  "markets": [
+    {
+      "id": "market-01",
+      "label": "Election outcome",
+      "venue": "polymarket",
+      "status": "open",
+      "labelRu": "Итоги выборов",
+      "questionRu": "Победит ли кандидат A на выборах?",
+      "questionEn": "Will candidate A win the election?",
+      "synthetic": true,
+      "outcomes": [
+        {
+          "id": "yes",
+          "labelRu": "Да",
+          "labelEn": "Yes"
+        },
+        {
+          "id": "no",
+          "labelRu": "Нет",
+          "labelEn": "No"
+        }
+      ]
+    },
+    {
+      "id": "market-02",
+      "label": "BTC above $80k",
+      "venue": "polymarket",
+      "status": "open",
+      "labelRu": "BTC выше80 тыс.$"
+    },
+    {
+      "id": "market-03",
+      "label": "Rate cut by December",
+      "venue": "polymarket",
+      "status": "open",
+      "labelRu": "Снижение ставки до декабря"
+    },
+    {
+      "id": "market-04",
+      "label": "ETH above $4k",
+      "venue": "polymarket",
+      "status": "open",
+      "labelRu": "ETH выше4 тыс.$"
+    },
+    {
+      "id": "market-05",
+      "label": "Oil above $90",
+      "venue": "polymarket",
+      "status": "resolved_awaiting_payout",
+      "resolvedOutcome": "YES",
+      "labelRu": "Нефть выше 90$"
+    },
+    {
+      "id": "market-06",
+      "label": "Inflation below 3%",
+      "venue": "polymarket",
+      "status": "open",
+      "labelRu": "Инфляция ниже 3%"
+    },
+    {
+      "id": "market-07",
+      "label": "Championship winner",
+      "venue": "polymarket",
+      "status": "open",
+      "labelRu": "Победитель чемпионата"
+    },
+    {
+      "id": "market-08",
+      "label": "Space launch success",
+      "venue": "polymarket",
+      "status": "open",
+      "labelRu": "Успешный запуск ракеты"
+    },
+    {
+      "id": "market-09",
+      "label": "Gold above $3k",
+      "venue": "polymarket",
+      "status": "open",
+      "labelRu": "Золото выше3 тыс.$"
+    },
+    {
+      "id": "market-10",
+      "label": "GDP growth above 2%",
+      "venue": "polymarket",
+      "status": "open",
+      "labelRu": "Рост ВВП выше 2%"
+    },
+    {
+      "id": "market-11",
+      "label": "Policy vote",
+      "venue": "polymarket",
+      "status": "open",
+      "labelRu": "Голосование по закону"
+    },
+    {
+      "id": "market-12",
+      "label": "Product launch",
+      "venue": "polymarket",
+      "status": "open",
+      "labelRu": "Запуск продукта"
+    },
+    {
+      "id": "market-13",
+      "label": "BTC daily range",
+      "venue": "limitless",
+      "status": "open",
+      "labelRu": "Дневной диапазон BTC"
+    },
+    {
+      "id": "market-14",
+      "label": "ETH daily close",
+      "venue": "limitless",
+      "status": "open",
+      "labelRu": "Закрытие дня ETH"
+    },
+    {
+      "id": "market-15",
+      "label": "SOL above $200",
+      "venue": "limitless",
+      "status": "open",
+      "labelRu": "SOL выше 200$"
+    },
+    {
+      "id": "market-16",
+      "label": "BTC hourly direction",
+      "venue": "limitless",
+      "status": "open",
+      "labelRu": "BTC: направление за час"
+    },
+    {
+      "id": "market-17",
+      "label": "ETH hourly direction",
+      "venue": "limitless",
+      "status": "open",
+      "labelRu": "ETH: направление за час"
+    },
+    {
+      "id": "market-18",
+      "label": "SOL daily range",
+      "venue": "limitless",
+      "status": "open",
+      "labelRu": "Дневной диапазон SOL"
+    },
+    {
+      "id": "market-19",
+      "label": "Gold daily range",
+      "venue": "limitless",
+      "status": "open",
+      "labelRu": "Дневной диапазон золота"
+    },
+    {
+      "id": "market-20",
+      "label": "Oil daily direction",
+      "venue": "limitless",
+      "status": "open",
+      "labelRu": "Нефть: направление дня"
+    },
+    {
+      "id": "market-21",
+      "label": "BTC weekly close",
+      "venue": "limitless",
+      "status": "open",
+      "labelRu": "BTC: закрытие недели"
+    },
+    {
+      "id": "market-22",
+      "label": "ETH weekly range",
+      "venue": "limitless",
+      "status": "open",
+      "labelRu": "Недельный диапазон ETH"
+    },
+    {
+      "id": "market-23",
+      "label": "Market volume threshold",
+      "venue": "limitless",
+      "status": "open",
+      "labelRu": "Объём торгов рынка"
+    },
+    {
+      "id": "market-24",
+      "label": "Token price threshold",
+      "venue": "limitless",
+      "status": "open",
+      "labelRu": "Порог цены токена"
+    }
+  ],
+  "traders": [
+    {
+      "id": "trader-01",
+      "name": "Momentum Fox",
+      "venue": "polymarket",
+      "synthetic": true,
+      "minimumBudgetCents": 5000,
+      "historyDays": 180,
+      "activityBand": "high",
+      "dataState": "current",
+      "publicPnlCents": 548,
+      "drawdownBasisPoints": 241,
+      "marketIds": [
+        "market-01",
+        "market-02",
+        "market-03",
+        "market-04",
+        "market-05",
+        "market-06",
+        "market-07",
+        "market-08",
+        "market-09",
+        "market-10",
+        "market-11",
+        "market-12"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "periods": {
+        "24h": {
+          "available": true,
+          "publicPnlCents": 44,
+          "turnoverCents": 1000,
+          "closedTrades": 2,
+          "successBasisPoints": 5000,
+          "drawdownBasisPoints": 241,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 1,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": 10
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": 6
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": 22
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": 32
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": 27
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": 44
+            }
+          ],
+          "winningClosedTrades": 1
+        },
+        "7d": {
+          "available": true,
+          "publicPnlCents": 164,
+          "turnoverCents": 7000,
+          "closedTrades": 5,
+          "successBasisPoints": 4000,
+          "drawdownBasisPoints": 241,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 7,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": 36
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": 23
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": 82
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": 118
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": 100
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": 164
+            }
+          ],
+          "winningClosedTrades": 2
+        },
+        "30d": {
+          "available": true,
+          "publicPnlCents": 548,
+          "turnoverCents": 30000,
+          "closedTrades": 12,
+          "successBasisPoints": 4167,
+          "drawdownBasisPoints": 241,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 30,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": 121
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": 77
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": 274
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": 395
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": 334
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": 548
+            }
+          ],
+          "winningClosedTrades": 5
+        },
+        "90d": {
+          "available": true,
+          "publicPnlCents": 1204,
+          "turnoverCents": 90000,
+          "closedTrades": 32,
+          "successBasisPoints": 4375,
+          "drawdownBasisPoints": 241,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 90,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": 265
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": 169
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": 602
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": 867
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": 734
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": 1204
+            }
+          ],
+          "winningClosedTrades": 14
+        }
+      },
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": true,
+      "address": "0x0000000000000000000000000000000000000001",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-02",
+      "name": "Steady Atlas",
+      "venue": "polymarket",
+      "synthetic": true,
+      "minimumBudgetCents": 10000,
+      "historyDays": 90,
+      "activityBand": "medium",
+      "dataState": "current",
+      "publicPnlCents": -411,
+      "drawdownBasisPoints": 282,
+      "marketIds": [
+        "market-02"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "periods": {
+        "24h": {
+          "available": true,
+          "publicPnlCents": -33,
+          "turnoverCents": 2000,
+          "closedTrades": 4,
+          "successBasisPoints": 5000,
+          "drawdownBasisPoints": 282,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 1,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": -7
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": -5
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": -16
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": -24
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": -20
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": -33
+            }
+          ],
+          "winningClosedTrades": 2
+        },
+        "7d": {
+          "available": true,
+          "publicPnlCents": -123,
+          "turnoverCents": 14000,
+          "closedTrades": 10,
+          "successBasisPoints": 4000,
+          "drawdownBasisPoints": 282,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 7,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": -27
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": -17
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": -62
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": -89
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": -75
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": -123
+            }
+          ],
+          "winningClosedTrades": 4
+        },
+        "30d": {
+          "available": true,
+          "publicPnlCents": -411,
+          "turnoverCents": 60000,
+          "closedTrades": 24,
+          "successBasisPoints": 4583,
+          "drawdownBasisPoints": 282,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 30,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": -90
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": -58
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": -206
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": -296
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": -251
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": -411
+            }
+          ],
+          "winningClosedTrades": 11
+        },
+        "90d": {
+          "available": true,
+          "publicPnlCents": -903,
+          "turnoverCents": 180000,
+          "closedTrades": 64,
+          "successBasisPoints": 4531,
+          "drawdownBasisPoints": 282,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 90,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": -199
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": -126
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": -452
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": -650
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": -551
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": -903
+            }
+          ],
+          "winningClosedTrades": 29
+        }
+      },
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": true,
+      "address": "0x0000000000000000000000000000000000000002",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-03",
+      "name": "Quiet River",
+      "venue": "polymarket",
+      "synthetic": true,
+      "minimumBudgetCents": 20000,
+      "historyDays": 7,
+      "activityBand": "low",
+      "dataState": "current",
+      "publicPnlCents": null,
+      "drawdownBasisPoints": null,
+      "marketIds": [
+        "market-03"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "periods": {
+        "24h": {
+          "available": true,
+          "publicPnlCents": 22,
+          "turnoverCents": 3000,
+          "closedTrades": 6,
+          "successBasisPoints": 5000,
+          "drawdownBasisPoints": 323,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 1,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": 5
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": 3
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": 11
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": 16
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": 13
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": 22
+            }
+          ],
+          "winningClosedTrades": 3
+        },
+        "7d": {
+          "available": true,
+          "publicPnlCents": 82,
+          "turnoverCents": 21000,
+          "closedTrades": 15,
+          "successBasisPoints": 4667,
+          "drawdownBasisPoints": 323,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 7,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": 18
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": 11
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": 41
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": 59
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": 50
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": 82
+            }
+          ],
+          "winningClosedTrades": 7
+        },
+        "30d": {
+          "available": false,
+          "publicPnlCents": null,
+          "turnoverCents": null,
+          "closedTrades": null,
+          "successBasisPoints": null,
+          "drawdownBasisPoints": null,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 7,
+          "unavailableReason": "insufficient_history",
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": null,
+          "winningClosedTrades": null
+        },
+        "90d": {
+          "available": false,
+          "publicPnlCents": null,
+          "turnoverCents": null,
+          "closedTrades": null,
+          "successBasisPoints": null,
+          "drawdownBasisPoints": null,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 7,
+          "unavailableReason": "insufficient_history",
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": null,
+          "winningClosedTrades": null
+        }
+      },
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": false,
+      "address": "0x0000000000000000000000000000000000000003",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-04",
+      "name": "Market Finch",
+      "venue": "polymarket",
+      "synthetic": true,
+      "minimumBudgetCents": 30000,
+      "historyDays": 180,
+      "activityBand": "high",
+      "dataState": "current",
+      "publicPnlCents": 1096,
+      "drawdownBasisPoints": 412,
+      "marketIds": [
+        "market-04"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": true,
+      "address": "0x0000000000000000000000000000000000000004",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-05",
+      "name": "Signal Oak",
+      "venue": "polymarket",
+      "synthetic": true,
+      "minimumBudgetCents": 5000,
+      "historyDays": 7,
+      "activityBand": "medium",
+      "dataState": "current",
+      "publicPnlCents": null,
+      "drawdownBasisPoints": null,
+      "marketIds": [
+        "market-05"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": false,
+      "address": "0x0000000000000000000000000000000000000005",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-06",
+      "name": "North Star",
+      "venue": "polymarket",
+      "synthetic": true,
+      "minimumBudgetCents": 10000,
+      "historyDays": 30,
+      "activityBand": "low",
+      "dataState": "current",
+      "publicPnlCents": -822,
+      "drawdownBasisPoints": 518,
+      "marketIds": [
+        "market-06"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": true,
+      "address": "0x0000000000000000000000000000000000000006",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-07",
+      "name": "Test trader 07",
+      "venue": "polymarket",
+      "synthetic": true,
+      "minimumBudgetCents": 20000,
+      "historyDays": 90,
+      "activityBand": "high",
+      "dataState": "current",
+      "publicPnlCents": 685,
+      "drawdownBasisPoints": 571,
+      "marketIds": [
+        "market-07"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": true,
+      "address": "0x0000000000000000000000000000000000000007",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-08",
+      "name": "Test trader 08",
+      "venue": "polymarket",
+      "synthetic": true,
+      "minimumBudgetCents": 30000,
+      "historyDays": 180,
+      "activityBand": "medium",
+      "dataState": "stale",
+      "publicPnlCents": -548,
+      "drawdownBasisPoints": 624,
+      "marketIds": [
+        "market-08"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": true,
+      "address": "0x0000000000000000000000000000000000000008",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-09",
+      "name": "Test trader 09",
+      "venue": "polymarket",
+      "synthetic": true,
+      "minimumBudgetCents": 5000,
+      "historyDays": 7,
+      "activityBand": "low",
+      "dataState": "current",
+      "publicPnlCents": null,
+      "drawdownBasisPoints": null,
+      "marketIds": [
+        "market-09"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": false,
+      "address": "0x0000000000000000000000000000000000000009",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-10",
+      "name": "Test trader 10",
+      "venue": "polymarket",
+      "synthetic": true,
+      "minimumBudgetCents": 10000,
+      "historyDays": 30,
+      "activityBand": "high",
+      "dataState": "current",
+      "publicPnlCents": 274,
+      "drawdownBasisPoints": 730,
+      "marketIds": [
+        "market-10"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": true,
+      "address": "0x000000000000000000000000000000000000000a",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-11",
+      "name": "Test trader 11",
+      "venue": "polymarket",
+      "synthetic": true,
+      "minimumBudgetCents": 20000,
+      "historyDays": 90,
+      "activityBand": "medium",
+      "dataState": "insufficient",
+      "publicPnlCents": -137,
+      "drawdownBasisPoints": 783,
+      "marketIds": [
+        "market-11"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": false,
+      "address": "0x000000000000000000000000000000000000000b",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-12",
+      "name": "Test trader 12",
+      "venue": "polymarket",
+      "synthetic": true,
+      "minimumBudgetCents": 30000,
+      "historyDays": 180,
+      "activityBand": "low",
+      "dataState": "current",
+      "publicPnlCents": 0,
+      "drawdownBasisPoints": 836,
+      "marketIds": [
+        "market-12"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": true,
+      "address": "0x000000000000000000000000000000000000000c",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-13",
+      "name": "Test trader 13",
+      "venue": "limitless",
+      "synthetic": true,
+      "minimumBudgetCents": 5000,
+      "historyDays": 180,
+      "activityBand": "high",
+      "dataState": "current",
+      "publicPnlCents": -1096,
+      "drawdownBasisPoints": 733,
+      "marketIds": [
+        "market-13"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "periods": {
+        "24h": {
+          "available": true,
+          "publicPnlCents": -88,
+          "turnoverCents": 13000,
+          "closedTrades": 26,
+          "successBasisPoints": 6154,
+          "drawdownBasisPoints": 733,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 1,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": -19
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": -12
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": -44
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": -63
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": -54
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": -88
+            }
+          ],
+          "winningClosedTrades": 16
+        },
+        "7d": {
+          "available": true,
+          "publicPnlCents": -328,
+          "turnoverCents": 91000,
+          "closedTrades": 65,
+          "successBasisPoints": 6000,
+          "drawdownBasisPoints": 733,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 7,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": -72
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": -46
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": -164
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": -236
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": -200
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": -328
+            }
+          ],
+          "winningClosedTrades": 39
+        },
+        "30d": {
+          "available": true,
+          "publicPnlCents": -1096,
+          "turnoverCents": 390000,
+          "closedTrades": 156,
+          "successBasisPoints": 5962,
+          "drawdownBasisPoints": 733,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 30,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": -241
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": -153
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": -548
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": -789
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": -669
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": -1096
+            }
+          ],
+          "winningClosedTrades": 93
+        },
+        "90d": {
+          "available": true,
+          "publicPnlCents": -2408,
+          "turnoverCents": 1170000,
+          "closedTrades": 416,
+          "successBasisPoints": 5986,
+          "drawdownBasisPoints": 733,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 90,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": -530
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": -337
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": -1204
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": -1734
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": -1469
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": -2408
+            }
+          ],
+          "winningClosedTrades": 249
+        }
+      },
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": true,
+      "address": "0x000000000000000000000000000000000000000d",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-14",
+      "name": "Test trader 14",
+      "venue": "limitless",
+      "synthetic": true,
+      "minimumBudgetCents": 10000,
+      "historyDays": 30,
+      "activityBand": "medium",
+      "dataState": "current",
+      "publicPnlCents": 1233,
+      "drawdownBasisPoints": 774,
+      "marketIds": [
+        "market-14"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "periods": {
+        "24h": {
+          "available": true,
+          "publicPnlCents": 99,
+          "turnoverCents": 14000,
+          "closedTrades": 28,
+          "successBasisPoints": 6071,
+          "drawdownBasisPoints": 774,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 1,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": 22
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": 14
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": 50
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": 71
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": 60
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": 99
+            }
+          ],
+          "winningClosedTrades": 17
+        },
+        "7d": {
+          "available": true,
+          "publicPnlCents": 369,
+          "turnoverCents": 98000,
+          "closedTrades": 70,
+          "successBasisPoints": 6143,
+          "drawdownBasisPoints": 774,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 7,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": 81
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": 52
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": 184
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": 266
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": 225
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": 369
+            }
+          ],
+          "winningClosedTrades": 43
+        },
+        "30d": {
+          "available": true,
+          "publicPnlCents": 1233,
+          "turnoverCents": 420000,
+          "closedTrades": 168,
+          "successBasisPoints": 6131,
+          "drawdownBasisPoints": 774,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 30,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": 271
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": 173
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": 616
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": 888
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": 752
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": 1233
+            }
+          ],
+          "winningClosedTrades": 103
+        },
+        "90d": {
+          "available": false,
+          "publicPnlCents": null,
+          "turnoverCents": null,
+          "closedTrades": null,
+          "successBasisPoints": null,
+          "drawdownBasisPoints": null,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 30,
+          "unavailableReason": "insufficient_history",
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": null,
+          "winningClosedTrades": null
+        }
+      },
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": true,
+      "address": "0x000000000000000000000000000000000000000e",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-15",
+      "name": "Test trader 15",
+      "venue": "limitless",
+      "synthetic": true,
+      "minimumBudgetCents": 20000,
+      "historyDays": 90,
+      "activityBand": "low",
+      "dataState": "current",
+      "publicPnlCents": -1370,
+      "drawdownBasisPoints": 815,
+      "marketIds": [
+        "market-15"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "periods": {
+        "24h": {
+          "available": true,
+          "publicPnlCents": -110,
+          "turnoverCents": 15000,
+          "closedTrades": 30,
+          "successBasisPoints": 6333,
+          "drawdownBasisPoints": 815,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 1,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": -24
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": -15
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": -55
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": -79
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": -67
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": -110
+            }
+          ],
+          "winningClosedTrades": 19
+        },
+        "7d": {
+          "available": true,
+          "publicPnlCents": -410,
+          "turnoverCents": 105000,
+          "closedTrades": 75,
+          "successBasisPoints": 6267,
+          "drawdownBasisPoints": 815,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 7,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": -90
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": -57
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": -205
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": -295
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": -250
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": -410
+            }
+          ],
+          "winningClosedTrades": 47
+        },
+        "30d": {
+          "available": true,
+          "publicPnlCents": -1370,
+          "turnoverCents": 450000,
+          "closedTrades": 180,
+          "successBasisPoints": 6278,
+          "drawdownBasisPoints": 815,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 30,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": -301
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": -192
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": -685
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": -986
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": -836
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": -1370
+            }
+          ],
+          "winningClosedTrades": 113
+        },
+        "90d": {
+          "available": true,
+          "publicPnlCents": -3010,
+          "turnoverCents": 1350000,
+          "closedTrades": 480,
+          "successBasisPoints": 6250,
+          "drawdownBasisPoints": 815,
+          "asOf": "2026-10-02T12:00:00Z",
+          "coverageDays": 90,
+          "chartSyntheticIllustration": true,
+          "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
+          "chartPoints": [
+            {
+              "index": 0,
+              "cumulativePnlCents": 0
+            },
+            {
+              "index": 1,
+              "cumulativePnlCents": -662
+            },
+            {
+              "index": 2,
+              "cumulativePnlCents": -421
+            },
+            {
+              "index": 3,
+              "cumulativePnlCents": -1505
+            },
+            {
+              "index": 4,
+              "cumulativePnlCents": -2167
+            },
+            {
+              "index": 5,
+              "cumulativePnlCents": -1836
+            },
+            {
+              "index": 6,
+              "cumulativePnlCents": -3010
+            }
+          ],
+          "winningClosedTrades": 300
+        }
+      },
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": true,
+      "address": "0x000000000000000000000000000000000000000f",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-16",
+      "name": "Test trader 16",
+      "venue": "limitless",
+      "synthetic": true,
+      "minimumBudgetCents": 30000,
+      "historyDays": 180,
+      "activityBand": "high",
+      "dataState": "current",
+      "publicPnlCents": 548,
+      "drawdownBasisPoints": 1048,
+      "marketIds": [
+        "market-16"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": true,
+      "address": "0x0000000000000000000000000000000000000010",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-17",
+      "name": "Test trader 17",
+      "venue": "limitless",
+      "synthetic": true,
+      "minimumBudgetCents": 5000,
+      "historyDays": 7,
+      "activityBand": "medium",
+      "dataState": "current",
+      "publicPnlCents": null,
+      "drawdownBasisPoints": null,
+      "marketIds": [
+        "market-17"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": false,
+      "address": "0x0000000000000000000000000000000000000011",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-18",
+      "name": "Test trader 18",
+      "venue": "limitless",
+      "synthetic": true,
+      "minimumBudgetCents": 10000,
+      "historyDays": 30,
+      "activityBand": "low",
+      "dataState": "current",
+      "publicPnlCents": -822,
+      "drawdownBasisPoints": 1154,
+      "marketIds": [
+        "market-18"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": true,
+      "address": "0x0000000000000000000000000000000000000012",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-19",
+      "name": "Test trader 19",
+      "venue": "limitless",
+      "synthetic": true,
+      "minimumBudgetCents": 20000,
+      "historyDays": 90,
+      "activityBand": "high",
+      "dataState": "current",
+      "publicPnlCents": 959,
+      "drawdownBasisPoints": 1207,
+      "marketIds": [
+        "market-19"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": true,
+      "address": "0x0000000000000000000000000000000000000013",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-20",
+      "name": "Test trader 20",
+      "venue": "limitless",
+      "synthetic": true,
+      "minimumBudgetCents": 30000,
+      "historyDays": 180,
+      "activityBand": "medium",
+      "dataState": "current",
+      "publicPnlCents": -1096,
+      "drawdownBasisPoints": 1260,
+      "marketIds": [
+        "market-20"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": true,
+      "address": "0x0000000000000000000000000000000000000014",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-21",
+      "name": "Test trader 21",
+      "venue": "limitless",
+      "synthetic": true,
+      "minimumBudgetCents": 5000,
+      "historyDays": 7,
+      "activityBand": "low",
+      "dataState": "current",
+      "publicPnlCents": null,
+      "drawdownBasisPoints": null,
+      "marketIds": [
+        "market-21"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": false,
+      "address": "0x0000000000000000000000000000000000000015",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-22",
+      "name": "Test trader 22",
+      "venue": "limitless",
+      "synthetic": true,
+      "minimumBudgetCents": 10000,
+      "historyDays": 30,
+      "activityBand": "high",
+      "dataState": "current",
+      "publicPnlCents": 1370,
+      "drawdownBasisPoints": 1366,
+      "marketIds": [
+        "market-22"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": true,
+      "address": "0x0000000000000000000000000000000000000016",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-23",
+      "name": "Test trader 23",
+      "venue": "limitless",
+      "synthetic": true,
+      "minimumBudgetCents": 20000,
+      "historyDays": 90,
+      "activityBand": "medium",
+      "dataState": "current",
+      "publicPnlCents": -1507,
+      "drawdownBasisPoints": 1419,
+      "marketIds": [
+        "market-23"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": true,
+      "address": "0x0000000000000000000000000000000000000017",
+      "addressSynthetic": true
+    },
+    {
+      "id": "trader-24",
+      "name": "Test trader 24",
+      "venue": "limitless",
+      "synthetic": true,
+      "minimumBudgetCents": 30000,
+      "historyDays": 180,
+      "activityBand": "low",
+      "dataState": "current",
+      "publicPnlCents": 0,
+      "drawdownBasisPoints": 1472,
+      "marketIds": [
+        "market-24"
+      ],
+      "rating": null,
+      "ratingReason": "Synthetic data is not a verified production score",
+      "catalogPeriod": "30d",
+      "catalogDataAvailable": true,
+      "address": "0x0000000000000000000000000000000000000018",
+      "addressSynthetic": true
+    }
+  ],
+  "positions": [
+    {
+      "id": "position-closed-01",
+      "traderId": "trader-01",
+      "sessionId": "session-active",
+      "marketId": "market-01",
+      "status": "closed",
+      "quantity": 0,
+      "costBasisCents": 0,
+      "markValueCents": 0,
+      "realizedPnlCents": 78,
+      "ledgerIds": [
+        "ledger-001",
+        "ledger-002"
+      ],
+      "management": "copy",
+      "outcomeId": "yes"
+    },
+    {
+      "id": "position-closed-02",
+      "traderId": "trader-01",
+      "sessionId": "session-active",
+      "marketId": "market-02",
+      "status": "closed",
+      "quantity": 0,
+      "costBasisCents": 0,
+      "markValueCents": 0,
+      "realizedPnlCents": -52,
+      "ledgerIds": [
+        "ledger-003",
+        "ledger-004"
+      ],
+      "management": "copy"
+    },
+    {
+      "id": "position-closed-03",
+      "traderId": "trader-01",
+      "sessionId": "session-active",
+      "marketId": "market-03",
+      "status": "closed",
+      "quantity": 0,
+      "costBasisCents": 0,
+      "markValueCents": 0,
+      "realizedPnlCents": 28,
+      "ledgerIds": [
+        "ledger-005",
+        "ledger-006"
+      ],
+      "management": "copy"
+    },
+    {
+      "id": "position-closed-04",
+      "traderId": "trader-01",
+      "sessionId": "session-active",
+      "marketId": "market-04",
+      "status": "closed",
+      "quantity": 0,
+      "costBasisCents": 0,
+      "markValueCents": 0,
+      "realizedPnlCents": -22,
+      "ledgerIds": [
+        "ledger-007",
+        "ledger-008"
+      ],
+      "management": "copy"
+    },
+    {
+      "id": "position-closed-05",
+      "traderId": "trader-01",
+      "sessionId": "session-active",
+      "marketId": "market-05",
+      "status": "closed",
+      "quantity": 0,
+      "costBasisCents": 0,
+      "markValueCents": 0,
+      "realizedPnlCents": 78,
+      "ledgerIds": [
+        "ledger-009",
+        "ledger-010"
+      ],
+      "management": "copy"
+    },
+    {
+      "id": "position-closed-06",
+      "traderId": "trader-01",
+      "sessionId": "session-active",
+      "marketId": "market-06",
+      "status": "closed",
+      "quantity": 0,
+      "costBasisCents": 0,
+      "markValueCents": 0,
+      "realizedPnlCents": -52,
+      "ledgerIds": [
+        "ledger-011",
+        "ledger-012"
+      ],
+      "management": "copy"
+    },
+    {
+      "id": "position-closed-07",
+      "traderId": "trader-01",
+      "sessionId": "session-active",
+      "marketId": "market-07",
+      "status": "closed",
+      "quantity": 0,
+      "costBasisCents": 0,
+      "markValueCents": 0,
+      "realizedPnlCents": 28,
+      "ledgerIds": [
+        "ledger-013",
+        "ledger-014"
+      ],
+      "management": "copy"
+    },
+    {
+      "id": "position-closed-08",
+      "traderId": "trader-01",
+      "sessionId": "session-active",
+      "marketId": "market-08",
+      "status": "closed",
+      "quantity": 0,
+      "costBasisCents": 0,
+      "markValueCents": 0,
+      "realizedPnlCents": -22,
+      "ledgerIds": [
+        "ledger-015",
+        "ledger-016"
+      ],
+      "management": "copy"
+    },
+    {
+      "id": "position-closed-09",
+      "traderId": "trader-01",
+      "sessionId": "session-active",
+      "marketId": "market-09",
+      "status": "closed",
+      "quantity": 0,
+      "costBasisCents": 0,
+      "markValueCents": 0,
+      "realizedPnlCents": 78,
+      "ledgerIds": [
+        "ledger-017",
+        "ledger-018"
+      ],
+      "management": "copy"
+    },
+    {
+      "id": "position-closed-10",
+      "traderId": "trader-01",
+      "sessionId": "session-active",
+      "marketId": "market-10",
+      "status": "closed",
+      "quantity": 0,
+      "costBasisCents": 0,
+      "markValueCents": 0,
+      "realizedPnlCents": -52,
+      "ledgerIds": [
+        "ledger-019",
+        "ledger-020"
+      ],
+      "management": "copy"
+    },
+    {
+      "id": "position-closed-11",
+      "traderId": "trader-01",
+      "sessionId": "session-active",
+      "marketId": "market-11",
+      "status": "closed",
+      "quantity": 0,
+      "costBasisCents": 0,
+      "markValueCents": 0,
+      "realizedPnlCents": 28,
+      "ledgerIds": [
+        "ledger-021",
+        "ledger-022"
+      ],
+      "management": "copy"
+    },
+    {
+      "id": "position-closed-12",
+      "traderId": "trader-01",
+      "sessionId": "session-active",
+      "marketId": "market-12",
+      "status": "closed",
+      "quantity": 0,
+      "costBasisCents": 0,
+      "markValueCents": 0,
+      "realizedPnlCents": -22,
+      "ledgerIds": [
+        "ledger-023",
+        "ledger-024"
+      ],
+      "management": "copy"
+    },
+    {
+      "id": "position-closed-13",
+      "traderId": "trader-01",
+      "sessionId": "session-active",
+      "marketId": "market-01",
+      "status": "closed",
+      "quantity": 0,
+      "costBasisCents": 0,
+      "markValueCents": 0,
+      "realizedPnlCents": 78,
+      "ledgerIds": [
+        "ledger-025",
+        "ledger-026"
+      ],
+      "management": "copy",
+      "outcomeId": "yes"
+    },
+    {
+      "id": "position-closed-14",
+      "traderId": "trader-01",
+      "sessionId": "session-active",
+      "marketId": "market-02",
+      "status": "closed",
+      "quantity": 0,
+      "costBasisCents": 0,
+      "markValueCents": 0,
+      "realizedPnlCents": -52,
+      "ledgerIds": [
+        "ledger-027",
+        "ledger-028"
+      ],
+      "management": "copy"
+    },
+    {
+      "id": "position-current-01",
+      "traderId": "trader-01",
+      "sessionId": "session-active",
+      "marketId": "market-01",
+      "status": "open",
+      "quantity": 10,
+      "costBasisCents": 301,
+      "markPriceCents": 34,
+      "markValueCents": 340,
+      "unrealizedPnlCents": 39,
+      "realizedPnlCents": 0,
+      "ledgerIds": [
+        "ledger-029"
+      ],
+      "management": "copy",
+      "outcomeId": "yes"
+    },
+    {
+      "id": "position-current-02",
+      "traderId": "trader-01",
+      "sessionId": "session-active",
+      "marketId": "market-02",
+      "status": "open",
+      "quantity": 10,
+      "costBasisCents": 401,
+      "markPriceCents": 38,
+      "markValueCents": 380,
+      "unrealizedPnlCents": -21,
+      "realizedPnlCents": 0,
+      "ledgerIds": [
+        "ledger-030"
+      ],
+      "management": "copy"
+    },
+    {
+      "id": "position-current-03",
+      "traderId": "trader-01",
+      "sessionId": "session-active",
+      "marketId": "market-03",
+      "status": "manual",
+      "quantity": 10,
+      "costBasisCents": 251,
+      "markPriceCents": 29,
+      "markValueCents": 290,
+      "unrealizedPnlCents": 39,
+      "realizedPnlCents": 0,
+      "ledgerIds": [
+        "ledger-031"
+      ],
+      "management": "manual"
+    },
+    {
+      "id": "position-current-04",
+      "traderId": "trader-01",
+      "sessionId": "session-active",
+      "marketId": "market-04",
+      "status": "close_pending",
+      "quantity": 10,
+      "costBasisCents": 351,
+      "markPriceCents": 35,
+      "markValueCents": 350,
+      "unrealizedPnlCents": -1,
+      "realizedPnlCents": 0,
+      "ledgerIds": [
+        "ledger-032"
+      ],
+      "management": "copy"
+    },
+    {
+      "id": "position-current-05",
+      "traderId": "trader-01",
+      "sessionId": "session-active",
+      "marketId": "market-05",
+      "status": "awaiting_settlement",
+      "quantity": 10,
+      "costBasisCents": 201,
+      "markPriceCents": 100,
+      "markValueCents": 1000,
+      "unrealizedPnlCents": 799,
+      "realizedPnlCents": 0,
+      "ledgerIds": [
+        "ledger-033"
+      ],
+      "management": "copy"
+    }
+  ],
+  "orders": [
+    {
+      "id": "order-closed-01-buy",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-01",
+      "side": "BUY",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 21,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-01",
+      "timestamp": "2026-09-30T09:00:00Z",
+      "signalId": "signal-closed-01-buy",
+      "estimatedRemainingFeeCents": 0,
+      "outcomeId": "yes"
+    },
+    {
+      "id": "order-closed-01-sell",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-01",
+      "side": "SELL",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 29,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-01",
+      "timestamp": "2026-09-30T10:00:00Z",
+      "signalId": "signal-closed-01-sell",
+      "estimatedRemainingFeeCents": 0,
+      "outcomeId": "yes"
+    },
+    {
+      "id": "order-closed-02-buy",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "side": "BUY",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 22,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-02",
+      "timestamp": "2026-09-30T11:00:00Z",
+      "signalId": "signal-closed-02-buy",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-02-sell",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "side": "SELL",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 17,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-02",
+      "timestamp": "2026-09-30T12:00:00Z",
+      "signalId": "signal-closed-02-sell",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-03-buy",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-03",
+      "side": "BUY",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 23,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-03",
+      "timestamp": "2026-09-30T13:00:00Z",
+      "signalId": "signal-closed-03-buy",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-03-sell",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-03",
+      "side": "SELL",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 26,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-03",
+      "timestamp": "2026-09-30T14:00:00Z",
+      "signalId": "signal-closed-03-sell",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-04-buy",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-04",
+      "side": "BUY",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 24,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-04",
+      "timestamp": "2026-09-30T15:00:00Z",
+      "signalId": "signal-closed-04-buy",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-04-sell",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-04",
+      "side": "SELL",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 22,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-04",
+      "timestamp": "2026-09-30T16:00:00Z",
+      "signalId": "signal-closed-04-sell",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-05-buy",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-05",
+      "side": "BUY",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 25,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-05",
+      "timestamp": "2026-09-30T17:00:00Z",
+      "signalId": "signal-closed-05-buy",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-05-sell",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-05",
+      "side": "SELL",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 33,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-05",
+      "timestamp": "2026-09-30T18:00:00Z",
+      "signalId": "signal-closed-05-sell",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-06-buy",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-06",
+      "side": "BUY",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 26,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-06",
+      "timestamp": "2026-09-30T19:00:00Z",
+      "signalId": "signal-closed-06-buy",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-06-sell",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-06",
+      "side": "SELL",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 21,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-06",
+      "timestamp": "2026-09-30T20:00:00Z",
+      "signalId": "signal-closed-06-sell",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-07-buy",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-07",
+      "side": "BUY",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 27,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-07",
+      "timestamp": "2026-09-30T21:00:00Z",
+      "signalId": "signal-closed-07-buy",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-07-sell",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-07",
+      "side": "SELL",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 30,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-07",
+      "timestamp": "2026-09-30T22:00:00Z",
+      "signalId": "signal-closed-07-sell",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-08-buy",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-08",
+      "side": "BUY",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 28,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-08",
+      "timestamp": "2026-09-30T23:00:00Z",
+      "signalId": "signal-closed-08-buy",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-08-sell",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-08",
+      "side": "SELL",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 26,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-08",
+      "timestamp": "2026-10-01T00:00:00Z",
+      "signalId": "signal-closed-08-sell",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-09-buy",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-09",
+      "side": "BUY",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 29,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-09",
+      "timestamp": "2026-10-01T01:00:00Z",
+      "signalId": "signal-closed-09-buy",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-09-sell",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-09",
+      "side": "SELL",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 37,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-09",
+      "timestamp": "2026-10-01T02:00:00Z",
+      "signalId": "signal-closed-09-sell",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-10-buy",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-10",
+      "side": "BUY",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 30,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-10",
+      "timestamp": "2026-10-01T03:00:00Z",
+      "signalId": "signal-closed-10-buy",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-10-sell",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-10",
+      "side": "SELL",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 25,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-10",
+      "timestamp": "2026-10-01T04:00:00Z",
+      "signalId": "signal-closed-10-sell",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-11-buy",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-11",
+      "side": "BUY",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 31,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-11",
+      "timestamp": "2026-10-01T05:00:00Z",
+      "signalId": "signal-closed-11-buy",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-11-sell",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-11",
+      "side": "SELL",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 34,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-11",
+      "timestamp": "2026-10-01T06:00:00Z",
+      "signalId": "signal-closed-11-sell",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-12-buy",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-12",
+      "side": "BUY",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 32,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-12",
+      "timestamp": "2026-10-01T07:00:00Z",
+      "signalId": "signal-closed-12-buy",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-12-sell",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-12",
+      "side": "SELL",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 30,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-12",
+      "timestamp": "2026-10-01T08:00:00Z",
+      "signalId": "signal-closed-12-sell",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-13-buy",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-01",
+      "side": "BUY",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 33,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-13",
+      "timestamp": "2026-10-01T09:00:00Z",
+      "signalId": "signal-closed-13-buy",
+      "estimatedRemainingFeeCents": 0,
+      "outcomeId": "yes"
+    },
+    {
+      "id": "order-closed-13-sell",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-01",
+      "side": "SELL",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 41,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-13",
+      "timestamp": "2026-10-01T10:00:00Z",
+      "signalId": "signal-closed-13-sell",
+      "estimatedRemainingFeeCents": 0,
+      "outcomeId": "yes"
+    },
+    {
+      "id": "order-closed-14-buy",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "side": "BUY",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 34,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-14",
+      "timestamp": "2026-10-01T11:00:00Z",
+      "signalId": "signal-closed-14-buy",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-closed-14-sell",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "side": "SELL",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 29,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-closed-14",
+      "timestamp": "2026-10-01T12:00:00Z",
+      "signalId": "signal-closed-14-sell",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-current-01",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-01",
+      "side": "BUY",
+      "status": "partial",
+      "quantity": 15,
+      "limitPriceCents": 30,
+      "filledQuantity": 10,
+      "remainingQuantity": 5,
+      "reservedCents": 151,
+      "synthetic": true,
+      "positionId": "position-current-01",
+      "timestamp": "2026-10-01T13:00:00Z",
+      "signalId": "signal-current-01",
+      "estimatedRemainingFeeCents": 1,
+      "outcomeId": "yes"
+    },
+    {
+      "id": "order-current-02",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "side": "BUY",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 40,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-current-02",
+      "timestamp": "2026-10-01T14:00:00Z",
+      "signalId": "signal-current-02",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-current-03",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-03",
+      "side": "BUY",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 25,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-current-03",
+      "timestamp": "2026-10-01T15:00:00Z",
+      "signalId": "signal-current-03",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-current-04",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-04",
+      "side": "BUY",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 35,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-current-04",
+      "timestamp": "2026-10-01T16:00:00Z",
+      "signalId": "signal-current-04",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-current-05",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-05",
+      "side": "BUY",
+      "status": "filled",
+      "quantity": 10,
+      "limitPriceCents": 20,
+      "filledQuantity": 10,
+      "remainingQuantity": 0,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-current-05",
+      "timestamp": "2026-10-01T17:00:00Z",
+      "signalId": "signal-current-05",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-pending-01",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-06",
+      "side": "BUY",
+      "status": "open",
+      "quantity": 5,
+      "limitPriceCents": 40,
+      "filledQuantity": 0,
+      "remainingQuantity": 5,
+      "reservedCents": 201,
+      "synthetic": true,
+      "positionId": null,
+      "timestamp": "2026-10-02T10:00:00Z",
+      "signalId": "signal-pending-01",
+      "estimatedRemainingFeeCents": 1
+    },
+    {
+      "id": "order-pending-02",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-07",
+      "side": "BUY",
+      "status": "cancel_pending",
+      "quantity": 5,
+      "limitPriceCents": 25,
+      "filledQuantity": 0,
+      "remainingQuantity": 5,
+      "reservedCents": 126,
+      "synthetic": true,
+      "positionId": null,
+      "timestamp": "2026-10-02T10:00:00Z",
+      "signalId": "signal-pending-02",
+      "estimatedRemainingFeeCents": 1
+    },
+    {
+      "id": "order-other-01",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-08",
+      "side": "BUY",
+      "status": "canceled",
+      "quantity": 5,
+      "limitPriceCents": 20,
+      "filledQuantity": 0,
+      "remainingQuantity": 5,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": null,
+      "timestamp": "2026-10-02T10:00:00Z",
+      "signalId": "signal-other-01",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-other-02",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-09",
+      "side": "BUY",
+      "status": "canceled",
+      "quantity": 5,
+      "limitPriceCents": 20,
+      "filledQuantity": 0,
+      "remainingQuantity": 5,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": null,
+      "timestamp": "2026-10-02T10:00:00Z",
+      "signalId": "signal-other-02",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-other-03",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-10",
+      "side": "BUY",
+      "status": "rejected",
+      "quantity": 5,
+      "limitPriceCents": 20,
+      "filledQuantity": 0,
+      "remainingQuantity": 5,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": null,
+      "timestamp": "2026-10-02T10:00:00Z",
+      "signalId": "signal-other-03",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-other-04",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-11",
+      "side": "BUY",
+      "status": "error_before_send",
+      "quantity": 5,
+      "limitPriceCents": 20,
+      "filledQuantity": 0,
+      "remainingQuantity": 5,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": null,
+      "timestamp": "2026-10-02T10:00:00Z",
+      "signalId": "signal-other-04",
+      "estimatedRemainingFeeCents": 0
+    },
+    {
+      "id": "order-other-05",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-12",
+      "side": "BUY",
+      "status": "unknown",
+      "quantity": 5,
+      "limitPriceCents": 20,
+      "filledQuantity": 0,
+      "remainingQuantity": 5,
+      "reservedCents": 101,
+      "synthetic": true,
+      "positionId": null,
+      "timestamp": "2026-10-02T10:00:00Z",
+      "signalId": "signal-other-05",
+      "estimatedRemainingFeeCents": 1
+    },
+    {
+      "id": "order-close-pending-01",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-04",
+      "side": "SELL",
+      "status": "close_pending",
+      "quantity": 10,
+      "limitPriceCents": 35,
+      "filledQuantity": 0,
+      "remainingQuantity": 10,
+      "reservedCents": 0,
+      "synthetic": true,
+      "positionId": "position-current-04",
+      "timestamp": "2026-10-02T10:00:00Z",
+      "signalId": "signal-close-pending-01",
+      "estimatedRemainingFeeCents": 0
+    }
+  ],
+  "ledger": [
+    {
+      "id": "ledger-001",
+      "kind": "BUY",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-01",
+      "marketId": "market-01",
+      "quantity": 10,
+      "priceCents": 21,
+      "feeCents": 1,
+      "orderId": "order-closed-01-buy",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-09-30T09:00:00Z"
+    },
+    {
+      "id": "ledger-002",
+      "kind": "SELL",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-01",
+      "marketId": "market-01",
+      "quantity": 10,
+      "priceCents": 29,
+      "feeCents": 1,
+      "orderId": "order-closed-01-sell",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-09-30T10:00:00Z"
+    },
+    {
+      "id": "ledger-003",
+      "kind": "BUY",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-02",
+      "marketId": "market-02",
+      "quantity": 10,
+      "priceCents": 22,
+      "feeCents": 1,
+      "orderId": "order-closed-02-buy",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-09-30T11:00:00Z"
+    },
+    {
+      "id": "ledger-004",
+      "kind": "SELL",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-02",
+      "marketId": "market-02",
+      "quantity": 10,
+      "priceCents": 17,
+      "feeCents": 1,
+      "orderId": "order-closed-02-sell",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-09-30T12:00:00Z"
+    },
+    {
+      "id": "ledger-005",
+      "kind": "BUY",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-03",
+      "marketId": "market-03",
+      "quantity": 10,
+      "priceCents": 23,
+      "feeCents": 1,
+      "orderId": "order-closed-03-buy",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-09-30T13:00:00Z"
+    },
+    {
+      "id": "ledger-006",
+      "kind": "SELL",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-03",
+      "marketId": "market-03",
+      "quantity": 10,
+      "priceCents": 26,
+      "feeCents": 1,
+      "orderId": "order-closed-03-sell",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-09-30T14:00:00Z"
+    },
+    {
+      "id": "ledger-007",
+      "kind": "BUY",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-04",
+      "marketId": "market-04",
+      "quantity": 10,
+      "priceCents": 24,
+      "feeCents": 1,
+      "orderId": "order-closed-04-buy",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-09-30T15:00:00Z"
+    },
+    {
+      "id": "ledger-008",
+      "kind": "SELL",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-04",
+      "marketId": "market-04",
+      "quantity": 10,
+      "priceCents": 22,
+      "feeCents": 1,
+      "orderId": "order-closed-04-sell",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-09-30T16:00:00Z"
+    },
+    {
+      "id": "ledger-009",
+      "kind": "BUY",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-05",
+      "marketId": "market-05",
+      "quantity": 10,
+      "priceCents": 25,
+      "feeCents": 1,
+      "orderId": "order-closed-05-buy",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-09-30T17:00:00Z"
+    },
+    {
+      "id": "ledger-010",
+      "kind": "SELL",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-05",
+      "marketId": "market-05",
+      "quantity": 10,
+      "priceCents": 33,
+      "feeCents": 1,
+      "orderId": "order-closed-05-sell",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-09-30T18:00:00Z"
+    },
+    {
+      "id": "ledger-011",
+      "kind": "BUY",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-06",
+      "marketId": "market-06",
+      "quantity": 10,
+      "priceCents": 26,
+      "feeCents": 1,
+      "orderId": "order-closed-06-buy",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-09-30T19:00:00Z"
+    },
+    {
+      "id": "ledger-012",
+      "kind": "SELL",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-06",
+      "marketId": "market-06",
+      "quantity": 10,
+      "priceCents": 21,
+      "feeCents": 1,
+      "orderId": "order-closed-06-sell",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-09-30T20:00:00Z"
+    },
+    {
+      "id": "ledger-013",
+      "kind": "BUY",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-07",
+      "marketId": "market-07",
+      "quantity": 10,
+      "priceCents": 27,
+      "feeCents": 1,
+      "orderId": "order-closed-07-buy",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-09-30T21:00:00Z"
+    },
+    {
+      "id": "ledger-014",
+      "kind": "SELL",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-07",
+      "marketId": "market-07",
+      "quantity": 10,
+      "priceCents": 30,
+      "feeCents": 1,
+      "orderId": "order-closed-07-sell",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-09-30T22:00:00Z"
+    },
+    {
+      "id": "ledger-015",
+      "kind": "BUY",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-08",
+      "marketId": "market-08",
+      "quantity": 10,
+      "priceCents": 28,
+      "feeCents": 1,
+      "orderId": "order-closed-08-buy",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-09-30T23:00:00Z"
+    },
+    {
+      "id": "ledger-016",
+      "kind": "SELL",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-08",
+      "marketId": "market-08",
+      "quantity": 10,
+      "priceCents": 26,
+      "feeCents": 1,
+      "orderId": "order-closed-08-sell",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "ledger-017",
+      "kind": "BUY",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-09",
+      "marketId": "market-09",
+      "quantity": 10,
+      "priceCents": 29,
+      "feeCents": 1,
+      "orderId": "order-closed-09-buy",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-10-01T01:00:00Z"
+    },
+    {
+      "id": "ledger-018",
+      "kind": "SELL",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-09",
+      "marketId": "market-09",
+      "quantity": 10,
+      "priceCents": 37,
+      "feeCents": 1,
+      "orderId": "order-closed-09-sell",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-10-01T02:00:00Z"
+    },
+    {
+      "id": "ledger-019",
+      "kind": "BUY",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-10",
+      "marketId": "market-10",
+      "quantity": 10,
+      "priceCents": 30,
+      "feeCents": 1,
+      "orderId": "order-closed-10-buy",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-10-01T03:00:00Z"
+    },
+    {
+      "id": "ledger-020",
+      "kind": "SELL",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-10",
+      "marketId": "market-10",
+      "quantity": 10,
+      "priceCents": 25,
+      "feeCents": 1,
+      "orderId": "order-closed-10-sell",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-10-01T04:00:00Z"
+    },
+    {
+      "id": "ledger-021",
+      "kind": "BUY",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-11",
+      "marketId": "market-11",
+      "quantity": 10,
+      "priceCents": 31,
+      "feeCents": 1,
+      "orderId": "order-closed-11-buy",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-10-01T05:00:00Z"
+    },
+    {
+      "id": "ledger-022",
+      "kind": "SELL",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-11",
+      "marketId": "market-11",
+      "quantity": 10,
+      "priceCents": 34,
+      "feeCents": 1,
+      "orderId": "order-closed-11-sell",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-10-01T06:00:00Z"
+    },
+    {
+      "id": "ledger-023",
+      "kind": "BUY",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-12",
+      "marketId": "market-12",
+      "quantity": 10,
+      "priceCents": 32,
+      "feeCents": 1,
+      "orderId": "order-closed-12-buy",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-10-01T07:00:00Z"
+    },
+    {
+      "id": "ledger-024",
+      "kind": "SELL",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-12",
+      "marketId": "market-12",
+      "quantity": 10,
+      "priceCents": 30,
+      "feeCents": 1,
+      "orderId": "order-closed-12-sell",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-10-01T08:00:00Z"
+    },
+    {
+      "id": "ledger-025",
+      "kind": "BUY",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-13",
+      "marketId": "market-01",
+      "quantity": 10,
+      "priceCents": 33,
+      "feeCents": 1,
+      "orderId": "order-closed-13-buy",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-10-01T09:00:00Z"
+    },
+    {
+      "id": "ledger-026",
+      "kind": "SELL",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-13",
+      "marketId": "market-01",
+      "quantity": 10,
+      "priceCents": 41,
+      "feeCents": 1,
+      "orderId": "order-closed-13-sell",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-10-01T10:00:00Z"
+    },
+    {
+      "id": "ledger-027",
+      "kind": "BUY",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-14",
+      "marketId": "market-02",
+      "quantity": 10,
+      "priceCents": 34,
+      "feeCents": 1,
+      "orderId": "order-closed-14-buy",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-10-01T11:00:00Z"
+    },
+    {
+      "id": "ledger-028",
+      "kind": "SELL",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-closed-14",
+      "marketId": "market-02",
+      "quantity": 10,
+      "priceCents": 29,
+      "feeCents": 1,
+      "orderId": "order-closed-14-sell",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-10-01T12:00:00Z"
+    },
+    {
+      "id": "ledger-029",
+      "kind": "BUY",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-current-01",
+      "marketId": "market-01",
+      "quantity": 10,
+      "priceCents": 30,
+      "feeCents": 1,
+      "orderId": "order-current-01",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-10-01T13:00:00Z"
+    },
+    {
+      "id": "ledger-030",
+      "kind": "BUY",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-current-02",
+      "marketId": "market-02",
+      "quantity": 10,
+      "priceCents": 40,
+      "feeCents": 1,
+      "orderId": "order-current-02",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-10-01T14:00:00Z"
+    },
+    {
+      "id": "ledger-031",
+      "kind": "BUY",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-current-03",
+      "marketId": "market-03",
+      "quantity": 10,
+      "priceCents": 25,
+      "feeCents": 1,
+      "orderId": "order-current-03",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-10-01T15:00:00Z"
+    },
+    {
+      "id": "ledger-032",
+      "kind": "BUY",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-current-04",
+      "marketId": "market-04",
+      "quantity": 10,
+      "priceCents": 35,
+      "feeCents": 1,
+      "orderId": "order-current-04",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-10-01T16:00:00Z"
+    },
+    {
+      "id": "ledger-033",
+      "kind": "BUY",
+      "sessionId": "session-active",
+      "accountId": "account-demo",
+      "positionId": "position-current-05",
+      "marketId": "market-05",
+      "quantity": 10,
+      "priceCents": 20,
+      "feeCents": 1,
+      "orderId": "order-current-05",
+      "archiveOrderUnavailable": false,
+      "timestamp": "2026-10-01T17:00:00Z"
+    }
+  ],
+  "events": [
+    {
+      "id": "event-001",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-01",
+      "timestamp": "2026-09-30T09:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-001",
+      "relatedOrderId": "order-closed-01-buy",
+      "relatedPositionId": "position-closed-01",
+      "label": "Execution · 001",
+      "signalId": "signal-closed-01-buy"
+    },
+    {
+      "id": "event-002",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-01",
+      "timestamp": "2026-09-30T10:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-002",
+      "relatedOrderId": "order-closed-01-sell",
+      "relatedPositionId": "position-closed-01",
+      "label": "Execution · 002",
+      "signalId": "signal-closed-01-sell"
+    },
+    {
+      "id": "event-003",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "timestamp": "2026-09-30T11:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-003",
+      "relatedOrderId": "order-closed-02-buy",
+      "relatedPositionId": "position-closed-02",
+      "label": "Execution · 003",
+      "signalId": "signal-closed-02-buy"
+    },
+    {
+      "id": "event-004",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "timestamp": "2026-09-30T12:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-004",
+      "relatedOrderId": "order-closed-02-sell",
+      "relatedPositionId": "position-closed-02",
+      "label": "Execution · 004",
+      "signalId": "signal-closed-02-sell"
+    },
+    {
+      "id": "event-005",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-03",
+      "timestamp": "2026-09-30T13:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-005",
+      "relatedOrderId": "order-closed-03-buy",
+      "relatedPositionId": "position-closed-03",
+      "label": "Execution · 005",
+      "signalId": "signal-closed-03-buy"
+    },
+    {
+      "id": "event-006",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-03",
+      "timestamp": "2026-09-30T14:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-006",
+      "relatedOrderId": "order-closed-03-sell",
+      "relatedPositionId": "position-closed-03",
+      "label": "Execution · 006",
+      "signalId": "signal-closed-03-sell"
+    },
+    {
+      "id": "event-007",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-04",
+      "timestamp": "2026-09-30T15:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-007",
+      "relatedOrderId": "order-closed-04-buy",
+      "relatedPositionId": "position-closed-04",
+      "label": "Execution · 007",
+      "signalId": "signal-closed-04-buy"
+    },
+    {
+      "id": "event-008",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-04",
+      "timestamp": "2026-09-30T16:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-008",
+      "relatedOrderId": "order-closed-04-sell",
+      "relatedPositionId": "position-closed-04",
+      "label": "Execution · 008",
+      "signalId": "signal-closed-04-sell"
+    },
+    {
+      "id": "event-009",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-05",
+      "timestamp": "2026-09-30T17:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-009",
+      "relatedOrderId": "order-closed-05-buy",
+      "relatedPositionId": "position-closed-05",
+      "label": "Execution · 009",
+      "signalId": "signal-closed-05-buy"
+    },
+    {
+      "id": "event-010",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-05",
+      "timestamp": "2026-09-30T18:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-010",
+      "relatedOrderId": "order-closed-05-sell",
+      "relatedPositionId": "position-closed-05",
+      "label": "Execution · 010",
+      "signalId": "signal-closed-05-sell"
+    },
+    {
+      "id": "event-011",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-06",
+      "timestamp": "2026-09-30T19:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-011",
+      "relatedOrderId": "order-closed-06-buy",
+      "relatedPositionId": "position-closed-06",
+      "label": "Execution · 011",
+      "signalId": "signal-closed-06-buy"
+    },
+    {
+      "id": "event-012",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-06",
+      "timestamp": "2026-09-30T20:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-012",
+      "relatedOrderId": "order-closed-06-sell",
+      "relatedPositionId": "position-closed-06",
+      "label": "Execution · 012",
+      "signalId": "signal-closed-06-sell"
+    },
+    {
+      "id": "event-013",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-07",
+      "timestamp": "2026-09-30T21:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-013",
+      "relatedOrderId": "order-closed-07-buy",
+      "relatedPositionId": "position-closed-07",
+      "label": "Execution · 013",
+      "signalId": "signal-closed-07-buy"
+    },
+    {
+      "id": "event-014",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-07",
+      "timestamp": "2026-09-30T22:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-014",
+      "relatedOrderId": "order-closed-07-sell",
+      "relatedPositionId": "position-closed-07",
+      "label": "Execution · 014",
+      "signalId": "signal-closed-07-sell"
+    },
+    {
+      "id": "event-015",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-08",
+      "timestamp": "2026-09-30T23:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-015",
+      "relatedOrderId": "order-closed-08-buy",
+      "relatedPositionId": "position-closed-08",
+      "label": "Execution · 015",
+      "signalId": "signal-closed-08-buy"
+    },
+    {
+      "id": "event-016",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-08",
+      "timestamp": "2026-10-01T00:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-016",
+      "relatedOrderId": "order-closed-08-sell",
+      "relatedPositionId": "position-closed-08",
+      "label": "Execution · 016",
+      "signalId": "signal-closed-08-sell"
+    },
+    {
+      "id": "event-017",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-09",
+      "timestamp": "2026-10-01T01:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-017",
+      "relatedOrderId": "order-closed-09-buy",
+      "relatedPositionId": "position-closed-09",
+      "label": "Execution · 017",
+      "signalId": "signal-closed-09-buy"
+    },
+    {
+      "id": "event-018",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-09",
+      "timestamp": "2026-10-01T02:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-018",
+      "relatedOrderId": "order-closed-09-sell",
+      "relatedPositionId": "position-closed-09",
+      "label": "Execution · 018",
+      "signalId": "signal-closed-09-sell"
+    },
+    {
+      "id": "event-019",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-10",
+      "timestamp": "2026-10-01T03:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-019",
+      "relatedOrderId": "order-closed-10-buy",
+      "relatedPositionId": "position-closed-10",
+      "label": "Execution · 019",
+      "signalId": "signal-closed-10-buy"
+    },
+    {
+      "id": "event-020",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-10",
+      "timestamp": "2026-10-01T04:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-020",
+      "relatedOrderId": "order-closed-10-sell",
+      "relatedPositionId": "position-closed-10",
+      "label": "Execution · 020",
+      "signalId": "signal-closed-10-sell"
+    },
+    {
+      "id": "event-021",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-11",
+      "timestamp": "2026-10-01T05:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-021",
+      "relatedOrderId": "order-closed-11-buy",
+      "relatedPositionId": "position-closed-11",
+      "label": "Execution · 021",
+      "signalId": "signal-closed-11-buy"
+    },
+    {
+      "id": "event-022",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-11",
+      "timestamp": "2026-10-01T06:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-022",
+      "relatedOrderId": "order-closed-11-sell",
+      "relatedPositionId": "position-closed-11",
+      "label": "Execution · 022",
+      "signalId": "signal-closed-11-sell"
+    },
+    {
+      "id": "event-023",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-12",
+      "timestamp": "2026-10-01T07:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-023",
+      "relatedOrderId": "order-closed-12-buy",
+      "relatedPositionId": "position-closed-12",
+      "label": "Execution · 023",
+      "signalId": "signal-closed-12-buy"
+    },
+    {
+      "id": "event-024",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-12",
+      "timestamp": "2026-10-01T08:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-024",
+      "relatedOrderId": "order-closed-12-sell",
+      "relatedPositionId": "position-closed-12",
+      "label": "Execution · 024",
+      "signalId": "signal-closed-12-sell"
+    },
+    {
+      "id": "event-025",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-01",
+      "timestamp": "2026-10-01T09:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-025",
+      "relatedOrderId": "order-closed-13-buy",
+      "relatedPositionId": "position-closed-13",
+      "label": "Execution · 025",
+      "signalId": "signal-closed-13-buy"
+    },
+    {
+      "id": "event-026",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-01",
+      "timestamp": "2026-10-01T10:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-026",
+      "relatedOrderId": "order-closed-13-sell",
+      "relatedPositionId": "position-closed-13",
+      "label": "Execution · 026",
+      "signalId": "signal-closed-13-sell"
+    },
+    {
+      "id": "event-027",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "timestamp": "2026-10-01T11:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-027",
+      "relatedOrderId": "order-closed-14-buy",
+      "relatedPositionId": "position-closed-14",
+      "label": "Execution · 027",
+      "signalId": "signal-closed-14-buy"
+    },
+    {
+      "id": "event-028",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "timestamp": "2026-10-01T12:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-028",
+      "relatedOrderId": "order-closed-14-sell",
+      "relatedPositionId": "position-closed-14",
+      "label": "Execution · 028",
+      "signalId": "signal-closed-14-sell"
+    },
+    {
+      "id": "event-029",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-01",
+      "timestamp": "2026-10-01T13:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-029",
+      "relatedOrderId": "order-current-01",
+      "relatedPositionId": "position-current-01",
+      "label": "Execution · 029",
+      "signalId": "signal-current-01"
+    },
+    {
+      "id": "event-030",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "timestamp": "2026-10-01T14:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-030",
+      "relatedOrderId": "order-current-02",
+      "relatedPositionId": "position-current-02",
+      "label": "Execution · 030",
+      "signalId": "signal-current-02"
+    },
+    {
+      "id": "event-031",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-03",
+      "timestamp": "2026-10-01T15:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-031",
+      "relatedOrderId": "order-current-03",
+      "relatedPositionId": "position-current-03",
+      "label": "Execution · 031",
+      "signalId": "signal-current-03"
+    },
+    {
+      "id": "event-032",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-04",
+      "timestamp": "2026-10-01T16:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-032",
+      "relatedOrderId": "order-current-04",
+      "relatedPositionId": "position-current-04",
+      "label": "Execution · 032",
+      "signalId": "signal-current-04"
+    },
+    {
+      "id": "event-033",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-05",
+      "timestamp": "2026-10-01T17:00:00Z",
+      "kind": "execution",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": "ledger-033",
+      "relatedOrderId": "order-current-05",
+      "relatedPositionId": "position-current-05",
+      "label": "Execution · 033",
+      "signalId": "signal-current-05"
+    },
+    {
+      "id": "event-034",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-03",
+      "timestamp": "2026-10-02T11:34:00Z",
+      "kind": "manual_control",
+      "status": "manual",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": "position-current-03",
+      "label": "Manual Control · 034",
+      "signalId": null
+    },
+    {
+      "id": "event-035",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-01",
+      "timestamp": "2026-10-02T11:35:00Z",
+      "kind": "reconciliation",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": "order-closed-01-sell",
+      "relatedPositionId": "position-closed-01",
+      "label": "Reconciliation · 035",
+      "signalId": "signal-closed-01-sell"
+    },
+    {
+      "id": "event-036",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-05",
+      "timestamp": "2026-10-02T11:36:00Z",
+      "kind": "market_update",
+      "status": "resolved_awaiting_payout",
+      "requiresAttention": true,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": "position-current-05",
+      "label": "Market Update · 036",
+      "signalId": null
+    },
+    {
+      "id": "event-037",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "timestamp": "2026-10-02T11:37:00Z",
+      "kind": "limit_check",
+      "status": "passed",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": null,
+      "label": "Limit Check · 037",
+      "signalId": "signal-event-037"
+    },
+    {
+      "id": "event-038",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-03",
+      "timestamp": "2026-10-02T11:38:00Z",
+      "kind": "skipped",
+      "status": "skipped",
+      "requiresAttention": false,
+      "reason": "stale_signal",
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": null,
+      "label": "Skipped · 038",
+      "signalId": "signal-event-038"
+    },
+    {
+      "id": "event-039",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-03",
+      "timestamp": "2026-10-02T11:39:00Z",
+      "kind": "order_status",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": "order-closed-03-sell",
+      "relatedPositionId": "position-closed-03",
+      "label": "Order Status · 039",
+      "signalId": "signal-closed-03-sell"
+    },
+    {
+      "id": "event-040",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-03",
+      "timestamp": "2026-10-02T11:40:00Z",
+      "kind": "manual_control",
+      "status": "manual",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": "position-current-03",
+      "label": "Manual Control · 040",
+      "signalId": null
+    },
+    {
+      "id": "event-041",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-04",
+      "timestamp": "2026-10-02T11:41:00Z",
+      "kind": "reconciliation",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": "order-closed-04-sell",
+      "relatedPositionId": "position-closed-04",
+      "label": "Reconciliation · 041",
+      "signalId": "signal-closed-04-sell"
+    },
+    {
+      "id": "event-042",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-04",
+      "timestamp": "2026-10-02T11:42:00Z",
+      "kind": "order_status",
+      "status": "close_pending",
+      "requiresAttention": true,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": "order-close-pending-01",
+      "relatedPositionId": "position-current-04",
+      "label": "Order Status · 042",
+      "signalId": "signal-close-pending-01"
+    },
+    {
+      "id": "event-043",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-05",
+      "timestamp": "2026-10-02T11:43:00Z",
+      "kind": "limit_check",
+      "status": "passed",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": null,
+      "label": "Limit Check · 043",
+      "signalId": "signal-event-043"
+    },
+    {
+      "id": "event-044",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-06",
+      "timestamp": "2026-10-02T11:44:00Z",
+      "kind": "skipped",
+      "status": "skipped",
+      "requiresAttention": false,
+      "reason": "position_limit",
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": null,
+      "label": "Skipped · 044",
+      "signalId": "signal-event-044"
+    },
+    {
+      "id": "event-045",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-06",
+      "timestamp": "2026-10-02T11:45:00Z",
+      "kind": "order_status",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": "order-closed-06-sell",
+      "relatedPositionId": "position-closed-06",
+      "label": "Order Status · 045",
+      "signalId": "signal-closed-06-sell"
+    },
+    {
+      "id": "event-046",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-03",
+      "timestamp": "2026-10-02T11:46:00Z",
+      "kind": "manual_control",
+      "status": "manual",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": "position-current-03",
+      "label": "Manual Control · 046",
+      "signalId": null
+    },
+    {
+      "id": "event-047",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-07",
+      "timestamp": "2026-10-02T11:47:00Z",
+      "kind": "reconciliation",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": "order-closed-07-sell",
+      "relatedPositionId": "position-closed-07",
+      "label": "Reconciliation · 047",
+      "signalId": "signal-closed-07-sell"
+    },
+    {
+      "id": "event-048",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-05",
+      "timestamp": "2026-10-02T11:48:00Z",
+      "kind": "market_update",
+      "status": "resolved_awaiting_payout",
+      "requiresAttention": true,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": "position-current-05",
+      "label": "Market Update · 048",
+      "signalId": null
+    },
+    {
+      "id": "event-049",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-12",
+      "timestamp": "2026-10-02T11:49:00Z",
+      "kind": "order_status",
+      "status": "unknown",
+      "requiresAttention": true,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": "order-other-05",
+      "relatedPositionId": null,
+      "label": "Order Status · 049",
+      "signalId": "signal-other-05"
+    },
+    {
+      "id": "event-050",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-09",
+      "timestamp": "2026-10-02T11:50:00Z",
+      "kind": "skipped",
+      "status": "skipped",
+      "requiresAttention": false,
+      "reason": "stale_signal",
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": null,
+      "label": "Skipped · 050",
+      "signalId": "signal-event-050"
+    },
+    {
+      "id": "event-051",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-09",
+      "timestamp": "2026-10-02T11:51:00Z",
+      "kind": "order_status",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": "order-closed-09-sell",
+      "relatedPositionId": "position-closed-09",
+      "label": "Order Status · 051",
+      "signalId": "signal-closed-09-sell"
+    },
+    {
+      "id": "event-052",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-03",
+      "timestamp": "2026-10-02T11:52:00Z",
+      "kind": "manual_control",
+      "status": "manual",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": "position-current-03",
+      "label": "Manual Control · 052",
+      "signalId": null
+    },
+    {
+      "id": "event-053",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-10",
+      "timestamp": "2026-10-02T11:53:00Z",
+      "kind": "reconciliation",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": "order-closed-10-sell",
+      "relatedPositionId": "position-closed-10",
+      "label": "Reconciliation · 053",
+      "signalId": "signal-closed-10-sell"
+    },
+    {
+      "id": "event-054",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-05",
+      "timestamp": "2026-10-02T11:54:00Z",
+      "kind": "market_update",
+      "status": "resolved_awaiting_payout",
+      "requiresAttention": true,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": "position-current-05",
+      "label": "Market Update · 054",
+      "signalId": null
+    },
+    {
+      "id": "event-055",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-11",
+      "timestamp": "2026-10-02T11:55:00Z",
+      "kind": "limit_check",
+      "status": "passed",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": null,
+      "label": "Limit Check · 055",
+      "signalId": "signal-event-055"
+    },
+    {
+      "id": "event-056",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-07",
+      "timestamp": "2026-10-02T11:56:00Z",
+      "kind": "reconciliation",
+      "status": "cancel_pending",
+      "requiresAttention": true,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": "order-pending-02",
+      "relatedPositionId": null,
+      "label": "Reconciliation · 056",
+      "signalId": "signal-pending-02"
+    },
+    {
+      "id": "event-057",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-12",
+      "timestamp": "2026-10-02T11:57:00Z",
+      "kind": "order_status",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": "order-closed-12-sell",
+      "relatedPositionId": "position-closed-12",
+      "label": "Order Status · 057",
+      "signalId": "signal-closed-12-sell"
+    },
+    {
+      "id": "event-058",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-03",
+      "timestamp": "2026-10-02T11:58:00Z",
+      "kind": "manual_control",
+      "status": "manual",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": "position-current-03",
+      "label": "Manual Control · 058",
+      "signalId": null
+    },
+    {
+      "id": "event-059",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-01",
+      "timestamp": "2026-10-02T11:59:00Z",
+      "kind": "reconciliation",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": "order-closed-13-sell",
+      "relatedPositionId": "position-closed-13",
+      "label": "Reconciliation · 059",
+      "signalId": "signal-closed-13-sell"
+    },
+    {
+      "id": "event-060",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-05",
+      "timestamp": "2026-10-02T11:00:00Z",
+      "kind": "market_update",
+      "status": "resolved_awaiting_payout",
+      "requiresAttention": true,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": "position-current-05",
+      "label": "Market Update · 060",
+      "signalId": null
+    },
+    {
+      "id": "event-061",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "timestamp": "2026-10-02T11:01:00Z",
+      "kind": "limit_check",
+      "status": "passed",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": null,
+      "label": "Limit Check · 061",
+      "signalId": "signal-event-061"
+    },
+    {
+      "id": "event-062",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-01",
+      "timestamp": "2026-10-02T11:02:00Z",
+      "kind": "skipped",
+      "status": "skipped",
+      "requiresAttention": false,
+      "reason": "stale_signal",
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": null,
+      "label": "Skipped · 062",
+      "signalId": "signal-event-062"
+    },
+    {
+      "id": "event-063",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-06",
+      "timestamp": "2026-10-02T11:03:00Z",
+      "kind": "order_status",
+      "status": "open",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": "order-pending-01",
+      "relatedPositionId": null,
+      "label": "Order Status · 063",
+      "signalId": "signal-pending-01"
+    },
+    {
+      "id": "event-064",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-03",
+      "timestamp": "2026-10-02T11:04:00Z",
+      "kind": "manual_control",
+      "status": "manual",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": "position-current-03",
+      "label": "Manual Control · 064",
+      "signalId": null
+    },
+    {
+      "id": "event-065",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-04",
+      "timestamp": "2026-10-02T11:05:00Z",
+      "kind": "reconciliation",
+      "status": "filled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": "order-current-04",
+      "relatedPositionId": "position-current-04",
+      "label": "Reconciliation · 065",
+      "signalId": "signal-current-04"
+    },
+    {
+      "id": "event-066",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-05",
+      "timestamp": "2026-10-02T11:06:00Z",
+      "kind": "market_update",
+      "status": "resolved_awaiting_payout",
+      "requiresAttention": true,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": "position-current-05",
+      "label": "Market Update · 066",
+      "signalId": null
+    },
+    {
+      "id": "event-067",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-06",
+      "timestamp": "2026-10-02T11:07:00Z",
+      "kind": "limit_check",
+      "status": "passed",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": null,
+      "label": "Limit Check · 067",
+      "signalId": "signal-event-067"
+    },
+    {
+      "id": "event-068",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-07",
+      "timestamp": "2026-10-02T11:08:00Z",
+      "kind": "skipped",
+      "status": "skipped",
+      "requiresAttention": false,
+      "reason": "position_limit",
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": null,
+      "label": "Skipped · 068",
+      "signalId": "signal-event-068"
+    },
+    {
+      "id": "event-069",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-08",
+      "timestamp": "2026-10-02T11:09:00Z",
+      "kind": "order_status",
+      "status": "canceled",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": "order-other-01",
+      "relatedPositionId": null,
+      "label": "Order Status · 069",
+      "signalId": "signal-other-01"
+    },
+    {
+      "id": "event-070",
+      "sessionId": "session-active",
+      "traderId": "trader-01",
+      "marketId": "market-03",
+      "timestamp": "2026-10-02T11:10:00Z",
+      "kind": "manual_control",
+      "status": "manual",
+      "requiresAttention": false,
+      "reason": null,
+      "relatedLedgerId": null,
+      "relatedOrderId": null,
+      "relatedPositionId": "position-current-03",
+      "label": "Manual Control · 070",
+      "signalId": null
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notification-01",
+      "eventId": "event-003",
+      "read": false,
+      "category": "update",
+      "timestamp": "2026-09-30T11:00:00Z"
+    },
+    {
+      "id": "notification-02",
+      "eventId": "event-006",
+      "read": false,
+      "category": "update",
+      "timestamp": "2026-09-30T14:00:00Z"
+    },
+    {
+      "id": "notification-03",
+      "eventId": "event-009",
+      "read": false,
+      "category": "update",
+      "timestamp": "2026-09-30T17:00:00Z"
+    },
+    {
+      "id": "notification-04",
+      "eventId": "event-012",
+      "read": false,
+      "category": "update",
+      "timestamp": "2026-09-30T20:00:00Z"
+    },
+    {
+      "id": "notification-05",
+      "eventId": "event-015",
+      "read": false,
+      "category": "update",
+      "timestamp": "2026-09-30T23:00:00Z"
+    },
+    {
+      "id": "notification-06",
+      "eventId": "event-018",
+      "read": false,
+      "category": "update",
+      "timestamp": "2026-10-01T02:00:00Z"
+    },
+    {
+      "id": "notification-07",
+      "eventId": "event-021",
+      "read": true,
+      "category": "update",
+      "timestamp": "2026-10-01T05:00:00Z"
+    },
+    {
+      "id": "notification-08",
+      "eventId": "event-024",
+      "read": true,
+      "category": "update",
+      "timestamp": "2026-10-01T08:00:00Z"
+    },
+    {
+      "id": "notification-09",
+      "eventId": "event-027",
+      "read": true,
+      "category": "update",
+      "timestamp": "2026-10-01T11:00:00Z"
+    },
+    {
+      "id": "notification-10",
+      "eventId": "event-030",
+      "read": true,
+      "category": "update",
+      "timestamp": "2026-10-01T14:00:00Z"
+    },
+    {
+      "id": "notification-11",
+      "eventId": "event-033",
+      "read": true,
+      "category": "update",
+      "timestamp": "2026-10-01T17:00:00Z"
+    },
+    {
+      "id": "notification-12",
+      "eventId": "event-036",
+      "read": true,
+      "category": "attention",
+      "timestamp": "2026-10-02T11:36:00Z"
+    },
+    {
+      "id": "notification-13",
+      "eventId": "event-039",
+      "read": true,
+      "category": "update",
+      "timestamp": "2026-10-02T11:39:00Z"
+    },
+    {
+      "id": "notification-14",
+      "eventId": "event-042",
+      "read": true,
+      "category": "attention",
+      "timestamp": "2026-10-02T11:42:00Z"
+    },
+    {
+      "id": "notification-15",
+      "eventId": "event-045",
+      "read": true,
+      "category": "update",
+      "timestamp": "2026-10-02T11:45:00Z"
+    },
+    {
+      "id": "notification-16",
+      "eventId": "event-048",
+      "read": true,
+      "category": "attention",
+      "timestamp": "2026-10-02T11:48:00Z"
+    },
+    {
+      "id": "notification-17",
+      "eventId": "event-051",
+      "read": true,
+      "category": "update",
+      "timestamp": "2026-10-02T11:51:00Z"
+    },
+    {
+      "id": "notification-18",
+      "eventId": "event-054",
+      "read": true,
+      "category": "attention",
+      "timestamp": "2026-10-02T11:54:00Z"
+    },
+    {
+      "id": "notification-19",
+      "eventId": "event-057",
+      "read": true,
+      "category": "update",
+      "timestamp": "2026-10-02T11:57:00Z"
+    },
+    {
+      "id": "notification-20",
+      "eventId": "event-060",
+      "read": true,
+      "category": "attention",
+      "timestamp": "2026-10-02T11:00:00Z"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "ticket-01",
+      "status": "waiting_support",
+      "subject": "Help with demo balance",
+      "eventId": "event-007",
+      "conversationId": "conversation-01"
+    },
+    {
+      "id": "ticket-02",
+      "status": "waiting_user",
+      "subject": "Unknown result",
+      "eventId": "event-014",
+      "conversationId": null
+    },
+    {
+      "id": "ticket-03",
+      "status": "resolved",
+      "subject": "Understanding copied positions",
+      "eventId": "event-021",
+      "conversationId": null
+    },
+    {
+      "id": "ticket-04",
+      "status": "open",
+      "subject": "Question about partial execution",
+      "eventId": "event-028",
+      "conversationId": null
+    },
+    {
+      "id": "ticket-05",
+      "status": "waiting_support",
+      "subject": "Help with demo balance",
+      "eventId": "event-035",
+      "conversationId": null
+    },
+    {
+      "id": "ticket-06",
+      "status": "waiting_user",
+      "subject": "Unknown result",
+      "eventId": "event-042",
+      "conversationId": null
+    },
+    {
+      "id": "ticket-07",
+      "status": "resolved",
+      "subject": "Understanding copied positions",
+      "eventId": "event-049",
+      "conversationId": null
+    },
+    {
+      "id": "ticket-08",
+      "status": "open",
+      "subject": "Question about partial execution",
+      "eventId": "event-056",
+      "conversationId": null
+    }
+  ],
+  "messages": [
+    {
+      "id": "message-01",
+      "conversationId": "conversation-01",
+      "ticketId": "ticket-01",
+      "author": "user",
+      "text": "Why does this order still have a reserve?",
+      "timestamp": "2026-10-02T09:04:00Z",
+      "textRu": "Почему у этой заявки всё ещё есть резерв?"
+    },
+    {
+      "id": "message-02",
+      "conversationId": "conversation-01",
+      "ticketId": "ticket-01",
+      "author": "support",
+      "text": "Some of the order has filled. The remaining quantity is still pending cancellation, so its reserved funds remain unavailable until the result is confirmed.",
+      "timestamp": "2026-10-02T09:08:00Z",
+      "textRu": "Часть заявки исполнена. Для оставшегося количества ещё проверяется отмена, поэтому резерв пока не считается доступными средствами."
+    },
+    {
+      "id": "message-03",
+      "conversationId": "conversation-01",
+      "ticketId": "ticket-01",
+      "author": "user",
+      "text": "Where can I see the position created by the filled part?",
+      "timestamp": "2026-10-02T09:12:00Z",
+      "textRu": "Где посмотреть позицию, которая появилась после частичного исполнения?"
+    },
+    {
+      "id": "message-04",
+      "conversationId": "conversation-01",
+      "ticketId": "ticket-01",
+      "author": "support",
+      "text": "Open the related position in the order detail. It shows the filled quantity and its cost separately from the unfilled remainder.",
+      "timestamp": "2026-10-02T09:16:00Z",
+      "textRu": "Откройте связанную позицию из детали заявки. В ней исполненное количество и его себестоимость показаны отдельно от неисполненного остатка."
+    },
+    {
+      "id": "message-05",
+      "conversationId": "conversation-01",
+      "ticketId": "ticket-01",
+      "author": "user",
+      "text": "Will canceling the remainder sell that position?",
+      "timestamp": "2026-10-02T09:20:00Z",
+      "textRu": "Отмена остатка продаст эту позицию?"
+    },
+    {
+      "id": "message-06",
+      "conversationId": "conversation-01",
+      "ticketId": "ticket-01",
+      "author": "support",
+      "text": "No. Canceling an unfilled remainder does not sell an existing holding. Closing a position is a separate action with its own confirmation.",
+      "timestamp": "2026-10-02T10:24:00Z",
+      "textRu": "Нет. Отмена неисполненного остатка не продаёт уже купленные контракты. Закрытие позиции — отдельное действие с собственным подтверждением."
+    },
+    {
+      "id": "message-07",
+      "conversationId": "conversation-01",
+      "ticketId": "ticket-01",
+      "author": "user",
+      "text": "I opened the detail from my phone, but now I see an unknown result. Should I press the button again? I want to avoid buying the same quantity twice.",
+      "timestamp": "2026-10-02T10:28:00Z",
+      "textRu": "Я открыл детали с телефона, но теперь вижу неизвестный результат. Нужно ли нажимать кнопку ещё раз? Не хочу случайно купить одно и то же количество дважды."
+    },
+    {
+      "id": "message-08",
+      "conversationId": "conversation-01",
+      "ticketId": "ticket-01",
+      "author": "support",
+      "text": "Please wait for reconciliation instead of repeating the buy. An unknown result means we cannot yet confirm whether the original request was accepted or filled.\n\nYou can keep this ticket open and check the related order. Its confirmed result will determine the position and reserve; this conversation itself does not change the trade.",
+      "timestamp": "2026-10-02T10:32:00Z",
+      "textRu": "Дождитесь сверки и не повторяйте покупку. Неизвестный результат означает, что пока нельзя подтвердить, была ли исходная заявка принята или исполнена.\n\nМожно оставить обращение открытым и проверять связанную заявку. Позиция и резерв изменятся по подтверждённому результату операции; сама переписка не меняет сделку."
+    },
+    {
+      "id": "message-09",
+      "conversationId": "conversation-01",
+      "ticketId": "ticket-01",
+      "author": "user",
+      "text": "Can I leave the page while this is being checked?",
+      "timestamp": "2026-10-02T10:36:00Z",
+      "textRu": "Можно закрыть страницу, пока идёт проверка?"
+    },
+    {
+      "id": "message-10",
+      "conversationId": "conversation-01",
+      "ticketId": "ticket-01",
+      "author": "support",
+      "text": "Yes. Return to the order from Events or this ticket. Leaving the page does not confirm cancellation or free the reserve.",
+      "timestamp": "2026-10-02T10:40:00Z",
+      "textRu": "Да. К заявке можно вернуться из Событий или этого обращения. Закрытие страницы не подтверждает отмену и не освобождает резерв."
+    },
+    {
+      "id": "message-11",
+      "conversationId": "conversation-01",
+      "ticketId": "ticket-01",
+      "author": "user",
+      "text": "Understood. I will check the order status instead of sending a second request.",
+      "timestamp": "2026-10-02T10:44:00Z",
+      "textRu": "Понятно. Буду проверять статус заявки вместо отправки второго запроса."
+    },
+    {
+      "id": "message-12",
+      "conversationId": "conversation-01",
+      "ticketId": "ticket-01",
+      "author": "support",
+      "text": "We will keep this ticket awaiting support while the outcome is being clarified. A resolved support ticket and a confirmed trading operation are different statuses.",
+      "timestamp": "2026-10-02T11:48:00Z",
+      "textRu": "Оставим обращение в ожидании поддержки, пока уточняется результат. Решённое обращение и подтверждённая торговая операция — разные статусы."
+    }
+  ],
+  "faq": [
+    {
+      "id": "faq-01",
+      "question": "What is demo copying?",
+      "answer": "A synthetic balance and simulated actions; no real orders or deposits.",
+      "category": "demo",
+      "questionRu": "Что такое демо-копирование?",
+      "answerRu": "Это виртуальный баланс и моделирование действий. Реальные заявки не отправляются, деньги не пополняются и не выводятся."
+    },
+    {
+      "id": "faq-02",
+      "question": "Do I need 2FA for demo?",
+      "answer": "No. Future real-money operations have a separate security flow.",
+      "category": "demo",
+      "questionRu": "Нужна ли 2FA для демо?",
+      "answerRu": "Нет. Операции с реальными деньгами в будущей версии имеют отдельный сценарий безопасности."
+    },
+    {
+      "id": "faq-03",
+      "question": "Can I choose either venue?",
+      "answer": "Choose a trader. Venue is shown on their profile and can filter the catalog.",
+      "category": "demo",
+      "questionRu": "Можно выбрать любую площадку?",
+      "answerRu": "Вы выбираете трейдера. Его площадка указана в профиле и доступна как фильтр каталога."
+    },
+    {
+      "id": "faq-04",
+      "question": "What happens after launch?",
+      "answer": "The new session starts empty. A populated example is a separate review context.",
+      "category": "demo",
+      "questionRu": "Что происходит после запуска?",
+      "answerRu": "Новая сессия начинается без позиций и торговой истории. Заполненный пример открывается отдельно для проверки прототипа."
+    },
+    {
+      "id": "faq-05",
+      "question": "Why are funds separate?",
+      "answer": "Demo and real venue accounts cannot be spent as a combined balance.",
+      "category": "demo",
+      "questionRu": "Почему средства разделены?",
+      "answerRu": "Демо и реальные счета площадок не образуют единый доступный баланс. Покупка или вывод относится к конкретному счёту."
+    },
+    {
+      "id": "faq-06",
+      "question": "Is a sent order filled?",
+      "answer": "No. Execution must be confirmed.",
+      "category": "execution",
+      "questionRu": "Отправленная заявка уже исполнена?",
+      "answerRu": "Нет. Отправка и исполнение — разные состояния. Покупка учитывается только после подтверждённого исполнения."
+    },
+    {
+      "id": "faq-07",
+      "question": "What does partial mean?",
+      "answer": "Part of the requested quantity has filled and is now reflected in a position. The remainder is still a separate unfinished part of the order.\n\nThe detail shows filled quantity, price, expenses and the reserve for the remainder. Canceling the remainder does not remove the part already bought.\n\nIf the cancellation result is unknown, its reserve is not considered released. Reconciliation comes first: blindly repeating the purchase could create a second buy.",
+      "category": "execution",
+      "questionRu": "Что означает частичное исполнение?",
+      "answerRu": "Часть количества уже куплена и отражается в позиции. Остаток продолжает существовать как отдельная незавершённая часть заявки.\n\nВ детали можно увидеть исполненное количество, цену, расходы и резерв под остаток. Отмена остатка не удаляет уже купленную часть позиции.\n\nЕсли результат отмены неизвестен, резерв не считается освобождённым. Сначала нужно дождаться сверки: повторная отправка может создать вторую покупку."
+    },
+    {
+      "id": "faq-08",
+      "question": "Can I cancel an unknown order?",
+      "answer": "The result must first be reconciled. Do not blindly send a duplicate.",
+      "category": "execution",
+      "questionRu": "Можно отменить заявку с неизвестным результатом?",
+      "answerRu": "Сначала нужно уточнить результат и доступность отмены. Не отправляйте повторную покупку вслепую: исходная заявка могла исполниться."
+    },
+    {
+      "id": "faq-09",
+      "question": "Does canceling remove my position?",
+      "answer": "Canceling an unfilled remainder keeps the already filled position.",
+      "category": "execution",
+      "questionRu": "Отмена заявки убирает позицию?",
+      "answerRu": "Нет. Отмена неисполненного остатка сохраняет уже исполненную часть позиции и её историю."
+    },
+    {
+      "id": "faq-10",
+      "question": "Is market resolution a payout?",
+      "answer": "No. A payout needs separate confirmation.",
+      "category": "execution",
+      "questionRu": "Разрешение рынка означает выплату?",
+      "answerRu": "Нет. Разрешение рынка и подтверждённое получение выплаты отображаются отдельно. Ожидаемая выплата ещё не является денежным остатком."
+    },
+    {
+      "id": "faq-11",
+      "question": "What does manual control do?",
+      "answer": "It changes management of this position; it is not itself a sale.",
+      "category": "execution",
+      "questionRu": "Что делает самостоятельное управление?",
+      "answerRu": "Меняется способ управления этой позицией. Это действие само по себе не продаёт позицию и не останавливает другие позиции."
+    },
+    {
+      "id": "faq-12",
+      "question": "What happens when I pause?",
+      "answer": "New buys are paused. Existing positions and reconciliation remain visible.",
+      "category": "support",
+      "questionRu": "Что происходит при паузе?",
+      "answerRu": "Новые покупки приостанавливаются. Уже открытые позиции и проверка незавершённых действий остаются доступны."
+    },
+    {
+      "id": "faq-13",
+      "question": "How do I contact support?",
+      "answer": "Open Help and create a ticket. Context is attached when opened from an operation.",
+      "category": "support",
+      "questionRu": "Как обратиться в поддержку?",
+      "answerRu": "Откройте Центр помощи и создайте обращение. При переходе из конкретной операции её контекст прикрепляется к обращению."
+    },
+    {
+      "id": "faq-14",
+      "question": "Are these prices real?",
+      "answer": "No. This fixture uses fixed synthetic prices for interface testing.",
+      "category": "support",
+      "questionRu": "Эти цены настоящие?",
+      "answerRu": "Нет. В прототипе используются фиксированные синтетические цены для проверки интерфейса. Они не подтверждают текущие котировки площадок."
+    },
+    {
+      "id": "faq-15",
+      "question": "What does stale mean?",
+      "answer": "The last known value is shown with its time. It is not a fresh quote.",
+      "category": "support",
+      "questionRu": "Что означает устаревшая сумма?",
+      "answerRu": "Показывается последнее известное значение и время его получения. Такая сумма не считается актуальной котировкой или подтверждением доступных средств."
+    }
+  ],
+  "visibleReviewPlan": {
+    "catalogRows": 24,
+    "positionRows": 19,
+    "orderRows": 41,
+    "orderSourceCount": 41,
+    "eventRows": 70,
+    "ledgerRows": 33,
+    "notificationRows": 20,
+    "ticketRows": 8,
+    "faqRows": 15,
+    "messageRows": 12,
+    "eventInteractiveIds": [
+      "event-001",
+      "event-002",
+      "event-003",
+      "event-004",
+      "event-005",
+      "event-006",
+      "event-007",
+      "event-008",
+      "event-009",
+      "event-010",
+      "event-011",
+      "event-012",
+      "event-013",
+      "event-014",
+      "event-015",
+      "event-016",
+      "event-017",
+      "event-018",
+      "event-019",
+      "event-020",
+      "event-021",
+      "event-022",
+      "event-023",
+      "event-024",
+      "event-025",
+      "event-026",
+      "event-027",
+      "event-028",
+      "event-029",
+      "event-030",
+      "event-031",
+      "event-032",
+      "event-033",
+      "event-034",
+      "event-035",
+      "event-036",
+      "event-037",
+      "event-038",
+      "event-039",
+      "event-040",
+      "event-041",
+      "event-042",
+      "event-043",
+      "event-044",
+      "event-045",
+      "event-046",
+      "event-047",
+      "event-048",
+      "event-049",
+      "event-050",
+      "event-051",
+      "event-052",
+      "event-053",
+      "event-054",
+      "event-055",
+      "event-056",
+      "event-057",
+      "event-058",
+      "event-059",
+      "event-060",
+      "event-061",
+      "event-062",
+      "event-063",
+      "event-064",
+      "event-065",
+      "event-066",
+      "event-067",
+      "event-068",
+      "event-069",
+      "event-070"
+    ],
+    "detailImplementation": "Every visible row opens its contextual detail through bound prototype variables; shared detail frames do not represent a single generic unrelated object.",
+    "note": "The built review package displays the full source collections, including all 41 orders and 70 events. Source records and their bound contextual details share stable IDs. This is prepared synthetic prototype data, not a running API integration."
+  },
+  "signals": [
+    {
+      "id": "signal-closed-01-buy",
+      "traderId": "trader-01",
+      "marketId": "market-01",
+      "side": "BUY",
+      "timestamp": "2026-09-30T09:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-01-sell",
+      "traderId": "trader-01",
+      "marketId": "market-01",
+      "side": "SELL",
+      "timestamp": "2026-09-30T10:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-02-buy",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "side": "BUY",
+      "timestamp": "2026-09-30T11:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-02-sell",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "side": "SELL",
+      "timestamp": "2026-09-30T12:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-03-buy",
+      "traderId": "trader-01",
+      "marketId": "market-03",
+      "side": "BUY",
+      "timestamp": "2026-09-30T13:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-03-sell",
+      "traderId": "trader-01",
+      "marketId": "market-03",
+      "side": "SELL",
+      "timestamp": "2026-09-30T14:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-04-buy",
+      "traderId": "trader-01",
+      "marketId": "market-04",
+      "side": "BUY",
+      "timestamp": "2026-09-30T15:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-04-sell",
+      "traderId": "trader-01",
+      "marketId": "market-04",
+      "side": "SELL",
+      "timestamp": "2026-09-30T16:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-05-buy",
+      "traderId": "trader-01",
+      "marketId": "market-05",
+      "side": "BUY",
+      "timestamp": "2026-09-30T17:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-05-sell",
+      "traderId": "trader-01",
+      "marketId": "market-05",
+      "side": "SELL",
+      "timestamp": "2026-09-30T18:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-06-buy",
+      "traderId": "trader-01",
+      "marketId": "market-06",
+      "side": "BUY",
+      "timestamp": "2026-09-30T19:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-06-sell",
+      "traderId": "trader-01",
+      "marketId": "market-06",
+      "side": "SELL",
+      "timestamp": "2026-09-30T20:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-07-buy",
+      "traderId": "trader-01",
+      "marketId": "market-07",
+      "side": "BUY",
+      "timestamp": "2026-09-30T21:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-07-sell",
+      "traderId": "trader-01",
+      "marketId": "market-07",
+      "side": "SELL",
+      "timestamp": "2026-09-30T22:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-08-buy",
+      "traderId": "trader-01",
+      "marketId": "market-08",
+      "side": "BUY",
+      "timestamp": "2026-09-30T23:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-08-sell",
+      "traderId": "trader-01",
+      "marketId": "market-08",
+      "side": "SELL",
+      "timestamp": "2026-10-01T00:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-09-buy",
+      "traderId": "trader-01",
+      "marketId": "market-09",
+      "side": "BUY",
+      "timestamp": "2026-10-01T01:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-09-sell",
+      "traderId": "trader-01",
+      "marketId": "market-09",
+      "side": "SELL",
+      "timestamp": "2026-10-01T02:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-10-buy",
+      "traderId": "trader-01",
+      "marketId": "market-10",
+      "side": "BUY",
+      "timestamp": "2026-10-01T03:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-10-sell",
+      "traderId": "trader-01",
+      "marketId": "market-10",
+      "side": "SELL",
+      "timestamp": "2026-10-01T04:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-11-buy",
+      "traderId": "trader-01",
+      "marketId": "market-11",
+      "side": "BUY",
+      "timestamp": "2026-10-01T05:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-11-sell",
+      "traderId": "trader-01",
+      "marketId": "market-11",
+      "side": "SELL",
+      "timestamp": "2026-10-01T06:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-12-buy",
+      "traderId": "trader-01",
+      "marketId": "market-12",
+      "side": "BUY",
+      "timestamp": "2026-10-01T07:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-12-sell",
+      "traderId": "trader-01",
+      "marketId": "market-12",
+      "side": "SELL",
+      "timestamp": "2026-10-01T08:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-13-buy",
+      "traderId": "trader-01",
+      "marketId": "market-01",
+      "side": "BUY",
+      "timestamp": "2026-10-01T09:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-13-sell",
+      "traderId": "trader-01",
+      "marketId": "market-01",
+      "side": "SELL",
+      "timestamp": "2026-10-01T10:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-14-buy",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "side": "BUY",
+      "timestamp": "2026-10-01T11:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-closed-14-sell",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "side": "SELL",
+      "timestamp": "2026-10-01T12:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-current-01",
+      "traderId": "trader-01",
+      "marketId": "market-01",
+      "side": "BUY",
+      "timestamp": "2026-10-01T13:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-current-02",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "side": "BUY",
+      "timestamp": "2026-10-01T14:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-current-03",
+      "traderId": "trader-01",
+      "marketId": "market-03",
+      "side": "BUY",
+      "timestamp": "2026-10-01T15:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-current-04",
+      "traderId": "trader-01",
+      "marketId": "market-04",
+      "side": "BUY",
+      "timestamp": "2026-10-01T16:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-current-05",
+      "traderId": "trader-01",
+      "marketId": "market-05",
+      "side": "BUY",
+      "timestamp": "2026-10-01T17:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-pending-01",
+      "traderId": "trader-01",
+      "marketId": "market-06",
+      "side": "BUY",
+      "timestamp": "2026-10-02T10:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-pending-02",
+      "traderId": "trader-01",
+      "marketId": "market-07",
+      "side": "BUY",
+      "timestamp": "2026-10-02T10:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-other-01",
+      "traderId": "trader-01",
+      "marketId": "market-08",
+      "side": "BUY",
+      "timestamp": "2026-10-02T10:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-other-02",
+      "traderId": "trader-01",
+      "marketId": "market-09",
+      "side": "BUY",
+      "timestamp": "2026-10-02T10:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-other-03",
+      "traderId": "trader-01",
+      "marketId": "market-10",
+      "side": "BUY",
+      "timestamp": "2026-10-02T10:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-other-04",
+      "traderId": "trader-01",
+      "marketId": "market-11",
+      "side": "BUY",
+      "timestamp": "2026-10-02T10:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-other-05",
+      "traderId": "trader-01",
+      "marketId": "market-12",
+      "side": "BUY",
+      "timestamp": "2026-10-02T10:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-close-pending-01",
+      "traderId": "trader-01",
+      "marketId": "market-04",
+      "side": "SELL",
+      "timestamp": "2026-10-02T10:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-event-036",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "side": "BUY",
+      "timestamp": "2026-10-02T07:36:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-event-037",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "side": "BUY",
+      "timestamp": "2026-10-02T08:37:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-event-038",
+      "traderId": "trader-01",
+      "marketId": "market-03",
+      "side": "BUY",
+      "timestamp": "2026-10-02T09:38:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-event-042",
+      "traderId": "trader-01",
+      "marketId": "market-05",
+      "side": "BUY",
+      "timestamp": "2026-10-02T03:42:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-event-043",
+      "traderId": "trader-01",
+      "marketId": "market-05",
+      "side": "BUY",
+      "timestamp": "2026-10-02T04:43:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-event-044",
+      "traderId": "trader-01",
+      "marketId": "market-06",
+      "side": "BUY",
+      "timestamp": "2026-10-02T05:44:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-event-048",
+      "traderId": "trader-01",
+      "marketId": "market-08",
+      "side": "BUY",
+      "timestamp": "2026-10-02T09:48:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-event-049",
+      "traderId": "trader-01",
+      "marketId": "market-08",
+      "side": "BUY",
+      "timestamp": "2026-10-02T10:49:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-event-050",
+      "traderId": "trader-01",
+      "marketId": "market-09",
+      "side": "BUY",
+      "timestamp": "2026-10-02T01:50:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-event-054",
+      "traderId": "trader-01",
+      "marketId": "market-11",
+      "side": "BUY",
+      "timestamp": "2026-10-02T05:54:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-event-055",
+      "traderId": "trader-01",
+      "marketId": "market-11",
+      "side": "BUY",
+      "timestamp": "2026-10-02T06:55:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-event-056",
+      "traderId": "trader-01",
+      "marketId": "market-12",
+      "side": "BUY",
+      "timestamp": "2026-10-02T07:56:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-event-060",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "side": "BUY",
+      "timestamp": "2026-10-02T01:00:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-event-061",
+      "traderId": "trader-01",
+      "marketId": "market-02",
+      "side": "BUY",
+      "timestamp": "2026-10-02T02:01:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-event-062",
+      "traderId": "trader-01",
+      "marketId": "market-01",
+      "side": "BUY",
+      "timestamp": "2026-10-02T03:02:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-event-066",
+      "traderId": "trader-01",
+      "marketId": "market-05",
+      "side": "BUY",
+      "timestamp": "2026-10-02T07:06:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-event-067",
+      "traderId": "trader-01",
+      "marketId": "market-06",
+      "side": "BUY",
+      "timestamp": "2026-10-02T08:07:00Z",
+      "synthetic": true
+    },
+    {
+      "id": "signal-event-068",
+      "traderId": "trader-01",
+      "marketId": "market-07",
+      "side": "BUY",
+      "timestamp": "2026-10-02T09:08:00Z",
+      "synthetic": true
+    }
+  ],
+  "catalogDistributionNote": "Each venue includes positive, negative, zero and unavailable 30d outcomes. The synthetic example does not associate venue choice with success."
+}

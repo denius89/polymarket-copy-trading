@@ -1,13 +1,13 @@
 {
-  "version": 10,
-  "updatedAt": "2026-09-30",
+  "version": 14,
+  "updatedAt": "2026-10-03",
   "file": {
     "name": "Controlled Copy Trading — Paper MVP",
     "fileKey": "lxPP2um7FvIbt02K8eeH4T",
     "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T",
     "plan": "Professional",
     "seat": "Full",
-    "status": "prototype remediation in progress; founder approval and final responsive/runtime QA pending"
+    "status": "current prototype organized; unused originals archived; full visual/functional colleague acceptance pending"
   },
   "pages": [
     {
@@ -18,30 +18,34 @@
     {
       "name": "01 · Приложение · EN",
       "nodeId": "29:2",
-      "startingPoint": "584:85",
+      "startingPoint": "905:1754",
       "status": "active",
-      "prototypeEntryNode": "584:85"
+      "prototypeEntryNode": "905:1754",
+      "firstEntryNode": "954:19101"
     },
     {
       "name": "02 · Приложение · RU",
       "nodeId": "33:2",
-      "startingPoint": "584:196",
+      "startingPoint": "888:1701",
       "status": "active",
-      "prototypeEntryNode": "584:196"
+      "prototypeEntryNode": "888:1701",
+      "firstEntryNode": "954:4956"
     },
     {
-      "name": "03 · Desktop · EN",
+      "name": "03 · Десктоп · EN",
       "nodeId": "186:2",
-      "prototypeEntryNode": "584:225",
+      "prototypeEntryNode": "905:9713",
       "status": "active",
-      "startingPoint": "584:225"
+      "startingPoint": "905:9713",
+      "firstEntryNode": "955:18385"
     },
     {
-      "name": "04 · Desktop · RU",
+      "name": "04 · Десктоп · RU",
       "nodeId": "205:2",
-      "prototypeEntryNode": "584:265",
+      "prototypeEntryNode": "905:9074",
       "status": "active",
-      "startingPoint": "584:265"
+      "startingPoint": "905:9074",
+      "firstEntryNode": "955:3790"
     },
     {
       "name": "05 · Админка",
@@ -67,13 +71,11 @@
     {
       "name": "90 · Архив · Схема EN",
       "nodeId": "2:78",
-      "startingPoint": "12:2",
       "status": "reference"
     },
     {
       "name": "91 · Архив · Схема RU",
       "nodeId": "7:10",
-      "startingPoint": "14:2",
       "status": "reference"
     },
     {
@@ -95,6 +97,11 @@
       "nodeId": "121:1943",
       "name": "95 · Архив восстановления",
       "status": "reference"
+    },
+    {
+      "name": "96 · Архив · Неиспользуемые экраны · 03.10.2026",
+      "nodeId": "1099:2",
+      "status": "archived"
     }
   ],
   "foundations": {
@@ -512,7 +519,7 @@
     }
   },
   "currentRevision": {
-    "date": "2026-09-30",
+    "date": "2026-10-01",
     "status": "reviewable Figma iteration; not approved for frontend",
     "remediationReport": "docs/51_figma_remediation_2026-09-30.md",
     "supportAndAuthReport": "docs/52_support_tickets_and_auth_figma_progress.md",
@@ -541,7 +548,12 @@
         "desktopEN": "724:2",
         "desktopRU": "724:825"
       },
-      "exampleLinkedObjects": ["position", "event", "session", "paper balance"],
+      "exampleLinkedObjects": [
+        "position",
+        "event",
+        "session",
+        "paper balance"
+      ],
       "status": "reviewable user-side prototype; live transfer context and backend pending"
     },
     "publicEmailEntry": {
@@ -616,6 +628,372 @@
     "qualityEvidence": "597:2",
     "mobileVisibleTextBelow12": 0,
     "mobileInteractiveTargetsBelow44": 0,
-    "baselineDisclaimer": "Legacy counts and screen lists elsewhere in this manifest describe the 29 Sep baseline; use currentRevision and docs/51-52 for the 30 Sep iteration."
+    "baselineDisclaimer": "Legacy counts and screen lists elsewhere in this manifest describe the 29 Sep baseline; use currentRevision and docs/51-52 for the 30 Sep iteration.",
+    "reviewerNavigation": {
+      "mobileRU": "742:96",
+      "mobileEN": "742:215",
+      "desktopRU": "742:317",
+      "desktopEN": "742:240",
+      "flowsPerPage": 4,
+      "journeys": [
+        "first launch",
+        "active session",
+        "help"
+      ],
+      "readyDesktopRU": "742:341",
+      "readyDesktopEN": "742:264"
+    }
+  },
+  "remediation20261002": {
+    "report": "docs/58_figma_implementation_and_review_2026-10-02.md",
+    "guide": "docs/54_colleague_figma_clickthrough_guide.md",
+    "evidence": "design/qa-2026-10-02/final-review-evidence.json",
+    "baselineRetained": 534,
+    "newStateScreens": 212,
+    "newScenariosPerLocaleDevice": 53,
+    "responsiveReferenceControls": 40,
+    "ownerProposedWireframes": 14,
+    "nativeContext": "before / empty / active via three flat binary actions",
+    "masters": {
+      "mobileHeader": "819:294",
+      "mobileNavigation": "819:312",
+      "desktopHeader": "819:330",
+      "warningButtonSet": "824:12",
+      "dangerButtonSet": "824:23"
+    },
+    "approval": "colleague review pending; not frontend/API/live approval"
+  },
+  "interactiveData20261002": {
+    "status": "Figma review package implemented; colleague acceptance pending",
+    "fixture": "design/interactive-fixtures-2026-10-02.json",
+    "evidence": "design/qa-2026-10-02/interactive-data-evidence.json",
+    "report": "docs/59_interactive_test_data_implementation_2026-10-02.md",
+    "screenCount": 116,
+    "referenceOnlyCount": 32,
+    "variants": [
+      {
+        "pageId": "33:2",
+        "locale": "RU",
+        "device": "mobile",
+        "sectionId": "888:1700",
+        "frames": {
+          "home": "888:1701",
+          "catalog": "888:1734",
+          "catalog-filter": "888:1767",
+          "search": "888:1800",
+          "positions": "888:1833",
+          "orders": "888:1866",
+          "events": "888:1899",
+          "funds": "888:1932",
+          "operations": "888:1965",
+          "notifications": "888:1998",
+          "tickets": "888:2031",
+          "help": "888:2064",
+          "profile": "888:2097",
+          "report": "888:2130",
+          "entry": "888:2163",
+          "future": "888:2196",
+          "draft": "888:2229",
+          "sent": "888:2262",
+          "detail-position": "888:2295",
+          "detail-order": "888:2328",
+          "detail-event": "888:2361",
+          "detail-operation": "888:2394",
+          "detail-ticket": "888:2427",
+          "detail-faq": "888:2460",
+          "trader-24h": "888:2493",
+          "trader-7d": "888:2526",
+          "trader-30d": "888:2559",
+          "trader-90d": "888:2592",
+          "thread": "888:2625"
+        },
+        "qaCounts": {
+          "frames": 29,
+          "expectedFrames": 29,
+          "missingFrames": 0,
+          "reachableExpected": 29,
+          "unreachable": 0,
+          "shortHits": 0,
+          "missingLinks": 0,
+          "viewportIssues": 0,
+          "actionTextOverflows": 0,
+          "scrollIssues": 0,
+          "frameOverlaps": 0,
+          "sectionOverlaps": 0
+        }
+      },
+      {
+        "pageId": "29:2",
+        "locale": "EN",
+        "device": "mobile",
+        "sectionId": "905:1753",
+        "frames": {
+          "home": "905:1754",
+          "catalog": "905:1788",
+          "catalog-filter": "905:1822",
+          "search": "905:1856",
+          "positions": "905:1890",
+          "orders": "905:1924",
+          "events": "905:1958",
+          "funds": "905:1992",
+          "operations": "905:8359",
+          "notifications": "905:8393",
+          "tickets": "905:8427",
+          "help": "905:8461",
+          "profile": "905:8495",
+          "report": "905:8529",
+          "entry": "905:8563",
+          "future": "905:8597",
+          "draft": "905:8631",
+          "sent": "905:8665",
+          "detail-position": "905:8699",
+          "detail-order": "905:8733",
+          "detail-event": "905:8767",
+          "detail-operation": "905:8801",
+          "detail-ticket": "905:8835",
+          "detail-faq": "905:8869",
+          "trader-24h": "905:8903",
+          "trader-7d": "905:8937",
+          "trader-30d": "905:8971",
+          "trader-90d": "905:9005",
+          "thread": "905:9039"
+        },
+        "qaCounts": {
+          "frames": 29,
+          "expectedFrames": 29,
+          "missingFrames": 0,
+          "reachableExpected": 29,
+          "unreachable": 0,
+          "shortHits": 0,
+          "missingLinks": 0,
+          "viewportIssues": 0,
+          "actionTextOverflows": 0,
+          "scrollIssues": 0,
+          "frameOverlaps": 0,
+          "sectionOverlaps": 0
+        }
+      },
+      {
+        "pageId": "205:2",
+        "locale": "RU",
+        "device": "desktop",
+        "sectionId": "905:9073",
+        "frames": {
+          "home": "905:9074",
+          "catalog": "905:9096",
+          "catalog-filter": "905:9118",
+          "search": "905:9140",
+          "positions": "905:9162",
+          "orders": "905:9184",
+          "events": "905:9206",
+          "funds": "905:9228",
+          "operations": "905:9250",
+          "notifications": "905:9272",
+          "tickets": "905:9294",
+          "help": "905:9316",
+          "profile": "905:9338",
+          "report": "905:9360",
+          "entry": "905:9382",
+          "future": "905:9404",
+          "draft": "905:9426",
+          "sent": "905:9448",
+          "detail-position": "905:9470",
+          "detail-order": "905:9492",
+          "detail-event": "905:9514",
+          "detail-operation": "905:9536",
+          "detail-ticket": "905:9558",
+          "detail-faq": "905:9580",
+          "trader-24h": "905:9602",
+          "trader-7d": "905:9624",
+          "trader-30d": "905:9646",
+          "trader-90d": "905:9668",
+          "thread": "905:9690"
+        },
+        "qaCounts": {
+          "frames": 29,
+          "expectedFrames": 29,
+          "missingFrames": 0,
+          "reachableExpected": 29,
+          "unreachable": 0,
+          "shortHits": 0,
+          "missingLinks": 0,
+          "viewportIssues": 0,
+          "actionTextOverflows": 0,
+          "scrollIssues": 0,
+          "frameOverlaps": 0,
+          "sectionOverlaps": 0
+        }
+      },
+      {
+        "pageId": "186:2",
+        "locale": "EN",
+        "device": "desktop",
+        "sectionId": "905:9712",
+        "frames": {
+          "home": "905:9713",
+          "catalog": "905:9735",
+          "catalog-filter": "905:9757",
+          "search": "905:9779",
+          "positions": "905:9801",
+          "orders": "905:9823",
+          "events": "905:9845",
+          "funds": "905:9867",
+          "operations": "905:9889",
+          "notifications": "905:9911",
+          "tickets": "905:9933",
+          "help": "905:9955",
+          "profile": "905:9977",
+          "report": "905:9999",
+          "entry": "905:10021",
+          "future": "905:10043",
+          "draft": "905:10065",
+          "sent": "905:10087",
+          "detail-position": "905:10109",
+          "detail-order": "905:10131",
+          "detail-event": "905:10153",
+          "detail-operation": "905:10175",
+          "detail-ticket": "905:10197",
+          "detail-faq": "905:10219",
+          "trader-24h": "905:10241",
+          "trader-7d": "905:10263",
+          "trader-30d": "905:10285",
+          "trader-90d": "905:10307",
+          "thread": "905:10329"
+        },
+        "qaCounts": {
+          "frames": 29,
+          "expectedFrames": 29,
+          "missingFrames": 0,
+          "reachableExpected": 29,
+          "unreachable": 0,
+          "shortHits": 0,
+          "missingLinks": 0,
+          "viewportIssues": 0,
+          "actionTextOverflows": 0,
+          "scrollIssues": 0,
+          "frameOverlaps": 0,
+          "sectionOverlaps": 0
+        }
+      }
+    ],
+    "sharedComponents": {
+      "listItem": "882:2",
+      "compactMobileHeader": "919:2",
+      "compactHeaderSection": "925:8384",
+      "mobileHeader": "819:294",
+      "positionsIcon": "819:306",
+      "desktopHeader": "819:330",
+      "chartCaptions": "Visibility follows selected period's graph availability in all four variants"
+    },
+    "runtimeScope": {
+      "mobileRU": [
+        "Catalog long scroll with fixed header/footer",
+        "Selected trader details",
+        "Back preserves catalog scroll position",
+        "Final Polymarket+positive filter returns four matching traders",
+        "PnL descending sort preserves applied venue/result filter",
+        "Prepared no-match search displays zero and recovery message",
+        "All clears search/filter and restores24traders"
+      ],
+      "desktopRU": [
+        "Catalog scroll keeps header and sidebar fixed",
+        "Trader22 opens own profile; Back restores same catalog position",
+        "Unknown order05 shows zero fills,1.01USD reserve and no resubmit action",
+        "Help draft receives selected order-other-05 context",
+        "Header balance opens Funds; Demo/Polymarket/Limitless are separate"
+      ],
+      "notClaimed": "All-branch structural reachability does not prove every runtime state. Keyboard/accessibility/API not tested."
+    },
+    "limitations": [
+      "Prepared synthetic Figma inputs, not arbitrary search or API",
+      "Future live accounts are disconnected, balances unavailable",
+      "Six detailed profiles; remaining catalog profiles have basic details",
+      "User acceptance and runtime accessibility remain pending"
+    ],
+    "headerBoundsQA": [
+      {
+        "pageId": "33:2",
+        "mainFrames": 29,
+        "referenceFrames": 8,
+        "overflows": []
+      },
+      {
+        "pageId": "29:2",
+        "mainFrames": 29,
+        "referenceFrames": 8,
+        "overflows": []
+      },
+      {
+        "pageId": "205:2",
+        "mainFrames": 29,
+        "referenceFrames": 8,
+        "overflows": []
+      },
+      {
+        "pageId": "186:2",
+        "mainFrames": 29,
+        "referenceFrames": 8,
+        "overflows": []
+      }
+    ]
+  },
+  "visualRemediation20261002": {
+    "report": "docs/62_visual_audit_fixes_2026-10-02.md",
+    "guide": "docs/61_colleague_corrections_implementation_2026-10-02.md",
+    "evidence": "design/qa-2026-10-02/visual-fixes-evidence.json",
+    "status": "implemented; structural and selected visual/runtime checks completed; full colleague acceptance pending",
+    "canonicalWidths": {
+      "desktop": 1440,
+      "mobile": 390
+    },
+    "canonicalFrames": 212,
+    "archive": "Unused route chooser and replaced controls moved to archive 96; use archiveRevision20261003 for current entries.",
+    "frontendAndApi": "not implemented",
+    "startingPoints": {
+      "29:2": "905:8563",
+      "33:2": "888:2163",
+      "186:2": "905:10021",
+      "205:2": "905:9382"
+    },
+    "historical": true
+  },
+  "archiveRevision20261003": {
+    "report": "docs/67_figma_archive_revision_2026-10-03.md",
+    "ledger": "design/qa-2026-10-03/archive-final-ledger.json",
+    "componentQa": "design/qa-2026-10-03/archive-component-qa.json",
+    "archivePage": "1099:2",
+    "archivedOriginalRoots": 551,
+    "deletedNodes": 0,
+    "retainedUserRootObjects": 543,
+    "retainedAdminRootObjects": 25,
+    "retainedQaRootObjects": 1,
+    "activeActionsIntoArchive": 0,
+    "missingActionTargets": 0,
+    "checkedUserComponentInstances": 5481,
+    "status": "organization complete; full product acceptance remains pending",
+    "startingPoints": {
+      "29:2": {
+        "activeDemo": "905:1754",
+        "firstEntry": "954:19101"
+      },
+      "33:2": {
+        "activeDemo": "888:1701",
+        "firstEntry": "954:4956"
+      },
+      "186:2": {
+        "activeDemo": "905:9713",
+        "firstEntry": "955:18385"
+      },
+      "205:2": {
+        "activeDemo": "905:9074",
+        "firstEntry": "955:3790"
+      }
+    },
+    "historicalEntries": [
+      "888:2163",
+      "905:8563",
+      "905:9382",
+      "905:10021"
+    ]
   }
 }

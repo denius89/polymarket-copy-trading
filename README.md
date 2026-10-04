@@ -1,5 +1,17 @@
 # Controlled Copy Trading
 
+Актуальная итерация Figma: [компактные фильтры, шапка и средства — отчёт 66](docs/66_compact_filters_header_and_funds_2026-10-03.md).
+
+Актуальный статус дизайна: визуальная регрессия подтверждена; прототип не утверждён. [Причины и план восстановления — отчёт 63](docs/63_design_regression_and_recovery_report_2026-10-02.md). Перестройка Figma в этом цикле не выполнялась.
+
+Current Figma review / Актуальная проверка: [report62](docs/62_visual_audit_fixes_2026-10-02.md), [four starts / четыре старта61](docs/61_colleague_corrections_implementation_2026-10-02.md).53×4 connected states;1440/390.
+
+Наполненный кликабельный пример: [отчёт 59](docs/59_interactive_test_data_implementation_2026-10-02.md) и [инструкция 54](docs/54_colleague_figma_clickthrough_guide.md). Добавлены длинные списки, фильтры, сортировка и связанные детали для четырёх версий Figma.
+
+Текущий пакет Figma 02.10: [результат и QA](docs/58_figma_implementation_and_review_2026-10-02.md), [инструкция коллеге](docs/54_colleague_figma_clickthrough_guide.md). Готов для проверки; пользовательская приёмка и интеграционные контракты ещё не утверждены.
+
+Current plan / Актуальный план: [55](docs/55_consolidated_product_plan_2026-10-02.md), [GitHub work plan 56](docs/56_git_work_plan_2026-10-02.md), [ADR-0013](docs/decisions/0013_consolidated_ux_and_risk_boundaries.md). Demo must be offered, but individual completion is optional; service verification and separate live gates remain mandatory. Демо предлагается при первом входе, прохождение необязательно; проверка сервиса и отдельные live-gates сохраняются. These are requirements, not implemented application features.
+
 **Русский** · [English](README.en.md)
 
 [![Проверка репозитория](https://github.com/denius89/polymarket-copy-trading/actions/workflows/repository-check.yml/badge.svg)](https://github.com/denius89/polymarket-copy-trading/actions/workflows/repository-check.yml)
@@ -10,7 +22,7 @@ Controlled Copy Trading — проект mobile-first сервиса для ко
 
 > **Текущий статус: pre-MVP.** Сейчас команда согласовывает продукт, интерфейсы, экономику и архитектуру. Пользовательское приложение, торговая интеграция и реальные сделки ещё не запущены. Материалы репозитория описывают решения, гипотезы и план разработки — это не документация готового сервиса.
 
-**Что происходит сейчас:** продуктовый бриф согласован; после замечаний основателя проходит системная пересборка интерфейсов EN/RU и админки в [Figma](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T). Актуальные ссылки и границы прототипа — в [прогрессе дизайна](docs/38_figma_low_fidelity_progress.md), причины пересборки и критерии проверки — в [аудите качества](docs/39_design_quality_audit.md). Прототип ещё не утверждён; frontend и реальные сделки остаются за отдельным решением.
+**Что происходит сейчас:** пакет Figma от 02.10.2026 подготовлен для проверки коллегой. Начните с [инструкции 54](docs/54_colleague_figma_clickthrough_guide.md); выполненные изменения, свидетельства и ограничения — в [отчёте 58](docs/58_figma_implementation_and_review_2026-10-02.md). Документы 38–53 сохраняют историю предыдущих итераций. Пользовательская приёмка, frontend и реальные операции остаются отдельными этапами.
 
 ## Зачем нужен продукт
 

@@ -1,5 +1,17 @@
 # Controlled Copy Trading
 
+Current Figma iteration: [compact filters, shared header and separate accounts — report 66](docs/66_compact_filters_header_and_funds_2026-10-03.md).
+
+Current design status: visual regression confirmed; the prototype is not approved. [Diagnosis and proposed recovery — report 63 (RU)](docs/63_design_regression_and_recovery_report_2026-10-02.md). No Figma rebuild was performed in this review cycle.
+
+Current Figma review / Актуальная проверка: [report62](docs/62_visual_audit_fixes_2026-10-02.md), [four starts / четыре старта61](docs/61_colleague_corrections_implementation_2026-10-02.md).53×4 connected states;1440/390.
+
+Populated Figma review: [report 59](docs/59_interactive_test_data_implementation_2026-10-02.md), [review guide 54](docs/54_colleague_figma_clickthrough_guide.md). Long lists, prepared filters, sorting and contextual details are available in four variants.
+
+Figma package 2026-10-02: [implementation and QA](docs/58_figma_implementation_and_review_2026-10-02.md), [review guide](docs/54_colleague_figma_clickthrough_guide.md). Ready for colleague review; not runtime or live approval.
+
+Current plan / Актуальный план: [55](docs/55_consolidated_product_plan_2026-10-02.md), [GitHub work plan 56](docs/56_git_work_plan_2026-10-02.md), [ADR-0013](docs/decisions/0013_consolidated_ux_and_risk_boundaries.md). Demo must be offered, but individual completion is optional; service verification and separate live gates remain mandatory. Демо предлагается при первом входе, прохождение необязательно; проверка сервиса и отдельные live-gates сохраняются. These are requirements, not implemented application features.
+
 [Русский](README.md) · **English**
 
 [![Repository check](https://github.com/denius89/polymarket-copy-trading/actions/workflows/repository-check.yml/badge.svg)](https://github.com/denius89/polymarket-copy-trading/actions/workflows/repository-check.yml)
@@ -10,7 +22,7 @@ The target product includes both **Polymarket** and **Limitless** as required ve
 
 > **Current status: pre-MVP.** The team is defining the product, interfaces, economics, and architecture. The user application, trading integrations, and live trading are not available yet. This repository documents decisions, hypotheses, and the development plan; it is not documentation for a finished service.
 
-**Current work:** the team is collecting design briefs and references. Two independent responses have arrived; joint analysis will start after the colleague's final file. The next outcomes are an agreed screen map and Figma foundations. See the [readiness audit](docs/31_project_readiness_audit.md) for design and development gates and [ADR-0009](docs/decisions/0009_novice_first_direct_mvp.md) for the current MVP audience.
+**Current work:** the Figma package dated 2026-10-02 is ready for colleague review. Start with the [review guide 54](docs/54_colleague_figma_clickthrough_guide.md); completed changes, evidence and limits are in [report 58](docs/58_figma_implementation_and_review_2026-10-02.md). Documents 38–53 preserve earlier iterations. User acceptance, frontend implementation and real-money operations remain separate stages.
 
 ## Why this product
 
