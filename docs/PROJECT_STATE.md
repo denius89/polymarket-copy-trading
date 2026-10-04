@@ -181,3 +181,8 @@
 ## Следующая команда Codex
 
 > Обнови Figma-пакет по `docs/34_screen_and_state_map.md`, `docs/35_bilingual_low_fidelity_flow.md`, `docs/40_cross_industry_product_logic_benchmark.md`, `docs/41_product_design_and_frontend_standards.md` и ADR-0012. Сначала mobile/desktop структура и состояния, затем визуальный слой; frontend и реальные сделки не начинать.
+
+
+### Кнопки — 04.10.2026
+
+В Figma исправлены подписи, геометрия, цвета и размещение 1 570 кнопок и условных состояний на пяти рабочих страницах и 41 общего мастера. Связи компонентов и 1 537 реакций сохранены. Отчёт и ограничения проверки: [80 — кнопки](80_buttons_fit_colors_and_placement_2026-10-04.md).
