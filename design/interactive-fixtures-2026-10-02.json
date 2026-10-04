@@ -89,7 +89,22 @@
       "label": "Election outcome",
       "venue": "polymarket",
       "status": "open",
-      "labelRu": "Итоги выборов"
+      "labelRu": "Итоги выборов",
+      "questionRu": "Победит ли кандидат A на выборах?",
+      "questionEn": "Will candidate A win the election?",
+      "synthetic": true,
+      "outcomes": [
+        {
+          "id": "yes",
+          "labelRu": "Да",
+          "labelEn": "Yes"
+        },
+        {
+          "id": "no",
+          "labelRu": "Нет",
+          "labelEn": "No"
+        }
+      ]
     },
     {
       "id": "market-02",
@@ -1746,7 +1761,8 @@
         "ledger-001",
         "ledger-002"
       ],
-      "management": "copy"
+      "management": "copy",
+      "outcomeId": "yes"
     },
     {
       "id": "position-closed-02",
@@ -1938,7 +1954,8 @@
         "ledger-025",
         "ledger-026"
       ],
-      "management": "copy"
+      "management": "copy",
+      "outcomeId": "yes"
     },
     {
       "id": "position-closed-14",
@@ -1971,7 +1988,8 @@
       "ledgerIds": [
         "ledger-029"
       ],
-      "management": "copy"
+      "management": "copy",
+      "outcomeId": "yes"
     },
     {
       "id": "position-current-02",
@@ -2059,7 +2077,8 @@
       "positionId": "position-closed-01",
       "timestamp": "2026-09-30T09:00:00Z",
       "signalId": "signal-closed-01-buy",
-      "estimatedRemainingFeeCents": 0
+      "estimatedRemainingFeeCents": 0,
+      "outcomeId": "yes"
     },
     {
       "id": "order-closed-01-sell",
@@ -2077,7 +2096,8 @@
       "positionId": "position-closed-01",
       "timestamp": "2026-09-30T10:00:00Z",
       "signalId": "signal-closed-01-sell",
-      "estimatedRemainingFeeCents": 0
+      "estimatedRemainingFeeCents": 0,
+      "outcomeId": "yes"
     },
     {
       "id": "order-closed-02-buy",
@@ -2491,7 +2511,8 @@
       "positionId": "position-closed-13",
       "timestamp": "2026-10-01T09:00:00Z",
       "signalId": "signal-closed-13-buy",
-      "estimatedRemainingFeeCents": 0
+      "estimatedRemainingFeeCents": 0,
+      "outcomeId": "yes"
     },
     {
       "id": "order-closed-13-sell",
@@ -2509,7 +2530,8 @@
       "positionId": "position-closed-13",
       "timestamp": "2026-10-01T10:00:00Z",
       "signalId": "signal-closed-13-sell",
-      "estimatedRemainingFeeCents": 0
+      "estimatedRemainingFeeCents": 0,
+      "outcomeId": "yes"
     },
     {
       "id": "order-closed-14-buy",
@@ -2563,7 +2585,8 @@
       "positionId": "position-current-01",
       "timestamp": "2026-10-01T13:00:00Z",
       "signalId": "signal-current-01",
-      "estimatedRemainingFeeCents": 1
+      "estimatedRemainingFeeCents": 1,
+      "outcomeId": "yes"
     },
     {
       "id": "order-current-02",
