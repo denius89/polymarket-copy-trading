@@ -4,8 +4,8 @@
 
 ## Текущий цикл
 
-1. Рассмотреть [аудит и план операционной консоли 114](114_admin_console_audit_and_plan_2026-10-06.md): границы demo/live, карта ADM-01–ADM-17, роли, данные, owner finance, integrations/security, здоровье подключений, content/localization, emergency control center и этапы.
-2. Принять семь открытых решений: детальная RBAC-матрица, support queue в demo V1, owner finance как `source disconnected`, архитектура content/localization до frontend, read-only граница управления ключами, права публикации критических текстов и полномочия activation/recovery глобального рубильника.
+1. Рассмотреть [аудит и план операционной консоли 114](114_admin_console_audit_and_plan_2026-10-06.md): границы demo/live, карта ADM-01–ADM-17, роли, данные, owner finance, тарифы/комиссии, integrations/security, здоровье подключений, content/localization, emergency control center и этапы.
+2. Принять восемь открытых решений: детальная RBAC-матрица, support queue в demo V1, owner finance как `source disconnected`, архитектура content/localization до frontend, read-only граница управления ключами, права публикации критических текстов, полномочия activation/recovery глобального рубильника и versioned tariff/referral policy с Owner-only publish.
 3. После отдельного поручения подготовить дизайн-итерацию админки. Технический план и реализация не начинаются автоматически.
 4. Независимо от админки остаётся ручной Present последних исправлений четырёх пользовательских прототипов из [главной страницы](../README.md).
 
