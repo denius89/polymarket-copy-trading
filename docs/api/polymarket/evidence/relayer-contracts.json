@@ -1,0 +1,646 @@
+{
+  "provenance": {
+    "checked_at": "2026-10-06",
+    "source_url": "https://docs.polymarket.com/api-spec/relayer-openapi.yaml",
+    "source_sha256": "bc166abe718228203d6d479af36eae5901d77f807a1e73444fc380ee5ae385a8",
+    "status": "documented schema fetched; not runtime validation",
+    "scope": "Predictions MVP selected endpoints; descriptions/examples omitted, functional constraints retained"
+  },
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Polymarket Relayer API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://relayer-v2.polymarket.com",
+      "description": "Polymarket Relayer API"
+    }
+  ],
+  "security": null,
+  "paths": {
+    "/submit": {
+      "post": {
+        "tags": [
+          "Relayer"
+        ],
+        "parameters": [
+          {
+            "name": "POLY_BUILDER_API_KEY",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "POLY_BUILDER_TIMESTAMP",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "POLY_BUILDER_PASSPHRASE",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "POLY_BUILDER_SIGNATURE",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "RELAYER_API_KEY",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "RELAYER_API_KEY_ADDRESS",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/Address"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubmitRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmitResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transaction": {
+      "get": {
+        "tags": [
+          "Relayer"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RelayerTransaction"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transactions": {
+      "get": {
+        "tags": [
+          "Relayer"
+        ],
+        "parameters": [
+          {
+            "name": "POLY_BUILDER_API_KEY",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "POLY_BUILDER_TIMESTAMP",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "POLY_BUILDER_PASSPHRASE",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "POLY_BUILDER_SIGNATURE",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "RELAYER_API_KEY",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "RELAYER_API_KEY_ADDRESS",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/Address"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RelayerTransaction"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/nonce": {
+      "get": {
+        "tags": [
+          "Relayer"
+        ],
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Address"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "PROXY",
+                "SAFE"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NonceResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/relay-payload": {
+      "get": {
+        "tags": [
+          "Relayer"
+        ],
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Address"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "PROXY",
+                "SAFE"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RelayPayloadResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deployed": {
+      "get": {
+        "tags": [
+          "Relayer"
+        ],
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Address"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "SAFE",
+                "WALLET"
+              ],
+              "default": "SAFE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeployedResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "error"
+        ]
+      },
+      "DeployedResponse": {
+        "type": "object",
+        "properties": {
+          "deployed": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Address": {
+        "type": "string",
+        "pattern": "^0x[a-fA-F0-9]{40}$"
+      },
+      "RelayPayloadResponse": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "nonce": {
+            "type": "string"
+          }
+        }
+      },
+      "NonceResponse": {
+        "type": "object",
+        "properties": {
+          "nonce": {
+            "type": "string"
+          }
+        }
+      },
+      "RelayerTransaction": {
+        "type": "object",
+        "properties": {
+          "transactionID": {
+            "type": "string"
+          },
+          "transactionHash": {
+            "type": "string"
+          },
+          "from": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "to": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "proxyAddress": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "data": {
+            "type": "string"
+          },
+          "nonce": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "signature": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "STATE_NEW",
+              "STATE_EXECUTED",
+              "STATE_MINED",
+              "STATE_CONFIRMED",
+              "STATE_INVALID",
+              "STATE_FAILED"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "SAFE",
+              "PROXY"
+            ]
+          },
+          "owner": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "metadata": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "SubmitResponse": {
+        "type": "object",
+        "properties": {
+          "transactionID": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        }
+      },
+      "SubmitRequest": {
+        "type": "object",
+        "required": [
+          "from",
+          "to",
+          "proxyWallet",
+          "data",
+          "nonce",
+          "signature",
+          "signatureParams",
+          "type"
+        ],
+        "properties": {
+          "from": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "to": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "proxyWallet": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "data": {
+            "type": "string"
+          },
+          "nonce": {
+            "type": "string"
+          },
+          "signature": {
+            "type": "string"
+          },
+          "signatureParams": {
+            "$ref": "#/components/schemas/SignatureParams"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "SAFE",
+              "PROXY"
+            ]
+          }
+        }
+      },
+      "SignatureParams": {
+        "type": "object",
+        "properties": {
+          "gasPrice": {
+            "type": "string"
+          },
+          "operation": {
+            "type": "string"
+          },
+          "safeTxnGas": {
+            "type": "string"
+          },
+          "baseGas": {
+            "type": "string"
+          },
+          "gasToken": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "refundReceiver": {
+            "$ref": "#/components/schemas/Address"
+          }
+        }
+      }
+    }
+  }
+}

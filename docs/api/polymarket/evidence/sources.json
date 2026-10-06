@@ -1,0 +1,527 @@
+{
+  "checked_date": "2026-10-06",
+  "sources": [
+    {
+      "url": "https://data-api.polymarket.com",
+      "checked_at_utc": "2026-10-06T11:31:30.608979+00:00",
+      "scope": "bare API base URL, not a documentation page or supported endpoint;403 is not failure of all v2 routes",
+      "fetch_url": "https://data-api.polymarket.com",
+      "result": "unavailable in recheck",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://data-api.polymarket.com/v2/openapi.json",
+      "checked_at_utc": "2026-10-06T11:31:30.610176+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "fetch_url": "https://data-api.polymarket.com/v2/openapi.json",
+      "result": "unavailable in recheck",
+      "error": "HTTP Error 403: Forbidden",
+      "prior_evidence": {
+        "result": "HTTP200 official schema downloaded/read earlier in this research",
+        "raw_sha256": "6a6fd344532bde1f2a89f8143dc50baa03f71a159be81286ac295c906d277b5c",
+        "later_recheck": "HTTP403, does not claim permanent public access"
+      }
+    },
+    {
+      "url": "https://docs.polymarket.com/api-reference/bridge/create-bridge-addresses",
+      "checked_at_utc": "2026-10-06T11:31:30.610339+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/api-reference/bridge/create-bridge-addresses.md",
+      "bytes": 4157,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/api-reference/bridge/create-withdrawal-addresses",
+      "checked_at_utc": "2026-10-06T11:31:30.610452+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/api-reference/bridge/create-withdrawal-addresses.md",
+      "bytes": 5283,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/api-reference/bridge/get-a-quote",
+      "checked_at_utc": "2026-10-06T11:31:30.610549+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/api-reference/bridge/get-a-quote.md",
+      "bytes": 7125,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/api-reference/bridge/get-supported-assets",
+      "checked_at_utc": "2026-10-06T11:31:30.610664+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/api-reference/bridge/get-supported-assets.md",
+      "bytes": 2671,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/api-reference/bridge/get-transaction-status",
+      "checked_at_utc": "2026-10-06T11:31:30.610777+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/api-reference/bridge/get-transaction-status.md",
+      "bytes": 8919,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/api-reference/geoblock",
+      "checked_at_utc": "2026-10-06T11:31:30.610910+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/api-reference/geoblock.md",
+      "bytes": 6154,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/api-reference/rate-limits",
+      "checked_at_utc": "2026-10-06T11:31:30.849360+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/api-reference/rate-limits.md",
+      "bytes": 3492,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/api-reference/trading-rate-limits",
+      "checked_at_utc": "2026-10-06T11:31:30.878139+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/api-reference/trading-rate-limits.md",
+      "bytes": 6137,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/api-reference/wss/polybolt",
+      "checked_at_utc": "2026-10-06T11:31:31.043787+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/api-reference/wss/polybolt.md",
+      "bytes": 83227,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/api-spec/bridge-openapi.yaml",
+      "checked_at_utc": "2026-10-06T11:31:31.045816+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/api-spec/bridge-openapi.yaml",
+      "bytes": 21719,
+      "content_type": "text/yaml",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/api-spec/clob-openapi.yaml",
+      "checked_at_utc": "2026-10-06T11:31:31.057375+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/api-spec/clob-openapi.yaml",
+      "bytes": 216099,
+      "content_type": "text/yaml",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/api-spec/gamma-openapi.yaml",
+      "checked_at_utc": "2026-10-06T11:31:31.058401+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/api-spec/gamma-openapi.yaml",
+      "bytes": 83120,
+      "content_type": "text/yaml",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/api-spec/relayer-openapi.yaml",
+      "checked_at_utc": "2026-10-06T11:31:31.062039+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/api-spec/relayer-openapi.yaml",
+      "bytes": 26743,
+      "content_type": "text/yaml",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/changelog/predictions",
+      "checked_at_utc": "2026-10-06T11:31:31.133549+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/changelog/predictions.md",
+      "bytes": 29863,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/changelog/sdks",
+      "checked_at_utc": "2026-10-06T11:31:31.243960+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/changelog/sdks.md",
+      "bytes": 59311,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/concepts/order-lifecycle",
+      "checked_at_utc": "2026-10-06T11:31:31.250986+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/concepts/order-lifecycle.md",
+      "bytes": 7356,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/concepts/pusd",
+      "checked_at_utc": "2026-10-06T11:31:31.486883+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/concepts/pusd.md",
+      "bytes": 5519,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/concepts/resolution",
+      "checked_at_utc": "2026-10-06T11:31:31.526306+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/concepts/resolution.md",
+      "bytes": 7545,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/getting-started/api",
+      "checked_at_utc": "2026-10-06T11:31:31.534912+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/getting-started/api.md",
+      "bytes": 9016,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/getting-started/python",
+      "checked_at_utc": "2026-10-06T11:31:31.594372+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/getting-started/python.md",
+      "bytes": 10559,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/getting-started/typescript",
+      "checked_at_utc": "2026-10-06T11:31:31.622101+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/getting-started/typescript.md",
+      "bytes": 10017,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/llms.txt",
+      "checked_at_utc": "2026-10-06T11:31:31.649113+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/llms.txt",
+      "bytes": 14908,
+      "content_type": "text/plain; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/market-data/market-details",
+      "checked_at_utc": "2026-10-06T11:31:31.686129+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/market-data/market-details.md",
+      "bytes": 30471,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/market-data/public-analytics",
+      "checked_at_utc": "2026-10-06T11:31:31.834086+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/market-data/public-analytics.md",
+      "bytes": 40076,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/market-data/realtime-data",
+      "checked_at_utc": "2026-10-06T11:31:31.843095+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/market-data/realtime-data.md",
+      "bytes": 61150,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/migrate/clob-sdk-to-unified-sdk",
+      "checked_at_utc": "2026-10-06T11:31:31.888336+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/migrate/clob-sdk-to-unified-sdk.md",
+      "bytes": 60997,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/migrate/data-api-v1-to-v2",
+      "checked_at_utc": "2026-10-06T11:31:31.911471+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/migrate/data-api-v1-to-v2.md",
+      "bytes": 4716,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/migrate/polymarket-v2/api-integrations",
+      "checked_at_utc": "2026-10-06T11:31:31.930151+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/migrate/polymarket-v2/api-integrations.md",
+      "bytes": 5534,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/migrate/polymarket-v2/contract-integrations",
+      "checked_at_utc": "2026-10-06T11:31:31.958675+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/migrate/polymarket-v2/contract-integrations.md",
+      "bytes": 4271,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/migrate/polymarket-v2/overview",
+      "checked_at_utc": "2026-10-06T11:31:31.978911+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/migrate/polymarket-v2/overview.md",
+      "bytes": 6415,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/migrate/polymarket-v2/sdk-integrations",
+      "checked_at_utc": "2026-10-06T11:31:32.048801+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/migrate/polymarket-v2/sdk-integrations.md",
+      "bytes": 7008,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/migrate/rtds-to-polybolt",
+      "checked_at_utc": "2026-10-06T11:31:32.240642+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/migrate/rtds-to-polybolt.md",
+      "bytes": 28461,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/programs/builders/fees",
+      "checked_at_utc": "2026-10-06T11:31:32.246177+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/programs/builders/fees.md",
+      "bytes": 6553,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/programs/builders/tiers",
+      "checked_at_utc": "2026-10-06T11:31:32.295457+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/programs/builders/tiers.md",
+      "bytes": 5421,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/resources/contracts",
+      "checked_at_utc": "2026-10-06T11:31:32.296475+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/resources/contracts.md",
+      "bytes": 15848,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/resources/error-codes",
+      "checked_at_utc": "2026-10-06T11:31:32.314484+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/resources/error-codes.md",
+      "bytes": 18671,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/trading/bridge/deposit",
+      "checked_at_utc": "2026-10-06T11:31:32.342081+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/trading/bridge/deposit.md",
+      "bytes": 4394,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/trading/bridge/quote",
+      "checked_at_utc": "2026-10-06T11:31:32.365455+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/trading/bridge/quote.md",
+      "bytes": 4450,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/trading/bridge/status",
+      "checked_at_utc": "2026-10-06T11:31:32.417993+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/trading/bridge/status.md",
+      "bytes": 4846,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/trading/bridge/supported-assets",
+      "checked_at_utc": "2026-10-06T11:31:32.640523+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/trading/bridge/supported-assets.md",
+      "bytes": 2829,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/trading/bridge/withdraw",
+      "checked_at_utc": "2026-10-06T11:31:32.658409+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/trading/bridge/withdraw.md",
+      "bytes": 5004,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/trading/fees",
+      "checked_at_utc": "2026-10-06T11:31:32.673545+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/trading/fees.md",
+      "bytes": 6189,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/trading/manage-orders",
+      "checked_at_utc": "2026-10-06T11:31:32.688077+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/trading/manage-orders.md",
+      "bytes": 53722,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/trading/matching-engine",
+      "checked_at_utc": "2026-10-06T11:31:32.716714+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/trading/matching-engine.md",
+      "bytes": 12722,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/trading/place-orders",
+      "checked_at_utc": "2026-10-06T11:31:32.741216+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/trading/place-orders.md",
+      "bytes": 60224,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/trading/positions/manage",
+      "checked_at_utc": "2026-10-06T11:31:32.749765+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/trading/positions/manage.md",
+      "bytes": 28012,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/trading/realtime-order-updates",
+      "checked_at_utc": "2026-10-06T11:31:32.778228+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/trading/realtime-order-updates.md",
+      "bytes": 15508,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/trading/session-keys",
+      "checked_at_utc": "2026-10-06T11:31:33.010560+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/trading/session-keys.md",
+      "bytes": 44081,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/trading/wallet-activity",
+      "checked_at_utc": "2026-10-06T11:31:33.049892+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/trading/wallet-activity.md",
+      "bytes": 31830,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    },
+    {
+      "url": "https://docs.polymarket.com/trading/wallets-auth",
+      "checked_at_utc": "2026-10-06T11:31:33.072970+00:00",
+      "scope": "documentation link recheck, not API runtime verification",
+      "http_status": 200,
+      "resolved_url": "https://docs.polymarket.com/trading/wallets-auth.md",
+      "bytes": 54761,
+      "content_type": "text/markdown; charset=utf-8",
+      "result": "accessible"
+    }
+  ],
+  "note": "A failed link recheck does not erase an earlier documented web read; unavailable results are explicit. No credentials were used."
+}
