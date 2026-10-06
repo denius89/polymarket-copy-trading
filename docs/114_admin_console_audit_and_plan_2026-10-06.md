@@ -85,7 +85,7 @@
 | ADM-05 | Reconciliation | да | A05 `121:1513` | журнал попыток, late result, mismatch, durable evidence | **Согласовано / частично** |
 | ADM-06 | Venues & data | да | отдельного раздела нет | API/feed health, freshness, latency, last success/error, capability evidence | **Согласовано / отсутствует** |
 | ADM-07 | Traders & ingestion | да, read-only | данные видны в user UI | quality/completeness, rating method/version, gaps | **Предложено** |
-| ADM-08 | Fees & policy | да, read-only | Proposed finance и старые схемы | version registry, effective dates, demo 0% vs future simulation | **Согласовано / отсутствует** |
+| ADM-08 | Tariffs & commissions | simulation/read-only V1; управление позже | Proposed finance и старые схемы | version registry, calculation rules, referral tiers, overrides, preview/publish/rollback | **Согласована потребность; контракт предложен** |
 | ADM-09 | Support | да | user-side lifecycle готов | admin queue, conversation, context, access/retention rules | **Предложено** |
 | ADM-10 | Notifications | да, read-only | user-side notifications | delivery/failure/retry evidence, channel status | **Согласовано / отсутствует** |
 | ADM-11 | Feedback | да | user-side form | очередь, связь с user/session, категории и status | **Согласовано / отсутствует** |
@@ -186,6 +186,18 @@
 - **Предложено:** аварийный stop сам по себе не закрывает позиции, не отменяет unknown, не снимает reserves, не удаляет данные и не отзывает ключи.
 - **Предложено:** пользователь получает maintenance/read-only экран с честным status ID; операционная консоль остаётся доступна отдельным авторизованным сотрудникам.
 - **Нужна проверка:** полномочия активации и восстановления, scoped levels, правила безопасного уменьшения риска и out-of-band доступ.
+
+### 6.11 Тарифы, комиссии и партнёрские условия
+
+`Tariffs & commissions → policy set → tariff version → scope/rules → simulator → review → schedule/publish → monitoring/correction`.
+
+- **Согласовано:** фактическая комиссия закрытой alpha равна 0%; будущие paid-тарифы не должны случайно стать активными в demo.
+- **Согласовано:** комиссия Shadow начисляется только на фактически исполненную часть автоматического buy/sell; unfilled remainder и отменённая часть не являются базой.
+- **Согласовано:** расходы площадки/сети, комиссия Shadow и партнёрское вознаграждение — разные строки и разные ledger entries.
+- **Предложено:** изменение тарифа всегда создаёт новую неизменяемую версию с `effective_at`; прошлые начисления не пересчитываются молча.
+- **Предложено:** индивидуальные и VIP-условия задаются ограниченным override с началом/окончанием, причиной, Owner approval и audit; произвольное ручное изменение начисления запрещено.
+- **Предложено:** до публикации обязательны симуляция, сравнение с текущей версией и проверка ceiling/invariants.
+- **Нужна проверка:** tier thresholds, eligibility VIP, валюта расчёта/оплаты, точные rounding/minimum rules и механизм фактического взимания в live.
 
 ## 7. Данные, API и права
 
@@ -408,6 +420,121 @@ Emergency state не имеет автоматического срока ист
 
 Публичная status communication отделена от control plane: пользователи видят локализованное сообщение, время обновления и status reference, но не внутренние причины, ключи или security details. Текст берётся из заранее опубликованного emergency bundle ADM-16, поэтому доступен даже при сбое основного content service.
 
+### 7.8 Архитектура тарифов и комиссий
+
+#### 7.8.1 Разделение денежных компонентов
+
+| Компонент | Кто определяет | Можно ли менять в Shadow | Как учитывать |
+| --- | --- | --- | --- |
+| `service_fee` | тарифная политика Shadow | только новой версией policy | собственное начисление Shadow |
+| `venue_fee` | Polymarket/Limitless | нет; только получить и доказать применимую ставку | отдельный внешний расход/fee component |
+| `network_cost` | сеть/provider/фактическая транзакция | нет | отдельный подтверждённый расход |
+| `partner_reward` | партнёрская политика Shadow | новой версией referral policy | обязательство Shadow, не уменьшает исходную запись service fee |
+| `venue_referral_reward` | программа площадки | нет | отдельный внешний доход/атрибуция |
+| `refund/correction` | подтверждённое событие | только добавочной записью | ссылка на исходное начисление, без переписывания истории |
+
+UI никогда не показывает одну объединённую «комиссию», если её компоненты имеют разные источники или получателей. Неизвестная внешняя комиссия отображается как `unknown`, а не 0.
+
+#### 7.8.2 Сущности
+
+Минимальный `TariffPolicySet` содержит:
+
+| Поле | Назначение |
+| --- | --- |
+| `policy_set_id`, `version`, `status` | стабильная идентичность, версия и draft/scheduled/active/superseded |
+| `environment`, `mode` | demo simulation или future live |
+| `effective_from`, `effective_to` | точное время действия в UTC |
+| `scope` | venue, plan/segment и optional approved user/partner override |
+| `action_type` | automatic buy/sell и явно исключённые manual/protective/emergency actions |
+| `liquidity_role` | maker/taker/unknown с правилом для неизвестной классификации |
+| `rate`, `calculation_base` | ставка и база только от confirmed executed amount |
+| `currency`, `rounding_rule`, `minimum`, `maximum` | денежный контракт и ограничения |
+| `partner_policy_version` | связанная версия правил партнёрского вознаграждения |
+| `author`, `reviewer`, `publisher`, `reason` | ответственность и audit trail |
+
+Каждое начисление хранит `tariff_policy_version`, `partner_policy_version`, исходные fill IDs, maker/taker evidence, calculation inputs, rounding result и breakdown. Повторный расчёт на тех же входных данных и версиях должен давать тот же результат.
+
+#### 7.8.3 Действующие и будущие версии
+
+| Этап | Service fee | Partner share | Статус |
+| --- | --- | --- | --- |
+| Закрытая alpha | 0% | 0% | **Согласовано, единственная фактически активная версия сейчас** |
+| Первый paid | taker 0,50%; maker 0,25% | 25% | **Согласованная будущая policy, запуск не разрешён** |
+| Подтверждённый продукт | taker 0,75%; maker 0,35% | 25–30% | **Согласованная будущая policy, критерии перехода не утверждены** |
+| VIP ceiling | taker до 1%; maker до 0,50% | не более 35% | **Согласованные пределы, eligibility и конкретные значения требуют версии** |
+
+Manual/protective/emergency close, corrections, funding/withdrawal, analytics, trader connection и cancelled/unfilled remainder имеют `service_fee = 0`. Venue/network costs при этом не маскируются под нулевую service fee.
+
+#### 7.8.4 Приоритет правил
+
+**Предложено:** effective tariff выбирается детерминированно:
+
+1. environment/mode и обязательный emergency/legal restriction;
+2. конкретный approved user/VIP override;
+3. конкретный partner/plan override;
+4. venue-specific rule;
+5. global default текущей policy version.
+
+В одном scope и времени не допускаются две одинаково специфичные активные версии. Если однозначный тариф определить нельзя, новая fee-bearing операция блокируется как `TARIFF_AMBIGUOUS`; система не выбирает более выгодную или более дорогую ставку случайно.
+
+#### 7.8.5 Партнёрская лестница
+
+Referral policy хранится отдельно от service tariff и содержит:
+
+- basis: доля только от фактически начисленной/полученной комиссии Shadow по принятому правилу;
+- attribution window и источник закрепления пользователя;
+- lifetime cumulative metric: число подтверждённых клиентов и/или оборот;
+- tiers с порогами, ставкой и ceiling 35%;
+- hold period, payout cadence, minimum payout и currency;
+- self-referral/conflict, refund/reversal и dispute rules;
+- индивидуальный strategic VIP override с отдельным сроком и причиной.
+
+Действующая политика задаёт 24 месяца attribution, lifetime только для strategic VIP, доступность начисления через 7 дней и monthly payout при минимуме $25. Конкретные thresholds партнёрской лестницы ещё **не утверждены**. Повышение уровня применяется только к новым начислениям после effective time и не пересчитывает историю.
+
+#### 7.8.6 Симулятор
+
+Перед публикацией Owner видит current/proposed side-by-side и рассчитывает обязательные сценарии:
+
+- maker/taker buy и sell;
+- full, partial и cancelled remainder;
+- manual/protective/emergency close;
+- partner 25%, 30%, 35% и пользователь без партнёра;
+- VIP/user override и его expiry;
+- unknown liquidity role, missing venue fee и stale policy;
+- refund/correction и partial receipt;
+- минимальные суммы и rounding boundaries.
+
+Simulator показывает gross executed amount, service fee, venue/network costs, partner liability, net revenue Shadow и все версии/источники. Результат симуляции не создаёт финансовую запись.
+
+#### 7.8.7 Публикация и rollback
+
+Lifecycle: `draft → simulated → reviewed → approved → scheduled → active → superseded`. Прямое редактирование `active` запрещено. Публикация требует:
+
+- успешных invariant tests и обязательных simulation scenarios;
+- diff ставок, scope, exclusions и партнёрских обязательств;
+- preview затронутых будущих пользователей/планов без показа PII;
+- локализованных пользовательских disclosure texts ADM-16;
+- Owner re-auth; для future live рекомендуется второе подтверждение;
+- точного `effective_at` и audit reason.
+
+Rollback создаёт новую версию с прежними правилами на новое effective time. Backdating и изменение исторических `RevenueAccrual` запрещены; ошибка исправляется `Correction/Refund` с evidence.
+
+#### 7.8.8 Права и наблюдаемость
+
+**Предложено:** использовать permission scopes `pricing.view`, `pricing.simulate`, `pricing.edit`, `pricing.review`, `pricing.publish`, `pricing.override`. Operator и Support видят только effective tariff и объяснение для конкретного случая; публиковать и создавать override может Owner в рамках утверждённого workflow.
+
+Health ADM-15 контролирует:
+
+- наличие ровно одной effective policy для каждой разрешённой комбинации;
+- расхождение вычисленной и записанной комиссии;
+- fills без tariff version или calculation evidence;
+- неизвестную maker/taker classification;
+- превышение ceilings и неожиданный ненулевой fee для excluded actions;
+- propagation новой policy version по workers;
+- несоответствие service accrual, partner liability и receipt.
+
+Критическое нарушение останавливает новые fee-bearing operations через policy gate и создаёт incident; оно не переписывает уже подтверждённые начисления.
+
 Текущая документация Polymarket указывает для Сомали и Таиланда режим close-only на frontend и API. Это изменяемый внешний факт, поэтому перед любым live-планом требуется свежая проверка по фактическому пользователю, площадке и моменту доступа. Он не влияет на paper-демо, но блокирует обещание live-доступности для этих GEO.
 
 ## 8. Жизненный цикл и состояния интерфейса
@@ -486,7 +613,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ## 12. Открытые решения владельца
 
-До начала дизайн-итерации достаточно семи решений:
+До начала дизайн-итерации достаточно восьми решений:
 
 1. **Нужна проверка:** принимаем ли предложенную RBAC-матрицу и ограниченный контекст Support.
 2. **Нужна проверка:** входит ли support queue в первую demo-админку; рекомендация — да, без SLA и attachments.
@@ -495,6 +622,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 5. **Нужна проверка:** в первой demo-версии ADM-15 остаётся read-only health/metadata или включает ротацию/revoke; рекомендация — только read-only health/metadata, а mutations добавить после KMS/RBAC/dual-control дизайна.
 6. **Нужна проверка:** кто публикует обычные и критические тексты; рекомендация — permission scopes edit/review/publish, а financial/legal/security требуют Owner approval.
 7. **Нужна проверка:** кто активирует и кто снимает `GLOBAL_STOP`; рекомендация — Owner или назначенный emergency Operator могут немедленно активировать после re-auth, а восстановление разрешает Owner после checklist, для future live — с двойным подтверждением.
+8. **Нужна проверка:** принимаем ли versioned tariff/referral policy, предложенный приоритет overrides и Owner-only publish; рекомендация — да, а tier thresholds, VIP eligibility и rounding закрыть отдельным решением до paid/live.
 
 Остальные вопросы можно решать внутри этапов без преждевременного расширения scope.
 
@@ -515,19 +643,21 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 | Critical content approval и historical version evidence | финансовые/юридические тексты нельзя менять без контроля | **Нужна проверка** |
 | Independent emergency control plane | рубильник должен работать при отказе основного приложения | **Предложено закрыть до backend** |
 | Effective policy hierarchy и safe-reduction contract | emergency state должен предсказуемо перекрывать user/session/venue policy | **Нужна проверка** |
+| Tariff/referral policy schema и override precedence | комиссия должна быть однозначной и воспроизводимой | **Предложено закрыть до backend** |
+| Maker/taker evidence, rounding и tier thresholds | нужны для фактического paid начисления | **Нужна проверка до paid/live** |
 | GEO/legal/security/live gates | обязательны только перед live | **Нужна проверка позднее** |
 
 ## 14. Этапы работы без автоматического перехода
 
 ### Этап 0. Принять карту
 
-**Результат:** утверждены V1/out-of-scope, ADM-01–ADM-17, семь решений владельца и терминология.
+**Результат:** утверждены V1/out-of-scope, ADM-01–ADM-17, восемь решений владельца и терминология.
 
 **Готово, когда:** нет конфликтов со свежими ADR; каждый пункт имеет status; существующие Figma frames сопоставлены со стабильными IDs.
 
 ### Этап 1. Спроектировать demo-админку в Figma
 
-**Объём:** ADM-01–ADM-12; ADM-13 только empty/source disconnected; ADM-14 базовые роли и состояния доступа; ADM-15 read-only health/metadata без секретов и credential mutations; ADM-16 — карта locale/content workflow без реализации landing builder; ADM-17 — emergency levels, activation, partial enforcement и staged recovery; desktop-first, отдельный emergency path адаптируется для защищённого мобильного доступа позже.
+**Объём:** ADM-01–ADM-12, включая ADM-08 с registry/simulator/diff без публикации paid-тарифа; ADM-13 только empty/source disconnected; ADM-14 базовые роли и состояния доступа; ADM-15 read-only health/metadata без секретов и credential mutations; ADM-16 — карта locale/content workflow без реализации landing builder; ADM-17 — emergency levels, activation, partial enforcement и staged recovery; desktop-first, отдельный emergency path адаптируется для защищённого мобильного доступа позже.
 
 **Результат:** карта flow, экраны, роли, все data/action states, RU/EN, кликабельные пути и список неиспользуемых элементов.
 
@@ -537,7 +667,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ### Этап 2. Утвердить технический дизайн
 
-**Объём:** сущности, state machines, append-only ledger/audit, RBAC, API contracts, `ConnectionProfile`, health checks, capability evidence, credential metadata, content key/schema, locale bundles, publishing/version contract, `EmergencyControlState`, server-side enforcement points, out-of-band access, error taxonomy, retention и observability.
+**Объём:** сущности, state machines, append-only ledger/audit, RBAC, API contracts, `ConnectionProfile`, health checks, capability evidence, credential metadata, content key/schema, locale bundles, publishing/version contract, `TariffPolicySet`, referral policy, deterministic calculation/rounding, simulator, `EmergencyControlState`, server-side enforcement points, out-of-band access, error taxonomy, retention и observability.
 
 **Результат:** технический документ и ADR по оставшимся решениям BL-05–BL-08; API PR #14/#15 безопасно обновлены от main и review пройден.
 
@@ -575,6 +705,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 | P1 | staff/access и integrations/security | высокая | RBAC, KMS metadata, health telemetry и audit |
 | P1 | support/feedback/notifications | средняя | полезно для первой проверки продукта |
 | P1 | content keys, locale registry и versioned bundles | высокая | влияет на все экраны и historical evidence |
+| P1 | tariff/referral registry, simulator и evidence | высокая | влияет на каждое будущее начисление и обязательство |
 | P2 | fee/policy registry и owner finance read-only | высокая | нужны versioning и доказуемые источники |
 | P2 | content editor, preview, publish и rollback | средняя–высокая | workflow, permissions и validation |
 | P3 | live private reads и mutations | очень высокая | signer, scopes, GEO, recovery и деньги |
