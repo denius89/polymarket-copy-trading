@@ -1,0 +1,315 @@
+{
+  "checkedDate": "2026-10-06",
+  "baseURL": "https://api.limitless.exchange",
+  "authentication": "none",
+  "scope": "One-page shapes and response headers only, not completeness/latency/pagination proof. Public account address and full payload omitted.",
+  "successful": {
+    "observedAt": "2026-10-06T11:27:18.298395+00:00",
+    "timeNote": "Agent recorded check start for group; exact per-response times not preserved.",
+    "headers": {
+      "User-Agent": "curl/8.7.1",
+      "Accept": "application/json"
+    },
+    "requests": [
+      {
+        "path": "/markets/active?limit=1&page=1",
+        "httpStatus": 200,
+        "observedAt": "2026-10-06T11:19:05.804115+00:00",
+        "bodyType": "dict",
+        "keys": [
+          "data",
+          "totalMarketsCount"
+        ],
+        "dataCount": 1,
+        "dataFirstKeys": [
+          "id",
+          "automationType",
+          "conditionId",
+          "negRiskRequestId",
+          "description",
+          "groupId",
+          "collateralToken",
+          "title",
+          "proxyTitle",
+          "expirationDate",
+          "expirationTimestamp",
+          "createdAt",
+          "startAt",
+          "updatedAt",
+          "categories",
+          "status",
+          "expired",
+          "hidden",
+          "creator",
+          "tags",
+          "volume",
+          "volumeFormatted",
+          "tokens",
+          "prices",
+          "tradePrices",
+          "isOther",
+          "isRewardable",
+          "slug",
+          "stableSlug",
+          "tradeType",
+          "venue",
+          "marketType",
+          "priorityIndex",
+          "properties",
+          "winningOutcomeIndex",
+          "metadata",
+          "settings",
+          "imageUrl",
+          "logo",
+          "priceOracleMetadata"
+        ]
+      },
+      {
+        "path": "/leaderboard/pnl/unrealized/biggest-positions?limit=1",
+        "httpStatus": 200,
+        "bodyType": "dict",
+        "keys": [
+          "asOf",
+          "markAsOf",
+          "presentationVersion",
+          "projectionVersion",
+          "schemaVersion",
+          "scopeVersion",
+          "staleReason",
+          "state",
+          "collateralToken",
+          "data",
+          "limit",
+          "marketPageId",
+          "metric",
+          "scope"
+        ],
+        "cacheControl": "public, max-age=1, s-maxage=1"
+      },
+      {
+        "path": "/markets/will-zywoo-reach-36-hltv-mvp-awards-by-december-31-2026-1778599449449",
+        "httpStatus": 200,
+        "keys": [
+          "id",
+          "automationType",
+          "conditionId",
+          "negRiskRequestId",
+          "description",
+          "groupId",
+          "collateralToken",
+          "title",
+          "proxyTitle",
+          "expirationDate",
+          "expirationTimestamp",
+          "createdAt",
+          "startAt",
+          "updatedAt",
+          "categories",
+          "status",
+          "expired",
+          "hidden",
+          "creator",
+          "tags",
+          "volume",
+          "volumeFormatted",
+          "tokens",
+          "prices",
+          "tradePrices",
+          "isOther",
+          "isRewardable",
+          "slug",
+          "tradeType",
+          "venue",
+          "marketType",
+          "priorityIndex",
+          "properties",
+          "winningOutcomeIndex",
+          "payoutNumerators",
+          "metadata",
+          "settings",
+          "imageUrl",
+          "logo",
+          "groupSlug"
+        ],
+        "bodyType": "dict",
+        "cacheControl": "public, s-maxage=15",
+        "pricesCount": 2,
+        "pricesFirstKeys": null
+      },
+      {
+        "path": "/markets/will-zywoo-reach-36-hltv-mvp-awards-by-december-31-2026-1778599449449/orderbook",
+        "httpStatus": 200,
+        "keys": [
+          "bids",
+          "asks",
+          "tokenId",
+          "adjustedMidpoint",
+          "midpoint",
+          "maxSpread",
+          "minSize",
+          "lastTradePrice"
+        ],
+        "bodyType": "dict",
+        "cacheControl": null
+      },
+      {
+        "path": "/markets/will-zywoo-reach-36-hltv-mvp-awards-by-december-31-2026-1778599449449/events?limit=1&page=1",
+        "httpStatus": 200,
+        "keys": [
+          "events",
+          "limit",
+          "page",
+          "totalPages",
+          "totalRows"
+        ],
+        "bodyType": "dict",
+        "cacheControl": "public, max-age=30, s-maxage=30, stale-while-revalidate=30",
+        "eventsCount": 1,
+        "eventsFirstKeys": [
+          "createdAt",
+          "makerAmount",
+          "matchedSize",
+          "price",
+          "profile",
+          "side",
+          "takerAmount",
+          "title",
+          "tokenId",
+          "txHash"
+        ]
+      },
+      {
+        "path": "/portfolio/{publicAccount}/history?limit=1",
+        "httpStatus": 200,
+        "keys": [
+          "data",
+          "nextCursor"
+        ],
+        "bodyType": "dict",
+        "cacheControl": "public, max-age=60, s-maxage=60",
+        "dataCount": 1,
+        "dataFirstKeys": [
+          "blockTimestamp",
+          "collateralAmount",
+          "market",
+          "outcomeTokenAmount",
+          "outcomeTokenAmounts",
+          "outcomeIndex",
+          "outcomeTokenPrice",
+          "makerMatchId",
+          "orderId",
+          "strategy",
+          "tradeEventId",
+          "transactionHash"
+        ],
+        "hasNextCursor": true
+      },
+      {
+        "path": "/portfolio/{publicAccount}/positions",
+        "httpStatus": 200,
+        "keys": [
+          "rewards",
+          "points",
+          "accumulativePoints",
+          "amm",
+          "group",
+          "clob"
+        ],
+        "bodyType": "dict",
+        "cacheControl": "public, max-age=5, s-maxage=15",
+        "clobCount": 83,
+        "clobFirstKeys": [
+          "market",
+          "latestTrade",
+          "orders",
+          "positions",
+          "tokensBalance",
+          "rewards",
+          "makerAddress"
+        ],
+        "ammCount": 4,
+        "ammFirstKeys": [
+          "openedAt",
+          "market",
+          "outcomeIndex",
+          "outcomeTokenAmount",
+          "collateralAmount",
+          "realizedPnl",
+          "unrealizedPnl",
+          "averageFillPrice",
+          "totalBuysCost",
+          "totalSellsCost",
+          "account",
+          "latestTrade"
+        ]
+      },
+      {
+        "path": "/portfolio/{publicAccount}/realized-pnl?timeframe=1d",
+        "httpStatus": 200,
+        "keys": [
+          "timeframe",
+          "windowStart",
+          "current",
+          "categories",
+          "data"
+        ],
+        "bodyType": "dict",
+        "cacheControl": "public, max-age=15, s-maxage=30",
+        "dataCount": 289,
+        "dataFirstKeys": [
+          "timestamp",
+          "value",
+          "breakdown"
+        ]
+      },
+      {
+        "path": "/user-stats/accuracy/{publicAccount}",
+        "httpStatus": 200,
+        "keys": [
+          "won",
+          "lost",
+          "total",
+          "since"
+        ],
+        "bodyType": "dict",
+        "cacheControl": "public, max-age=0, s-maxage=15",
+        "accuracyCounts": {
+          "won": 1075,
+          "lost": 756,
+          "total": 1831,
+          "since": "2026-03-25T00:00:00.000Z"
+        }
+      }
+    ]
+  },
+  "initialRejected": {
+    "checkedAt": "2026-10-06T11:18:38.449525+00:00",
+    "authentication": "none",
+    "requests": [
+      {
+        "path": "/markets/active?limit=1&page=1",
+        "httpStatus": 403,
+        "body": "error code: 1010\n"
+      },
+      {
+        "path": "/leaderboard/pnl/unrealized/biggest-positions?limit=1",
+        "httpStatus": 403,
+        "body": "error code: 1010\n"
+      },
+      {
+        "path": "/referral/usdc/leaderboard?limit=1",
+        "httpStatus": 403,
+        "body": "error code: 1010\n"
+      },
+      {
+        "path": "/feed/trading?audience=all&limit=1",
+        "httpStatus": 403,
+        "body": "error code: 1010\n"
+      }
+    ],
+    "headers": {
+      "User-Agent": "Python urllib default"
+    },
+    "interpretation": "403 error code 1010 is observed client/proxy rejection; later standard-header successes do not prove cause or all routes available."
+  }
+}
