@@ -1,148 +1,82 @@
 # Controlled Copy Trading
 
-Current entry: [business audit 81 and admin interface fixes](docs/107_audit81_interface_implementation_2026-10-06.md) · [four prototypes](docs/106_four_prototypes_acceptance_2026-10-06.md) · [MVP business logic](docs/MVP_BUSINESS_LOGIC.md) · [Figma start sheet](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3-2). Entries below preserve earlier iterations.
-
-Current Figma iteration: [compact filters, shared header and separate accounts — report 66](docs/66_compact_filters_header_and_funds_2026-10-03.md).
-
-Current design status: visual regression confirmed; the prototype is not approved. [Diagnosis and proposed recovery — report 63 (RU)](docs/63_design_regression_and_recovery_report_2026-10-02.md). No Figma rebuild was performed in this review cycle.
-
-Current Figma review / Актуальная проверка: [report62](docs/62_visual_audit_fixes_2026-10-02.md), [four starts / четыре старта61](docs/61_colleague_corrections_implementation_2026-10-02.md).53×4 connected states;1440/390.
-
-Populated Figma review: [report 59](docs/59_interactive_test_data_implementation_2026-10-02.md), [review guide 54](docs/54_colleague_figma_clickthrough_guide.md). Long lists, prepared filters, sorting and contextual details are available in four variants.
-
-Figma package 2026-10-02: [implementation and QA](docs/58_figma_implementation_and_review_2026-10-02.md), [review guide](docs/54_colleague_figma_clickthrough_guide.md). Ready for colleague review; not runtime or live approval.
-
-Current plan / Актуальный план: [55](docs/55_consolidated_product_plan_2026-10-02.md), [GitHub work plan 56](docs/56_git_work_plan_2026-10-02.md), [ADR-0013](docs/decisions/0013_consolidated_ux_and_risk_boundaries.md). Demo must be offered, but individual completion is optional; service verification and separate live gates remain mandatory. Демо предлагается при первом входе, прохождение необязательно; проверка сервиса и отдельные live-gates сохраняются. These are requirements, not implemented application features.
-
 [Русский](README.md) · **English**
 
 [![Repository check](https://github.com/denius89/polymarket-copy-trading/actions/workflows/repository-check.yml/badge.svg)](https://github.com/denius89/polymarket-copy-trading/actions/workflows/repository-check.yml)
 
-Controlled Copy Trading is a mobile-first product concept for controlled copy trading on prediction markets. A user will be able to choose a trader, test whether that trader's activity can be reproduced with a specific budget, set clear limits, and understand why every action was executed, adjusted, or skipped.
+A mobile-first product for controlled copy trading on **Polymarket** and **Limitless**: choose a trader, try a virtual-money demo, set clear limits, and understand each action.
 
-The target product includes both **Polymarket** and **Limitless** as required venues. The service is being designed as an independent control layer: it will not accept customer payments, hold customer funds, or promise to reproduce a trader's results.
+**Status on 6 October 2026: interfaces and documentation, pre-MVP.** Current work is design review and corrections after the colleague walkthrough. The user application, trading adapters, and real transactions are not implemented. Reviewing business logic against final screens, the admin console, and technical implementation are outside the current scope.
 
-> **Current status: pre-MVP.** The team is defining the product, interfaces, economics, and architecture. The user application, trading integrations, and live trading are not available yet. This repository documents decisions, hypotheses, and the development plan; it is not documentation for a finished service.
+## Open a prototype
 
-**Current work:** the Figma package dated 2026-10-02 is ready for colleague review. Start with the [review guide 54](docs/54_colleague_figma_clickthrough_guide.md); completed changes, evidence and limits are in [report 58](docs/58_figma_implementation_and_review_2026-10-02.md). Documents 38–53 preserve earlier iterations. User acceptance, frontend implementation and real-money operations remain separate stages.
+**[Start here in Figma →](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3-2)** — one entry point for every version.
 
-## Why this product
+| Version | Russian | English |
+| --- | --- | --- |
+| Mobile | [Mobile RU](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=1839-57824&starting-point-node-id=1839%3A57824&page-id=33%3A2&scaling=scale-down) | [Mobile EN](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=1839-57862&starting-point-node-id=1839%3A57862&page-id=29%3A2&scaling=scale-down) |
+| Desktop | [Desktop RU](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=584-265&starting-point-node-id=584%3A265&page-id=205%3A2&scaling=scale-down) | [Desktop EN](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=584-225&starting-point-node-id=584%3A225&page-id=186%3A2&scaling=scale-down) |
 
-Copying a trade only looks simple before execution. A follower may have a different budget, price, delay, liquidity, and available position size. The result can differ substantially from the trader's history, while existing tools often fail to explain why.
+Each entry offers a **first launch** and a separate **prepared active demo**. Use Restart to change scenarios. The mobile first-launch path is introduction → choose a trader → copy size and limits → review → start → an empty home screen.
 
-The project is built around five principles:
+Recent corrections include consistent headers and bottom navigation, restored trader selection, explicit PnL labels, a general support question, short venue account names, and profile titles without a repeated period. [Latest results and review route — 109 (RU)](docs/109_latest_design_review_2026-10-06.md).
 
-- **Test before live trading.** A backtest and shadow mode should show which trades can be reproduced with the selected budget; the shadow duration is still to be decided.
-- **Risk expressed in clear amounts.** Users set a budget per trader, a daily limit for new buys, a maximum trade size, and a free reserve.
-- **Explainable actions.** Every execution, partial fill, skip, delay, and stop receives a human-readable reason.
-- **Control after entry.** The planned controls include pause, manual close, detaching a position from a trader, and a global stop.
-- **Transparent cost.** Fees are shown before activation and for every successfully executed automated action. Manual and protective closes carry no service fee.
+Images and links for the latest corrections have been checked. **A new manual Present walkthrough has not yet been completed:** browser access was blocked by policy. Walkthroughs in [report 106 (RU)](docs/106_four_prototypes_acceptance_2026-10-06.md) refer to the previous version; final visual acceptance remains open.
 
-Historical performance does not guarantee future results. The planned ranking describes history and copyability for a given budget; it is not an investment recommendation.
+## Current preview
 
-## Two required venues
+Figma layouts captured on 6 October 2026. The data is illustrative; these are not screenshots of a working trading application.
 
-| Venue | Role in the project | Status |
-|---|---|---|
-| **Polymarket** | a well-known prediction-market venue and an important audience entry point | public data and access options have been researched; the project has not yet validated its trading path |
-| **Limitless** | a partner venue and the first candidate for integration experiments | documentation and the Programmatic API have been researched; partner capabilities and the live path remain unvalidated |
+<table>
+<tr><th>New demo</th><th>Trader profile</th></tr>
+<tr>
+<td><img src="docs/preview/2026-10-06/fresh-home-ru.png" width="260" alt="New demo: shared header, budget, and empty history"></td>
+<td><img src="docs/preview/2026-10-06/trader-profile-ru.png" width="260" alt="Trader profile: selected period and performance"></td>
+</tr>
+</table>
 
-The shared product layer is planned to remain venue-neutral. Each venue requires its own validation of access, fees, GEO restrictions, trading permissions, recovery, and withdrawal. Live mode can only be enabled after the relevant venue passes those checks.
+The preview uses Russian screens; English prototypes are linked above.
 
-## Safety by design
+## Find the right material
 
-Safe behavior is a core product requirement:
+| Task | Material |
+| --- | --- |
+| Review the latest interfaces with a colleague | [Latest result and review route](docs/109_latest_design_review_2026-10-06.md) |
+| Understand the current queue | [Roadmap](docs/ROADMAP.md) |
+| Read accepted rules and open questions | [MVP business logic](docs/MVP_BUSINESS_LOGIC.md) · [ADRs](docs/decisions/README.md) |
+| Find documents by topic | [Documentation map](docs/README.md) |
+| Read decisions and project history | [Project state](docs/PROJECT_STATE.md) · [Full document index](docs/DOCUMENT_INDEX.md) |
+| Understand GitHub organization | [Cleanup result and PR status](docs/110_repository_navigation_cleanup_2026-10-06.md) |
 
-- the user retains control of the wallet and withdrawals;
-- neither the service nor a partner receives the seed phrase;
-- trading permission must not grant withdrawal rights;
-- live execution is disabled by default;
-- an unknown order state blocks conflicting actions until reconciliation;
-- limits stop new risk while allowing safe position reduction;
-- critical incidents and stops cannot be fully hidden through notification settings;
-- each venue's GEO restrictions are enforced independently;
-- guaranteed-profit claims and incentives for unnecessary turnover are excluded.
+If an old report disagrees with the current state, use ROADMAP for the work queue, the latest report for interfaces, and MVP_BUSINESS_LOGIC plus ADRs for rules. A document number or the word “current” in an old entry does not make it today's status.
 
-See [docs/13_trust_permissions_and_state_model.md](docs/13_trust_permissions_and_state_model.md) for the trust and state model.
+## Venue APIs
 
-## Planned product surfaces
+| Venue | Reference | Status |
+| --- | --- | --- |
+| Polymarket | [Draft PR #14](https://github.com/denius89/polymarket-copy-trading/pull/14) | Prepared; repository check passed; not yet included in main |
+| Limitless | [Draft PR #15](https://github.com/denius89/polymarket-copy-trading/pull/15) | Prepared; repository check passed; not yet included in main |
 
-### User application
+These references document official APIs and evidence from public reads on 6 October 2026. Partner permissions, execution, account-specific fees, and trading connection recovery require separate validation. A reference and a passing Markdown check do not constitute a working integration.
 
-A standalone mobile-first web app for people without experience using complex trading terminals. The primary journey is: understand the product → choose a trader or add an address → test copyability → set a budget and limits → monitor positions and the activity log → pause copying or close a position.
+## Repository layout and checks
 
-### Operations console
+```text
+docs/               current navigation, product documents, and history
+docs/decisions/     accepted and proposed ADRs
+docs/preview/       current overview images
+design/            Figma materials and evidence from earlier checks
+apps/, packages/   boundaries for the future application and adapters
+research/          research
+artifacts/         presentations and other materials
+scripts/           structure and link checks
+```
 
-A minimal internal console for monitoring service state, handling exceptions, managing versioned fee settings, and recording sensitive actions in an audit log. The console is not intended to provide manual trading on behalf of users.
-
-### Partner tools
-
-The referral model is being considered as a distribution channel after the core user journey. A partner dashboard and agent operations are outside the interface MVP.
-
-The source requirements are documented in the [UX audit and user journey](docs/06_ux_audit_and_user_flow.md) and the [trust and state model](docs/13_trust_permissions_and_state_model.md).
-
-## Languages
-
-The first frontend is planned with a multilingual foundation and a manual language selector. Text, numbers, dates, currencies, and event reasons must support localization; layouts will account for longer translations and RTL languages from the start.
-
-Most project documentation is currently written in Russian. This overview is available in [Russian](README.md) and [English](README.en.md). The first product stage supports English and Russian; additional languages will be selected after the priority GEOs are chosen.
-
-## Contributor quick start
-
-Issues and pull requests may be written in Russian or English. Start with the materials for your role:
-
-| Role | Read first |
-|---|---|
-| Product and economics | [current state](docs/PROJECT_STATE.md), [roadmap](docs/ROADMAP.md), [product document](docs/01_product_and_economics.md) |
-| Design | [readiness audit](docs/31_project_readiness_audit.md), [ADR-0009](docs/decisions/0009_novice_first_direct_mvp.md), [bilingual foundation](docs/29_bilingual_product_language.md) |
-| Architecture and development | [technical concept](docs/02_technical_concept.md), [trust model](docs/13_trust_permissions_and_state_model.md), [gates](docs/ROADMAP.md) |
-
-1. Read the [current roadmap](docs/ROADMAP.md). The [detailed project state](docs/PROJECT_STATE.md) records decisions and research but is updated less often.
-2. Use the [documentation map](docs/README.md) to find the source of truth for your area.
-3. Review the active [architecture decisions](docs/decisions/README.md).
-4. Read the [contribution guide](CONTRIBUTING.md) and [security policy](SECURITY.md) before making changes.
-5. Define one verifiable outcome, state its dependencies, and do not present a hypothesis as an accepted decision.
-6. Run the repository check before submitting changes.
-
-Node.js 22 or newer is required:
+Use Node.js 22 or later:
 
 ```bash
 npm run check
+git diff --check
 ```
 
-The check verifies that key documents exist and that Markdown relative links are valid. Application code has not been created yet; `apps/`, `packages/`, and `infra/` currently describe future project boundaries.
-
-## Key materials
-
-- [Product and economics](docs/01_product_and_economics.md)
-- [UX audit and user journey](docs/06_ux_audit_and_user_flow.md)
-- [Current MVP audience — ADR-0009](docs/decisions/0009_novice_first_direct_mvp.md)
-- [Design and development readiness audit](docs/31_project_readiness_audit.md)
-- [Historical audience research](docs/15_target_audience_and_personas.md)
-- [Working first-validation positioning](docs/18_first_validation_positioning.md)
-- [Bilingual product language foundation](docs/29_bilingual_product_language.md)
-- [Binance Copy Trading benchmark](docs/30_binance_copy_trading_ui_benchmark.md)
-- [Dual-venue adapter contract](docs/23_dual_venue_adapter_contract.md)
-- [Trust, permissions, and state model](docs/13_trust_permissions_and_state_model.md)
-- [Full documentation map](docs/README.md)
-
-## Presentation
-
-Current concept deck: [Controlled Copy Trading Project RU v5](artifacts/Controlled_Copy_Trading_Project_RU_v5.pptx).
-
-It reflects the current product hypothesis, both required venues, and separate gates for live execution. All economic scenarios in the deck are working assumptions, not forecasts or promises of returns.
-
-## Repository structure
-
-```text
-apps/                   future user applications and background processes
-packages/               future domain logic and venue adapters
-docs/                   product, economics, UX, architecture, and decisions
-docs/decisions/         accepted and proposed ADRs
-research/               scoped research tasks
-artifacts/              presentations and finished materials
-infra/                  future infrastructure
-scripts/                repository integrity checks
-```
-
-This repository has not been declared open source and does not include a license. External participation is coordinated with the project owner.
+These check the repository; they do not launch an application. Contribution guidance: [CONTRIBUTING](CONTRIBUTING.md), [SECURITY](SECURITY.md), [AGENTS](AGENTS.md). Presentations and earlier concepts are in [artifacts](artifacts/README.md); they do not replace the current status or prototypes.
