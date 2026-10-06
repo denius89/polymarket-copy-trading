@@ -22,6 +22,14 @@ for (const venue of ['polymarket','limitless']) {
  assert.ok(traders.some(t=>t.publicPnlCents===null),`${venue}: unavailable example missing`);
 }
 assert.equal(fixture.traders.filter(t=>t.periods).length,6);
+for(const trader of fixture.traders) {
+ for(const [period,row] of [[trader.catalogPeriod,trader],...Object.entries(trader.periods??{})]) {
+  assert.equal(row.drawdownEvidence.period,period);
+  assert.equal(row.drawdownEvidence.status,row.drawdownBasisPoints==null ? 'unavailable' : 'illustrative_unverified');
+  assert.equal(row.drawdownEvidence.eligibleForTrustedComparison,false,'Illustrative drawdown cannot drive trusted sorting/filtering/recommendation');
+  assert.equal(row.drawdownEvidence.verifiedValueBasisPoints,null,'Illustrative drawdown is not a confirmed numeric value');
+ }
+}
 for (const trader of fixture.traders.filter(t=>t.periods)) {
  assert.deepEqual(Object.keys(trader.periods),['24h','7d','30d','90d']);
  assert.equal(trader.publicPnlCents,trader.periods['30d'].publicPnlCents,'Catalog and profile share 30d result');
@@ -50,6 +58,19 @@ assert.ok(fixture.faq.some(row=>row.answerRu.split('\n\n').length>=3));
 assert.ok(fixture.messages.some(row=>row.textRu.includes('\n\n')));
 assert.ok(new Set(fixture.messages.map(row=>row.text)).size>8);
 assert.equal(fixture.sessions.length,1);
+const session=fixture.sessions[0],readiness=session.riskReadiness;
+assert.equal(session.status,'active','Session lifecycle and risk readiness are separate');
+assert.equal(readiness.newBuys,'blocked');
+assert.equal(readiness.reason,'unknown_order');
+assert.equal(readiness.scope,'illustrative_single_paper_session');
+assert.equal(readiness.reconciliationRequired,true);
+const readinessOrder=sets.orders.get(readiness.relatedOrderId);
+assert.equal(readinessOrder.sessionId,session.id);
+assert.equal(readinessOrder.status,'unknown');
+assert.equal(readinessOrder.side,'BUY');
+assert.equal(readinessOrder.reservedCents,101,'Unknown purchase reserve is retained');
+assert.equal(sets.events.get(readiness.relatedEventId).relatedOrderId,readinessOrder.id);
+assert.equal(sets.events.get(readiness.relatedEventId).status,'unknown');
 assert.equal(new Set(fixture.positions.map(p=>p.traderId)).size,1);
 const state = new Map();
 let cash=20000, fees=0;
@@ -106,4 +127,72 @@ const visibleCounts={catalogRows:'traders',positionRows:'positions',orderRows:'o
 for(const [key,collection] of Object.entries(visibleCounts)) assert.equal(fixture.visibleReviewPlan[key],fixture[collection].length,`Visible ${key} matches built collection`);
 assert.equal(new Set(fixture.visibleReviewPlan.eventInteractiveIds).size,fixture.events.length);
 assert.deepEqual(new Set(fixture.visibleReviewPlan.eventInteractiveIds),new Set(fixture.events.map(event=>event.id)));
+// Historical admission cannot be inferred from the current settings snapshot.
+const policyEvidence=active.historicalPolicyEvidence;
+assert.equal(policyEvidence.status,'unverified');
+assert.equal(policyEvidence.sessionTimeZone,null);
+assert.equal(policyEvidence.effectiveRuleVersion,null);
+assert.equal(policyEvidence.reviewAggregationZone,'Etc/UTC');
+const replay=new Map();
+for(const entry of fixture.ledger.filter(row=>row.kind==='BUY')) {
+ const date=entry.timestamp.slice(0,10);
+ const day=replay.get(date)??{date,purchaseCents:0,expenseCents:0};
+ day.purchaseCents+=entry.quantity*entry.priceCents;day.expenseCents+=entry.feeCents;replay.set(date,day);
+}
+assert.deepEqual([...replay.values()],policyEvidence.dailyBuyReplay);
+assert.equal(replay.get('2026-10-01').purchaseCents,3390);
+assert.equal(fixture.feePolicy.serviceFeeCents,0);
+assert.equal(fixture.feePolicy.executionExpenseSource,'synthetic-review-expense-v1; no venue tariff inferred');
+const ticket=sets.tickets.get('ticket-01');
+const ticketEvent=sets.events.get(ticket.eventId);
+assert.equal(ticketEvent.relatedOrderId,'order-closed-04-buy');
+assert.equal(sets.orders.get(ticketEvent.relatedOrderId).status,'filled');
+assert.equal(sets.orders.get(ticketEvent.relatedOrderId).reservedCents,0);
+assert.equal(sets.positions.get(ticketEvent.relatedPositionId).status,'closed');
+for(const message of fixture.messages.filter(row=>row.ticketId===ticket.id)) {
+ assert.equal(message.relatedOrderId,ticketEvent.relatedOrderId);
+ assert.equal(message.relatedPositionId,ticketEvent.relatedPositionId);
+ assert.ok(message.timestamp>'2026-09-30T16:00:00Z','Conversation describes the confirmed completed history');
+}
+assert.match(sets.messages.get('message-02').text,/\$2\.40.*\$0\.01/);
+assert.match(sets.messages.get('message-06').text,/−\$0\.22/);
+const supportLabels={open:['Sent','Отправлено'],waiting_support:['Waiting for support','Ждём поддержку'],waiting_user:['Waiting for your reply','Ждём вашего ответа'],resolved:['Resolved','Решено']};
+for(const row of fixture.tickets) assert.deepEqual([row.statusLabel,row.statusLabelRu],supportLabels[row.status]);
+// Acceptance data checks only: no application ledger or execution is introduced.
+const financial=JSON.parse(readFileSync(new URL('../design/qa-2026-10-06/audit81-financial-scenarios.json',import.meta.url),'utf8'));
+let scenarioCash=financial.startingCashCents,quantityUnits=0,externalFlows=0;
+const applied=new Set();
+for(const entry of financial.events) {
+ if(!applied.has(entry.id)) {
+  if(['BUY','REDEEM'].includes(entry.kind)) {
+   const gross=entry.quantityUnits*entry.priceCents/financial.shareScale;
+   assert.ok(Number.isInteger(gross),'This acceptance case has exact cents; no rounding policy is assumed');
+   if(entry.kind==='BUY') {scenarioCash-=gross+entry.feeCents;quantityUnits+=entry.quantityUnits;}
+   else {assert.ok(entry.quantityUnits<=quantityUnits);scenarioCash+=gross-entry.feeCents;quantityUnits-=entry.quantityUnits;}
+  } else if(entry.kind==='FEE') scenarioCash-=entry.feeCents;
+  else if(entry.kind==='DEPOSIT') {scenarioCash+=entry.amountCents;externalFlows+=entry.amountCents;}
+  else assert.equal(entry.kind,'RESOLVE'); // Resolution changes valuation, not received cash.
+  applied.add(entry.id);
+ }
+ const value=quantityUnits*entry.markPriceCents/financial.shareScale;
+ assert.equal(scenarioCash,entry.expectedCashCents,entry.id);
+ assert.equal(quantityUnits,entry.expectedQuantityUnits,entry.id);
+ assert.equal(value,entry.expectedMarkCents,entry.id);
+ assert.equal(scenarioCash+value,entry.expectedEquityCents,entry.id);
+ assert.equal(externalFlows,entry.externalFlowCents,entry.id);
+ if(entry.expectedTradingResultCents!=null) assert.equal(scenarioCash+value-financial.startingCashCents-externalFlows,entry.expectedTradingResultCents);
+}
+const unknown=financial.unknownValuation;
+const unknownMark=unknown.markPriceCents==null ? null : unknown.quantityUnits*unknown.markPriceCents/financial.shareScale;
+assert.equal(unknownMark,unknown.expectedMarkCents);
+assert.equal(unknownMark==null ? null : unknown.cashCents+unknownMark,unknown.expectedEquityCents);
+for(const row of financial.reportCounterCases) {
+ const observed=new Set(row.observedSignalIds),eligible=new Set(row.eligibleSignalIds),copied=new Set(row.fillSignalIds);
+ for(const id of eligible) assert.ok(observed.has(id));
+ for(const id of copied) assert.ok(eligible.has(id));
+ assert.equal(observed.size,row.expectedObserved);
+ assert.equal(eligible.size,row.expectedEligible);
+ assert.equal(copied.size,row.expectedCopied);
+ assert.equal(row.days>=7 && eligible.size>=10,row.expectedReady);
+}
 console.log(`Interactive fixtures valid: 24 traders, 19 positions, ${fixture.orders.length} orders, 70 events; available $${(active.availableCents/100).toFixed(2)}, reserve $${(reserved/100).toFixed(2)}, equity $${(active.equityCents/100).toFixed(2)}, net result $${(active.totalPnlCents/100).toFixed(2)}. Synthetic review data only.`);

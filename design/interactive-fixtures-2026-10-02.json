@@ -11,7 +11,10 @@
     "syntheticOnly": true,
     "serviceFeeCents": 0,
     "note": "Fixed test execution expense; not a proposed product tariff or venue fee.",
-    "reserveAssumption": "Each remaining order has one additional synthetic fill fee reserved. Production partial-fill fee rules are not inferred."
+    "reserveAssumption": "Each remaining order has one additional synthetic fill fee reserved. Production partial-fill fee rules are not inferred.",
+    "servicePolicySource": "ADR-0005: closed alpha; zero service charge",
+    "executionExpenseSource": "synthetic-review-expense-v1; no venue tariff inferred",
+    "effectiveAt": null
   },
   "contexts": {
     "first_launch": {
@@ -37,7 +40,26 @@
       "unrealizedPnlCents": 855,
       "totalPnlCents": 977,
       "executionExpensesCents": 33,
-      "note": "Separate prepared review history. Does not appear after a new user launch."
+      "note": "Separate prepared review history. Does not appear after a new user launch.",
+      "historicalPolicyEvidence": {
+        "status": "unverified",
+        "reviewAggregationZone": "Etc/UTC",
+        "sessionTimeZone": null,
+        "effectiveRuleVersion": null,
+        "note": "Prepared synthetic history predates ADR-0019–0023. UTC is only the audit aggregation zone, not an asserted session zone. Current $30 setting does not prove historical admission compliance; no limit change is fabricated.",
+        "dailyBuyReplay": [
+          {
+            "date": "2026-09-30",
+            "purchaseCents": 1960,
+            "expenseCents": 8
+          },
+          {
+            "date": "2026-10-01",
+            "purchaseCents": 3390,
+            "expenseCents": 11
+          }
+        ]
+      }
     },
     "future_accounts": {
       "accountIds": [
@@ -80,7 +102,16 @@
       "startedAt": "2026-09-30T08:00:00Z",
       "newBuyLimitCents": 3000,
       "positionLimitCents": 2000,
-      "staleSignalSeconds": 30
+      "staleSignalSeconds": 30,
+      "riskReadiness": {
+        "newBuys": "blocked",
+        "reason": "unknown_order",
+        "relatedOrderId": "order-other-05",
+        "relatedEventId": "event-049",
+        "reconciliationRequired": true,
+        "scope": "illustrative_single_paper_session",
+        "note": "Lifecycle remains active; unknown purchase result retains its existing reserve. This prepared UI snapshot does not implement persistence or an automatic/manual resumption protocol."
+      }
     }
   ],
   "markets": [
@@ -339,7 +370,14 @@
               "cumulativePnlCents": 44
             }
           ],
-          "winningClosedTrades": 1
+          "winningClosedTrades": 1,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "24h",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         },
         "7d": {
           "available": true,
@@ -382,7 +420,14 @@
               "cumulativePnlCents": 164
             }
           ],
-          "winningClosedTrades": 2
+          "winningClosedTrades": 2,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "7d",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         },
         "30d": {
           "available": true,
@@ -425,7 +470,14 @@
               "cumulativePnlCents": 548
             }
           ],
-          "winningClosedTrades": 5
+          "winningClosedTrades": 5,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "30d",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         },
         "90d": {
           "available": true,
@@ -468,13 +520,27 @@
               "cumulativePnlCents": 1204
             }
           ],
-          "winningClosedTrades": 14
+          "winningClosedTrades": 14,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "90d",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         }
       },
       "catalogPeriod": "30d",
       "catalogDataAvailable": true,
       "address": "0x0000000000000000000000000000000000000001",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "illustrative_unverified",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-02",
@@ -534,7 +600,14 @@
               "cumulativePnlCents": -33
             }
           ],
-          "winningClosedTrades": 2
+          "winningClosedTrades": 2,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "24h",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         },
         "7d": {
           "available": true,
@@ -577,7 +650,14 @@
               "cumulativePnlCents": -123
             }
           ],
-          "winningClosedTrades": 4
+          "winningClosedTrades": 4,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "7d",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         },
         "30d": {
           "available": true,
@@ -620,7 +700,14 @@
               "cumulativePnlCents": -411
             }
           ],
-          "winningClosedTrades": 11
+          "winningClosedTrades": 11,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "30d",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         },
         "90d": {
           "available": true,
@@ -663,13 +750,27 @@
               "cumulativePnlCents": -903
             }
           ],
-          "winningClosedTrades": 29
+          "winningClosedTrades": 29,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "90d",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         }
       },
       "catalogPeriod": "30d",
       "catalogDataAvailable": true,
       "address": "0x0000000000000000000000000000000000000002",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "illustrative_unverified",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-03",
@@ -729,7 +830,14 @@
               "cumulativePnlCents": 22
             }
           ],
-          "winningClosedTrades": 3
+          "winningClosedTrades": 3,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "24h",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         },
         "7d": {
           "available": true,
@@ -772,7 +880,14 @@
               "cumulativePnlCents": 82
             }
           ],
-          "winningClosedTrades": 7
+          "winningClosedTrades": 7,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "7d",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         },
         "30d": {
           "available": false,
@@ -787,7 +902,14 @@
           "chartSyntheticIllustration": true,
           "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
           "chartPoints": null,
-          "winningClosedTrades": null
+          "winningClosedTrades": null,
+          "drawdownEvidence": {
+            "status": "unavailable",
+            "period": "30d",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         },
         "90d": {
           "available": false,
@@ -802,13 +924,27 @@
           "chartSyntheticIllustration": true,
           "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
           "chartPoints": null,
-          "winningClosedTrades": null
+          "winningClosedTrades": null,
+          "drawdownEvidence": {
+            "status": "unavailable",
+            "period": "90d",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         }
       },
       "catalogPeriod": "30d",
       "catalogDataAvailable": false,
       "address": "0x0000000000000000000000000000000000000003",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "unavailable",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-04",
@@ -829,7 +965,14 @@
       "catalogPeriod": "30d",
       "catalogDataAvailable": true,
       "address": "0x0000000000000000000000000000000000000004",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "illustrative_unverified",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-05",
@@ -850,7 +993,14 @@
       "catalogPeriod": "30d",
       "catalogDataAvailable": false,
       "address": "0x0000000000000000000000000000000000000005",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "unavailable",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-06",
@@ -871,7 +1021,14 @@
       "catalogPeriod": "30d",
       "catalogDataAvailable": true,
       "address": "0x0000000000000000000000000000000000000006",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "illustrative_unverified",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-07",
@@ -892,7 +1049,14 @@
       "catalogPeriod": "30d",
       "catalogDataAvailable": true,
       "address": "0x0000000000000000000000000000000000000007",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "illustrative_unverified",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-08",
@@ -913,7 +1077,14 @@
       "catalogPeriod": "30d",
       "catalogDataAvailable": true,
       "address": "0x0000000000000000000000000000000000000008",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "illustrative_unverified",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-09",
@@ -934,7 +1105,14 @@
       "catalogPeriod": "30d",
       "catalogDataAvailable": false,
       "address": "0x0000000000000000000000000000000000000009",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "unavailable",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-10",
@@ -955,7 +1133,14 @@
       "catalogPeriod": "30d",
       "catalogDataAvailable": true,
       "address": "0x000000000000000000000000000000000000000a",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "illustrative_unverified",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-11",
@@ -976,7 +1161,14 @@
       "catalogPeriod": "30d",
       "catalogDataAvailable": false,
       "address": "0x000000000000000000000000000000000000000b",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "illustrative_unverified",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-12",
@@ -997,7 +1189,14 @@
       "catalogPeriod": "30d",
       "catalogDataAvailable": true,
       "address": "0x000000000000000000000000000000000000000c",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "illustrative_unverified",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-13",
@@ -1057,7 +1256,14 @@
               "cumulativePnlCents": -88
             }
           ],
-          "winningClosedTrades": 16
+          "winningClosedTrades": 16,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "24h",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         },
         "7d": {
           "available": true,
@@ -1100,7 +1306,14 @@
               "cumulativePnlCents": -328
             }
           ],
-          "winningClosedTrades": 39
+          "winningClosedTrades": 39,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "7d",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         },
         "30d": {
           "available": true,
@@ -1143,7 +1356,14 @@
               "cumulativePnlCents": -1096
             }
           ],
-          "winningClosedTrades": 93
+          "winningClosedTrades": 93,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "30d",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         },
         "90d": {
           "available": true,
@@ -1186,13 +1406,27 @@
               "cumulativePnlCents": -2408
             }
           ],
-          "winningClosedTrades": 249
+          "winningClosedTrades": 249,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "90d",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         }
       },
       "catalogPeriod": "30d",
       "catalogDataAvailable": true,
       "address": "0x000000000000000000000000000000000000000d",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "illustrative_unverified",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-14",
@@ -1252,7 +1486,14 @@
               "cumulativePnlCents": 99
             }
           ],
-          "winningClosedTrades": 17
+          "winningClosedTrades": 17,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "24h",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         },
         "7d": {
           "available": true,
@@ -1295,7 +1536,14 @@
               "cumulativePnlCents": 369
             }
           ],
-          "winningClosedTrades": 43
+          "winningClosedTrades": 43,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "7d",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         },
         "30d": {
           "available": true,
@@ -1338,7 +1586,14 @@
               "cumulativePnlCents": 1233
             }
           ],
-          "winningClosedTrades": 103
+          "winningClosedTrades": 103,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "30d",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         },
         "90d": {
           "available": false,
@@ -1353,13 +1608,27 @@
           "chartSyntheticIllustration": true,
           "chartNote": "Illustrative synthetic cumulative trajectory; endpoints match period result. Not reconstructed market history.",
           "chartPoints": null,
-          "winningClosedTrades": null
+          "winningClosedTrades": null,
+          "drawdownEvidence": {
+            "status": "unavailable",
+            "period": "90d",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         }
       },
       "catalogPeriod": "30d",
       "catalogDataAvailable": true,
       "address": "0x000000000000000000000000000000000000000e",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "illustrative_unverified",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-15",
@@ -1419,7 +1688,14 @@
               "cumulativePnlCents": -110
             }
           ],
-          "winningClosedTrades": 19
+          "winningClosedTrades": 19,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "24h",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         },
         "7d": {
           "available": true,
@@ -1462,7 +1738,14 @@
               "cumulativePnlCents": -410
             }
           ],
-          "winningClosedTrades": 47
+          "winningClosedTrades": 47,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "7d",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         },
         "30d": {
           "available": true,
@@ -1505,7 +1788,14 @@
               "cumulativePnlCents": -1370
             }
           ],
-          "winningClosedTrades": 113
+          "winningClosedTrades": 113,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "30d",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         },
         "90d": {
           "available": true,
@@ -1548,13 +1838,27 @@
               "cumulativePnlCents": -3010
             }
           ],
-          "winningClosedTrades": 300
+          "winningClosedTrades": 300,
+          "drawdownEvidence": {
+            "status": "illustrative_unverified",
+            "period": "90d",
+            "eligibleForTrustedComparison": false,
+            "verifiedValueBasisPoints": null,
+            "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+          }
         }
       },
       "catalogPeriod": "30d",
       "catalogDataAvailable": true,
       "address": "0x000000000000000000000000000000000000000f",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "illustrative_unverified",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-16",
@@ -1575,7 +1879,14 @@
       "catalogPeriod": "30d",
       "catalogDataAvailable": true,
       "address": "0x0000000000000000000000000000000000000010",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "illustrative_unverified",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-17",
@@ -1596,7 +1907,14 @@
       "catalogPeriod": "30d",
       "catalogDataAvailable": false,
       "address": "0x0000000000000000000000000000000000000011",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "unavailable",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-18",
@@ -1617,7 +1935,14 @@
       "catalogPeriod": "30d",
       "catalogDataAvailable": true,
       "address": "0x0000000000000000000000000000000000000012",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "illustrative_unverified",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-19",
@@ -1638,7 +1963,14 @@
       "catalogPeriod": "30d",
       "catalogDataAvailable": true,
       "address": "0x0000000000000000000000000000000000000013",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "illustrative_unverified",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-20",
@@ -1659,7 +1991,14 @@
       "catalogPeriod": "30d",
       "catalogDataAvailable": true,
       "address": "0x0000000000000000000000000000000000000014",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "illustrative_unverified",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-21",
@@ -1680,7 +2019,14 @@
       "catalogPeriod": "30d",
       "catalogDataAvailable": false,
       "address": "0x0000000000000000000000000000000000000015",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "unavailable",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-22",
@@ -1701,7 +2047,14 @@
       "catalogPeriod": "30d",
       "catalogDataAvailable": true,
       "address": "0x0000000000000000000000000000000000000016",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "illustrative_unverified",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-23",
@@ -1722,7 +2075,14 @@
       "catalogPeriod": "30d",
       "catalogDataAvailable": true,
       "address": "0x0000000000000000000000000000000000000017",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "illustrative_unverified",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     },
     {
       "id": "trader-24",
@@ -1743,7 +2103,14 @@
       "catalogPeriod": "30d",
       "catalogDataAvailable": true,
       "address": "0x0000000000000000000000000000000000000018",
-      "addressSynthetic": true
+      "addressSynthetic": true,
+      "drawdownEvidence": {
+        "status": "illustrative_unverified",
+        "period": "30d",
+        "eligibleForTrustedComparison": false,
+        "verifiedValueBasisPoints": null,
+        "reason": "Synthetic illustration; no verified valuation series or drawdown method. Do not use for trusted sorting, filtering or recommendation."
+      }
     }
   ],
   "positions": [
@@ -4539,56 +4906,72 @@
       "status": "waiting_support",
       "subject": "Help with demo balance",
       "eventId": "event-007",
-      "conversationId": "conversation-01"
+      "conversationId": "conversation-01",
+      "statusLabel": "Waiting for support",
+      "statusLabelRu": "Ждём поддержку"
     },
     {
       "id": "ticket-02",
       "status": "waiting_user",
       "subject": "Unknown result",
       "eventId": "event-014",
-      "conversationId": null
+      "conversationId": null,
+      "statusLabel": "Waiting for your reply",
+      "statusLabelRu": "Ждём вашего ответа"
     },
     {
       "id": "ticket-03",
       "status": "resolved",
       "subject": "Understanding copied positions",
       "eventId": "event-021",
-      "conversationId": null
+      "conversationId": null,
+      "statusLabel": "Resolved",
+      "statusLabelRu": "Решено"
     },
     {
       "id": "ticket-04",
       "status": "open",
       "subject": "Question about partial execution",
       "eventId": "event-028",
-      "conversationId": null
+      "conversationId": null,
+      "statusLabel": "Sent",
+      "statusLabelRu": "Отправлено"
     },
     {
       "id": "ticket-05",
       "status": "waiting_support",
       "subject": "Help with demo balance",
       "eventId": "event-035",
-      "conversationId": null
+      "conversationId": null,
+      "statusLabel": "Waiting for support",
+      "statusLabelRu": "Ждём поддержку"
     },
     {
       "id": "ticket-06",
       "status": "waiting_user",
       "subject": "Unknown result",
       "eventId": "event-042",
-      "conversationId": null
+      "conversationId": null,
+      "statusLabel": "Waiting for your reply",
+      "statusLabelRu": "Ждём вашего ответа"
     },
     {
       "id": "ticket-07",
       "status": "resolved",
       "subject": "Understanding copied positions",
       "eventId": "event-049",
-      "conversationId": null
+      "conversationId": null,
+      "statusLabel": "Resolved",
+      "statusLabelRu": "Решено"
     },
     {
       "id": "ticket-08",
       "status": "open",
       "subject": "Question about partial execution",
       "eventId": "event-056",
-      "conversationId": null
+      "conversationId": null,
+      "statusLabel": "Sent",
+      "statusLabelRu": "Отправлено"
     }
   ],
   "messages": [
@@ -4597,108 +4980,132 @@
       "conversationId": "conversation-01",
       "ticketId": "ticket-01",
       "author": "user",
-      "text": "Why does this order still have a reserve?",
+      "text": "Why was $2.41 deducted for this purchase?",
       "timestamp": "2026-10-02T09:04:00Z",
-      "textRu": "Почему у этой заявки всё ещё есть резерв?"
+      "textRu": "Почему за эту покупку списали 2,41 $?",
+      "relatedOrderId": "order-closed-04-buy",
+      "relatedPositionId": "position-closed-04"
     },
     {
       "id": "message-02",
       "conversationId": "conversation-01",
       "ticketId": "ticket-01",
       "author": "support",
-      "text": "Some of the order has filled. The remaining quantity is still pending cancellation, so its reserved funds remain unavailable until the result is confirmed.",
+      "text": "The order filled 10 shares at $0.24: $2.40 for the purchase and $0.01 in synthetic review expenses. It filled in full; this order has no remaining reserve.",
       "timestamp": "2026-10-02T09:08:00Z",
-      "textRu": "Часть заявки исполнена. Для оставшегося количества ещё проверяется отмена, поэтому резерв пока не считается доступными средствами."
+      "textRu": "Заявка полностью исполнена: 10 долей по 0,24 $, покупка 2,40 $ и тестовые расходы 0,01 $. Неисполненного остатка и резерва у этой заявки нет.",
+      "relatedOrderId": "order-closed-04-buy",
+      "relatedPositionId": "position-closed-04"
     },
     {
       "id": "message-03",
       "conversationId": "conversation-01",
       "ticketId": "ticket-01",
       "author": "user",
-      "text": "Where can I see the position created by the filled part?",
+      "text": "Where can I see what happened to those shares?",
       "timestamp": "2026-10-02T09:12:00Z",
-      "textRu": "Где посмотреть позицию, которая появилась после частичного исполнения?"
+      "textRu": "Где посмотреть, что произошло с этими долями?",
+      "relatedOrderId": "order-closed-04-buy",
+      "relatedPositionId": "position-closed-04"
     },
     {
       "id": "message-04",
       "conversationId": "conversation-01",
       "ticketId": "ticket-01",
       "author": "support",
-      "text": "Open the related position in the order detail. It shows the filled quantity and its cost separately from the unfilled remainder.",
+      "text": "Open the related position from the order detail. These 10 shares were sold on September 30 at 16:00 UTC, so the position is now closed.",
       "timestamp": "2026-10-02T09:16:00Z",
-      "textRu": "Откройте связанную позицию из детали заявки. В ней исполненное количество и его себестоимость показаны отдельно от неисполненного остатка."
+      "textRu": "Откройте связанную позицию из деталей заявки. Эти 10 долей проданы 30 сентября в 16:00 UTC; сейчас позиция закрыта.",
+      "relatedOrderId": "order-closed-04-buy",
+      "relatedPositionId": "position-closed-04"
     },
     {
       "id": "message-05",
       "conversationId": "conversation-01",
       "ticketId": "ticket-01",
       "author": "user",
-      "text": "Will canceling the remainder sell that position?",
+      "text": "How was the result calculated?",
       "timestamp": "2026-10-02T09:20:00Z",
-      "textRu": "Отмена остатка продаст эту позицию?"
+      "textRu": "Как рассчитан результат?",
+      "relatedOrderId": "order-closed-04-buy",
+      "relatedPositionId": "position-closed-04"
     },
     {
       "id": "message-06",
       "conversationId": "conversation-01",
       "ticketId": "ticket-01",
       "author": "support",
-      "text": "No. Canceling an unfilled remainder does not sell an existing holding. Closing a position is a separate action with its own confirmation.",
+      "text": "The sale returned $2.20 before its $0.01 synthetic expense, or $2.19 net. Compared with the $2.41 purchase cost, the result is −$0.22.",
       "timestamp": "2026-10-02T10:24:00Z",
-      "textRu": "Нет. Отмена неисполненного остатка не продаёт уже купленные контракты. Закрытие позиции — отдельное действие с собственным подтверждением."
+      "textRu": "Продажа дала 2,20 $ до тестовых расходов 0,01 $, то есть 2,19 $ после них. По сравнению с затратами на покупку 2,41 $ результат — −0,22 $.",
+      "relatedOrderId": "order-closed-04-buy",
+      "relatedPositionId": "position-closed-04"
     },
     {
       "id": "message-07",
       "conversationId": "conversation-01",
       "ticketId": "ticket-01",
       "author": "user",
-      "text": "I opened the detail from my phone, but now I see an unknown result. Should I press the button again? I want to avoid buying the same quantity twice.",
+      "text": "Do I need to cancel this purchase now?",
       "timestamp": "2026-10-02T10:28:00Z",
-      "textRu": "Я открыл детали с телефона, но теперь вижу неизвестный результат. Нужно ли нажимать кнопку ещё раз? Не хочу случайно купить одно и то же количество дважды."
+      "textRu": "Нужно ли сейчас отменять эту покупку?",
+      "relatedOrderId": "order-closed-04-buy",
+      "relatedPositionId": "position-closed-04"
     },
     {
       "id": "message-08",
       "conversationId": "conversation-01",
       "ticketId": "ticket-01",
       "author": "support",
-      "text": "Please wait for reconciliation instead of repeating the buy. An unknown result means we cannot yet confirm whether the original request was accepted or filled.\n\nYou can keep this ticket open and check the related order. Its confirmed result will determine the position and reserve; this conversation itself does not change the trade.",
+      "text": "No. This purchase has already filled in full, and its position is closed. There is no unfilled remainder to cancel.\n\nThis conversation explains the record; it does not send an order or change the demo balance.",
       "timestamp": "2026-10-02T10:32:00Z",
-      "textRu": "Дождитесь сверки и не повторяйте покупку. Неизвестный результат означает, что пока нельзя подтвердить, была ли исходная заявка принята или исполнена.\n\nМожно оставить обращение открытым и проверять связанную заявку. Позиция и резерв изменятся по подтверждённому результату операции; сама переписка не меняет сделку."
+      "textRu": "Нет. Покупка уже полностью исполнена, а позиция закрыта. Неисполненного остатка для отмены нет.\n\nПереписка поясняет запись; она не отправляет заявку и не меняет демо-баланс.",
+      "relatedOrderId": "order-closed-04-buy",
+      "relatedPositionId": "position-closed-04"
     },
     {
       "id": "message-09",
       "conversationId": "conversation-01",
       "ticketId": "ticket-01",
       "author": "user",
-      "text": "Can I leave the page while this is being checked?",
+      "text": "Can I leave this page and return to the record later?",
       "timestamp": "2026-10-02T10:36:00Z",
-      "textRu": "Можно закрыть страницу, пока идёт проверка?"
+      "textRu": "Можно выйти со страницы и позже вернуться к записи?",
+      "relatedOrderId": "order-closed-04-buy",
+      "relatedPositionId": "position-closed-04"
     },
     {
       "id": "message-10",
       "conversationId": "conversation-01",
       "ticketId": "ticket-01",
       "author": "support",
-      "text": "Yes. Return to the order from Events or this ticket. Leaving the page does not confirm cancellation or free the reserve.",
+      "text": "Yes. The related record opens the same purchase and closed position. Leaving the page does not change their confirmed result.",
       "timestamp": "2026-10-02T10:40:00Z",
-      "textRu": "Да. К заявке можно вернуться из Событий или этого обращения. Закрытие страницы не подтверждает отмену и не освобождает резерв."
+      "textRu": "Да. Связанная запись открывает ту же покупку и закрытую позицию. Выход со страницы не меняет подтверждённый результат.",
+      "relatedOrderId": "order-closed-04-buy",
+      "relatedPositionId": "position-closed-04"
     },
     {
       "id": "message-11",
       "conversationId": "conversation-01",
       "ticketId": "ticket-01",
       "author": "user",
-      "text": "Understood. I will check the order status instead of sending a second request.",
+      "text": "Understood. The $0.01 is a test expense, not the service tariff.",
       "timestamp": "2026-10-02T10:44:00Z",
-      "textRu": "Понятно. Буду проверять статус заявки вместо отправки второго запроса."
+      "textRu": "Понятно. 0,01 $ — тестовые расходы, а не тариф сервиса.",
+      "relatedOrderId": "order-closed-04-buy",
+      "relatedPositionId": "position-closed-04"
     },
     {
       "id": "message-12",
       "conversationId": "conversation-01",
       "ticketId": "ticket-01",
       "author": "support",
-      "text": "We will keep this ticket awaiting support while the outcome is being clarified. A resolved support ticket and a confirmed trading operation are different statuses.",
+      "text": "Correct. We will keep this ticket awaiting support until your question is resolved. The ticket status is separate from the filled purchase and closed position.",
       "timestamp": "2026-10-02T11:48:00Z",
-      "textRu": "Оставим обращение в ожидании поддержки, пока уточняется результат. Решённое обращение и подтверждённая торговая операция — разные статусы."
+      "textRu": "Верно. Пока вопрос не закрыт, обращение остаётся в ожидании поддержки. Статус обращения не меняет исполненную покупку и закрытую позицию.",
+      "relatedOrderId": "order-closed-04-buy",
+      "relatedPositionId": "position-closed-04"
     }
   ],
   "faq": [

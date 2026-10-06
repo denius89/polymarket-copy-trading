@@ -1,0 +1,174 @@
+{
+  "purpose": "Synthetic acceptance data; not a production ledger or venue model",
+  "shareScale": 1000,
+  "startingCashCents": 1000,
+  "events": [
+    {
+      "id": "buy-1",
+      "kind": "BUY",
+      "quantityUnits": 2500,
+      "priceCents": 20,
+      "feeCents": 1,
+      "expectedCashCents": 949,
+      "expectedQuantityUnits": 2500,
+      "markPriceCents": 20,
+      "expectedMarkCents": 50,
+      "expectedEquityCents": 999,
+      "externalFlowCents": 0
+    },
+    {
+      "id": "resolve-1",
+      "kind": "RESOLVE",
+      "expectedCashCents": 949,
+      "expectedQuantityUnits": 2500,
+      "markPriceCents": 100,
+      "expectedMarkCents": 250,
+      "expectedEquityCents": 1199,
+      "externalFlowCents": 0
+    },
+    {
+      "id": "redeem-1",
+      "kind": "REDEEM",
+      "quantityUnits": 2500,
+      "priceCents": 100,
+      "feeCents": 0,
+      "expectedCashCents": 1199,
+      "expectedQuantityUnits": 0,
+      "markPriceCents": 100,
+      "expectedMarkCents": 0,
+      "expectedEquityCents": 1199,
+      "externalFlowCents": 0
+    },
+    {
+      "id": "late-fee-1",
+      "kind": "FEE",
+      "feeCents": 2,
+      "expectedCashCents": 1197,
+      "expectedQuantityUnits": 0,
+      "markPriceCents": 100,
+      "expectedMarkCents": 0,
+      "expectedEquityCents": 1197,
+      "externalFlowCents": 0
+    },
+    {
+      "id": "late-fee-1",
+      "kind": "FEE",
+      "feeCents": 2,
+      "expectedCashCents": 1197,
+      "expectedQuantityUnits": 0,
+      "markPriceCents": 100,
+      "expectedMarkCents": 0,
+      "expectedEquityCents": 1197,
+      "externalFlowCents": 0
+    },
+    {
+      "id": "deposit-1",
+      "kind": "DEPOSIT",
+      "amountCents": 100,
+      "expectedCashCents": 1297,
+      "expectedQuantityUnits": 0,
+      "markPriceCents": 100,
+      "expectedMarkCents": 0,
+      "expectedEquityCents": 1297,
+      "externalFlowCents": 100,
+      "expectedTradingResultCents": 197
+    }
+  ],
+  "unknownValuation": {
+    "cashCents": 949,
+    "quantityUnits": 2500,
+    "markPriceCents": null,
+    "expectedMarkCents": null,
+    "expectedEquityCents": null
+  },
+  "reportCounterCases": [
+    {
+      "observedSignalIds": [
+        "a",
+        "a",
+        "b"
+      ],
+      "eligibleSignalIds": [
+        "a",
+        "a"
+      ],
+      "fillSignalIds": [
+        "a",
+        "a"
+      ],
+      "expectedObserved": 2,
+      "expectedEligible": 1,
+      "expectedCopied": 1,
+      "days": 14,
+      "expectedReady": false
+    },
+    {
+      "observedSignalIds": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "eligibleSignalIds": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "fillSignalIds": [
+        "0",
+        "0",
+        "1"
+      ],
+      "expectedObserved": 10,
+      "expectedEligible": 10,
+      "expectedCopied": 2,
+      "days": 7,
+      "expectedReady": true
+    },
+    {
+      "observedSignalIds": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "eligibleSignalIds": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "fillSignalIds": [
+        "0"
+      ],
+      "expectedObserved": 9,
+      "expectedEligible": 9,
+      "expectedCopied": 1,
+      "days": 14,
+      "expectedReady": false
+    }
+  ]
+}
