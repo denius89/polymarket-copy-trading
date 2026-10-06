@@ -13,7 +13,7 @@
 | Desktop RU | [Открыть](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=584-265&starting-point-node-id=584%3A265&page-id=205%3A2&scaling=scale-down) |
 | Desktop EN | [Open](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=584-225&starting-point-node-id=584%3A225&page-id=186%3A2&scaling=scale-down) |
 
-Последние результаты — [итоговый срез 109](109_latest_design_review_2026-10-06.md). Происхождение мобильных исправлений, замечания коллеги и дополнительная история — [отчёт 108](108_mobile_colleague_review_fixes_2026-10-06.md). Ручной Present последних мобильных изменений не выполнен из-за политики браузера; проверка изображений и связей не заменяет пользовательскую приёмку. Более ранние проходы — в [отчёте 106](106_four_prototypes_acceptance_2026-10-06.md) и относятся к тому срезу.
+Последние результаты — [итоговый срез 109](109_latest_design_review_2026-10-06.md) и [десктопные исправления 111](111_desktop_colleague_review_fixes_2026-10-06.md). Происхождение мобильных исправлений, замечания коллеги и дополнительная история — [отчёт 108](108_mobile_colleague_review_fixes_2026-10-06.md). Ручной Present последней итерации не выполнен; проверка изображений и связей не заменяет пользовательскую приёмку. Более ранние проходы — в [отчёте 106](106_four_prototypes_acceptance_2026-10-06.md) и относятся к тому срезу.
 
 ## Найти материал по задаче
 
