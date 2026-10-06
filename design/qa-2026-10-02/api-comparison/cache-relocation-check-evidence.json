@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-03",
+  "scope": "Repository reference-cache relocation only",
+  "checks": [
+    {
+      "command": "npm run check",
+      "exitCode": 0,
+      "result": "Project structure and Markdown links are valid (26 required paths)."
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0,
+      "result": "No whitespace errors."
+    },
+    {
+      "command": "Preservation verification",
+      "exitCode": 0,
+      "result": "All 18 raw cache files match SHA-256; original download-index.json unchanged."
+    }
+  ],
+  "notVerified": [
+    "Full prototype runtime interaction QA",
+    "Complete API compatibility analysis"
+  ],
+  "gitCommitCreated": false,
+  "gitPushPerformed": false
+}

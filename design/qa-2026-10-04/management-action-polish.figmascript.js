@@ -1,0 +1,22 @@
+// Execute once per page with C and V from the paired ledger.
+
+const p=await figma.getNodeByIdAsync(C.page);await figma.setCurrentPageAsync(p);const vars=await figma.variables.getLocalVariablesAsync();const get=k=>vars.find(v=>v.id===V.find(x=>x.lang===C.lang&&x.key===k).id);const L=(ru,en)=>C.lang==="RU"?ru:en;const mutated=[],created=[];
+function vis(n){for(let q=n;q&&q.type!=="PAGE";q=q.parent)if(q.visible===false)return false;return true;}
+const set=(v,value)=>({type:"SET_VARIABLE",variableId:v.id,variableValue:{type:v.resolvedType,resolvedType:v.resolvedType,value}});
+for(let i=0;i<C.roots.length;i++){const r=await figma.getNodeByIdAsync(C.roots[i]);for(const t of r.findAll(n=>n.type==="TEXT"&&vis(n)))for(const s of t.getStyledTextSegments(["fontName"]))await figma.loadFontAsync(s.fontName);
+ const area=r.findOne(n=>n.name==="Shared/Management content"),card=area.findOne(n=>/^Shared\/(Order|Position) action summary$/.test(n.name)),banner=area.findOne(n=>n.name==="Shared/Action explanation");area.insertChild(0,card);mutated.push(area.id);
+ if(i<3){const metrics=card.findAll(n=>n.type==="INSTANCE"&&n.name==="Shared/Data metric");if(metrics[1]){metrics[1].setProperties({"Label#1216:0":L("Не исполнено","Remaining")});mutated.push(metrics[1].id);}}
+ if(i===1){const title=banner.findOne(n=>n.name==="Action explanation title");title.characters=L("Изменение через отмену остатка","Change by cancelling the remainder");mutated.push(title.id);}
+ if(i>=3){const metrics=card.children.filter(n=>n.type==="INSTANCE"&&n.name==="Shared/Data metric");if(metrics.length===2){const f=figma.createFrame();f.name="Position metrics";f.layoutMode="HORIZONTAL";f.primaryAxisSizingMode="FIXED";f.counterAxisSizingMode="AUTO";f.fills=[];f.itemSpacing=12;f.resize(card.width-32,80);card.insertChild(card.children.indexOf(metrics[0]),f);f.layoutSizingHorizontal="FILL";f.layoutSizingVertical="HUG";for(const m of metrics){f.appendChild(m);m.layoutSizingHorizontal="FILL";m.layoutSizingVertical="HUG";mutated.push(m.id);}created.push(f.id);}}
+ if(i===3){const body=banner.findOne(n=>n.name==="Action explanation body");body.characters=L("После подтверждения только эта позиция перестанет копировать действия трейдера. Продажи нет. Остальные копии продолжают работать.","After confirmation, this position stops copying the trader’s actions. No sale occurs. Other copies continue.");mutated.push(body.id);}
+ const content=await figma.getNodeByIdAsync(C.contents[i]);const actionParent=C.actions?await figma.getNodeByIdAsync(C.actions[i]):content;
+ const primary=actionParent.findOne(n=>n.type==="INSTANCE"&&/^(Recovery\/)?Action \/ /.test(n.name)&&/Подтвердить|Confirm|Перейти к отмене|Continue to remainder/.test(n.name));
+ if(primary&&[0,1,3,4].includes(i)){
+ const gate=get(i<2?"allow":i===3?"canManual":"canClose");primary.setBoundVariable("visible",gate);
+ if(primary.reactions[0]?.actions?.[0]?.type!=="CONDITIONAL"){const rr=primary.reactions.map(re=>{let as=JSON.parse(JSON.stringify(re.actions||[re.action]));if(i===3||i===4){const manual=i===3;as=[set(get("pendingTitle"),manual?L("Передача управления проверяется","Management transfer pending"):L("Закрытие позиции проверяется","Position close pending")),set(get("pendingText"),manual?L("Передача ещё не подтверждена. Продажи нет; позиция сохраняется. Копирование изменится после подтверждения.","The transfer is not confirmed yet. No sale occurs; the position remains. Copying changes after confirmation."):L("Заявка на закрытие проверяется. Позиция и результат изменятся после исполнения; окончательная сумма пока неизвестна.","The close request is being checked. The position and result change after execution; final proceeds are not yet known.")),...as];}return {trigger:re.trigger,actions:[{type:"CONDITIONAL",conditionalBlocks:[{condition:{type:"VARIABLE_ALIAS",resolvedType:"BOOLEAN",value:{type:"VARIABLE_ALIAS",id:gate.id}},actions:as},{actions:[]}]}]};});await primary.setReactionsAsync(rr);}
+ if(i===3){const label=primary.findOne(n=>n.type==="TEXT"&&n.name==="Label");if(label){label.characters=L("Передать управление","Transfer control");mutated.push(label.id);}}
+ mutated.push(primary.id);
+ }
+ if(i===5){for(const t of r.findAll(n=>n.type==="TEXT"&&vis(n)&&/Page.?title|Page heading/i.test(n.name))){t.setBoundVariable("characters",get("pendingTitle"));mutated.push(t.id);}}
+}
+return {page:C.page,createdNodeIds:created,mutatedNodeIds:mutated};

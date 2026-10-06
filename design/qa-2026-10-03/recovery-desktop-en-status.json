@@ -1,0 +1,65 @@
+{
+  "pageId": "186:2",
+  "scope": "53 existing desktop EN Explore roots rebuilt in place",
+  "allRootIdsPreserved": true,
+  "componentSet": {
+    "id": "1041:26477",
+    "open": "1041:26478",
+    "closed": "1041:26486",
+    "widthFixPendingRoot": true
+  },
+  "overlays": {
+    "search": "1044:4721",
+    "filters": "1044:4762",
+    "sort": "1044:4859"
+  },
+  "validated": {
+    "rootCount": 53,
+    "width": 1440,
+    "height": 960,
+    "missingNavigationTargets": 0,
+    "visibleRussianText": 0,
+    "wideTexts": 0,
+    "scrollViewport": "VERTICAL",
+    "screenshotFamilies": [
+      "catalogue",
+      "funds",
+      "profile",
+      "positions",
+      "risk settings",
+      "FAQ",
+      "markets",
+      "filter/search/sort overlays"
+    ]
+  },
+  "runtime": {
+    "testedByThisWorker": false,
+    "reason": "cua iab and chrome unavailable",
+    "selectedDataScreenshotPending": true
+  },
+  "rootHandoff": {
+    "seedExistingEnglishRecordVariables": true,
+    "extrasAuthReferralRootIds": [
+      "396:3",
+      "575:51",
+      "575:99",
+      "671:78",
+      "682:3",
+      "682:51",
+      "700:108",
+      "700:158",
+      "698:3",
+      "714:1654",
+      "724:54"
+    ],
+    "automaticReviewRejected": [
+      "existing global variable seed + extras auth/referral mutation",
+      "EN-local FAQ set width repair interpreted as shared component write"
+    ]
+  },
+  "knownLimitations": [
+    "Overlay search simulates prepared query cases; arbitrary typing not implemented in Figma",
+    "New sort overlay supports actual PnL and original order; activity source previously only changed label",
+    "Old self SCROLL_TO targets dropped in cloned controls; native scroll is enabled"
+  ]
+}

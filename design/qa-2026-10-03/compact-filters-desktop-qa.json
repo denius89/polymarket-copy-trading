@@ -1,0 +1,78 @@
+{
+  "oracle": [
+    {
+      "locale": "EN",
+      "cases": 1152,
+      "defaultQueryCases": 288,
+      "queries": [
+        "any",
+        "trader-01",
+        "trader-13",
+        "none"
+      ],
+      "period": "30d",
+      "pass": true,
+      "failures": [],
+      "source": "Read-only interpreter of assembled Figma Apply reactions compared with fixture records",
+      "headersMutated": 0
+    },
+    {
+      "locale": "RU",
+      "cases": 1152,
+      "defaultQueryCases": 288,
+      "queries": [
+        "any",
+        "trader-01",
+        "trader-13",
+        "none"
+      ],
+      "period": "30d",
+      "pass": true,
+      "failures": [],
+      "source": "Read-only interpreter of assembled Figma Apply reactions compared with fixture records",
+      "headersMutated": 0
+    }
+  ],
+  "pass": true,
+  "casesPerLocale": 1152,
+  "reachableFilterCasesPerLocale": 288,
+  "searchQueriesPerFilter": 4,
+  "metricChoices": [
+    "any",
+    "positive",
+    "drawdown≤5%"
+  ],
+  "cataloguePeriod": "30d",
+  "runtime": {
+    "EN": {
+      "source": "parent actual prototype browser",
+      "pass": true,
+      "steps": [
+        "Open",
+        "Venue Limitless draft12 while catalogue24",
+        "Apply catalogue12",
+        "Reopen preserves Limitless",
+        "Reset draft24 while catalogue12",
+        "Close leaves catalogue12"
+      ]
+    },
+    "RU": {
+      "source": "parent actual prototype browser",
+      "pass": true,
+      "steps": [
+        "Anchored open x656 y160",
+        "Limitless draft12",
+        "Apply12 cards and Filters1 chip"
+      ]
+    }
+  },
+  "visualProof": [
+    "compact-filters-desktop-en-context.png",
+    "compact-filters-desktop-ru-context.png"
+  ],
+  "limitations": [
+    "Search is preset-based in Figma; arbitrary text input is not implemented",
+    "Topics are synthetic fixture membership",
+    "Legacy full-frame filter/search roots remain compatibility views; current catalogue buttons open anchored panels/preset search"
+  ]
+}

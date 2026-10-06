@@ -1,0 +1,254 @@
+[
+  {
+    "name": "default",
+    "filter": {
+      "venue": "any",
+      "topic": "any",
+      "period": "30d",
+      "budget": "any",
+      "query": "any",
+      "positive": false,
+      "drawdown": false
+    },
+    "count": 24,
+    "ids": [
+      "trader-01",
+      "trader-02",
+      "trader-03",
+      "trader-04",
+      "trader-05",
+      "trader-06",
+      "trader-07",
+      "trader-08",
+      "trader-09",
+      "trader-10",
+      "trader-11",
+      "trader-12",
+      "trader-13",
+      "trader-14",
+      "trader-15",
+      "trader-16",
+      "trader-17",
+      "trader-18",
+      "trader-19",
+      "trader-20",
+      "trader-21",
+      "trader-22",
+      "trader-23",
+      "trader-24"
+    ]
+  },
+  {
+    "name": "positive",
+    "filter": {
+      "venue": "any",
+      "topic": "any",
+      "period": "30d",
+      "budget": "any",
+      "query": "any",
+      "positive": true,
+      "drawdown": false
+    },
+    "count": 8,
+    "ids": [
+      "trader-01",
+      "trader-04",
+      "trader-07",
+      "trader-10",
+      "trader-14",
+      "trader-16",
+      "trader-19",
+      "trader-22"
+    ]
+  },
+  {
+    "name": "budget50",
+    "filter": {
+      "venue": "any",
+      "topic": "any",
+      "period": "30d",
+      "budget": "50",
+      "query": "any",
+      "positive": false,
+      "drawdown": false
+    },
+    "count": 6,
+    "ids": [
+      "trader-01",
+      "trader-05",
+      "trader-09",
+      "trader-13",
+      "trader-17",
+      "trader-21"
+    ]
+  },
+  {
+    "name": "limitless",
+    "filter": {
+      "venue": "limitless",
+      "topic": "any",
+      "period": "30d",
+      "budget": "any",
+      "query": "any",
+      "positive": false,
+      "drawdown": false
+    },
+    "count": 12,
+    "ids": [
+      "trader-13",
+      "trader-14",
+      "trader-15",
+      "trader-16",
+      "trader-17",
+      "trader-18",
+      "trader-19",
+      "trader-20",
+      "trader-21",
+      "trader-22",
+      "trader-23",
+      "trader-24"
+    ]
+  },
+  {
+    "name": "crypto",
+    "filter": {
+      "venue": "any",
+      "topic": "crypto",
+      "period": "30d",
+      "budget": "any",
+      "query": "any",
+      "positive": false,
+      "drawdown": false
+    },
+    "count": 12,
+    "ids": [
+      "trader-01",
+      "trader-02",
+      "trader-04",
+      "trader-13",
+      "trader-14",
+      "trader-15",
+      "trader-16",
+      "trader-17",
+      "trader-18",
+      "trader-21",
+      "trader-22",
+      "trader-24"
+    ]
+  },
+  {
+    "name": "combined",
+    "filter": {
+      "venue": "limitless",
+      "topic": "crypto",
+      "period": "30d",
+      "budget": "100",
+      "query": "any",
+      "positive": true,
+      "drawdown": true
+    },
+    "count": 0,
+    "ids": []
+  },
+  {
+    "name": "empty",
+    "filter": {
+      "venue": "limitless",
+      "topic": "politics",
+      "period": "30d",
+      "budget": "50",
+      "query": "any",
+      "positive": false,
+      "drawdown": false
+    },
+    "count": 0,
+    "ids": []
+  },
+  {
+    "name": "queryWithFilters",
+    "filter": {
+      "venue": "any",
+      "topic": "any",
+      "period": "30d",
+      "budget": "50",
+      "query": "trader-01",
+      "positive": true,
+      "drawdown": false
+    },
+    "count": 1,
+    "ids": [
+      "trader-01"
+    ]
+  },
+  {
+    "name": "noQueryMatch",
+    "filter": {
+      "venue": "any",
+      "topic": "any",
+      "period": "30d",
+      "budget": "any",
+      "query": "none",
+      "positive": false,
+      "drawdown": false
+    },
+    "count": 0,
+    "ids": []
+  },
+  {
+    "name": "24hPositive",
+    "filter": {
+      "venue": "any",
+      "topic": "any",
+      "period": "24h",
+      "budget": "any",
+      "query": "any",
+      "positive": true,
+      "drawdown": false
+    },
+    "count": 3,
+    "ids": [
+      "trader-01",
+      "trader-03",
+      "trader-14"
+    ]
+  },
+  {
+    "name": "reset",
+    "filter": {
+      "venue": "any",
+      "topic": "any",
+      "period": "30d",
+      "budget": "any",
+      "query": "any",
+      "positive": false,
+      "drawdown": false
+    },
+    "count": 24,
+    "ids": [
+      "trader-01",
+      "trader-02",
+      "trader-03",
+      "trader-04",
+      "trader-05",
+      "trader-06",
+      "trader-07",
+      "trader-08",
+      "trader-09",
+      "trader-10",
+      "trader-11",
+      "trader-12",
+      "trader-13",
+      "trader-14",
+      "trader-15",
+      "trader-16",
+      "trader-17",
+      "trader-18",
+      "trader-19",
+      "trader-20",
+      "trader-21",
+      "trader-22",
+      "trader-23",
+      "trader-24"
+    ]
+  }
+]
