@@ -94,6 +94,7 @@
 | ADM-14 | Staff & access | базовый контур V1 | нет | staff list, sign-in, 2FA, expiry, role assignment, permission denied, access history | **Предложено** |
 | ADM-15 | Integrations & security | health/read-only metadata V1 | нет | connection registry, capabilities, API/WS/signer health, key metadata, rotation/revoke requests | **Предложено** |
 | ADM-16 | Content & localization | модель данных до разработки; редактор позже | RU/EN тексты и user FAQ есть в Figma | locale registry, translation catalog, workflow, preview/publish/rollback; модульный landing builder позже | **Предложено, архитектурная основа обязательна** |
+| ADM-17 | Emergency control center | базовый global/scoped stop V1 | kill switch упомянут в ранней карте, рабочего экрана нет | независимый control plane, server-side enforcement, status page, recovery checklist | **Согласована потребность; контракт предложен** |
 
 ## 6. Основные операторские сценарии
 
@@ -174,6 +175,17 @@
 - **Предложено:** публикация создаёт неизменяемую версию; работающие сессии, уведомления и важные действия сохраняют `content_version`, чтобы восстановить показанный пользователю текст.
 - **Предложено:** финансовые, риск-, согласительные и юридические тексты защищены повышенным workflow и не могут менять смысл действующей policy без связанной версии правила.
 - **Нужна проверка:** кто имеет права edit/review/publish, нужен ли dual approval для критического текста и какие языки идут после EN/RU.
+
+### 6.10 Аварийное отключение проекта
+
+`Emergency control center → scope и уровень → impact preview → причина/incident → activate → verify enforcement → monitor/reconcile → recovery review → restore`.
+
+- **Согласовано:** проекту нужен аварийный рубильник, который немедленно прекращает новые действия при критической ситуации.
+- **Предложено:** рубильник работает на сервере и применяется до очередей, adapters и workers; скрытие кнопок в интерфейсе не считается отключением.
+- **Предложено:** сбор evidence, market/account reads, audit log, health telemetry и reconciliation продолжаются, чтобы не потерять состояние системы.
+- **Предложено:** аварийный stop сам по себе не закрывает позиции, не отменяет unknown, не снимает reserves, не удаляет данные и не отзывает ключи.
+- **Предложено:** пользователь получает maintenance/read-only экран с честным status ID; операционная консоль остаётся доступна отдельным авторизованным сотрудникам.
+- **Нужна проверка:** полномочия активации и восстановления, scoped levels, правила безопасного уменьшения риска и out-of-band доступ.
 
 ## 7. Данные, API и права
 
@@ -329,6 +341,73 @@ Placeholder удалять, переименовывать или менять �
 
 Landing workflow поддерживает draft, preview URL, schedule, publish, rollback, canonical URL, title/description, Open Graph, robots/noindex и redirect map. A/B testing, personalization и GEO-targeting остаются отдельным будущим решением, чтобы не смешивать CMS с аналитикой и eligibility.
 
+### 7.7 Архитектура emergency stop
+
+#### 7.7.1 Область действия
+
+`EmergencyControlState` должен поддерживать иерархический scope:
+
+- весь проект;
+- environment: demo / future live;
+- конкретная площадка Polymarket или Limitless;
+- adapter/worker/subsystem;
+- новые регистрации и новые сессии;
+- действия, увеличивающие риск;
+- отдельный публичный surface: landing/application/API.
+
+Более строгий верхний уровень всегда имеет приоритет. Effective emergency state вычисляется на сервере и возвращается вместе с причиной, временем активации, actor, incident ID и config version.
+
+#### 7.7.2 Уровни
+
+| Уровень | Поведение | Что продолжает работать | Статус |
+| --- | --- | --- | --- |
+| `NORMAL` | обычная работа | всё разрешённое текущей policy | **Предложено** |
+| `READ_ONLY` | блокируются новые сессии и mutations | вход, просмотр, support, health, audit | **Предложено** |
+| `RISK_PAUSED` | блокируются новые BUY и другие risk-increasing actions | чтение, ingestion, reconciliation; safe reduction только по отдельному контракту | **Предложено** |
+| `VENUE_ISOLATED` | отключается конкретная площадка/adapter | другая площадка работает только если её собственный health и policy разрешают | **Предложено** |
+| `GLOBAL_STOP` | проект отвергает все новые пользовательские и фоновые mutations | admin control plane, evidence, telemetry, reconciliation, status communication | **Согласована потребность; точный контракт предложен** |
+
+В paper V1 `GLOBAL_STOP` прекращает создание новых виртуальных операций и запуск demo-сессий. Существующие данные и отчёты остаются доступными read-only. Для будущего live точный перечень допустимых cancel/close/settlement действий определяется отдельными доказанными runbooks; универсальная команда «закрыть всё» не допускается.
+
+#### 7.7.3 Исполнение
+
+**Предложено:** emergency state хранится в отказоустойчивом независимом control plane и проверяется:
+
+1. на API gateway до принятия команды;
+2. при постановке задания в очередь;
+3. worker перед каждым внешним side effect;
+4. scheduler перед запуском фоновой операции;
+5. при старте/restart каждого adapter и worker.
+
+Risk-increasing путь работает fail-closed: если актуальный emergency state невозможно прочитать, новая mutation не выполняется. Read-only и reconciliation paths могут использовать последнюю доказанную безопасную конфигурацию и явно показывают degraded control-plane health.
+
+#### 7.7.4 Активация
+
+Перед активацией показываются scope, затронутые функции и сессии, а также действия, которые продолжат выполняться. Для `GLOBAL_STOP` приоритет — скорость: авторизованный Owner или заранее назначенный emergency Operator может активировать stop после 2FA/re-auth, выбора причины и incident ID без ожидания второго человека.
+
+Активация создаёт append-only audit event, отправляет оповещение Owner/Operator, открывает incident и запускает автоматическую проверку enforcement на API, queue и workers. Если часть компонентов не подтвердила stop, состояние отображается как `STOP PARTIALLY ENFORCED`, а не как успешное.
+
+#### 7.7.5 Восстановление
+
+Восстановление не является обратным нажатием той же кнопки. Оно проходит checklist:
+
+- причина устранена и evidence приложен;
+- health обязательных подключений подтверждён;
+- unknown operations и reserves перечислены;
+- очередь отложенных команд очищена или доказанно безопасна;
+- reconciliation завершена либо явно оставлена открытой;
+- новая config/policy version подготовлена;
+- Owner повторно авторизован; для future live рекомендуется второе подтверждение;
+- выполняется staged restore: read-only → один adapter/небольшой scope → normal.
+
+Emergency state не имеет автоматического срока истечения. Автоматическое самовключение проекта запрещено.
+
+#### 7.7.6 Доступность control plane
+
+**Предложено:** emergency control доступен из админки и через отдельный out-of-band защищённый путь, не зависящий от пользовательского frontend. Он использует отдельную authentication policy, короткую admin-сессию, 2FA и резервный runbook. Секреты и ключи площадок для активации stop не нужны.
+
+Публичная status communication отделена от control plane: пользователи видят локализованное сообщение, время обновления и status reference, но не внутренние причины, ключи или security details. Текст берётся из заранее опубликованного emergency bundle ADM-16, поэтому доступен даже при сбое основного content service.
+
 Текущая документация Polymarket указывает для Сомали и Таиланда режим close-only на frontend и API. Это изменяемый внешний факт, поэтому перед любым live-планом требуется свежая проверка по фактическому пользователю, площадке и моменту доступа. Он не влияет на paper-демо, но блокирует обещание live-доступности для этих GEO.
 
 ## 8. Жизненный цикл и состояния интерфейса
@@ -401,13 +480,13 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ### Что отсутствует
 
-Полные Users/Sessions lists, Venues & data, traders ingestion, policy registry, notifications delivery, support queue, feedback operations, audit log, staff/access, integrations/security, connection health history, content/localization, admin auth/2FA, permission denied, scope kill switch, bulk-result states и безопасный export.
+Полные Users/Sessions lists, Venues & data, traders ingestion, policy registry, notifications delivery, support queue, feedback operations, audit log, staff/access, integrations/security, connection health history, content/localization, admin auth/2FA, permission denied, emergency control center, проверка enforcement, out-of-band recovery, bulk-result states и безопасный export.
 
 Текущая админка EN-only, использует sample data и не имеет backend. Пользовательские экраны прошли структурный и визуальный QA, но последняя итерация ещё не прошла свежий ручной Present. Полная приёмка админки также не подтверждена.
 
 ## 12. Открытые решения владельца
 
-До начала дизайн-итерации достаточно шести решений:
+До начала дизайн-итерации достаточно семи решений:
 
 1. **Нужна проверка:** принимаем ли предложенную RBAC-матрицу и ограниченный контекст Support.
 2. **Нужна проверка:** входит ли support queue в первую demo-админку; рекомендация — да, без SLA и attachments.
@@ -415,6 +494,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 4. **Нужна проверка:** принимаем ли архитектуру content keys, locale registry и versioned publishing до разработки, а визуальный landing builder оставляем на потом; рекомендация — да.
 5. **Нужна проверка:** в первой demo-версии ADM-15 остаётся read-only health/metadata или включает ротацию/revoke; рекомендация — только read-only health/metadata, а mutations добавить после KMS/RBAC/dual-control дизайна.
 6. **Нужна проверка:** кто публикует обычные и критические тексты; рекомендация — permission scopes edit/review/publish, а financial/legal/security требуют Owner approval.
+7. **Нужна проверка:** кто активирует и кто снимает `GLOBAL_STOP`; рекомендация — Owner или назначенный emergency Operator могут немедленно активировать после re-auth, а восстановление разрешает Owner после checklist, для future live — с двойным подтверждением.
 
 Остальные вопросы можно решать внутри этапов без преждевременного расширения scope.
 
@@ -433,19 +513,21 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 | Referral thresholds и conflict rules | нужна версия партнёрской политики | **Нужна проверка** |
 | Content key/schema и locale bundle contract | нужны управляемые тексты без переписывания компонентов | **Предложено закрыть до frontend** |
 | Critical content approval и historical version evidence | финансовые/юридические тексты нельзя менять без контроля | **Нужна проверка** |
+| Independent emergency control plane | рубильник должен работать при отказе основного приложения | **Предложено закрыть до backend** |
+| Effective policy hierarchy и safe-reduction contract | emergency state должен предсказуемо перекрывать user/session/venue policy | **Нужна проверка** |
 | GEO/legal/security/live gates | обязательны только перед live | **Нужна проверка позднее** |
 
 ## 14. Этапы работы без автоматического перехода
 
 ### Этап 0. Принять карту
 
-**Результат:** утверждены V1/out-of-scope, ADM-01–ADM-16, шесть решений владельца и терминология.
+**Результат:** утверждены V1/out-of-scope, ADM-01–ADM-17, семь решений владельца и терминология.
 
 **Готово, когда:** нет конфликтов со свежими ADR; каждый пункт имеет status; существующие Figma frames сопоставлены со стабильными IDs.
 
 ### Этап 1. Спроектировать demo-админку в Figma
 
-**Объём:** ADM-01–ADM-12; ADM-13 только empty/source disconnected; ADM-14 базовые роли и состояния доступа; ADM-15 read-only health/metadata без секретов и credential mutations; ADM-16 — карта locale/content workflow без реализации landing builder; desktop-first, критические emergency reads позже можно адаптировать для mobile.
+**Объём:** ADM-01–ADM-12; ADM-13 только empty/source disconnected; ADM-14 базовые роли и состояния доступа; ADM-15 read-only health/metadata без секретов и credential mutations; ADM-16 — карта locale/content workflow без реализации landing builder; ADM-17 — emergency levels, activation, partial enforcement и staged recovery; desktop-first, отдельный emergency path адаптируется для защищённого мобильного доступа позже.
 
 **Результат:** карта flow, экраны, роли, все data/action states, RU/EN, кликабельные пути и список неиспользуемых элементов.
 
@@ -455,7 +537,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ### Этап 2. Утвердить технический дизайн
 
-**Объём:** сущности, state machines, append-only ledger/audit, RBAC, API contracts, `ConnectionProfile`, health checks, capability evidence, credential metadata, content key/schema, locale bundles, publishing/version contract, error taxonomy, retention и observability.
+**Объём:** сущности, state machines, append-only ledger/audit, RBAC, API contracts, `ConnectionProfile`, health checks, capability evidence, credential metadata, content key/schema, locale bundles, publishing/version contract, `EmergencyControlState`, server-side enforcement points, out-of-band access, error taxonomy, retention и observability.
 
 **Результат:** технический документ и ADR по оставшимся решениям BL-05–BL-08; API PR #14/#15 безопасно обновлены от main и review пройден.
 
@@ -465,7 +547,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ### Этап 3. Реализовать read-only foundation
 
-**Предложенный порядок:** auth/RBAC → content key и locale baseline → internal demo read models → audit log → connection registry и health telemetry → public venue adapters → overview/users/sessions/incidents → support/notifications → finance empty states → content editor; landing builder отдельным поздним пакетом.
+**Предложенный порядок:** auth/RBAC → emergency control plane и server-side enforcement → content key и emergency locale baseline → internal demo read models → audit log → connection registry и health telemetry → public venue adapters → overview/users/sessions/incidents → support/notifications → finance empty states → content editor; landing builder отдельным поздним пакетом.
 
 **Готово, когда:** контрактные и role tests пройдены; stale/partial/error состояния воспроизводимы; никакие реальные orders/funds недоступны.
 
@@ -487,6 +569,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 | --- | --- | --- | --- |
 | P0 | карта, RBAC, operator flows, states | средняя | определяет границы до дизайна |
 | P0 | operation journal, unknown/reconciliation, audit | высокая | основа безопасности и правды системы |
+| P0 | emergency control plane и enforcement | высокая | должен работать до любых фоновых mutations |
 | P1 | overview, users, sessions, incidents | средняя–высокая | основная ежедневная работа |
 | P1 | venue/data health и capability evidence | высокая | разные API, cache и права |
 | P1 | staff/access и integrations/security | высокая | RBAC, KMS metadata, health telemetry и audit |
