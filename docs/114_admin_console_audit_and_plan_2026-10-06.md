@@ -93,7 +93,7 @@
 | ADM-13 | Owner finance | схема сейчас, данные позже | Proposed OF01–OF06 RU/EN | подтверждённые источники, ledger, reconciliation, права | **Предложено / источник не подключён** |
 | ADM-14 | Staff & access | базовый контур V1 | нет | staff list, sign-in, 2FA, expiry, role assignment, permission denied, access history | **Предложено** |
 | ADM-15 | Integrations & security | health/read-only metadata V1 | нет | connection registry, capabilities, API/WS/signer health, key metadata, rotation/revoke requests | **Предложено** |
-| ADM-16 | Content/FAQ | позже | user FAQ есть | отдельная потребность и workflow публикации | **Предложено вне V1** |
+| ADM-16 | Content & localization | модель данных до разработки; редактор позже | RU/EN тексты и user FAQ есть в Figma | locale registry, translation catalog, workflow, preview/publish/rollback; модульный landing builder позже | **Предложено, архитектурная основа обязательна** |
 
 ## 6. Основные операторские сценарии
 
@@ -163,6 +163,17 @@
 - **Предложено:** V1 показывает только metadata ключей и read-only диагностику. Создание, ротация и отзыв становятся отдельными защищёнными процедурами после утверждения.
 - **Согласовано:** secret/private key/passphrase никогда не показывается, не копируется и не возвращается из админки.
 - **Нужна проверка:** фактические Builder/Partner scopes, ownership, rate limits, срок жизни ключей, revoke propagation и аварийный recovery.
+
+### 6.9 Контент, языки и лендинг
+
+`Content & localization → surface → content key/page → locale → draft → preview → review → publish/schedule → rollback`.
+
+- **Предложено:** все пользовательские тексты получают стабильные content keys до разработки; текст не зашивается непосредственно в компоненты.
+- **Предложено:** языки включаются отдельно для landing, application, admin, notifications, email/Telegram, help и legal surfaces.
+- **Предложено:** управление текстами приложения строится раньше визуального редактора лендинга. Лендинг позже собирается из заранее разрешённых блоков, а не из произвольного HTML/JavaScript.
+- **Предложено:** публикация создаёт неизменяемую версию; работающие сессии, уведомления и важные действия сохраняют `content_version`, чтобы восстановить показанный пользователю текст.
+- **Предложено:** финансовые, риск-, согласительные и юридические тексты защищены повышенным workflow и не могут менять смысл действующей policy без связанной версии правила.
+- **Нужна проверка:** кто имеет права edit/review/publish, нужен ли dual approval для критического текста и какие языки идут после EN/RU.
 
 ## 7. Данные, API и права
 
@@ -249,6 +260,75 @@
 
 Точные пороги latency, freshness, reconnect rate и incident severity зависят от площадки и функции. Они должны быть versioned configuration, а не зашиты в интерфейс. До утверждения порога UI показывает измерение и `threshold not configured`.
 
+### 7.6 Архитектура Content & Localization
+
+#### 7.6.1 Типы управляемого контента
+
+| Тип | Примеры | Как управлять | Статус |
+| --- | --- | --- | --- |
+| System UI copy | кнопки, поля, empty/error/permission states | стабильные keys, typed placeholders, versioned locale bundle | **Предложено до разработки** |
+| Product explanations | onboarding, подсказки, help, FAQ | structured entries, links и media references | **Предложено** |
+| Transactional copy | order/session/incident/fee/risk статусы | только утверждённые templates, связанные с state/policy version | **Предложено с усиленной защитой** |
+| Notifications | in-app, email, Telegram | template + channel variants + required variables | **Предложено** |
+| Legal and consent | terms, privacy, risk acknowledgement | отдельная версия, effective date, обязательный re-consent при необходимости | **Нужна проверка legal** |
+| Landing pages | hero, trust, how it works, venues, FAQ, CTA, footer, SEO | predefined blocks и reusable content entries | **Предложено позже** |
+| Media | изображения, видео, иконки, документы | media library с alt text, locale и usage references | **Предложено позже** |
+
+#### 7.6.2 Реестр языков
+
+Каждый язык описывает `locale`, название, направление `LTR/RTL`, fallback locale, формат даты/числа/валюты, plural rules и включённые surfaces. EN и RU остаются первыми языками; новые локали не публикуются, пока обязательные keys и критические шаблоны не достигли 100% completeness.
+
+**Предложено:** язык может иметь состояния `draft`, `translation`, `review`, `ready`, `published`, `paused`. Отключение языка прекращает новые показы, но не удаляет версии и historical evidence.
+
+#### 7.6.3 Translation catalog
+
+Минимальная запись `ContentEntry`:
+
+| Поле | Назначение |
+| --- | --- |
+| `key`, `namespace`, `surface` | стабильная идентичность и область использования |
+| `description`, `screenshot/context` | что означает строка и где она показана |
+| `source_locale`, `source_text` | исходный текст текущей версии |
+| `translations[locale]` | локализованные значения и их статусы |
+| `variables` | типизированные placeholders: amount, currency, date, venue, count и другие |
+| `constraints` | maximum length, single-line, allowed links/markup, tone |
+| `risk_class` | normal, transactional, financial, legal, security |
+| `version`, `effective_at` | неизменяемая опубликованная версия и время применения |
+| `author`, `reviewer`, `publisher` | ответственность и audit trail |
+
+Placeholder удалять, переименовывать или менять его тип без validation нельзя. Форматирование суммы, валюты, числа, даты и множественного числа выполняется locale-aware formatter, а не вручную внутри перевода.
+
+#### 7.6.4 Workflow публикации
+
+Рекомендуемый lifecycle: `draft → translation → review → approved → scheduled/published → superseded/archived`. Любую опубликованную версию можно откатить созданием новой версии, но нельзя переписать задним числом.
+
+Перед публикацией автоматически проверяются:
+
+- completeness обязательных keys и отсутствие пустых критических строк;
+- сохранность и типы placeholders;
+- запрещённый HTML/скрипты и допустимые ссылки;
+- длина, переносы и ограничения компонента;
+- plural/date/currency formatting и RTL readiness;
+- наличие alt text у обязательных media;
+- соответствие transactional templates допустимым states;
+- preview на целевых surface, locale и размерах экрана.
+
+**Предложено:** обычный текст может пройти `editor → reviewer/publisher`; financial/legal/security текст требует отдельного Owner approval. Названия новых ролей не вводятся автоматически: это permission scopes `content.edit`, `content.review`, `content.publish`, `content.publish_critical`, которые позднее сопоставляются с ADM-14.
+
+#### 7.6.5 Доставка в приложение
+
+Приложение получает подписанный/версионированный locale bundle. Последняя валидная версия кэшируется; при недоступности content service используется bundled baseline, поэтому ошибка CMS не блокирует вход и управление сессией.
+
+Каждая публикация проходит `staging preview → production publish → propagation check`. Health ADM-15 показывает версию по surface/locale, время публикации, долю клиентов на новой версии, ошибки загрузки и fallback usage. Несовпадение ожидаемой и фактической версии создаёт incident.
+
+#### 7.6.6 Будущий landing builder
+
+Лендинг строится из разрешённой схемы блоков: `Header`, `Hero`, `Trust`, `How it works`, `Venues`, `Benefits`, `Safety`, `FAQ`, `CTA`, `Footer`, SEO metadata и legal links. Для каждого блока доступны порядок, visibility, locale variants, media, CTA target и preview responsive widths.
+
+В первой версии builder не допускает произвольный код, изменение authentication/payment/trading flows или публикацию внешнего скрипта. Новые типы блоков добавляются через разработку и проходят дизайн/доступность; редактор управляет экземплярами уже разрешённых блоков.
+
+Landing workflow поддерживает draft, preview URL, schedule, publish, rollback, canonical URL, title/description, Open Graph, robots/noindex и redirect map. A/B testing, personalization и GEO-targeting остаются отдельным будущим решением, чтобы не смешивать CMS с аналитикой и eligibility.
+
 Текущая документация Polymarket указывает для Сомали и Таиланда режим close-only на frontend и API. Это изменяемый внешний факт, поэтому перед любым live-планом требуется свежая проверка по фактическому пользователю, площадке и моменту доступа. Он не влияет на paper-демо, но блокирует обещание live-доступности для этих GEO.
 
 ## 8. Жизненный цикл и состояния интерфейса
@@ -321,19 +401,20 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ### Что отсутствует
 
-Полные Users/Sessions lists, Venues & data, traders ingestion, policy registry, notifications delivery, support queue, feedback operations, audit log, staff/access, integrations/security, connection health history, admin auth/2FA, permission denied, scope kill switch, bulk-result states и безопасный export.
+Полные Users/Sessions lists, Venues & data, traders ingestion, policy registry, notifications delivery, support queue, feedback operations, audit log, staff/access, integrations/security, connection health history, content/localization, admin auth/2FA, permission denied, scope kill switch, bulk-result states и безопасный export.
 
 Текущая админка EN-only, использует sample data и не имеет backend. Пользовательские экраны прошли структурный и визуальный QA, но последняя итерация ещё не прошла свежий ручной Present. Полная приёмка админки также не подтверждена.
 
 ## 12. Открытые решения владельца
 
-До начала дизайн-итерации достаточно пяти решений:
+До начала дизайн-итерации достаточно шести решений:
 
 1. **Нужна проверка:** принимаем ли предложенную RBAC-матрицу и ограниченный контекст Support.
 2. **Нужна проверка:** входит ли support queue в первую demo-админку; рекомендация — да, без SLA и attachments.
 3. **Нужна проверка:** показываем ли owner finance в первой Figma-итерации как source disconnected/empty; рекомендация — да, без operational payout controls.
-4. **Нужна проверка:** оставляем ли generic content/FAQ за пределами V1; рекомендация — да.
+4. **Нужна проверка:** принимаем ли архитектуру content keys, locale registry и versioned publishing до разработки, а визуальный landing builder оставляем на потом; рекомендация — да.
 5. **Нужна проверка:** в первой demo-версии ADM-15 остаётся read-only health/metadata или включает ротацию/revoke; рекомендация — только read-only health/metadata, а mutations добавить после KMS/RBAC/dual-control дизайна.
+6. **Нужна проверка:** кто публикует обычные и критические тексты; рекомендация — permission scopes edit/review/publish, а financial/legal/security требуют Owner approval.
 
 Остальные вопросы можно решать внутри этапов без преждевременного расширения scope.
 
@@ -350,19 +431,21 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 | Support access/retention lifecycle | нужен безопасный Support scope | **Нужна проверка** |
 | Finance evidence/attribution/FX | нужен owner ledger без ложных сумм | **Нужна проверка** |
 | Referral thresholds и conflict rules | нужна версия партнёрской политики | **Нужна проверка** |
+| Content key/schema и locale bundle contract | нужны управляемые тексты без переписывания компонентов | **Предложено закрыть до frontend** |
+| Critical content approval и historical version evidence | финансовые/юридические тексты нельзя менять без контроля | **Нужна проверка** |
 | GEO/legal/security/live gates | обязательны только перед live | **Нужна проверка позднее** |
 
 ## 14. Этапы работы без автоматического перехода
 
 ### Этап 0. Принять карту
 
-**Результат:** утверждены V1/out-of-scope, ADM-01–ADM-16, пять решений владельца и терминология.
+**Результат:** утверждены V1/out-of-scope, ADM-01–ADM-16, шесть решений владельца и терминология.
 
 **Готово, когда:** нет конфликтов со свежими ADR; каждый пункт имеет status; существующие Figma frames сопоставлены со стабильными IDs.
 
 ### Этап 1. Спроектировать demo-админку в Figma
 
-**Объём:** ADM-01–ADM-12; ADM-13 только empty/source disconnected; ADM-14 базовые роли и состояния доступа; ADM-15 read-only health/metadata без секретов и credential mutations; desktop-first, критические emergency reads позже можно адаптировать для mobile.
+**Объём:** ADM-01–ADM-12; ADM-13 только empty/source disconnected; ADM-14 базовые роли и состояния доступа; ADM-15 read-only health/metadata без секретов и credential mutations; ADM-16 — карта locale/content workflow без реализации landing builder; desktop-first, критические emergency reads позже можно адаптировать для mobile.
 
 **Результат:** карта flow, экраны, роли, все data/action states, RU/EN, кликабельные пути и список неиспользуемых элементов.
 
@@ -372,7 +455,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ### Этап 2. Утвердить технический дизайн
 
-**Объём:** сущности, state machines, append-only ledger/audit, RBAC, API contracts, `ConnectionProfile`, health checks, capability evidence, credential metadata, error taxonomy, retention и observability.
+**Объём:** сущности, state machines, append-only ledger/audit, RBAC, API contracts, `ConnectionProfile`, health checks, capability evidence, credential metadata, content key/schema, locale bundles, publishing/version contract, error taxonomy, retention и observability.
 
 **Результат:** технический документ и ADR по оставшимся решениям BL-05–BL-08; API PR #14/#15 безопасно обновлены от main и review пройден.
 
@@ -382,7 +465,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ### Этап 3. Реализовать read-only foundation
 
-**Предложенный порядок:** auth/RBAC → internal demo read models → audit log → connection registry и health telemetry → public venue adapters → overview/users/sessions/incidents → support/notifications → finance empty states.
+**Предложенный порядок:** auth/RBAC → content key и locale baseline → internal demo read models → audit log → connection registry и health telemetry → public venue adapters → overview/users/sessions/incidents → support/notifications → finance empty states → content editor; landing builder отдельным поздним пакетом.
 
 **Готово, когда:** контрактные и role tests пройдены; stale/partial/error состояния воспроизводимы; никакие реальные orders/funds недоступны.
 
@@ -408,9 +491,11 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 | P1 | venue/data health и capability evidence | высокая | разные API, cache и права |
 | P1 | staff/access и integrations/security | высокая | RBAC, KMS metadata, health telemetry и audit |
 | P1 | support/feedback/notifications | средняя | полезно для первой проверки продукта |
+| P1 | content keys, locale registry и versioned bundles | высокая | влияет на все экраны и historical evidence |
 | P2 | fee/policy registry и owner finance read-only | высокая | нужны versioning и доказуемые источники |
+| P2 | content editor, preview, publish и rollback | средняя–высокая | workflow, permissions и validation |
 | P3 | live private reads и mutations | очень высокая | signer, scopes, GEO, recovery и деньги |
-| P3 | CMS, partner cabinet, payouts | высокая | вне первого demo scope |
+| P3 | landing builder, partner cabinet, payouts | высокая | отдельные будущие продукты внутри админки |
 
 Точные календарные сроки до технического дизайна будут выдуманными. Планировать лучше короткими review-пакетами: один законченный flow с evidence, проверкой ролей и критериями готовности за итерацию.
 
