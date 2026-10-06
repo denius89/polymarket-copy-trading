@@ -1,5 +1,7 @@
 # Controlled Copy Trading
 
+Current entry: [four prototypes and October 6 results](docs/106_four_prototypes_acceptance_2026-10-06.md) · [MVP business logic](docs/MVP_BUSINESS_LOGIC.md) · [Figma start sheet](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3-2). Entries below preserve earlier iterations.
+
 Current Figma iteration: [compact filters, shared header and separate accounts — report 66](docs/66_compact_filters_header_and_funds_2026-10-03.md).
 
 Current design status: visual regression confirmed; the prototype is not approved. [Diagnosis and proposed recovery — report 63 (RU)](docs/63_design_regression_and_recovery_report_2026-10-02.md). No Figma rebuild was performed in this review cycle.

@@ -1,5 +1,7 @@
 # Controlled Copy Trading
 
+Актуальный вход: [четыре прототипа и результат 06.10](docs/106_four_prototypes_acceptance_2026-10-06.md) · [бизнес-логика MVP](docs/MVP_BUSINESS_LOGIC.md) · [Начать здесь в Figma](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3-2). Записи ниже сохраняют историю предыдущих итераций.
+
 Актуальная итерация Figma: [компактные фильтры, шапка и средства — отчёт 66](docs/66_compact_filters_header_and_funds_2026-10-03.md).
 
 Актуальный статус дизайна: визуальная регрессия подтверждена; прототип не утверждён. [Причины и план восстановления — отчёт 63](docs/63_design_regression_and_recovery_report_2026-10-02.md). Перестройка Figma в этом цикле не выполнялась.
