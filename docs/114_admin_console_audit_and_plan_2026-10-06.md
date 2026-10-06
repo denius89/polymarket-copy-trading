@@ -91,8 +91,9 @@
 | ADM-11 | Feedback | да | user-side form | очередь, связь с user/session, категории и status | **Согласовано / отсутствует** |
 | ADM-12 | Audit log | да | только evidence в отдельных frames | общий append-only журнал, фильтры, correlation/reference IDs | **Согласовано / отсутствует** |
 | ADM-13 | Owner finance | схема сейчас, данные позже | Proposed OF01–OF06 RU/EN | подтверждённые источники, ledger, reconciliation, права | **Предложено / источник не подключён** |
-| ADM-14 | Staff & access | позже | нет | sign-in, 2FA, expiry, role assignment, permission denied | **Нужна проверка** |
-| ADM-15 | Content/FAQ | позже | user FAQ есть | отдельная потребность и workflow публикации | **Предложено вне V1** |
+| ADM-14 | Staff & access | базовый контур V1 | нет | staff list, sign-in, 2FA, expiry, role assignment, permission denied, access history | **Предложено** |
+| ADM-15 | Integrations & security | health/read-only metadata V1 | нет | connection registry, capabilities, API/WS/signer health, key metadata, rotation/revoke requests | **Предложено** |
+| ADM-16 | Content/FAQ | позже | user FAQ есть | отдельная потребность и workflow публикации | **Предложено вне V1** |
 
 ## 6. Основные операторские сценарии
 
@@ -144,6 +145,25 @@
 - **Предложено:** в paper V1 показывать честные empty/source disconnected состояния.
 - **Нужна проверка:** источники фактического начисления, получения, payout, FX и attribution.
 
+### 6.7 Сотрудники, роли и доступ
+
+`Staff & access → сотрудник → роль и scope → активные сессии → история изменений → revoke`.
+
+- **Предложено:** Owner видит сотрудников, роли, статус 2FA, последний вход, активные admin-сессии и историю прав.
+- **Предложено:** выдача, изменение и отзыв роли создают append-only audit event; пользователь не может повысить собственные права.
+- **Предложено:** Operator и Support не управляют ролями; Read only не выполняет mutations.
+- **Нужна проверка:** кто может приглашать сотрудников, нужен ли dual approval, срок admin-сессии и break-glass procedure.
+
+### 6.8 Интеграции, ключи и здоровье подключений
+
+`Integrations → connection → capability/access → runtime health → incidents → key metadata → rotation/revoke history`.
+
+- **Предложено:** одна карточка подключения соответствует конкретным `venue + environment + account/profile + signer context + credential set`; общий зелёный статус без этого контекста запрещён.
+- **Предложено:** публичный API, private REST, WebSocket, signer/relayer, RPC/indexer и внутренний adapter контролируются отдельными health checks.
+- **Предложено:** V1 показывает только metadata ключей и read-only диагностику. Создание, ротация и отзыв становятся отдельными защищёнными процедурами после утверждения.
+- **Согласовано:** secret/private key/passphrase никогда не показывается, не копируется и не возвращается из админки.
+- **Нужна проверка:** фактические Builder/Partner scopes, ownership, rate limits, срок жизни ключей, revoke propagation и аварийный recovery.
+
 ## 7. Данные, API и права
 
 | Функция | Источник | Права сейчас | V1 | Пробел / состояние ошибки | Статус |
@@ -161,6 +181,73 @@
 | Owner attribution/revenue | venue builder/referral data + внутренний ledger | partner/builder + Owner | future RO | venue rewards не равны комиссии Shadow | **Нужна проверка** |
 | Support/notifications/content | только внутренние сервисы | внутренний RBAC | internal | площадки не предоставляют наши тикеты и контент | **Предложено** |
 | Secrets metadata | KMS/secret manager metadata | изолированный security scope | только status/ID/expiry | secret/private key никогда не рендерится и не экспортируется | **Согласовано** |
+
+### 7.1 Реестр подключений
+
+**Предложено:** каждое подключение хранится как отдельная запись `ConnectionProfile`, а не как один флаг «Polymarket работает» или «Limitless работает».
+
+| Поле | Что показывает |
+| --- | --- |
+| `venue`, `environment` | площадка и production/sandbox/test контекст |
+| `account_id`, `profile_id`, `wallet_id` | публичные или маскированные идентификаторы владельца подключения |
+| `signer_context` | какой signer/session/delegated child имеет доступ к данным и операциям |
+| `capabilities` | documented, account-granted и runtime-verified возможности раздельно |
+| `credential_ref` | только внутренний ID секрета в KMS, без значения секрета |
+| `scopes`, `expires_at`, `last_used_at` | права и жизненный цикл доступа |
+| `adapter_version`, `config_version` | какая версия интеграции и конфигурации обслуживает соединение |
+| `owner_team`, `runbook_url` | ответственный и инструкция реакции |
+
+### 7.2 Компоненты health status
+
+Единый статус подключения вычисляется из отдельных проверок, но оператор всегда может раскрыть составляющие.
+
+| Проверка | Что измеряем | Пример состояния |
+| --- | --- | --- |
+| API reachability | DNS/TLS/HTTP, status code, latency, timeout | healthy / degraded / unavailable |
+| Authentication | credential accepted, expiry, scope mismatch | healthy / expiring / permission missing / revoked |
+| Account capability | builder/partner/delegated permission фактически доступна | verified / documented only / denied / unknown |
+| Market data freshness | source time, observed time, age, gaps | fresh / stale / partial / disconnected |
+| WebSocket | connected, reconnect count, last message, sequence gaps | healthy / reconnecting / stale / gap detected |
+| Signer/relayer | signer identity, authorization, revoke state, heartbeat | ready / restricted / expired / unknown |
+| RPC/indexer | chain height/lag, last success, provider errors | healthy / lagging / unavailable |
+| Adapter | process/version, queue lag, error rate, circuit breaker | healthy / degraded / paused / failed |
+| Reconciliation | last successful run, unresolved mismatches, oldest unknown | healthy / attention / critical |
+| Rate limits | remaining budget, reset time, throttles | normal / constrained / exhausted |
+
+**Предложено:** агрегированный статус использует порядок `critical → unavailable → permission_missing → stale → degraded → healthy`; `unknown` остаётся отдельным состоянием и не превращается в healthy.
+
+### 7.3 Что видит оператор
+
+На карточке подключения показываются:
+
+- текущий агрегированный статус и затронутые функции;
+- время последней успешной и последней неуспешной проверки;
+- latency, freshness, reconnects, rate-limit budget и adapter version;
+- account/profile/signer context без секретов;
+- granted scopes и отсутствующие обязательные scopes;
+- количество затронутых demo/live-сессий и связанных incidents;
+- последние изменения конфигурации, ротации и revoke;
+- ссылка на runbook и audit/reference ID.
+
+### 7.4 Контролируемые действия
+
+| Действие | V1 | Ограничение | Статус |
+| --- | --- | --- | --- |
+| Повторить безопасный health check | да | read-only, rate-limited, с audit reference | **Предложено** |
+| Переподключить WebSocket adapter | да, после технического контракта | не меняет orders/financial truth | **Предложено** |
+| Поставить adapter на паузу | да | scope preview, affected sessions, reason | **Предложено** |
+| Перевести affected demo sessions в запрет новых BUY | да | не закрывает позиции и не снимает reserve | **Согласованная операционная граница** |
+| Изменить scopes или account binding | нет в V1 | отдельное подтверждение Owner и повторная авторизация | **Нужна проверка** |
+| Создать/ротировать/отозвать credential | нет в первой demo-версии | KMS workflow, dual control рекомендуется, audit обязателен | **Предложено позже** |
+| Показать или экспортировать secret | никогда | действие отсутствует | **Согласовано** |
+
+Автоматический recovery допустим только для доказанно безопасных транспортных действий: reconnect с backoff, переключение на заранее утверждённый read-only endpoint и повтор health check. Автоматическая отправка ордера, снятие unknown или изменение финансовой записи запрещены.
+
+### 7.5 История и оповещения
+
+**Предложено:** health measurements хранятся как time series, а значимые переходы — как append-only события. Оповещение создаётся при смене состояния, превышении порога, истечении credential, потере scope, длительном stale, sequence gap или reconciliation mismatch. Повторяющиеся события группируются, но исходные evidence не удаляются.
+
+Точные пороги latency, freshness, reconnect rate и incident severity зависят от площадки и функции. Они должны быть versioned configuration, а не зашиты в интерфейс. До утверждения порога UI показывает измерение и `threshold not configured`.
 
 Текущая документация Polymarket указывает для Сомали и Таиланда режим close-only на frontend и API. Это изменяемый внешний факт, поэтому перед любым live-планом требуется свежая проверка по фактическому пользователю, площадке и моменту доступа. Он не влияет на paper-демо, но блокирует обещание live-доступности для этих GEO.
 
@@ -209,7 +296,9 @@
 4. **Предложено:** ledger, incident notes, policy history и финансовые correction entries append-only.
 5. **Предложено:** audit event содержит actor, role, action, scope, before/after, reason, timestamp, correlation ID и ссылки на evidence.
 6. **Предложено:** опасные будущие действия изолируются от read-only диагностики; отсутствие capability выключает control на сервере, а не только в интерфейсе.
-7. **Нужна проверка:** admin authentication, 2FA, session expiry, retention, export policy, dual control, incident severity и break-glass process.
+7. **Предложено:** ключи хранятся в KMS/secret manager; админка хранит только непривилегированную ссылку `credential_ref` и metadata.
+8. **Предложено:** ротация/revoke требуют повторной авторизации Owner, scope preview, reason и audit; dual control рекомендуется для production/live.
+9. **Нужна проверка:** admin authentication, 2FA, session expiry, retention, export policy, dual control, incident severity и break-glass process.
 
 ## 11. Текущая Figma: что переиспользовать
 
@@ -232,18 +321,19 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ### Что отсутствует
 
-Полные Users/Sessions lists, Venues & data, traders ingestion, policy registry, notifications delivery, support queue, feedback operations, audit log, staff/access, admin auth/2FA, permission denied, scope kill switch, bulk-result states и безопасный export.
+Полные Users/Sessions lists, Venues & data, traders ingestion, policy registry, notifications delivery, support queue, feedback operations, audit log, staff/access, integrations/security, connection health history, admin auth/2FA, permission denied, scope kill switch, bulk-result states и безопасный export.
 
 Текущая админка EN-only, использует sample data и не имеет backend. Пользовательские экраны прошли структурный и визуальный QA, но последняя итерация ещё не прошла свежий ручной Present. Полная приёмка админки также не подтверждена.
 
 ## 12. Открытые решения владельца
 
-До начала дизайн-итерации достаточно четырёх решений:
+До начала дизайн-итерации достаточно пяти решений:
 
 1. **Нужна проверка:** принимаем ли предложенную RBAC-матрицу и ограниченный контекст Support.
 2. **Нужна проверка:** входит ли support queue в первую demo-админку; рекомендация — да, без SLA и attachments.
 3. **Нужна проверка:** показываем ли owner finance в первой Figma-итерации как source disconnected/empty; рекомендация — да, без operational payout controls.
 4. **Нужна проверка:** оставляем ли generic content/FAQ за пределами V1; рекомендация — да.
+5. **Нужна проверка:** в первой demo-версии ADM-15 остаётся read-only health/metadata или включает ротацию/revoke; рекомендация — только read-only health/metadata, а mutations добавить после KMS/RBAC/dual-control дизайна.
 
 Остальные вопросы можно решать внутри этапов без преждевременного расширения scope.
 
@@ -266,13 +356,13 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ### Этап 0. Принять карту
 
-**Результат:** утверждены V1/out-of-scope, ADM-01–ADM-15, четыре решения владельца и терминология.
+**Результат:** утверждены V1/out-of-scope, ADM-01–ADM-16, пять решений владельца и терминология.
 
 **Готово, когда:** нет конфликтов со свежими ADR; каждый пункт имеет status; существующие Figma frames сопоставлены со стабильными IDs.
 
 ### Этап 1. Спроектировать demo-админку в Figma
 
-**Объём:** ADM-01–ADM-12; ADM-13 только empty/source disconnected; desktop-first, критические emergency reads позже можно адаптировать для mobile.
+**Объём:** ADM-01–ADM-12; ADM-13 только empty/source disconnected; ADM-14 базовые роли и состояния доступа; ADM-15 read-only health/metadata без секретов и credential mutations; desktop-first, критические emergency reads позже можно адаптировать для mobile.
 
 **Результат:** карта flow, экраны, роли, все data/action states, RU/EN, кликабельные пути и список неиспользуемых элементов.
 
@@ -282,7 +372,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ### Этап 2. Утвердить технический дизайн
 
-**Объём:** сущности, state machines, append-only ledger/audit, RBAC, API contracts, capability evidence, error taxonomy, retention и observability.
+**Объём:** сущности, state machines, append-only ledger/audit, RBAC, API contracts, `ConnectionProfile`, health checks, capability evidence, credential metadata, error taxonomy, retention и observability.
 
 **Результат:** технический документ и ADR по оставшимся решениям BL-05–BL-08; API PR #14/#15 безопасно обновлены от main и review пройден.
 
@@ -292,7 +382,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ### Этап 3. Реализовать read-only foundation
 
-**Предложенный порядок:** auth/RBAC → internal demo read models → audit log → public venue adapters → overview/users/sessions/incidents → support/notifications → finance empty states.
+**Предложенный порядок:** auth/RBAC → internal demo read models → audit log → connection registry и health telemetry → public venue adapters → overview/users/sessions/incidents → support/notifications → finance empty states.
 
 **Готово, когда:** контрактные и role tests пройдены; stale/partial/error состояния воспроизводимы; никакие реальные orders/funds недоступны.
 
@@ -316,6 +406,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 | P0 | operation journal, unknown/reconciliation, audit | высокая | основа безопасности и правды системы |
 | P1 | overview, users, sessions, incidents | средняя–высокая | основная ежедневная работа |
 | P1 | venue/data health и capability evidence | высокая | разные API, cache и права |
+| P1 | staff/access и integrations/security | высокая | RBAC, KMS metadata, health telemetry и audit |
 | P1 | support/feedback/notifications | средняя | полезно для первой проверки продукта |
 | P2 | fee/policy registry и owner finance read-only | высокая | нужны versioning и доказуемые источники |
 | P3 | live private reads и mutations | очень высокая | signer, scopes, GEO, recovery и деньги |
@@ -351,4 +442,3 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 - [ADR-0012: paper defaults](decisions/0012_paper_mvp_defaults.md)
 - [API PR #14](https://github.com/denius89/polymarket-copy-trading/pull/14)
 - [API PR #15](https://github.com/denius89/polymarket-copy-trading/pull/15)
-
