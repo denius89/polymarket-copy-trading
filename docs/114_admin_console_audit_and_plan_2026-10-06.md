@@ -95,6 +95,7 @@
 | ADM-15 | Integrations & security | health/read-only metadata V1 | нет | connection registry, capabilities, API/WS/signer health, key metadata, rotation/revoke requests | **Предложено** |
 | ADM-16 | Content & localization | модель данных до разработки; редактор позже | RU/EN тексты и user FAQ есть в Figma | locale registry, translation catalog, workflow, preview/publish/rollback; модульный landing builder позже | **Предложено, архитектурная основа обязательна** |
 | ADM-17 | Emergency control center | базовый global/scoped stop V1 | kill switch упомянут в ранней карте, рабочего экрана нет | независимый control plane, server-side enforcement, status page, recovery checklist | **Согласована потребность; контракт предложен** |
+| ADM-18 | Marketing & communications | transactional/in-app foundation V1; кампании позже | notifications и Telegram есть на user side | consent, segments, campaigns, channel delivery, frequency caps, analytics | **Согласована потребность; контракт предложен** |
 
 ## 6. Основные операторские сценарии
 
@@ -198,6 +199,18 @@
 - **Предложено:** индивидуальные и VIP-условия задаются ограниченным override с началом/окончанием, причиной, Owner approval и audit; произвольное ручное изменение начисления запрещено.
 - **Предложено:** до публикации обязательны симуляция, сравнение с текущей версией и проверка ceiling/invariants.
 - **Нужна проверка:** tier thresholds, eligibility VIP, валюта расчёта/оплаты, точные rounding/minimum rules и механизм фактического взимания в live.
+
+### 6.12 Маркетинг, уведомления и рассылки
+
+`Marketing → audience → campaign → channels/locales → preview/test → review → schedule/send → delivery/analytics → pause/close`.
+
+- **Согласовано:** нужен отдельный маркетинговый раздел для клиентских уведомлений и будущих рассылок.
+- **Предложено:** обязательные операционные сообщения, support, security и marketing communications хранятся раздельно и имеют разные consent/unsubscribe rules.
+- **Предложено:** первая версия поддерживает in-app announcements и системные шаблоны; массовые email/Telegram/push-кампании подключаются после consent, provider и legal checks.
+- **Предложено:** текст и переводы кампаний берутся из ADM-16, но каждая отправка фиксирует неизменяемую content version.
+- **Предложено:** сегменты строятся из разрешённых продуктовых признаков и сохраняют snapshot/definition; чувствительные данные и произвольная выгрузка контактов не используются.
+- **Согласовано:** коммуникация не обещает доход, не скрывает paper/demo режим и не подменяет уведомления об инцидентах или финансовой операции.
+- **Нужна проверка:** допустимые каналы/consent по GEO, provider, retention, attribution window и роли публикации кампаний.
 
 ## 7. Данные, API и права
 
@@ -535,6 +548,98 @@ Health ADM-15 контролирует:
 
 Критическое нарушение останавливает новые fee-bearing operations через policy gate и создаёт incident; оно не переписывает уже подтверждённые начисления.
 
+### 7.9 Архитектура Marketing & Communications
+
+#### 7.9.1 Классы сообщений
+
+| Класс | Пример | Consent / отключение | Приоритет |
+| --- | --- | --- | --- |
+| `security` | вход, смена доступа, критический риск | обязательность определяется security/legal policy; не смешивать с рекламой | критический |
+| `operational` | session paused, unknown, reconciliation, venue incident | часть продукта; пользователь управляет каналом только там, где это безопасно | высокий |
+| `support` | ответ по обращению, ожидание ответа | в рамках активного тикета | высокий |
+| `service` | изменение условий, planned maintenance, language/account notice | зависит от содержания и требований GEO | средний–высокий |
+| `product` | новая функция, новый язык, доступность площадки | marketing/product consent | средний |
+| `marketing` | образовательная серия, referral campaign, re-engagement | отдельный opt-in и простой unsubscribe | обычный |
+
+Одна кампания не может одновременно считаться обязательной и маркетинговой. Рекламный CTA нельзя прятать внутри security/operational сообщения для обхода consent.
+
+#### 7.9.2 Каналы
+
+| Канал | V1 | Особенности |
+| --- | --- | --- |
+| In-app inbox/banner | да | основа для product/service announcements; versioned read state |
+| Email | после provider/consent gate | verified address, bounce/complaint/suppression, unsubscribe |
+| Telegram | после явного подключения | chat binding, delivery failure, disconnect, locale |
+| Web/mobile push | позже | device token lifecycle, permission state, deep links |
+| Landing banner/modal | позже через ADM-16 | публичный content, schedule, locale/GEO visibility |
+| SMS/WhatsApp | вне первого scope | отдельная стоимость, provider и legal review |
+
+#### 7.9.3 Согласия и предпочтения
+
+`CommunicationPreference` хранит user, purpose/class, channel, locale, status, source, policy/content version, timestamp и evidence. Состояния: `unknown`, `opted_in`, `opted_out`, `required`, `channel_unavailable`, `suppressed`.
+
+Пользователь управляет marketing/product channels отдельно от обязательных service/security сообщений. Unsubscribe вступает в силу до следующей marketing send attempt. Suppression list применяется централизованно ко всем campaigns и не удаляется импортом нового audience.
+
+**Нужна проверка:** правила согласий зависят от GEO и канала; отсутствие opt-out нельзя автоматически считать opt-in. До legal validation маркетинговая отправка разрешена только пользователям с доказанным явным opt-in.
+
+#### 7.9.4 Аудитории и сегменты
+
+Разрешённые примеры сегментов:
+
+- язык, подтверждённая страна/регион и часовой пояс;
+- guest/registered, demo not started/active/completed;
+- выбранная площадка или интерес к теме;
+- наличие подключённого канала и consent;
+- дата последней активности и факт использования функции;
+- партнёрская attribution как отдельный фильтр без раскрытия PII партнёру.
+
+До отправки сохраняются `segment_definition_version`, estimated recipients и финальный recipient snapshot/hash. Segment preview показывает агрегаты и причины исключения: no consent, suppressed, invalid channel, GEO restriction, frequency cap.
+
+Не использовать для маркетинга финансовые трудности, точные balances/PnL, security incidents, содержание support tickets или иные чувствительные признаки без отдельного обоснования и решения.
+
+#### 7.9.5 Кампания и workflow
+
+Минимальная `CampaignVersion` содержит objective, class, owner, audience definition, channels, locale variants, template/content versions, CTA/deep link, schedule, frequency policy, experiment flag, budget/cost ceiling и tracking plan.
+
+Lifecycle: `draft → audience estimated → test sent → reviewed → approved → scheduled → sending → paused/completed/cancelled → archived`.
+
+Перед отправкой обязательны:
+
+- preview для каждого locale/channel и проверка placeholders/deep links;
+- test send только на разрешённый внутренний список;
+- consent/suppression/GEO validation;
+- audience size и estimated provider cost;
+- frequency cap, quiet hours и timezone strategy;
+- проверка demo/live формулировок и отсутствия обещаний дохода;
+- Owner/Publisher approval для массовой или чувствительной кампании;
+- emergency stop hook и rollback/landing target readiness.
+
+После старта кампанию можно pause/cancel. Это прекращает новые постановки в очередь, но не обещает отмену уже принятого provider сообщения; UI показывает queued/sent boundary.
+
+#### 7.9.6 Частота и время
+
+**Предложено:** policy задаёт maximum per user per channel/class, quiet hours по локальному времени, minimum interval и global fatigue cap. Security/operational messages используют отдельный приоритет и не расходуют marketing cap, но дедуплицируются по incident/event ID.
+
+Если timezone неизвестен, используется безопасное централизованное окно, записанное в policy. Кампания не отправляется автоматически после долгой задержки, если её актуальность истекла.
+
+#### 7.9.7 Доставка и наблюдаемость
+
+`MessageDelivery` хранит campaign/version, user pseudonymous ID, channel, locale/content version, provider message ID, queued/sent/delivered/read/clicked/bounced/complained/unsubscribed/failed status, timestamps и error category.
+
+ADM-15 показывает health каждого channel provider: authentication, quota/rate limits, latency, bounce/complaint rate, webhook freshness, queue lag и template propagation. `unknown` delivery не превращается в delivered. Повтор разрешён только по channel-specific idempotency/deduplication contract.
+
+Threshold breach автоматически приостанавливает соответствующий канал кампании и создаёт incident; остальные каналы не продолжаются вслепую, если это создаёт дубли.
+
+#### 7.9.8 Аналитика и атрибуция
+
+Базовые показатели: eligible audience, excluded, queued, sent, delivered, read/open, click, bounce, complaint, unsubscribe и целевое продуктовое событие. Доходность трейдинга не является маркетинговым обещанием или KPI кампании.
+
+Conversion связывается с campaign/version и заранее объявленным окном, но не доказывает причинность. A/B testing и автоматическая оптимизация аудитории остаются отдельным будущим решением после достаточного объёма данных и privacy review.
+
+#### 7.9.9 Права
+
+**Предложено:** scopes `marketing.view`, `marketing.segment`, `marketing.edit`, `marketing.test_send`, `marketing.review`, `marketing.publish`, `marketing.pause`, `marketing.export_aggregate`. Экспорт полного списка контактов по умолчанию запрещён. Support не запускает кампании; Operator может экстренно pause; Owner/назначенный Publisher публикует в пределах утверждённой policy.
+
 Текущая документация Polymarket указывает для Сомали и Таиланда режим close-only на frontend и API. Это изменяемый внешний факт, поэтому перед любым live-планом требуется свежая проверка по фактическому пользователю, площадке и моменту доступа. Он не влияет на paper-демо, но блокирует обещание live-доступности для этих GEO.
 
 ## 8. Жизненный цикл и состояния интерфейса
@@ -613,7 +718,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ## 12. Открытые решения владельца
 
-До начала дизайн-итерации достаточно восьми решений:
+До начала дизайн-итерации достаточно девяти решений:
 
 1. **Нужна проверка:** принимаем ли предложенную RBAC-матрицу и ограниченный контекст Support.
 2. **Нужна проверка:** входит ли support queue в первую demo-админку; рекомендация — да, без SLA и attachments.
@@ -623,6 +728,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 6. **Нужна проверка:** кто публикует обычные и критические тексты; рекомендация — permission scopes edit/review/publish, а financial/legal/security требуют Owner approval.
 7. **Нужна проверка:** кто активирует и кто снимает `GLOBAL_STOP`; рекомендация — Owner или назначенный emergency Operator могут немедленно активировать после re-auth, а восстановление разрешает Owner после checklist, для future live — с двойным подтверждением.
 8. **Нужна проверка:** принимаем ли versioned tariff/referral policy, предложенный приоритет overrides и Owner-only publish; рекомендация — да, а tier thresholds, VIP eligibility и rounding закрыть отдельным решением до paid/live.
+9. **Нужна проверка:** какой marketing scope входит в первую админку; рекомендация — in-app announcements, preference/consent model и delivery monitoring в foundation, а массовые email/Telegram/push кампании — после provider/legal gates.
 
 Остальные вопросы можно решать внутри этапов без преждевременного расширения scope.
 
@@ -645,19 +751,21 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 | Effective policy hierarchy и safe-reduction contract | emergency state должен предсказуемо перекрывать user/session/venue policy | **Нужна проверка** |
 | Tariff/referral policy schema и override precedence | комиссия должна быть однозначной и воспроизводимой | **Предложено закрыть до backend** |
 | Maker/taker evidence, rounding и tier thresholds | нужны для фактического paid начисления | **Нужна проверка до paid/live** |
+| Communication consent/purpose model | обязательные и маркетинговые сообщения должны быть разделены | **Предложено закрыть до notification backend** |
+| Channel providers, GEO rules и suppression policy | нужны до массовых внешних рассылок | **Нужна проверка** |
 | GEO/legal/security/live gates | обязательны только перед live | **Нужна проверка позднее** |
 
 ## 14. Этапы работы без автоматического перехода
 
 ### Этап 0. Принять карту
 
-**Результат:** утверждены V1/out-of-scope, ADM-01–ADM-17, восемь решений владельца и терминология.
+**Результат:** утверждены V1/out-of-scope, ADM-01–ADM-18, девять решений владельца и терминология.
 
 **Готово, когда:** нет конфликтов со свежими ADR; каждый пункт имеет status; существующие Figma frames сопоставлены со стабильными IDs.
 
 ### Этап 1. Спроектировать demo-админку в Figma
 
-**Объём:** ADM-01–ADM-12, включая ADM-08 с registry/simulator/diff без публикации paid-тарифа; ADM-13 только empty/source disconnected; ADM-14 базовые роли и состояния доступа; ADM-15 read-only health/metadata без секретов и credential mutations; ADM-16 — карта locale/content workflow без реализации landing builder; ADM-17 — emergency levels, activation, partial enforcement и staged recovery; desktop-first, отдельный emergency path адаптируется для защищённого мобильного доступа позже.
+**Объём:** ADM-01–ADM-12, включая ADM-08 с registry/simulator/diff без публикации paid-тарифа; ADM-13 только empty/source disconnected; ADM-14 базовые роли и состояния доступа; ADM-15 read-only health/metadata без секретов и credential mutations; ADM-16 — карта locale/content workflow без реализации landing builder; ADM-17 — emergency levels, activation, partial enforcement и staged recovery; ADM-18 — campaign map, consent/preferences и delivery states без массовой внешней отправки; desktop-first, отдельный emergency path адаптируется для защищённого мобильного доступа позже.
 
 **Результат:** карта flow, экраны, роли, все data/action states, RU/EN, кликабельные пути и список неиспользуемых элементов.
 
@@ -667,7 +775,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ### Этап 2. Утвердить технический дизайн
 
-**Объём:** сущности, state machines, append-only ledger/audit, RBAC, API contracts, `ConnectionProfile`, health checks, capability evidence, credential metadata, content key/schema, locale bundles, publishing/version contract, `TariffPolicySet`, referral policy, deterministic calculation/rounding, simulator, `EmergencyControlState`, server-side enforcement points, out-of-band access, error taxonomy, retention и observability.
+**Объём:** сущности, state machines, append-only ledger/audit, RBAC, API contracts, `ConnectionProfile`, health checks, capability evidence, credential metadata, content key/schema, locale bundles, publishing/version contract, `TariffPolicySet`, referral policy, deterministic calculation/rounding, simulator, `CommunicationPreference`, `CampaignVersion`, `MessageDelivery`, suppression/deduplication, `EmergencyControlState`, server-side enforcement points, out-of-band access, error taxonomy, retention и observability.
 
 **Результат:** технический документ и ADR по оставшимся решениям BL-05–BL-08; API PR #14/#15 безопасно обновлены от main и review пройден.
 
@@ -706,8 +814,10 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 | P1 | support/feedback/notifications | средняя | полезно для первой проверки продукта |
 | P1 | content keys, locale registry и versioned bundles | высокая | влияет на все экраны и historical evidence |
 | P1 | tariff/referral registry, simulator и evidence | высокая | влияет на каждое будущее начисление и обязательство |
+| P1 | communication purpose/consent и in-app announcements | высокая | затрагивает пользователей, языки, privacy и delivery evidence |
 | P2 | fee/policy registry и owner finance read-only | высокая | нужны versioning и доказуемые источники |
 | P2 | content editor, preview, publish и rollback | средняя–высокая | workflow, permissions и validation |
+| P2 | email/Telegram campaign orchestration | высокая | providers, suppression, GEO, cost и deliverability |
 | P3 | live private reads и mutations | очень высокая | signer, scopes, GEO, recovery и деньги |
 | P3 | landing builder, partner cabinet, payouts | высокая | отдельные будущие продукты внутри админки |
 
