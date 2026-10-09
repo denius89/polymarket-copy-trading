@@ -75,7 +75,7 @@
 | ID | Раздел | V1 | Что уже есть | Чего не хватает | Статус |
 | --- | --- | --- | --- | --- | --- |
 | ADM-01 | Operations overview | да | Figma A01 `51:3` | health двух площадок, freshness, session/incident counters, scope pause | **Согласовано / расширить** |
-| ADM-02 | Users | да | только detail одной сессии | список, поиск, user detail, locale, timeline, связанные тикеты | **Согласовано / отсутствует** |
+| ADM-02 | Users | да | только detail одной сессии | список, поиск, user detail, locale, timeline, связанные тикеты, назначение user VIP только Owner (ADR-0039) | **Согласовано / отсутствует** |
 | ADM-03 | Sessions | да | A04 `51:222`, A06 `1879:25495` | общий список, stable lifecycle, version/effective policy | **Согласовано / частично** |
 | ADM-04 | Incidents | да | A02 `51:89`, A03 `51:159`, состояния очереди | severity model, ownership policy, resolution contract | **Согласовано / частично** |
 | ADM-05 | Reconciliation | да | A05 `121:1513` | журнал попыток, late result, mismatch, durable evidence | **Согласовано / частично** |
@@ -504,6 +504,10 @@ Manual/protective/emergency close, corrections, funding/withdrawal, analytics, t
 5. global default текущей policy version.
 
 В одном scope и времени не допускаются две одинаково специфичные активные версии. Если однозначный тариф определить нельзя, новая fee-bearing операция блокируется как `TARIFF_AMBIGUOUS`; система не выбирает более выгодную или более дорогую ставку случайно.
+
+#### 7.8.4a Назначение VIP пользователю
+
+**Согласовано — [ADR-0039](decisions/0039_owner_assignable_user_vip.md):** в карточке пользователя два Owner могут назначить, изменить или снять VIP; выбрать VIP-профиль либо индивидуальные значения разрешённых параметров; задать начало, окончание или бессрочный срок. Перед применением показывается effective тариф и отличие от обычных условий; ограничения и конфликты проверяются сервером. User VIP и partner VIP раздельны. Actor, reason, before/after и policy versions сохраняются; прошлые начисления не пересчитываются. После окончания/снятия VIP применяются обычные действующие условия. VIP не отменяет emergency/risk ограничения.
 
 #### 7.8.5 Партнёрская лестница
 
