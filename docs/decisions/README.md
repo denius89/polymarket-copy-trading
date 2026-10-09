@@ -74,6 +74,8 @@
 
 | [0032](0032_admin_connection_health_and_session_revocation.md) | Health подключений и отзыв admin-сессий | принято | обе площадки, metadata без секретов; ротация credentials следующим этапом |
 
+| [0033](0033_in_app_marketing_first_external_campaigns_later.md) | Маркетинговые каналы первой админки | принято | in-app и контроль доставки сначала; массовые email/Telegram/push следующим этапом |
+
 ## Как добавить решение
 
 1. Использовать следующий номер и короткое имя файла.
