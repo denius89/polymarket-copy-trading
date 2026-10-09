@@ -47,7 +47,7 @@
 | Собственные orders/fills площадок | **Нужна проверка** | фактические scopes, безопасные private reads, signer/profile provenance, fault tests |
 | Submit/cancel | **Нужна проверка** | отдельное решение владельца, idempotency/reconciliation и security gates |
 | Аккаунты/делегирование | **Нужна проверка** | Builder/Partner approval, ownership/recovery/revoke, GEO и eligibility |
-| Funding/withdrawal | **Согласовано** | исключено из demo V1 и из торгового execution-worker; отдельный будущий контур |
+| Funding/withdrawal | **Согласовано** | реальное исполнение исключено из demo V1 и торгового execution-worker; переключатели доступности пути через Shadow включены в ADM-17 по ADR-0030 |
 | Реальные комиссии и выплаты | **Нужна проверка** | способ взимания, maker/taker classification, evidence поступления и возвратов |
 | Live-финансы владельца | **Нужна проверка** | подтверждённые источники attribution, receiving accounts, payout completeness и FX |
 
@@ -90,7 +90,7 @@
 | ADM-14 | Staff & access | базовый контур V1 | нет | staff list, sign-in, 2FA, expiry, role builder, presets, permission scopes, assignment, permission denied, access history | **Согласована модель; детальные scopes уточняются** |
 | ADM-15 | Integrations & security | health/read-only metadata V1 | нет | connection registry, capabilities, API/WS/signer health, key metadata, rotation/revoke requests | **Предложено** |
 | ADM-16 | Content & localization | модель данных до разработки; редактор позже | RU/EN тексты и user FAQ есть в Figma | locale registry, translation catalog, workflow, preview/publish/rollback; модульный landing builder позже | **Предложено, архитектурная основа обязательна** |
-| ADM-17 | Emergency control center | базовый global/scoped stop V1 | kill switch упомянут в ранней карте, рабочего экрана нет | независимый control plane, server-side enforcement, status page, recovery checklist | **Согласована потребность; контракт предложен** |
+| ADM-17 | Emergency control center | базовый global/scoped stop V1 | kill switch упомянут в ранней карте, рабочего экрана нет | независимый control plane, server-side enforcement, status page, recovery checklist, DEPOSITS_OFF / WITHDRAWALS_OFF для пути через Shadow | **Согласована потребность; контракт предложен** |
 | ADM-18 | Marketing & communications | transactional/in-app foundation V1; кампании позже | notifications и Telegram есть на user side | consent, segments, campaigns, channel delivery, frequency caps, analytics | **Согласована потребность; контракт предложен** |
 
 ## 6. Основные операторские сценарии
@@ -431,6 +431,21 @@ Emergency state не имеет автоматического срока ист
 
 Публичная status communication отделена от control plane: пользователи видят локализованное сообщение, время обновления и status reference, но не внутренние причины, ключи или security details. Текст берётся из заранее опубликованного emergency bundle ADM-16, поэтому доступен даже при сбое основного content service.
 
+#### 7.7.7 Отключение пополнения и вывода через Shadow
+
+**Согласовано:** [ADR-0030](decisions/0030_shadow_funding_interface_emergency_controls.md). В Emergency Control присутствуют независимые `DEPOSITS_OFF` и `WITHDRAWALS_OFF` со scope весь продукт / environment / Polymarket / Limitless.
+
+| Переключатель | Что блокируется через Shadow | Что продолжается |
+| --- | --- | --- |
+| `DEPOSITS_OFF` | кнопка запуска пополнения, создание новых инструкций и соответствующие запросы продукта | наблюдение и учёт фактических поступлений, reconciliation и audit |
+| `WITHDRAWALS_OFF` | кнопка запуска вывода, новые запросы и ещё не отправленные задания | наблюдение за уже отправленными транзакциями, reconciliation и audit |
+
+Блокировка применяется на UI, backend и непосредственно перед внешним действием worker. Отсутствие актуального emergency state блокирует новые действия. Пользователь видит причину временной недоступности. Локальное включение не обходит `GLOBAL_STOP` или другие активные запреты.
+
+Прямые действия пользователя в кошельке или на площадке остаются вне контроля Shadow. Известный адрес продолжает принимать переводы; уже отправленная транзакция не становится отменённой. Фактические поступления фиксируются и сверяются независимо от положения переключателей.
+
+Переключатели входят в текущий план админки. В paper/demo показано «функция не подключена»; настоящее исполнение остаётся за отдельными capability/live-gates каждой площадки. Activation/recovery используют emergency scopes, re-auth, reason, incident ID и append-only audit; автоматическое снятие запрещено. Это управление доступностью пути через продукт, без treasury и доступа сотрудников к private keys.
+
 ### 7.8 Архитектура тарифов и комиссий
 
 #### 7.8.1 Разделение денежных компонентов
@@ -762,7 +777,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ### Этап 1. Спроектировать demo-админку в Figma
 
-**Объём:** ADM-01–ADM-12, включая ADM-08 с registry/simulator/diff без публикации paid-тарифа; ADM-13 только empty/source disconnected; ADM-14 базовые роли и состояния доступа; ADM-15 read-only health/metadata без секретов и credential mutations; ADM-16 — карта locale/content workflow без реализации landing builder; ADM-17 — emergency levels, activation, partial enforcement и staged recovery; ADM-18 — campaign map, consent/preferences и delivery states без массовой внешней отправки; desktop-first, отдельный emergency path адаптируется для защищённого мобильного доступа позже.
+**Объём:** ADM-01–ADM-12, включая ADM-08 с registry/simulator/diff без публикации paid-тарифа; ADM-13 только empty/source disconnected; ADM-14 базовые роли и состояния доступа; ADM-15 read-only health/metadata без секретов и credential mutations; ADM-16 — карта locale/content workflow без реализации landing builder; ADM-17 — emergency levels, activation, partial enforcement, staged recovery и DEPOSITS_OFF / WITHDRAWALS_OFF с honest disconnected-state в demo; ADM-18 — campaign map, consent/preferences и delivery states без массовой внешней отправки; desktop-first, отдельный emergency path адаптируется для защищённого мобильного доступа позже.
 
 **Результат:** карта flow, экраны, роли, все data/action states, RU/EN, кликабельные пути и список неиспользуемых элементов.
 
