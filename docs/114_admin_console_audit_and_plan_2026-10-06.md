@@ -89,7 +89,7 @@
 | ADM-13 | Owner finance | схема сейчас, данные позже | Proposed OF01–OF06 RU/EN | подтверждённые источники, ledger, reconciliation, права | **Предложено / источник не подключён** |
 | ADM-14 | Staff & access | базовый контур V1 | нет | staff list, sign-in, 2FA, expiry, role builder, presets, permission scopes, assignment, permission denied, access history | **Согласована модель; детальные scopes уточняются** |
 | ADM-15 | Integrations & security | health/read-only metadata V1 | нет | connection registry, capabilities, API/WS/signer health, key metadata; credential rotation/revoke позже | **Согласовано — ADR-0032** |
-| ADM-16 | Content & localization | модель данных до разработки; редактор позже | RU/EN тексты и user FAQ есть в Figma | locale registry, translation catalog, workflow, preview/publish/rollback; модульный landing builder позже | **Предложено, архитектурная основа обязательна** |
+| ADM-16 | Content & localization | тексты, переводы и версии с начала архитектуры | RU/EN тексты и user FAQ есть в Figma | locale registry, translation catalog, preview/publish/rollback; landing builder позже | **Согласовано — ADR-0034; реализация впереди** |
 | ADM-17 | Emergency control center | базовый global/scoped stop V1 | kill switch упомянут в ранней карте, рабочего экрана нет | независимый control plane, server-side enforcement, status page, recovery checklist, DEPOSITS_OFF / WITHDRAWALS_OFF для пути через Shadow | **Согласована потребность; контракт предложен** |
 | ADM-18 | Marketing & communications | in-app announcements и delivery monitoring V1; внешние массовые кампании позже | notifications и Telegram есть на user side | consent/preferences foundation, delivery evidence, channels | **Согласован объём — ADR-0033** |
 
@@ -168,9 +168,9 @@
 
 `Content & localization → surface → content key/page → locale → draft → preview/validation → publish/schedule → rollback`.
 
-- **Предложено:** все пользовательские тексты получают стабильные content keys до разработки; текст не зашивается непосредственно в компоненты.
+- **Согласовано — ADR-0034:** управляемые тексты, переводы и версии закладываются до frontend; все пользовательские тексты получают стабильные content keys.
 - **Предложено:** языки включаются отдельно для landing, application, admin, notifications, email/Telegram, help и legal surfaces.
-- **Предложено:** управление текстами приложения строится раньше визуального редактора лендинга. Лендинг позже собирается из заранее разрешённых блоков, а не из произвольного HTML/JavaScript.
+- **Согласовано — ADR-0034:** управление текстами приложения строится раньше визуального редактора лендинга. Лендинг позже собирается из заранее разрешённых блоков, а не из произвольного HTML/JavaScript.
 - **Предложено:** публикация создаёт неизменяемую версию; работающие сессии, уведомления и важные действия сохраняют `content_version`, чтобы восстановить показанный пользователю текст.
 - **Предложено:** финансовые, риск-, согласительные и юридические тексты защищены повышенным workflow и не могут менять смысл действующей policy без связанной версии правила.
 - **Согласовано:** edit/publish выдаются отдельно, сотрудник публикует самостоятельно; автоматические проверки, история и rollback обязательны. Языки после EN/RU остаются открытым вопросом.
@@ -732,12 +732,12 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ## 12. Открытые решения владельца
 
-До начала дизайн-итерации осталось четыре решения. Маркетинговые каналы согласованы в ADR-0033: in-app announcements и контроль доставки сначала, массовые внешние кампании позже. Health/metadata обеих площадок и отзыв admin-сессий согласованы в ADR-0032; ротация credentials интеграций отложена. Публикация текстов, самостоятельный маркетинг по scopes и аварийное восстановление согласованы в ADR-0031. Модель ролей зафиксирована в ADR-0029: Owner встроен, Operations объединяет операции и поддержку, остальные доступы создаются как кастомные роли и изменяемые пресеты.
+До начала дизайн-итерации осталось три решения. Контент и локализация согласованы в ADR-0034: управляемые тексты, переводы и версии сразу; landing builder позже. Маркетинговые каналы согласованы в ADR-0033: in-app announcements и контроль доставки сначала, массовые внешние кампании позже. Health/metadata обеих площадок и отзыв admin-сессий согласованы в ADR-0032; ротация credentials интеграций отложена. Публикация текстов, самостоятельный маркетинг по scopes и аварийное восстановление согласованы в ADR-0031. Модель ролей зафиксирована в ADR-0029: Owner встроен, Operations объединяет операции и поддержку, остальные доступы создаются как кастомные роли и изменяемые пресеты.
 
 1. **Нужна проверка:** входит ли support queue в первую demo-админку; рекомендация — да, без SLA и attachments.
 2. **Нужна проверка:** показываем ли owner finance в первой Figma-итерации как source disconnected/empty; рекомендация — да, без operational payout controls.
-3. **Нужна проверка:** принимаем ли архитектуру content keys, locale registry и versioned publishing до разработки, а визуальный landing builder оставляем на потом; рекомендация — да.
-4. **Нужна проверка:** принимаем ли versioned tariff/referral policy, предложенный приоритет overrides и Owner-only publish; рекомендация — да, а tier thresholds, VIP eligibility и rounding закрыть отдельным решением до paid/live.
+
+3. **Нужна проверка:** принимаем ли versioned tariff/referral policy, предложенный приоритет overrides и Owner-only publish; рекомендация — да, а tier thresholds, VIP eligibility и rounding закрыть отдельным решением до paid/live.
 
 
 Остальные вопросы можно решать внутри этапов без преждевременного расширения scope.
@@ -769,7 +769,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ### Этап 0. Принять карту
 
-**Результат:** утверждены V1/out-of-scope, ADM-01–ADM-18, четыре оставшихся решения владельца и терминология.
+**Результат:** утверждены V1/out-of-scope, ADM-01–ADM-18, три оставшихся решения владельца и терминология.
 
 **Готово, когда:** нет конфликтов со свежими ADR; каждый пункт имеет status; существующие Figma frames сопоставлены со стабильными IDs.
 
