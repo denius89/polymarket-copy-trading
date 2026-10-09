@@ -16,6 +16,8 @@
 
 Согласовано [ADR-0036](decisions/0036_support_queue_and_conversation_first_release.md): обращения, переписка, назначение сотруднику и связь с сессией входят в первую админку; вложения и SLA позже.
 
+Согласовано [ADR-0037](decisions/0037_partner_payouts_owner_only.md): выплаты партнёрам через интерфейс создают, изменяют и отправляют только два Owner. Signing, лимиты, защита от повторной отправки и сверка — открытые технические детали.
+
 ## Текущий цикл
 
 1. Рассмотреть [аудит и план операционной консоли 114](114_admin_console_audit_and_plan_2026-10-06.md): границы demo/live, карта ADM-01–ADM-18, роли, данные, owner finance, тарифы/комиссии, integrations/security, здоровье подключений, content/localization, marketing/communications, emergency control center и этапы.
