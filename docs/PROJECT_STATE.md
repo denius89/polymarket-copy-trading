@@ -13,6 +13,8 @@
 | API площадок | Два отдельных черновых PR; ещё не в main, адаптеры не реализованы | [14](https://github.com/denius89/polymarket-copy-trading/pull/14), [15](https://github.com/denius89/polymarket-copy-trading/pull/15) |
 | Навигация GitHub | Обновлены RU/EN README, краткий навигатор и полный каталог, добавлены свежие скриншоты | [110](110_repository_navigation_cleanup_2026-10-06.md) |
 
+09.10.2026: согласован [ADR-0035](decisions/0035_two_owners_and_owner_only_pricing_publication.md): два Owner; тарифы, реферальные правила и VIP-условия публикуют только владельцы, каждый самостоятельно. Основатель также потребовал проектировать выплаты партнёрам через интерфейс финансов; способ исполнения и права выплат ещё открыты.
+
 09.10.2026: согласован [ADR-0034](decisions/0034_managed_content_and_localization_foundation.md): тексты, переводы и версии — с начала архитектуры; конструктор лендинга позже. Осталось три открытых решения.
 
 09.10.2026: согласован [ADR-0033](decisions/0033_in_app_marketing_first_external_campaigns_later.md): in-app announcements и контроль доставки в первой админке; массовый внешний маркетинг позже. Transactional/security каналы сохраняют прежний scope. Осталось четыре открытых решения.
