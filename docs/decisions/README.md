@@ -72,6 +72,8 @@
 
 | [0031](0031_admin_permissions_and_autonomous_publishing.md) | Самостоятельная работа и публикация по правам | принято | маркетинг и все тексты без Owner approval; audit/rollback; аварийное восстановление с двумя подтверждениями |
 
+| [0032](0032_admin_connection_health_and_session_revocation.md) | Health подключений и отзыв admin-сессий | принято | обе площадки, metadata без секретов; ротация credentials следующим этапом |
+
 ## Как добавить решение
 
 1. Использовать следующий номер и короткое имя файла.
