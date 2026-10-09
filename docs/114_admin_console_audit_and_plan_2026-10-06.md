@@ -61,7 +61,7 @@
 | --- | --- | --- |
 | Операции и здоровье | `operations.view`, `session.pause`, `session.disconnect_demo`, `reconciliation.run`, `incident.assign`, `incident.resolve`, `health.view` | Operations; расширенный набор у Ops Lead |
 | Поддержка | `support.view`, `support.reply`, `support.assign`, `feedback.manage`, `user_context.view_minimal` | Operations |
-| Маркетинг и контент | `marketing.*`, `content.edit`, `content.review`, `content.publish` | Marketer; критическая публикация требует отдельного scope и Owner approval |
+| Маркетинг и контент | `marketing.*`, `content.edit`, `content.publish` | Marketer; публикация по scopes без обязательного Owner approval, включая критические тексты (ADR-0031) |
 | Аудит и экспорт | `audit.view`, `audit.export`, `finance.view_aggregate` | Auditor; по умолчанию только просмотр, экспорт выдаётся отдельно |
 | Тарифы и финансы | `pricing.view/simulate/edit/review/publish/override`, `finance.view` | отдельное назначение; публикация и overrides ограничены утверждённым workflow |
 | Доступ и безопасность | `staff.view`, `role.manage`, `access.revoke`, `emergency.activate`, `emergency.recover` | Owner; отдельные emergency scopes могут быть делегированы |
@@ -166,14 +166,14 @@
 
 ### 6.9 Контент, языки и лендинг
 
-`Content & localization → surface → content key/page → locale → draft → preview → review → publish/schedule → rollback`.
+`Content & localization → surface → content key/page → locale → draft → preview/validation → publish/schedule → rollback`.
 
 - **Предложено:** все пользовательские тексты получают стабильные content keys до разработки; текст не зашивается непосредственно в компоненты.
 - **Предложено:** языки включаются отдельно для landing, application, admin, notifications, email/Telegram, help и legal surfaces.
 - **Предложено:** управление текстами приложения строится раньше визуального редактора лендинга. Лендинг позже собирается из заранее разрешённых блоков, а не из произвольного HTML/JavaScript.
 - **Предложено:** публикация создаёт неизменяемую версию; работающие сессии, уведомления и важные действия сохраняют `content_version`, чтобы восстановить показанный пользователю текст.
 - **Предложено:** финансовые, риск-, согласительные и юридические тексты защищены повышенным workflow и не могут менять смысл действующей policy без связанной версии правила.
-- **Нужна проверка:** кто имеет права edit/review/publish, нужен ли dual approval для критического текста и какие языки идут после EN/RU.
+- **Согласовано:** edit/publish выдаются отдельно, сотрудник публикует самостоятельно; автоматические проверки, история и rollback обязательны. Языки после EN/RU остаются открытым вопросом.
 
 ### 6.10 Аварийное отключение проекта
 
@@ -200,7 +200,7 @@
 
 ### 6.12 Маркетинг, уведомления и рассылки
 
-`Marketing → audience → campaign → channels/locales → preview/test → review → schedule/send → delivery/analytics → pause/close`.
+`Marketing → audience → campaign → channels/locales → preview/test → validation → schedule/send → delivery/analytics → pause/close`.
 
 - **Согласовано:** нужен отдельный маркетинговый раздел для клиентских уведомлений и будущих рассылок.
 - **Предложено:** обязательные операционные сообщения, support, security и marketing communications хранятся раздельно и имеют разные consent/unsubscribe rules.
@@ -329,13 +329,13 @@
 | `constraints` | maximum length, single-line, allowed links/markup, tone |
 | `risk_class` | normal, transactional, financial, legal, security |
 | `version`, `effective_at` | неизменяемая опубликованная версия и время применения |
-| `author`, `reviewer`, `publisher` | ответственность и audit trail |
+| `author`, `publisher` | автор изменения и публикации, audit trail; reviewer не обязателен |
 
 Placeholder удалять, переименовывать или менять его тип без validation нельзя. Форматирование суммы, валюты, числа, даты и множественного числа выполняется locale-aware formatter, а не вручную внутри перевода.
 
 #### 7.6.4 Workflow публикации
 
-Рекомендуемый lifecycle: `draft → translation → review → approved → scheduled/published → superseded/archived`. Любую опубликованную версию можно откатить созданием новой версии, но нельзя переписать задним числом.
+Рекомендуемый lifecycle: `draft → translation → validated → scheduled/published → superseded/archived`. Любую опубликованную версию можно откатить созданием новой версии, но нельзя переписать задним числом.
 
 Перед публикацией автоматически проверяются:
 
@@ -348,7 +348,7 @@ Placeholder удалять, переименовывать или менять �
 - соответствие transactional templates допустимым states;
 - preview на целевых surface, locale и размерах экрана.
 
-**Предложено:** обычный текст может пройти `editor → reviewer/publisher`; financial/legal/security текст требует отдельного Owner approval. Названия новых ролей не вводятся автоматически: это permission scopes `content.edit`, `content.review`, `content.publish`, `content.publish_critical`, которые позднее сопоставляются с ADM-14.
+**Согласовано:** сотрудник с `content.edit` и `content.publish` самостоятельно редактирует и публикует разрешённые тексты, включая financial/legal/security. Обязательных review/approval и Owner approval нет. Изменения, автор публикации, before/after и версии логируются; откат создаёт новую версию. Тексты не меняют торговые или тарифные правила. См. [ADR-0031](decisions/0031_admin_permissions_and_autonomous_publishing.md).
 
 #### 7.6.5 Доставка в приложение
 
@@ -388,6 +388,7 @@ Landing workflow поддерживает draft, preview URL, schedule, publish,
 | `READ_ONLY` | блокируются новые сессии и mutations | вход, просмотр, support, health, audit | **Предложено** |
 | `RISK_PAUSED` | блокируются новые BUY и другие risk-increasing actions | чтение, ingestion, reconciliation; safe reduction только по отдельному контракту | **Предложено** |
 | `VENUE_ISOLATED` | отключается конкретная площадка/adapter | другая площадка работает только если её собственный health и policy разрешают | **Предложено** |
+| `TECH_MODE` | пользовательские интерфейсы, продуктовый API и продуктовые задания закрыты; availability state отдельно от торгового state | emergency console, monitoring, audit, evidence, incidents, reconciliation и recovery | **Согласовано — ADR-0031** |
 | `GLOBAL_STOP` | проект отвергает все новые пользовательские и фоновые mutations | admin control plane, evidence, telemetry, reconciliation, status communication | **Согласована потребность; точный контракт предложен** |
 
 В paper V1 `GLOBAL_STOP` прекращает создание новых виртуальных операций и запуск demo-сессий. Существующие данные и отчёты остаются доступными read-only. Для будущего live точный перечень допустимых cancel/close/settlement действий определяется отдельными доказанными runbooks; универсальная команда «закрыть всё» не допускается.
@@ -420,7 +421,7 @@ Risk-increasing путь работает fail-closed: если актуальн
 - очередь отложенных команд очищена или доказанно безопасна;
 - reconciliation завершена либо явно оставлена открытой;
 - новая config/policy version подготовлена;
-- Owner повторно авторизован; для future live рекомендуется второе подтверждение;
+- для GLOBAL_STOP/TECH_MODE Owner повторно авторизован и второй независимый сотрудник подтверждает recovery; один человек не даёт оба подтверждения;
 - выполняется staged restore: read-only → один adapter/небольшой scope → normal.
 
 Emergency state не имеет автоматического срока истечения. Автоматическое самовключение проекта запрещено.
@@ -614,7 +615,7 @@ Health ADM-15 контролирует:
 
 Минимальная `CampaignVersion` содержит objective, class, owner, audience definition, channels, locale variants, template/content versions, CTA/deep link, schedule, frequency policy, experiment flag, budget/cost ceiling и tracking plan.
 
-Lifecycle: `draft → audience estimated → test sent → reviewed → approved → scheduled → sending → paused/completed/cancelled → archived`.
+Lifecycle: `draft → audience estimated → test sent → validated → scheduled → sending → paused/completed/cancelled → archived`.
 
 Перед отправкой обязательны:
 
@@ -624,7 +625,7 @@ Lifecycle: `draft → audience estimated → test sent → reviewed → approved
 - audience size и estimated provider cost;
 - frequency cap, quiet hours и timezone strategy;
 - проверка demo/live формулировок и отсутствия обещаний дохода;
-- Owner/Publisher approval для массовой или чувствительной кампании;
+- наличие `marketing.publish` у запускающего сотрудника; обязательное согласование внутри проекта отсутствует;
 - emergency stop hook и rollback/landing target readiness.
 
 После старта кампанию можно pause/cancel. Это прекращает новые постановки в очередь, но не обещает отмену уже принятого provider сообщения; UI показывает queued/sent boundary.
@@ -651,7 +652,7 @@ Conversion связывается с campaign/version и заранее объя
 
 #### 7.9.9 Права
 
-**Предложено:** scopes `marketing.view`, `marketing.segment`, `marketing.edit`, `marketing.test_send`, `marketing.review`, `marketing.publish`, `marketing.pause`, `marketing.export_aggregate`. Экспорт полного списка контактов по умолчанию запрещён. Пресет Marketer получает только утверждённый marketing/content scope; Operations может получить emergency pause без права публикации; Owner или роль с `marketing.publish` публикует в пределах утверждённой policy.
+**Предложено:** scopes `marketing.view`, `marketing.segment`, `marketing.edit`, `marketing.test_send`, `marketing.publish`, `marketing.pause`, `marketing.export_aggregate`. Экспорт полного списка контактов по умолчанию запрещён. Marketer самостоятельно запускает кампании по `marketing.publish`; подготовка и запуск выдаются отдельно. Внутренние согласования проходят вне админки. Operations может получить emergency pause без права публикации. Consent/отписки клиентов и автоматические проверки сохраняются — ADR-0031.
 
 Текущая документация Polymarket указывает для Сомали и Таиланда режим close-only на frontend и API. Это изменяемый внешний факт, поэтому перед любым live-планом требуется свежая проверка по фактическому пользователю, площадке и моменту доступа. Он не влияет на paper-демо, но блокирует обещание live-доступности для этих GEO.
 
@@ -731,16 +732,14 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ## 12. Открытые решения владельца
 
-До начала дизайн-итерации осталось восемь решений. Модель ролей зафиксирована в ADR-0029: Owner встроен, Operations объединяет операции и поддержку, остальные доступы создаются как кастомные роли и изменяемые пресеты.
+До начала дизайн-итерации осталось шесть решений. Публикация текстов, самостоятельный маркетинг по scopes и аварийное восстановление согласованы в ADR-0031. Модель ролей зафиксирована в ADR-0029: Owner встроен, Operations объединяет операции и поддержку, остальные доступы создаются как кастомные роли и изменяемые пресеты.
 
 1. **Нужна проверка:** входит ли support queue в первую demo-админку; рекомендация — да, без SLA и attachments.
 2. **Нужна проверка:** показываем ли owner finance в первой Figma-итерации как source disconnected/empty; рекомендация — да, без operational payout controls.
 3. **Нужна проверка:** принимаем ли архитектуру content keys, locale registry и versioned publishing до разработки, а визуальный landing builder оставляем на потом; рекомендация — да.
 4. **Нужна проверка:** в первой demo-версии ADM-15 остаётся read-only health/metadata или включает ротацию/revoke; рекомендация — только read-only health/metadata, а mutations добавить после KMS/RBAC/dual-control дизайна.
-5. **Нужна проверка:** кто публикует обычные и критические тексты; рекомендация — permission scopes edit/review/publish, а financial/legal/security требуют Owner approval.
-6. **Нужна проверка:** кто активирует и кто снимает `GLOBAL_STOP`; рекомендация — Owner или назначенная роль с `emergency.activate` могут немедленно активировать после re-auth, а восстановление разрешает Owner после checklist, для future live — с двойным подтверждением.
-7. **Нужна проверка:** принимаем ли versioned tariff/referral policy, предложенный приоритет overrides и Owner-only publish; рекомендация — да, а tier thresholds, VIP eligibility и rounding закрыть отдельным решением до paid/live.
-8. **Нужна проверка:** какой marketing scope входит в первую админку; рекомендация — in-app announcements, preference/consent model и delivery monitoring в foundation, а массовые email/Telegram/push кампании — после provider/legal gates.
+5. **Нужна проверка:** принимаем ли versioned tariff/referral policy, предложенный приоритет overrides и Owner-only publish; рекомендация — да, а tier thresholds, VIP eligibility и rounding закрыть отдельным решением до paid/live.
+6. **Нужна проверка:** какой marketing scope входит в первую админку; рекомендация — in-app announcements, preference/consent model и delivery monitoring в foundation, а массовые email/Telegram/push кампании — после provider/legal gates.
 
 Остальные вопросы можно решать внутри этапов без преждевременного расширения scope.
 
@@ -758,7 +757,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 | Finance evidence/attribution/FX | нужен owner ledger без ложных сумм | **Нужна проверка** |
 | Referral thresholds и conflict rules | нужна версия партнёрской политики | **Нужна проверка** |
 | Content key/schema и locale bundle contract | нужны управляемые тексты без переписывания компонентов | **Предложено закрыть до frontend** |
-| Critical content approval и historical version evidence | финансовые/юридические тексты нельзя менять без контроля | **Нужна проверка** |
+| Content permissions и historical version evidence | самостоятельная публикация по scopes, история и rollback | **Согласовано; требуется технический контракт** |
 | Independent emergency control plane | рубильник должен работать при отказе основного приложения | **Предложено закрыть до backend** |
 | Effective policy hierarchy и safe-reduction contract | emergency state должен предсказуемо перекрывать user/session/venue policy | **Нужна проверка** |
 | Tariff/referral policy schema и override precedence | комиссия должна быть однозначной и воспроизводимой | **Предложено закрыть до backend** |
@@ -771,7 +770,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ### Этап 0. Принять карту
 
-**Результат:** утверждены V1/out-of-scope, ADM-01–ADM-18, восемь оставшихся решений владельца и терминология.
+**Результат:** утверждены V1/out-of-scope, ADM-01–ADM-18, шесть оставшихся решений владельца и терминология.
 
 **Готово, когда:** нет конфликтов со свежими ADR; каждый пункт имеет status; существующие Figma frames сопоставлены со стабильными IDs.
 
