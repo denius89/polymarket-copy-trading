@@ -38,7 +38,7 @@
 | Тарифы | **Согласовано** | реальная комиссия alpha = 0%; будущие ставки видны отдельно как simulation/policy |
 | Owner finance | **Предложено** | read-only пустые/отключённые состояния и схема будущего учёта; без ложной выручки в paper |
 | Контент/FAQ | **Предложено** | максимум просмотр версии; полноценный CMS не обоснован |
-| Реферальные выплаты | **Согласовано** | кабинет и выплаты агентам не входят в MVP |
+| Реферальные выплаты | **Согласовано направление; детали открыты** | выплаты партнёрам проектируются через интерфейс финансов; исполнение после подтверждения отдельного payout-контура, агентский кабинет вне MVP |
 
 ### 3.2 Будущий live
 
@@ -53,7 +53,7 @@
 
 ## 4. Роли и права
 
-Согласно [ADR-0029](decisions/0029_configurable_admin_roles_and_unified_operations.md), отдельные роли `Operator`, `Support`, `Read only` и `Auditor` не зашиваются в систему. Встроенной системной ролью остаётся **Owner**. Остальные роли создаются из permission scopes; для быстрого назначения админка предлагает изменяемые пресеты **Ops Lead**, **Operations**, **Marketer** и **Auditor**.
+Согласно [ADR-0029](decisions/0029_configurable_admin_roles_and_unified_operations.md), отдельные роли `Operator`, `Support`, `Read only` и `Auditor` не зашиваются в систему. Встроенной системной ролью остаётся **Owner**, назначенная двум отдельным пользователям с личными учётными записями (ADR-0035). Остальные роли создаются из permission scopes; для быстрого назначения админка предлагает изменяемые пресеты **Ops Lead**, **Operations**, **Marketer** и **Auditor**.
 
 Пресет **Operations** объединяет прежние функции Operator и Support: работа с сессиями, incidents, health, reconciliation, тикетами и минимальным пользовательским контекстом. Пресеты можно копировать и ограничивать по разделам, окружению, площадке и типу данных.
 
@@ -63,7 +63,7 @@
 | Поддержка | `support.view`, `support.reply`, `support.assign`, `feedback.manage`, `user_context.view_minimal` | Operations |
 | Маркетинг и контент | `marketing.*`, `content.edit`, `content.publish` | Marketer; публикация по scopes без обязательного Owner approval, включая критические тексты (ADR-0031) |
 | Аудит и экспорт | `audit.view`, `audit.export`, `finance.view_aggregate` | Auditor; по умолчанию только просмотр, экспорт выдаётся отдельно |
-| Тарифы и финансы | `pricing.view/simulate/edit/review/publish/override`, `finance.view` | отдельное назначение; публикация и overrides ограничены утверждённым workflow |
+| Тарифы и финансы | `pricing.view/simulate/edit/review/publish/override`, `finance.view` | отдельное назначение; публикация и активация overrides только Owner; подготовка делегируется по scopes (ADR-0035) |
 | Доступ и безопасность | `staff.view`, `role.manage`, `access.revoke`, `emergency.activate`, `emergency.recover` | Owner; отдельные emergency scopes могут быть делегированы |
 
 Правила RBAC: deny by default; проверка каждого scope на сервере; запрет самостоятельного повышения прав; явное разделение view/edit/review/publish/export; обязательный reason и append-only audit для назначения и отзыва доступа; срок действия и ограничения scope там, где это нужно. Ни одна роль не получает private keys, HMAC secrets, ручной вывод средств, сделку за пользователя или blind resend операции с неизвестным итогом.
@@ -548,7 +548,7 @@ Rollback создаёт новую версию с прежними правил
 
 #### 7.8.8 Права и наблюдаемость
 
-**Предложено:** использовать permission scopes `pricing.view`, `pricing.simulate`, `pricing.edit`, `pricing.review`, `pricing.publish`, `pricing.override`. Operations видит только effective tariff и объяснение для конкретного случая, если выдан `pricing.view`; публиковать и создавать override может Owner или специально назначенная роль в рамках утверждённого workflow.
+**Предложено:** использовать permission scopes `pricing.view`, `pricing.simulate`, `pricing.edit`, `pricing.review`, `pricing.publish`, `pricing.override`. Operations видит только effective tariff и объяснение для конкретного случая, если выдан `pricing.view`; публиковать и активировать override может только Owner. Owner будет два; каждый публикует самостоятельно. Кастомная роль не обходит эту серверную границу — ADR-0035.
 
 Health ADM-15 контролирует:
 
@@ -732,12 +732,12 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ## 12. Открытые решения владельца
 
-До начала дизайн-итерации осталось три решения. Контент и локализация согласованы в ADR-0034: управляемые тексты, переводы и версии сразу; landing builder позже. Маркетинговые каналы согласованы в ADR-0033: in-app announcements и контроль доставки сначала, массовые внешние кампании позже. Health/metadata обеих площадок и отзыв admin-сессий согласованы в ADR-0032; ротация credentials интеграций отложена. Публикация текстов, самостоятельный маркетинг по scopes и аварийное восстановление согласованы в ADR-0031. Модель ролей зафиксирована в ADR-0029: Owner встроен, Operations объединяет операции и поддержку, остальные доступы создаются как кастомные роли и изменяемые пресеты.
+До начала дизайн-итерации осталось три группы деталей. Публикация тарифов закреплена только за двумя Owner (ADR-0035); численные правила реферальной политики ещё открыты. Контент и локализация согласованы в ADR-0034: управляемые тексты, переводы и версии сразу; landing builder позже. Маркетинговые каналы согласованы в ADR-0033: in-app announcements и контроль доставки сначала, массовые внешние кампании позже. Health/metadata обеих площадок и отзыв admin-сессий согласованы в ADR-0032; ротация credentials интеграций отложена. Публикация текстов, самостоятельный маркетинг по scopes и аварийное восстановление согласованы в ADR-0031. Модель ролей зафиксирована в ADR-0029: Owner встроен, Operations объединяет операции и поддержку, остальные доступы создаются как кастомные роли и изменяемые пресеты.
 
 1. **Нужна проверка:** входит ли support queue в первую demo-админку; рекомендация — да, без SLA и attachments.
-2. **Нужна проверка:** показываем ли owner finance в первой Figma-итерации как source disconnected/empty; рекомендация — да, без operational payout controls.
+2. **Нужна проверка:** детальный процесс выплат партнёрам через интерфейс финансов: подготовка, права исполнения, подключение подписания, состояния и сверка. Основатель включил выплаты в план админки; вариант выплат только вне интерфейса отклонён. При отсутствии источника показываются empty/disconnected состояния.
 
-3. **Нужна проверка:** принимаем ли versioned tariff/referral policy, предложенный приоритет overrides и Owner-only publish; рекомендация — да, а tier thresholds, VIP eligibility и rounding закрыть отдельным решением до paid/live.
+3. **Нужна проверка:** приоритет overrides, thresholds реферальной лестницы, VIP eligibility и rounding до paid/live. Owner-only публикация согласована: два отдельных Owner, каждый публикует самостоятельно — ADR-0035.
 
 
 Остальные вопросы можно решать внутри этапов без преждевременного расширения scope.
@@ -775,7 +775,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ### Этап 1. Спроектировать demo-админку в Figma
 
-**Объём:** ADM-01–ADM-12, включая ADM-08 с registry/simulator/diff без публикации paid-тарифа; ADM-13 только empty/source disconnected; ADM-14 базовые роли и состояния доступа; ADM-15 read-only health/metadata без секретов и credential mutations; ADM-16 — карта locale/content workflow без реализации landing builder; ADM-17 — emergency levels, activation, partial enforcement, staged recovery и DEPOSITS_OFF / WITHDRAWALS_OFF с honest disconnected-state в demo; ADM-18 — campaign map, consent/preferences и delivery states без массовой внешней отправки; desktop-first, отдельный emergency path адаптируется для защищённого мобильного доступа позже.
+**Объём:** ADM-01–ADM-12, включая ADM-08 с registry/simulator/diff без публикации paid-тарифа; ADM-13 — finance и схема выплат партнёрам через интерфейс, с empty/source disconnected до подключения источников; ADM-14 базовые роли и состояния доступа; ADM-15 read-only health/metadata без секретов и credential mutations; ADM-16 — карта locale/content workflow без реализации landing builder; ADM-17 — emergency levels, activation, partial enforcement, staged recovery и DEPOSITS_OFF / WITHDRAWALS_OFF с honest disconnected-state в demo; ADM-18 — campaign map, consent/preferences и delivery states без массовой внешней отправки; desktop-first, отдельный emergency path адаптируется для защищённого мобильного доступа позже.
 
 **Результат:** карта flow, экраны, роли, все data/action states, RU/EN, кликабельные пути и список неиспользуемых элементов.
 
