@@ -309,6 +309,7 @@
 
 - [115 — полный технический документ админки](115_admin_console_technical_specification_2026-10-09.md)
 - [116 — сверка админки с пользовательским UI](116_admin_user_interface_consistency_2026-10-09.md)
+- [118 — задание на дизайн админки для совместной вычитки](118_admin_console_figma_design_brief_2026-10-09.md)
 
 - [114 — аудит и план операционной консоли](114_admin_console_audit_and_plan_2026-10-06.md)
 - [109 — последний срез интерфейсов](109_latest_design_review_2026-10-06.md)
