@@ -20,6 +20,8 @@
 
 Согласовано [ADR-0038](decisions/0038_owner_configurable_referral_and_tariff_parameters.md): численные параметры тарифов, реферальные уровни и VIP-условия вводятся вручную Owner через админку, с validation, simulator, versions и effective time. Стартовые числа не блокируют дизайн.
 
+Согласовано [ADR-0039](decisions/0039_owner_assignable_user_vip.md): Owner назначает/изменяет/снимает user VIP в карточке пользователя; срок и индивидуальные параметры настраиваются, история сохраняется; partner VIP отдельно.
+
 ## Текущий цикл
 
 1. Рассмотреть [аудит и план операционной консоли 114](114_admin_console_audit_and_plan_2026-10-06.md): границы demo/live, карта ADM-01–ADM-18, роли, данные, owner finance, тарифы/комиссии, integrations/security, здоровье подключений, content/localization, marketing/communications, emergency control center и этапы.
