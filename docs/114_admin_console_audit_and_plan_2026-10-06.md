@@ -91,7 +91,7 @@
 | ADM-15 | Integrations & security | health/read-only metadata V1 | нет | connection registry, capabilities, API/WS/signer health, key metadata; credential rotation/revoke позже | **Согласовано — ADR-0032** |
 | ADM-16 | Content & localization | модель данных до разработки; редактор позже | RU/EN тексты и user FAQ есть в Figma | locale registry, translation catalog, workflow, preview/publish/rollback; модульный landing builder позже | **Предложено, архитектурная основа обязательна** |
 | ADM-17 | Emergency control center | базовый global/scoped stop V1 | kill switch упомянут в ранней карте, рабочего экрана нет | независимый control plane, server-side enforcement, status page, recovery checklist, DEPOSITS_OFF / WITHDRAWALS_OFF для пути через Shadow | **Согласована потребность; контракт предложен** |
-| ADM-18 | Marketing & communications | transactional/in-app foundation V1; кампании позже | notifications и Telegram есть на user side | consent, segments, campaigns, channel delivery, frequency caps, analytics | **Согласована потребность; контракт предложен** |
+| ADM-18 | Marketing & communications | in-app announcements и delivery monitoring V1; внешние массовые кампании позже | notifications и Telegram есть на user side | consent/preferences foundation, delivery evidence, channels | **Согласован объём — ADR-0033** |
 
 ## 6. Основные операторские сценарии
 
@@ -204,7 +204,7 @@
 
 - **Согласовано:** нужен отдельный маркетинговый раздел для клиентских уведомлений и будущих рассылок.
 - **Предложено:** обязательные операционные сообщения, support, security и marketing communications хранятся раздельно и имеют разные consent/unsubscribe rules.
-- **Предложено:** первая версия поддерживает in-app announcements и системные шаблоны; массовые email/Telegram/push-кампании подключаются после consent, provider и legal checks.
+- **Согласовано — ADR-0033:** первая версия поддерживает in-app announcements и контроль доставки; массовые маркетинговые email/Telegram/push-кампании — отдельный следующий этап. Это не откладывает уже согласованные transactional/security каналы.
 - **Предложено:** текст и переводы кампаний берутся из ADM-16, но каждая отправка фиксирует неизменяемую content version.
 - **Предложено:** сегменты строятся из разрешённых продуктовых признаков и сохраняют snapshot/definition; чувствительные данные и произвольная выгрузка контактов не используются.
 - **Согласовано:** коммуникация не обещает доход, не скрывает paper/demo режим и не подменяет уведомления об инцидентах или финансовой операции.
@@ -732,13 +732,13 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ## 12. Открытые решения владельца
 
-До начала дизайн-итерации осталось пять решений. Health/metadata обеих площадок и отзыв admin-сессий согласованы в ADR-0032; ротация credentials интеграций отложена. Публикация текстов, самостоятельный маркетинг по scopes и аварийное восстановление согласованы в ADR-0031. Модель ролей зафиксирована в ADR-0029: Owner встроен, Operations объединяет операции и поддержку, остальные доступы создаются как кастомные роли и изменяемые пресеты.
+До начала дизайн-итерации осталось четыре решения. Маркетинговые каналы согласованы в ADR-0033: in-app announcements и контроль доставки сначала, массовые внешние кампании позже. Health/metadata обеих площадок и отзыв admin-сессий согласованы в ADR-0032; ротация credentials интеграций отложена. Публикация текстов, самостоятельный маркетинг по scopes и аварийное восстановление согласованы в ADR-0031. Модель ролей зафиксирована в ADR-0029: Owner встроен, Operations объединяет операции и поддержку, остальные доступы создаются как кастомные роли и изменяемые пресеты.
 
 1. **Нужна проверка:** входит ли support queue в первую demo-админку; рекомендация — да, без SLA и attachments.
 2. **Нужна проверка:** показываем ли owner finance в первой Figma-итерации как source disconnected/empty; рекомендация — да, без operational payout controls.
 3. **Нужна проверка:** принимаем ли архитектуру content keys, locale registry и versioned publishing до разработки, а визуальный landing builder оставляем на потом; рекомендация — да.
 4. **Нужна проверка:** принимаем ли versioned tariff/referral policy, предложенный приоритет overrides и Owner-only publish; рекомендация — да, а tier thresholds, VIP eligibility и rounding закрыть отдельным решением до paid/live.
-5. **Нужна проверка:** какой marketing scope входит в первую админку; рекомендация — in-app announcements, preference/consent model и delivery monitoring в foundation, а массовые email/Telegram/push кампании — после provider/legal gates.
+
 
 Остальные вопросы можно решать внутри этапов без преждевременного расширения scope.
 
@@ -769,7 +769,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ### Этап 0. Принять карту
 
-**Результат:** утверждены V1/out-of-scope, ADM-01–ADM-18, пять оставшихся решений владельца и терминология.
+**Результат:** утверждены V1/out-of-scope, ADM-01–ADM-18, четыре оставшихся решения владельца и терминология.
 
 **Готово, когда:** нет конфликтов со свежими ADR; каждый пункт имеет status; существующие Figma frames сопоставлены со стабильными IDs.
 
