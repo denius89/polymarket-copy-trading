@@ -87,7 +87,8 @@
 | [0038](0038_owner_configurable_referral_and_tariff_parameters.md) | Настраиваемые численные правила | принято | Owner вводит пороги, ставки и VIP-условия в админке; validation, simulator, версии и audit |
 
 | [0039](0039_owner_assignable_user_vip.md) | Назначение VIP пользователям | принято | только Owner; профиль/индивидуальные условия, срок, effective preview и audit; отдельно от partner VIP |
-| [0040](0040_platform_usd_accounting_and_venue_payout_options.md) | USD-учёт и выплаты по площадке | принято | единый расчёт в $, все подтверждённые варианты Polymarket/Limitless; signing открыт |
+| [0040](0040_platform_usd_accounting_and_venue_payout_options.md) | USD-учёт и выплаты по площадке | принято | единый расчёт в $, все подтверждённые варианты Polymarket/Limitless; исполнение уточнено в ADR-0041 |
+| [0041](0041_owner_confirmed_automated_partner_payouts.md) | Автоматическое исполнение выплат после подтверждения Owner | принято | подтверждение в админке; серверная авторизация/подписание, отправка и сверка; API-gate до live |
 
 ## Как добавить решение
 
