@@ -22,6 +22,8 @@
 
 Согласовано [ADR-0039](decisions/0039_owner_assignable_user_vip.md): Owner назначает/изменяет/снимает user VIP в карточке пользователя; срок и индивидуальные параметры настраиваются, история сохраняется; partner VIP отдельно.
 
+Согласовано [ADR-0040](decisions/0040_platform_usd_accounting_and_venue_payout_options.md): единый расчёт в USD по всей платформе; все подтверждённые варианты выплат по выбранной площадке Polymarket/Limitless. Открыты signing, матрица маршрутов, источники средств сервиса и технический контракт курса/комиссий.
+
 ## Текущий цикл
 
 1. Рассмотреть [аудит и план операционной консоли 114](114_admin_console_audit_and_plan_2026-10-06.md): границы demo/live, карта ADM-01–ADM-18, роли, данные, owner finance, тарифы/комиссии, integrations/security, здоровье подключений, content/localization, marketing/communications, emergency control center и этапы.
