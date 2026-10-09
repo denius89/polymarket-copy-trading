@@ -86,6 +86,8 @@
 
 | [0038](0038_owner_configurable_referral_and_tariff_parameters.md) | Настраиваемые численные правила | принято | Owner вводит пороги, ставки и VIP-условия в админке; validation, simulator, версии и audit |
 
+| [0039](0039_owner_assignable_user_vip.md) | Назначение VIP пользователям | принято | только Owner; профиль/индивидуальные условия, срок, effective preview и audit; отдельно от partner VIP |
+
 ## Как добавить решение
 
 1. Использовать следующий номер и короткое имя файла.
