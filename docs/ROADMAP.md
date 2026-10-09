@@ -10,10 +10,12 @@
 
 Согласовано [ADR-0033](decisions/0033_in_app_marketing_first_external_campaigns_later.md): объявления внутри приложения и контроль доставки — первая версия; массовые маркетинговые email/Telegram/push-кампании — следующим этапом.
 
+Согласовано [ADR-0034](decisions/0034_managed_content_and_localization_foundation.md): управляемые тексты, переводы и версии закладываются сразу; конструктор лендинга — отдельный поздний этап.
+
 ## Текущий цикл
 
 1. Рассмотреть [аудит и план операционной консоли 114](114_admin_console_audit_and_plan_2026-10-06.md): границы demo/live, карта ADM-01–ADM-18, роли, данные, owner finance, тарифы/комиссии, integrations/security, здоровье подключений, content/localization, marketing/communications, emergency control center и этапы.
-2. Принять четыре открытых решения: support queue в demo V1, owner finance как `source disconnected`, архитектура content/localization до frontend, versioned tariff/referral policy. Модель доступа уже согласована в ADR-0029: Owner встроен, Operations объединяет операции и поддержку, остальные роли настраиваются через scopes и пресеты.
+2. Принять три открытых решения: support queue в demo V1, owner finance как `source disconnected`, versioned tariff/referral policy. Модель доступа уже согласована в ADR-0029: Owner встроен, Operations объединяет операции и поддержку, остальные роли настраиваются через scopes и пресеты.
 3. После отдельного поручения подготовить дизайн-итерацию админки. Технический план и реализация не начинаются автоматически.
 4. Независимо от админки остаётся ручной Present последних исправлений четырёх пользовательских прототипов из [главной страницы](../README.md).
 
