@@ -307,6 +307,8 @@
 
 ## Последние дополнения
 
+- [117 — техническая спецификация пользовательского интерфейса](117_user_interface_technical_specification_2026-10-09.md)
+
 - [115 — полный технический документ админки](115_admin_console_technical_specification_2026-10-09.md)
 - [116 — сверка админки с пользовательским UI](116_admin_user_interface_consistency_2026-10-09.md)
 - [118 — задание на дизайн админки для совместной вычитки](118_admin_console_figma_design_brief_2026-10-09.md)
