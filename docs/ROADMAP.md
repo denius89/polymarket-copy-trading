@@ -2,6 +2,8 @@
 
 Срез на **6 октября 2026**. По прямому поручению владельца выполнен аудит операционной консоли; дизайн и разработка админки не начинались.
 
+Согласовано [ADR-0030](decisions/0030_shadow_funding_interface_emergency_controls.md): DEPOSITS_OFF / WITHDRAWALS_OFF управляют доступностью функций через Shadow, отдельно для обеих площадок; в demo показаны как не подключённые. Реальное исполнение остаётся за live-gates.
+
 ## Текущий цикл
 
 1. Рассмотреть [аудит и план операционной консоли 114](114_admin_console_audit_and_plan_2026-10-06.md): границы demo/live, карта ADM-01–ADM-18, роли, данные, owner finance, тарифы/комиссии, integrations/security, здоровье подключений, content/localization, marketing/communications, emergency control center и этапы.
