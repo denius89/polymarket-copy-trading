@@ -53,24 +53,20 @@
 
 ## 4. Роли и права
 
-Названия ролей **Owner, Operator, Support, Read only** согласованы в ADR-0011. Детальная матрица ниже — предложение до отдельного утверждения.
+Согласно [ADR-0029](decisions/0029_configurable_admin_roles_and_unified_operations.md), отдельные роли `Operator`, `Support`, `Read only` и `Auditor` не зашиваются в систему. Встроенной системной ролью остаётся **Owner**. Остальные роли создаются из permission scopes; для быстрого назначения админка предлагает изменяемые пресеты **Ops Lead**, **Operations**, **Marketer** и **Auditor**.
 
-| Возможность | Owner | Operator | Support | Read only | Статус |
-| --- | ---: | ---: | ---: | ---: | --- |
-| Смотреть overview, пользователей, сессии и incidents | да | да | ограниченный контекст | да | **Предложено** |
-| Поставить на паузу новые demo-действия | да | да | нет | нет | **Согласовано** для операционного контура |
-| Отключить demo-сессию | да | да | нет | нет | **Согласовано** |
-| Повторно прочитать состояние / запустить сверку | да | да | нет | нет | **Согласовано** |
-| Назначить incident и записать resolution | да | да | нет | нет | **Согласовано** |
-| Работать с тикетом и feedback | да | только просмотр контекста | да | просмотр по scope | **Предложено** |
-| Смотреть owner finance | да | агрегированный operational view | нет | по отдельному scope | **Предложено** |
-| Менять тариф/политику | будущая отдельная процедура | нет | нет | нет | **Нужна проверка** |
-| Управлять ролями сотрудников | будущая отдельная процедура | нет | нет | нет | **Нужна проверка** |
-| Видеть секреты, private keys, HMAC secrets | нет | нет | нет | нет | **Согласовано** |
-| Выводить средства или совершать сделку за пользователя | нет | нет | нет | нет | **Согласовано** |
-| Слепо повторять операцию с неизвестным итогом | нет | нет | нет | нет | **Согласовано** |
+Пресет **Operations** объединяет прежние функции Operator и Support: работа с сессиями, incidents, health, reconciliation, тикетами и минимальным пользовательским контекстом. Пресеты можно копировать и ограничивать по разделам, окружению, площадке и типу данных.
 
-Каждое изменение состояния должно проверяться на сервере, запрашивать причину, показывать область влияния и создавать неизменяемую audit-запись. Dual control, отдельные Finance/Security роли и точный состав PII пока **не согласованы**.
+| Группа разрешений | Примеры scopes | Стартовый пресет |
+| --- | --- | --- |
+| Операции и здоровье | `operations.view`, `session.pause`, `session.disconnect_demo`, `reconciliation.run`, `incident.assign`, `incident.resolve`, `health.view` | Operations; расширенный набор у Ops Lead |
+| Поддержка | `support.view`, `support.reply`, `support.assign`, `feedback.manage`, `user_context.view_minimal` | Operations |
+| Маркетинг и контент | `marketing.*`, `content.edit`, `content.review`, `content.publish` | Marketer; критическая публикация требует отдельного scope и Owner approval |
+| Аудит и экспорт | `audit.view`, `audit.export`, `finance.view_aggregate` | Auditor; по умолчанию только просмотр, экспорт выдаётся отдельно |
+| Тарифы и финансы | `pricing.view/simulate/edit/review/publish/override`, `finance.view` | отдельное назначение; публикация и overrides ограничены утверждённым workflow |
+| Доступ и безопасность | `staff.view`, `role.manage`, `access.revoke`, `emergency.activate`, `emergency.recover` | Owner; отдельные emergency scopes могут быть делегированы |
+
+Правила RBAC: deny by default; проверка каждого scope на сервере; запрет самостоятельного повышения прав; явное разделение view/edit/review/publish/export; обязательный reason и append-only audit для назначения и отзыва доступа; срок действия и ограничения scope там, где это нужно. Ни одна роль не получает private keys, HMAC secrets, ручной вывод средств, сделку за пользователя или blind resend операции с неизвестным итогом.
 
 ## 5. Предлагаемая карта разделов
 
@@ -91,7 +87,7 @@
 | ADM-11 | Feedback | да | user-side form | очередь, связь с user/session, категории и status | **Согласовано / отсутствует** |
 | ADM-12 | Audit log | да | только evidence в отдельных frames | общий append-only журнал, фильтры, correlation/reference IDs | **Согласовано / отсутствует** |
 | ADM-13 | Owner finance | схема сейчас, данные позже | Proposed OF01–OF06 RU/EN | подтверждённые источники, ledger, reconciliation, права | **Предложено / источник не подключён** |
-| ADM-14 | Staff & access | базовый контур V1 | нет | staff list, sign-in, 2FA, expiry, role assignment, permission denied, access history | **Предложено** |
+| ADM-14 | Staff & access | базовый контур V1 | нет | staff list, sign-in, 2FA, expiry, role builder, presets, permission scopes, assignment, permission denied, access history | **Согласована модель; детальные scopes уточняются** |
 | ADM-15 | Integrations & security | health/read-only metadata V1 | нет | connection registry, capabilities, API/WS/signer health, key metadata, rotation/revoke requests | **Предложено** |
 | ADM-16 | Content & localization | модель данных до разработки; редактор позже | RU/EN тексты и user FAQ есть в Figma | locale registry, translation catalog, workflow, preview/publish/rollback; модульный landing builder позже | **Предложено, архитектурная основа обязательна** |
 | ADM-17 | Emergency control center | базовый global/scoped stop V1 | kill switch упомянут в ранней карте, рабочего экрана нет | независимый control plane, server-side enforcement, status page, recovery checklist | **Согласована потребность; контракт предложен** |
@@ -112,7 +108,7 @@
 `Users → user → sessions → session → positions / orders / activity / support timeline`.
 
 - **Согласовано:** данные каждой площадки и каждой сессии сохраняют собственный venue и identifiers.
-- **Предложено:** Support видит только минимальный контекст, необходимый для тикета.
+- **Согласовано:** доступ Operations к пользовательским данным ограничивается минимальным контекстом, необходимым для операции или тикета; расширение выдаётся отдельными scopes.
 - **Нужна проверка:** PII, retention, экспорт и удаление.
 
 ### 6.3 Unknown или partial result
@@ -149,11 +145,13 @@
 
 ### 6.7 Сотрудники, роли и доступ
 
-`Staff & access → сотрудник → роль и scope → активные сессии → история изменений → revoke`.
+`Staff & access → сотрудник → пресет или кастомная роль → scopes и ограничения → активные сессии → история изменений → revoke`.
 
 - **Предложено:** Owner видит сотрудников, роли, статус 2FA, последний вход, активные admin-сессии и историю прав.
-- **Предложено:** выдача, изменение и отзыв роли создают append-only audit event; пользователь не может повысить собственные права.
-- **Предложено:** Operator и Support не управляют ролями; Read only не выполняет mutations.
+- **Согласовано:** отдельный Support отсутствует; Operations объединяет операционные и support-задачи.
+- **Согласовано:** Owner — встроенная роль; Ops Lead, Operations, Marketer и Auditor — изменяемые пресеты кастомных ролей.
+- **Согласовано:** выдача, изменение и отзыв роли создают append-only audit event; пользователь не может повысить собственные права.
+- **Согласовано:** Auditor по умолчанию имеет только просмотр разрешённых разделов; экспорт и любые mutations выдаются отдельными scopes.
 - **Нужна проверка:** кто может приглашать сотрудников, нужен ли dual approval, срок admin-сессии и break-glass procedure.
 
 ### 6.8 Интеграции, ключи и здоровье подключений
@@ -408,9 +406,9 @@ Risk-increasing путь работает fail-closed: если актуальн
 
 #### 7.7.4 Активация
 
-Перед активацией показываются scope, затронутые функции и сессии, а также действия, которые продолжат выполняться. Для `GLOBAL_STOP` приоритет — скорость: авторизованный Owner или заранее назначенный emergency Operator может активировать stop после 2FA/re-auth, выбора причины и incident ID без ожидания второго человека.
+Перед активацией показываются scope, затронутые функции и сессии, а также действия, которые продолжат выполняться. Для `GLOBAL_STOP` приоритет — скорость: авторизованный Owner или заранее назначенная роль со scope `emergency.activate` может активировать stop после 2FA/re-auth, выбора причины и incident ID без ожидания второго человека.
 
-Активация создаёт append-only audit event, отправляет оповещение Owner/Operator, открывает incident и запускает автоматическую проверку enforcement на API, queue и workers. Если часть компонентов не подтвердила stop, состояние отображается как `STOP PARTIALLY ENFORCED`, а не как успешное.
+Активация создаёт append-only audit event, отправляет оповещение Owner и назначенной incident-группе, открывает incident и запускает автоматическую проверку enforcement на API, queue и workers. Если часть компонентов не подтвердила stop, состояние отображается как `STOP PARTIALLY ENFORCED`, а не как успешное.
 
 #### 7.7.5 Восстановление
 
@@ -534,7 +532,7 @@ Rollback создаёт новую версию с прежними правил
 
 #### 7.8.8 Права и наблюдаемость
 
-**Предложено:** использовать permission scopes `pricing.view`, `pricing.simulate`, `pricing.edit`, `pricing.review`, `pricing.publish`, `pricing.override`. Operator и Support видят только effective tariff и объяснение для конкретного случая; публиковать и создавать override может Owner в рамках утверждённого workflow.
+**Предложено:** использовать permission scopes `pricing.view`, `pricing.simulate`, `pricing.edit`, `pricing.review`, `pricing.publish`, `pricing.override`. Operations видит только effective tariff и объяснение для конкретного случая, если выдан `pricing.view`; публиковать и создавать override может Owner или специально назначенная роль в рамках утверждённого workflow.
 
 Health ADM-15 контролирует:
 
@@ -638,7 +636,7 @@ Conversion связывается с campaign/version и заранее объя
 
 #### 7.9.9 Права
 
-**Предложено:** scopes `marketing.view`, `marketing.segment`, `marketing.edit`, `marketing.test_send`, `marketing.review`, `marketing.publish`, `marketing.pause`, `marketing.export_aggregate`. Экспорт полного списка контактов по умолчанию запрещён. Support не запускает кампании; Operator может экстренно pause; Owner/назначенный Publisher публикует в пределах утверждённой policy.
+**Предложено:** scopes `marketing.view`, `marketing.segment`, `marketing.edit`, `marketing.test_send`, `marketing.review`, `marketing.publish`, `marketing.pause`, `marketing.export_aggregate`. Экспорт полного списка контактов по умолчанию запрещён. Пресет Marketer получает только утверждённый marketing/content scope; Operations может получить emergency pause без права публикации; Owner или роль с `marketing.publish` публикует в пределах утверждённой policy.
 
 Текущая документация Polymarket указывает для Сомали и Таиланда режим close-only на frontend и API. Это изменяемый внешний факт, поэтому перед любым live-планом требуется свежая проверка по фактическому пользователю, площадке и моменту доступа. Он не влияет на paper-демо, но блокирует обещание live-доступности для этих GEO.
 
@@ -718,17 +716,16 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ## 12. Открытые решения владельца
 
-До начала дизайн-итерации достаточно девяти решений:
+До начала дизайн-итерации осталось восемь решений. Модель ролей зафиксирована в ADR-0029: Owner встроен, Operations объединяет операции и поддержку, остальные доступы создаются как кастомные роли и изменяемые пресеты.
 
-1. **Нужна проверка:** принимаем ли предложенную RBAC-матрицу и ограниченный контекст Support.
-2. **Нужна проверка:** входит ли support queue в первую demo-админку; рекомендация — да, без SLA и attachments.
-3. **Нужна проверка:** показываем ли owner finance в первой Figma-итерации как source disconnected/empty; рекомендация — да, без operational payout controls.
-4. **Нужна проверка:** принимаем ли архитектуру content keys, locale registry и versioned publishing до разработки, а визуальный landing builder оставляем на потом; рекомендация — да.
-5. **Нужна проверка:** в первой demo-версии ADM-15 остаётся read-only health/metadata или включает ротацию/revoke; рекомендация — только read-only health/metadata, а mutations добавить после KMS/RBAC/dual-control дизайна.
-6. **Нужна проверка:** кто публикует обычные и критические тексты; рекомендация — permission scopes edit/review/publish, а financial/legal/security требуют Owner approval.
-7. **Нужна проверка:** кто активирует и кто снимает `GLOBAL_STOP`; рекомендация — Owner или назначенный emergency Operator могут немедленно активировать после re-auth, а восстановление разрешает Owner после checklist, для future live — с двойным подтверждением.
-8. **Нужна проверка:** принимаем ли versioned tariff/referral policy, предложенный приоритет overrides и Owner-only publish; рекомендация — да, а tier thresholds, VIP eligibility и rounding закрыть отдельным решением до paid/live.
-9. **Нужна проверка:** какой marketing scope входит в первую админку; рекомендация — in-app announcements, preference/consent model и delivery monitoring в foundation, а массовые email/Telegram/push кампании — после provider/legal gates.
+1. **Нужна проверка:** входит ли support queue в первую demo-админку; рекомендация — да, без SLA и attachments.
+2. **Нужна проверка:** показываем ли owner finance в первой Figma-итерации как source disconnected/empty; рекомендация — да, без operational payout controls.
+3. **Нужна проверка:** принимаем ли архитектуру content keys, locale registry и versioned publishing до разработки, а визуальный landing builder оставляем на потом; рекомендация — да.
+4. **Нужна проверка:** в первой demo-версии ADM-15 остаётся read-only health/metadata или включает ротацию/revoke; рекомендация — только read-only health/metadata, а mutations добавить после KMS/RBAC/dual-control дизайна.
+5. **Нужна проверка:** кто публикует обычные и критические тексты; рекомендация — permission scopes edit/review/publish, а financial/legal/security требуют Owner approval.
+6. **Нужна проверка:** кто активирует и кто снимает `GLOBAL_STOP`; рекомендация — Owner или назначенная роль с `emergency.activate` могут немедленно активировать после re-auth, а восстановление разрешает Owner после checklist, для future live — с двойным подтверждением.
+7. **Нужна проверка:** принимаем ли versioned tariff/referral policy, предложенный приоритет overrides и Owner-only publish; рекомендация — да, а tier thresholds, VIP eligibility и rounding закрыть отдельным решением до paid/live.
+8. **Нужна проверка:** какой marketing scope входит в первую админку; рекомендация — in-app announcements, preference/consent model и delivery monitoring в foundation, а массовые email/Telegram/push кампании — после provider/legal gates.
 
 Остальные вопросы можно решать внутри этапов без преждевременного расширения scope.
 
@@ -742,7 +739,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 | BL-08 effective policy и приоритет ограничений | нужны read-only rules и объяснимый блок | **Нужна проверка** |
 | Durable operation journal и idempotency | нужен restart/retry/unknown contract | **Нужна проверка** |
 | Подтверждённые account capabilities PM/LL | нужны private reads и будущие live controls | **Нужна проверка** |
-| Support access/retention lifecycle | нужен безопасный Support scope | **Нужна проверка** |
+| Operations user-context/retention lifecycle | нужен минимальный support scope внутри объединённой роли | **Нужна проверка** |
 | Finance evidence/attribution/FX | нужен owner ledger без ложных сумм | **Нужна проверка** |
 | Referral thresholds и conflict rules | нужна версия партнёрской политики | **Нужна проверка** |
 | Content key/schema и locale bundle contract | нужны управляемые тексты без переписывания компонентов | **Предложено закрыть до frontend** |
@@ -759,7 +756,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 ### Этап 0. Принять карту
 
-**Результат:** утверждены V1/out-of-scope, ADM-01–ADM-18, девять решений владельца и терминология.
+**Результат:** утверждены V1/out-of-scope, ADM-01–ADM-18, восемь оставшихся решений владельца и терминология.
 
 **Готово, когда:** нет конфликтов со свежими ADR; каждый пункт имеет status; существующие Figma frames сопоставлены со стабильными IDs.
 
@@ -769,7 +766,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 
 **Результат:** карта flow, экраны, роли, все data/action states, RU/EN, кликабельные пути и список неиспользуемых элементов.
 
-**Готово, когда:** Owner, Operator, Support и Read only проходят свои сценарии; запрещённые controls отсутствуют; unknown/partial/stale/permission states проверены в Present.
+**Готово, когда:** Owner и сотрудники с пресетами Ops Lead, Operations, Marketer, Auditor, а также одной кастомной ролью проходят свои разрешённые сценарии; запрещённые controls отсутствуют; unknown/partial/stale/permission states проверены в Present.
 
 **Переход:** только по отдельной команде владельца. Этот аудит Figma не меняет.
 
