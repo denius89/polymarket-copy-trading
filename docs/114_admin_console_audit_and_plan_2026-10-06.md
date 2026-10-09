@@ -4,6 +4,8 @@
 
 Этот документ сводит действующие бизнес-решения, текущую Figma, пользовательские сценарии, API-исследования Polymarket и Limitless и формирует план операционной консоли. Это **план и аудит**, а не разрешение на дизайн, frontend, backend, подключение аккаунтов или реальные операции.
 
+Техническая детализация после последних решений основателя: [115 — полный технический документ](115_admin_console_technical_specification_2026-10-09.md). Связи с текущими пользовательскими прототипами и ограничения проверки: [116 — сверка UI](116_admin_user_interface_consistency_2026-10-09.md). При конфликте исторического предложения этого аудита с действующим ADR применяется ADR; реализационный контракт уточнён в 115.
+
 ## 1. Как читать статусы
 
 | Статус | Значение |
@@ -37,7 +39,7 @@
 | Безопасные действия | **Согласовано** | пауза новых demo-операций, отключение сессии, повторное чтение состояния, запуск сверки, запись решения |
 | Тарифы | **Согласовано** | реальная комиссия alpha = 0%; будущие ставки видны отдельно как simulation/policy |
 | Owner finance | **Предложено** | read-only пустые/отключённые состояния и схема будущего учёта; без ложной выручки в paper |
-| Контент/FAQ | **Предложено** | максимум просмотр версии; полноценный CMS не обоснован |
+| Контент/FAQ | **Согласовано — ADR-0034** | управляемые тексты, переводы, версии и публикация; landing builder позже |
 | Реферальные выплаты | **Согласовано направление; детали открыты** | выплаты партнёрам проектируются через интерфейс финансов; исполнение после подтверждения отдельного payout-контура, агентский кабинет вне MVP |
 
 ### 3.2 Будущий live
@@ -63,10 +65,10 @@
 | Поддержка | `support.view`, `support.reply`, `support.assign`, `feedback.manage`, `user_context.view_minimal` | Operations |
 | Маркетинг и контент | `marketing.*`, `content.edit`, `content.publish` | Marketer; публикация по scopes без обязательного Owner approval, включая критические тексты (ADR-0031) |
 | Аудит и экспорт | `audit.view`, `audit.export`, `finance.view_aggregate` | Auditor; по умолчанию только просмотр, экспорт выдаётся отдельно |
-| Тарифы и финансы | `pricing.view/simulate/edit/review/publish/override`, `finance.view` | отдельное назначение; публикация и активация overrides только Owner; подготовка делегируется по scopes (ADR-0035) |
+| Тарифы и финансы | `pricing.view/simulate`, Owner numerical edit/publish/override, `finance.view` | отдельное назначение; численные изменения, публикация и активация overrides только Owner; пояснения/анализ можно делегировать (ADR-0035/0038) |
 | Доступ и безопасность | `staff.view`, `role.manage`, `access.revoke`, `emergency.activate`, `emergency.recover` | Owner; отдельные emergency scopes могут быть делегированы |
 
-Правила RBAC: deny by default; проверка каждого scope на сервере; запрет самостоятельного повышения прав; явное разделение view/edit/review/publish/export; обязательный reason и append-only audit для назначения и отзыва доступа; срок действия и ограничения scope там, где это нужно. Ни одна роль не получает private keys, HMAC secrets, ручной вывод средств, сделку за пользователя или blind resend операции с неизвестным итогом.
+Правила RBAC: deny by default; проверка каждого scope на сервере; запрет самостоятельного повышения прав; явное разделение view/edit/review/publish/export; обязательный reason и append-only audit для назначения и отзыва доступа; срок действия и ограничения scope там, где это нужно. Ни одна роль не получает private keys/HMAC secrets или право произвольного распоряжения клиентскими средствами/сделки за пользователя/blind resend unknown. Owner-confirmed автоматические выплаты собственных средств сервиса предусмотрены ADR-0037/0041.
 
 ## 5. Предлагаемая карта разделов
 
@@ -81,7 +83,7 @@
 | ADM-05 | Reconciliation | да | A05 `121:1513` | журнал попыток, late result, mismatch, durable evidence | **Согласовано / частично** |
 | ADM-06 | Venues & data | да | отдельного раздела нет | API/feed health, freshness, latency, last success/error, capability evidence | **Согласовано / отсутствует** |
 | ADM-07 | Traders & ingestion | да, read-only | данные видны в user UI | quality/completeness, rating method/version, gaps | **Предложено** |
-| ADM-08 | Tariffs & commissions | simulation/read-only V1; управление позже | Proposed finance и старые схемы | version registry, calculation rules, referral tiers, overrides, preview/publish/rollback | **Согласована потребность; контракт предложен** |
+| ADM-08 | Tariffs & commissions | registry/simulator и Owner-настройки; paid activation позже | Proposed finance и старые схемы | version registry, calculation rules, referral tiers, overrides, preview/publish/rollback | **Согласована потребность; контракт предложен** |
 | ADM-09 | Support | да | user-side lifecycle готов | admin queue, conversation, assignment, session context, access/retention rules | **Согласовано — ADR-0036** |
 | ADM-10 | Notifications | да, read-only | user-side notifications | delivery/failure/retry evidence, channel status | **Согласовано / отсутствует** |
 | ADM-11 | Feedback | да | user-side form | очередь, связь с user/session, категории и status | **Согласовано / отсутствует** |
@@ -173,7 +175,7 @@
 - **Предложено:** языки включаются отдельно для landing, application, admin, notifications, email/Telegram, help и legal surfaces.
 - **Согласовано — ADR-0034:** управление текстами приложения строится раньше визуального редактора лендинга. Лендинг позже собирается из заранее разрешённых блоков, а не из произвольного HTML/JavaScript.
 - **Предложено:** публикация создаёт неизменяемую версию; работающие сессии, уведомления и важные действия сохраняют `content_version`, чтобы восстановить показанный пользователю текст.
-- **Предложено:** финансовые, риск-, согласительные и юридические тексты защищены повышенным workflow и не могут менять смысл действующей policy без связанной версии правила.
+- **Согласовано — ADR-0031:** финансовые, риск-, согласительные и юридические тексты публикуются самостоятельно по scopes с validation/версией/audit, без обязательного Owner approval; текст не меняет вычисляемую policy.
 - **Согласовано:** edit/publish выдаются отдельно, сотрудник публикует самостоятельно; автоматические проверки, история и rollback обязательны. Языки после EN/RU остаются открытым вопросом.
 
 ### 6.10 Аварийное отключение проекта
@@ -195,7 +197,7 @@
 - **Согласовано:** комиссия Shadow начисляется только на фактически исполненную часть автоматического buy/sell; unfilled remainder и отменённая часть не являются базой.
 - **Согласовано:** расходы площадки/сети, комиссия Shadow и партнёрское вознаграждение — разные строки и разные ledger entries.
 - **Предложено:** изменение тарифа всегда создаёт новую неизменяемую версию с `effective_at`; прошлые начисления не пересчитываются молча.
-- **Предложено:** индивидуальные и VIP-условия задаются ограниченным override с началом/окончанием, причиной, Owner approval и audit; произвольное ручное изменение начисления запрещено.
+- **Предложено:** индивидуальные и VIP-условия задаются ограниченным override с началом/окончанием, причиной, Owner-only активацией и audit; произвольное ручное изменение начисления запрещено.
 - **Предложено:** до публикации обязательны симуляция, сравнение с текущей версией и проверка ceiling/invariants.
 - **Нужна проверка:** tier thresholds, eligibility VIP, валюта расчёта/оплаты, точные rounding/minimum rules и механизм фактического взимания в live.
 
@@ -478,7 +480,7 @@ UI никогда не показывает одну объединённую «
 | `rate`, `calculation_base` | ставка и база только от confirmed executed amount |
 | `currency`, `rounding_rule`, `minimum`, `maximum` | денежный контракт и ограничения |
 | `partner_policy_version` | связанная версия правил партнёрского вознаграждения |
-| `author`, `reviewer`, `publisher`, `reason` | ответственность и audit trail |
+| `author`, optional `reviewer`, `publisher`, `reason` | ответственность и audit trail |
 
 Каждое начисление хранит `tariff_policy_version`, `partner_policy_version`, исходные fill IDs, maker/taker evidence, calculation inputs, rounding result и breakdown. Повторный расчёт на тех же входных данных и версиях должен давать тот же результат.
 
@@ -540,20 +542,20 @@ Simulator показывает gross executed amount, service fee, venue/network
 
 #### 7.8.7 Публикация и rollback
 
-Lifecycle: `draft → simulated → reviewed → approved → scheduled → active → superseded`. Прямое редактирование `active` запрещено. Публикация требует:
+Lifecycle: `draft → simulated/validated → scheduled/active → superseded`. Обязательный внутренний approval отсутствует; численные значения/публикация только Owner. Прямое редактирование `active` запрещено. Публикация требует:
 
 - успешных invariant tests и обязательных simulation scenarios;
 - diff ставок, scope, exclusions и партнёрских обязательств;
 - preview затронутых будущих пользователей/планов без показа PII;
 - локализованных пользовательских disclosure texts ADM-16;
-- Owner re-auth; для future live рекомендуется второе подтверждение;
+- Owner re-auth; каждый из двух Owner публикует самостоятельно, обязательной второй подписи нет;
 - точного `effective_at` и audit reason.
 
 Rollback создаёт новую версию с прежними правилами на новое effective time. Backdating и изменение исторических `RevenueAccrual` запрещены; ошибка исправляется `Correction/Refund` с evidence.
 
 #### 7.8.8 Права и наблюдаемость
 
-**Предложено:** использовать permission scopes `pricing.view`, `pricing.simulate`, `pricing.edit`, `pricing.review`, `pricing.publish`, `pricing.override`. Operations видит только effective tariff и объяснение для конкретного случая, если выдан `pricing.view`; публиковать и активировать override может только Owner. Owner будет два; каждый публикует самостоятельно. Кастомная роль не обходит эту серверную границу — ADR-0035.
+**Уточнено — ADR-0038:** view/simulate можно делегировать по scopes; численные edits, publish и overrides проверяются Owner-only на сервере. Operations видит только effective tariff и объяснение для конкретного случая, если выдан `pricing.view`; публиковать и активировать override может только Owner. Owner будет два; каждый публикует самостоятельно. Кастомная роль не обходит эту серверную границу — ADR-0035.
 
 Health ADM-15 контролирует:
 
@@ -837,7 +839,7 @@ OF01–OF06 RU/EN можно использовать как визуальну�
 | P2 | content editor, preview, publish и rollback | средняя–высокая | workflow, permissions и validation |
 | P2 | email/Telegram campaign orchestration | высокая | providers, suppression, GEO, cost и deliverability |
 | P3 | live private reads и mutations | очень высокая | signer, scopes, GEO, recovery и деньги |
-| P3 | landing builder, partner cabinet, payouts | высокая | отдельные будущие продукты внутри админки |
+| P3 | landing builder, partner cabinet | высокая | отдельные будущие продукты; payouts уже спроектированы в ADR-0041/115, live после gate |
 
 Точные календарные сроки до технического дизайна будут выдуманными. Планировать лучше короткими review-пакетами: один законченный flow с evidence, проверкой ролей и критериями готовности за итерацию.
 
