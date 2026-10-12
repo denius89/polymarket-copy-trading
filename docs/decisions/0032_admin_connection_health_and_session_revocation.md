@@ -1,5 +1,7 @@
 # ADR-0032: Health подключений и отзыв admin-сессий в первой версии
 
+Уточнение 12.10.2026 — [ADR-0043](0043_admin_money_security_and_incident_recovery.md): Emergency-изоляция использования credential/подключения внутри Shadow входит в V1. Provider revoke — отдельная capability/runbook; полное создание/ротация ключей остаются позже. Compromised-account отзывает сеансы и неиспользованные approvals.
+
 Дата: 09.10.2026. Статус: принято основателем.
 
 ## Решение
