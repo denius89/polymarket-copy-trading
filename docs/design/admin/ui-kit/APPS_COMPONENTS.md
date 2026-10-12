@@ -1,4 +1,4 @@
-# Admin Apps Components · v0.4.1
+# Admin Apps Components · v0.4.2
 
 Updated 12.10.2026. Design only. Native editable Figma component sets, variants and instances; no application implementation.
 
@@ -60,3 +60,9 @@ Hover/focus/pressed/loading are design variants. This deliverable does not imple
 ## Screenshot defect correction · 12.10.2026
 
 Reviewed the reported collapsed search fields and confirmation cards at 1x. Current specimens have fixed-height fields and transparent action rows. Added a durable minimum control height of 48 px to all 30 field variants. Standard and Money now have distinct text-property bindings/defaults, so changing Standard defaults cannot silently replace monetary headings or notices. Configure the separate Money properties when translating or placing that variant. The money specimen sizes vertically to content; the demo metric is localized to Russian. Existing IDs are retained. Final review frame bounds check passed without overflow.
+
+## Radio and segmented polish · 12.10.2026
+
+Radio uses a 20px outlined circle and centered 8px accent dot. Focus uses a distinct 3px focus stroke; Disabled uses muted semantic colors. The label names the option independently of Checked (specimen: «Маршрут A»). This prevents a disabled/unselected option from misleadingly saying «Выбран маршрут».
+
+Segmented defaults to 360×44 with 4px padding and gaps. All three segments share available width equally (114.667px at the default width), have a 36px height and centered labels. The selected segment uses a solid accent background and on-accent text. Keep the parent width fixed and its children in horizontal Fill; do not collapse each segment to its label width. Both rows were reviewed at 1x and passed bounds validation. Existing node IDs retained; no new variants, pages or tokens.

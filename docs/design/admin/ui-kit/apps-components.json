@@ -1,5 +1,5 @@
 {
-  "revision": "0.4.1",
+  "revision": "0.4.2",
   "updated": "2026-10-12",
   "fileKey": "lxPP2um7FvIbt02K8eeH4T",
   "pageId": "1981:2",
@@ -701,7 +701,16 @@
           "id": "2081:516",
           "name": "Checked=True, State=Disabled"
         }
-      ]
+      ],
+      "layoutContract": {
+        "circle": 20,
+        "dot": 8,
+        "dotAlignment": "CENTER",
+        "focusStroke": 3,
+        "selected": "accent dot with outlined circle",
+        "label": "option name independent of selection",
+        "disabled": "muted border/dot/text; no blanket opacity"
+      }
     },
     {
       "id": "2081:539",
@@ -795,7 +804,18 @@
           "id": "2081:560",
           "name": "Selected=Pending"
         }
-      ]
+      ],
+      "layoutContract": {
+        "width": 360,
+        "height": 44,
+        "padding": 4,
+        "gap": 4,
+        "segmentWidth": 114.6666667,
+        "segmentHeight": 36,
+        "equalWidths": true,
+        "selected": "solid accent fill + on-accent label",
+        "horizontal": "FIXED parent, FILL equal children"
+      }
     },
     {
       "id": "2081:584",
@@ -1422,5 +1442,22 @@
         ]
       }
     ]
+  },
+  "controlPolish": {
+    "date": "2026-10-12",
+    "radio": {
+      "id": "2081:517",
+      "circle": 20,
+      "dot": 8,
+      "focusStroke": 3
+    },
+    "segmented": {
+      "id": "2081:561",
+      "w": 360,
+      "h": 44,
+      "segmentWidth": 114.6666667,
+      "segmentHeight": 36
+    },
+    "visualReview": "Both source-backed specimen rows reviewed at 1x; no bounds overflow."
   }
 }
