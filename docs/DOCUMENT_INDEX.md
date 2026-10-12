@@ -313,6 +313,7 @@
 - [116 — сверка админки с пользовательским UI](116_admin_user_interface_consistency_2026-10-09.md)
 - [118 — задание на дизайн админки для совместной вычитки](118_admin_console_figma_design_brief_2026-10-09.md)
 - [119 — внесённые правки по безопасности админки, 12.10.2026](119_admin_security_review_changes_2026-10-12.md)
+- [120 — USDT/USD: источники курса и admin alerts](120_usdt_usd_sources_and_admin_alerts_2026-10-12.md)
 
 - [114 — аудит и план операционной консоли](114_admin_console_audit_and_plan_2026-10-06.md)
 - [109 — последний срез интерфейсов](109_latest_design_review_2026-10-06.md)
