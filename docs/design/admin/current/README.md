@@ -1,8 +1,10 @@
-# Текущая админка — единый дизайн v0.3
+# Текущая админка — единый дизайн v0.4
+
+Актуальный старт: [сценарии RU](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2138-9818&starting-point-node-id=2138-9818&scaling=scale-down) · [EN](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67397&starting-point-node-id=2138-67397&scaling=scale-down). [Пакет 04](../package-04/README.md) и [fixture](../fixtures/README.md). Исторические ссылки пакета 03:
 
 Новые стартовые точки: [подключения](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2109-5830&starting-point-node-id=2109-5830&scaling=scale-down), [сотрудники](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2110-6876&starting-point-node-id=2110-6876&scaling=scale-down), [аварийное управление](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2110-52505&starting-point-node-id=2110-52505&scaling=scale-down).
 
-12.10.2026. 252 состояния; 126 RU + 126 EN. Актуальный полный индекс — [sitemap](../sitemap.json), добавленные экраны и новые пункты меню — [пакет 03](../package-03/manifest.json). Файлы ru.json/en.json и старые reactions ниже фиксируют базовую пересборку 92 экранов на язык до пакета 03. [Правила дальнейшей работы и стиля](../STYLE_GUIDE.md).
+12.10.2026. 432 состояния; 216 RU + 216 EN. Актуальный полный индекс — [sitemap](../sitemap.json), добавленные экраны и новые пункты меню — [пакет 03](../package-03/manifest.json). Файлы ru.json/en.json и старые reactions ниже фиксируют базовую пересборку 92 экранов на язык до пакета 03. [Правила дальнейшей работы и стиля](../STYLE_GUIDE.md).
 
 | Старт | Ссылка |
 | --- | --- |

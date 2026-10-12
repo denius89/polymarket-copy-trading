@@ -1,4 +1,4 @@
-# Admin Apps Components · v0.4.3
+# Admin Apps Components · v0.4.5
 
 Updated 12.10.2026. Design only. Native editable Figma component sets, variants and instances; no application implementation.
 
@@ -72,3 +72,8 @@ Segmented defaults to 360×44 with 4px padding and gaps. All three segments shar
 Removed the abbreviated filled address specimen. Filled and ReadOnly now show the complete synthetic 42-character address, preserving every character and wrapping it across lines when needed. Address controls have a 48px minimum and grow vertically; width must not cause ellipsis, masking or hidden overflow. RU and EN admin-page text scans found no address text containing ellipsis. Full address visibility is a required visual verification aid; it supplements automated route/address checks rather than proving authenticity on its own.
 
 Пакет 03, ревизия 0.4.4: Label/Value/Hint в 30 Form field вариантах привязаны к одноимённым text-properties (90 привязок; 84 восстановлены). Использовать setProperties и instances. Полные адреса Filled/ReadOnly проверены после исправления. Источник Sidebar теперь содержит 13 пунктов. [QA](../package-03/qa.json).
+
+
+## Metadata row и responsive alerts · 0.4.5
+
+Admin/Metadata row (2137:26727) — отдельный read-only composition master, а не замена двухколоночного Data row. Title/Detail/Meta, три равных текстовых колонки при 1144 px, 16 px gap, 20 px боковые и 16 px вертикальные поля, minHeight 64. HEIGHT и переносы сохраняют все данные. Instance text задаётся через setProperties; не detach для RU/EN. 15 sets / 104 variants сохранены. Alert Title/Body в четырёх исходных вариантах используют Fill по ширине и HEIGHT; безопасно работают в широкой админке и 560 px форме входа. [Пакет 04](../package-04/README.md).

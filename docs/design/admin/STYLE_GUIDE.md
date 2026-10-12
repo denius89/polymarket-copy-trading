@@ -84,3 +84,8 @@
 [Текущие ID, графы и evidence](current/README.md) · [UI kit registry](ui-kit/registry.json) · [Бизнес-правила и спецификация](../../115_admin_console_technical_specification_2026-10-09.md).
 
 Пакет 03: Admin/Sidebar содержит 13 пунктов; новое меню добавлено в прежние экраны. Используем эти же masters, palette и grid. Form field: 30 вариантов, 90 привязок Label/Value/Hint; полные адреса в Filled/ReadOnly. Подробности — package-03/qa.json. Частично покрытые разделы не считать готовыми к frontend.
+
+
+## Пакет 04 · тестовые данные и композиции
+
+UI kit 0.4.5. Для сотрудников, метаданных и аудита использовать Admin/Metadata row (2137:26727), Title/Detail/Meta; длинный текст переносится, адрес не сокращается. Alert Title/Body имеют Fill по ширине и HEIGHT для переносов. Авторизованные desktop-экраны сохраняют утверждённую сетку. Вход — отдельная форма 560 px без sidebar и без приватного рабочего контекста. [Тестовый набор](fixtures/README.md) и [границы проверки](package-04/qa.json). Цены, пороги, имена и результат операции должны быть явно synthetic/demo; не выдавать их за live, production-default или подтверждённую транзакцию.

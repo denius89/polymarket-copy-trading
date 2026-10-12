@@ -1,5 +1,5 @@
 {
-  "revision": "0.4.4",
+  "revision": "0.4.5",
   "updated": "2026-10-12",
   "fileKey": "lxPP2um7FvIbt02K8eeH4T",
   "pageId": "1981:2",
@@ -1227,7 +1227,8 @@
     "boundsErrors": [],
     "imageFills": 0,
     "textStylesUnbound": [],
-    "review": "Full board and targeted confirmation/filter panels visually reviewed; static design states, not runtime or keyboard tests."
+    "review": "Full board and targeted confirmation/filter panels visually reviewed; static design states, not runtime or keyboard tests.",
+    "package04": "../package-04/qa.json"
   },
   "limitations": [
     "State specimens do not implement runtime interactions or financial checks.",
@@ -1482,5 +1483,28 @@
     "textBindings": 90,
     "repaired": 84,
     "ledger": "../package-03/qa.json"
+  },
+  "metadataRow": {
+    "id": "2137:26727",
+    "name": "Admin/Metadata row",
+    "properties": [
+      "Title",
+      "Detail",
+      "Meta"
+    ],
+    "width": 1144,
+    "minHeight": 64,
+    "wrap": true,
+    "standaloneComposition": true
+  },
+  "alertResponsive": {
+    "masters": [
+      "2081:580",
+      "2081:581",
+      "2081:582",
+      "2081:583"
+    ],
+    "textWidth": "Fill",
+    "textHeight": "HEIGHT"
   }
 }

@@ -1777,6 +1777,124 @@
         }
       ],
       "stateLibraryManifest": "apps-components.json"
+    },
+    {
+      "id": "2137:26727",
+      "name": "Admin/Metadata row",
+      "type": "COMPONENT",
+      "properties": {
+        "Title#2137:0": {
+          "type": "TEXT",
+          "defaultValue": "Нора Азиз · STAFF-203"
+        },
+        "Detail#2137:1": {
+          "type": "TEXT",
+          "defaultValue": "Operations · обе площадки"
+        },
+        "Meta#2137:2": {
+          "type": "TEXT",
+          "defaultValue": "Активна · 12:00 UTC"
+        }
+      },
+      "bindings": {
+        "itemSpacing": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:54"
+        },
+        "paddingLeft": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:55"
+        },
+        "paddingTop": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:54"
+        },
+        "paddingRight": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:55"
+        },
+        "paddingBottom": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:54"
+        },
+        "fills": [
+          {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:2:29"
+          }
+        ]
+      },
+      "texts": [
+        {
+          "id": "2137:26728",
+          "name": "Title",
+          "styleId": "S:98976c4e05f7a72e968a80dd149b28b68b1cafaa,",
+          "font": {
+            "family": "Inter",
+            "style": "Medium",
+            "variationSettings": {
+              "wght": 500,
+              "slnt": 0
+            }
+          },
+          "size": 14,
+          "width": 357.3333435058594,
+          "bindings": {
+            "fills": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:2:34"
+              }
+            ]
+          }
+        },
+        {
+          "id": "2137:26729",
+          "name": "Detail",
+          "styleId": "S:bc557184905d0960b434ff365a67efddde9a111f,",
+          "font": {
+            "family": "Inter",
+            "style": "Regular",
+            "variationSettings": {
+              "wght": 400,
+              "slnt": 0
+            }
+          },
+          "size": 14,
+          "width": 357.3333435058594,
+          "bindings": {
+            "fills": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:2:35"
+              }
+            ]
+          }
+        },
+        {
+          "id": "2137:26730",
+          "name": "Meta",
+          "styleId": "S:bc557184905d0960b434ff365a67efddde9a111f,",
+          "font": {
+            "family": "Inter",
+            "style": "Regular",
+            "variationSettings": {
+              "wght": 400,
+              "slnt": 0
+            }
+          },
+          "size": 14,
+          "width": 357.3333435058594,
+          "bindings": {
+            "fills": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:2:35"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
   "collections": [
@@ -2320,7 +2438,7 @@
       }
     }
   ],
-  "lastDesignUpdate": "2026-10-12 · package 03; 126 RU + 126 EN",
+  "lastDesignUpdate": "2026-10-12 · package 04; 216 RU + 216 EN",
   "limitations": [
     "Client kit merge pending",
     "New button state families are available for incremental screen adoption; legacy masters retained",
@@ -2403,7 +2521,7 @@
       }
     }
   ],
-  "revision": "0.4.4",
+  "revision": "0.4.5",
   "currentPages": {
     "ru": "1981:29",
     "en": "1981:30"
@@ -2528,10 +2646,27 @@
         "end",
         "indefinite"
       ]
+    },
+    "auth": {
+      "width": 560,
+      "workspaceNavigation": false
+    },
+    "metadataRow": {
+      "id": "2137:26727",
+      "width": 1144,
+      "columns": 3,
+      "textProperties": [
+        "Title",
+        "Detail",
+        "Meta"
+      ],
+      "minHeight": 64,
+      "wrap": true,
+      "ellipsis": false
     }
   },
   "stateLibrary": {
-    "revision": "0.4.4",
+    "revision": "0.4.5",
     "pageId": "1981:2",
     "showcaseId": "2082:125",
     "manifest": "apps-components.json",
@@ -2554,6 +2689,16 @@
       "repaired": 84,
       "ledger": "../package-03/qa.json"
     },
-    "sidebarNavigationCount": 13
+    "sidebarNavigationCount": 13,
+    "alertResponsive": {
+      "horizontal": "Fill",
+      "vertical": "Height",
+      "masters": [
+        "2081:580",
+        "2081:581",
+        "2081:582",
+        "2081:583"
+      ]
+    }
   }
 }

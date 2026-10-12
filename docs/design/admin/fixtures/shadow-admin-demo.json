@@ -1,0 +1,197 @@
+{
+  "id": "SHADOW-ADM-01",
+  "revision": "0.1",
+  "synthetic": true,
+  "asOf": "2026-10-12T12:00:00Z",
+  "warning": "Fictional design fixtures; no live sources, identities, authentication or monetary actions. Scenario branches are independent snapshots.",
+  "staff": [
+    {
+      "id": "STAFF-201",
+      "name": {
+        "ru": "Елена Морозова",
+        "en": "Elena Morozova"
+      },
+      "role": "Owner A",
+      "email": "elena.owner@demo.example"
+    },
+    {
+      "id": "STAFF-202",
+      "name": {
+        "ru": "Максим Орлов",
+        "en": "Maxim Orlov"
+      },
+      "role": "Owner B",
+      "email": "maxim.owner@demo.example"
+    },
+    {
+      "id": "STAFF-203",
+      "name": {
+        "ru": "Нора Азиз",
+        "en": "Nora Aziz"
+      },
+      "role": "Operations",
+      "permissions": [
+        "operations.view",
+        "support.view/reply",
+        "health.view",
+        "emergency.activate"
+      ],
+      "sessions": [
+        "SES-ADM-41",
+        "SES-ADM-42"
+      ]
+    },
+    {
+      "id": "STAFF-204",
+      "name": {
+        "ru": "Лео Карим",
+        "en": "Leo Karim"
+      },
+      "role": null,
+      "assignmentScenario": "ROLE-MKT v2"
+    },
+    {
+      "id": "STAFF-205",
+      "name": {
+        "ru": "Ева Саид",
+        "en": "Eva Said"
+      },
+      "role": "Auditor",
+      "permissions": [
+        "audit.view"
+      ],
+      "export": false
+    }
+  ],
+  "venues": [
+    {
+      "id": "CONN-PM-01",
+      "name": "Polymarket",
+      "demoData": "checked",
+      "lastSuccess": "12:00 UTC",
+      "live": false
+    },
+    {
+      "id": "CONN-LL-01",
+      "name": "Limitless",
+      "demoData": "checked",
+      "lastSuccess": "11:59 UTC",
+      "live": false
+    }
+  ],
+  "market": {
+    "internalRate": "1 USDT = 1 USD",
+    "liveConnected": false,
+    "sourceRecommendationReference": "120_usdt_usd_sources_and_admin_alerts_2026-10-12.md",
+    "quotes": {
+      "normal": {
+        "Kraken": 0.9998,
+        "CoinGecko": 0.9997
+      },
+      "critical": {
+        "Kraken": 0.975,
+        "CoinGecko": 0.9751
+      },
+      "disagreement": {
+        "Kraken": 0.975,
+        "CoinGecko": 0.997
+      }
+    },
+    "sampleProfile": {
+      "id": "USDT-DEMO v3",
+      "notProductionDefault": true,
+      "warningPercent": 0.5,
+      "criticalPercent": 2,
+      "deviationSeconds": 180,
+      "maxQuoteAgeSeconds": 60,
+      "stableSeconds": 300,
+      "maxDifferencePercentagePoints": 0.2
+    }
+  },
+  "illustrativePaidStage": {
+    "notAlphaBalances": true,
+    "availableUSD": 160,
+    "pendingUSD": 18,
+    "reservedUSD": 25,
+    "totalLiabilityUSD": 203,
+    "partners": [
+      {
+        "id": "PART-024",
+        "name": "Agent A",
+        "available": {
+          "Polymarket": 120,
+          "Limitless": 40
+        },
+        "pendingUSD": 18
+      },
+      {
+        "id": "PART-031",
+        "name": "Agent B",
+        "reservedUSD": 25
+      }
+    ],
+    "partialPayouts": false
+  },
+  "scenarioIds": [
+    "normal",
+    "empty",
+    "feed_stale",
+    "access_denied",
+    "role_assignment",
+    "role_edit",
+    "role_revocation",
+    "connection_isolation",
+    "staff_compromise",
+    "owner_loss",
+    "global_stop",
+    "maintenance",
+    "funding_off",
+    "withdrawals_off",
+    "partner_payouts_off",
+    "market_critical",
+    "source_outage",
+    "source_disagreement",
+    "audit_mismatch"
+  ],
+  "audit": {
+    "rows": [
+      [
+        "AUD-046 · 12:00 UTC | Елена Морозова · STAFF-201 | Настройки USDT-DEMO v3 · сохранено",
+        "AUD-046 · 12:00 UTC | Elena Morozova · STAFF-201 | USDT-DEMO v3 settings · saved"
+      ],
+      [
+        "AUD-045 · 11:59 UTC | Нора Азиз · STAFF-203 | Health CONN-LL-01 · проверено",
+        "AUD-045 · 11:59 UTC | Nora Aziz · STAFF-203 | Health CONN-LL-01 · checked"
+      ],
+      [
+        "AUD-044 · 11:58 UTC | Елена Морозова · STAFF-201 | ROLE-MKT / STAFF-204 · отзыв · branch",
+        "AUD-044 · 11:58 UTC | Elena Morozova · STAFF-201 | ROLE-MKT / STAFF-204 · revoked · branch"
+      ],
+      [
+        "AUD-043 · 11:57 UTC | Елена Морозова · STAFF-201 | ROLE-MKT v3 · изменение · branch",
+        "AUD-043 · 11:57 UTC | Elena Morozova · STAFF-201 | ROLE-MKT v3 · edited · branch"
+      ],
+      [
+        "AUD-042 · 11:56 UTC | Елена Морозова · STAFF-201 | STAFF-204 · назначение ROLE-MKT · branch",
+        "AUD-042 · 11:56 UTC | Elena Morozova · STAFF-201 | STAFF-204 · ROLE-MKT assigned · branch"
+      ],
+      [
+        "AUD-041 · 11:55 UTC | Елена Морозова · STAFF-201 | ROLE-MKT v2 · шаблон сохранён",
+        "AUD-041 · 11:55 UTC | Elena Morozova · STAFF-201 | ROLE-MKT v2 · template saved"
+      ]
+    ],
+    "pagination": {
+      "total": 12,
+      "pageSize": 6
+    },
+    "export": {
+      "selection": [
+        "AUD-041",
+        "AUD-042",
+        "AUD-043",
+        "AUD-044"
+      ],
+      "file": "shadow-admin-demo-audit.csv"
+    }
+  }
+}

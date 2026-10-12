@@ -1,0 +1,5232 @@
+[
+  {
+    "key": "demo-review",
+    "adm": "ADM-01",
+    "nav": "overview",
+    "title": [
+      "Рабочие сценарии админки",
+      "Admin review scenarios"
+    ],
+    "subtitle": [
+      "Учебный набор SHADOW-ADM-01 · 12 октября, 12:00 UTC",
+      "SHADOW-ADM-01 sample dataset · 12 October, 12:00 UTC"
+    ],
+    "notice": [
+      "Все люди, события и суммы вымышлены. Выберите сценарий; переход между ними начинает отдельный пример состояния.",
+      "All people, events and amounts are fictional. Switching scenarios starts a separate state example."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "Сотрудники | 5 личных аккаунтов · два Owner | RU / EN",
+        "Staff | 5 individual accounts · two Owners | RU / EN"
+      ],
+      [
+        "Площадки | Polymarket + Limitless | Данные в демо доступны",
+        "Venues | Polymarket + Limitless | Demo data available"
+      ],
+      [
+        "Финансы · отдельный учебный платный этап | $160 доступно · $18 pending · $25 резерв | Не alpha-баланс",
+        "Finance · separate illustrative paid stage | $160 available · $18 pending · $25 reserved | Not alpha funds"
+      ],
+      [
+        "Сценарии | Нормальный, сбой, инцидент, отказ доступа | Статические снимки",
+        "Scenarios | Normal, outage, incident, denied access | Static snapshots"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Подключения",
+          "Connections"
+        ],
+        "target": "connections",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Сотрудники",
+          "Staff"
+        ],
+        "target": "staff",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Рыночный контроль",
+          "Market monitor"
+        ],
+        "target": "monitor-normal",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Аварийное управление",
+          "Emergency controls"
+        ],
+        "target": "emergency",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Пустой обзор",
+          "Empty overview"
+        ],
+        "target": "empty",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Вход администратора",
+          "Admin sign-in"
+        ],
+        "target": "admin-login",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "admin-login",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Вход в Shadow Admin",
+      "Sign in to Shadow Admin"
+    ],
+    "subtitle": [
+      "Личный аккаунт · демонстрация",
+      "Individual account · demonstration"
+    ],
+    "notice": [
+      "Отдельный личный аккаунт сотрудника. Клиентский аккаунт не даёт доступ к админке.",
+      "Use an individual staff account. Client accounts do not grant admin access."
+    ],
+    "tone": "Info",
+    "auth": true,
+    "actor": "Вход / Sign-in",
+    "fields": [
+      [
+        [
+          "Рабочий аккаунт",
+          "Staff account"
+        ],
+        [
+          "elena.owner@demo.example",
+          "elena.owner@demo.example"
+        ]
+      ],
+      [
+        [
+          "Пароль",
+          "Password"
+        ],
+        [
+          "••••••••",
+          "••••••••"
+        ]
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Продолжить · демо",
+          "Continue · demo"
+        ],
+        "target": "admin-mfa",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Пример ошибки",
+          "Error example"
+        ],
+        "target": "admin-login-error",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "admin-mfa",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Подтвердите вход",
+      "Confirm sign-in"
+    ],
+    "subtitle": [
+      "Личный аккаунт · демонстрация",
+      "Individual account · demonstration"
+    ],
+    "notice": [
+      "Предусмотрено дополнительное подтверждение. Конкретный MFA-провайдер и метод выбираются до реализации.",
+      "Additional verification is required. MFA provider and method are chosen before implementation."
+    ],
+    "tone": "Info",
+    "auth": true,
+    "actor": "Вход / Sign-in",
+    "fields": [
+      [
+        [
+          "Аккаунт",
+          "Account"
+        ],
+        [
+          "Елена Морозова · STAFF-201",
+          "Elena Morozova · STAFF-201"
+        ]
+      ],
+      [
+        [
+          "Подтверждение",
+          "Verification"
+        ],
+        [
+          "Учебный пример: успешно",
+          "Demo verification: successful"
+        ]
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Войти · демо",
+          "Sign in · demo"
+        ],
+        "target": "demo-review",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Подтверждение не прошло",
+          "Verification failed"
+        ],
+        "target": "admin-login-error",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "admin-login-error",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Не удалось подтвердить вход",
+      "Sign-in could not be verified"
+    ],
+    "subtitle": [
+      "Личный аккаунт · демонстрация",
+      "Individual account · demonstration"
+    ],
+    "notice": [
+      "Сообщение не раскрывает существование аккаунта или его роль. Повторный вход проходит обычную проверку.",
+      "This message reveals neither account existence nor role. Retry uses normal verification."
+    ],
+    "tone": "Danger",
+    "auth": true,
+    "actor": "Вход / Sign-in",
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "Повторить вход",
+          "Try again"
+        ],
+        "target": "admin-login",
+        "type": "primary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "admin-session-expired",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Сеанс завершён",
+      "Session expired"
+    ],
+    "subtitle": [
+      "Личный аккаунт · демонстрация",
+      "Individual account · demonstration"
+    ],
+    "notice": [
+      "Сохранённый доступ больше не действует. Финансовые заявки не получают статус успеха от завершения admin-сеанса.",
+      "The session is no longer valid. Expiry does not mark financial operations successful."
+    ],
+    "tone": "Warning",
+    "auth": true,
+    "actor": "Вход / Sign-in",
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "Войти заново",
+          "Sign in again"
+        ],
+        "target": "admin-login",
+        "type": "primary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "admin-session-revoked",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Доступ этого сеанса отозван",
+      "This session was revoked"
+    ],
+    "subtitle": [
+      "Личный аккаунт · демонстрация",
+      "Individual account · demonstration"
+    ],
+    "notice": [
+      "Сеанс SES-ADM-42 нельзя использовать повторно. Приватные сведения рабочего экрана скрыты.",
+      "SES-ADM-42 cannot be reused. Private workspace details are hidden."
+    ],
+    "tone": "Warning",
+    "auth": true,
+    "actor": "Вход / Sign-in",
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "К экрану входа",
+          "Back to sign-in"
+        ],
+        "target": "admin-login",
+        "type": "primary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "owners-unavailable",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Доступ обоих Owner потерян",
+      "Both Owners unavailable"
+    ],
+    "subtitle": [
+      "Защищённое восстановление · статус LOCKED",
+      "Protected recovery · LOCKED status"
+    ],
+    "notice": [
+      "Нет staff-кнопки назначения себя Owner, общего master key или обхода проверки. Денежные действия остаются закрытыми.",
+      "There is no staff self-assignment, master key or verification bypass. Monetary actions remain locked."
+    ],
+    "tone": "Danger",
+    "rows": [
+      [
+        "Owner A / Owner B | Доступ не подтверждён | Денежные возможности закрыты",
+        "Owner A / Owner B | Access unverified | Monetary powers locked"
+      ],
+      [
+        "Recovery-runbook | Способ независимой проверки ещё выбирается | До production",
+        "Recovery runbook | Independent verification method pending | Before production"
+      ],
+      [
+        "Наблюдение операций | Продолжается | Без новой отправки",
+        "Operation observation | Continues | No new submission"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Порядок восстановления",
+          "Recovery guidance"
+        ],
+        "target": "owners-recovery-guidance",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Сотрудники",
+          "Staff"
+        ],
+        "target": "staff",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "owners-recovery-guidance",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Восстановление Owner: безопасный порядок",
+      "Owner recovery: safe procedure"
+    ],
+    "subtitle": [
+      "Организационный runbook · ещё не настроен",
+      "Organizational runbook · not configured"
+    ],
+    "notice": [
+      "Форма показывает требования, а не действующий канал восстановления. Способ проверки и хранители назначаются до production.",
+      "This shows requirements, not an operational recovery channel. Verification and custodians are selected before production."
+    ],
+    "tone": "Warning",
+    "rows": [
+      [
+        "1. Регистрация инцидента | OWNER-REC-001 · учебный пример | Evidence сохраняется",
+        "1. Record incident | OWNER-REC-001 · fixture | Evidence retained"
+      ],
+      [
+        "2. Независимая проверка identity | Защищённый внешний процесс | Не через кнопку в админке",
+        "2. Independent identity verification | Protected external process | No admin bypass button"
+      ],
+      [
+        "3. Восстановление доступа | Только после проверки | Старые approvals не возвращаются",
+        "3. Restore access | After verification only | Old approvals stay invalid"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "К безопасному статусу",
+          "Back to locked state"
+        ],
+        "target": "owners-unavailable",
+        "type": "primary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "role-assignment",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Назначить роль сотруднику",
+      "Assign staff role"
+    ],
+    "subtitle": [
+      "Лео Карим · STAFF-204",
+      "Leo Karim · STAFF-204"
+    ],
+    "notice": [
+      "Назначение отдельно от сохранения шаблона. Нельзя выдать права шире своих или делегировать Owner-only действия.",
+      "Assignment is separate from saving a template. No grants beyond your authority or Owner-only delegation."
+    ],
+    "tone": "Info",
+    "fields": [
+      [
+        [
+          "Сотрудник",
+          "Staff member"
+        ],
+        [
+          "Лео Карим · STAFF-204",
+          "Leo Karim · STAFF-204"
+        ]
+      ],
+      [
+        [
+          "Роль и версия",
+          "Role and version"
+        ],
+        [
+          "Маркетолог · v2",
+          "Marketer · v2"
+        ]
+      ],
+      [
+        [
+          "Область",
+          "Scope"
+        ],
+        [
+          "Demo · Polymarket + Limitless · marketing / content",
+          "Demo · Polymarket + Limitless · marketing / content"
+        ]
+      ],
+      [
+        [
+          "Срок",
+          "Expiry"
+        ],
+        [
+          "Бессрочно · учебный выбор",
+          "Indefinite · fixture choice"
+        ]
+      ],
+      [
+        [
+          "Причина",
+          "Reason"
+        ],
+        [
+          "Работа с объявлениями",
+          "Manage announcements"
+        ]
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить доступ",
+          "Review access"
+        ],
+        "target": "role-assignment-review",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Пример запрета",
+          "Denied example"
+        ],
+        "target": "role-escalation-denied",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "role-assignment-review",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Проверка назначения роли",
+      "Review role assignment"
+    ],
+    "subtitle": [
+      "Owner A → Лео Карим · ROLE-MKT v2",
+      "Owner A → Leo Karim · ROLE-MKT v2"
+    ],
+    "notice": [
+      "Синтетические данные для вычитки. Поля статические; действия не выполняются.",
+      "Synthetic review data. Inputs are static; no operations execute."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "Просмотр / изменение / публикация | marketing.view/edit/publish · content.view | Demo / обе площадки",
+        "View / edit / publish | marketing.view/edit/publish · content.view | Demo / both venues"
+      ],
+      [
+        "Экспорт | Не предоставлен | Отдельное право",
+        "Export | Not granted | Separate permission"
+      ],
+      [
+        "Выплаты / тарифы / Owner | Недоступны | Не могут входить в эту роль",
+        "Payouts / pricing / Owner | Unavailable | Cannot be granted by this role"
+      ],
+      [
+        "Назначение | Точная версия ROLE-MKT v2 | STAFF-204",
+        "Assignment | Exact ROLE-MKT v2 | STAFF-204"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Назначить · демо",
+          "Assign · demo"
+        ],
+        "target": "role-assigned",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Конфликт версии",
+          "Version conflict"
+        ],
+        "target": "role-conflict",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Изменить",
+          "Edit"
+        ],
+        "target": "role-assignment",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "role-assigned",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Роль назначена · демо",
+      "Role assigned · demo"
+    ],
+    "subtitle": [
+      "Лео Карим · STAFF-204 · AUD-042",
+      "Leo Karim · STAFF-204 · AUD-042"
+    ],
+    "notice": [
+      "Права проверяются перед каждым действием. Клиентские trading-сессии не меняются этим назначением.",
+      "Permissions are checked before each action. Client trading sessions are unchanged."
+    ],
+    "tone": "Success",
+    "rows": [
+      [
+        "Сотрудник | Лео Карим · STAFF-204 | Активен",
+        "Staff | Leo Karim · STAFF-204 | Active"
+      ],
+      [
+        "Назначение | Маркетолог · v2 | Demo / обе площадки",
+        "Assignment | Marketer · v2 | Demo / both venues"
+      ],
+      [
+        "Автор | Елена Морозова · STAFF-201 | 12:00 UTC · fixture",
+        "Actor | Elena Morozova · STAFF-201 | 12:00 UTC · fixture"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Изменить роль",
+          "Edit role"
+        ],
+        "target": "role-edit",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Снять назначение",
+          "Revoke assignment"
+        ],
+        "target": "role-revoke",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Журнал",
+          "Audit log"
+        ],
+        "target": "audit-filtered",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "role-edit",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Редактировать роль «Маркетолог»",
+      "Edit Marketer role"
+    ],
+    "subtitle": [
+      "ROLE-MKT · текущая v2 → черновик v3",
+      "ROLE-MKT · current v2 → draft v3"
+    ],
+    "notice": [
+      "Права назначаются по отдельным действиям. Изменение роли влияет на её назначения; показан учебный расширенный вариант.",
+      "Permissions are action-specific. A role change affects its assignments; this is a sample extension."
+    ],
+    "tone": "Info",
+    "fields": [
+      [
+        [
+          "Название",
+          "Name"
+        ],
+        [
+          "Маркетолог",
+          "Marketer"
+        ]
+      ],
+      [
+        [
+          "Комментарий изменения",
+          "Change note"
+        ],
+        [
+          "Добавить паузу объявления",
+          "Add announcement pause"
+        ]
+      ]
+    ],
+    "checks": [
+      [
+        "Маркетинг: просмотр и редактирование",
+        "Marketing: view and edit"
+      ],
+      [
+        "Маркетинг: публикация и пауза",
+        "Marketing: publish and pause"
+      ],
+      [
+        "Контент: только просмотр",
+        "Content: view only"
+      ]
+    ],
+    "rows": [
+      [
+        "Затронуто | 1 назначение · Лео Карим | STAFF-204",
+        "Affected | 1 assignment · Leo Karim | STAFF-204"
+      ],
+      [
+        "Защищённые полномочия | Owner-only исключены | Экспорт не добавлен",
+        "Protected powers | Owner-only excluded | Export not added"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Предпросмотр изменения",
+          "Preview change"
+        ],
+        "target": "role-edit-review",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Запрещённое расширение",
+          "Forbidden expansion"
+        ],
+        "target": "role-escalation-denied",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "role-edit-review",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Изменение прав · v2 → v3",
+      "Permission changes · v2 → v3"
+    ],
+    "subtitle": [
+      "ROLE-MKT · STAFF-204",
+      "ROLE-MKT · STAFF-204"
+    ],
+    "notice": [
+      "Публикация роли не даёт Owner-only полномочия и не возвращает отозванные сеансы.",
+      "Publishing a role grants no Owner-only powers and restores no revoked sessions."
+    ],
+    "tone": "Warning",
+    "rows": [
+      [
+        "Добавлено | marketing.pause | Demo / обе площадки",
+        "Added | marketing.pause | Demo / both venues"
+      ],
+      [
+        "Сохранено | marketing.view/edit/publish · content.view | Без финансов",
+        "Retained | marketing.view/edit/publish · content.view | No finance"
+      ],
+      [
+        "Не предоставлено | export · finance.* · pricing.publish | Owner отдельно",
+        "Not granted | export · finance.* · pricing.publish | Owner separate"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Сохранить v3 · демо",
+          "Save v3 · demo"
+        ],
+        "target": "role-edited",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Конфликт",
+          "Conflict"
+        ],
+        "target": "role-conflict",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "role-edited",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Версия роли сохранена",
+      "Role version saved"
+    ],
+    "subtitle": [
+      "ROLE-MKT v3 · AUD-043",
+      "ROLE-MKT v3 · AUD-043"
+    ],
+    "notice": [
+      "Синтетические данные для вычитки. Поля статические; действия не выполняются.",
+      "Synthetic review data. Inputs are static; no operations execute."
+    ],
+    "tone": "Success",
+    "rows": [
+      [
+        "Действующая версия | v3 · пример | Новые действия проверяют её права",
+        "Current version | v3 · fixture | New actions check its grants"
+      ],
+      [
+        "Назначения | STAFF-204 | Старые approvals не восстанавливаются",
+        "Assignments | STAFF-204 | Old approvals are not restored"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Снять назначение",
+          "Revoke assignment"
+        ],
+        "target": "role-revoke",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Сотрудники",
+          "Staff"
+        ],
+        "target": "staff",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "role-revoke",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Снять назначение роли?",
+      "Revoke role assignment?"
+    ],
+    "subtitle": [
+      "Лео Карим · STAFF-204 · ROLE-MKT",
+      "Leo Karim · STAFF-204 · ROLE-MKT"
+    ],
+    "notice": [
+      "Доступ по назначению прекращается. История сохраняется; отзыв не меняет ledger и не отменяет отправленные операции.",
+      "Assigned access ends. History remains; revocation changes no ledger and cancels no submitted operation."
+    ],
+    "tone": "Warning",
+    "fields": [
+      [
+        [
+          "Причина",
+          "Reason"
+        ],
+        [
+          "Завершение работы с объявлениями",
+          "Announcement work completed"
+        ]
+      ]
+    ],
+    "rows": [
+      [
+        "Область отзыва | ROLE-MKT → STAFF-204 | Demo / обе площадки",
+        "Revocation scope | ROLE-MKT → STAFF-204 | Demo / both venues"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Снять роль · демо",
+          "Revoke role · demo"
+        ],
+        "target": "role-revoked",
+        "type": "danger",
+        "icon": "2032:38"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "role-assigned",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "role-revoked",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Назначение снято · демо",
+      "Assignment revoked · demo"
+    ],
+    "subtitle": [
+      "STAFF-204 · AUD-044",
+      "STAFF-204 · AUD-044"
+    ],
+    "notice": [
+      "Новые действия по этой роли недоступны. Возврат права требует нового разрешённого назначения.",
+      "New actions under this role are denied. Restoring access requires a new authorized assignment."
+    ],
+    "tone": "Success",
+    "rows": [
+      [
+        "Маркетинг / контент | Назначение снято | 12:00 UTC · fixture",
+        "Marketing / content | Assignment revoked | 12:00 UTC · fixture"
+      ],
+      [
+        "Другие назначения | Проверяются отдельно | Нет автоматического повышения",
+        "Other assignments | Checked independently | No automatic elevation"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Сотрудники",
+          "Staff"
+        ],
+        "target": "staff",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Журнал",
+          "Audit log"
+        ],
+        "target": "audit-filtered",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "role-escalation-denied",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Расширение доступа запрещено",
+      "Access expansion denied"
+    ],
+    "subtitle": [
+      "Без самоэскалации и передачи Owner-only прав",
+      "No self-escalation or Owner-only delegation"
+    ],
+    "notice": [
+      "Название «Owner» в кастомной роли не даёт системные полномочия Owner. Чтение не открывает изменение или экспорт.",
+      "Naming a custom role Owner grants no Owner powers. Read access grants neither edits nor export."
+    ],
+    "tone": "Danger",
+    "rows": [
+      [
+        "Запрошено | finance.payout.confirm / Owner | Недоступно кастомной роли",
+        "Requested | finance.payout.confirm / Owner | Unavailable to custom roles"
+      ],
+      [
+        "Результат | Назначение не изменено | Отказ записывается в журнал",
+        "Result | Assignment unchanged | Denial is audited"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Вернуться к роли",
+          "Back to role"
+        ],
+        "target": "role-edit",
+        "type": "primary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "connection-checked-pm",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Polymarket · проверка завершена",
+      "Polymarket · check complete"
+    ],
+    "subtitle": [
+      "CONN-PM-01 · данные / demo",
+      "CONN-PM-01 · data / demo"
+    ],
+    "notice": [
+      "Успех проверки данных не подтверждает доступность реальных денежных операций.",
+      "A successful data check does not verify live monetary operations."
+    ],
+    "tone": "Success",
+    "rows": [
+      [
+        "Каталог / данные | Проверены · fixture | 12:00 UTC",
+        "Catalog / data | Checked · fixture | 12:00 UTC"
+      ],
+      [
+        "Live исполнение / вывод | Не подключены | Отдельные gates",
+        "Live execution / withdrawal | Disconnected | Separate gates"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Подключение",
+          "Connection"
+        ],
+        "target": "connection-pm",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Пример устаревших данных",
+          "Stale-data example"
+        ],
+        "target": "health-stale",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "connection-pm-recovery-check",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Проверка возврата Polymarket",
+      "Check Polymarket recovery"
+    ],
+    "subtitle": [
+      "CONN-PM-01 / demo / денежные функции",
+      "CONN-PM-01 / demo / денежные функции"
+    ],
+    "notice": [
+      "Локальная изоляция и внешний credential — разные состояния. Для возврата денег: Owner + независимый действующий сотрудник, точный scope/version.",
+      "Local isolation and external credentials are distinct. Monetary recovery requires an Owner plus an independent active staff identity and exact scope/version."
+    ],
+    "tone": "Warning",
+    "actor": "Елена Морозова · Owner A / Elena Morozova · Owner A",
+    "checks": [
+      [
+        "Причина устранена · учебное evidence",
+        "Cause addressed · fixture evidence"
+      ],
+      [
+        "Внешний доступ отдельно проверен по runbook · fixture",
+        "External access checked via separate runbook · fixture"
+      ],
+      [
+        "Submitted / unknown остаются на сверке",
+        "Submitted / unknown remain under reconciliation"
+      ]
+    ],
+    "rows": [
+      [
+        "Точная область | CONN-PM-01 · demo · money | Recovery v4",
+        "Exact scope | CONN-PM-01 · demo · money | Recovery v4"
+      ],
+      [
+        "Участники | Елена Морозова + Максим Орлов | Разные identity",
+        "Participants | Elena Morozova + Maxim Orlov | Different identities"
+      ],
+      [
+        "Внешний credential | Evidence проверяется | Нет кнопки раскрытия секрета",
+        "External credential | Evidence under review | No secret reveal"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Запросить независимую проверку",
+          "Request independent review"
+        ],
+        "target": "connection-pm-recovery-review",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Evidence отсутствует",
+          "Evidence missing"
+        ],
+        "target": "connection-pm-recovery-blocked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "connection-pm-recovery-review",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Независимая проверка Polymarket",
+      "Independent Polymarket review"
+    ],
+    "subtitle": [
+      "CONN-PM-01 / demo / денежные функции",
+      "CONN-PM-01 / demo / денежные функции"
+    ],
+    "notice": [
+      "Локальная изоляция и внешний credential — разные состояния. Для возврата денег: Owner + независимый действующий сотрудник, точный scope/version.",
+      "Local isolation and external credentials are distinct. Monetary recovery requires an Owner plus an independent active staff identity and exact scope/version."
+    ],
+    "tone": "Warning",
+    "actor": "Максим Орлов · Owner B / Maxim Orlov · Owner B",
+    "rows": [
+      [
+        "Точная область | CONN-PM-01 · demo · money | Recovery v4",
+        "Exact scope | CONN-PM-01 · demo · money | Recovery v4"
+      ],
+      [
+        "Участники | Елена Морозова + Максим Орлов | Разные identity",
+        "Participants | Elena Morozova + Maxim Orlov | Different identities"
+      ],
+      [
+        "Внешний credential | Evidence проверяется | Нет кнопки раскрытия секрета",
+        "External credential | Evidence under review | No secret reveal"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Подтвердить · демо",
+          "Approve · demo"
+        ],
+        "target": "connection-pm-recovery-restored",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Не готово",
+          "Not ready"
+        ],
+        "target": "connection-pm-recovery-blocked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "connection-pm-recovery-restored",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Polymarket · возврат проверенных функций",
+      "Polymarket · verified functions restored"
+    ],
+    "subtitle": [
+      "CONN-PM-01 / demo / денежные функции",
+      "CONN-PM-01 / demo / денежные функции"
+    ],
+    "notice": [
+      "Старые jobs не отправляются. Денежные операции требуют нового preflight и подтверждения инициатора; live остаётся закрыт.",
+      "Old jobs are not replayed. Money operations require fresh preflight and initiator confirmation; live stays closed."
+    ],
+    "tone": "Success",
+    "actor": "Елена Морозова · Owner A / Elena Morozova · Owner A",
+    "rows": [
+      [
+        "Точная область | CONN-PM-01 · demo · money | Recovery v4",
+        "Exact scope | CONN-PM-01 · demo · money | Recovery v4"
+      ],
+      [
+        "Участники | Елена Морозова + Максим Орлов | Разные identity",
+        "Participants | Elena Morozova + Maxim Orlov | Different identities"
+      ],
+      [
+        "Внешний credential | Проверен в учебном runbook | Нет кнопки раскрытия секрета",
+        "External credential | Checked in sample runbook | No secret reveal"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "К подключению",
+          "Connection"
+        ],
+        "target": "connection-pm",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Журнал",
+          "Audit log"
+        ],
+        "target": "audit-filtered",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "connection-pm-recovery-blocked",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Polymarket · восстановление заблокировано",
+      "Polymarket · recovery blocked"
+    ],
+    "subtitle": [
+      "CONN-PM-01 / demo / денежные функции",
+      "CONN-PM-01 / demo / денежные функции"
+    ],
+    "notice": [
+      "Локальная изоляция и внешний credential — разные состояния. Для возврата денег: Owner + независимый действующий сотрудник, точный scope/version.",
+      "Local isolation and external credentials are distinct. Monetary recovery requires an Owner plus an independent active staff identity and exact scope/version."
+    ],
+    "tone": "Danger",
+    "actor": "Елена Морозова · Owner A / Elena Morozova · Owner A",
+    "rows": [
+      [
+        "Проверка | Внешнее evidence отсутствует | Возврат запрещён",
+        "Check | External evidence missing | Recovery denied"
+      ],
+      [
+        "Изоляция | Сохраняется | Наблюдение продолжается",
+        "Isolation | Remains | Observation continues"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить условия",
+          "Review conditions"
+        ],
+        "target": "connection-pm-recovery-check",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Журнал",
+          "Audit log"
+        ],
+        "target": "audit-filtered",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "connection-checked-ll",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Limitless · проверка завершена",
+      "Limitless · check complete"
+    ],
+    "subtitle": [
+      "CONN-LL-01 · данные / demo",
+      "CONN-LL-01 · data / demo"
+    ],
+    "notice": [
+      "Успех проверки данных не подтверждает доступность реальных денежных операций.",
+      "A successful data check does not verify live monetary operations."
+    ],
+    "tone": "Success",
+    "rows": [
+      [
+        "Каталог / данные | Проверены · fixture | 12:00 UTC",
+        "Catalog / data | Checked · fixture | 12:00 UTC"
+      ],
+      [
+        "Live исполнение / вывод | Не подключены | Отдельные gates",
+        "Live execution / withdrawal | Disconnected | Separate gates"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Подключение",
+          "Connection"
+        ],
+        "target": "connection-ll",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Пример устаревших данных",
+          "Stale-data example"
+        ],
+        "target": "health-stale",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "connection-ll-recovery-check",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Проверка возврата Limitless",
+      "Check Limitless recovery"
+    ],
+    "subtitle": [
+      "CONN-LL-01 / demo / денежные функции",
+      "CONN-LL-01 / demo / денежные функции"
+    ],
+    "notice": [
+      "Локальная изоляция и внешний credential — разные состояния. Для возврата денег: Owner + независимый действующий сотрудник, точный scope/version.",
+      "Local isolation and external credentials are distinct. Monetary recovery requires an Owner plus an independent active staff identity and exact scope/version."
+    ],
+    "tone": "Warning",
+    "actor": "Елена Морозова · Owner A / Elena Morozova · Owner A",
+    "checks": [
+      [
+        "Причина устранена · учебное evidence",
+        "Cause addressed · fixture evidence"
+      ],
+      [
+        "Внешний доступ отдельно проверен по runbook · fixture",
+        "External access checked via separate runbook · fixture"
+      ],
+      [
+        "Submitted / unknown остаются на сверке",
+        "Submitted / unknown remain under reconciliation"
+      ]
+    ],
+    "rows": [
+      [
+        "Точная область | CONN-LL-01 · demo · money | Recovery v4",
+        "Exact scope | CONN-LL-01 · demo · money | Recovery v4"
+      ],
+      [
+        "Участники | Елена Морозова + Максим Орлов | Разные identity",
+        "Participants | Elena Morozova + Maxim Orlov | Different identities"
+      ],
+      [
+        "Внешний credential | Evidence проверяется | Нет кнопки раскрытия секрета",
+        "External credential | Evidence under review | No secret reveal"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Запросить независимую проверку",
+          "Request independent review"
+        ],
+        "target": "connection-ll-recovery-review",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Evidence отсутствует",
+          "Evidence missing"
+        ],
+        "target": "connection-ll-recovery-blocked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "connection-ll-recovery-review",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Независимая проверка Limitless",
+      "Independent Limitless review"
+    ],
+    "subtitle": [
+      "CONN-LL-01 / demo / денежные функции",
+      "CONN-LL-01 / demo / денежные функции"
+    ],
+    "notice": [
+      "Локальная изоляция и внешний credential — разные состояния. Для возврата денег: Owner + независимый действующий сотрудник, точный scope/version.",
+      "Local isolation and external credentials are distinct. Monetary recovery requires an Owner plus an independent active staff identity and exact scope/version."
+    ],
+    "tone": "Warning",
+    "actor": "Максим Орлов · Owner B / Maxim Orlov · Owner B",
+    "rows": [
+      [
+        "Точная область | CONN-LL-01 · demo · money | Recovery v4",
+        "Exact scope | CONN-LL-01 · demo · money | Recovery v4"
+      ],
+      [
+        "Участники | Елена Морозова + Максим Орлов | Разные identity",
+        "Participants | Elena Morozova + Maxim Orlov | Different identities"
+      ],
+      [
+        "Внешний credential | Evidence проверяется | Нет кнопки раскрытия секрета",
+        "External credential | Evidence under review | No secret reveal"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Подтвердить · демо",
+          "Approve · demo"
+        ],
+        "target": "connection-ll-recovery-restored",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Не готово",
+          "Not ready"
+        ],
+        "target": "connection-ll-recovery-blocked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "connection-ll-recovery-restored",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Limitless · возврат проверенных функций",
+      "Limitless · verified functions restored"
+    ],
+    "subtitle": [
+      "CONN-LL-01 / demo / денежные функции",
+      "CONN-LL-01 / demo / денежные функции"
+    ],
+    "notice": [
+      "Старые jobs не отправляются. Денежные операции требуют нового preflight и подтверждения инициатора; live остаётся закрыт.",
+      "Old jobs are not replayed. Money operations require fresh preflight and initiator confirmation; live stays closed."
+    ],
+    "tone": "Success",
+    "actor": "Елена Морозова · Owner A / Elena Morozova · Owner A",
+    "rows": [
+      [
+        "Точная область | CONN-LL-01 · demo · money | Recovery v4",
+        "Exact scope | CONN-LL-01 · demo · money | Recovery v4"
+      ],
+      [
+        "Участники | Елена Морозова + Максим Орлов | Разные identity",
+        "Participants | Elena Morozova + Maxim Orlov | Different identities"
+      ],
+      [
+        "Внешний credential | Проверен в учебном runbook | Нет кнопки раскрытия секрета",
+        "External credential | Checked in sample runbook | No secret reveal"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "К подключению",
+          "Connection"
+        ],
+        "target": "connection-ll",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Журнал",
+          "Audit log"
+        ],
+        "target": "audit-filtered",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "connection-ll-recovery-blocked",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Limitless · восстановление заблокировано",
+      "Limitless · recovery blocked"
+    ],
+    "subtitle": [
+      "CONN-LL-01 / demo / денежные функции",
+      "CONN-LL-01 / demo / денежные функции"
+    ],
+    "notice": [
+      "Локальная изоляция и внешний credential — разные состояния. Для возврата денег: Owner + независимый действующий сотрудник, точный scope/version.",
+      "Local isolation and external credentials are distinct. Monetary recovery requires an Owner plus an independent active staff identity and exact scope/version."
+    ],
+    "tone": "Danger",
+    "actor": "Елена Морозова · Owner A / Elena Morozova · Owner A",
+    "rows": [
+      [
+        "Проверка | Внешнее evidence отсутствует | Возврат запрещён",
+        "Check | External evidence missing | Recovery denied"
+      ],
+      [
+        "Изоляция | Сохраняется | Наблюдение продолжается",
+        "Isolation | Remains | Observation continues"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить условия",
+          "Review conditions"
+        ],
+        "target": "connection-ll-recovery-check",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Журнал",
+          "Audit log"
+        ],
+        "target": "audit-filtered",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "account-recovery-check",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Восстановление учётной записи",
+      "Staff account recovery"
+    ],
+    "subtitle": [
+      "Нора Азиз · STAFF-203 · INCIDENT-032",
+      "Nora Aziz · STAFF-203 · INCIDENT-032"
+    ],
+    "notice": [
+      "Старые сеансы и approvals остаются отозванными. Identity, причина инцидента и точная версия проверяются отдельно; денежные scope требуют независимой проверки.",
+      "Old sessions and approvals stay revoked. Identity, incident cause and exact version are checked separately; monetary scopes need independent review."
+    ],
+    "tone": "Warning",
+    "rows": [
+      [
+        "Аккаунт / версия | STAFF-203 · auth v5 | Учебная проверка",
+        "Account / version | STAFF-203 · auth v5 | Fixture verification"
+      ],
+      [
+        "Identity / MFA | Учебное evidence IDV-DEMO-032 | Боевой метод ещё не выбран",
+        "Identity / MFA | Fixture evidence IDV-DEMO-032 | Production method pending"
+      ],
+      [
+        "Сеансы / approvals | Старые не возвращаются | Новый вход отдельно",
+        "Sessions / approvals | Old ones not restored | New sign-in separate"
+      ],
+      [
+        "Отправленные операции | Продолжают сверку | Без повтора",
+        "Submitted operations | Reconciliation continues | No resend"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Независимая проверка",
+          "Independent review"
+        ],
+        "target": "account-recovery-review",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Пример отказа",
+          "Denied example"
+        ],
+        "target": "account-recovery-blocked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "account-recovery-review",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Независимая проверка сотрудника",
+      "Independent staff review"
+    ],
+    "subtitle": [
+      "Нора Азиз · STAFF-203 · INCIDENT-032",
+      "Nora Aziz · STAFF-203 · INCIDENT-032"
+    ],
+    "notice": [
+      "Старые сеансы и approvals остаются отозванными. Identity, причина инцидента и точная версия проверяются отдельно; денежные scope требуют независимой проверки.",
+      "Old sessions and approvals stay revoked. Identity, incident cause and exact version are checked separately; monetary scopes need independent review."
+    ],
+    "tone": "Warning",
+    "actor": "Максим Орлов · Owner B / Maxim Orlov · Owner B",
+    "rows": [
+      [
+        "Аккаунт / версия | STAFF-203 · auth v5 | Учебная проверка",
+        "Account / version | STAFF-203 · auth v5 | Fixture verification"
+      ],
+      [
+        "Identity / MFA | Учебное evidence IDV-DEMO-032 | Боевой метод ещё не выбран",
+        "Identity / MFA | Fixture evidence IDV-DEMO-032 | Production method pending"
+      ],
+      [
+        "Сеансы / approvals | Старые не возвращаются | Новый вход отдельно",
+        "Sessions / approvals | Old ones not restored | New sign-in separate"
+      ],
+      [
+        "Отправленные операции | Продолжают сверку | Без повтора",
+        "Submitted operations | Reconciliation continues | No resend"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Вернуть доступ · демо",
+          "Restore access · demo"
+        ],
+        "target": "account-recovery-restored",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Не готово",
+          "Not ready"
+        ],
+        "target": "account-recovery-blocked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "account-recovery-restored",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Доступ сотрудника восстановлен · демо",
+      "Staff access restored · demo"
+    ],
+    "subtitle": [
+      "Нора Азиз · STAFF-203 · INCIDENT-032",
+      "Nora Aziz · STAFF-203 · INCIDENT-032"
+    ],
+    "notice": [
+      "Старые сеансы и approvals остаются отозванными. Identity, причина инцидента и точная версия проверяются отдельно; денежные scope требуют независимой проверки.",
+      "Old sessions and approvals stay revoked. Identity, incident cause and exact version are checked separately; monetary scopes need independent review."
+    ],
+    "tone": "Success",
+    "rows": [
+      [
+        "Аккаунт / версия | STAFF-203 · auth v5 | Новая версия",
+        "Account / version | STAFF-203 · auth v5 | New version"
+      ],
+      [
+        "Identity / MFA | Учебное evidence IDV-DEMO-032 | Боевой метод ещё не выбран",
+        "Identity / MFA | Fixture evidence IDV-DEMO-032 | Production method pending"
+      ],
+      [
+        "Сеансы / approvals | Старые не возвращаются | Новый вход отдельно",
+        "Sessions / approvals | Old ones not restored | New sign-in separate"
+      ],
+      [
+        "Отправленные операции | Продолжают сверку | Без повтора",
+        "Submitted operations | Reconciliation continues | No resend"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Новый вход",
+          "New sign-in"
+        ],
+        "target": "admin-login",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Назначения",
+          "Assignments"
+        ],
+        "target": "role-assignment",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "account-recovery-blocked",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Восстановление не разрешено",
+      "Recovery not authorized"
+    ],
+    "subtitle": [
+      "Нора Азиз · STAFF-203 · INCIDENT-032",
+      "Nora Aziz · STAFF-203 · INCIDENT-032"
+    ],
+    "notice": [
+      "Старые сеансы и approvals остаются отозванными. Identity, причина инцидента и точная версия проверяются отдельно; денежные scope требуют независимой проверки.",
+      "Old sessions and approvals stay revoked. Identity, incident cause and exact version are checked separately; monetary scopes need independent review."
+    ],
+    "tone": "Danger",
+    "rows": [
+      [
+        "Аккаунт / версия | STAFF-203 · auth v5 | Учебная проверка",
+        "Account / version | STAFF-203 · auth v5 | Fixture verification"
+      ],
+      [
+        "Identity / MFA | Evidence отсутствует | Боевой метод ещё не выбран",
+        "Identity / MFA | Evidence missing | Production method pending"
+      ],
+      [
+        "Сеансы / approvals | Старые не возвращаются | Новый вход отдельно",
+        "Sessions / approvals | Old ones not restored | New sign-in separate"
+      ],
+      [
+        "Отправленные операции | Продолжают сверку | Без повтора",
+        "Submitted operations | Reconciliation continues | No resend"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить заново",
+          "Recheck"
+        ],
+        "target": "account-recovery-check",
+        "type": "primary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-tech-scope",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Технический режим",
+      "Maintenance mode"
+    ],
+    "subtitle": [
+      "TECH_MODE · Demo / обе площадки / новые инструкции",
+      "TECH_MODE · Demo / both venues / new instructions"
+    ],
+    "notice": [
+      "Запрещает новые инструкции через Shadow. Наблюдение, диагностика и сверка продолжаются.",
+      "Blocks new Shadow instructions. Observation, diagnostics and reconciliation continue."
+    ],
+    "tone": "Warning",
+    "actor": "Нора Азиз · Operations / Nora Aziz · Operations",
+    "fields": [
+      [
+        [
+          "Область объекта",
+          "Object scope"
+        ],
+        [
+          "Вся учебная среда",
+          "Demo environment"
+        ]
+      ],
+      [
+        [
+          "Площадка / действие",
+          "Venue / action"
+        ],
+        [
+          "Demo / обе площадки / новые инструкции",
+          "Demo / both venues / new instructions"
+        ]
+      ],
+      [
+        [
+          "Среда",
+          "Environment"
+        ],
+        [
+          "Demo · live не подключён",
+          "Demo · live disconnected"
+        ]
+      ],
+      [
+        [
+          "Причина",
+          "Reason"
+        ],
+        [
+          "Проверка инцидента INCIDENT-034",
+          "Investigate INCIDENT-034"
+        ]
+      ]
+    ],
+    "rows": [
+      [
+        "Другие области | Не затрагиваются | Прямые внешние переводы не блокируются",
+        "Other scopes | Unchanged | Direct external transfers are not blocked"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить последствия",
+          "Review effects"
+        ],
+        "target": "control-tech-confirm",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "emergency",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-tech-confirm",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Включить ограничение?",
+      "Activate restriction?"
+    ],
+    "subtitle": [
+      "TECH_MODE · Demo / обе площадки / новые инструкции",
+      "TECH_MODE · Demo / both venues / new instructions"
+    ],
+    "notice": [
+      "Запрещает новые инструкции через Shadow. Наблюдение, диагностика и сверка продолжаются.",
+      "Blocks new Shadow instructions. Observation, diagnostics and reconciliation continue."
+    ],
+    "tone": "Warning",
+    "actor": "Нора Азиз · Operations / Nora Aziz · Operations",
+    "rows": [
+      [
+        "Точная область | Вся учебная среда | TECH_MODE",
+        "Exact scope | Demo environment | TECH_MODE"
+      ],
+      [
+        "Версия | CTRL-TECH_MODE v2 | Demo",
+        "Version | CTRL-TECH_MODE v2 | Demo"
+      ],
+      [
+        "Включает | Нора Азиз · STAFF-203 | Один уполномоченный сотрудник",
+        "Activated by | Nora Aziz · STAFF-203 | One authorized staff identity"
+      ],
+      [
+        "Отправленные операции | Сверка продолжается | Нет фиктивной отмены",
+        "Submitted operations | Reconciliation continues | No fake cancellation"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Включить · демо",
+          "Activate · demo"
+        ],
+        "target": "control-tech-partial",
+        "type": "danger",
+        "icon": "2032:53"
+      },
+      {
+        "label": [
+          "Изменить область",
+          "Edit scope"
+        ],
+        "target": "control-tech-scope",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-tech-partial",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Применение не подтверждено полностью",
+      "Enforcement not fully confirmed"
+    ],
+    "subtitle": [
+      "TECH_MODE · Demo / обе площадки / новые инструкции",
+      "TECH_MODE · Demo / both venues / new instructions"
+    ],
+    "notice": [
+      "Запрещает новые инструкции через Shadow. Наблюдение, диагностика и сверка продолжаются.",
+      "Blocks new Shadow instructions. Observation, diagnostics and reconciliation continue."
+    ],
+    "tone": "Warning",
+    "actor": "Нора Азиз · Operations / Nora Aziz · Operations",
+    "rows": [
+      [
+        "Новые инструкции | Запрет зафиксирован · fixture | CTRL v2",
+        "New instructions | Restriction recorded · fixture | CTRL v2"
+      ],
+      [
+        "Executor / signer | Подтверждение ожидается | Не считать полным стопом",
+        "Executor / signer | Acknowledgment pending | Not a complete stop"
+      ],
+      [
+        "Наблюдение / сверка | Продолжаются | Без новых отправок",
+        "Observation / reconciliation | Continue | No new submissions"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить применение",
+          "Check enforcement"
+        ],
+        "target": "control-tech-active",
+        "type": "primary",
+        "icon": "2032:50"
+      },
+      {
+        "label": [
+          "Неизвестный результат",
+          "Unknown result"
+        ],
+        "target": "control-tech-blocked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-tech-active",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Ограничение применено · демо",
+      "Restriction enforced · demo"
+    ],
+    "subtitle": [
+      "TECH_MODE · Demo / обе площадки / новые инструкции",
+      "TECH_MODE · Demo / both venues / new instructions"
+    ],
+    "notice": [
+      "Запрещает новые инструкции через Shadow. Наблюдение, диагностика и сверка продолжаются.",
+      "Blocks new Shadow instructions. Observation, diagnostics and reconciliation continue."
+    ],
+    "tone": "Warning",
+    "actor": "Нора Азиз · Operations / Nora Aziz · Operations",
+    "rows": [
+      [
+        "Ограничение | Применено в учебном примере | CTRL-TECH_MODE v2",
+        "Restriction | Enforced in fixture | CTRL-TECH_MODE v2"
+      ],
+      [
+        "Объект | Вся учебная среда | INCIDENT-034",
+        "Object | Demo environment | INCIDENT-034"
+      ],
+      [
+        "Наблюдение | Работает · демо | История и обязательства сохранены",
+        "Observation | Running · demo | History and liabilities retained"
+      ],
+      [
+        "Live | Не подключён | Это не реальная блокировка",
+        "Live | Disconnected | No actual restriction executed"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверка восстановления",
+          "Recovery checklist"
+        ],
+        "target": "control-tech-recovery-check",
+        "type": "primary",
+        "icon": "2032:56"
+      },
+      {
+        "label": [
+          "Журнал",
+          "Audit log"
+        ],
+        "target": "audit-filtered",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-tech-recovery-check",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Проверка перед восстановлением",
+      "Pre-recovery checks"
+    ],
+    "subtitle": [
+      "TECH_MODE · Demo / обе площадки / новые инструкции",
+      "TECH_MODE · Demo / both venues / new instructions"
+    ],
+    "notice": [
+      "Owner и другой действующий уполномоченный сотрудник проверяют одинаковый scope/version. Один человек не подтверждает обе стороны.",
+      "An Owner and another active authorized staff identity verify the same scope/version. One person cannot approve both sides."
+    ],
+    "tone": "Warning",
+    "checks": [
+      [
+        "Причина устранена · fixture",
+        "Cause addressed · fixture"
+      ],
+      [
+        "Источники / исполнитель проверены · fixture",
+        "Sources / executor checked · fixture"
+      ],
+      [
+        "Неотправленное требует нового подтверждения",
+        "Unsent requests require new confirmation"
+      ]
+    ],
+    "rows": [
+      [
+        "Запрос | Вся учебная среда · TECH_MODE | Recovery v3 / demo",
+        "Request | Demo environment · TECH_MODE | Recovery v3 / demo"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Запросить независимую проверку",
+          "Request independent review"
+        ],
+        "target": "control-tech-recovery-review",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Условия не выполнены",
+          "Checks incomplete"
+        ],
+        "target": "control-tech-blocked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-tech-recovery-review",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Независимое подтверждение",
+      "Independent approval"
+    ],
+    "subtitle": [
+      "TECH_MODE · Demo / обе площадки / новые инструкции",
+      "TECH_MODE · Demo / both venues / new instructions"
+    ],
+    "notice": [
+      "Owner и другой действующий уполномоченный сотрудник проверяют одинаковый scope/version. Один человек не подтверждает обе стороны.",
+      "An Owner and another active authorized staff identity verify the same scope/version. One person cannot approve both sides."
+    ],
+    "tone": "Warning",
+    "actor": "Максим Орлов · Owner B / Maxim Orlov · Owner B",
+    "rows": [
+      [
+        "Инициатор | Елена Морозова · STAFF-201 | Owner A",
+        "Initiator | Elena Morozova · STAFF-201 | Owner A"
+      ],
+      [
+        "Подтверждающий | Максим Орлов · STAFF-202 | Независимая действующая identity",
+        "Reviewer | Maxim Orlov · STAFF-202 | Independent active identity"
+      ],
+      [
+        "Scope / версия | Вся учебная среда / TECH_MODE | Recovery v3 · fixture",
+        "Scope / version | Demo environment / TECH_MODE | Recovery v3 · fixture"
+      ],
+      [
+        "Сама денежная операция | Не подтверждается этим шагом | Новый preflight отдельно",
+        "Monetary operation | Not authorized by this approval | Fresh preflight separate"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Подтвердить возврат · демо",
+          "Approve restoration · demo"
+        ],
+        "target": "control-tech-restored",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Отказать / не готово",
+          "Decline / not ready"
+        ],
+        "target": "control-tech-blocked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-tech-restored",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Поэтапный возврат функций",
+      "Staged restoration"
+    ],
+    "subtitle": [
+      "TECH_MODE · Demo / обе площадки / новые инструкции",
+      "TECH_MODE · Demo / both venues / new instructions"
+    ],
+    "notice": [
+      "Снятие ограничения не подтверждает отдельную операцию. Старые неотправленные заявки требуют новой проверки и подтверждения инициатора; live закрыт.",
+      "Removing a restriction does not authorize an operation. Old unsent requests need fresh checks and initiator confirmation; live stays closed."
+    ],
+    "tone": "Success",
+    "rows": [
+      [
+        "Наблюдение / данные | Доступны · fixture | Вся учебная среда",
+        "Observation / data | Available · fixture | Demo environment"
+      ],
+      [
+        "Неотправленные заявки | Нужна новая проверка и подтверждение | Без автоотправки",
+        "Unsent requests | Fresh checks and confirmation needed | No replay"
+      ],
+      [
+        "Submitted / unknown | Сверка прежнего результата | Без повторной отправки",
+        "Submitted / unknown | Reconcile original outcome | No resend"
+      ],
+      [
+        "Live | Не подключён | Проверяется при интеграции",
+        "Live | Disconnected | Verified during integration"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Аварийное управление",
+          "Emergency controls"
+        ],
+        "target": "emergency",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Журнал",
+          "Audit log"
+        ],
+        "target": "audit-filtered",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-tech-blocked",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Возврат функций заблокирован",
+      "Restoration blocked"
+    ],
+    "subtitle": [
+      "TECH_MODE · Demo / обе площадки / новые инструкции",
+      "TECH_MODE · Demo / both venues / new instructions"
+    ],
+    "notice": [
+      "Запрещает новые инструкции через Shadow. Наблюдение, диагностика и сверка продолжаются.",
+      "Blocks new Shadow instructions. Observation, diagnostics and reconciliation continue."
+    ],
+    "tone": "Danger",
+    "rows": [
+      [
+        "Точная область | Вся учебная среда / TECH_MODE | Ограничение сохранено",
+        "Exact scope | Demo environment / TECH_MODE | Restriction retained"
+      ],
+      [
+        "Причина | Evidence / acknowledgment не подтверждён | Нет автоматического возврата",
+        "Reason | Evidence / acknowledgment unverified | No automatic restore"
+      ],
+      [
+        "Submitted / unknown | Наблюдение продолжается | Без повтора",
+        "Submitted / unknown | Observation continues | No resend"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить условия",
+          "Review conditions"
+        ],
+        "target": "control-tech-recovery-check",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Управление",
+          "Controls"
+        ],
+        "target": "emergency",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-deposits-scope",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Отключение пополнений",
+      "Disable funding"
+    ],
+    "subtitle": [
+      "DEPOSITS_OFF · Demo / Polymarket / инструкции пополнения",
+      "DEPOSITS_OFF · Demo / Polymarket / funding instructions"
+    ],
+    "notice": [
+      "Скрывает новые инструкции пополнения в Shadow. Прямое поступление на известный адрес не блокируется и продолжает наблюдаться.",
+      "Disables new funding instructions in Shadow. Direct deposits to known addresses are not blocked and remain observed."
+    ],
+    "tone": "Warning",
+    "actor": "Нора Азиз · Operations / Nora Aziz · Operations",
+    "fields": [
+      [
+        [
+          "Область объекта",
+          "Object scope"
+        ],
+        [
+          "CONN-PM-01",
+          "CONN-PM-01"
+        ]
+      ],
+      [
+        [
+          "Площадка / действие",
+          "Venue / action"
+        ],
+        [
+          "Demo / Polymarket / инструкции пополнения",
+          "Demo / Polymarket / funding instructions"
+        ]
+      ],
+      [
+        [
+          "Среда",
+          "Environment"
+        ],
+        [
+          "Demo · live не подключён",
+          "Demo · live disconnected"
+        ]
+      ],
+      [
+        [
+          "Причина",
+          "Reason"
+        ],
+        [
+          "Проверка инцидента INCIDENT-034",
+          "Investigate INCIDENT-034"
+        ]
+      ]
+    ],
+    "rows": [
+      [
+        "Другие области | Не затрагиваются | Прямые внешние переводы не блокируются",
+        "Other scopes | Unchanged | Direct external transfers are not blocked"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить последствия",
+          "Review effects"
+        ],
+        "target": "control-deposits-confirm",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "emergency",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-deposits-confirm",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Включить ограничение?",
+      "Activate restriction?"
+    ],
+    "subtitle": [
+      "DEPOSITS_OFF · Demo / Polymarket / инструкции пополнения",
+      "DEPOSITS_OFF · Demo / Polymarket / funding instructions"
+    ],
+    "notice": [
+      "Скрывает новые инструкции пополнения в Shadow. Прямое поступление на известный адрес не блокируется и продолжает наблюдаться.",
+      "Disables new funding instructions in Shadow. Direct deposits to known addresses are not blocked and remain observed."
+    ],
+    "tone": "Warning",
+    "actor": "Нора Азиз · Operations / Nora Aziz · Operations",
+    "rows": [
+      [
+        "Точная область | CONN-PM-01 | DEPOSITS_OFF",
+        "Exact scope | CONN-PM-01 | DEPOSITS_OFF"
+      ],
+      [
+        "Версия | CTRL-DEPOSITS_OFF v2 | Demo",
+        "Version | CTRL-DEPOSITS_OFF v2 | Demo"
+      ],
+      [
+        "Включает | Нора Азиз · STAFF-203 | Один уполномоченный сотрудник",
+        "Activated by | Nora Aziz · STAFF-203 | One authorized staff identity"
+      ],
+      [
+        "Отправленные операции | Сверка продолжается | Нет фиктивной отмены",
+        "Submitted operations | Reconciliation continues | No fake cancellation"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Включить · демо",
+          "Activate · demo"
+        ],
+        "target": "control-deposits-partial",
+        "type": "danger",
+        "icon": "2032:53"
+      },
+      {
+        "label": [
+          "Изменить область",
+          "Edit scope"
+        ],
+        "target": "control-deposits-scope",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-deposits-partial",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Применение не подтверждено полностью",
+      "Enforcement not fully confirmed"
+    ],
+    "subtitle": [
+      "DEPOSITS_OFF · Demo / Polymarket / инструкции пополнения",
+      "DEPOSITS_OFF · Demo / Polymarket / funding instructions"
+    ],
+    "notice": [
+      "Скрывает новые инструкции пополнения в Shadow. Прямое поступление на известный адрес не блокируется и продолжает наблюдаться.",
+      "Disables new funding instructions in Shadow. Direct deposits to known addresses are not blocked and remain observed."
+    ],
+    "tone": "Warning",
+    "actor": "Нора Азиз · Operations / Nora Aziz · Operations",
+    "rows": [
+      [
+        "Новые инструкции | Запрет зафиксирован · fixture | CTRL v2",
+        "New instructions | Restriction recorded · fixture | CTRL v2"
+      ],
+      [
+        "Executor / signer | Подтверждение ожидается | Не считать полным стопом",
+        "Executor / signer | Acknowledgment pending | Not a complete stop"
+      ],
+      [
+        "Наблюдение / сверка | Продолжаются | Без новых отправок",
+        "Observation / reconciliation | Continue | No new submissions"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить применение",
+          "Check enforcement"
+        ],
+        "target": "control-deposits-active",
+        "type": "primary",
+        "icon": "2032:50"
+      },
+      {
+        "label": [
+          "Неизвестный результат",
+          "Unknown result"
+        ],
+        "target": "control-deposits-blocked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-deposits-active",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Ограничение применено · демо",
+      "Restriction enforced · demo"
+    ],
+    "subtitle": [
+      "DEPOSITS_OFF · Demo / Polymarket / инструкции пополнения",
+      "DEPOSITS_OFF · Demo / Polymarket / funding instructions"
+    ],
+    "notice": [
+      "Скрывает новые инструкции пополнения в Shadow. Прямое поступление на известный адрес не блокируется и продолжает наблюдаться.",
+      "Disables new funding instructions in Shadow. Direct deposits to known addresses are not blocked and remain observed."
+    ],
+    "tone": "Warning",
+    "actor": "Нора Азиз · Operations / Nora Aziz · Operations",
+    "rows": [
+      [
+        "Ограничение | Применено в учебном примере | CTRL-DEPOSITS_OFF v2",
+        "Restriction | Enforced in fixture | CTRL-DEPOSITS_OFF v2"
+      ],
+      [
+        "Объект | CONN-PM-01 | INCIDENT-034",
+        "Object | CONN-PM-01 | INCIDENT-034"
+      ],
+      [
+        "Наблюдение | Работает · демо | История и обязательства сохранены",
+        "Observation | Running · demo | History and liabilities retained"
+      ],
+      [
+        "Live | Не подключён | Это не реальная блокировка",
+        "Live | Disconnected | No actual restriction executed"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверка восстановления",
+          "Recovery checklist"
+        ],
+        "target": "control-deposits-recovery-check",
+        "type": "primary",
+        "icon": "2032:56"
+      },
+      {
+        "label": [
+          "Журнал",
+          "Audit log"
+        ],
+        "target": "audit-filtered",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Поступление во время запрета",
+          "Deposit during restriction"
+        ],
+        "target": "deposits-observed",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-deposits-recovery-check",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Проверка перед восстановлением",
+      "Pre-recovery checks"
+    ],
+    "subtitle": [
+      "DEPOSITS_OFF · Demo / Polymarket / инструкции пополнения",
+      "DEPOSITS_OFF · Demo / Polymarket / funding instructions"
+    ],
+    "notice": [
+      "Owner и другой действующий уполномоченный сотрудник проверяют одинаковый scope/version. Один человек не подтверждает обе стороны.",
+      "An Owner and another active authorized staff identity verify the same scope/version. One person cannot approve both sides."
+    ],
+    "tone": "Warning",
+    "checks": [
+      [
+        "Причина устранена · fixture",
+        "Cause addressed · fixture"
+      ],
+      [
+        "Источники / исполнитель проверены · fixture",
+        "Sources / executor checked · fixture"
+      ],
+      [
+        "Неотправленное требует нового подтверждения",
+        "Unsent requests require new confirmation"
+      ]
+    ],
+    "rows": [
+      [
+        "Запрос | CONN-PM-01 · DEPOSITS_OFF | Recovery v3 / demo",
+        "Request | CONN-PM-01 · DEPOSITS_OFF | Recovery v3 / demo"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Запросить независимую проверку",
+          "Request independent review"
+        ],
+        "target": "control-deposits-recovery-review",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Условия не выполнены",
+          "Checks incomplete"
+        ],
+        "target": "control-deposits-blocked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-deposits-recovery-review",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Независимое подтверждение",
+      "Independent approval"
+    ],
+    "subtitle": [
+      "DEPOSITS_OFF · Demo / Polymarket / инструкции пополнения",
+      "DEPOSITS_OFF · Demo / Polymarket / funding instructions"
+    ],
+    "notice": [
+      "Owner и другой действующий уполномоченный сотрудник проверяют одинаковый scope/version. Один человек не подтверждает обе стороны.",
+      "An Owner and another active authorized staff identity verify the same scope/version. One person cannot approve both sides."
+    ],
+    "tone": "Warning",
+    "actor": "Максим Орлов · Owner B / Maxim Orlov · Owner B",
+    "rows": [
+      [
+        "Инициатор | Елена Морозова · STAFF-201 | Owner A",
+        "Initiator | Elena Morozova · STAFF-201 | Owner A"
+      ],
+      [
+        "Подтверждающий | Максим Орлов · STAFF-202 | Независимая действующая identity",
+        "Reviewer | Maxim Orlov · STAFF-202 | Independent active identity"
+      ],
+      [
+        "Scope / версия | CONN-PM-01 / DEPOSITS_OFF | Recovery v3 · fixture",
+        "Scope / version | CONN-PM-01 / DEPOSITS_OFF | Recovery v3 · fixture"
+      ],
+      [
+        "Сама денежная операция | Не подтверждается этим шагом | Новый preflight отдельно",
+        "Monetary operation | Not authorized by this approval | Fresh preflight separate"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Подтвердить возврат · демо",
+          "Approve restoration · demo"
+        ],
+        "target": "control-deposits-restored",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Отказать / не готово",
+          "Decline / not ready"
+        ],
+        "target": "control-deposits-blocked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-deposits-restored",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Поэтапный возврат функций",
+      "Staged restoration"
+    ],
+    "subtitle": [
+      "DEPOSITS_OFF · Demo / Polymarket / инструкции пополнения",
+      "DEPOSITS_OFF · Demo / Polymarket / funding instructions"
+    ],
+    "notice": [
+      "Снятие ограничения не подтверждает отдельную операцию. Старые неотправленные заявки требуют новой проверки и подтверждения инициатора; live закрыт.",
+      "Removing a restriction does not authorize an operation. Old unsent requests need fresh checks and initiator confirmation; live stays closed."
+    ],
+    "tone": "Success",
+    "rows": [
+      [
+        "Наблюдение / данные | Доступны · fixture | CONN-PM-01",
+        "Observation / data | Available · fixture | CONN-PM-01"
+      ],
+      [
+        "Неотправленные заявки | Нужна новая проверка и подтверждение | Без автоотправки",
+        "Unsent requests | Fresh checks and confirmation needed | No replay"
+      ],
+      [
+        "Submitted / unknown | Сверка прежнего результата | Без повторной отправки",
+        "Submitted / unknown | Reconcile original outcome | No resend"
+      ],
+      [
+        "Live | Не подключён | Проверяется при интеграции",
+        "Live | Disconnected | Verified during integration"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Аварийное управление",
+          "Emergency controls"
+        ],
+        "target": "emergency",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Журнал",
+          "Audit log"
+        ],
+        "target": "audit-filtered",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-deposits-blocked",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Возврат функций заблокирован",
+      "Restoration blocked"
+    ],
+    "subtitle": [
+      "DEPOSITS_OFF · Demo / Polymarket / инструкции пополнения",
+      "DEPOSITS_OFF · Demo / Polymarket / funding instructions"
+    ],
+    "notice": [
+      "Скрывает новые инструкции пополнения в Shadow. Прямое поступление на известный адрес не блокируется и продолжает наблюдаться.",
+      "Disables new funding instructions in Shadow. Direct deposits to known addresses are not blocked and remain observed."
+    ],
+    "tone": "Danger",
+    "rows": [
+      [
+        "Точная область | CONN-PM-01 / DEPOSITS_OFF | Ограничение сохранено",
+        "Exact scope | CONN-PM-01 / DEPOSITS_OFF | Restriction retained"
+      ],
+      [
+        "Причина | Evidence / acknowledgment не подтверждён | Нет автоматического возврата",
+        "Reason | Evidence / acknowledgment unverified | No automatic restore"
+      ],
+      [
+        "Submitted / unknown | Наблюдение продолжается | Без повтора",
+        "Submitted / unknown | Observation continues | No resend"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить условия",
+          "Review conditions"
+        ],
+        "target": "control-deposits-recovery-check",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Управление",
+          "Controls"
+        ],
+        "target": "emergency",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-withdrawals-scope",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Отключение пользовательских выводов",
+      "Disable client withdrawals"
+    ],
+    "subtitle": [
+      "WITHDRAWALS_OFF · Demo / Limitless / пользовательский вывод",
+      "WITHDRAWALS_OFF · Demo / Limitless / client withdrawals"
+    ],
+    "notice": [
+      "Блокирует новые пользовательские выводы через Shadow. Submitted/unknown продолжают сверку; повтора нет. Выплаты партнёрам — отдельный control.",
+      "Blocks new client withdrawals through Shadow. Submitted/unknown remain reconciled without resend. Partner payouts use a separate control."
+    ],
+    "tone": "Warning",
+    "actor": "Нора Азиз · Operations / Nora Aziz · Operations",
+    "fields": [
+      [
+        [
+          "Область объекта",
+          "Object scope"
+        ],
+        [
+          "CONN-LL-01 · route-DEMO-LL",
+          "CONN-LL-01 · route-DEMO-LL"
+        ]
+      ],
+      [
+        [
+          "Площадка / действие",
+          "Venue / action"
+        ],
+        [
+          "Demo / Limitless / пользовательский вывод",
+          "Demo / Limitless / client withdrawals"
+        ]
+      ],
+      [
+        [
+          "Среда",
+          "Environment"
+        ],
+        [
+          "Demo · live не подключён",
+          "Demo · live disconnected"
+        ]
+      ],
+      [
+        [
+          "Причина",
+          "Reason"
+        ],
+        [
+          "Проверка инцидента INCIDENT-034",
+          "Investigate INCIDENT-034"
+        ]
+      ]
+    ],
+    "rows": [
+      [
+        "Другие области | Не затрагиваются | Прямые внешние переводы не блокируются",
+        "Other scopes | Unchanged | Direct external transfers are not blocked"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить последствия",
+          "Review effects"
+        ],
+        "target": "control-withdrawals-confirm",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "emergency",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-withdrawals-confirm",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Включить ограничение?",
+      "Activate restriction?"
+    ],
+    "subtitle": [
+      "WITHDRAWALS_OFF · Demo / Limitless / пользовательский вывод",
+      "WITHDRAWALS_OFF · Demo / Limitless / client withdrawals"
+    ],
+    "notice": [
+      "Блокирует новые пользовательские выводы через Shadow. Submitted/unknown продолжают сверку; повтора нет. Выплаты партнёрам — отдельный control.",
+      "Blocks new client withdrawals through Shadow. Submitted/unknown remain reconciled without resend. Partner payouts use a separate control."
+    ],
+    "tone": "Warning",
+    "actor": "Нора Азиз · Operations / Nora Aziz · Operations",
+    "rows": [
+      [
+        "Точная область | CONN-LL-01 · route-DEMO-LL | WITHDRAWALS_OFF",
+        "Exact scope | CONN-LL-01 · route-DEMO-LL | WITHDRAWALS_OFF"
+      ],
+      [
+        "Версия | CTRL-WITHDRAWALS_OFF v2 | Demo",
+        "Version | CTRL-WITHDRAWALS_OFF v2 | Demo"
+      ],
+      [
+        "Включает | Нора Азиз · STAFF-203 | Один уполномоченный сотрудник",
+        "Activated by | Nora Aziz · STAFF-203 | One authorized staff identity"
+      ],
+      [
+        "Отправленные операции | Сверка продолжается | Нет фиктивной отмены",
+        "Submitted operations | Reconciliation continues | No fake cancellation"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Включить · демо",
+          "Activate · demo"
+        ],
+        "target": "control-withdrawals-partial",
+        "type": "danger",
+        "icon": "2032:53"
+      },
+      {
+        "label": [
+          "Изменить область",
+          "Edit scope"
+        ],
+        "target": "control-withdrawals-scope",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-withdrawals-partial",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Применение не подтверждено полностью",
+      "Enforcement not fully confirmed"
+    ],
+    "subtitle": [
+      "WITHDRAWALS_OFF · Demo / Limitless / пользовательский вывод",
+      "WITHDRAWALS_OFF · Demo / Limitless / client withdrawals"
+    ],
+    "notice": [
+      "Блокирует новые пользовательские выводы через Shadow. Submitted/unknown продолжают сверку; повтора нет. Выплаты партнёрам — отдельный control.",
+      "Blocks new client withdrawals through Shadow. Submitted/unknown remain reconciled without resend. Partner payouts use a separate control."
+    ],
+    "tone": "Warning",
+    "actor": "Нора Азиз · Operations / Nora Aziz · Operations",
+    "rows": [
+      [
+        "Новые инструкции | Запрет зафиксирован · fixture | CTRL v2",
+        "New instructions | Restriction recorded · fixture | CTRL v2"
+      ],
+      [
+        "Executor / signer | Подтверждение ожидается | Не считать полным стопом",
+        "Executor / signer | Acknowledgment pending | Not a complete stop"
+      ],
+      [
+        "Наблюдение / сверка | Продолжаются | Без новых отправок",
+        "Observation / reconciliation | Continue | No new submissions"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить применение",
+          "Check enforcement"
+        ],
+        "target": "control-withdrawals-active",
+        "type": "primary",
+        "icon": "2032:50"
+      },
+      {
+        "label": [
+          "Неизвестный результат",
+          "Unknown result"
+        ],
+        "target": "control-withdrawals-blocked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-withdrawals-active",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Ограничение применено · демо",
+      "Restriction enforced · demo"
+    ],
+    "subtitle": [
+      "WITHDRAWALS_OFF · Demo / Limitless / пользовательский вывод",
+      "WITHDRAWALS_OFF · Demo / Limitless / client withdrawals"
+    ],
+    "notice": [
+      "Блокирует новые пользовательские выводы через Shadow. Submitted/unknown продолжают сверку; повтора нет. Выплаты партнёрам — отдельный control.",
+      "Blocks new client withdrawals through Shadow. Submitted/unknown remain reconciled without resend. Partner payouts use a separate control."
+    ],
+    "tone": "Warning",
+    "actor": "Нора Азиз · Operations / Nora Aziz · Operations",
+    "rows": [
+      [
+        "Ограничение | Применено в учебном примере | CTRL-WITHDRAWALS_OFF v2",
+        "Restriction | Enforced in fixture | CTRL-WITHDRAWALS_OFF v2"
+      ],
+      [
+        "Объект | CONN-LL-01 · route-DEMO-LL | INCIDENT-034",
+        "Object | CONN-LL-01 · route-DEMO-LL | INCIDENT-034"
+      ],
+      [
+        "Наблюдение | Работает · демо | История и обязательства сохранены",
+        "Observation | Running · demo | History and liabilities retained"
+      ],
+      [
+        "Live | Не подключён | Это не реальная блокировка",
+        "Live | Disconnected | No actual restriction executed"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверка восстановления",
+          "Recovery checklist"
+        ],
+        "target": "control-withdrawals-recovery-check",
+        "type": "primary",
+        "icon": "2032:56"
+      },
+      {
+        "label": [
+          "Журнал",
+          "Audit log"
+        ],
+        "target": "audit-filtered",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-withdrawals-recovery-check",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Проверка перед восстановлением",
+      "Pre-recovery checks"
+    ],
+    "subtitle": [
+      "WITHDRAWALS_OFF · Demo / Limitless / пользовательский вывод",
+      "WITHDRAWALS_OFF · Demo / Limitless / client withdrawals"
+    ],
+    "notice": [
+      "Owner и другой действующий уполномоченный сотрудник проверяют одинаковый scope/version. Один человек не подтверждает обе стороны.",
+      "An Owner and another active authorized staff identity verify the same scope/version. One person cannot approve both sides."
+    ],
+    "tone": "Warning",
+    "checks": [
+      [
+        "Причина устранена · fixture",
+        "Cause addressed · fixture"
+      ],
+      [
+        "Источники / исполнитель проверены · fixture",
+        "Sources / executor checked · fixture"
+      ],
+      [
+        "Неотправленное требует нового подтверждения",
+        "Unsent requests require new confirmation"
+      ]
+    ],
+    "rows": [
+      [
+        "Запрос | CONN-LL-01 · route-DEMO-LL · WITHDRAWALS_OFF | Recovery v3 / demo",
+        "Request | CONN-LL-01 · route-DEMO-LL · WITHDRAWALS_OFF | Recovery v3 / demo"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Запросить независимую проверку",
+          "Request independent review"
+        ],
+        "target": "control-withdrawals-recovery-review",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Условия не выполнены",
+          "Checks incomplete"
+        ],
+        "target": "control-withdrawals-blocked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-withdrawals-recovery-review",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Независимое подтверждение",
+      "Independent approval"
+    ],
+    "subtitle": [
+      "WITHDRAWALS_OFF · Demo / Limitless / пользовательский вывод",
+      "WITHDRAWALS_OFF · Demo / Limitless / client withdrawals"
+    ],
+    "notice": [
+      "Owner и другой действующий уполномоченный сотрудник проверяют одинаковый scope/version. Один человек не подтверждает обе стороны.",
+      "An Owner and another active authorized staff identity verify the same scope/version. One person cannot approve both sides."
+    ],
+    "tone": "Warning",
+    "actor": "Максим Орлов · Owner B / Maxim Orlov · Owner B",
+    "rows": [
+      [
+        "Инициатор | Елена Морозова · STAFF-201 | Owner A",
+        "Initiator | Elena Morozova · STAFF-201 | Owner A"
+      ],
+      [
+        "Подтверждающий | Максим Орлов · STAFF-202 | Независимая действующая identity",
+        "Reviewer | Maxim Orlov · STAFF-202 | Independent active identity"
+      ],
+      [
+        "Scope / версия | CONN-LL-01 · route-DEMO-LL / WITHDRAWALS_OFF | Recovery v3 · fixture",
+        "Scope / version | CONN-LL-01 · route-DEMO-LL / WITHDRAWALS_OFF | Recovery v3 · fixture"
+      ],
+      [
+        "Сама денежная операция | Не подтверждается этим шагом | Новый preflight отдельно",
+        "Monetary operation | Not authorized by this approval | Fresh preflight separate"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Подтвердить возврат · демо",
+          "Approve restoration · demo"
+        ],
+        "target": "control-withdrawals-restored",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Отказать / не готово",
+          "Decline / not ready"
+        ],
+        "target": "control-withdrawals-blocked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-withdrawals-restored",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Поэтапный возврат функций",
+      "Staged restoration"
+    ],
+    "subtitle": [
+      "WITHDRAWALS_OFF · Demo / Limitless / пользовательский вывод",
+      "WITHDRAWALS_OFF · Demo / Limitless / client withdrawals"
+    ],
+    "notice": [
+      "Снятие ограничения не подтверждает отдельную операцию. Старые неотправленные заявки требуют новой проверки и подтверждения инициатора; live закрыт.",
+      "Removing a restriction does not authorize an operation. Old unsent requests need fresh checks and initiator confirmation; live stays closed."
+    ],
+    "tone": "Success",
+    "rows": [
+      [
+        "Наблюдение / данные | Доступны · fixture | CONN-LL-01 · route-DEMO-LL",
+        "Observation / data | Available · fixture | CONN-LL-01 · route-DEMO-LL"
+      ],
+      [
+        "Неотправленные заявки | Нужна новая проверка и подтверждение | Без автоотправки",
+        "Unsent requests | Fresh checks and confirmation needed | No replay"
+      ],
+      [
+        "Submitted / unknown | Сверка прежнего результата | Без повторной отправки",
+        "Submitted / unknown | Reconcile original outcome | No resend"
+      ],
+      [
+        "Live | Не подключён | Проверяется при интеграции",
+        "Live | Disconnected | Verified during integration"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Аварийное управление",
+          "Emergency controls"
+        ],
+        "target": "emergency",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Журнал",
+          "Audit log"
+        ],
+        "target": "audit-filtered",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-withdrawals-blocked",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Возврат функций заблокирован",
+      "Restoration blocked"
+    ],
+    "subtitle": [
+      "WITHDRAWALS_OFF · Demo / Limitless / пользовательский вывод",
+      "WITHDRAWALS_OFF · Demo / Limitless / client withdrawals"
+    ],
+    "notice": [
+      "Блокирует новые пользовательские выводы через Shadow. Submitted/unknown продолжают сверку; повтора нет. Выплаты партнёрам — отдельный control.",
+      "Blocks new client withdrawals through Shadow. Submitted/unknown remain reconciled without resend. Partner payouts use a separate control."
+    ],
+    "tone": "Danger",
+    "rows": [
+      [
+        "Точная область | CONN-LL-01 · route-DEMO-LL / WITHDRAWALS_OFF | Ограничение сохранено",
+        "Exact scope | CONN-LL-01 · route-DEMO-LL / WITHDRAWALS_OFF | Restriction retained"
+      ],
+      [
+        "Причина | Evidence / acknowledgment не подтверждён | Нет автоматического возврата",
+        "Reason | Evidence / acknowledgment unverified | No automatic restore"
+      ],
+      [
+        "Submitted / unknown | Наблюдение продолжается | Без повтора",
+        "Submitted / unknown | Observation continues | No resend"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить условия",
+          "Review conditions"
+        ],
+        "target": "control-withdrawals-recovery-check",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Управление",
+          "Controls"
+        ],
+        "target": "emergency",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-partner-payouts-scope",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Отключение выплат партнёрам",
+      "Disable partner payouts"
+    ],
+    "subtitle": [
+      "PARTNER_PAYOUTS_OFF · Demo / Polymarket / сервисная выплата",
+      "PARTNER_PAYOUTS_OFF · Demo / Polymarket / service payout"
+    ],
+    "notice": [
+      "Запрещает новые сервисные выплаты в выбранной области. Подтверждённые обязательства и резервы сохраняются; отправленное сверяется.",
+      "Blocks new scoped service payouts. Confirmed liabilities and reserves remain; submitted operations are reconciled."
+    ],
+    "tone": "Warning",
+    "actor": "Нора Азиз · Operations / Nora Aziz · Operations",
+    "fields": [
+      [
+        [
+          "Область объекта",
+          "Object scope"
+        ],
+        [
+          "SOURCE-PM-01 · PART-024",
+          "SOURCE-PM-01 · PART-024"
+        ]
+      ],
+      [
+        [
+          "Площадка / действие",
+          "Venue / action"
+        ],
+        [
+          "Demo / Polymarket / сервисная выплата",
+          "Demo / Polymarket / service payout"
+        ]
+      ],
+      [
+        [
+          "Среда",
+          "Environment"
+        ],
+        [
+          "Demo · live не подключён",
+          "Demo · live disconnected"
+        ]
+      ],
+      [
+        [
+          "Причина",
+          "Reason"
+        ],
+        [
+          "Проверка инцидента INCIDENT-034",
+          "Investigate INCIDENT-034"
+        ]
+      ]
+    ],
+    "rows": [
+      [
+        "Другие области | Не затрагиваются | Прямые внешние переводы не блокируются",
+        "Other scopes | Unchanged | Direct external transfers are not blocked"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить последствия",
+          "Review effects"
+        ],
+        "target": "control-partner-payouts-confirm",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "emergency",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-partner-payouts-confirm",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Включить ограничение?",
+      "Activate restriction?"
+    ],
+    "subtitle": [
+      "PARTNER_PAYOUTS_OFF · Demo / Polymarket / сервисная выплата",
+      "PARTNER_PAYOUTS_OFF · Demo / Polymarket / service payout"
+    ],
+    "notice": [
+      "Запрещает новые сервисные выплаты в выбранной области. Подтверждённые обязательства и резервы сохраняются; отправленное сверяется.",
+      "Blocks new scoped service payouts. Confirmed liabilities and reserves remain; submitted operations are reconciled."
+    ],
+    "tone": "Warning",
+    "actor": "Нора Азиз · Operations / Nora Aziz · Operations",
+    "rows": [
+      [
+        "Точная область | SOURCE-PM-01 · PART-024 | PARTNER_PAYOUTS_OFF",
+        "Exact scope | SOURCE-PM-01 · PART-024 | PARTNER_PAYOUTS_OFF"
+      ],
+      [
+        "Версия | CTRL-PARTNER_PAYOUTS_OFF v2 | Demo",
+        "Version | CTRL-PARTNER_PAYOUTS_OFF v2 | Demo"
+      ],
+      [
+        "Включает | Нора Азиз · STAFF-203 | Один уполномоченный сотрудник",
+        "Activated by | Nora Aziz · STAFF-203 | One authorized staff identity"
+      ],
+      [
+        "Отправленные операции | Сверка продолжается | Нет фиктивной отмены",
+        "Submitted operations | Reconciliation continues | No fake cancellation"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Включить · демо",
+          "Activate · demo"
+        ],
+        "target": "control-partner-payouts-partial",
+        "type": "danger",
+        "icon": "2032:53"
+      },
+      {
+        "label": [
+          "Изменить область",
+          "Edit scope"
+        ],
+        "target": "control-partner-payouts-scope",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-partner-payouts-partial",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Применение не подтверждено полностью",
+      "Enforcement not fully confirmed"
+    ],
+    "subtitle": [
+      "PARTNER_PAYOUTS_OFF · Demo / Polymarket / сервисная выплата",
+      "PARTNER_PAYOUTS_OFF · Demo / Polymarket / service payout"
+    ],
+    "notice": [
+      "Запрещает новые сервисные выплаты в выбранной области. Подтверждённые обязательства и резервы сохраняются; отправленное сверяется.",
+      "Blocks new scoped service payouts. Confirmed liabilities and reserves remain; submitted operations are reconciled."
+    ],
+    "tone": "Warning",
+    "actor": "Нора Азиз · Operations / Nora Aziz · Operations",
+    "rows": [
+      [
+        "Новые инструкции | Запрет зафиксирован · fixture | CTRL v2",
+        "New instructions | Restriction recorded · fixture | CTRL v2"
+      ],
+      [
+        "Executor / signer | Подтверждение ожидается | Не считать полным стопом",
+        "Executor / signer | Acknowledgment pending | Not a complete stop"
+      ],
+      [
+        "Наблюдение / сверка | Продолжаются | Без новых отправок",
+        "Observation / reconciliation | Continue | No new submissions"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить применение",
+          "Check enforcement"
+        ],
+        "target": "control-partner-payouts-active",
+        "type": "primary",
+        "icon": "2032:50"
+      },
+      {
+        "label": [
+          "Неизвестный результат",
+          "Unknown result"
+        ],
+        "target": "control-partner-payouts-blocked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-partner-payouts-active",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Ограничение применено · демо",
+      "Restriction enforced · demo"
+    ],
+    "subtitle": [
+      "PARTNER_PAYOUTS_OFF · Demo / Polymarket / сервисная выплата",
+      "PARTNER_PAYOUTS_OFF · Demo / Polymarket / service payout"
+    ],
+    "notice": [
+      "Запрещает новые сервисные выплаты в выбранной области. Подтверждённые обязательства и резервы сохраняются; отправленное сверяется.",
+      "Blocks new scoped service payouts. Confirmed liabilities and reserves remain; submitted operations are reconciled."
+    ],
+    "tone": "Warning",
+    "actor": "Нора Азиз · Operations / Nora Aziz · Operations",
+    "rows": [
+      [
+        "Ограничение | Применено в учебном примере | CTRL-PARTNER_PAYOUTS_OFF v2",
+        "Restriction | Enforced in fixture | CTRL-PARTNER_PAYOUTS_OFF v2"
+      ],
+      [
+        "Объект | SOURCE-PM-01 · PART-024 | INCIDENT-034",
+        "Object | SOURCE-PM-01 · PART-024 | INCIDENT-034"
+      ],
+      [
+        "Наблюдение | Работает · демо | История и обязательства сохранены",
+        "Observation | Running · demo | History and liabilities retained"
+      ],
+      [
+        "Live | Не подключён | Это не реальная блокировка",
+        "Live | Disconnected | No actual restriction executed"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверка восстановления",
+          "Recovery checklist"
+        ],
+        "target": "control-partner-payouts-recovery-check",
+        "type": "primary",
+        "icon": "2032:56"
+      },
+      {
+        "label": [
+          "Журнал",
+          "Audit log"
+        ],
+        "target": "audit-filtered",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-partner-payouts-recovery-check",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Проверка перед восстановлением",
+      "Pre-recovery checks"
+    ],
+    "subtitle": [
+      "PARTNER_PAYOUTS_OFF · Demo / Polymarket / сервисная выплата",
+      "PARTNER_PAYOUTS_OFF · Demo / Polymarket / service payout"
+    ],
+    "notice": [
+      "Owner и другой действующий уполномоченный сотрудник проверяют одинаковый scope/version. Один человек не подтверждает обе стороны.",
+      "An Owner and another active authorized staff identity verify the same scope/version. One person cannot approve both sides."
+    ],
+    "tone": "Warning",
+    "checks": [
+      [
+        "Причина устранена · fixture",
+        "Cause addressed · fixture"
+      ],
+      [
+        "Источники / исполнитель проверены · fixture",
+        "Sources / executor checked · fixture"
+      ],
+      [
+        "Неотправленное требует нового подтверждения",
+        "Unsent requests require new confirmation"
+      ]
+    ],
+    "rows": [
+      [
+        "Запрос | SOURCE-PM-01 · PART-024 · PARTNER_PAYOUTS_OFF | Recovery v3 / demo",
+        "Request | SOURCE-PM-01 · PART-024 · PARTNER_PAYOUTS_OFF | Recovery v3 / demo"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Запросить независимую проверку",
+          "Request independent review"
+        ],
+        "target": "control-partner-payouts-recovery-review",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Условия не выполнены",
+          "Checks incomplete"
+        ],
+        "target": "control-partner-payouts-blocked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-partner-payouts-recovery-review",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Независимое подтверждение",
+      "Independent approval"
+    ],
+    "subtitle": [
+      "PARTNER_PAYOUTS_OFF · Demo / Polymarket / сервисная выплата",
+      "PARTNER_PAYOUTS_OFF · Demo / Polymarket / service payout"
+    ],
+    "notice": [
+      "Owner и другой действующий уполномоченный сотрудник проверяют одинаковый scope/version. Один человек не подтверждает обе стороны.",
+      "An Owner and another active authorized staff identity verify the same scope/version. One person cannot approve both sides."
+    ],
+    "tone": "Warning",
+    "actor": "Максим Орлов · Owner B / Maxim Orlov · Owner B",
+    "rows": [
+      [
+        "Инициатор | Елена Морозова · STAFF-201 | Owner A",
+        "Initiator | Elena Morozova · STAFF-201 | Owner A"
+      ],
+      [
+        "Подтверждающий | Максим Орлов · STAFF-202 | Независимая действующая identity",
+        "Reviewer | Maxim Orlov · STAFF-202 | Independent active identity"
+      ],
+      [
+        "Scope / версия | SOURCE-PM-01 · PART-024 / PARTNER_PAYOUTS_OFF | Recovery v3 · fixture",
+        "Scope / version | SOURCE-PM-01 · PART-024 / PARTNER_PAYOUTS_OFF | Recovery v3 · fixture"
+      ],
+      [
+        "Сама денежная операция | Не подтверждается этим шагом | Новый preflight отдельно",
+        "Monetary operation | Not authorized by this approval | Fresh preflight separate"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Подтвердить возврат · демо",
+          "Approve restoration · demo"
+        ],
+        "target": "control-partner-payouts-restored",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Отказать / не готово",
+          "Decline / not ready"
+        ],
+        "target": "control-partner-payouts-blocked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-partner-payouts-restored",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Поэтапный возврат функций",
+      "Staged restoration"
+    ],
+    "subtitle": [
+      "PARTNER_PAYOUTS_OFF · Demo / Polymarket / сервисная выплата",
+      "PARTNER_PAYOUTS_OFF · Demo / Polymarket / service payout"
+    ],
+    "notice": [
+      "Снятие ограничения не подтверждает отдельную операцию. Старые неотправленные заявки требуют новой проверки и подтверждения инициатора; live закрыт.",
+      "Removing a restriction does not authorize an operation. Old unsent requests need fresh checks and initiator confirmation; live stays closed."
+    ],
+    "tone": "Success",
+    "rows": [
+      [
+        "Наблюдение / данные | Доступны · fixture | SOURCE-PM-01 · PART-024",
+        "Observation / data | Available · fixture | SOURCE-PM-01 · PART-024"
+      ],
+      [
+        "Неотправленные заявки | Нужна новая проверка и подтверждение | Без автоотправки",
+        "Unsent requests | Fresh checks and confirmation needed | No replay"
+      ],
+      [
+        "Submitted / unknown | Сверка прежнего результата | Без повторной отправки",
+        "Submitted / unknown | Reconcile original outcome | No resend"
+      ],
+      [
+        "Live | Не подключён | Проверяется при интеграции",
+        "Live | Disconnected | Verified during integration"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Аварийное управление",
+          "Emergency controls"
+        ],
+        "target": "emergency",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Журнал",
+          "Audit log"
+        ],
+        "target": "audit-filtered",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "control-partner-payouts-blocked",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Возврат функций заблокирован",
+      "Restoration blocked"
+    ],
+    "subtitle": [
+      "PARTNER_PAYOUTS_OFF · Demo / Polymarket / сервисная выплата",
+      "PARTNER_PAYOUTS_OFF · Demo / Polymarket / service payout"
+    ],
+    "notice": [
+      "Запрещает новые сервисные выплаты в выбранной области. Подтверждённые обязательства и резервы сохраняются; отправленное сверяется.",
+      "Blocks new scoped service payouts. Confirmed liabilities and reserves remain; submitted operations are reconciled."
+    ],
+    "tone": "Danger",
+    "rows": [
+      [
+        "Точная область | SOURCE-PM-01 · PART-024 / PARTNER_PAYOUTS_OFF | Ограничение сохранено",
+        "Exact scope | SOURCE-PM-01 · PART-024 / PARTNER_PAYOUTS_OFF | Restriction retained"
+      ],
+      [
+        "Причина | Evidence / acknowledgment не подтверждён | Нет автоматического возврата",
+        "Reason | Evidence / acknowledgment unverified | No automatic restore"
+      ],
+      [
+        "Submitted / unknown | Наблюдение продолжается | Без повтора",
+        "Submitted / unknown | Observation continues | No resend"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить условия",
+          "Review conditions"
+        ],
+        "target": "control-partner-payouts-recovery-check",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Управление",
+          "Controls"
+        ],
+        "target": "emergency",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "deposits-observed",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Поступления при отключённых пополнениях",
+      "Deposits while funding is disabled"
+    ],
+    "subtitle": [
+      "DEPOSITS_OFF / Polymarket · отдельный учебный денежный сценарий",
+      "DEPOSITS_OFF / Polymarket · separate illustrative money scenario"
+    ],
+    "notice": [
+      "Запрет инструкции не блокирует внешнее поступление. Подтверждённый факт учитывается один раз; ожидание не становится доступным балансом.",
+      "Blocking instructions cannot prevent an external deposit. Confirmed facts count once; pending observations are not available funds."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "OBS-101 · USR-DEMO-01 | 30 USDT · подтверждено в fixture | Источник / событие EVT-101",
+        "OBS-101 · USR-DEMO-01 | 30 USDT · confirmed fixture | Source / event EVT-101"
+      ],
+      [
+        "OBS-102 · USR-DEMO-02 | 40 USDT · проверка не завершена | Не доступно",
+        "OBS-102 · USR-DEMO-02 | 40 USDT · verification pending | Unavailable"
+      ],
+      [
+        "Владение активом | У внешнего кошелька / провайдера | Shadow не обещает удержание",
+        "Asset custody | External wallet / provider | No Shadow custody promise"
+      ],
+      [
+        "Повтор наблюдения EVT-101 | Не создаёт второе зачисление | Требование сверки",
+        "Repeated EVT-101 observation | No second credit | Reconciliation requirement"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "К ограничению",
+          "Back to restriction"
+        ],
+        "target": "control-deposits-active",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Журнал",
+          "Audit log"
+        ],
+        "target": "audit-filtered",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "monitor-normal",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "USDT / USD · нормальный учебный сценарий",
+      "USDT / USD · normal sample scenario"
+    ],
+    "subtitle": [
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC",
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC"
+    ],
+    "notice": [
+      "Числа — учебный профиль, а не production-default. Исторический учёт 1 USDT = $1 не меняется.",
+      "Numbers are a sample profile, not production defaults. Historical 1 USDT = $1 accounting is unchanged."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "Kraken · основной | $0.9998 · fixture | Quote 12:00 UTC",
+        "Kraken · primary | $0.9998 · fixture | Quote 12:00 UTC"
+      ],
+      [
+        "CoinGecko · сверка | $0.9997 · fixture | Quote 11:59:40 UTC",
+        "CoinGecko · cross-check | $0.9997 · fixture | Quote 11:59:40 UTC"
+      ],
+      [
+        "Отклонение | −0.02% / −0.03% | Ниже учебного порога",
+        "Deviation | −0.02% / −0.03% | Below sample threshold"
+      ],
+      [
+        "Живой источник | Не подключён | Показан воспроизводимый fixture",
+        "Live source | Disconnected | Reproducible fixture shown"
+      ],
+      [
+        "Внутренний учёт | 1 USDT = $1 | Прошлое не пересчитывается",
+        "Internal accounting | 1 USDT = $1 | No historical repricing"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Учебные настройки",
+          "Sample settings"
+        ],
+        "target": "monitor-profile",
+        "type": "primary",
+        "icon": "2032:34"
+      },
+      {
+        "label": [
+          "Потеря источника",
+          "Source outage"
+        ],
+        "target": "monitor-source-unavailable",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Расхождение",
+          "Disagreement"
+        ],
+        "target": "monitor-source-disagreement",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Критическое отклонение",
+          "Critical deviation"
+        ],
+        "target": "monitor-critical",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Уведомления",
+          "Notifications"
+        ],
+        "target": "monitor-notifications",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "monitor-profile",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Настройки контроля · заполненный пример",
+      "Monitor settings · filled example"
+    ],
+    "subtitle": [
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC",
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC"
+    ],
+    "notice": [
+      "Числа — учебный профиль, а не production-default. Исторический учёт 1 USDT = $1 не меняется.",
+      "Numbers are a sample profile, not production defaults. Historical 1 USDT = $1 accounting is unchanged."
+    ],
+    "tone": "Info",
+    "fields": [
+      [
+        [
+          "Порог предупреждения, % · пример",
+          "Warning threshold, % · sample"
+        ],
+        [
+          "0.50",
+          "0.50"
+        ]
+      ],
+      [
+        [
+          "Критическое отклонение, % · пример",
+          "Critical deviation, % · sample"
+        ],
+        [
+          "2.00",
+          "2.00"
+        ]
+      ],
+      [
+        [
+          "Длительность отклонения · пример",
+          "Deviation duration · sample"
+        ],
+        [
+          "180 s",
+          "180 s"
+        ]
+      ],
+      [
+        [
+          "Максимальный возраст котировки · пример",
+          "Max quote age · sample"
+        ],
+        [
+          "60 s",
+          "60 s"
+        ]
+      ],
+      [
+        [
+          "Стабильное окно · пример",
+          "Stable window · sample"
+        ],
+        [
+          "300 s",
+          "300 s"
+        ]
+      ],
+      [
+        [
+          "Допустимое расхождение источников · пример",
+          "Allowed source difference · sample"
+        ],
+        [
+          "0.20 п.п.",
+          "0.20 pp"
+        ]
+      ]
+    ],
+    "rows": [
+      [
+        "Источники | Kraken USDT/USD + CoinGecko tether/USD | Учебная конфигурация",
+        "Sources | Kraken USDT/USD + CoinGecko tether/USD | Fixture configuration"
+      ],
+      [
+        "Получатели | Елена Морозова + Максим Орлов | Внутренние уведомления",
+        "Recipients | Elena Morozova + Maxim Orlov | In-app admin notifications"
+      ],
+      [
+        "Критическая область | Demo / Polymarket / сервисная выплата | Не все маршруты",
+        "Critical scope | Demo / Polymarket / service payout | Not every route"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить профиль",
+          "Validate profile"
+        ],
+        "target": "monitor-profile-review",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Пустые значения · пример",
+          "Empty values · example"
+        ],
+        "target": "usdt-settings",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "monitor-profile-review",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Проверка учебного профиля",
+      "Review sample profile"
+    ],
+    "subtitle": [
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC",
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC"
+    ],
+    "notice": [
+      "Числа — учебный профиль, а не production-default. Исторический учёт 1 USDT = $1 не меняется.",
+      "Numbers are a sample profile, not production defaults. Historical 1 USDT = $1 accounting is unchanged."
+    ],
+    "tone": "Warning",
+    "rows": [
+      [
+        "Метрика | Абсолютное отклонение от $1 | Warning 0.50% / critical 2.00% · fixture",
+        "Metric | Absolute deviation from $1 | Warning 0.50% / critical 2.00% · fixture"
+      ],
+      [
+        "Качество источников | Freshness 60 s / disagreement 0.20 pp · fixture | Значения не утверждены",
+        "Source quality | Freshness 60 s / disagreement 0.20 pp · fixture | Not approved defaults"
+      ],
+      [
+        "Реакция | Уведомление отдельно от запрета | Закрытие сигнала не снимает gate",
+        "Response | Notification separate from restriction | Closing an alert cannot lift a gate"
+      ],
+      [
+        "Сохранение | Только учебная версия v3 | Не включает мониторинг live",
+        "Save | Sample v3 only | Does not enable live monitoring"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Сохранить пример · демо",
+          "Save sample · demo"
+        ],
+        "target": "monitor-profile-saved",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Конфликт версии",
+          "Version conflict"
+        ],
+        "target": "monitor-profile-conflict",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "monitor-profile-saved",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Учебный профиль сохранён",
+      "Sample profile saved"
+    ],
+    "subtitle": [
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC",
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC"
+    ],
+    "notice": [
+      "Числа — учебный профиль, а не production-default. Исторический учёт 1 USDT = $1 не меняется.",
+      "Numbers are a sample profile, not production defaults. Historical 1 USDT = $1 accounting is unchanged."
+    ],
+    "tone": "Success",
+    "rows": [
+      [
+        "Версия | USDT-DEMO v3 | Автор STAFF-201",
+        "Version | USDT-DEMO v3 | Actor STAFF-201"
+      ],
+      [
+        "Доставка / источники | Демо-адаптеры | Боевые подключения отсутствуют",
+        "Delivery / sources | Fixture adapters | Live integrations absent"
+      ],
+      [
+        "Внутренние обязательства | Сохранён исходный учёт | Без пересчёта",
+        "Internal liabilities | Original accounting retained | No repricing"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Рыночный контроль",
+          "Market monitor"
+        ],
+        "target": "monitor-normal",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Журнал",
+          "Audit log"
+        ],
+        "target": "audit-filtered",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "monitor-profile-conflict",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Настройки изменились",
+      "Settings changed"
+    ],
+    "subtitle": [
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC",
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC"
+    ],
+    "notice": [
+      "Сохранение старой версии остановлено. Загрузите актуальные значения и повторно проверьте область и реакцию.",
+      "Stale-version save is blocked. Reload current values and review scope and response."
+    ],
+    "tone": "Warning",
+    "rows": [
+      [
+        "Черновик | USDT-DEMO v3 | Основан на v2",
+        "Draft | USDT-DEMO v3 | Based on v2"
+      ],
+      [
+        "Текущая версия | USDT-DEMO v4 · fixture | Старый preview недействителен",
+        "Current version | USDT-DEMO v4 · fixture | Old preview invalid"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Загрузить актуальные значения",
+          "Reload current values"
+        ],
+        "target": "monitor-profile",
+        "type": "primary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "monitor-source-unavailable",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Основной источник недоступен",
+      "Primary source unavailable"
+    ],
+    "subtitle": [
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC",
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC"
+    ],
+    "notice": [
+      "Нет валидной основной котировки — нельзя считать критический денежный маршрут исправным. Один агрегатор не выдаётся за независимую двойную проверку.",
+      "No valid primary quote means critical routes are not healthy. One aggregator is not presented as an independent double check."
+    ],
+    "tone": "Danger",
+    "rows": [
+      [
+        "Kraken | Нет новых данных · last 11:40 UTC | 20 min · выше sample freshness",
+        "Kraken | No new data · last 11:40 UTC | 20 min · above sample freshness"
+      ],
+      [
+        "CoinGecko | $0.9997 · 11:59:40 UTC | Один доступный источник",
+        "CoinGecko | $0.9997 · 11:59:40 UTC | One available source"
+      ],
+      [
+        "Затронутый маршрут | Demo / PM / service payout | Не разрешать новую отправку",
+        "Affected route | Demo / PM / service payout | Do not authorize a new send"
+      ],
+      [
+        "Live | Не подключён | Это пример состояния",
+        "Live | Disconnected | State example only"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Повторная проверка · пример",
+          "Recheck · example"
+        ],
+        "target": "monitor-normal",
+        "type": "primary",
+        "icon": "2032:50"
+      },
+      {
+        "label": [
+          "Уведомления",
+          "Notifications"
+        ],
+        "target": "monitor-notifications",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "monitor-source-disagreement",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Источники курса расходятся",
+      "Price sources disagree"
+    ],
+    "subtitle": [
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC",
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC"
+    ],
+    "notice": [
+      "Не усреднять котировки для скрытия расхождения. Показать оба источника, время и ограничение затронутого маршрута.",
+      "Do not average prices to hide disagreement. Show both quotes, times and the affected route restriction."
+    ],
+    "tone": "Warning",
+    "rows": [
+      [
+        "Kraken | $0.9750 · 12:00 UTC · fixture | −2.50%",
+        "Kraken | $0.9750 · 12:00 UTC · fixture | −2.50%"
+      ],
+      [
+        "CoinGecko | $0.9970 · 11:59:40 UTC · fixture | −0.30%",
+        "CoinGecko | $0.9970 · 11:59:40 UTC · fixture | −0.30%"
+      ],
+      [
+        "Разница | 2.20 процентного пункта · fixture | Выше sample 0.20 п.п.",
+        "Difference | 2.20 percentage points · fixture | Above sample 0.20 pp"
+      ],
+      [
+        "Результат | Проверка качества не пройдена | Новые затронутые отправки закрыты",
+        "Result | Quality check failed | New affected submissions locked"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить снова · пример",
+          "Recheck · example"
+        ],
+        "target": "monitor-normal",
+        "type": "primary",
+        "icon": "2032:50"
+      },
+      {
+        "label": [
+          "Сигналы",
+          "Alerts"
+        ],
+        "target": "monitor-notifications",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "monitor-critical",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Критическое отклонение · учебный пример",
+      "Critical deviation · sample"
+    ],
+    "subtitle": [
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC",
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC"
+    ],
+    "notice": [
+      "Числа — учебный профиль, а не production-default. Исторический учёт 1 USDT = $1 не меняется.",
+      "Numbers are a sample profile, not production defaults. Historical 1 USDT = $1 accounting is unchanged."
+    ],
+    "tone": "Danger",
+    "rows": [
+      [
+        "Цена / длительность | Kraken $0.9750 · CoinGecko $0.9751 | −2.50% / 240 s · fixture",
+        "Price / duration | Kraken $0.9750 · CoinGecko $0.9751 | −2.50% / 240 s · fixture"
+      ],
+      [
+        "Правило | Critical 2.00% / 180 s · fixture | USDT-DEMO v3",
+        "Rule | Critical 2.00% / 180 s · fixture | USDT-DEMO v3"
+      ],
+      [
+        "Затронутая область | Demo / Polymarket / service payout | Gate закрыт в примере",
+        "Affected scope | Demo / Polymarket / service payout | Sample gate locked"
+      ],
+      [
+        "Обязательства / submitted | Учёт 1:1 и сверка сохранены | Нет повторной отправки",
+        "Liabilities / submitted | 1:1 accounting and reconciliation retained | No resend"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Сигнал администраторам",
+          "Admin alert"
+        ],
+        "target": "monitor-notification-detail",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Цена нормализовалась · пример",
+          "Price recovered · example"
+        ],
+        "target": "market-recovery-check",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "monitor-notifications",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Уведомления контроля USDT",
+      "USDT monitor notifications"
+    ],
+    "subtitle": [
+      "Наблюдение доставки · не клиентская рассылка",
+      "Delivery observation · not a customer campaign"
+    ],
+    "notice": [
+      "Доступность сообщения не означает прочтение. Недоступный канал не отмечается доставленным; external security channels ещё не подключены.",
+      "Message availability is not a read receipt. Disconnected channels are not marked delivered; external security channels are not integrated."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "ALERT-017 · Критическое отклонение | Owner A + Owner B · доступно в админке | 12:00 UTC",
+        "ALERT-017 · Critical deviation | Owner A + Owner B · available in admin | 12:00 UTC"
+      ],
+      [
+        "TEST-018 · Пример сбоя | Канал не подключён | Не доставлено",
+        "TEST-018 · Failure fixture | Channel not connected | Not delivered"
+      ],
+      [
+        "TEST-019 · Неизвестный результат | Требуется проверка | Повтор заблокирован",
+        "TEST-019 · Unknown outcome | Verification required | Retry blocked"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "ALERT-017",
+          "ALERT-017"
+        ],
+        "target": "monitor-notification-detail",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Сбой доставки · пример",
+          "Delivery failure · example"
+        ],
+        "target": "monitor-notification-failed",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Неизвестный результат · пример",
+          "Unknown outcome · example"
+        ],
+        "target": "monitor-notification-unknown",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "К мониторингу",
+          "Monitor"
+        ],
+        "target": "monitor-normal",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "monitor-notification-detail",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "ALERT-017 · критическое отклонение",
+      "ALERT-017 · critical deviation"
+    ],
+    "subtitle": [
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC",
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC"
+    ],
+    "notice": [
+      "Числа — учебный профиль, а не production-default. Исторический учёт 1 USDT = $1 не меняется.",
+      "Numbers are a sample profile, not production defaults. Historical 1 USDT = $1 accounting is unchanged."
+    ],
+    "tone": "Danger",
+    "rows": [
+      [
+        "Episode / инцидент | USDT-EP-017 / INCIDENT-035 | Dedup по episode / получателю",
+        "Episode / incident | USDT-EP-017 / INCIDENT-035 | Dedup by episode / recipient"
+      ],
+      [
+        "Рыночная проверка | $0.9750 / −2.50% / 240 s | Два sample источника",
+        "Market check | $0.9750 / −2.50% / 240 s | Two sample sources"
+      ],
+      [
+        "Область | PM / service payout / demo | Ограничение отдельно от сообщения",
+        "Scope | PM / service payout / demo | Restriction separate from message"
+      ],
+      [
+        "Owner A | Доступно · не прочитано | 12:00 UTC · fixture",
+        "Owner A | Available · unread | 12:00 UTC · fixture"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Отметить ознакомление · демо",
+          "Acknowledge · demo"
+        ],
+        "target": "monitor-notification-ack",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Рыночный контроль",
+          "Market monitor"
+        ],
+        "target": "monitor-critical",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "monitor-notification-ack",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Ознакомление отмечено",
+      "Acknowledgment recorded"
+    ],
+    "subtitle": [
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC",
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC"
+    ],
+    "notice": [
+      "Acknowledge не закрывает инцидент, не меняет цену и не снимает денежный запрет.",
+      "Acknowledgment resolves no incident, changes no price and lifts no monetary gate."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "Елена Морозова · STAFF-201 | Ознакомилась · fixture | 12:00 UTC",
+        "Elena Morozova · STAFF-201 | Acknowledged · fixture | 12:00 UTC"
+      ],
+      [
+        "Gate PM / service payout | Сохраняется | Отдельное независимое восстановление",
+        "PM / service payout gate | Remains | Separate independent recovery"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "К сигналам",
+          "Back to alerts"
+        ],
+        "target": "monitor-notifications",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Проверка восстановления",
+          "Recovery checklist"
+        ],
+        "target": "market-recovery-check",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "monitor-notification-failed",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Тестовая доставка не удалась",
+      "Test delivery failed"
+    ],
+    "subtitle": [
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC",
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC"
+    ],
+    "notice": [
+      "Техническая ошибка доставки не снимает предупреждение или ограничение. Повтор разрешён только по безопасной policy доставки.",
+      "Delivery failure lifts neither alert nor restriction. Retries follow a safe delivery policy."
+    ],
+    "tone": "Warning",
+    "rows": [
+      [
+        "TEST-018 / Owner A | Demo adapter · FAILED | Сообщение не отмечено доставленным",
+        "TEST-018 / Owner A | Demo adapter · FAILED | Not marked delivered"
+      ],
+      [
+        "Повтор | Контролируется outbox / dedup | Новые сообщения не создаются каждую минуту",
+        "Retry | Outbox / dedup controlled | No fresh alert every minute"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Повтор проверки · демо",
+          "Recheck · demo"
+        ],
+        "target": "monitor-notifications",
+        "type": "primary",
+        "icon": "2032:50"
+      }
+    ]
+  },
+  {
+    "key": "monitor-notification-unknown",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Результат доставки неизвестен",
+      "Delivery result unknown"
+    ],
+    "subtitle": [
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC",
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC"
+    ],
+    "notice": [
+      "Timeout не доказывает недоставку. Для канала без idempotency слепой повтор может создать дубль; сначала проверяется прежний результат.",
+      "Timeout does not prove non-delivery. Blind retries on non-idempotent channels may duplicate messages; check the original outcome first."
+    ],
+    "tone": "Warning",
+    "rows": [
+      [
+        "TEST-019 | External security channel · fixture | UNKNOWN",
+        "TEST-019 | External security channel · fixture | UNKNOWN"
+      ],
+      [
+        "Provider receipt | Отсутствует в примере | Нельзя объявить delivered или failed",
+        "Provider receipt | Missing in fixture | Cannot declare delivered or failed"
+      ],
+      [
+        "Следующий шаг | Проверка прежнего результата | Без кнопки слепого повтора",
+        "Next step | Check original outcome | No blind resend button"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить прежний результат",
+          "Check original outcome"
+        ],
+        "target": "monitor-notifications",
+        "type": "primary",
+        "icon": "2032:50"
+      }
+    ]
+  },
+  {
+    "key": "market-recovery-check",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Цена нормализовалась: запрет ещё действует",
+      "Price recovered: restriction remains"
+    ],
+    "subtitle": [
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC",
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC"
+    ],
+    "notice": [
+      "Возврат цены не снимает аварийный gate автоматически. Нужны Owner, независимый уполномоченный сотрудник и свежая проверка конкретного денежного маршрута.",
+      "Price recovery cannot automatically lift the emergency gate. An Owner, independent authorized staff identity and fresh affected-route checks are required."
+    ],
+    "tone": "Warning",
+    "rows": [
+      [
+        "Проверка цены | $0.9998 / $0.9997 · fixture | Stable 300 s · sample",
+        "Price check | $0.9998 / $0.9997 · fixture | Stable 300 s · sample"
+      ],
+      [
+        "Точная область | Demo / PM / service payout | USDT-DEMO v3 / Gate v5",
+        "Exact scope | Demo / PM / service payout | USDT-DEMO v3 / Gate v5"
+      ],
+      [
+        "Участники | Owner A + Owner B | Разные действующие identity",
+        "Participants | Owner A + Owner B | Different active identities"
+      ],
+      [
+        "Старые заявки | Новый preflight и подтверждение Owner | Без автоотправки",
+        "Old requests | Fresh preflight and Owner confirmation | No replay"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Запросить независимую проверку",
+          "Request independent review"
+        ],
+        "target": "market-recovery-review",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "К источникам",
+          "Sources"
+        ],
+        "target": "monitor-normal",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "market-recovery-review",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Независимая проверка рыночного gate",
+      "Independent market-gate review"
+    ],
+    "subtitle": [
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC",
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC"
+    ],
+    "notice": [
+      "Возврат цены не снимает аварийный gate автоматически. Нужны Owner, независимый уполномоченный сотрудник и свежая проверка конкретного денежного маршрута.",
+      "Price recovery cannot automatically lift the emergency gate. An Owner, independent authorized staff identity and fresh affected-route checks are required."
+    ],
+    "tone": "Warning",
+    "actor": "Максим Орлов · Owner B / Maxim Orlov · Owner B",
+    "rows": [
+      [
+        "Проверка цены | $0.9998 / $0.9997 · fixture | Stable 300 s · sample",
+        "Price check | $0.9998 / $0.9997 · fixture | Stable 300 s · sample"
+      ],
+      [
+        "Точная область | Demo / PM / service payout | USDT-DEMO v3 / Gate v5",
+        "Exact scope | Demo / PM / service payout | USDT-DEMO v3 / Gate v5"
+      ],
+      [
+        "Участники | Owner A + Owner B | Разные действующие identity",
+        "Participants | Owner A + Owner B | Different active identities"
+      ],
+      [
+        "Старые заявки | Новый preflight и подтверждение Owner | Без автоотправки",
+        "Old requests | Fresh preflight and Owner confirmation | No replay"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Подтвердить · демо",
+          "Approve · demo"
+        ],
+        "target": "market-recovery-restored",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Отказать",
+          "Decline"
+        ],
+        "target": "monitor-critical",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "market-recovery-restored",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Рыночный gate снят · учебный пример",
+      "Market gate lifted · sample"
+    ],
+    "subtitle": [
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC",
+      "USDT / USD · USDT-DEMO v3 · 12:00 UTC"
+    ],
+    "notice": [
+      "Возврат цены не снимает аварийный gate автоматически. Нужны Owner, независимый уполномоченный сотрудник и свежая проверка конкретного денежного маршрута.",
+      "Price recovery cannot automatically lift the emergency gate. An Owner, independent authorized staff identity and fresh affected-route checks are required."
+    ],
+    "tone": "Success",
+    "rows": [
+      [
+        "Проверка цены | $0.9998 / $0.9997 · fixture | Stable 300 s · sample",
+        "Price check | $0.9998 / $0.9997 · fixture | Stable 300 s · sample"
+      ],
+      [
+        "Точная область | Demo / PM / service payout | USDT-DEMO v3 / Gate v5",
+        "Exact scope | Demo / PM / service payout | USDT-DEMO v3 / Gate v5"
+      ],
+      [
+        "Участники | Owner A + Owner B | Разные действующие identity",
+        "Participants | Owner A + Owner B | Different active identities"
+      ],
+      [
+        "Старые заявки | Новый preflight и подтверждение Owner | Без автоотправки",
+        "Old requests | Fresh preflight and Owner confirmation | No replay"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Контроль курса",
+          "Price monitor"
+        ],
+        "target": "monitor-normal",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Журнал",
+          "Audit log"
+        ],
+        "target": "audit-filtered",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "audit-filters",
+    "adm": "ADM-12",
+    "nav": "audit",
+    "title": [
+      "Фильтры журнала",
+      "Audit filters"
+    ],
+    "subtitle": [
+      "Журнал действий · учебный набор из 12 событий",
+      "Audit log · 12-event sample dataset"
+    ],
+    "notice": [
+      "Вымышленная история для просмотра макетов. Ветви изменения и отзыва отмечены branch; это не журнал реальных операций.",
+      "Fictional design history. Edit and revocation branches are marked branch; this is not a live operation log."
+    ],
+    "tone": "Info",
+    "fields": [
+      [
+        [
+          "Период",
+          "Period"
+        ],
+        [
+          "12 Oct 2026 · 11:50–12:00 UTC",
+          "12 Oct 2026 · 11:50–12:00 UTC"
+        ]
+      ],
+      [
+        [
+          "Автор",
+          "Actor"
+        ],
+        [
+          "Елена Морозова · STAFF-201",
+          "Elena Morozova · STAFF-201"
+        ]
+      ],
+      [
+        [
+          "Объект",
+          "Object"
+        ],
+        [
+          "ROLE-MKT / STAFF-204",
+          "ROLE-MKT / STAFF-204"
+        ]
+      ],
+      [
+        [
+          "Результат",
+          "Result"
+        ],
+        [
+          "Сохранено / назначено / отозвано",
+          "Saved / assigned / revoked"
+        ]
+      ],
+      [
+        [
+          "Площадка и среда",
+          "Venue and environment"
+        ],
+        [
+          "Обе площадки / demo",
+          "Both venues / demo"
+        ]
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Применить пример фильтра",
+          "Apply sample filter"
+        ],
+        "target": "audit-filtered",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Нет совпадений · пример",
+          "No matches · example"
+        ],
+        "target": "audit-empty",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "audit-filtered",
+    "adm": "ADM-12",
+    "nav": "audit",
+    "title": [
+      "Журнал · изменения доступа",
+      "Audit · access changes"
+    ],
+    "subtitle": [
+      "Журнал действий · учебный набор из 12 событий",
+      "Audit log · 12-event sample dataset"
+    ],
+    "notice": [
+      "Вымышленная история для просмотра макетов. Ветви изменения и отзыва отмечены branch; это не журнал реальных операций.",
+      "Fictional design history. Edit and revocation branches are marked branch; this is not a live operation log."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "AUD-044 · 11:58 UTC | Елена Морозова · STAFF-201 | ROLE-MKT / STAFF-204 · отзыв · branch",
+        "AUD-044 · 11:58 UTC | Elena Morozova · STAFF-201 | ROLE-MKT / STAFF-204 · revoked · branch"
+      ],
+      [
+        "AUD-043 · 11:57 UTC | Елена Морозова · STAFF-201 | ROLE-MKT v3 · изменение · branch",
+        "AUD-043 · 11:57 UTC | Elena Morozova · STAFF-201 | ROLE-MKT v3 · edited · branch"
+      ],
+      [
+        "AUD-042 · 11:56 UTC | Елена Морозова · STAFF-201 | STAFF-204 · назначение ROLE-MKT · branch",
+        "AUD-042 · 11:56 UTC | Elena Morozova · STAFF-201 | STAFF-204 · ROLE-MKT assigned · branch"
+      ],
+      [
+        "AUD-041 · 11:55 UTC | Елена Морозова · STAFF-201 | ROLE-MKT v2 · шаблон сохранён",
+        "AUD-041 · 11:55 UTC | Elena Morozova · STAFF-201 | ROLE-MKT v2 · template saved"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "AUD-041",
+          "AUD-041"
+        ],
+        "target": "audit-entry",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Изменить фильтры",
+          "Edit filters"
+        ],
+        "target": "audit-filters",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Экспортировать пример",
+          "Export sample"
+        ],
+        "target": "audit-export-preview",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Вся история",
+          "All events"
+        ],
+        "target": "audit",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "audit-empty",
+    "adm": "ADM-12",
+    "nav": "audit",
+    "title": [
+      "Событий по фильтру нет",
+      "No matching events"
+    ],
+    "subtitle": [
+      "Журнал действий · учебный набор из 12 событий",
+      "Audit log · 12-event sample dataset"
+    ],
+    "notice": [
+      "Нет результатов — не ошибка источника. Фильтр сохраняется; сброс не изменяет сами события.",
+      "No results is not a source error. Filters remain; resetting them changes no events."
+    ],
+    "tone": "Info",
+    "fields": [
+      [
+        [
+          "Поиск",
+          "Search"
+        ],
+        [
+          "EVENT-NOT-FOUND · пример",
+          "EVENT-NOT-FOUND · sample"
+        ]
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Изменить фильтр",
+          "Edit filter"
+        ],
+        "target": "audit-filters",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Сбросить пример фильтра",
+          "Reset sample filter"
+        ],
+        "target": "audit",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "audit-page-2",
+    "adm": "ADM-12",
+    "nav": "audit",
+    "title": [
+      "Журнал · страница 2 из 2",
+      "Audit · page 2 of 2"
+    ],
+    "subtitle": [
+      "Журнал действий · учебный набор из 12 событий",
+      "Audit log · 12-event sample dataset"
+    ],
+    "notice": [
+      "Вымышленная история для просмотра макетов. Ветви изменения и отзыва отмечены branch; это не журнал реальных операций.",
+      "Fictional design history. Edit and revocation branches are marked branch; this is not a live operation log."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "AUD-040 · 11:54 UTC | Нора Азиз · STAFF-203 | CONN-PM-01 · health.check",
+        "AUD-040 · 11:54 UTC | Nora Aziz · STAFF-203 | CONN-PM-01 · health.check"
+      ],
+      [
+        "AUD-039 · 11:53 UTC | Максим Орлов · STAFF-202 | Admin login · подтверждён",
+        "AUD-039 · 11:53 UTC | Maxim Orlov · STAFF-202 | Admin login · verified"
+      ],
+      [
+        "AUD-038 · 11:52 UTC | Елена Морозова · STAFF-201 | Admin login · подтверждён",
+        "AUD-038 · 11:52 UTC | Elena Morozova · STAFF-201 | Admin login · verified"
+      ],
+      [
+        "AUD-037 · 11:51 UTC | Нора Азиз · STAFF-203 | SES-ADM-41 · создана",
+        "AUD-037 · 11:51 UTC | Nora Aziz · STAFF-203 | SES-ADM-41 · created"
+      ],
+      [
+        "AUD-036 · 11:50 UTC | Ева Саид · STAFF-205 | audit.view · разрешено",
+        "AUD-036 · 11:50 UTC | Eva Said · STAFF-205 | audit.view · allowed"
+      ],
+      [
+        "AUD-035 · 11:50 UTC | Ева Саид · STAFF-205 | audit.export · отказ",
+        "AUD-035 · 11:50 UTC | Eva Said · STAFF-205 | audit.export · denied"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Страница 1",
+          "Page 1"
+        ],
+        "target": "audit",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Целостность журнала",
+          "Audit integrity"
+        ],
+        "target": "audit-integrity-demo",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "audit-export-preview",
+    "adm": "ADM-12",
+    "nav": "audit",
+    "title": [
+      "Экспорт разрешённой выборки",
+      "Export authorized selection"
+    ],
+    "subtitle": [
+      "Журнал действий · учебный набор из 12 событий",
+      "Audit log · 12-event sample dataset"
+    ],
+    "notice": [
+      "Экспорт требует отдельного права audit.export и применяет тот же scope. Секреты и закрытые поля в файл не включаются.",
+      "Export requires separate audit.export permission and preserves scope. Secrets and restricted fields are excluded."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "Получатель / право | Елена Морозова · STAFF-201 | audit.export · fixture",
+        "Recipient / permission | Elena Morozova · STAFF-201 | audit.export · fixture"
+      ],
+      [
+        "Выборка | AUD-041–044 · 4 учебных события | Access / demo",
+        "Selection | AUD-041–044 · 4 sample events | Access / demo"
+      ],
+      [
+        "Формат | CSV · публичный синтетический образец | Не реальный backend export",
+        "Format | CSV · public synthetic sample | Not a backend export"
+      ],
+      [
+        "Запрет | Cookies, keys и закрытые joins отсутствуют | Только разрешённая проекция",
+        "Exclusions | No cookies, keys or restricted joins | Authorized projection only"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Подготовить пример · демо",
+          "Prepare sample · demo"
+        ],
+        "target": "audit-export-ready",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Ошибка экспорта · пример",
+          "Export failure · example"
+        ],
+        "target": "audit-export-failed",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Нет права · пример",
+          "No permission · example"
+        ],
+        "target": "no-access",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "audit-export-ready",
+    "adm": "ADM-12",
+    "nav": "audit",
+    "title": [
+      "Демонстрационный CSV готов",
+      "Sample CSV ready"
+    ],
+    "subtitle": [
+      "Журнал действий · учебный набор из 12 событий",
+      "Audit log · 12-event sample dataset"
+    ],
+    "notice": [
+      "Это заранее подготовленный публичный файл с вымышленными событиями. В production экспорт создаётся для разрешённой выборки с собственным lifecycle.",
+      "This is a prebuilt public file of fictional events. Production export is scoped and has its own lifecycle."
+    ],
+    "tone": "Success",
+    "rows": [
+      [
+        "Файл | shadow-admin-demo-audit.csv | 4 учебных события",
+        "File | shadow-admin-demo-audit.csv | 4 sample events"
+      ],
+      [
+        "Назначение | Вычитка данных и формата | Не выгрузка пользователей",
+        "Purpose | Data and format review | Not a user-data export"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Открыть образец CSV",
+          "Open sample CSV"
+        ],
+        "target": "demo-csv",
+        "url": "https://github.com/denius89/polymarket-copy-trading/blob/main/docs/design/admin/fixtures/shadow-admin-demo-audit.csv",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "К журналу",
+          "Audit log"
+        ],
+        "target": "audit-filtered",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "audit-export-failed",
+    "adm": "ADM-12",
+    "nav": "audit",
+    "title": [
+      "Файл экспорта не подготовлен",
+      "Export file unavailable"
+    ],
+    "subtitle": [
+      "Журнал действий · учебный набор из 12 событий",
+      "Audit log · 12-event sample dataset"
+    ],
+    "notice": [
+      "Нет ложного статуса «готово» или работающей ссылки. Право и область проверяются повторно перед новым экспортом.",
+      "No false ready status or download link. Permission and scope are rechecked before a new export."
+    ],
+    "tone": "Warning",
+    "rows": [
+      [
+        "EXPORT-DEMO-01 | Ошибка подготовки · fixture | Данных не выгружено",
+        "EXPORT-DEMO-01 | Preparation failed · fixture | No data exported"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Повторить проверку",
+          "Recheck"
+        ],
+        "target": "audit-export-preview",
+        "type": "primary",
+        "icon": "2032:50"
+      }
+    ]
+  },
+  {
+    "key": "audit-integrity-demo",
+    "adm": "ADM-12",
+    "nav": "audit",
+    "title": [
+      "Целостность · учебное совпадение",
+      "Integrity · sample match"
+    ],
+    "subtitle": [
+      "Журнал действий · учебный набор из 12 событий",
+      "Audit log · 12-event sample dataset"
+    ],
+    "notice": [
+      "Контрольные точки совпадают только в синтетическом примере. Защищённое production-хранилище и независимые credentials ещё не подключены.",
+      "Checkpoints match only in this synthetic example. Protected production storage and independent credentials are not connected."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "Контрольная точка | CHK-DEMO-046 | Совпадение в fixture",
+        "Checkpoint | CHK-DEMO-046 | Fixture match"
+      ],
+      [
+        "Application журнал | Append-only по контракту | Не защита от прямого DB-доступа",
+        "Application log | Append-only contract | Not protection from privileged DB access"
+      ],
+      [
+        "Независимая копия | Учебный адаптер | Production отдельно",
+        "Independent copy | Fixture adapter | Production separate"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "К журналу",
+          "Audit log"
+        ],
+        "target": "audit",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Проверка неизвестна",
+          "Unverified example"
+        ],
+        "target": "audit-integrity-unknown",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Пример расхождения",
+          "Mismatch example"
+        ],
+        "target": "audit-integrity-mismatch",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "audit-integrity-unknown",
+    "adm": "ADM-12",
+    "nav": "audit",
+    "title": [
+      "Целостность не подтверждена",
+      "Integrity unverified"
+    ],
+    "subtitle": [
+      "Журнал действий · учебный набор из 12 событий",
+      "Audit log · 12-event sample dataset"
+    ],
+    "notice": [
+      "Копия недоступна или проверка просрочена. Отсутствие evidence не считается успешной проверкой.",
+      "The copy is unavailable or the check is stale. Missing evidence is not a successful verification."
+    ],
+    "tone": "Warning",
+    "rows": [
+      [
+        "Контрольная точка | CHK-DEMO-046 | Не подтверждено",
+        "Checkpoint | CHK-DEMO-046 | Unverified"
+      ],
+      [
+        "Application журнал | Append-only по контракту | Не защита от прямого DB-доступа",
+        "Application log | Append-only contract | Not protection from privileged DB access"
+      ],
+      [
+        "Независимая копия | Учебный адаптер | Production отдельно",
+        "Independent copy | Fixture adapter | Production separate"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "К журналу",
+          "Audit log"
+        ],
+        "target": "audit",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Пример совпадения",
+          "Match example"
+        ],
+        "target": "audit-integrity-demo",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Пример расхождения",
+          "Mismatch example"
+        ],
+        "target": "audit-integrity-mismatch",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "audit-integrity-mismatch",
+    "adm": "ADM-12",
+    "nav": "audit",
+    "title": [
+      "Обнаружено расхождение журнала",
+      "Audit mismatch detected"
+    ],
+    "subtitle": [
+      "Журнал действий · учебный набор из 12 событий",
+      "Audit log · 12-event sample dataset"
+    ],
+    "notice": [
+      "Не исправлять и не удалять историю через UI. Сохранить evidence и передать инцидент уполномоченным; денежные действия не разблокировать.",
+      "Do not edit or delete history via UI. Retain evidence and escalate; do not unlock monetary actions."
+    ],
+    "tone": "Danger",
+    "rows": [
+      [
+        "Контрольная точка | CHK-DEMO-046 | Расхождение · fixture",
+        "Checkpoint | CHK-DEMO-046 | Mismatch · fixture"
+      ],
+      [
+        "Application журнал | Append-only по контракту | Не защита от прямого DB-доступа",
+        "Application log | Append-only contract | Not protection from privileged DB access"
+      ],
+      [
+        "Независимая копия | Учебный адаптер | Production отдельно",
+        "Independent copy | Fixture adapter | Production separate"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "К журналу",
+          "Audit log"
+        ],
+        "target": "audit",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Пример совпадения",
+          "Match example"
+        ],
+        "target": "audit-integrity-demo",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Пример расхождения",
+          "Mismatch example"
+        ],
+        "target": "audit-integrity-mismatch",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  }
+]

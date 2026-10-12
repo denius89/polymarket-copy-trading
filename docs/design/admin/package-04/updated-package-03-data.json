@@ -1,0 +1,1937 @@
+[
+  {
+    "key": "connections",
+    "adm": "ADM-06",
+    "nav": "connections",
+    "title": [
+      "Подключения и здоровье площадок",
+      "Connections and venue health"
+    ],
+    "subtitle": [
+      "Polymarket и Limitless · состояние по функциям",
+      "Polymarket and Limitless · health by capability"
+    ],
+    "notice": [
+      "Демонстрационные проверки. Здоровье подключения не означает разрешение реальных операций.",
+      "Demonstration checks. Connection health does not authorize live operations."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "Polymarket | Данные проверены | Последний успех 12:00 UTC",
+        "Polymarket | Data checked | Last success 12:00 UTC"
+      ],
+      [
+        "Limitless | Данные проверены | Последний успех 11:59 UTC",
+        "Limitless | Data checked | Last success 11:59 UTC"
+      ],
+      [
+        "Реальные денежные операции | Не подключены | Demo",
+        "Live monetary operations | Disconnected | Demo"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Polymarket",
+          "Polymarket"
+        ],
+        "target": "connection-pm",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Limitless",
+          "Limitless"
+        ],
+        "target": "connection-ll",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "USDT / USD",
+          "USDT / USD"
+        ],
+        "target": "monitor-normal",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Сценарии демо",
+          "Demo scenarios"
+        ],
+        "target": "demo-review",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "connection-pm",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Polymarket · подключение",
+      "Polymarket connection"
+    ],
+    "subtitle": [
+      "Метаданные доступа и готовность отдельных функций",
+      "Access metadata and capability readiness"
+    ],
+    "notice": [
+      "Ключи и секреты не отображаются. Ротация интеграционных ключей — следующий этап.",
+      "Keys and secrets are never displayed. Integration key rotation is a later stage."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "Подключение | CONN-PM-01 | Demo",
+        "Connection | CONN-PM-01 | Demo"
+      ],
+      [
+        "Каталог и данные | Проверены | Проверка 12:00 UTC",
+        "Catalog and data | Checked | Checked 12:00 UTC"
+      ],
+      [
+        "Срок доступа | Не предоставлен площадкой",
+        "Access expiry | Not supplied by the venue"
+      ],
+      [
+        "Выплата / вывод | Работоспособность не проверена | Live закрыт",
+        "Payout / withdrawal | Not verified | Live closed"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить состояние",
+          "Check status"
+        ],
+        "target": "connection-checked-pm",
+        "type": "primary",
+        "icon": "2032:50"
+      },
+      {
+        "label": [
+          "Изолировать подключение",
+          "Isolate connection"
+        ],
+        "target": "isolate-confirm",
+        "type": "danger",
+        "icon": "2032:53"
+      },
+      {
+        "label": [
+          "Устаревшие данные · пример",
+          "Stale data · example"
+        ],
+        "target": "health-stale",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "connection-ll",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Limitless · подключение",
+      "Limitless connection"
+    ],
+    "subtitle": [
+      "Метаданные доступа и готовность отдельных функций",
+      "Access metadata and capability readiness"
+    ],
+    "notice": [
+      "Ключи и секреты не отображаются. Ротация интеграционных ключей — следующий этап.",
+      "Keys and secrets are never displayed. Integration key rotation is a later stage."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "Подключение | CONN-LL-01 | Demo",
+        "Connection | CONN-LL-01 | Demo"
+      ],
+      [
+        "Каталог и данные | Проверены | Проверка 11:59 UTC",
+        "Catalog and data | Checked | Checked 11:59 UTC"
+      ],
+      [
+        "Срок доступа | Не предоставлен площадкой",
+        "Access expiry | Not supplied by the venue"
+      ],
+      [
+        "Выплата / вывод | Работоспособность не проверена | Live закрыт",
+        "Payout / withdrawal | Not verified | Live closed"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить состояние",
+          "Check status"
+        ],
+        "target": "connection-checked-ll",
+        "type": "primary",
+        "icon": "2032:50"
+      },
+      {
+        "label": [
+          "Изолировать подключение",
+          "Isolate connection"
+        ],
+        "target": "isolate-ll-confirm",
+        "type": "danger",
+        "icon": "2032:53"
+      },
+      {
+        "label": [
+          "Устаревшие данные · пример",
+          "Stale data · example"
+        ],
+        "target": "health-stale",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "health-stale",
+    "adm": "ADM-06",
+    "nav": "connections",
+    "title": [
+      "Проверка не завершена",
+      "Check incomplete"
+    ],
+    "subtitle": [
+      "Неизвестное состояние · нет свежего подтверждения",
+      "Unknown state · no fresh evidence"
+    ],
+    "notice": [
+      "Не выдаём отсутствие данных за нормальную работу. Реальные действия остаются закрытыми.",
+      "Missing data is not a healthy result. Live actions remain closed."
+    ],
+    "tone": "Warning",
+    "rows": [
+      [
+        "Поток данных | Последняя проверка не дала ответа",
+        "Data stream | Latest check returned no answer"
+      ],
+      [
+        "Следующий шаг | Повторить проверку и открыть детали площадки",
+        "Next step | Recheck and inspect venue details"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Повторить проверку",
+          "Recheck"
+        ],
+        "target": "connections",
+        "type": "primary",
+        "icon": "2032:50"
+      }
+    ]
+  },
+  {
+    "key": "isolate-confirm",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Изолировать Polymarket?",
+      "Isolate Polymarket?"
+    ],
+    "subtitle": [
+      "Только использование выбранного подключения через Shadow",
+      "Only this connection's use through Shadow"
+    ],
+    "notice": [
+      "Неотправленные задания остановятся. Уже отправленные операции продолжат сверку. Внешний отзыв ключа — отдельная проверяемая операция.",
+      "Unsubmitted jobs will stop. Submitted operations remain under reconciliation. External credential revocation is a separate verified operation."
+    ],
+    "tone": "Danger",
+    "fields": [
+      [
+        [
+          "Причина",
+          "Reason"
+        ],
+        [
+          "Подозрение на компрометацию подключения",
+          "Suspected connection compromise"
+        ]
+      ]
+    ],
+    "rows": [
+      [
+        "Область | CONN-PM-01 / Polymarket | Shadow / demo",
+        "Scope | CONN-PM-01 / Polymarket | Shadow / demo"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Изолировать",
+          "Isolate"
+        ],
+        "target": "connection-isolated",
+        "type": "danger",
+        "icon": "2032:53"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "connection-pm",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "isolate-ll-confirm",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Изолировать Limitless?",
+      "Isolate Limitless?"
+    ],
+    "subtitle": [
+      "Только использование выбранного подключения через Shadow",
+      "Only this connection's use through Shadow"
+    ],
+    "notice": [
+      "Неотправленные задания остановятся. Уже отправленные операции продолжат сверку. Внешний отзыв ключа — отдельная проверяемая операция.",
+      "Unsubmitted jobs will stop. Submitted operations remain under reconciliation. External credential revocation is a separate verified operation."
+    ],
+    "tone": "Danger",
+    "fields": [
+      [
+        [
+          "Причина",
+          "Reason"
+        ],
+        [
+          "Подозрение на компрометацию подключения",
+          "Suspected connection compromise"
+        ]
+      ]
+    ],
+    "rows": [
+      [
+        "Область | CONN-LL-01 / Limitless | Shadow / demo",
+        "Scope | CONN-LL-01 / Limitless | Shadow / demo"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Изолировать",
+          "Isolate"
+        ],
+        "target": "connection-ll-isolated",
+        "type": "danger",
+        "icon": "2032:53"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "connection-ll",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "connection-isolated",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Подключение изолировано в Shadow",
+      "Connection isolated in Shadow"
+    ],
+    "subtitle": [
+      "Polymarket · INCIDENT-031",
+      "Polymarket · INCIDENT-031"
+    ],
+    "notice": [
+      "Изоляция не гарантирует отзыв украденного ключа у площадки. Денежные функции возвращаются через независимое восстановление.",
+      "Isolation does not guarantee a stolen credential is revoked at the venue. Monetary functions require independent recovery."
+    ],
+    "tone": "Warning",
+    "rows": [
+      [
+        "Использование в Shadow | Остановлено · demo",
+        "Use in Shadow | Stopped · demo"
+      ],
+      [
+        "Отзыв ключа у площадки | Не подтверждён",
+        "Venue credential revocation | Unconfirmed"
+      ],
+      [
+        "Отправленные операции | Наблюдение и сверка продолжаются",
+        "Submitted operations | Monitoring and reconciliation continue"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "К подключениям",
+          "Connections"
+        ],
+        "target": "connections",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Открыть журнал",
+          "Open audit log"
+        ],
+        "target": "audit",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Восстановить это подключение",
+          "Recover this connection"
+        ],
+        "target": "connection-pm-recovery-check",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "connection-ll-isolated",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Подключение изолировано в Shadow",
+      "Connection isolated in Shadow"
+    ],
+    "subtitle": [
+      "Limitless · INCIDENT-031",
+      "Limitless · INCIDENT-031"
+    ],
+    "notice": [
+      "Изоляция не гарантирует отзыв украденного ключа у площадки. Денежные функции возвращаются через независимое восстановление.",
+      "Isolation does not guarantee a stolen credential is revoked at the venue. Monetary functions require independent recovery."
+    ],
+    "tone": "Warning",
+    "rows": [
+      [
+        "Использование в Shadow | Остановлено · demo",
+        "Use in Shadow | Stopped · demo"
+      ],
+      [
+        "Отзыв ключа у площадки | Не подтверждён",
+        "Venue credential revocation | Unconfirmed"
+      ],
+      [
+        "Отправленные операции | Наблюдение и сверка продолжаются",
+        "Submitted operations | Monitoring and reconciliation continue"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "К подключениям",
+          "Connections"
+        ],
+        "target": "connections",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Открыть журнал",
+          "Open audit log"
+        ],
+        "target": "audit",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Восстановить это подключение",
+          "Recover this connection"
+        ],
+        "target": "connection-ll-recovery-check",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "usdt-monitor",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "USDT / USD · контроль отклонения",
+      "USDT / USD deviation monitor"
+    ],
+    "subtitle": [
+      "Отдельный рыночный контроль · внутренний учёт 1:1",
+      "Separate market check · internal accounting remains 1:1"
+    ],
+    "notice": [
+      "Котировка и время ниже — синтетический пример. Отсутствие настройки не считается исправной проверкой.",
+      "The quote and timestamps below are synthetic. An unconfigured monitor is not a valid check."
+    ],
+    "tone": "Warning",
+    "rows": [
+      [
+        "Рыночная цена | $0.9800 · пример | Отклонение −2.00%",
+        "Market price | $0.9800 · fixture | Deviation −2.00%"
+      ],
+      [
+        "Основной источник | CoinGecko · demo | 12:00 UTC",
+        "Primary source | CoinGecko · demo | 12:00 UTC"
+      ],
+      [
+        "Независимая сверка | Источник не подключён",
+        "Independent check | Source disconnected"
+      ],
+      [
+        "Порог / длительность / freshness | Не настроены",
+        "Threshold / duration / freshness | Not configured"
+      ],
+      [
+        "Внутренние обязательства | 1 USDT = $1 | Без пересчёта истории",
+        "Internal liabilities | 1 USDT = $1 | No history repricing"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Настроить контроль",
+          "Configure monitor"
+        ],
+        "target": "usdt-settings",
+        "type": "primary",
+        "icon": "2032:34"
+      },
+      {
+        "label": [
+          "Пример предупреждения",
+          "Warning example"
+        ],
+        "target": "usdt-warning",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "usdt-settings",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Настройки контроля USDT",
+      "USDT monitor settings"
+    ],
+    "subtitle": [
+      "Owner · значения вводятся вручную",
+      "Owner · values entered manually"
+    ],
+    "notice": [
+      "Порог предупреждения и критическая блокировка — разные правила. Численные значения пока не утверждены.",
+      "Warning threshold and critical route block are separate rules. Numeric values are not yet agreed."
+    ],
+    "tone": "Info",
+    "fields": [
+      [
+        [
+          "Порог предупреждения, %",
+          "Warning threshold, %"
+        ],
+        [
+          "Введите значение",
+          "Enter a value"
+        ]
+      ],
+      [
+        [
+          "Длительность отклонения",
+          "Deviation duration"
+        ],
+        [
+          "Введите длительность",
+          "Enter duration"
+        ]
+      ],
+      [
+        [
+          "Максимальный возраст котировки",
+          "Maximum quote age"
+        ],
+        [
+          "Введите длительность",
+          "Enter duration"
+        ]
+      ],
+      [
+        [
+          "Независимый источник",
+          "Independent source"
+        ],
+        [
+          "Выберите подтверждённый источник",
+          "Select a verified source"
+        ]
+      ],
+      [
+        [
+          "Получатели уведомления",
+          "Alert recipients"
+        ],
+        [
+          "Owner A; Owner B",
+          "Owner A; Owner B"
+        ]
+      ],
+      [
+        [
+          "Критические маршруты",
+          "Critical routes"
+        ],
+        [
+          "Настраиваются отдельно",
+          "Configured separately"
+        ]
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить настройки",
+          "Validate settings"
+        ],
+        "target": "usdt-settings-error",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Назад",
+          "Back"
+        ],
+        "target": "usdt-monitor",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "usdt-settings-error",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Настройки не готовы",
+      "Settings incomplete"
+    ],
+    "subtitle": [
+      "Проверка полей",
+      "Field validation"
+    ],
+    "notice": [
+      "Укажите порог, длительность, freshness и подтверждённые источники. Неподключённые каналы не считаются доставленными.",
+      "Set a threshold, duration, freshness and verified sources. Disconnected channels are not delivered."
+    ],
+    "tone": "Danger",
+    "fields": [
+      [
+        [
+          "Порог предупреждения, %",
+          "Warning threshold, %"
+        ],
+        [
+          "Обязательное поле",
+          "Required field"
+        ]
+      ]
+    ],
+    "fieldError": true,
+    "actions": [
+      {
+        "label": [
+          "Исправить настройки",
+          "Edit settings"
+        ],
+        "target": "usdt-settings",
+        "type": "primary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "usdt-warning",
+    "adm": "ADM-15",
+    "nav": "connections",
+    "title": [
+      "Предупреждение USDT · пример",
+      "USDT warning · fixture"
+    ],
+    "subtitle": [
+      "Состояние предупреждения отделено от блокировки маршрутов",
+      "Warning state is separate from route blocking"
+    ],
+    "notice": [
+      "Подтверждение прочтения не снимает блокировку. Отсутствие валидной сверки показано отдельно.",
+      "Acknowledging this alert does not remove a block. Missing valid cross-check is shown separately."
+    ],
+    "tone": "Warning",
+    "rows": [
+      [
+        "Событие | Предупреждение · синтетический пример",
+        "Event | Warning · synthetic example"
+      ],
+      [
+        "Критический маршрут | Нет подтверждённого допуска",
+        "Critical route | No verified authorization"
+      ],
+      [
+        "Уведомление в приложении | Доступно Owner · пример",
+        "In-app alert | Available to Owner · fixture"
+      ],
+      [
+        "Email / Telegram | Каналы не подключены",
+        "Email / Telegram | Channels disconnected"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Настройки",
+          "Settings"
+        ],
+        "target": "usdt-settings",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "К журналу",
+          "Open audit"
+        ],
+        "target": "audit",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "staff",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Сотрудники и доступ",
+      "Staff and access"
+    ],
+    "subtitle": [
+      "Личные аккаунты · два Owner · кастомные роли",
+      "Individual accounts · two Owners · custom roles"
+    ],
+    "notice": [
+      "Operations объединяет поддержку и операционную работу. Денежные полномочия Owner не выдаются кастомной роли.",
+      "Operations combines support and operations. Custom roles cannot receive Owner-only monetary powers."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "Елена Морозова · STAFF-201 | Owner A | Активна",
+        "Elena Morozova · STAFF-201 | Owner A | Active"
+      ],
+      [
+        "Максим Орлов · STAFF-202 | Owner B | Активен",
+        "Maxim Orlov · STAFF-202 | Owner B | Active"
+      ],
+      [
+        "Нора Азиз · STAFF-203 | Operations · обе площадки | Активна",
+        "Nora Aziz · STAFF-203 | Operations · both venues | Active"
+      ],
+      [
+        "Лео Карим · STAFF-204 | Роль ещё не назначена | Активен",
+        "Leo Karim · STAFF-204 | No role assigned | Active"
+      ],
+      [
+        "Ева Саид · STAFF-205 | Аудитор · только чтение | Активна",
+        "Eva Said · STAFF-205 | Auditor · read only | Active"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Открыть сотрудника",
+          "Open staff member"
+        ],
+        "target": "staff-detail",
+        "type": "primary",
+        "icon": "2032:14"
+      },
+      {
+        "label": [
+          "Создать роль",
+          "Create role"
+        ],
+        "target": "role-form",
+        "type": "secondary",
+        "icon": "2032:34"
+      },
+      {
+        "label": [
+          "Назначить роль",
+          "Assign role"
+        ],
+        "target": "role-assignment",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Потеря Owner · пример",
+          "Owner loss · example"
+        ],
+        "target": "owners-unavailable",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "staff-detail",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Нора Азиз · Operations",
+      "Nora Aziz · Operations"
+    ],
+    "subtitle": [
+      "STAFF-203 · назначения, области доступа и admin-сессии",
+      "STAFF-203 · assignments, scopes and admin sessions"
+    ],
+    "notice": [
+      "Нет доступа к выплатам, численным тарифам и секретам интеграций.",
+      "No access to payouts, numeric pricing or integration secrets."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "Роль | Operations | Поддержка + операции",
+        "Role | Operations | Support + operations"
+      ],
+      [
+        "Область | Demo / обе площадки | По назначенным правам",
+        "Scope | Demo / both venues | Assigned permissions"
+      ],
+      [
+        "Активные admin-сессии | 2 · синтетический пример",
+        "Active admin sessions | 2 · synthetic fixture"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Admin-сессии",
+          "Admin sessions"
+        ],
+        "target": "staff-sessions",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Аккаунт скомпрометирован",
+          "Account compromised"
+        ],
+        "target": "compromise-confirm",
+        "type": "danger",
+        "icon": "2032:38"
+      },
+      {
+        "label": [
+          "Назначения и роли",
+          "Assignments and roles"
+        ],
+        "target": "role-assignment",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "role-form",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Кастомная роль · Маркетолог",
+      "Custom role · Marketer"
+    ],
+    "subtitle": [
+      "Просмотр, изменение и экспорт — отдельные права",
+      "View, edit and export are separate permissions"
+    ],
+    "notice": [
+      "Не разрешаем самоэскалацию. Права Owner-only недоступны в конструкторе кастомной роли.",
+      "Self-escalation is prohibited. Owner-only powers are unavailable in a custom role."
+    ],
+    "tone": "Info",
+    "fields": [
+      [
+        [
+          "Название роли",
+          "Role name"
+        ],
+        [
+          "Маркетолог",
+          "Marketer"
+        ]
+      ],
+      [
+        [
+          "Площадки и среда",
+          "Venues and environment"
+        ],
+        [
+          "Обе площадки / demo",
+          "Both venues / demo"
+        ]
+      ]
+    ],
+    "checks": [
+      [
+        "Маркетинг: просмотр",
+        "Marketing: view"
+      ],
+      [
+        "Маркетинг: публикация",
+        "Marketing: publish"
+      ],
+      [
+        "Тексты: просмотр",
+        "Content: view"
+      ],
+      [
+        "Экспорт: не предоставлен",
+        "Export: not granted"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Предпросмотр доступа",
+          "Preview access"
+        ],
+        "target": "role-preview",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "staff",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "role-preview",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Предпросмотр итогового доступа",
+      "Effective access preview"
+    ],
+    "subtitle": [
+      "Маркетолог · версия черновика 2",
+      "Marketer · draft version 2"
+    ],
+    "notice": [
+      "Доступ только к выбранным разделам. Публикация объявлений не требует обязательного согласования Owner.",
+      "Access is limited to selected sections. Publishing announcements does not require mandatory Owner approval."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "Маркетинг | Просмотр и публикация | Разрешено",
+        "Marketing | View and publish | Granted"
+      ],
+      [
+        "Тексты | Только просмотр | Разрешено",
+        "Content | View only | Granted"
+      ],
+      [
+        "Экспорт / финансы / роли | Недоступны",
+        "Export / finance / role management | Denied"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Сохранить роль · demo",
+          "Save role · demo"
+        ],
+        "target": "role-saved",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Пример конфликта",
+          "Conflict example"
+        ],
+        "target": "role-conflict",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Вернуться к настройке",
+          "Edit permissions"
+        ],
+        "target": "role-form",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "role-saved",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Роль сохранена · demo",
+      "Role saved · demo"
+    ],
+    "subtitle": [
+      "Маркетолог · журнал AUD-041",
+      "Marketer · audit AUD-041"
+    ],
+    "notice": [
+      "Сохранение шаблона не назначает роль сотрудникам автоматически.",
+      "Saving a role template does not automatically assign it to staff."
+    ],
+    "tone": "Success",
+    "actions": [
+      {
+        "label": [
+          "К сотрудникам",
+          "Back to staff"
+        ],
+        "target": "staff",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Открыть журнал",
+          "Open audit"
+        ],
+        "target": "audit-entry",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Назначить сотруднику",
+          "Assign to staff"
+        ],
+        "target": "role-assignment",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "role-conflict",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Роль изменена другим сотрудником",
+      "Role changed by another staff member"
+    ],
+    "subtitle": [
+      "Конфликт версии",
+      "Version conflict"
+    ],
+    "notice": [
+      "Черновик не применён. Сначала загрузите актуальную версию; чужие изменения не перезаписываются.",
+      "Draft not applied. Reload the current version first; another person's changes are not overwritten."
+    ],
+    "tone": "Warning",
+    "actions": [
+      {
+        "label": [
+          "Загрузить актуальную версию",
+          "Reload current version"
+        ],
+        "target": "role-form",
+        "type": "primary",
+        "icon": "2032:50"
+      }
+    ]
+  },
+  {
+    "key": "staff-sessions",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Admin-сессии STAFF-203",
+      "STAFF-203 admin sessions"
+    ],
+    "subtitle": [
+      "Отзыв сеанса не отключает копирование клиента",
+      "Revoking staff access does not disconnect client copying"
+    ],
+    "notice": [
+      "Показаны только безопасные сведения устройства, без cookies и токенов.",
+      "Only safe device details are shown; no cookies or tokens."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "SES-ADM-41 | Desktop · 12:00 UTC | Активна",
+        "SES-ADM-41 | Desktop · 12:00 UTC | Active"
+      ],
+      [
+        "SES-ADM-42 | Mobile · 11:30 UTC | Активна",
+        "SES-ADM-42 | Mobile · 11:30 UTC | Active"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Отозвать SES-ADM-42",
+          "Revoke SES-ADM-42"
+        ],
+        "target": "revoke-confirm",
+        "type": "danger",
+        "icon": "2032:38"
+      },
+      {
+        "label": [
+          "Назад",
+          "Back"
+        ],
+        "target": "staff-detail",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "revoke-confirm",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Отозвать admin-сессию?",
+      "Revoke this admin session?"
+    ],
+    "subtitle": [
+      "STAFF-203 · SES-ADM-42 · Mobile",
+      "STAFF-203 · SES-ADM-42 · Mobile"
+    ],
+    "notice": [
+      "Сотруднику потребуется повторный вход. Пользовательские сессии копирования сохраняются.",
+      "The staff member must sign in again. Client copying sessions remain unchanged."
+    ],
+    "tone": "Warning",
+    "actions": [
+      {
+        "label": [
+          "Отозвать · demo",
+          "Revoke · demo"
+        ],
+        "target": "sessions-revoked",
+        "type": "danger",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "staff-sessions",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "sessions-revoked",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Сессия отозвана · demo",
+      "Session revoked · demo"
+    ],
+    "subtitle": [
+      "SES-ADM-42 · результат подтверждён в примере",
+      "SES-ADM-42 · confirmed fixture result"
+    ],
+    "notice": [
+      "Действие записано в журнал. Это не ротация ключа интеграции.",
+      "Action recorded in audit. This is not integration key rotation."
+    ],
+    "tone": "Success",
+    "actions": [
+      {
+        "label": [
+          "К сотруднику",
+          "Back to staff member"
+        ],
+        "target": "staff-detail",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Открыть журнал",
+          "Open audit log"
+        ],
+        "target": "audit",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "compromise-confirm",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Заблокировать скомпрометированный аккаунт?",
+      "Block this compromised account?"
+    ],
+    "subtitle": [
+      "STAFF-203 · экстренное security-действие",
+      "STAFF-203 · emergency security action"
+    ],
+    "notice": [
+      "Блокируем аккаунт, отзываем все его admin-сессии и неиспользованные подтверждения. Создаём инцидент, уведомляем обоих Owner. Отправленные операции продолжают сверку.",
+      "Block the account, revoke all its admin sessions and unused approvals. Create an incident and notify both Owners. Submitted operations remain under reconciliation."
+    ],
+    "tone": "Danger",
+    "fields": [
+      [
+        [
+          "Причина",
+          "Reason"
+        ],
+        [
+          "Подозрение на компрометацию аккаунта",
+          "Suspected account compromise"
+        ]
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Заблокировать · demo",
+          "Block account · demo"
+        ],
+        "target": "account-blocked",
+        "type": "danger",
+        "icon": "2032:38"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "staff-detail",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "account-blocked",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Аккаунт заблокирован · demo",
+      "Account blocked · demo"
+    ],
+    "subtitle": [
+      "STAFF-203 · INCIDENT-032",
+      "STAFF-203 · INCIDENT-032"
+    ],
+    "notice": [
+      "Старые сеансы и approvals не возвращаются при восстановлении аккаунта.",
+      "Restoring the account will not restore old sessions or approvals."
+    ],
+    "tone": "Warning",
+    "rows": [
+      [
+        "Аккаунт | Заблокирован",
+        "Account | Blocked"
+      ],
+      [
+        "Admin-сессии / неиспользованные approvals | Отозваны · пример",
+        "Admin sessions / unused approvals | Revoked · fixture"
+      ],
+      [
+        "Уведомления обоим Owner | Доступны в приложении · demo",
+        "Both Owner notifications | Available in app · demo"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Открыть журнал",
+          "Open audit log"
+        ],
+        "target": "audit",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "К сотрудникам",
+          "Staff"
+        ],
+        "target": "staff",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Проверка восстановления",
+          "Recovery checklist"
+        ],
+        "target": "account-recovery-check",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "audit",
+    "adm": "ADM-12",
+    "nav": "audit",
+    "title": [
+      "Журнал действий",
+      "Audit log"
+    ],
+    "subtitle": [
+      "12 учебных событий · страница 1 из 2 · UTC",
+      "12 fictional events · page 1 of 2 · UTC"
+    ],
+    "notice": [
+      "Вымышленный журнал. Ветви изменения и отзыва роли — отдельные снимки. Записи нельзя редактировать; защищённая копия в demo не подключена.",
+      "Fictional log. Role edit and revoke branches are separate snapshots. Entries cannot be edited; protected copy is disconnected in demo."
+    ],
+    "tone": "Info",
+    "fields": [],
+    "rows": [
+      [
+        "AUD-046 · 12:00 UTC | Елена Морозова · STAFF-201 | Настройки USDT-DEMO v3 · сохранено",
+        "AUD-046 · 12:00 UTC | Elena Morozova · STAFF-201 | USDT-DEMO v3 settings · saved"
+      ],
+      [
+        "AUD-045 · 11:59 UTC | Нора Азиз · STAFF-203 | Health CONN-LL-01 · проверено",
+        "AUD-045 · 11:59 UTC | Nora Aziz · STAFF-203 | Health CONN-LL-01 · checked"
+      ],
+      [
+        "AUD-044 · 11:58 UTC | Елена Морозова · STAFF-201 | ROLE-MKT / STAFF-204 · отзыв · branch",
+        "AUD-044 · 11:58 UTC | Elena Morozova · STAFF-201 | ROLE-MKT / STAFF-204 · revoked · branch"
+      ],
+      [
+        "AUD-043 · 11:57 UTC | Елена Морозова · STAFF-201 | ROLE-MKT v3 · изменение · branch",
+        "AUD-043 · 11:57 UTC | Elena Morozova · STAFF-201 | ROLE-MKT v3 · edited · branch"
+      ],
+      [
+        "AUD-042 · 11:56 UTC | Елена Морозова · STAFF-201 | STAFF-204 · назначение ROLE-MKT · branch",
+        "AUD-042 · 11:56 UTC | Elena Morozova · STAFF-201 | STAFF-204 · ROLE-MKT assigned · branch"
+      ],
+      [
+        "AUD-041 · 11:55 UTC | Елена Морозова · STAFF-201 | ROLE-MKT v2 · шаблон сохранён",
+        "AUD-041 · 11:55 UTC | Elena Morozova · STAFF-201 | ROLE-MKT v2 · template saved"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Открыть AUD-041",
+          "Open AUD-041"
+        ],
+        "target": "audit-entry",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Нет права экспорта · пример",
+          "Export denied · example"
+        ],
+        "target": "no-access",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Фильтры",
+          "Filters"
+        ],
+        "target": "audit-filters",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Страница 2",
+          "Page 2"
+        ],
+        "target": "audit-page-2",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Экспорт примера",
+          "Sample export"
+        ],
+        "target": "audit-export-preview",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Целостность журнала",
+          "Audit integrity"
+        ],
+        "target": "audit-integrity-demo",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "audit-entry",
+    "adm": "ADM-12",
+    "nav": "audit",
+    "title": [
+      "AUD-041 · детали изменения",
+      "AUD-041 · change details"
+    ],
+    "subtitle": [
+      "Событие только для просмотра",
+      "Read-only event"
+    ],
+    "notice": [
+      "Закрытие инцидента не снимает ограничения и не делает выплату оплаченной.",
+      "Closing an incident does not remove a restriction or mark a payout paid."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "Автор | Елена Морозова · STAFF-201 | 11:55 UTC · пример",
+        "Actor | Elena Morozova · STAFF-201 | 11:55 UTC · fixture"
+      ],
+      [
+        "Объект | Шаблон Маркетолог · ROLE-MKT | версия 2",
+        "Object | Marketer template · ROLE-MKT | version 2"
+      ],
+      [
+        "Изменение | Предоставлена публикация маркетинга",
+        "Change | Marketing publication granted"
+      ],
+      [
+        "Результат | Сохранено · demo | Корреляция AUD-041",
+        "Result | Saved · demo | Correlation AUD-041"
+      ],
+      [
+        "Целостность защищённой копии | Не проверена в demo",
+        "Protected-copy integrity | Unverified in demo"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "К журналу",
+          "Back to audit"
+        ],
+        "target": "audit",
+        "type": "primary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "emergency",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Аварийное управление",
+      "Emergency controls"
+    ],
+    "subtitle": [
+      "Область воздействия и фактическое применение",
+      "Scope and actual enforcement"
+    ],
+    "notice": [
+      "Ограничения действуют через Shadow. Прямые действия вне сервиса и уже отправленные транзакции не отменяются.",
+      "Restrictions apply through Shadow. Direct external actions and submitted transactions are not cancelled."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "GLOBAL_STOP | Новые действия через Shadow | Demo: не включён",
+        "GLOBAL_STOP | New actions through Shadow | Demo: inactive"
+      ],
+      [
+        "TECH_MODE | Технический режим | Demo: не включён",
+        "TECH_MODE | Maintenance mode | Demo: inactive"
+      ],
+      [
+        "DEPOSITS_OFF | Пополнение через Shadow | Live не подключён",
+        "DEPOSITS_OFF | Funding through Shadow | Live disconnected"
+      ],
+      [
+        "WITHDRAWALS_OFF | Пользовательский вывод | Live не подключён",
+        "WITHDRAWALS_OFF | Client withdrawals | Live disconnected"
+      ],
+      [
+        "PARTNER_PAYOUTS_OFF | Выплаты партнёрам | Live не подключён",
+        "PARTNER_PAYOUTS_OFF | Partner payouts | Live disconnected"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Включить GLOBAL_STOP · demo",
+          "Activate GLOBAL_STOP · demo"
+        ],
+        "target": "stop-confirm",
+        "type": "danger",
+        "icon": "2032:53"
+      },
+      {
+        "label": [
+          "Проверка восстановления",
+          "Recovery checklist"
+        ],
+        "target": "recovery-check",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Технический режим",
+          "Maintenance mode"
+        ],
+        "target": "control-tech-scope",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Пополнение",
+          "Funding"
+        ],
+        "target": "control-deposits-scope",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Вывод",
+          "Withdrawals"
+        ],
+        "target": "control-withdrawals-scope",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Партнёрские выплаты",
+          "Partner payouts"
+        ],
+        "target": "control-partner-payouts-scope",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "stop-confirm",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Включить глобальную остановку?",
+      "Activate global stop?"
+    ],
+    "subtitle": [
+      "GLOBAL_STOP · Shadow / demo / обе площадки",
+      "GLOBAL_STOP · Shadow / demo / both venues"
+    ],
+    "notice": [
+      "Новые действия будут запрещены. Наблюдение и сверка продолжаются. Включение не ждёт второго сотрудника.",
+      "New actions will be blocked. Monitoring and reconciliation continue. Activation does not wait for a second person."
+    ],
+    "tone": "Danger",
+    "fields": [
+      [
+        [
+          "Причина",
+          "Reason"
+        ],
+        [
+          "Инцидент безопасности · INCIDENT-033",
+          "Security incident · INCIDENT-033"
+        ]
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Включить · demo",
+          "Activate · demo"
+        ],
+        "target": "stop-partial",
+        "type": "danger",
+        "icon": "2032:53"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "emergency",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "stop-partial",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Остановка применена не полностью",
+      "Stop only partially applied"
+    ],
+    "subtitle": [
+      "Ожидаем подтверждение исполнителей",
+      "Waiting for executor acknowledgement"
+    ],
+    "notice": [
+      "Частичное применение не выдаётся за полный stop. Неизвестный результат требует проверки.",
+      "Partial enforcement is not a complete stop. An unknown result requires verification."
+    ],
+    "tone": "Warning",
+    "rows": [
+      [
+        "Новые инструкции | Запрет подтверждён · demo",
+        "New instructions | Block acknowledged · demo"
+      ],
+      [
+        "Executor / signer | Подтверждение ожидается",
+        "Executor / signer | Acknowledgement pending"
+      ],
+      [
+        "Наблюдение / сверка | Продолжаются",
+        "Monitoring / reconciliation | Continue"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить применение",
+          "Check enforcement"
+        ],
+        "target": "stop-active",
+        "type": "primary",
+        "icon": "2032:50"
+      },
+      {
+        "label": [
+          "Открыть журнал",
+          "Open audit log"
+        ],
+        "target": "audit",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "stop-active",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "GLOBAL_STOP включён · demo",
+      "GLOBAL_STOP active · demo"
+    ],
+    "subtitle": [
+      "Ограничение подтверждено в примере",
+      "Restriction acknowledged in fixture"
+    ],
+    "notice": [
+      "Реальные контуры не подключены. Снятие stop требует проверки и двух независимых участников.",
+      "Live systems are disconnected. Recovery requires checks and two independent participants."
+    ],
+    "tone": "Danger",
+    "rows": [
+      [
+        "Область | Shadow / demo / обе площадки",
+        "Scope | Shadow / demo / both venues"
+      ],
+      [
+        "Автор | Security staff | INCIDENT-033",
+        "Actor | Security staff | INCIDENT-033"
+      ],
+      [
+        "Неотправленные денежные заявки | Остановлены; без автоотправки",
+        "Unsubmitted money requests | Stopped; no automatic sending"
+      ],
+      [
+        "Submitted / unknown | Сверка продолжается",
+        "Submitted / unknown | Reconciliation continues"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Начать восстановление",
+          "Start recovery"
+        ],
+        "target": "recovery-check",
+        "type": "primary",
+        "icon": "2032:56"
+      }
+    ]
+  },
+  {
+    "key": "recovery-check",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Проверка перед восстановлением",
+      "Recovery checklist"
+    ],
+    "subtitle": [
+      "Owner A · точная область и версия ограничения",
+      "Owner A · exact restriction scope and version"
+    ],
+    "notice": [
+      "Восстановление доступа не подтверждает саму выплату. Неотправленные заявки требуют нового preflight и подтверждения инициатора.",
+      "Restoring access does not approve a payout. Unsubmitted requests need a new preflight and initiator approval."
+    ],
+    "tone": "Warning",
+    "checks": [
+      [
+        "Причина инцидента устранена · пример",
+        "Incident cause resolved · fixture"
+      ],
+      [
+        "Подключения и источники проверены · пример",
+        "Connections and sources checked · fixture"
+      ],
+      [
+        "Submitted / unknown остаются на сверке",
+        "Submitted / unknown remain under reconciliation"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Запросить независимую проверку",
+          "Request independent review"
+        ],
+        "target": "recovery-review",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Пример незавершённой проверки",
+          "Incomplete check example"
+        ],
+        "target": "recovery-blocked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "recovery-review",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Независимая проверка восстановления",
+      "Independent recovery review"
+    ],
+    "subtitle": [
+      "Owner B · отдельная identity · та же область и версия",
+      "Owner B · independent identity · same scope and version"
+    ],
+    "notice": [
+      "Автор запроса не подтверждает сам за обе стороны. После подтверждения возвращаем функции поэтапно.",
+      "The requester cannot approve both sides. Functions return in stages after confirmation."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "Инициатор | Owner A | GLOBAL_STOP / demo",
+        "Requester | Owner A | GLOBAL_STOP / demo"
+      ],
+      [
+        "Подтверждающий | Owner B | Независимый участник",
+        "Reviewer | Owner B | Independent participant"
+      ],
+      [
+        "Scope / версия | Shadow / обе площадки / v3 · fixture",
+        "Scope / version | Shadow / both venues / v3 · fixture"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Подтвердить восстановление · demo",
+          "Approve recovery · demo"
+        ],
+        "target": "recovery-staged",
+        "type": "primary",
+        "icon": "2032:56"
+      },
+      {
+        "label": [
+          "Отказать / не готово",
+          "Decline / not ready"
+        ],
+        "target": "recovery-blocked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "recovery-staged",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Поэтапное восстановление · demo",
+      "Staged recovery · demo"
+    ],
+    "subtitle": [
+      "Owner A + Owner B · подтверждения сохранены в примере",
+      "Owner A + Owner B · fixture approvals recorded"
+    ],
+    "notice": [
+      "Нет автоматической отправки старой очереди. Возвращаем только подтверждённые функции.",
+      "Old queued requests are not sent automatically. Only verified capabilities are restored."
+    ],
+    "tone": "Success",
+    "rows": [
+      [
+        "Наблюдение и данные | Доступны · demo",
+        "Monitoring and data | Available · demo"
+      ],
+      [
+        "Неотправленные денежные заявки | Нужна повторная проверка",
+        "Unsubmitted money requests | Recheck required"
+      ],
+      [
+        "Submitted / unknown | Проверяется прежний результат",
+        "Submitted / unknown | Previous result being checked"
+      ],
+      [
+        "Реальные денежные функции | Не подключены",
+        "Live monetary capabilities | Disconnected"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "К управлению",
+          "Back to controls"
+        ],
+        "target": "emergency",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Открыть журнал",
+          "Open audit log"
+        ],
+        "target": "audit",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ]
+  },
+  {
+    "key": "recovery-blocked",
+    "adm": "ADM-17",
+    "nav": "emergency",
+    "title": [
+      "Восстановление заблокировано",
+      "Recovery blocked"
+    ],
+    "subtitle": [
+      "Нет полного подтверждения или проверка устарела",
+      "Approval incomplete or checks expired"
+    ],
+    "notice": [
+      "Stop сохраняется. Загрузите актуальную версию и повторите проверку; обойти независимого подтверждающего нельзя.",
+      "Stop remains active. Reload and recheck; independent review cannot be bypassed."
+    ],
+    "tone": "Danger",
+    "actions": [
+      {
+        "label": [
+          "Повторить проверку",
+          "Recheck"
+        ],
+        "target": "recovery-check",
+        "type": "primary",
+        "icon": "2032:50"
+      }
+    ]
+  },
+  {
+    "key": "no-access",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Недостаточно прав",
+      "Access denied"
+    ],
+    "subtitle": [
+      "Разрешение на экспорт не предоставлено",
+      "Export permission not granted"
+    ],
+    "notice": [
+      "Недоступные данные не раскрываются. Обратитесь к сотруднику, управляющему доступом.",
+      "Restricted data is not disclosed. Contact the staff member managing access."
+    ],
+    "tone": "Warning",
+    "actions": [
+      {
+        "label": [
+          "К журналу",
+          "Back to audit"
+        ],
+        "target": "audit",
+        "type": "primary",
+        "icon": "2032:44"
+      }
+    ]
+  }
+]

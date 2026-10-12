@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-12",
+  "designOnly": true,
+  "layout": {
+    "ru": {
+      "language": "ru",
+      "frames": 125,
+      "totalScreens": 216,
+      "issues": [],
+      "textCount": 4131,
+      "imageCount": 0,
+      "edgeCount": 1956,
+      "shots": []
+    },
+    "en": {
+      "language": "en",
+      "frames": 125,
+      "totalScreens": 216,
+      "issues": [],
+      "textCount": 4131,
+      "imageCount": 0,
+      "edgeCount": 1956,
+      "shots": []
+    }
+  },
+  "actionAndLocaleRoutes": {
+    "ru": [
+      {
+        "checked": 180,
+        "issues": []
+      },
+      {
+        "checked": 179,
+        "issues": []
+      }
+    ],
+    "en": [
+      {
+        "checked": 180,
+        "issues": []
+      },
+      {
+        "checked": 179,
+        "issues": []
+      }
+    ]
+  },
+  "kitAndSitemap": {
+    "roots": [
+      {
+        "id": "2097:5419",
+        "width": 1220,
+        "height": 1790
+      },
+      {
+        "id": "2099:16976",
+        "width": 1680,
+        "height": 1092
+      },
+      {
+        "id": "2082:125",
+        "width": 1600,
+        "height": 3318
+      },
+      {
+        "id": "2105:5766",
+        "width": 2600,
+        "height": 2160
+      }
+    ],
+    "issues": []
+  },
+  "manualPresent": {
+    "language": "ru",
+    "viewport": [
+      1440,
+      1200
+    ],
+    "resetAfter": true,
+    "passed": [
+      [
+        "demo-review",
+        "monitor-normal",
+        "monitor-critical",
+        "monitor-notification-detail",
+        "monitor-notification-ack",
+        "market-recovery-check",
+        "market-recovery-review",
+        "market-recovery-restored"
+      ],
+      [
+        "emergency",
+        "control-partner-payouts-scope",
+        "control-partner-payouts-confirm",
+        "control-partner-payouts-partial",
+        "control-partner-payouts-active",
+        "control-partner-payouts-recovery-check",
+        "control-partner-payouts-recovery-review",
+        "control-partner-payouts-restored"
+      ],
+      [
+        "admin-login",
+        "admin-mfa",
+        "demo-review"
+      ]
+    ],
+    "limits": [
+      "Selected positive paths only; not every branch clicked",
+      "EN action/locale targets checked structurally; EN not manually walked",
+      "Static snapshots, no backend or actual authentication"
+    ]
+  },
+  "fixtureChecks": {
+    "staffCount": 5,
+    "owners": 2,
+    "liabilityUSD": 203,
+    "sumUSD": 203,
+    "pendingExcluded": true,
+    "partialPayout": false,
+    "internalUSDTEqualsUSD": true,
+    "allNewKeysUnique": true,
+    "marketNumbersAreNotProductionDefaults": true,
+    "sourceDifferenceUnit": "percentage points relative to $1"
+  },
+  "publicationSourceHead": "b28b4dc668b56b210dcda01db52807a7e242b50a",
+  "mergeBaseHead": "2c20bc3d24295b4b13df900bd829fffa0804be3d",
+  "concurrentChangesPreserved": [
+    "docs/PROJECT_STATE.md",
+    "docs/design/admin/sitemap.md"
+  ]
+}

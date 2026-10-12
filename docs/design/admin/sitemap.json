@@ -1,5 +1,5 @@
 {
-  "revision": "0.2",
+  "revision": "0.3",
   "updatedAt": "2026-10-12",
   "purpose": "Living design sitemap; not a production capability inventory or final design acceptance.",
   "figma": {
@@ -14,16 +14,15 @@
     "current Figma RU/EN root frame inventory"
   ],
   "counts": {
-    "sections": 18,
-    "ru": 126,
-    "en": 126
+    "ru": 216,
+    "en": 216
   },
   "sections": [
     {
       "id": "ADM-01",
       "title": "Обзор",
       "group": "Обзор",
-      "description": "Сводка, свежесть данных, пустое состояние.",
+      "description": "Обзор, свежесть, пустое состояние и учебные сценарии SHADOW-ADM-01.",
       "screens": [
         {
           "id": "1982:37690",
@@ -56,6 +55,17 @@
             "id": "1982:38586",
             "title": "EN · empty · Overview · no data yet",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38586"
+          }
+        },
+        {
+          "id": "2138:9818",
+          "key": "demo-review",
+          "title": "Рабочие сценарии админки",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-9818",
+          "english": {
+            "id": "2138:67397",
+            "title": "Admin review scenarios",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67397"
           }
         }
       ],
@@ -712,7 +722,7 @@
       "id": "ADM-12",
       "title": "Журнал действий",
       "group": "Управление",
-      "description": "Кто, когда и что изменил; фильтры и разрешённый экспорт.",
+      "description": "Журнал, фильтры, страницы, образец CSV, отказ экспорта и целостность.",
       "screens": [
         {
           "id": "2110:52274",
@@ -734,6 +744,116 @@
             "id": "2110:57130",
             "title": "EN · audit-entry · AUD-041 · change details",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-57130"
+          }
+        },
+        {
+          "id": "2138:66255",
+          "key": "audit-filters",
+          "title": "Фильтры журнала",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66255",
+          "english": {
+            "id": "2138:76153",
+            "title": "Audit filters",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76153"
+          }
+        },
+        {
+          "id": "2138:66380",
+          "key": "audit-filtered",
+          "title": "Журнал · изменения доступа",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66380",
+          "english": {
+            "id": "2138:76278",
+            "title": "Audit · access changes",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76278"
+          }
+        },
+        {
+          "id": "2138:66504",
+          "key": "audit-empty",
+          "title": "Событий по фильтру нет",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66504",
+          "english": {
+            "id": "2138:76402",
+            "title": "No matching events",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76402"
+          }
+        },
+        {
+          "id": "2138:66608",
+          "key": "audit-page-2",
+          "title": "Журнал · страница 2 из 2",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66608",
+          "english": {
+            "id": "2138:76506",
+            "title": "Audit · page 2 of 2",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76506"
+          }
+        },
+        {
+          "id": "2138:66730",
+          "key": "audit-export-preview",
+          "title": "Экспорт разрешённой выборки",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66730",
+          "english": {
+            "id": "2138:76628",
+            "title": "Export authorized selection",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76628"
+          }
+        },
+        {
+          "id": "2138:66849",
+          "key": "audit-export-ready",
+          "title": "Демонстрационный CSV готов",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66849",
+          "english": {
+            "id": "2138:76747",
+            "title": "Sample CSV ready",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76747"
+          }
+        },
+        {
+          "id": "2138:66955",
+          "key": "audit-export-failed",
+          "title": "Файл экспорта не подготовлен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66955",
+          "english": {
+            "id": "2138:76853",
+            "title": "Export file unavailable",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76853"
+          }
+        },
+        {
+          "id": "2138:67052",
+          "key": "audit-integrity-demo",
+          "title": "Целостность · учебное совпадение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67052",
+          "english": {
+            "id": "2138:76950",
+            "title": "Integrity · sample match",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76950"
+          }
+        },
+        {
+          "id": "2138:67167",
+          "key": "audit-integrity-unknown",
+          "title": "Целостность не подтверждена",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67167",
+          "english": {
+            "id": "2138:77065",
+            "title": "Integrity unverified",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-77065"
+          }
+        },
+        {
+          "id": "2138:67282",
+          "key": "audit-integrity-mismatch",
+          "title": "Обнаружено расхождение журнала",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67282",
+          "english": {
+            "id": "2138:77180",
+            "title": "Audit mismatch detected",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-77180"
           }
         }
       ],
@@ -1205,7 +1325,7 @@
       "id": "ADM-14",
       "title": "Сотрудники и доступ",
       "group": "Управление",
-      "description": "Owner, единая Operations, кастомные роли; отзыв admin-сессий.",
+      "description": "Вход, MFA, пять сотрудников, назначения/изменения/отзыв ролей, компрометация и scoped recovery.",
       "screens": [
         {
           "id": "2110:6876",
@@ -1338,6 +1458,226 @@
             "title": "EN · no-access · Access denied",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-58112"
           }
+        },
+        {
+          "id": "2138:9959",
+          "key": "admin-login",
+          "title": "Вход в Shadow Admin",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-9959",
+          "english": {
+            "id": "2138:67538",
+            "title": "Sign in to Shadow Admin",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67538"
+          }
+        },
+        {
+          "id": "2138:9997",
+          "key": "admin-mfa",
+          "title": "Подтвердите вход",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-9997",
+          "english": {
+            "id": "2138:67576",
+            "title": "Confirm sign-in",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67576"
+          }
+        },
+        {
+          "id": "2138:10035",
+          "key": "admin-login-error",
+          "title": "Не удалось подтвердить вход",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-10035",
+          "english": {
+            "id": "2138:67614",
+            "title": "Sign-in could not be verified",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67614"
+          }
+        },
+        {
+          "id": "2138:10057",
+          "key": "admin-session-expired",
+          "title": "Сеанс завершён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-10057",
+          "english": {
+            "id": "2138:67636",
+            "title": "Session expired",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67636"
+          }
+        },
+        {
+          "id": "2138:10079",
+          "key": "admin-session-revoked",
+          "title": "Доступ этого сеанса отозван",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-10079",
+          "english": {
+            "id": "2138:67658",
+            "title": "This session was revoked",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67658"
+          }
+        },
+        {
+          "id": "2138:10101",
+          "key": "owners-unavailable",
+          "title": "Доступ обоих Owner потерян",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-10101",
+          "english": {
+            "id": "2138:67680",
+            "title": "Both Owners unavailable",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67680"
+          }
+        },
+        {
+          "id": "2138:10212",
+          "key": "owners-recovery-guidance",
+          "title": "Восстановление Owner: безопасный порядок",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-10212",
+          "english": {
+            "id": "2138:67791",
+            "title": "Owner recovery: safe procedure",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67791"
+          }
+        },
+        {
+          "id": "2138:57454",
+          "key": "role-assignment",
+          "title": "Назначить роль сотруднику",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-57454",
+          "english": {
+            "id": "2138:67897",
+            "title": "Assign staff role",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67897"
+          }
+        },
+        {
+          "id": "2138:57580",
+          "key": "role-assignment-review",
+          "title": "Проверка назначения роли",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-57580",
+          "english": {
+            "id": "2138:68023",
+            "title": "Review role assignment",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68023"
+          }
+        },
+        {
+          "id": "2138:57700",
+          "key": "role-assigned",
+          "title": "Роль назначена · демо",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-57700",
+          "english": {
+            "id": "2138:68143",
+            "title": "Role assigned · demo",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68143"
+          }
+        },
+        {
+          "id": "2138:57816",
+          "key": "role-edit",
+          "title": "Редактировать роль «Маркетолог»",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-57816",
+          "english": {
+            "id": "2138:68259",
+            "title": "Edit Marketer role",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68259"
+          }
+        },
+        {
+          "id": "2138:57954",
+          "key": "role-edit-review",
+          "title": "Изменение прав · v2 → v3",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-57954",
+          "english": {
+            "id": "2138:68397",
+            "title": "Permission changes · v2 → v3",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68397"
+          }
+        },
+        {
+          "id": "2138:58065",
+          "key": "role-edited",
+          "title": "Версия роли сохранена",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-58065",
+          "english": {
+            "id": "2138:68508",
+            "title": "Role version saved",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68508"
+          }
+        },
+        {
+          "id": "2138:58172",
+          "key": "role-revoke",
+          "title": "Снять назначение роли?",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-58172",
+          "english": {
+            "id": "2138:68615",
+            "title": "Revoke role assignment?",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68615"
+          }
+        },
+        {
+          "id": "2138:58283",
+          "key": "role-revoked",
+          "title": "Назначение снято · демо",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-58283",
+          "english": {
+            "id": "2138:68726",
+            "title": "Assignment revoked · demo",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68726"
+          }
+        },
+        {
+          "id": "2138:58390",
+          "key": "role-escalation-denied",
+          "title": "Расширение доступа запрещено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-58390",
+          "english": {
+            "id": "2138:68833",
+            "title": "Access expansion denied",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68833"
+          }
+        },
+        {
+          "id": "2138:59614",
+          "key": "account-recovery-check",
+          "title": "Восстановление учётной записи",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-59614",
+          "english": {
+            "id": "2138:70057",
+            "title": "Staff account recovery",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-70057"
+          }
+        },
+        {
+          "id": "2138:59729",
+          "key": "account-recovery-review",
+          "title": "Независимая проверка сотрудника",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-59729",
+          "english": {
+            "id": "2138:70172",
+            "title": "Independent staff review",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-70172"
+          }
+        },
+        {
+          "id": "2138:59844",
+          "key": "account-recovery-restored",
+          "title": "Доступ сотрудника восстановлен · демо",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-59844",
+          "english": {
+            "id": "2138:70287",
+            "title": "Staff access restored · demo",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-70287"
+          }
+        },
+        {
+          "id": "2138:59959",
+          "key": "account-recovery-blocked",
+          "title": "Восстановление не разрешено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-59959",
+          "english": {
+            "id": "2138:70402",
+            "title": "Recovery not authorized",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-70402"
+          }
         }
       ],
       "status": "Частично",
@@ -1347,7 +1687,7 @@
       "id": "ADM-15",
       "title": "Подключения и безопасность",
       "group": "Управление",
-      "description": "Health/metadata, изоляция подключения, монитор USDT/USD; без раскрытия секретов.",
+      "description": "Health обеих площадок, изоляция/scoped recovery, заполненный учебный USDT-профиль и уведомления.",
       "screens": [
         {
           "id": "2109:5947",
@@ -1458,6 +1798,292 @@
             "title": "EN · usdt-warning · USDT warning · fixture",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-55700"
           }
+        },
+        {
+          "id": "2138:58492",
+          "key": "connection-checked-pm",
+          "title": "Polymarket · проверка завершена",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-58492",
+          "english": {
+            "id": "2138:68935",
+            "title": "Polymarket · check complete",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68935"
+          }
+        },
+        {
+          "id": "2138:58598",
+          "key": "connection-pm-recovery-check",
+          "title": "Проверка возврата Polymarket",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-58598",
+          "english": {
+            "id": "2138:69041",
+            "title": "Check Polymarket recovery",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-69041"
+          }
+        },
+        {
+          "id": "2138:58727",
+          "key": "connection-pm-recovery-review",
+          "title": "Независимая проверка Polymarket",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-58727",
+          "english": {
+            "id": "2138:69170",
+            "title": "Independent Polymarket review",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-69170"
+          }
+        },
+        {
+          "id": "2138:58837",
+          "key": "connection-pm-recovery-restored",
+          "title": "Polymarket · возврат проверенных функций",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-58837",
+          "english": {
+            "id": "2138:69280",
+            "title": "Polymarket · verified functions restored",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-69280"
+          }
+        },
+        {
+          "id": "2138:58947",
+          "key": "connection-pm-recovery-blocked",
+          "title": "Polymarket · восстановление заблокировано",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-58947",
+          "english": {
+            "id": "2138:69390",
+            "title": "Polymarket · recovery blocked",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-69390"
+          }
+        },
+        {
+          "id": "2138:59053",
+          "key": "connection-checked-ll",
+          "title": "Limitless · проверка завершена",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-59053",
+          "english": {
+            "id": "2138:69496",
+            "title": "Limitless · check complete",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-69496"
+          }
+        },
+        {
+          "id": "2138:59159",
+          "key": "connection-ll-recovery-check",
+          "title": "Проверка возврата Limitless",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-59159",
+          "english": {
+            "id": "2138:69602",
+            "title": "Check Limitless recovery",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-69602"
+          }
+        },
+        {
+          "id": "2138:59288",
+          "key": "connection-ll-recovery-review",
+          "title": "Независимая проверка Limitless",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-59288",
+          "english": {
+            "id": "2138:69731",
+            "title": "Independent Limitless review",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-69731"
+          }
+        },
+        {
+          "id": "2138:59398",
+          "key": "connection-ll-recovery-restored",
+          "title": "Limitless · возврат проверенных функций",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-59398",
+          "english": {
+            "id": "2138:69841",
+            "title": "Limitless · verified functions restored",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-69841"
+          }
+        },
+        {
+          "id": "2138:59508",
+          "key": "connection-ll-recovery-blocked",
+          "title": "Limitless · восстановление заблокировано",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-59508",
+          "english": {
+            "id": "2138:69951",
+            "title": "Limitless · recovery blocked",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-69951"
+          }
+        },
+        {
+          "id": "2138:63876",
+          "key": "monitor-normal",
+          "title": "USDT / USD · нормальный учебный сценарий",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-63876",
+          "english": {
+            "id": "2138:74319",
+            "title": "USDT / USD · normal sample scenario",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-74319"
+          }
+        },
+        {
+          "id": "2138:64012",
+          "key": "monitor-profile",
+          "title": "Настройки контроля · заполненный пример",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-64012",
+          "english": {
+            "id": "2138:74455",
+            "title": "Monitor settings · filled example",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-74455"
+          }
+        },
+        {
+          "id": "2138:64155",
+          "key": "monitor-profile-review",
+          "title": "Проверка учебного профиля",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-64155",
+          "english": {
+            "id": "2138:74598",
+            "title": "Review sample profile",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-74598"
+          }
+        },
+        {
+          "id": "2138:64269",
+          "key": "monitor-profile-saved",
+          "title": "Учебный профиль сохранён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-64269",
+          "english": {
+            "id": "2138:74712",
+            "title": "Sample profile saved",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-74712"
+          }
+        },
+        {
+          "id": "2138:64904",
+          "key": "monitor-profile-conflict",
+          "title": "Настройки изменились",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-64904",
+          "english": {
+            "id": "2138:74822",
+            "title": "Settings changed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-74822"
+          }
+        },
+        {
+          "id": "2138:65005",
+          "key": "monitor-source-unavailable",
+          "title": "Основной источник недоступен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-65005",
+          "english": {
+            "id": "2138:74923",
+            "title": "Primary source unavailable",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-74923"
+          }
+        },
+        {
+          "id": "2138:65119",
+          "key": "monitor-source-disagreement",
+          "title": "Источники курса расходятся",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-65119",
+          "english": {
+            "id": "2138:75037",
+            "title": "Price sources disagree",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-75037"
+          }
+        },
+        {
+          "id": "2138:65233",
+          "key": "monitor-critical",
+          "title": "Критическое отклонение · учебный пример",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-65233",
+          "english": {
+            "id": "2138:75151",
+            "title": "Critical deviation · sample",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-75151"
+          }
+        },
+        {
+          "id": "2138:65347",
+          "key": "monitor-notifications",
+          "title": "Уведомления контроля USDT",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-65347",
+          "english": {
+            "id": "2138:75265",
+            "title": "USDT monitor notifications",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-75265"
+          }
+        },
+        {
+          "id": "2138:65467",
+          "key": "monitor-notification-detail",
+          "title": "ALERT-017 · критическое отклонение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-65467",
+          "english": {
+            "id": "2138:75385",
+            "title": "ALERT-017 · critical deviation",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-75385"
+          }
+        },
+        {
+          "id": "2138:65581",
+          "key": "monitor-notification-ack",
+          "title": "Ознакомление отмечено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-65581",
+          "english": {
+            "id": "2138:75499",
+            "title": "Acknowledgment recorded",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-75499"
+          }
+        },
+        {
+          "id": "2138:65687",
+          "key": "monitor-notification-failed",
+          "title": "Тестовая доставка не удалась",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-65687",
+          "english": {
+            "id": "2138:75605",
+            "title": "Test delivery failed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-75605"
+          }
+        },
+        {
+          "id": "2138:65788",
+          "key": "monitor-notification-unknown",
+          "title": "Результат доставки неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-65788",
+          "english": {
+            "id": "2138:75706",
+            "title": "Delivery result unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-75706"
+          }
+        },
+        {
+          "id": "2138:65893",
+          "key": "market-recovery-check",
+          "title": "Цена нормализовалась: запрет ещё действует",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-65893",
+          "english": {
+            "id": "2138:75811",
+            "title": "Price recovered: restriction remains",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-75811"
+          }
+        },
+        {
+          "id": "2138:66027",
+          "key": "market-recovery-review",
+          "title": "Независимая проверка рыночного gate",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66027",
+          "english": {
+            "id": "2138:75925",
+            "title": "Independent market-gate review",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-75925"
+          }
+        },
+        {
+          "id": "2138:66141",
+          "key": "market-recovery-restored",
+          "title": "Рыночный gate снят · учебный пример",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66141",
+          "english": {
+            "id": "2138:76039",
+            "title": "Market gate lifted · sample",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76039"
+          }
         }
       ],
       "status": "Частично",
@@ -1476,7 +2102,7 @@
       "id": "ADM-17",
       "title": "Аварийное управление",
       "group": "Аварийное управление",
-      "description": "Global stop, технический режим, отдельные ограничения пополнения/вывода/выплат и восстановление.",
+      "description": "GLOBAL_STOP и четыре отдельных ограничения: область, применение, независимое восстановление.",
       "screens": [
         {
           "id": "2110:52505",
@@ -1564,6 +2190,369 @@
             "id": "2110:58019",
             "title": "EN · recovery-blocked · Recovery blocked",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-58019"
+          }
+        },
+        {
+          "id": "2138:60069",
+          "key": "control-tech-scope",
+          "title": "Технический режим",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-60069",
+          "english": {
+            "id": "2138:70512",
+            "title": "Maintenance mode",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-70512"
+          }
+        },
+        {
+          "id": "2138:60194",
+          "key": "control-tech-confirm",
+          "title": "Включить ограничение?",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-60194",
+          "english": {
+            "id": "2138:70637",
+            "title": "Activate restriction?",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-70637"
+          }
+        },
+        {
+          "id": "2138:60308",
+          "key": "control-tech-partial",
+          "title": "Применение не подтверждено полностью",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-60308",
+          "english": {
+            "id": "2138:70751",
+            "title": "Enforcement not fully confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-70751"
+          }
+        },
+        {
+          "id": "2138:60418",
+          "key": "control-tech-active",
+          "title": "Ограничение применено · демо",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-60418",
+          "english": {
+            "id": "2138:70861",
+            "title": "Restriction enforced · demo",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-70861"
+          }
+        },
+        {
+          "id": "2138:60532",
+          "key": "control-tech-recovery-check",
+          "title": "Проверка перед восстановлением",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-60532",
+          "english": {
+            "id": "2138:70975",
+            "title": "Pre-recovery checks",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-70975"
+          }
+        },
+        {
+          "id": "2138:60653",
+          "key": "control-tech-recovery-review",
+          "title": "Независимое подтверждение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-60653",
+          "english": {
+            "id": "2138:71096",
+            "title": "Independent approval",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-71096"
+          }
+        },
+        {
+          "id": "2138:60767",
+          "key": "control-tech-restored",
+          "title": "Поэтапный возврат функций",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-60767",
+          "english": {
+            "id": "2138:71210",
+            "title": "Staged restoration",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-71210"
+          }
+        },
+        {
+          "id": "2138:60881",
+          "key": "control-tech-blocked",
+          "title": "Возврат функций заблокирован",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-60881",
+          "english": {
+            "id": "2138:71324",
+            "title": "Restoration blocked",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-71324"
+          }
+        },
+        {
+          "id": "2138:60991",
+          "key": "control-deposits-scope",
+          "title": "Отключение пополнений",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-60991",
+          "english": {
+            "id": "2138:71434",
+            "title": "Disable funding",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-71434"
+          }
+        },
+        {
+          "id": "2138:61116",
+          "key": "control-deposits-confirm",
+          "title": "Включить ограничение?",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-61116",
+          "english": {
+            "id": "2138:71559",
+            "title": "Activate restriction?",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-71559"
+          }
+        },
+        {
+          "id": "2138:61230",
+          "key": "control-deposits-partial",
+          "title": "Применение не подтверждено полностью",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-61230",
+          "english": {
+            "id": "2138:71673",
+            "title": "Enforcement not fully confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-71673"
+          }
+        },
+        {
+          "id": "2138:61340",
+          "key": "control-deposits-active",
+          "title": "Ограничение применено · демо",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-61340",
+          "english": {
+            "id": "2138:71783",
+            "title": "Restriction enforced · demo",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-71783"
+          }
+        },
+        {
+          "id": "2138:61459",
+          "key": "control-deposits-recovery-check",
+          "title": "Проверка перед восстановлением",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-61459",
+          "english": {
+            "id": "2138:71902",
+            "title": "Pre-recovery checks",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-71902"
+          }
+        },
+        {
+          "id": "2138:61580",
+          "key": "control-deposits-recovery-review",
+          "title": "Независимое подтверждение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-61580",
+          "english": {
+            "id": "2138:72023",
+            "title": "Independent approval",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-72023"
+          }
+        },
+        {
+          "id": "2138:61694",
+          "key": "control-deposits-restored",
+          "title": "Поэтапный возврат функций",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-61694",
+          "english": {
+            "id": "2138:72137",
+            "title": "Staged restoration",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-72137"
+          }
+        },
+        {
+          "id": "2138:61808",
+          "key": "control-deposits-blocked",
+          "title": "Возврат функций заблокирован",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-61808",
+          "english": {
+            "id": "2138:72251",
+            "title": "Restoration blocked",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-72251"
+          }
+        },
+        {
+          "id": "2138:61918",
+          "key": "control-withdrawals-scope",
+          "title": "Отключение пользовательских выводов",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-61918",
+          "english": {
+            "id": "2138:72361",
+            "title": "Disable client withdrawals",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-72361"
+          }
+        },
+        {
+          "id": "2138:62043",
+          "key": "control-withdrawals-confirm",
+          "title": "Включить ограничение?",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-62043",
+          "english": {
+            "id": "2138:72486",
+            "title": "Activate restriction?",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-72486"
+          }
+        },
+        {
+          "id": "2138:62157",
+          "key": "control-withdrawals-partial",
+          "title": "Применение не подтверждено полностью",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-62157",
+          "english": {
+            "id": "2138:72600",
+            "title": "Enforcement not fully confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-72600"
+          }
+        },
+        {
+          "id": "2138:62267",
+          "key": "control-withdrawals-active",
+          "title": "Ограничение применено · демо",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-62267",
+          "english": {
+            "id": "2138:72710",
+            "title": "Restriction enforced · demo",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-72710"
+          }
+        },
+        {
+          "id": "2138:62381",
+          "key": "control-withdrawals-recovery-check",
+          "title": "Проверка перед восстановлением",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-62381",
+          "english": {
+            "id": "2138:72824",
+            "title": "Pre-recovery checks",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-72824"
+          }
+        },
+        {
+          "id": "2138:62502",
+          "key": "control-withdrawals-recovery-review",
+          "title": "Независимое подтверждение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-62502",
+          "english": {
+            "id": "2138:72945",
+            "title": "Independent approval",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-72945"
+          }
+        },
+        {
+          "id": "2138:62616",
+          "key": "control-withdrawals-restored",
+          "title": "Поэтапный возврат функций",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-62616",
+          "english": {
+            "id": "2138:73059",
+            "title": "Staged restoration",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-73059"
+          }
+        },
+        {
+          "id": "2138:62730",
+          "key": "control-withdrawals-blocked",
+          "title": "Возврат функций заблокирован",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-62730",
+          "english": {
+            "id": "2138:73173",
+            "title": "Restoration blocked",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-73173"
+          }
+        },
+        {
+          "id": "2138:62840",
+          "key": "control-partner-payouts-scope",
+          "title": "Отключение выплат партнёрам",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-62840",
+          "english": {
+            "id": "2138:73283",
+            "title": "Disable partner payouts",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-73283"
+          }
+        },
+        {
+          "id": "2138:62965",
+          "key": "control-partner-payouts-confirm",
+          "title": "Включить ограничение?",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-62965",
+          "english": {
+            "id": "2138:73408",
+            "title": "Activate restriction?",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-73408"
+          }
+        },
+        {
+          "id": "2138:63079",
+          "key": "control-partner-payouts-partial",
+          "title": "Применение не подтверждено полностью",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-63079",
+          "english": {
+            "id": "2138:73522",
+            "title": "Enforcement not fully confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-73522"
+          }
+        },
+        {
+          "id": "2138:63189",
+          "key": "control-partner-payouts-active",
+          "title": "Ограничение применено · демо",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-63189",
+          "english": {
+            "id": "2138:73632",
+            "title": "Restriction enforced · demo",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-73632"
+          }
+        },
+        {
+          "id": "2138:63303",
+          "key": "control-partner-payouts-recovery-check",
+          "title": "Проверка перед восстановлением",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-63303",
+          "english": {
+            "id": "2138:73746",
+            "title": "Pre-recovery checks",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-73746"
+          }
+        },
+        {
+          "id": "2138:63424",
+          "key": "control-partner-payouts-recovery-review",
+          "title": "Независимое подтверждение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-63424",
+          "english": {
+            "id": "2138:73867",
+            "title": "Independent approval",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-73867"
+          }
+        },
+        {
+          "id": "2138:63538",
+          "key": "control-partner-payouts-restored",
+          "title": "Поэтапный возврат функций",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-63538",
+          "english": {
+            "id": "2138:73981",
+            "title": "Staged restoration",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-73981"
+          }
+        },
+        {
+          "id": "2138:63652",
+          "key": "control-partner-payouts-blocked",
+          "title": "Возврат функций заблокирован",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-63652",
+          "english": {
+            "id": "2138:74095",
+            "title": "Restoration blocked",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-74095"
+          }
+        },
+        {
+          "id": "2138:63762",
+          "key": "deposits-observed",
+          "title": "Поступления при отключённых пополнениях",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-63762",
+          "english": {
+            "id": "2138:74205",
+            "title": "Deposits while funding is disabled",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-74205"
           }
         }
       ],
@@ -1710,6 +2699,114 @@
           "2110:53171"
         ]
       ]
+    },
+    {
+      "title": "Доступ · личный аккаунт",
+      "steps": [
+        [
+          "Вход в Shadow Admin",
+          "2138:9959"
+        ],
+        [
+          "Подтвердите вход",
+          "2138:9997"
+        ],
+        [
+          "Рабочие сценарии админки",
+          "2138:9818"
+        ]
+      ]
+    },
+    {
+      "title": "Роль · назначение и отдельный отзыв",
+      "steps": [
+        [
+          "Назначить роль сотруднику",
+          "2138:57454"
+        ],
+        [
+          "Проверка назначения роли",
+          "2138:57580"
+        ],
+        [
+          "Роль назначена · демо",
+          "2138:57700"
+        ],
+        [
+          "Снять назначение роли?",
+          "2138:58172"
+        ],
+        [
+          "Назначение снято · демо",
+          "2138:58283"
+        ]
+      ]
+    },
+    {
+      "title": "Рыночный gate · ознакомление отдельно от возврата",
+      "steps": [
+        [
+          "USDT / USD · нормальный учебный сценарий",
+          "2138:63876"
+        ],
+        [
+          "Критическое отклонение · учебный пример",
+          "2138:65233"
+        ],
+        [
+          "ALERT-017 · критическое отклонение",
+          "2138:65467"
+        ],
+        [
+          "Ознакомление отмечено",
+          "2138:65581"
+        ],
+        [
+          "Цена нормализовалась: запрет ещё действует",
+          "2138:65893"
+        ],
+        [
+          "Независимая проверка рыночного gate",
+          "2138:66027"
+        ],
+        [
+          "Рыночный gate снят · учебный пример",
+          "2138:66141"
+        ]
+      ]
+    },
+    {
+      "title": "Партнёрские выплаты · ограничение и возврат",
+      "steps": [
+        [
+          "Отключение выплат партнёрам",
+          "2138:62840"
+        ],
+        [
+          "Включить ограничение?",
+          "2138:62965"
+        ],
+        [
+          "Применение не подтверждено полностью",
+          "2138:63079"
+        ],
+        [
+          "Ограничение применено · демо",
+          "2138:63189"
+        ],
+        [
+          "Проверка перед восстановлением",
+          "2138:63303"
+        ],
+        [
+          "Независимое подтверждение",
+          "2138:63424"
+        ],
+        [
+          "Поэтапный возврат функций",
+          "2138:63538"
+        ]
+      ]
     }
   ],
   "maintenance": [
@@ -1718,7 +2815,8 @@
     "Keep custom-role scopes and Owner-only money rules consistent with accepted ADRs.",
     "Publish sitemap.json and sitemap.md with the same design handoff commit.",
     "Present => actual prototype reactions; map links are editor navigation only.",
-    "Package 03: 34 RU/EN states added; unresolved roles, monitoring and emergency scope branches stay explicitly partial."
+    "Package 03: 34 RU/EN states added; unresolved roles, monitoring and emergency scope branches stay explicitly partial.",
+    "Package 04 adds scoped safety/access/monitoring/audit state coverage and synthetic fixtures; full RU/EN acceptance is pending."
   ],
   "later": [
     "integration key rotation",
@@ -1977,6 +3075,44 @@
         "height": 2160,
         "sectionY": -2440
       }
+    },
+    "package04": {
+      "mutatedNodeIds": [
+        "2105:5776",
+        "2105:5778",
+        "2105:5779",
+        "2105:5784",
+        "2105:5790",
+        "2105:5796",
+        "2105:5801",
+        "2105:5807",
+        "2105:5811",
+        "2105:5817",
+        "2105:5831",
+        "2105:5835",
+        "2105:5839",
+        "2105:5849",
+        "2120:9294",
+        "2120:9295",
+        "2105:5823",
+        "2105:5853",
+        "2120:9296",
+        "2120:9297",
+        "2105:5857",
+        "2120:9298",
+        "2120:9299",
+        "2105:5861",
+        "2105:5867",
+        "2120:9300",
+        "2120:9301",
+        "2105:5843",
+        "2105:5768",
+        "2105:5915",
+        "2105:5766",
+        "2105:5765"
+      ],
+      "createdNodeIds": []
     }
-  }
+  },
+  "package": "package-04"
 }
