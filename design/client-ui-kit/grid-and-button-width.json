@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-12",
+  "scope": "client only: mobile RU/EN, desktop RU/EN, UI kit",
+  "figmaFileKey": "lxPP2um7FvIbt02K8eeH4T",
+  "kitPageId": "1976:2",
+  "grid": {
+    "mobile": {
+      "columns": 4,
+      "gutterPx": 16,
+      "marginsPx": { "320": 16, "360": 20, "390": 20 },
+      "style320": "S:84040d9d5cc0fcdb044ff5b4e067ef2ba7f9b4f3,",
+      "style360to390": "S:0cc709616cba807e88bd955144a334db7b4f676f,",
+      "figmaExampleId": "2075:544"
+    },
+    "desktop": {
+      "columns": 12,
+      "gutterPx": 24,
+      "referenceWidthPx": 1440,
+      "sidebarPx": 232,
+      "sidebarToContentGapPx": 24,
+      "contentStartPx": 256,
+      "contentWidthPx": 1152,
+      "split8to4Px": [760, 368],
+      "splitGapPx": 24,
+      "contentGridStyle": "S:bd254a2804b844400083ec610d9cb9457bb84d2d,",
+      "figmaExampleId": "2075:545"
+    },
+    "reviewBoardId": "2075:541"
+  },
+  "buttons": {
+    "mobilePrimary": "fill available content width; 350px at 390px viewport with 20px side margins",
+    "desktopOrCard": "hug label plus horizontal padding; no global fixed width",
+    "pairedActions": "equal widths only when both labels and minimum targets fit",
+    "minimumTouchTargetPx": [44, 44],
+    "existingFillMasterId": "113:246",
+    "contentWidthComponentSetId": "2077:22084",
+    "contentWidthVariants": 18,
+    "reviewBoardId": "2078:538"
+  },
+  "verification": {
+    "figmaScreensWithMobileGrid": { "ru": 154, "en": 153 },
+    "legacyDesktopShellsAdjusted": { "ru": 64, "en": 66 },
+    "desktopWorkspacesWith8to4SplitAdjusted": { "ru": 49, "en": 31 },
+    "visualSamples": ["2075:541", "2078:538", "905:9074", "905:9713", "949:9184", "205:217"],
+    "notAccepted": [
+      "No complete 320/360 mobile or 1024/1280 desktop screen variants were created or reviewed",
+      "No manual Present run after this grid change",
+      "No exhaustive prototype-reaction audit after this grid change",
+      "Legacy desktop RU screen 205:217 visibly contains overlapping duplicate title/sidebar content and needs a separate cleanup pass",
+      "No application runtime, zoom, keyboard or accessibility acceptance"
+    ]
+  }
+}
