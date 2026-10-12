@@ -1,4 +1,4 @@
-# Admin Apps Components · v0.4.2
+# Admin Apps Components · v0.4.3
 
 Updated 12.10.2026. Design only. Native editable Figma component sets, variants and instances; no application implementation.
 
@@ -27,7 +27,7 @@ The exact component/property/variant IDs and scoped binding evidence are in [app
 
 Buttons: Default, Hover, Focus, Pressed, Loading, Disabled. Height 44 px; hug label and icon; minimum width 96 px. Only one Primary per action group. Loading keeps a spinner and exposes a separate localized Loading label; it hides the action icon. Loading and Disabled must not submit in the eventual implementation.
 
-Fields: Default, Focus, Filled, Error, Disabled, ReadOnly. Source control height and minimum height are 48 px; counter axis is fixed. Do not switch the control to vertical Hug when arranging specimens. Text, placeholder and helper/error content must be explicitly configured on each instance. Filled is a specimen state, not proof of saved data. Error requires readable text, not color alone. ReadOnly remains readable; Disabled cannot edit. Search and select retain icon/text spacing.
+Fields: Default, Focus, Filled, Error, Disabled, ReadOnly. Default control height and minimum height are 48 px. Regular fields keep a fixed counter axis; Address is an explicit exception: its control grows vertically to fit character-preserving wrapped text. Text, placeholder and helper/error content must be explicitly configured on each instance. Filled is a specimen state, not proof of saved data. Error requires readable text, not color alone. ReadOnly remains readable; Disabled cannot edit. Search and select retain icon/text spacing.
 
 Navigation: Default, Selected, Hover, Focus, GroupOpen, Disabled. Selected means current route; GroupOpen only expands a group. Disabled has no destination. Controls: Checked False/True × Default/Focus/Disabled. Segmented: All/Active/Pending; labels are localizable.
 
@@ -41,7 +41,7 @@ Money confirmation must show venue, asset, verified network/route, full recipien
 
 Owner-only execution and the agreed full available payout rule remain in the domain specification. Unknown result blocks another send until reconciliation. UI states do not establish API confirmation, transaction success or permission enforcement. The network, 125.00 USDT amount, 0.50 USDT fee and address in the review specimen are synthetic; they are not a verified provider route or a production payment.
 
-Address fields use 8 columns in real forms and may wrap. Never substitute the abbreviated showcase field value for the full address in a payout confirmation.
+Address fields use 8 columns in real forms and may wrap. Addresses must be fully visible in the showcase and the real interface. Never abbreviate an address in a field, read-only view, recipient detail or payout confirmation.
 
 ## Foundations and adoption
 
@@ -66,3 +66,7 @@ Reviewed the reported collapsed search fields and confirmation cards at 1x. Curr
 Radio uses a 20px outlined circle and centered 8px accent dot. Focus uses a distinct 3px focus stroke; Disabled uses muted semantic colors. The label names the option independently of Checked (specimen: «Маршрут A»). This prevents a disabled/unselected option from misleadingly saying «Выбран маршрут».
 
 Segmented defaults to 360×44 with 4px padding and gaps. All three segments share available width equally (114.667px at the default width), have a 36px height and centered labels. The selected segment uses a solid accent background and on-accent text. Keep the parent width fixed and its children in horizontal Fill; do not collapse each segment to its label width. Both rows were reviewed at 1x and passed bounds validation. Existing node IDs retained; no new variants, pages or tokens.
+
+## Full address visibility · 12.10.2026
+
+Removed the abbreviated filled address specimen. Filled and ReadOnly now show the complete synthetic 42-character address, preserving every character and wrapping it across lines when needed. Address controls have a 48px minimum and grow vertically; width must not cause ellipsis, masking or hidden overflow. RU and EN admin-page text scans found no address text containing ellipsis. Full address visibility is a required visual verification aid; it supplements automated route/address checks rather than proving authenticity on its own.

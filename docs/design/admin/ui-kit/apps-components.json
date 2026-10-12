@@ -1,5 +1,5 @@
 {
-  "revision": "0.4.2",
+  "revision": "0.4.3",
   "updated": "2026-10-12",
   "fileKey": "lxPP2um7FvIbt02K8eeH4T",
   "pageId": "1981:2",
@@ -175,10 +175,17 @@
         }
       ],
       "layoutContract": {
-        "controlHeight": 48,
         "controlMinHeight": 48,
-        "counterAxisSizingMode": "FIXED",
-        "scope": "Source controls; instances retain fixed height. Other controls use their own geometry."
+        "defaultControlHeight": 48,
+        "defaultCounterAxisSizingMode": "FIXED",
+        "address": {
+          "counterAxisSizingMode": "AUTO",
+          "valueTextAutoResize": "HEIGHT",
+          "horizontalSizing": "FILL",
+          "fullAddressRequired": true,
+          "ellipsisAllowed": false,
+          "scope": "Input, readonly, recipient details and confirmation; wrap without altering characters."
+        }
       }
     },
     {
@@ -1459,5 +1466,14 @@
       "segmentHeight": 36
     },
     "visualReview": "Both source-backed specimen rows reviewed at 1x; no bounds overflow."
+  },
+  "addressVisibilityFix": {
+    "date": "2026-10-12",
+    "fullDemoAddress": "0x1234567890abcdef1234567890abcdef12345678",
+    "abbreviatedAddressTextsInCurrentAdminScreens": {
+      "ru": 0,
+      "en": 0
+    },
+    "rule": "Always show full wallet addresses for visual verification. Never ellipsize or mask. Growing-height wrap when width is insufficient."
   }
 }
