@@ -1,5 +1,7 @@
 # Admin UI kit v0.4
 
+12.10.2026: `Admin/Sidebar` (1981:16) обновлён на месте до утверждённой навигации с иконками. Первые три старых client nav instances заменены на Admin/Navigation item с сохранением ID. Служебный Later скрыт; property оставлен для совместимости старых overrides. Подписи RU/EN и активные пункты проверены на 68 связанных instances. [Изменения исходника](fixes/sidebar-source.json).
+
 ## Основа дизайна админки
 
 Все новые и обновляемые экраны админки собираем из этого UI kit: используем instances, общие цвета, типографику, иконки и состояния. Недостающий элемент сначала добавляем в кит, затем применяем в экранах. Изменения делаем на существующих страницах, сохраняя связи компонентов.
@@ -20,7 +22,7 @@
 | Admin/Entity panel/v0.1 | 1981:7 | Title, Body |
 | Admin/Data row/v0.1 | 1981:10 | Title, Body |
 | Admin/Notice/v0.1 | 1981:13 | Title, Body; amber notice |
-| Admin/Sidebar/v0.1 | 1981:16 | Brand, Subtitle, Later; nested client nav |
+| Admin/Sidebar | 1981:16 | Brand, Subtitle, Later; nested client nav |
 
 Переиспользованы старые button masters Primary 113:207, Secondary 113:209, Quiet 113:211 и status masters 113:214/216/218/220; клиентские Nav default/selected 1978:1003/1005, Select 1978:874 и Textarea 1978:921. Width overrides вложенного Control применены к admin instances, оригинальные клиентские masters не изменены.
 
