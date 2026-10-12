@@ -16,6 +16,8 @@
 
 ## Просмотреть интерфейсы
 
+Дизайн-система Figma: [общие правила и мастера](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=7-9), [Client UI kit](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1976-2), [Admin UI kit](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1981-2). Активные разделы сгруппированы рядом; ранние компоненты сохранены в архиве. [Карта переноса и проверки](design/design-system-consolidation-2026-10-12.md).
+
 Единая точка входа — [лист «Начать здесь» в Figma](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3-2): клиентские прототипы RU/EN и [карта админки](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2149-17217) с входами в RU/EN макеты и статусы разделов. В каждом клиентском прототипе доступны первый запуск и отдельный подготовленный пример активного демо. Админка остаётся дизайном на вычитке.
 
 | Версия | Кликабельный прототип |

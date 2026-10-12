@@ -12,4 +12,4 @@ Native source: [Figma Foundations](https://www.figma.com/design/lxPP2um7FvIbt02K
 
 Native component definitions remain in Figma. Git stores the registry, design tokens, usage guidance and construction provenance. No .fig binary export or portable Figma restore is claimed. Construction scripts are historical records, not idempotent rebuild tools.
 
-Current organization: **09 · Client UI kit** (page `1976:2`), with Foundations, Controls, Data and Patterns sections. The three former empty kit pages were removed; component and review-board IDs remain unchanged. Manifest `originalPage` records are historical provenance.
+Current organization: **07 · Client UI kit** (page `1976:2`), with four core sections (Foundations, Controls, Data, Patterns) and a fifth section of linked product-source masters (`2152:528`). The source masters were moved from the former components page without changing IDs or instance links. The three former empty kit pages were removed; component and review-board IDs remain unchanged. Manifest `originalPage` records are historical provenance.
