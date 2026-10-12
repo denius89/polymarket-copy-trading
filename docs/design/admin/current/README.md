@@ -1,6 +1,8 @@
 # Текущая админка — единый дизайн v0.3
 
-12.10.2026. 184 состояния; 92 RU + 92 EN. [Правила дальнейшей работы и стиля](../STYLE_GUIDE.md).
+Новые стартовые точки: [подключения](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2109-5830&starting-point-node-id=2109-5830&scaling=scale-down), [сотрудники](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2110-6876&starting-point-node-id=2110-6876&scaling=scale-down), [аварийное управление](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2110-52505&starting-point-node-id=2110-52505&scaling=scale-down).
+
+12.10.2026. 252 состояния; 126 RU + 126 EN. Актуальный полный индекс — [sitemap](../sitemap.json), добавленные экраны и новые пункты меню — [пакет 03](../package-03/manifest.json). Файлы ru.json/en.json и старые reactions ниже фиксируют базовую пересборку 92 экранов на язык до пакета 03. [Правила дальнейшей работы и стиля](../STYLE_GUIDE.md).
 
 | Старт | Ссылка |
 | --- | --- |

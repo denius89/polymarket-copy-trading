@@ -1,5 +1,5 @@
 {
-  "revision": "0.1",
+  "revision": "0.2",
   "updatedAt": "2026-10-12",
   "purpose": "Living design sitemap; not a production capability inventory or final design acceptance.",
   "figma": {
@@ -15,8 +15,8 @@
   ],
   "counts": {
     "sections": 18,
-    "ru": 92,
-    "en": 92
+    "ru": 126,
+    "en": 126
   },
   "sections": [
     {
@@ -481,8 +481,31 @@
       "title": "Площадки и данные",
       "group": "Операции",
       "description": "Health Polymarket/Limitless, данные и актуальность источников.",
-      "screens": [],
-      "status": "Запланировано",
+      "screens": [
+        {
+          "id": "2109:5830",
+          "key": "connections",
+          "title": "Подключения и здоровье площадок",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-5830",
+          "english": {
+            "id": "2110:54469",
+            "title": "EN · connections · Connections and venue health",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-54469"
+          }
+        },
+        {
+          "id": "2109:6174",
+          "key": "health-stale",
+          "title": "Проверка не завершена",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-6174",
+          "english": {
+            "id": "2110:54813",
+            "title": "EN · health-stale · Check incomplete",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-54813"
+          }
+        }
+      ],
+      "status": "Частично",
       "mapNodeId": "2105:5805"
     },
     {
@@ -690,8 +713,31 @@
       "title": "Журнал действий",
       "group": "Управление",
       "description": "Кто, когда и что изменил; фильтры и разрешённый экспорт.",
-      "screens": [],
-      "status": "Запланировано",
+      "screens": [
+        {
+          "id": "2110:52274",
+          "key": "audit",
+          "title": "Журнал действий",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-52274",
+          "english": {
+            "id": "2110:57011",
+            "title": "EN · audit · Audit log",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-57011"
+          }
+        },
+        {
+          "id": "2110:52393",
+          "key": "audit-entry",
+          "title": "AUD-041 · детали изменения",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-52393",
+          "english": {
+            "id": "2110:57130",
+            "title": "EN · audit-entry · AUD-041 · change details",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-57130"
+          }
+        }
+      ],
+      "status": "Частично",
       "mapNodeId": "2105:5847"
     },
     {
@@ -1160,8 +1206,141 @@
       "title": "Сотрудники и доступ",
       "group": "Управление",
       "description": "Owner, единая Operations, кастомные роли; отзыв admin-сессий.",
-      "screens": [],
-      "status": "Запланировано",
+      "screens": [
+        {
+          "id": "2110:6876",
+          "key": "staff",
+          "title": "Сотрудники и доступ",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-6876",
+          "english": {
+            "id": "2110:55811",
+            "title": "EN · staff · Staff and access",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-55811"
+          }
+        },
+        {
+          "id": "2110:6995",
+          "key": "staff-detail",
+          "title": "STAFF-203 · Operations",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-6995",
+          "english": {
+            "id": "2110:55931",
+            "title": "EN · staff-detail · STAFF-203 · Operations",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-55931"
+          }
+        },
+        {
+          "id": "2110:7106",
+          "key": "role-form",
+          "title": "Кастомная роль · Маркетолог",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-7106",
+          "english": {
+            "id": "2110:56043",
+            "title": "EN · role-form · Custom role · Marketer",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-56043"
+          }
+        },
+        {
+          "id": "2110:7243",
+          "key": "role-preview",
+          "title": "Предпросмотр итогового доступа",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-7243",
+          "english": {
+            "id": "2110:56179",
+            "title": "EN · role-preview · Effective access preview",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-56179"
+          }
+        },
+        {
+          "id": "2110:7358",
+          "key": "role-saved",
+          "title": "Роль сохранена · demo",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-7358",
+          "english": {
+            "id": "2110:56295",
+            "title": "EN · role-saved · Role saved · demo",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-56295"
+          }
+        },
+        {
+          "id": "2110:7456",
+          "key": "role-conflict",
+          "title": "Роль изменена другим сотрудником",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-7456",
+          "english": {
+            "id": "2110:56394",
+            "title": "EN · role-conflict · Role changed by another staff member",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-56394"
+          }
+        },
+        {
+          "id": "2110:51751",
+          "key": "staff-sessions",
+          "title": "Admin-сессии STAFF-203",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-51751",
+          "english": {
+            "id": "2110:56488",
+            "title": "EN · staff-sessions · STAFF-203 admin sessions",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-56488"
+          }
+        },
+        {
+          "id": "2110:51860",
+          "key": "revoke-confirm",
+          "title": "Отозвать admin-сессию?",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-51860",
+          "english": {
+            "id": "2110:56597",
+            "title": "EN · revoke-confirm · Revoke this admin session?",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-56597"
+          }
+        },
+        {
+          "id": "2110:51959",
+          "key": "sessions-revoked",
+          "title": "Сессия отозвана · demo",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-51959",
+          "english": {
+            "id": "2110:56696",
+            "title": "EN · sessions-revoked · Session revoked · demo",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-56696"
+          }
+        },
+        {
+          "id": "2110:52058",
+          "key": "compromise-confirm",
+          "title": "Заблокировать скомпрометированный аккаунт?",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-52058",
+          "english": {
+            "id": "2110:56795",
+            "title": "EN · compromise-confirm · Block this compromised account?",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-56795"
+          }
+        },
+        {
+          "id": "2110:52165",
+          "key": "account-blocked",
+          "title": "Аккаунт заблокирован · demo",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-52165",
+          "english": {
+            "id": "2110:56902",
+            "title": "EN · account-blocked · Account blocked · demo",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-56902"
+          }
+        },
+        {
+          "id": "2110:53375",
+          "key": "no-access",
+          "title": "Недостаточно прав",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-53375",
+          "english": {
+            "id": "2110:58112",
+            "title": "EN · no-access · Access denied",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-58112"
+          }
+        }
+      ],
+      "status": "Частично",
       "mapNodeId": "2105:5851"
     },
     {
@@ -1169,8 +1348,119 @@
       "title": "Подключения и безопасность",
       "group": "Управление",
       "description": "Health/metadata, изоляция подключения, монитор USDT/USD; без раскрытия секретов.",
-      "screens": [],
-      "status": "Запланировано",
+      "screens": [
+        {
+          "id": "2109:5947",
+          "key": "connection-pm",
+          "title": "Polymarket · подключение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-5947",
+          "english": {
+            "id": "2110:54585",
+            "title": "EN · connection-pm · Polymarket connection",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-54585"
+          }
+        },
+        {
+          "id": "2109:6061",
+          "key": "connection-ll",
+          "title": "Limitless · подключение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-6061",
+          "english": {
+            "id": "2110:54699",
+            "title": "EN · connection-ll · Limitless connection",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-54699"
+          }
+        },
+        {
+          "id": "2109:6273",
+          "key": "isolate-confirm",
+          "title": "Изолировать Polymarket?",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-6273",
+          "english": {
+            "id": "2110:54913",
+            "title": "EN · isolate-confirm · Isolate Polymarket?",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-54913"
+          }
+        },
+        {
+          "id": "2109:6382",
+          "key": "isolate-ll-confirm",
+          "title": "Изолировать Limitless?",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-6382",
+          "english": {
+            "id": "2110:55023",
+            "title": "EN · isolate-ll-confirm · Isolate Limitless?",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-55023"
+          }
+        },
+        {
+          "id": "2109:6491",
+          "key": "connection-isolated",
+          "title": "Подключение изолировано в Shadow",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-6491",
+          "english": {
+            "id": "2110:55133",
+            "title": "EN · connection-isolated · Connection isolated in Shadow",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-55133"
+          }
+        },
+        {
+          "id": "2109:6598",
+          "key": "connection-ll-isolated",
+          "title": "Подключение изолировано в Shadow",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-6598",
+          "english": {
+            "id": "2110:55241",
+            "title": "EN · connection-ll-isolated · Connection isolated in Shadow",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-55241"
+          }
+        },
+        {
+          "id": "2109:6705",
+          "key": "usdt-monitor",
+          "title": "USDT / USD · контроль отклонения",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-6705",
+          "english": {
+            "id": "2110:55349",
+            "title": "EN · usdt-monitor · USDT / USD deviation monitor",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-55349"
+          }
+        },
+        {
+          "id": "2110:6537",
+          "key": "usdt-settings",
+          "title": "Настройки контроля USDT",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-6537",
+          "english": {
+            "id": "2110:55469",
+            "title": "EN · usdt-settings · USDT monitor settings",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-55469"
+          }
+        },
+        {
+          "id": "2110:6667",
+          "key": "usdt-settings-error",
+          "title": "Настройки не готовы",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-6667",
+          "english": {
+            "id": "2110:55600",
+            "title": "EN · usdt-settings-error · Settings incomplete",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-55600"
+          }
+        },
+        {
+          "id": "2110:6766",
+          "key": "usdt-warning",
+          "title": "Предупреждение USDT · пример",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-6766",
+          "english": {
+            "id": "2110:55700",
+            "title": "EN · usdt-warning · USDT warning · fixture",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-55700"
+          }
+        }
+      ],
+      "status": "Частично",
       "mapNodeId": "2105:5855"
     },
     {
@@ -1187,8 +1477,97 @@
       "title": "Аварийное управление",
       "group": "Аварийное управление",
       "description": "Global stop, технический режим, отдельные ограничения пополнения/вывода/выплат и восстановление.",
-      "screens": [],
-      "status": "Запланировано",
+      "screens": [
+        {
+          "id": "2110:52505",
+          "key": "emergency",
+          "title": "Аварийное управление",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-52505",
+          "english": {
+            "id": "2110:57242",
+            "title": "EN · emergency · Emergency controls",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-57242"
+          }
+        },
+        {
+          "id": "2110:52624",
+          "key": "stop-confirm",
+          "title": "Включить глобальную остановку?",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-52624",
+          "english": {
+            "id": "2110:57361",
+            "title": "EN · stop-confirm · Activate global stop?",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-57361"
+          }
+        },
+        {
+          "id": "2110:52729",
+          "key": "stop-partial",
+          "title": "Остановка применена не полностью",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-52729",
+          "english": {
+            "id": "2110:57466",
+            "title": "EN · stop-partial · Stop only partially applied",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-57466"
+          }
+        },
+        {
+          "id": "2110:52837",
+          "key": "stop-active",
+          "title": "GLOBAL_STOP включён · demo",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-52837",
+          "english": {
+            "id": "2110:57574",
+            "title": "EN · stop-active · GLOBAL_STOP active · demo",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-57574"
+          }
+        },
+        {
+          "id": "2110:52944",
+          "key": "recovery-check",
+          "title": "Проверка перед восстановлением",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-52944",
+          "english": {
+            "id": "2110:57681",
+            "title": "EN · recovery-check · Recovery checklist",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-57681"
+          }
+        },
+        {
+          "id": "2110:53061",
+          "key": "recovery-review",
+          "title": "Независимая проверка восстановления",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-53061",
+          "english": {
+            "id": "2110:57798",
+            "title": "EN · recovery-review · Independent recovery review",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-57798"
+          }
+        },
+        {
+          "id": "2110:53171",
+          "key": "recovery-staged",
+          "title": "Поэтапное восстановление · demo",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-53171",
+          "english": {
+            "id": "2110:57908",
+            "title": "EN · recovery-staged · Staged recovery · demo",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-57908"
+          }
+        },
+        {
+          "id": "2110:53282",
+          "key": "recovery-blocked",
+          "title": "Восстановление заблокировано",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-53282",
+          "english": {
+            "id": "2110:58019",
+            "title": "EN · recovery-blocked · Recovery blocked",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-58019"
+          }
+        }
+      ],
+      "status": "Частично",
       "mapNodeId": "2105:5865"
     },
     {
@@ -1293,6 +1672,44 @@
           "1984:485"
         ]
       ]
+    },
+    {
+      "title": "GLOBAL_STOP · уполномоченный сотрудник",
+      "steps": [
+        [
+          "Аварийное управление",
+          "2110:52505"
+        ],
+        [
+          "Подтверждение",
+          "2110:52624"
+        ],
+        [
+          "Неполное применение",
+          "2110:52729"
+        ],
+        [
+          "Стоп подтверждён",
+          "2110:52837"
+        ]
+      ]
+    },
+    {
+      "title": "Восстановление · Owner A + независимый Owner B",
+      "steps": [
+        [
+          "Проверка",
+          "2110:52944"
+        ],
+        [
+          "Независимый участник",
+          "2110:53061"
+        ],
+        [
+          "Поэтапное восстановление",
+          "2110:53171"
+        ]
+      ]
     }
   ],
   "maintenance": [
@@ -1300,7 +1717,8 @@
     "Reconcile actual Figma screen IDs, section/status, RU/EN counterparts and flows before publishing.",
     "Keep custom-role scopes and Owner-only money rules consistent with accepted ADRs.",
     "Publish sitemap.json and sitemap.md with the same design handoff commit.",
-    "Present => actual prototype reactions; map links are editor navigation only."
+    "Present => actual prototype reactions; map links are editor navigation only.",
+    "Package 03: 34 RU/EN states added; unresolved roles, monitoring and emergency scope branches stay explicitly partial."
   ],
   "later": [
     "integration key rotation",
@@ -1513,6 +1931,52 @@
         "h": 2224
       },
       "sectionCards": 18
+    },
+    "package03": {
+      "createdNodeIds": [
+        "2120:9292",
+        "2120:9293",
+        "2120:9294",
+        "2120:9295",
+        "2120:9296",
+        "2120:9297",
+        "2120:9298",
+        "2120:9299",
+        "2120:9300",
+        "2120:9301"
+      ],
+      "mutatedNodeIds": [
+        "2105:5807",
+        "2120:9292",
+        "2120:9293",
+        "2105:5805",
+        "2105:5849",
+        "2120:9294",
+        "2120:9295",
+        "2105:5847",
+        "2105:5853",
+        "2120:9296",
+        "2120:9297",
+        "2105:5851",
+        "2105:5857",
+        "2120:9298",
+        "2120:9299",
+        "2105:5855",
+        "2105:5867",
+        "2120:9300",
+        "2120:9301",
+        "2105:5865",
+        "2105:5768",
+        "2105:5915",
+        "2105:5766",
+        "2105:5765"
+      ],
+      "issues": [],
+      "bounds": {
+        "width": 2600,
+        "height": 2160,
+        "sectionY": -2440
+      }
     }
   }
 }

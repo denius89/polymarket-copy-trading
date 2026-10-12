@@ -70,3 +70,5 @@ Segmented defaults to 360×44 with 4px padding and gaps. All three segments shar
 ## Full address visibility · 12.10.2026
 
 Removed the abbreviated filled address specimen. Filled and ReadOnly now show the complete synthetic 42-character address, preserving every character and wrapping it across lines when needed. Address controls have a 48px minimum and grow vertically; width must not cause ellipsis, masking or hidden overflow. RU and EN admin-page text scans found no address text containing ellipsis. Full address visibility is a required visual verification aid; it supplements automated route/address checks rather than proving authenticity on its own.
+
+Пакет 03, ревизия 0.4.4: Label/Value/Hint в 30 Form field вариантах привязаны к одноимённым text-properties (90 привязок; 84 восстановлены). Использовать setProperties и instances. Полные адреса Filled/ReadOnly проверены после исправления. Источник Sidebar теперь содержит 13 пунктов. [QA](../package-03/qa.json).
