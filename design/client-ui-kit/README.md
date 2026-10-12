@@ -4,7 +4,7 @@ Native source: [Figma Foundations](https://www.figma.com/design/lxPP2um7FvIbt02K
 
 - [Development handoff](HANDOFF.md): source precedence, synchronization and checks before implementation.
 - [Usage](USAGE.md): component instances, locale overrides and semantic boundaries.
-- [Manifest](manifest.json): 1 page / 4 sections, 44 new families / 118 variants, 9 reused families / 46 variants.
+- [Manifest](manifest.json): 1 page / 4 sections; original build 44 native families / 118 variants, now 45 / 136 after the content-width button addition; 9 reused families / 46 variants.
 - [Tokens](tokens.json) and [CSS](tokens.css): 72 visual variables and 21 shared text styles. CSS is a design export, not application implementation.
 - [QA](qa.json): structural and visual checks, corrections and acceptance limits.
 - [Project report](../../docs/121_client_ui_kit_2026-10-12.md): scope and Figma links.
