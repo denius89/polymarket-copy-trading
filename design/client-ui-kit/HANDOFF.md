@@ -9,6 +9,7 @@ Controls обновлены по [пакету 127](../../docs/127_client_ui_kit
 ## Источники и границы
 
 - [Figma](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T): нативная структура компонентов, свойства, варианты, визуальная компоновка и реакции прототипов.
+- [Карта клиентского интерфейса](../../docs/design/client/sitemap.md) и [машиночитаемый реестр](../../docs/design/client/sitemap.json): единая структура, точные Figma-якоря четырёх версий, состояния первого входа и подготовленного примера, границы проверки.
 - [117 — спецификация интерфейса](../../docs/117_user_interface_technical_specification_2026-10-09.md): сценарии и контракты UI; документ сохранён как есть, открытые вопросы обсуждаются при программировании.
 - [121 — UI kit](../../docs/121_client_ui_kit_2026-10-12.md), [manifest.json](manifest.json), [tokens.json](tokens.json), [USAGE.md](USAGE.md) и [qa.json](qa.json): реестр, визуальные значения, правила применения и границы проверки.
 - [PROJECT_STATE](../../docs/PROJECT_STATE.md), [ROADMAP](../../docs/ROADMAP.md), [бизнес-логика](../../docs/MVP_BUSINESS_LOGIC.md) и связанные ADR: актуальное состояние, очередь и принятые правила.

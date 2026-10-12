@@ -1,0 +1,236 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-12",
+  "figmaFileKey": "lxPP2um7FvIbt02K8eeH4T",
+  "figmaPage": "0:1",
+  "figmaBoard": "1664:2",
+  "figmaOverview": "2113:60630",
+  "status": "design-map; not application route contract",
+  "locales": [
+    "ru",
+    "en"
+  ],
+  "viewports": [
+    "mobile",
+    "desktop"
+  ],
+  "anchorOrder": [
+    "mobileRu",
+    "mobileEn",
+    "desktopRu",
+    "desktopEn"
+  ],
+  "anchors": [
+    {
+      "key": "welcome",
+      "labelRu": "Знакомство",
+      "labelEn": "Introduction",
+      "scope": "firstRun",
+      "figma": {
+        "mobileRu": "333:533",
+        "mobileEn": "333:65",
+        "desktopRu": "955:3790",
+        "desktopEn": "955:18385"
+      }
+    },
+    {
+      "key": "traders-first-run",
+      "labelRu": "Каталог трейдеров",
+      "labelEn": "Traders",
+      "scope": "firstRun",
+      "figma": {
+        "mobileRu": "1839:31252",
+        "mobileEn": "1839:45683",
+        "desktopRu": "1839:52340",
+        "desktopEn": "1839:53961"
+      }
+    },
+    {
+      "key": "trader-profile-first-run",
+      "labelRu": "Профиль трейдера",
+      "labelEn": "Trader profile",
+      "scope": "firstRun",
+      "figma": {
+        "mobileRu": "1839:32467",
+        "mobileEn": "1839:46899",
+        "desktopRu": "1839:52618",
+        "desktopEn": "1839:54460"
+      }
+    },
+    {
+      "key": "demo-setup",
+      "labelRu": "Настройки копирования",
+      "labelEn": "Copy settings",
+      "scope": "firstRun",
+      "figma": {
+        "mobileRu": "949:4275",
+        "mobileEn": "949:9184",
+        "desktopRu": "949:13057",
+        "desktopEn": "949:16861"
+      }
+    },
+    {
+      "key": "demo-review",
+      "labelRu": "Проверка перед запуском",
+      "labelEn": "Review setup",
+      "scope": "firstRun",
+      "figma": {
+        "mobileRu": "949:4316",
+        "mobileEn": "949:9225",
+        "desktopRu": "949:13097",
+        "desktopEn": "1616:6998"
+      }
+    },
+    {
+      "key": "prepared-home",
+      "labelRu": "Главная",
+      "labelEn": "Prepared example home",
+      "scope": "preparedExample",
+      "figma": {
+        "mobileRu": "888:1701",
+        "mobileEn": "905:1754",
+        "desktopRu": "905:9074",
+        "desktopEn": "905:9713"
+      }
+    },
+    {
+      "key": "positions",
+      "labelRu": "Позиции",
+      "labelEn": "Positions",
+      "scope": "activeExample",
+      "figma": {
+        "mobileRu": "888:1833",
+        "mobileEn": "905:1890",
+        "desktopRu": "905:9162",
+        "desktopEn": "905:9801"
+      }
+    },
+    {
+      "key": "orders",
+      "labelRu": "Заявки",
+      "labelEn": "Orders",
+      "scope": "activeExample",
+      "figma": {
+        "mobileRu": "888:1866",
+        "mobileEn": "905:1924",
+        "desktopRu": "905:9184",
+        "desktopEn": "905:9823"
+      }
+    },
+    {
+      "key": "activity",
+      "labelRu": "События",
+      "labelEn": "Activity",
+      "scope": "activeExample",
+      "figma": {
+        "mobileRu": "888:1899",
+        "mobileEn": "905:1958",
+        "desktopRu": "905:9206",
+        "desktopEn": "905:9845"
+      }
+    },
+    {
+      "key": "funds",
+      "labelRu": "Средства",
+      "labelEn": "Funds",
+      "scope": "activeExample",
+      "figma": {
+        "mobileRu": "888:1932",
+        "mobileEn": "905:1992",
+        "desktopRu": "905:9228",
+        "desktopEn": "905:9867"
+      }
+    },
+    {
+      "key": "help",
+      "labelRu": "Помощь",
+      "labelEn": "Help",
+      "scope": "activeExample",
+      "figma": {
+        "mobileRu": "888:2064",
+        "mobileEn": "905:8461",
+        "desktopRu": "905:9316",
+        "desktopEn": "905:9955"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "key": "firstRun",
+      "items": [
+        "welcome",
+        "traders-first-run",
+        "trader-profile-first-run",
+        "demo-setup",
+        "demo-review",
+        "auth",
+        "launch",
+        "empty-home"
+      ],
+      "note": "Auth and launch are specified in 117; the visual overview shows key screens only."
+    },
+    {
+      "key": "preparedExample",
+      "items": [
+        "prepared-home"
+      ],
+      "note": "Separate entry; does not create or resume the new user session."
+    },
+    {
+      "key": "mainNavigation",
+      "items": [
+        "home",
+        "traders",
+        "positions",
+        "activity"
+      ]
+    },
+    {
+      "key": "service",
+      "items": [
+        "funds",
+        "help",
+        "support",
+        "profile",
+        "settings"
+      ]
+    }
+  ],
+  "relatedRoutes": [
+    {
+      "key": "orders",
+      "from": "activity"
+    },
+    {
+      "key": "operations",
+      "from": "activity"
+    },
+    {
+      "key": "notifications",
+      "from": "header"
+    },
+    {
+      "key": "report",
+      "from": "home"
+    },
+    {
+      "key": "support-new",
+      "from": "support"
+    },
+    {
+      "key": "support-confirmation",
+      "from": "support-new"
+    },
+    {
+      "key": "support-thread",
+      "from": "support"
+    }
+  ],
+  "validation": {
+    "sourceLinkCount": 44,
+    "existingTargetCount": 44,
+    "correctedFirstRunLinks": 8,
+    "visualInspection": "Figma screenshot of overview and table; 2026-10-12",
+    "manualPresent": "not performed: Computer Use permission unavailable"
+  }
+}
