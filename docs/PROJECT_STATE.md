@@ -4,6 +4,8 @@
 
 12.10.2026: основатель поручил внести разобранные правки коллеги. Принят [ADR-0043](decisions/0043_admin_money_security_and_incident_recovery.md): protected recipients/пороги, PARTNER_PAYOUTS_OFF и точечная изоляция, compromised account, independent money recovery, funding lifecycle, audit integrity, market-deviation guard и безопасный возврат очереди. Обновлены 114–118; полный перечень — [119](119_admin_security_review_changes_2026-10-12.md). Новые правила приняты; компоновка на вычитку, Figma/код/live не менялись.
 
+12.10.2026: исследованы USDT/USD API и подготовлен [120 — курс и уведомления админам](120_usdt_usd_sources_and_admin_alerts_2026-10-12.md). Kraken REST read-only ответил по прямой паре; рекомендуются Kraken для оперативного источника и CoinGecko для периодической сверки. Настраиваемые warning/confirmation/recipients/reminders описаны, ledger 1:1 сохранён; числа и production spike открыты. Мониторинг/рассылка/Figma/код не запущены.
+
 | Область | Состояние | Источник |
 | --- | --- | --- |
 | Пользовательский дизайн | Утверждённый пакет кнопок и переходов внесён в четыре Figma-прототипа; подписи, destinations и рендеры проверены | [112](112_button_copy_and_reaction_audit_2026-10-06.md), [113](113_button_copy_and_reaction_fixes_2026-10-06.md) |
