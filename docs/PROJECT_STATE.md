@@ -8,6 +8,8 @@
 
 12.10.2026: основатель уточнил передачу Figma в разработку Codex с актуальным GitHub. В [118 §9.1–9.2](118_admin_console_figma_design_brief_2026-10-09.md) зафиксированы обязательные реестр ADM/node IDs, P-маршруты/Present, компоненты/tokens, контракты действий/прав/данных, версия/evidence и обновление GitHub после каждого дизайн-пакета. Фактический новый Figma-пакет пока не создан; требование передачи сохранено.
 
+12.10.2026: основатель потребовал постоянно вести admin UI kit и впоследствии объединить с клиентским. [118 §9.3](118_admin_console_figma_design_brief_2026-10-09.md) фиксирует reuse shared foundations/components, admin compositions, states/properties/bindings, GitHub registry/version/dependencies и проверяемую миграцию instances при объединении. Новые Figma-компоненты/слияние ещё не выполнялись.
+
 | Область | Состояние | Источник |
 | --- | --- | --- |
 | Пользовательский дизайн | Утверждённый пакет кнопок и переходов внесён в четыре Figma-прототипа; подписи, destinations и рендеры проверены | [112](112_button_copy_and_reaction_audit_2026-10-06.md), [113](113_button_copy_and_reaction_fixes_2026-10-06.md) |
