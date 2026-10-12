@@ -1,0 +1,1175 @@
+{
+  "revision": "0.4",
+  "updated": "2026-10-12",
+  "fileKey": "lxPP2um7FvIbt02K8eeH4T",
+  "pageId": "1981:2",
+  "showcase": {
+    "id": "2082:125",
+    "width": 1600,
+    "height": 3328,
+    "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2082-125"
+  },
+  "componentSetCount": 15,
+  "variantCount": 104,
+  "components": [
+    {
+      "id": "2019:16",
+      "name": "Admin/Form field/v0.1",
+      "properties": {
+        "Label#2019:0": {
+          "type": "TEXT",
+          "defaultValue": "Название поля"
+        },
+        "Value#2019:3": {
+          "type": "TEXT",
+          "defaultValue": "Введите значение"
+        },
+        "Hint#2019:6": {
+          "type": "TEXT",
+          "defaultValue": "Подсказка к полю"
+        },
+        "Kind": {
+          "type": "VARIANT",
+          "defaultValue": "Input",
+          "variantOptions": [
+            "Input",
+            "Select",
+            "Search",
+            "Amount",
+            "Address"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "defaultValue": "Default",
+          "variantOptions": [
+            "Default",
+            "Focus",
+            "Filled",
+            "Error",
+            "Disabled",
+            "ReadOnly"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2019:5",
+          "name": "Kind=Input, State=Default"
+        },
+        {
+          "id": "2019:10",
+          "name": "Kind=Select, State=Default"
+        },
+        {
+          "id": "2081:145",
+          "name": "Kind=Input, State=Focus"
+        },
+        {
+          "id": "2081:150",
+          "name": "Kind=Input, State=Filled"
+        },
+        {
+          "id": "2081:155",
+          "name": "Kind=Input, State=Error"
+        },
+        {
+          "id": "2081:160",
+          "name": "Kind=Input, State=Disabled"
+        },
+        {
+          "id": "2081:165",
+          "name": "Kind=Input, State=ReadOnly"
+        },
+        {
+          "id": "2081:173",
+          "name": "Kind=Select, State=Focus"
+        },
+        {
+          "id": "2081:181",
+          "name": "Kind=Select, State=Filled"
+        },
+        {
+          "id": "2081:189",
+          "name": "Kind=Select, State=Error"
+        },
+        {
+          "id": "2081:197",
+          "name": "Kind=Select, State=Disabled"
+        },
+        {
+          "id": "2081:205",
+          "name": "Kind=Select, State=ReadOnly"
+        },
+        {
+          "id": "2081:213",
+          "name": "Kind=Search, State=Default"
+        },
+        {
+          "id": "2081:221",
+          "name": "Kind=Search, State=Focus"
+        },
+        {
+          "id": "2081:229",
+          "name": "Kind=Search, State=Filled"
+        },
+        {
+          "id": "2081:237",
+          "name": "Kind=Search, State=Error"
+        },
+        {
+          "id": "2081:245",
+          "name": "Kind=Search, State=Disabled"
+        },
+        {
+          "id": "2081:253",
+          "name": "Kind=Search, State=ReadOnly"
+        },
+        {
+          "id": "2081:261",
+          "name": "Kind=Amount, State=Default"
+        },
+        {
+          "id": "2081:266",
+          "name": "Kind=Amount, State=Focus"
+        },
+        {
+          "id": "2081:271",
+          "name": "Kind=Amount, State=Filled"
+        },
+        {
+          "id": "2081:276",
+          "name": "Kind=Amount, State=Error"
+        },
+        {
+          "id": "2081:281",
+          "name": "Kind=Amount, State=Disabled"
+        },
+        {
+          "id": "2081:286",
+          "name": "Kind=Amount, State=ReadOnly"
+        },
+        {
+          "id": "2081:291",
+          "name": "Kind=Address, State=Default"
+        },
+        {
+          "id": "2081:296",
+          "name": "Kind=Address, State=Focus"
+        },
+        {
+          "id": "2081:301",
+          "name": "Kind=Address, State=Filled"
+        },
+        {
+          "id": "2081:306",
+          "name": "Kind=Address, State=Error"
+        },
+        {
+          "id": "2081:311",
+          "name": "Kind=Address, State=Disabled"
+        },
+        {
+          "id": "2081:316",
+          "name": "Kind=Address, State=ReadOnly"
+        }
+      ]
+    },
+    {
+      "id": "2032:81",
+      "name": "Admin/Navigation item",
+      "properties": {
+        "Icon#2032:2": {
+          "type": "INSTANCE_SWAP",
+          "defaultValue": "2032:10",
+          "preferredValues": []
+        },
+        "Label#2033:0": {
+          "type": "TEXT",
+          "defaultValue": "Overview"
+        },
+        "State": {
+          "type": "VARIANT",
+          "defaultValue": "Default",
+          "variantOptions": [
+            "Default",
+            "Selected",
+            "Hover",
+            "Focus",
+            "GroupOpen",
+            "Disabled"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2032:67",
+          "name": "State=Default"
+        },
+        {
+          "id": "2032:74",
+          "name": "State=Selected"
+        },
+        {
+          "id": "2081:321",
+          "name": "State=Hover"
+        },
+        {
+          "id": "2081:324",
+          "name": "State=Focus"
+        },
+        {
+          "id": "2081:327",
+          "name": "State=GroupOpen"
+        },
+        {
+          "id": "2081:333",
+          "name": "State=Disabled"
+        }
+      ]
+    },
+    {
+      "id": "2081:44",
+      "name": "Admin/Button/Primary/States",
+      "properties": {
+        "Label#2081:0": {
+          "type": "TEXT",
+          "defaultValue": "Сохранить"
+        },
+        "Show icon#2081:7": {
+          "type": "BOOLEAN",
+          "defaultValue": true
+        },
+        "Icon#2081:14": {
+          "type": "INSTANCE_SWAP",
+          "defaultValue": "2032:44",
+          "preferredValues": []
+        },
+        "Loading label#2086:0": {
+          "type": "TEXT",
+          "defaultValue": "Обработка…"
+        },
+        "State": {
+          "type": "VARIANT",
+          "defaultValue": "Default",
+          "variantOptions": [
+            "Default",
+            "Hover",
+            "Focus",
+            "Pressed",
+            "Loading",
+            "Disabled"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2081:38",
+          "name": "State=Default"
+        },
+        {
+          "id": "2081:39",
+          "name": "State=Hover"
+        },
+        {
+          "id": "2081:40",
+          "name": "State=Focus"
+        },
+        {
+          "id": "2081:41",
+          "name": "State=Pressed"
+        },
+        {
+          "id": "2081:42",
+          "name": "State=Loading"
+        },
+        {
+          "id": "2081:43",
+          "name": "State=Disabled"
+        }
+      ]
+    },
+    {
+      "id": "2081:71",
+      "name": "Admin/Button/Secondary/States",
+      "properties": {
+        "Label#2081:21": {
+          "type": "TEXT",
+          "defaultValue": "Сохранить"
+        },
+        "Show icon#2081:28": {
+          "type": "BOOLEAN",
+          "defaultValue": true
+        },
+        "Icon#2081:35": {
+          "type": "INSTANCE_SWAP",
+          "defaultValue": "2032:44",
+          "preferredValues": []
+        },
+        "Loading label#2086:7": {
+          "type": "TEXT",
+          "defaultValue": "Обработка…"
+        },
+        "State": {
+          "type": "VARIANT",
+          "defaultValue": "Default",
+          "variantOptions": [
+            "Default",
+            "Hover",
+            "Focus",
+            "Pressed",
+            "Loading",
+            "Disabled"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2081:65",
+          "name": "State=Default"
+        },
+        {
+          "id": "2081:66",
+          "name": "State=Hover"
+        },
+        {
+          "id": "2081:67",
+          "name": "State=Focus"
+        },
+        {
+          "id": "2081:68",
+          "name": "State=Pressed"
+        },
+        {
+          "id": "2081:69",
+          "name": "State=Loading"
+        },
+        {
+          "id": "2081:70",
+          "name": "State=Disabled"
+        }
+      ]
+    },
+    {
+      "id": "2081:98",
+      "name": "Admin/Button/Quiet/States",
+      "properties": {
+        "Label#2081:42": {
+          "type": "TEXT",
+          "defaultValue": "Отмена"
+        },
+        "Show icon#2081:49": {
+          "type": "BOOLEAN",
+          "defaultValue": true
+        },
+        "Icon#2081:56": {
+          "type": "INSTANCE_SWAP",
+          "defaultValue": "2032:44",
+          "preferredValues": []
+        },
+        "Loading label#2086:14": {
+          "type": "TEXT",
+          "defaultValue": "Обработка…"
+        },
+        "State": {
+          "type": "VARIANT",
+          "defaultValue": "Default",
+          "variantOptions": [
+            "Default",
+            "Hover",
+            "Focus",
+            "Pressed",
+            "Loading",
+            "Disabled"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2081:92",
+          "name": "State=Default"
+        },
+        {
+          "id": "2081:93",
+          "name": "State=Hover"
+        },
+        {
+          "id": "2081:94",
+          "name": "State=Focus"
+        },
+        {
+          "id": "2081:95",
+          "name": "State=Pressed"
+        },
+        {
+          "id": "2081:96",
+          "name": "State=Loading"
+        },
+        {
+          "id": "2081:97",
+          "name": "State=Disabled"
+        }
+      ]
+    },
+    {
+      "id": "2081:125",
+      "name": "Admin/Button/Danger/States",
+      "properties": {
+        "Label#2081:63": {
+          "type": "TEXT",
+          "defaultValue": "Остановить"
+        },
+        "Show icon#2081:70": {
+          "type": "BOOLEAN",
+          "defaultValue": true
+        },
+        "Icon#2081:77": {
+          "type": "INSTANCE_SWAP",
+          "defaultValue": "2032:44",
+          "preferredValues": []
+        },
+        "Loading label#2086:21": {
+          "type": "TEXT",
+          "defaultValue": "Обработка…"
+        },
+        "State": {
+          "type": "VARIANT",
+          "defaultValue": "Default",
+          "variantOptions": [
+            "Default",
+            "Hover",
+            "Focus",
+            "Pressed",
+            "Loading",
+            "Disabled"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2081:119",
+          "name": "State=Default"
+        },
+        {
+          "id": "2081:120",
+          "name": "State=Hover"
+        },
+        {
+          "id": "2081:121",
+          "name": "State=Focus"
+        },
+        {
+          "id": "2081:122",
+          "name": "State=Pressed"
+        },
+        {
+          "id": "2081:123",
+          "name": "State=Loading"
+        },
+        {
+          "id": "2081:124",
+          "name": "State=Disabled"
+        }
+      ]
+    },
+    {
+      "id": "2081:359",
+      "name": "Admin/Status pill",
+      "properties": {
+        "Label#2081:176": {
+          "type": "TEXT",
+          "defaultValue": "Подтверждено"
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "defaultValue": "Success",
+          "variantOptions": [
+            "Success",
+            "Warning",
+            "Danger",
+            "Neutral",
+            "Brand",
+            "Info"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2081:353",
+          "name": "Tone=Success"
+        },
+        {
+          "id": "2081:354",
+          "name": "Tone=Warning"
+        },
+        {
+          "id": "2081:355",
+          "name": "Tone=Danger"
+        },
+        {
+          "id": "2081:356",
+          "name": "Tone=Neutral"
+        },
+        {
+          "id": "2081:357",
+          "name": "Tone=Brand"
+        },
+        {
+          "id": "2081:358",
+          "name": "Tone=Info"
+        }
+      ]
+    },
+    {
+      "id": "2081:424",
+      "name": "Admin/Chip",
+      "properties": {
+        "Label#2081:183": {
+          "type": "TEXT",
+          "defaultValue": "Polymarket"
+        },
+        "Show clear#2086:40": {
+          "type": "BOOLEAN",
+          "defaultValue": true
+        },
+        "Clear icon#2086:49": {
+          "type": "INSTANCE_SWAP",
+          "defaultValue": "1978:721",
+          "preferredValues": []
+        },
+        "Kind": {
+          "type": "VARIANT",
+          "defaultValue": "Choice",
+          "variantOptions": [
+            "Choice",
+            "Filter",
+            "Tag",
+            "Count"
+          ]
+        },
+        "Selected": {
+          "type": "VARIANT",
+          "defaultValue": "False",
+          "variantOptions": [
+            "False",
+            "True"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2081:416",
+          "name": "Kind=Choice, Selected=False"
+        },
+        {
+          "id": "2081:417",
+          "name": "Kind=Choice, Selected=True"
+        },
+        {
+          "id": "2081:418",
+          "name": "Kind=Filter, Selected=False"
+        },
+        {
+          "id": "2081:419",
+          "name": "Kind=Filter, Selected=True"
+        },
+        {
+          "id": "2081:420",
+          "name": "Kind=Tag, Selected=False"
+        },
+        {
+          "id": "2081:421",
+          "name": "Kind=Tag, Selected=True"
+        },
+        {
+          "id": "2081:422",
+          "name": "Kind=Count, Selected=False"
+        },
+        {
+          "id": "2081:423",
+          "name": "Kind=Count, Selected=True"
+        }
+      ]
+    },
+    {
+      "id": "2081:489",
+      "name": "Admin/Checkbox",
+      "properties": {
+        "Label#2082:39": {
+          "type": "TEXT",
+          "defaultValue": "Выбрать строку"
+        },
+        "Checked": {
+          "type": "VARIANT",
+          "defaultValue": "False",
+          "variantOptions": [
+            "False",
+            "True"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "defaultValue": "Default",
+          "variantOptions": [
+            "Default",
+            "Focus",
+            "Disabled"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2081:483",
+          "name": "Checked=False, State=Default"
+        },
+        {
+          "id": "2081:484",
+          "name": "Checked=False, State=Focus"
+        },
+        {
+          "id": "2081:485",
+          "name": "Checked=False, State=Disabled"
+        },
+        {
+          "id": "2081:486",
+          "name": "Checked=True, State=Default"
+        },
+        {
+          "id": "2081:487",
+          "name": "Checked=True, State=Focus"
+        },
+        {
+          "id": "2081:488",
+          "name": "Checked=True, State=Disabled"
+        }
+      ]
+    },
+    {
+      "id": "2081:517",
+      "name": "Admin/Radio",
+      "properties": {
+        "Label#2082:46": {
+          "type": "TEXT",
+          "defaultValue": "Маршрут"
+        },
+        "Checked": {
+          "type": "VARIANT",
+          "defaultValue": "False",
+          "variantOptions": [
+            "False",
+            "True"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "defaultValue": "Default",
+          "variantOptions": [
+            "Default",
+            "Focus",
+            "Disabled"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2081:511",
+          "name": "Checked=False, State=Default"
+        },
+        {
+          "id": "2081:512",
+          "name": "Checked=False, State=Focus"
+        },
+        {
+          "id": "2081:513",
+          "name": "Checked=False, State=Disabled"
+        },
+        {
+          "id": "2081:514",
+          "name": "Checked=True, State=Default"
+        },
+        {
+          "id": "2081:515",
+          "name": "Checked=True, State=Focus"
+        },
+        {
+          "id": "2081:516",
+          "name": "Checked=True, State=Disabled"
+        }
+      ]
+    },
+    {
+      "id": "2081:539",
+      "name": "Admin/Switch",
+      "properties": {
+        "Label#2082:53": {
+          "type": "TEXT",
+          "defaultValue": "Опция"
+        },
+        "Checked": {
+          "type": "VARIANT",
+          "defaultValue": "False",
+          "variantOptions": [
+            "False",
+            "True"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "defaultValue": "Default",
+          "variantOptions": [
+            "Default",
+            "Focus",
+            "Disabled"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2081:533",
+          "name": "Checked=False, State=Default"
+        },
+        {
+          "id": "2081:534",
+          "name": "Checked=False, State=Focus"
+        },
+        {
+          "id": "2081:535",
+          "name": "Checked=False, State=Disabled"
+        },
+        {
+          "id": "2081:536",
+          "name": "Checked=True, State=Default"
+        },
+        {
+          "id": "2081:537",
+          "name": "Checked=True, State=Focus"
+        },
+        {
+          "id": "2081:538",
+          "name": "Checked=True, State=Disabled"
+        }
+      ]
+    },
+    {
+      "id": "2081:561",
+      "name": "Admin/Segmented",
+      "properties": {
+        "All label#2086:28": {
+          "type": "TEXT",
+          "defaultValue": "Все"
+        },
+        "Active label#2086:32": {
+          "type": "TEXT",
+          "defaultValue": "Активные"
+        },
+        "Pending label#2086:36": {
+          "type": "TEXT",
+          "defaultValue": "Ожидание"
+        },
+        "Selected": {
+          "type": "VARIANT",
+          "defaultValue": "All",
+          "variantOptions": [
+            "All",
+            "Active",
+            "Pending"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2081:558",
+          "name": "Selected=All"
+        },
+        {
+          "id": "2081:559",
+          "name": "Selected=Active"
+        },
+        {
+          "id": "2081:560",
+          "name": "Selected=Pending"
+        }
+      ]
+    },
+    {
+      "id": "2081:584",
+      "name": "Admin/Alert",
+      "properties": {
+        "Title#2082:60": {
+          "type": "TEXT",
+          "defaultValue": "Информация"
+        },
+        "Body#2082:65": {
+          "type": "TEXT",
+          "defaultValue": "Покажите причину и следующий доступный шаг."
+        },
+        "Tone": {
+          "type": "VARIANT",
+          "defaultValue": "Info",
+          "variantOptions": [
+            "Info",
+            "Success",
+            "Warning",
+            "Danger"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2081:580",
+          "name": "Tone=Info"
+        },
+        {
+          "id": "2081:581",
+          "name": "Tone=Success"
+        },
+        {
+          "id": "2081:582",
+          "name": "Tone=Warning"
+        },
+        {
+          "id": "2081:583",
+          "name": "Tone=Danger"
+        }
+      ]
+    },
+    {
+      "id": "2081:596",
+      "name": "Admin/Table row",
+      "properties": {
+        "ID#2082:70": {
+          "type": "TEXT",
+          "defaultValue": "PT-0042"
+        },
+        "Venue#2082:74": {
+          "type": "TEXT",
+          "defaultValue": "Polymarket"
+        },
+        "Amount#2082:78": {
+          "type": "TEXT",
+          "defaultValue": "125.00 USDT"
+        },
+        "State": {
+          "type": "VARIANT",
+          "defaultValue": "Default",
+          "variantOptions": [
+            "Default",
+            "Hover",
+            "Selected"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2081:593",
+          "name": "State=Default"
+        },
+        {
+          "id": "2081:594",
+          "name": "State=Hover"
+        },
+        {
+          "id": "2081:595",
+          "name": "State=Selected"
+        }
+      ]
+    },
+    {
+      "id": "2081:614",
+      "name": "Admin/Confirmation",
+      "properties": {
+        "Title#2082:82": {
+          "type": "TEXT",
+          "defaultValue": "Подтвердить изменение"
+        },
+        "Body#2082:85": {
+          "type": "TEXT",
+          "defaultValue": "Проверьте параметры действия перед подтверждением."
+        },
+        "Hint#2082:88": {
+          "type": "TEXT",
+          "defaultValue": "Изменение сохраняется в журнале аудита."
+        },
+        "Kind": {
+          "type": "VARIANT",
+          "defaultValue": "Standard",
+          "variantOptions": [
+            "Standard",
+            "Money"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2081:612",
+          "name": "Kind=Standard"
+        },
+        {
+          "id": "2081:613",
+          "name": "Kind=Money"
+        }
+      ]
+    }
+  ],
+  "bindingEvidence": [
+    {
+      "id": "2019:16",
+      "variantCount": 30,
+      "fields": [
+        "itemSpacing"
+      ],
+      "description": "Label + control + persistent hint. Error text stays visible. Address uses 8 columns in real screens; never mask an address in payout confirmation. ReadOnly remains readable; Disabled cannot edit."
+    },
+    {
+      "id": "2032:81",
+      "variantCount": 6,
+      "fields": [
+        "itemSpacing",
+        "paddingLeft",
+        "paddingTop",
+        "paddingRight",
+        "paddingBottom",
+        "topLeftRadius",
+        "topRightRadius",
+        "bottomLeftRadius",
+        "bottomRightRadius"
+      ],
+      "description": "Sidebar navigation. Selected identifies the current route; GroupOpen only expands a group. Disabled has no destination. Labels and icons are configurable."
+    },
+    {
+      "id": "2081:44",
+      "variantCount": 6,
+      "fields": [
+        "itemSpacing",
+        "paddingLeft",
+        "paddingTop",
+        "paddingRight",
+        "paddingBottom",
+        "topLeftRadius",
+        "topRightRadius",
+        "bottomLeftRadius",
+        "bottomRightRadius",
+        "fills",
+        "strokes"
+      ],
+      "description": "44px action. Keep a text label for money and destructive actions. Loading/Disabled cannot submit. Focus is a persistent keyboard outline."
+    },
+    {
+      "id": "2081:71",
+      "variantCount": 6,
+      "fields": [
+        "itemSpacing",
+        "paddingLeft",
+        "paddingTop",
+        "paddingRight",
+        "paddingBottom",
+        "topLeftRadius",
+        "topRightRadius",
+        "bottomLeftRadius",
+        "bottomRightRadius",
+        "fills",
+        "strokes"
+      ],
+      "description": "44px action. Keep a text label for money and destructive actions. Loading/Disabled cannot submit. Focus is a persistent keyboard outline."
+    },
+    {
+      "id": "2081:98",
+      "variantCount": 6,
+      "fields": [
+        "itemSpacing",
+        "paddingLeft",
+        "paddingTop",
+        "paddingRight",
+        "paddingBottom",
+        "topLeftRadius",
+        "topRightRadius",
+        "bottomLeftRadius",
+        "bottomRightRadius",
+        "fills"
+      ],
+      "description": "44px action. Keep a text label for money and destructive actions. Loading/Disabled cannot submit. Focus is a persistent keyboard outline."
+    },
+    {
+      "id": "2081:125",
+      "variantCount": 6,
+      "fields": [
+        "itemSpacing",
+        "paddingLeft",
+        "paddingTop",
+        "paddingRight",
+        "paddingBottom",
+        "topLeftRadius",
+        "topRightRadius",
+        "bottomLeftRadius",
+        "bottomRightRadius",
+        "fills",
+        "strokes"
+      ],
+      "description": "44px action. Keep a text label for money and destructive actions. Loading/Disabled cannot submit. Focus is a persistent keyboard outline."
+    },
+    {
+      "id": "2081:359",
+      "variantCount": 6,
+      "fields": [
+        "itemSpacing",
+        "paddingLeft",
+        "paddingTop",
+        "paddingRight",
+        "paddingBottom",
+        "topLeftRadius",
+        "topRightRadius",
+        "bottomLeftRadius",
+        "bottomRightRadius",
+        "fills"
+      ],
+      "description": "Semantic status uses color plus readable text. Unknown payout is Warning, never Success."
+    },
+    {
+      "id": "2081:424",
+      "variantCount": 8,
+      "fields": [
+        "itemSpacing",
+        "paddingLeft",
+        "paddingTop",
+        "paddingRight",
+        "paddingBottom",
+        "topLeftRadius",
+        "topRightRadius",
+        "bottomLeftRadius",
+        "bottomRightRadius",
+        "fills",
+        "strokes"
+      ],
+      "description": "Choice selects; Filter can clear; Tag and Count are informational. Configure Label explicitly, Show clear controls the filter affordance."
+    },
+    {
+      "id": "2081:489",
+      "variantCount": 6,
+      "fields": [
+        "itemSpacing",
+        "paddingLeft",
+        "paddingTop",
+        "paddingRight",
+        "paddingBottom",
+        "topLeftRadius",
+        "topRightRadius",
+        "bottomLeftRadius",
+        "bottomRightRadius"
+      ],
+      "description": "Focus and Disabled are explicit variants. Money actions use confirmation, never an immediate switch."
+    },
+    {
+      "id": "2081:517",
+      "variantCount": 6,
+      "fields": [
+        "itemSpacing",
+        "paddingLeft",
+        "paddingTop",
+        "paddingRight",
+        "paddingBottom",
+        "topLeftRadius",
+        "topRightRadius",
+        "bottomLeftRadius",
+        "bottomRightRadius"
+      ],
+      "description": "Focus and Disabled are explicit variants. Money actions use confirmation, never an immediate switch."
+    },
+    {
+      "id": "2081:539",
+      "variantCount": 6,
+      "fields": [
+        "itemSpacing",
+        "paddingLeft",
+        "paddingTop",
+        "paddingRight",
+        "paddingBottom",
+        "topLeftRadius",
+        "topRightRadius",
+        "bottomLeftRadius",
+        "bottomRightRadius"
+      ],
+      "description": "Focus and Disabled are explicit variants. Money actions use confirmation, never an immediate switch."
+    },
+    {
+      "id": "2081:561",
+      "variantCount": 3,
+      "fields": [
+        "itemSpacing",
+        "paddingLeft",
+        "paddingTop",
+        "paddingRight",
+        "paddingBottom",
+        "topLeftRadius",
+        "topRightRadius",
+        "bottomLeftRadius",
+        "bottomRightRadius",
+        "fills"
+      ],
+      "description": "One selected segment at a time. Use for a short mutually exclusive view filter."
+    },
+    {
+      "id": "2081:584",
+      "variantCount": 4,
+      "fields": [
+        "itemSpacing",
+        "paddingLeft",
+        "paddingTop",
+        "paddingRight",
+        "paddingBottom",
+        "topLeftRadius",
+        "topRightRadius",
+        "bottomLeftRadius",
+        "bottomRightRadius",
+        "fills"
+      ],
+      "description": "Explain status and next step. Unknown payout blocks retry until reconciliation. Success only after confirmation."
+    },
+    {
+      "id": "2081:596",
+      "variantCount": 3,
+      "fields": [
+        "itemSpacing",
+        "paddingLeft",
+        "paddingTop",
+        "paddingRight",
+        "paddingBottom",
+        "topLeftRadius",
+        "topRightRadius",
+        "bottomLeftRadius",
+        "bottomRightRadius",
+        "fills"
+      ],
+      "description": "Table cells show venue, amount and state together. Synthetic specimen. Selection does not initiate a payout."
+    },
+    {
+      "id": "2081:614",
+      "variantCount": 2,
+      "fields": [
+        "itemSpacing",
+        "paddingLeft",
+        "paddingTop",
+        "paddingRight",
+        "paddingBottom",
+        "topLeftRadius",
+        "topRightRadius",
+        "bottomLeftRadius",
+        "bottomRightRadius",
+        "fills",
+        "strokes"
+      ],
+      "description": "Confirmation pattern. Money requires explicit route, full address, amount, fee and Owner permission. Specimen labels must be set for the concrete action."
+    }
+  ],
+  "validation": {
+    "boundsErrors": [],
+    "imageFills": 0,
+    "textStylesUnbound": [],
+    "review": "Full board and targeted confirmation/filter panels visually reviewed; static design states, not runtime or keyboard tests."
+  },
+  "limitations": [
+    "State specimens do not implement runtime interactions or financial checks.",
+    "Legacy button masters and screen instances are retained. New button state sets are for incremental adoption; existing field/navigation sets were expanded in place.",
+    "Client kit merge and screen-wide adoption pending.",
+    "Money routes and amounts in examples are synthetic; networks are resolved during integration."
+  ]
+}

@@ -943,33 +943,160 @@
       "properties": {
         "Label#2019:0": {
           "type": "TEXT",
-          "defaultValue": "Field label"
+          "defaultValue": "Название поля"
         },
         "Value#2019:3": {
           "type": "TEXT",
-          "defaultValue": "Enter a value"
+          "defaultValue": "Введите значение"
         },
         "Hint#2019:6": {
           "type": "TEXT",
-          "defaultValue": "Owner configures manually"
+          "defaultValue": "Подсказка к полю"
         },
         "Kind": {
           "type": "VARIANT",
           "defaultValue": "Input",
           "variantOptions": [
             "Input",
-            "Select"
+            "Select",
+            "Search",
+            "Amount",
+            "Address"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "defaultValue": "Default",
+          "variantOptions": [
+            "Default",
+            "Focus",
+            "Filled",
+            "Error",
+            "Disabled",
+            "ReadOnly"
           ]
         }
       },
       "variants": [
         {
           "id": "2019:5",
-          "name": "Kind=Input"
+          "name": "Kind=Input, State=Default"
         },
         {
           "id": "2019:10",
-          "name": "Kind=Select"
+          "name": "Kind=Select, State=Default"
+        },
+        {
+          "id": "2081:145",
+          "name": "Kind=Input, State=Focus"
+        },
+        {
+          "id": "2081:150",
+          "name": "Kind=Input, State=Filled"
+        },
+        {
+          "id": "2081:155",
+          "name": "Kind=Input, State=Error"
+        },
+        {
+          "id": "2081:160",
+          "name": "Kind=Input, State=Disabled"
+        },
+        {
+          "id": "2081:165",
+          "name": "Kind=Input, State=ReadOnly"
+        },
+        {
+          "id": "2081:173",
+          "name": "Kind=Select, State=Focus"
+        },
+        {
+          "id": "2081:181",
+          "name": "Kind=Select, State=Filled"
+        },
+        {
+          "id": "2081:189",
+          "name": "Kind=Select, State=Error"
+        },
+        {
+          "id": "2081:197",
+          "name": "Kind=Select, State=Disabled"
+        },
+        {
+          "id": "2081:205",
+          "name": "Kind=Select, State=ReadOnly"
+        },
+        {
+          "id": "2081:213",
+          "name": "Kind=Search, State=Default"
+        },
+        {
+          "id": "2081:221",
+          "name": "Kind=Search, State=Focus"
+        },
+        {
+          "id": "2081:229",
+          "name": "Kind=Search, State=Filled"
+        },
+        {
+          "id": "2081:237",
+          "name": "Kind=Search, State=Error"
+        },
+        {
+          "id": "2081:245",
+          "name": "Kind=Search, State=Disabled"
+        },
+        {
+          "id": "2081:253",
+          "name": "Kind=Search, State=ReadOnly"
+        },
+        {
+          "id": "2081:261",
+          "name": "Kind=Amount, State=Default"
+        },
+        {
+          "id": "2081:266",
+          "name": "Kind=Amount, State=Focus"
+        },
+        {
+          "id": "2081:271",
+          "name": "Kind=Amount, State=Filled"
+        },
+        {
+          "id": "2081:276",
+          "name": "Kind=Amount, State=Error"
+        },
+        {
+          "id": "2081:281",
+          "name": "Kind=Amount, State=Disabled"
+        },
+        {
+          "id": "2081:286",
+          "name": "Kind=Amount, State=ReadOnly"
+        },
+        {
+          "id": "2081:291",
+          "name": "Kind=Address, State=Default"
+        },
+        {
+          "id": "2081:296",
+          "name": "Kind=Address, State=Focus"
+        },
+        {
+          "id": "2081:301",
+          "name": "Kind=Address, State=Filled"
+        },
+        {
+          "id": "2081:306",
+          "name": "Kind=Address, State=Error"
+        },
+        {
+          "id": "2081:311",
+          "name": "Kind=Address, State=Disabled"
+        },
+        {
+          "id": "2081:316",
+          "name": "Kind=Address, State=ReadOnly"
         }
       ],
       "bindings": {},
@@ -1121,7 +1248,8 @@
             ]
           }
         }
-      ]
+      ],
+      "stateLibraryManifest": "apps-components.json"
     },
     {
       "id": "2032:10",
@@ -1278,7 +1406,11 @@
           "defaultValue": "Default",
           "variantOptions": [
             "Default",
-            "Selected"
+            "Selected",
+            "Hover",
+            "Focus",
+            "GroupOpen",
+            "Disabled"
           ]
         }
       },
@@ -1290,6 +1422,22 @@
         {
           "id": "2032:74",
           "name": "State=Selected"
+        },
+        {
+          "id": "2081:321",
+          "name": "State=Hover"
+        },
+        {
+          "id": "2081:324",
+          "name": "State=Focus"
+        },
+        {
+          "id": "2081:327",
+          "name": "State=GroupOpen"
+        },
+        {
+          "id": "2081:333",
+          "name": "State=Disabled"
         }
       ],
       "bindings": {},
@@ -1336,7 +1484,8 @@
             ]
           }
         }
-      ]
+      ],
+      "stateLibraryManifest": "apps-components.json"
     }
   ],
   "collections": [
@@ -1882,8 +2031,9 @@
   ],
   "lastDesignUpdate": "2026-10-12",
   "limitations": [
-    "Form field focus/error/disabled variants pending",
-    "Client kit merge pending"
+    "Client kit merge pending",
+    "New button state families are available for incremental screen adoption; legacy masters retained",
+    "Static design states; runtime interactions, keyboard navigation and API authorization are not implemented"
   ],
   "buttons": [
     {
@@ -1962,7 +2112,7 @@
       }
     }
   ],
-  "revision": "0.3",
+  "revision": "0.4",
   "currentPages": {
     "ru": "1981:29",
     "en": "1981:30"
@@ -2088,5 +2238,20 @@
         "indefinite"
       ]
     }
+  },
+  "stateLibrary": {
+    "revision": "0.4",
+    "pageId": "1981:2",
+    "showcaseId": "2082:125",
+    "manifest": "apps-components.json",
+    "usage": "APPS_COMPONENTS.md",
+    "componentSetCount": 15,
+    "variantCount": 104,
+    "existingMastersPreserved": true,
+    "foundationCollectionIds": [
+      "VariableCollectionId:2:3",
+      "VariableCollectionId:2:4",
+      "VariableCollectionId:2:5"
+    ]
   }
 }

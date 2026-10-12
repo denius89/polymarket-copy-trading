@@ -1,8 +1,10 @@
-# Admin UI kit v0.1
+# Admin UI kit v0.4
+
+12.10.2026: добавлена витрина **Apps Components** — 15 семей и 104 варианта компонентов на существующей странице. [Открыть Figma](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2082-125), [правила применения](APPS_COMPONENTS.md), [актуальные ID и properties](apps-components.json). Состояния являются дизайн-спецификацией; интерактивность и миграция всех экранов не заявляются.
 
 12.10.2026: текущая админка пересобрана на месте в едином стиле по Monty с палитрой Shadow. 184 состояния на двух страницах RU/EN, общий UI kit, иконки и сохранённый прототип. Новые итерации ведём в существующих экранах. Работа только над дизайном. [Актуальный дизайн и правила работы](../STYLE_GUIDE.md).
 
-Пакет 02 добавил `Admin/Finance row/v0.1` (2002:5) и `Admin/Form field/v0.1` (2019:16; Input 2019:5 / Select 2019:10). [Точные properties и token usage](../package-02/evidence/ui-kit-additions.json). Существующие пять compositions сохранены, новые коллекции не созданы. Старые Select/Shared Field с узким value не используются в формах пакета 02; client masters не менялись. Focus/error/disabled новой семьи и объединение kit — дальнейшая полировка.
+Пакет 02 добавил `Admin/Finance row/v0.1` (2002:5) и `Admin/Form field/v0.1` (2019:16; Input 2019:5 / Select 2019:10). [Точные properties и token usage](../package-02/evidence/ui-kit-additions.json). Существующие пять compositions сохранены, новые коллекции не созданы. Старые Select/Shared Field с узким value не используются в формах пакета 02; client masters не менялись. Focus/error/disabled добавлены в v0.4; объединение kit остаётся следующим этапом.
 
 12.10.2026, draft_for_review. Figma page `1981:2`. [Точные компоненты, properties, style IDs и variable bindings](registry.json). Это локальные masters в текущем файле; опубликованная объединённая библиотека не заявляется.
 
