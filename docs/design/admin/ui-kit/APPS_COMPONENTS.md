@@ -1,9 +1,9 @@
-# Admin Apps Components · v0.4
+# Admin Apps Components · v0.4.1
 
 Updated 12.10.2026. Design only. Native editable Figma component sets, variants and instances; no application implementation.
 
 [Open the showcase](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2082-125).
-Existing page: `1981:2`; showcase: `2082:125`, 1600 × 3328. Construction masters remain outside the review frame. No new file, branch or page was created.
+Existing page: `1981:2`; showcase: `2082:125`, 1600 × 3318. Construction masters remain outside the review frame. No new file, branch or page was created.
 
 ## Inventory
 
@@ -18,7 +18,7 @@ Existing page: `1981:2`; showcase: `2082:125`, 1600 × 3328. Construction master
 | Segmented filter | 3 | All label, Active label, Pending label, Selected |
 | Alert | 4 | Title, Body, Tone |
 | Table row | 3 | ID, Venue, Amount |
-| Confirmation | 2 | Title, Body, Hint |
+| Confirmation | 2 | Standard: Title, Body, Hint; Money: Money title, Money body, Money hint |
 | **Total** | **104** | **15 component sets** |
 
 The exact component/property/variant IDs and scoped binding evidence are in [apps-components.json](apps-components.json). Existing metric composition is also shown, outside the 104-variant count.
@@ -27,7 +27,7 @@ The exact component/property/variant IDs and scoped binding evidence are in [app
 
 Buttons: Default, Hover, Focus, Pressed, Loading, Disabled. Height 44 px; hug label and icon; minimum width 96 px. Only one Primary per action group. Loading keeps a spinner and exposes a separate localized Loading label; it hides the action icon. Loading and Disabled must not submit in the eventual implementation.
 
-Fields: Default, Focus, Filled, Error, Disabled, ReadOnly. Text, placeholder and helper/error content must be explicitly configured on each instance. Filled is a specimen state, not proof of saved data. Error requires readable text, not color alone. ReadOnly remains readable; Disabled cannot edit. Search and select retain icon/text spacing.
+Fields: Default, Focus, Filled, Error, Disabled, ReadOnly. Source control height and minimum height are 48 px; counter axis is fixed. Do not switch the control to vertical Hug when arranging specimens. Text, placeholder and helper/error content must be explicitly configured on each instance. Filled is a specimen state, not proof of saved data. Error requires readable text, not color alone. ReadOnly remains readable; Disabled cannot edit. Search and select retain icon/text spacing.
 
 Navigation: Default, Selected, Hover, Focus, GroupOpen, Disabled. Selected means current route; GroupOpen only expands a group. Disabled has no destination. Controls: Checked False/True × Default/Focus/Disabled. Segmented: All/Active/Pending; labels are localizable.
 
@@ -56,3 +56,7 @@ Use the same base component with content overrides for RU/EN. Do not detach inst
 The final review frame has no visible child bounds overflow, no IMAGE fills and no text without a shared style. The complete board and corrected confirmation/filter panels were visually reviewed. Native editable objects were preserved.
 
 Hover/focus/pressed/loading are design variants. This deliverable does not implement component interactions, spinner animation, keyboard behavior, API enforcement, responsive layouts or a fully integrated table system. Those are separate design/prototype or development work.
+
+## Screenshot defect correction · 12.10.2026
+
+Reviewed the reported collapsed search fields and confirmation cards at 1x. Current specimens have fixed-height fields and transparent action rows. Added a durable minimum control height of 48 px to all 30 field variants. Standard and Money now have distinct text-property bindings/defaults, so changing Standard defaults cannot silently replace monetary headings or notices. Configure the separate Money properties when translating or placing that variant. The money specimen sizes vertically to content; the demo metric is localized to Russian. Existing IDs are retained. Final review frame bounds check passed without overflow.

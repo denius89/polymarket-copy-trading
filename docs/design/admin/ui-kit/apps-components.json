@@ -1,12 +1,12 @@
 {
-  "revision": "0.4",
+  "revision": "0.4.1",
   "updated": "2026-10-12",
   "fileKey": "lxPP2um7FvIbt02K8eeH4T",
   "pageId": "1981:2",
   "showcase": {
     "id": "2082:125",
     "width": 1600,
-    "height": 3328,
+    "height": 3318,
     "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2082-125"
   },
   "componentSetCount": 15,
@@ -173,7 +173,13 @@
           "id": "2081:316",
           "name": "Kind=Address, State=ReadOnly"
         }
-      ]
+      ],
+      "layoutContract": {
+        "controlHeight": 48,
+        "controlMinHeight": 48,
+        "counterAxisSizingMode": "FIXED",
+        "scope": "Source controls; instances retain fixed height. Other controls use their own geometry."
+      }
     },
     {
       "id": "2032:81",
@@ -890,6 +896,18 @@
           "type": "TEXT",
           "defaultValue": "Изменение сохраняется в журнале аудита."
         },
+        "Money title#2089:0": {
+          "type": "TEXT",
+          "defaultValue": "Подтвердить выплату"
+        },
+        "Money body#2089:3": {
+          "type": "TEXT",
+          "defaultValue": "Проверьте площадку, актив, сеть, сумму, комиссию и полный адрес получателя."
+        },
+        "Money hint#2089:6": {
+          "type": "TEXT",
+          "defaultValue": "Только Owner. Повтор при неизвестном результате запрещён."
+        },
         "Kind": {
           "type": "VARIANT",
           "defaultValue": "Standard",
@@ -908,7 +926,25 @@
           "id": "2081:613",
           "name": "Kind=Money"
         }
-      ]
+      ],
+      "layoutContract": {
+        "vertical": "HUG",
+        "actionRowFill": "transparent",
+        "standardProperties": [
+          "Title",
+          "Body",
+          "Hint"
+        ],
+        "moneyProperties": [
+          "Money title",
+          "Money body",
+          "Money hint"
+        ],
+        "primaryLabels": {
+          "Standard": "Подтвердить",
+          "Money": "Выплатить"
+        }
+      }
     }
   ],
   "bindingEvidence": [
@@ -1171,5 +1207,220 @@
     "Legacy button masters and screen instances are retained. New button state sets are for incremental adoption; existing field/navigation sets were expanded in place.",
     "Client kit merge and screen-wide adoption pending.",
     "Money routes and amounts in examples are synthetic; networks are resolved during integration."
-  ]
+  ],
+  "reportedDefectFix": {
+    "date": "2026-10-12",
+    "source": "User screenshots: collapsed search controls, white action row background, duplicated confirmation content",
+    "result": "Current review specimens verified at 1x; durable source min-height and distinct monetary defaults added.",
+    "fieldControls": [
+      {
+        "id": "2019:5",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2019:10",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:145",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:150",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:155",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:160",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:165",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:173",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:181",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:189",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:197",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:205",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:213",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:221",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:229",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:237",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:245",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:253",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:261",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:266",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:271",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:276",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:281",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:286",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:291",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:296",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:301",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:306",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:311",
+        "controlHeight": 48,
+        "minHeight": 48
+      },
+      {
+        "id": "2081:316",
+        "controlHeight": 48,
+        "minHeight": 48
+      }
+    ],
+    "confirmationDefaults": [
+      {
+        "id": "2081:612",
+        "name": "Kind=Standard",
+        "h": 206,
+        "texts": [
+          {
+            "id": "2081:615",
+            "text": "Подтвердить изменение",
+            "refs": {
+              "characters": "Title#2082:82"
+            }
+          },
+          {
+            "id": "2081:616",
+            "text": "Проверьте параметры действия перед подтверждением.",
+            "refs": {
+              "characters": "Body#2082:85"
+            }
+          },
+          {
+            "id": "2081:617",
+            "text": "Изменение сохраняется в журнале аудита.",
+            "refs": {
+              "characters": "Hint#2082:88"
+            }
+          }
+        ]
+      },
+      {
+        "id": "2081:613",
+        "name": "Kind=Money",
+        "h": 206,
+        "texts": [
+          {
+            "id": "2081:627",
+            "text": "Подтвердить выплату",
+            "refs": {
+              "characters": "Money title#2089:0"
+            }
+          },
+          {
+            "id": "2081:628",
+            "text": "Проверьте площадку, актив, сеть, сумму, комиссию и полный адрес получателя.",
+            "refs": {
+              "characters": "Money body#2089:3"
+            }
+          },
+          {
+            "id": "2081:629",
+            "text": "Только Owner. Повтор при неизвестном результате запрещён.",
+            "refs": {
+              "characters": "Money hint#2089:6"
+            }
+          }
+        ]
+      }
+    ]
+  }
 }
