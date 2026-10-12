@@ -469,6 +469,8 @@ Local state isolated не равно provider credential revoked. Внешний
 
 ### 11.5 Рыночное отклонение USDT
 
+Исследование источников и подробный контракт — [120](120_usdt_usd_sources_and_admin_alerts_2026-10-12.md): рекомендуемый Kraken USDT/USD (оперативная котировка) и CoinGecko tether/USD (периодическая агрегированная сверка). API read-only проверен для Kraken REST; WS/CoinGecko authenticated spike ещё не выполнены. Owner настраивает warning threshold, confirmation window, freshness/spread, recovery hysteresis, recipients/reminders; по подтверждённому warning — admin incident/notification. Warning не включает monetary stop автоматически; отдельный critical/quality gate остаётся по ADR-0043. Администраторское notification center + проверенные security Telegram/email каналы отделены от клиентского маркетинга. Числа не зашиты, квота и timestamps источников учитываются.
+
 MarketDeviationObservation хранит источник, цену/время/актив, freshness/verification, configured threshold и policy version. Внутренний 1 USDT = $1 сохранён (§3.2); внешняя котировка используется только для отдельного alert/route gate, не для пересчёта старых обязательств. Проверенное отклонение блокирует новые затронутые денежные side effects и создаёт incident; неизвестная обязательная проверка также не является healthy.
 
 До live выбрать источники, порог, stale handling и recovery evidence; отсутствующие значения не заменять фиктивными defaults. Граница затронутых маршрутов явно задаётся, не автоматически вся торговля/все активы. Shadow не получает новую функцию самостоятельного обмена. Уже отправленное наблюдается, снятие аварийного денежного gate проходит §12.3.
