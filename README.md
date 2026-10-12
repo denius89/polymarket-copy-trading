@@ -1,5 +1,7 @@
 # Controlled Copy Trading
 
+12.10.2026: [Первый дизайн-пакет админки](docs/122_admin_design_package_01_2026-10-12.md) — RU/EN прототипы, UI kit и handoff; v0.1 на вычитку.
+
 **Русский** · [English](README.en.md)
 
 [![Проверка репозитория](https://github.com/denius89/polymarket-copy-trading/actions/workflows/repository-check.yml/badge.svg)](https://github.com/denius89/polymarket-copy-trading/actions/workflows/repository-check.yml)

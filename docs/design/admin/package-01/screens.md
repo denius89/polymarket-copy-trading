@@ -1,0 +1,74 @@
+# Фактический реестр экранов
+
+Дата: 12.10.2026. Все строки — draft_for_review. Права проверяются сервером; роль фрейма является иллюстрацией.
+
+| Язык | Состояние | Роль | ADM | Node / Figma |
+| --- | --- | --- | --- | --- |
+| RU | RU · overview · Обзор | Owner | ADM-01 | [1982:37690](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37690) |
+| RU | RU · stale · Обзор · данные устарели | Owner | ADM-01 | [1982:37735](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37735) |
+| RU | RU · empty · Обзор · пока нет данных | Owner | ADM-01 | [1982:37763](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37763) |
+| RU | RU · users · Пользователи | Owner | ADM-02 | [1982:37788](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37788) |
+| RU | RU · user-empty · Пользователи · нет совпадений | Owner | ADM-02 | [1982:37819](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37819) |
+| RU | RU · user · Карточка пользователя | Owner | ADM-02 | [1982:37844](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37844) |
+| RU | RU · operations · Пользователь · Operations | Operations | ADM-02 | [1982:37877](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37877) |
+| RU | RU · vip-form · Назначение VIP | Owner | ADM-02 | [1982:37913](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37913) |
+| RU | RU · vip-error · VIP · ошибка заполнения | Owner | ADM-02 | [1982:37945](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37945) |
+| RU | RU · vip-preview · VIP · проверка перед применением | Owner | ADM-02 | [1982:37972](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37972) |
+| RU | RU · vip-conflict · VIP · версия изменилась | Owner | ADM-02 | [1982:38001](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38001) |
+| RU | RU · vip-done · VIP применён · demo | Owner | ADM-02 | [1982:38026](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38026) |
+| RU | RU · sessions · Сессии | Owner | ADM-03 | [1982:38062](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38062) |
+| RU | RU · session · Демо-сессия | Owner | ADM-03 | [1982:38090](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38090) |
+| RU | RU · pause-confirm · Поставить demo на паузу? | Owner | ADM-03 | [1982:38128](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38128) |
+| RU | RU · pause-pending · Пауза · запрос принят | Owner | ADM-03 | [1982:38155](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38155) |
+| RU | RU · paused · Демо-сессия · пауза | Owner | ADM-03 | [1982:38180](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38180) |
+| RU | RU · risk · Возобновление ограничено | Owner | ADM-03 | [1982:38216](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38216) |
+| RU | RU · resume-confirm · Возобновить demo? | Owner | ADM-03 | [1982:38250](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38250) |
+| RU | RU · resumed · Demo возобновлена | Owner | ADM-03 | [1982:38279](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38279) |
+| RU | RU · disconnect-confirm · Отключить demo-сессию? | Owner | ADM-03 | [1982:38313](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38313) |
+| RU | RU · disconnect-pending · Отключение · в обработке | Owner | ADM-03 | [1982:38340](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38340) |
+| RU | RU · disconnected · Demo отключена | Owner | ADM-03 | [1982:38365](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38365) |
+| RU | RU · unknown · Сессия · неизвестный результат | Owner | ADM-03 | [1982:38392](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38392) |
+| RU | RU · ops-session · Демо-сессия · Operations | Operations | ADM-03 | [1984:398](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-398) |
+| RU | RU · ops-pause-confirm · Подтверждение паузы | Operations | ADM-03 | [1984:433](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-433) |
+| RU | RU · ops-pause-pending · Запрос паузы принят | Operations | ADM-03 | [1984:460](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-460) |
+| RU | RU · ops-paused · Пауза подтверждена | Operations | ADM-03 | [1984:485](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-485) |
+| RU | RU · ops-risk · Возобновление заблокировано | Operations | ADM-03 | [1984:518](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-518) |
+| RU | RU · ops-resume-confirm · Подтверждение возобновления | Operations | ADM-03 | [1984:552](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-552) |
+| RU | RU · ops-resumed · Demo возобновлена | Operations | ADM-03 | [1984:579](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-579) |
+| RU | RU · ops-disconnect-confirm · Подтверждение отключения demo | Operations | ADM-03 | [1984:613](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-613) |
+| RU | RU · ops-disconnect-pending · Отключение в обработке | Operations | ADM-03 | [1984:640](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-640) |
+| RU | RU · ops-disconnected · Demo отключена | Operations | ADM-03 | [1984:665](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-665) |
+| EN | EN · overview · Overview | Owner | ADM-01 | [1982:38513](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38513) |
+| EN | EN · stale · Overview · stale data | Owner | ADM-01 | [1982:38558](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38558) |
+| EN | EN · empty · Overview · no data yet | Owner | ADM-01 | [1982:38586](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38586) |
+| EN | EN · users · Users | Owner | ADM-02 | [1982:38611](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38611) |
+| EN | EN · user-empty · Users · no matches | Owner | ADM-02 | [1982:38642](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38642) |
+| EN | EN · user · User details | Owner | ADM-02 | [1982:38667](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38667) |
+| EN | EN · operations · User · Operations | Operations | ADM-02 | [1982:38700](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38700) |
+| EN | EN · vip-form · Assign VIP | Owner | ADM-02 | [1982:38736](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38736) |
+| EN | EN · vip-error · VIP · validation error | Owner | ADM-02 | [1982:38768](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38768) |
+| EN | EN · vip-preview · VIP · review before applying | Owner | ADM-02 | [1982:38795](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38795) |
+| EN | EN · vip-conflict · VIP · version changed | Owner | ADM-02 | [1982:38824](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38824) |
+| EN | EN · vip-done · VIP applied · demo | Owner | ADM-02 | [1982:38849](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38849) |
+| EN | EN · sessions · Sessions | Owner | ADM-03 | [1982:38885](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38885) |
+| EN | EN · session · Demo session | Owner | ADM-03 | [1982:38913](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38913) |
+| EN | EN · pause-confirm · Pause this demo? | Owner | ADM-03 | [1982:38951](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38951) |
+| EN | EN · pause-pending · Pause · request accepted | Owner | ADM-03 | [1982:38978](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38978) |
+| EN | EN · paused · Demo session · paused | Owner | ADM-03 | [1982:39003](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-39003) |
+| EN | EN · risk · Resume restricted | Owner | ADM-03 | [1982:39039](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-39039) |
+| EN | EN · resume-confirm · Resume demo? | Owner | ADM-03 | [1982:39073](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-39073) |
+| EN | EN · resumed · Demo resumed | Owner | ADM-03 | [1982:39102](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-39102) |
+| EN | EN · disconnect-confirm · Disconnect this demo session? | Owner | ADM-03 | [1982:39136](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-39136) |
+| EN | EN · disconnect-pending · Disconnect · processing | Owner | ADM-03 | [1982:39163](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-39163) |
+| EN | EN · disconnected · Demo disconnected | Owner | ADM-03 | [1982:39188](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-39188) |
+| EN | EN · unknown · Session · unknown result | Owner | ADM-03 | [1982:39215](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-39215) |
+| EN | EN · ops-session · Demo session · Operations | Operations | ADM-03 | [1984:38802](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-38802) |
+| EN | EN · ops-pause-confirm · Confirm pause | Operations | ADM-03 | [1984:38837](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-38837) |
+| EN | EN · ops-pause-pending · Pause request accepted | Operations | ADM-03 | [1984:38864](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-38864) |
+| EN | EN · ops-paused · Pause confirmed | Operations | ADM-03 | [1984:38889](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-38889) |
+| EN | EN · ops-risk · Resume blocked | Operations | ADM-03 | [1984:38922](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-38922) |
+| EN | EN · ops-resume-confirm · Confirm resume | Operations | ADM-03 | [1984:38956](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-38956) |
+| EN | EN · ops-resumed · Demo resumed | Operations | ADM-03 | [1984:38983](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-38983) |
+| EN | EN · ops-disconnect-confirm · Confirm demo disconnect | Operations | ADM-03 | [1984:39017](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-39017) |
+| EN | EN · ops-disconnect-pending · Disconnect processing | Operations | ADM-03 | [1984:39044](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-39044) |
+| EN | EN · ops-disconnected · Demo disconnected | Operations | ADM-03 | [1984:39069](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-39069) |
