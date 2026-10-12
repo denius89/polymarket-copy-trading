@@ -20,6 +20,8 @@ Figma описывает дизайн, но не переопределяет п
 
 [Desktop shell grid 12.10.2026](../../docs/design/client/desktop-shell-grid-2026-10-12.md): отдельный трек сайдбара 232 px, 24 px промежуток, 12 колонок контента x=256–1408. Связи общих grid styles восстановлены после скрытия направляющих; Figma-образец и точные параметры в grid-and-button-width.json.
 
+[Исправления Controls/Patterns 12.10.2026](../../docs/design/client/ui-kit-controls-and-forms-2026-10-12.md): актуальные размеры Icon button, Touch switch, Textarea и форм; источник для разработки — текущие manifest/USAGE/QA.
+
 ## После каждого согласованного изменения Figma
 
 В том же пакете обновлять GitHub:

@@ -18,7 +18,7 @@
       "componentSets": 33,
       "standaloneComponents": 11,
       "totalNativeComponents": 118,
-      "instances": 232,
+      "instances": 228,
       "brokenInstances": [],
       "sections": [
         "1997:1665",
@@ -187,5 +187,31 @@
       "exampleMastersIntact": true
     },
     "manualPresent": "Not run; library layout only, no prototype route changed"
+  },
+  "latestVerification": {
+    "date": "2026-10-12",
+    "scope": "client UI kit Controls and Patterns only",
+    "nativeInstances": 228,
+    "brokenInstances": 0,
+    "checkedNodes": [
+      "1978:795",
+      "1982:38469",
+      "2105:5923",
+      "2105:5928",
+      "1980:391",
+      "1980:480"
+    ],
+    "checks": [
+      "Six icon masters 24×24; six icon-button variants 44×44; default Info icon and fixed Loading spinner",
+      "Six switch variants 96×60 with centered 48×44 Shared/Switch; disabled opacity 0.6",
+      "Textarea four variants 360×182 with 72 px fixed input region even when empty",
+      "Support Draft/Error 400×416/444; Feedback 400×304; no field overflow in reviewed renders",
+      "Source guide below Icon button has 56 px clearance to Checkbox source"
+    ],
+    "limitations": [
+      "Manual Present not performed",
+      "No product-screen component migration or prototype-route acceptance",
+      "Browser keyboard, 200% text zoom and responsive runtime untested"
+    ]
   }
 }

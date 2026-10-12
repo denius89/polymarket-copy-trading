@@ -218,7 +218,7 @@
           "board": {
             "id": "1978:489",
             "w": 1200,
-            "h": 5034
+            "h": 5018
           },
           "components": [
             {
@@ -226,7 +226,7 @@
               "name": "Client/Icon/Check",
               "type": "COMPONENT",
               "w": 24,
-              "h": 48,
+              "h": 24,
               "properties": [],
               "variants": [],
               "bindings": [
@@ -242,7 +242,7 @@
               "name": "Client/Icon/Close",
               "type": "COMPONENT",
               "w": 24,
-              "h": 48,
+              "h": 24,
               "properties": [],
               "variants": [],
               "bindings": [
@@ -258,7 +258,7 @@
               "name": "Client/Icon/Chevron",
               "type": "COMPONENT",
               "w": 24,
-              "h": 48,
+              "h": 24,
               "properties": [],
               "variants": [],
               "bindings": [
@@ -274,7 +274,7 @@
               "name": "Client/Icon/Copy",
               "type": "COMPONENT",
               "w": 24,
-              "h": 48,
+              "h": 24,
               "properties": [],
               "variants": [],
               "bindings": [
@@ -290,7 +290,7 @@
               "name": "Client/Icon/Info",
               "type": "COMPONENT",
               "w": 24,
-              "h": 48,
+              "h": 24,
               "properties": [],
               "variants": [],
               "bindings": [
@@ -306,7 +306,7 @@
               "name": "Client/Icon/Search",
               "type": "COMPONENT",
               "w": 24,
-              "h": 48,
+              "h": 24,
               "properties": [],
               "variants": [],
               "bindings": [
@@ -431,7 +431,13 @@
                   ]
                 }
               ],
-              "bindings": []
+              "bindings": [],
+              "defaultIconComponentId": "1978:730",
+              "loadingIconComponentId": "1982:38420",
+              "hitTargetPx": [
+                44,
+                44
+              ]
             },
             {
               "id": "1978:849",
@@ -637,7 +643,7 @@
               "id": "1978:941",
               "name": "Client/Textarea",
               "type": "COMPONENT_SET",
-              "w": 752,
+              "w": 792,
               "h": 468,
               "properties": [
                 {
@@ -661,7 +667,7 @@
                 {
                   "id": "1978:921",
                   "name": "State=Default",
-                  "w": 340,
+                  "w": 360,
                   "h": 182,
                   "layout": "VERTICAL",
                   "bindings": [
@@ -681,7 +687,7 @@
                 {
                   "id": "1978:926",
                   "name": "State=Focus",
-                  "w": 340,
+                  "w": 360,
                   "h": 182,
                   "layout": "VERTICAL",
                   "bindings": [
@@ -701,7 +707,7 @@
                 {
                   "id": "1978:931",
                   "name": "State=Error",
-                  "w": 340,
+                  "w": 360,
                   "h": 182,
                   "layout": "VERTICAL",
                   "bindings": [
@@ -721,7 +727,7 @@
                 {
                   "id": "1978:936",
                   "name": "State=Read only",
-                  "w": 340,
+                  "w": 360,
                   "h": 182,
                   "layout": "VERTICAL",
                   "bindings": [
@@ -739,7 +745,9 @@
                   ]
                 }
               ],
-              "bindings": []
+              "bindings": [],
+              "minimumFieldHeightPx": 72,
+              "emptyStateDoesNotShrink": true
             },
             {
               "id": "1978:982",
@@ -1076,8 +1084,8 @@
               "id": "1982:38468",
               "name": "Client/Touch switch",
               "type": "COMPONENT_SET",
-              "w": 264,
-              "h": 324,
+              "w": 384,
+              "h": 192,
               "properties": [
                 {
                   "key": "State",
@@ -1194,7 +1202,9 @@
                   ]
                 }
               ],
-              "bindings": []
+              "bindings": [],
+              "visualAlignment": "Shared/Switch centered at x=24, y=8 inside each 96×60 touch target",
+              "disabledOpacity": 0.6
             }
           ],
           "sections": [
@@ -2472,7 +2482,7 @@
           "board": {
             "id": "1980:100",
             "w": 1200,
-            "h": 5142
+            "h": 5190
           },
           "components": [
             {
@@ -3000,7 +3010,7 @@
               "name": "Client/Support form",
               "type": "COMPONENT_SET",
               "w": 872,
-              "h": 468,
+              "h": 492,
               "properties": [
                 {
                   "key": "Title#1980:58",
@@ -3016,7 +3026,7 @@
                   "id": "1980:361",
                   "name": "State=Draft",
                   "w": 400,
-                  "h": 392,
+                  "h": 416,
                   "layout": "VERTICAL",
                   "bindings": [
                     "itemSpacing",
@@ -3036,7 +3046,7 @@
                   "id": "1980:375",
                   "name": "State=Error",
                   "w": 400,
-                  "h": 420,
+                  "h": 444,
                   "layout": "VERTICAL",
                   "bindings": [
                     "itemSpacing",
@@ -3176,7 +3186,7 @@
               "name": "Client/Feedback form",
               "type": "COMPONENT",
               "w": 400,
-              "h": 280,
+              "h": 304,
               "properties": [
                 {
                   "key": "Title#1980:76",
@@ -3662,5 +3672,16 @@
       ],
       "note": "Historical initial-build page coordinates and board heights above remain as recorded at creation; current Figma nodes and this extension are authoritative."
     }
+  },
+  "currentReview": {
+    "date": "2026-10-12",
+    "clientKitPageId": "1976:2",
+    "iconSourceGuideId": "2105:5923",
+    "touchSourceGuideId": "2105:5928",
+    "iconReviewId": "1978:795",
+    "touchReviewId": "1982:38469",
+    "supportReviewId": "1980:391",
+    "feedbackReviewId": "1980:480",
+    "note": "Figma masters and instances remain linked; review source guide clearances and fixed-height empty textarea before implementation."
   }
 }
