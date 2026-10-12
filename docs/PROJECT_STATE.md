@@ -1,6 +1,8 @@
 # Текущее состояние проекта
 
-Срез на **9 октября 2026**. Каноническая очередь — [ROADMAP](ROADMAP.md).
+Срез на **12 октября 2026**. Каноническая очередь — [ROADMAP](ROADMAP.md).
+
+12.10.2026: основатель поручил внести разобранные правки коллеги. Принят [ADR-0043](decisions/0043_admin_money_security_and_incident_recovery.md): protected recipients/пороги, PARTNER_PAYOUTS_OFF и точечная изоляция, compromised account, independent money recovery, funding lifecycle, audit integrity, market-deviation guard и безопасный возврат очереди. Обновлены 114–118; полный перечень — [119](119_admin_security_review_changes_2026-10-12.md). Новые правила приняты; компоновка на вычитку, Figma/код/live не менялись.
 
 | Область | Состояние | Источник |
 | --- | --- | --- |
