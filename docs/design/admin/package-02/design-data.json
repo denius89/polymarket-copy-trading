@@ -1,0 +1,2501 @@
+[
+  {
+    "key": "finance",
+    "title": [
+      "Финансы сервиса",
+      "Service finance"
+    ],
+    "body": [
+      "Общий учёт в USD · обе площадки · период: 01–12 октября\nПример будущего платного режима. Эти суммы не относятся к alpha.\nОбязательства $203: доступно $160, pending $18, резерв $25.",
+      "Platform USD reporting · both venues · 01–12 October\nIllustrative future paid stage. These amounts are not alpha balances.\nLiabilities $203: available $160, pending $18, reserved $25."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Партнёры",
+          "Partners"
+        ],
+        "target": "partners"
+      },
+      {
+        "label": [
+          "Нет источника",
+          "No source"
+        ],
+        "target": "finance-empty"
+      },
+      {
+        "label": [
+          "Устаревшие данные",
+          "Stale data"
+        ],
+        "target": "finance-stale"
+      }
+    ],
+    "notice": null,
+    "rows": [
+      [
+        "Комиссия начислена",
+        "Fee accrual",
+        "Polymarket",
+        "$160.00",
+        "Подтверждено",
+        "Confirmed"
+      ],
+      [
+        "Комиссия получена",
+        "Fee received",
+        "Polymarket",
+        "$100.00",
+        "Подтверждено",
+        "Confirmed"
+      ],
+      [
+        "Вознаграждение партнёрам",
+        "Partner rewards",
+        "Both / Обе",
+        "$60.00",
+        "Обязательство",
+        "Liability"
+      ]
+    ],
+    "fields": null,
+    "role": "Owner A",
+    "metrics": [
+      [
+        "Начислено",
+        "Accrued",
+        "$800.00"
+      ],
+      [
+        "Получено",
+        "Received",
+        "$560.00"
+      ],
+      [
+        "Обязательства",
+        "Liabilities",
+        "$203.00"
+      ]
+    ]
+  },
+  {
+    "key": "finance-empty",
+    "title": [
+      "Источники не подключены",
+      "Sources disconnected"
+    ],
+    "body": [
+      "Поступления, расходы и обязательства появятся после подключения подтверждённых источников.\nБюджеты клиентов и demo-обороты не являются финансами сервиса.",
+      "Receipts, expenses and liabilities appear after confirmed sources are connected.\nClient budgets and demo turnover are not service finances."
+    ],
+    "actions": [
+      {
+        "label": [
+          "К сводке",
+          "Overview"
+        ],
+        "target": "finance"
+      },
+      {
+        "label": [
+          "Источники",
+          "Sources"
+        ],
+        "target": "sources"
+      }
+    ],
+    "notice": [
+      "Нет подтверждённых данных",
+      "No confirmed data",
+      "Не показываем выдуманный ноль или доход из demo.",
+      "No invented zero or revenue derived from demo."
+    ],
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "finance-stale",
+    "title": [
+      "Сводка неполная",
+      "Incomplete summary"
+    ],
+    "body": [
+      "Polymarket: данные свежие. Limitless: последняя проверка неизвестна.\nЧастичный итог не подписывается как полный баланс платформы.",
+      "Polymarket: fresh data. Limitless: last check unknown.\nA partial total is not labelled as the platform balance."
+    ],
+    "actions": [
+      {
+        "label": [
+          "К сводке",
+          "Overview"
+        ],
+        "target": "finance"
+      },
+      {
+        "label": [
+          "Источники",
+          "Sources"
+        ],
+        "target": "sources"
+      }
+    ],
+    "notice": [
+      "Нужна проверка актуальности",
+      "Freshness check required",
+      "Денежные действия затронутой площадки недоступны.",
+      "Affected venue money actions are unavailable."
+    ],
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "ledger",
+    "title": [
+      "Поступления и расходы",
+      "Receipts and expenses"
+    ],
+    "body": [
+      "Неизменяемые записи · исходный актив и правило USD-оценки · время подтверждения.",
+      "Immutable entries · original asset and USD valuation rule · confirmation time."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Детали записи",
+          "Entry details"
+        ],
+        "target": "entry"
+      },
+      {
+        "label": [
+          "Партнёрские обязательства",
+          "Partner liabilities"
+        ],
+        "target": "liabilities"
+      }
+    ],
+    "notice": null,
+    "rows": [
+      [
+        "Поступление REC-010",
+        "Receipt REC-010",
+        "Polymarket",
+        "100 USDT / $100",
+        "Подтверждено",
+        "Confirmed"
+      ],
+      [
+        "Расход EXP-002",
+        "Expense EXP-002",
+        "Limitless",
+        "1.20 USDT / $1.20",
+        "Подтверждено",
+        "Confirmed"
+      ],
+      [
+        "Ожидаемое поступление",
+        "Pending receipt",
+        "Limitless",
+        "40 USDT / $40",
+        "Не подтверждено",
+        "Unconfirmed"
+      ]
+    ],
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "entry",
+    "title": [
+      "Запись REC-010",
+      "Entry REC-010"
+    ],
+    "body": [
+      "Поступление 100 USDT · внутренний учёт $100.00 · 1 USDT = $1.\nСвязано с начислением ACC-010. Это поступление не создаёт второй доход.\nИсточник: пример REC-010 · подтверждено 12.10.2026 12:00 UTC.",
+      "Receipt 100 USDT · accounting $100.00 · 1 USDT = $1.\nAllocated to accrual ACC-010. Receipt does not create a second revenue.\nSource: fixture REC-010 · confirmed 12 Oct 2026 12:00 UTC."
+    ],
+    "actions": [
+      {
+        "label": [
+          "К журналу",
+          "Ledger"
+        ],
+        "target": "ledger"
+      }
+    ],
+    "notice": [
+      "История неизменяема",
+      "Immutable history",
+      "Нет редактирования суммы, удаления записи или ручной отметки успеха.",
+      "No amount editing, deletion or manual success override."
+    ],
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "liabilities",
+    "title": [
+      "Начисления и обязательства",
+      "Accruals and liabilities"
+    ],
+    "body": [
+      "Подтверждённые начисления, доступность, резервы и оплаченные суммы разделены.",
+      "Confirmed accruals, availability, reservations and paid amounts are separate."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Карточка партнёра",
+          "Partner details"
+        ],
+        "target": "partner"
+      }
+    ],
+    "notice": null,
+    "rows": [
+      [
+        "PART-024 · доступно",
+        "PART-024 · available",
+        "Polymarket",
+        "$120.00",
+        "К выплате",
+        "Available"
+      ],
+      [
+        "PART-024 · доступно",
+        "PART-024 · available",
+        "Limitless",
+        "$40.00",
+        "К выплате",
+        "Available"
+      ],
+      [
+        "PART-024 · ожидает",
+        "PART-024 · pending",
+        "Polymarket",
+        "$18.00",
+        "Не в доступном",
+        "Excluded"
+      ],
+      [
+        "PART-031 · резерв",
+        "PART-031 · reserved",
+        "Limitless",
+        "$25.00",
+        "Unknown",
+        "Unknown"
+      ]
+    ],
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "partners",
+    "title": [
+      "Партнёры",
+      "Partners"
+    ],
+    "body": [
+      "Накопительные показатели за всё время · условия и обязательства по площадкам.",
+      "Lifetime metrics · terms and liabilities per venue."
+    ],
+    "actions": [
+      {
+        "label": [
+          "PART-024",
+          "PART-024"
+        ],
+        "target": "partner"
+      },
+      {
+        "label": [
+          "Партнёрский VIP",
+          "Partner VIP"
+        ],
+        "target": "partner-vip"
+      }
+    ],
+    "notice": null,
+    "rows": [
+      [
+        "PART-024 · Agent A",
+        "PART-024 · Agent A",
+        "Both / Обе",
+        "$160.00",
+        "Доступно",
+        "Available"
+      ],
+      [
+        "PART-031 · Agent B",
+        "PART-031 · Agent B",
+        "Limitless",
+        "$25.00",
+        "В резерве",
+        "Reserved"
+      ]
+    ],
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "partner",
+    "title": [
+      "PART-024 · Agent A",
+      "PART-024 · Agent A"
+    ],
+    "body": [
+      "Общий доступный баланс $160.00 — сумма двух площадок, а не одна выплата.\nLifetime: 84 клиента · оборот $3,200 · пример данных. User VIP отдельно.",
+      "Total available $160.00 is a two-venue projection, not one payout.\nLifetime: 84 clients · turnover $3,200 · sample data. User VIP is separate."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Выплата Polymarket",
+          "Polymarket payout"
+        ],
+        "target": "payout-route"
+      },
+      {
+        "label": [
+          "Выплата Limitless",
+          "Limitless payout"
+        ],
+        "target": "payout-ll"
+      },
+      {
+        "label": [
+          "VIP / реквизиты",
+          "VIP / recipients"
+        ],
+        "target": "partner-settings"
+      }
+    ],
+    "notice": null,
+    "rows": [
+      [
+        "Доступно",
+        "Available",
+        "Polymarket",
+        "$120.00",
+        "Подтверждено",
+        "Confirmed"
+      ],
+      [
+        "Доступно",
+        "Available",
+        "Limitless",
+        "$40.00",
+        "Подтверждено",
+        "Confirmed"
+      ],
+      [
+        "Не подтверждено",
+        "Unconfirmed",
+        "Polymarket",
+        "$18.00",
+        "Не доступно",
+        "Unavailable"
+      ]
+    ],
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "partner-settings",
+    "title": [
+      "Условия и реквизиты PART-024",
+      "PART-024 terms and recipients"
+    ],
+    "body": [
+      "Тарифные условия и реквизиты управляются раздельно.",
+      "Pricing terms and payment recipients are managed separately."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Партнёрский VIP",
+          "Partner VIP"
+        ],
+        "target": "partner-vip"
+      },
+      {
+        "label": [
+          "Реквизиты",
+          "Recipients"
+        ],
+        "target": "recipients"
+      },
+      {
+        "label": [
+          "Назад",
+          "Back"
+        ],
+        "target": "partner"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "sources",
+    "title": [
+      "Источники выплат",
+      "Payout sources"
+    ],
+    "body": [
+      "Только собственные средства сервиса. Кошельки клиентов не используются.\nНаличие публичного API не подтверждает право отправки денег.",
+      "Service-owned funds only. Client wallets are not used.\nPublic API availability does not establish money authority."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Нет маршрута",
+          "No route"
+        ],
+        "target": "no-route"
+      },
+      {
+        "label": [
+          "К сводке",
+          "Overview"
+        ],
+        "target": "finance"
+      }
+    ],
+    "notice": null,
+    "rows": [
+      [
+        "SRC-PM · пример",
+        "SRC-PM · fixture",
+        "Polymarket",
+        "121.20 USDT",
+        "Макет, не подключено",
+        "Fixture, disconnected"
+      ],
+      [
+        "SRC-LL · пример",
+        "SRC-LL · fixture",
+        "Limitless",
+        "41.20 USDT",
+        "Макет, не подключено",
+        "Fixture, disconnected"
+      ]
+    ],
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "payouts",
+    "title": [
+      "Выплаты",
+      "Payouts"
+    ],
+    "body": [
+      "Сумма по каждой операции — весь доступный баланс выбранной площадки.",
+      "Each operation pays the full available balance of its selected venue."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Новая выплата",
+          "New payout"
+        ],
+        "target": "partner"
+      },
+      {
+        "label": [
+          "Unknown PAY-021",
+          "Unknown PAY-021"
+        ],
+        "target": "unknown"
+      }
+    ],
+    "notice": null,
+    "rows": [
+      [
+        "PAY-021 · PART-024",
+        "PAY-021 · PART-024",
+        "Polymarket",
+        "$120.00",
+        "Оплачено",
+        "Paid"
+      ],
+      [
+        "PAY-021 · PART-024",
+        "PAY-021 · PART-024",
+        "Polymarket",
+        "$120.00",
+        "Unknown · резерв",
+        "Unknown · reserved"
+      ]
+    ],
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "payout-route",
+    "title": [
+      "Выплата · Polymarket",
+      "Payout · Polymarket"
+    ],
+    "body": [
+      "PART-024 · весь доступный баланс $120.00 · сумма не редактируется.\nНи один маршрут ниже не подтверждён для реального API — сценарии дизайна.",
+      "PART-024 · full available balance $120.00 · amount is read-only.\nNo route below is verified for the real API — design scenarios."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Пример расчёта",
+          "Preview example"
+        ],
+        "target": "preview"
+      },
+      {
+        "label": [
+          "Нет доступного пути",
+          "No available route"
+        ],
+        "target": "no-route"
+      },
+      {
+        "label": [
+          "Недостаточно средств",
+          "Insufficient funds"
+        ],
+        "target": "insufficient"
+      }
+    ],
+    "notice": [
+      "Способы определим при интеграции",
+      "Routes to be verified at integration",
+      "Все подтверждённые варианты площадки будут показаны; неизвестные не обещаем.",
+      "All verified venue options will be listed; unknown routes are not promised."
+    ],
+    "rows": null,
+    "fields": [
+      [
+        "Источник",
+        "Source",
+        "SRC-PM · illustrative"
+      ],
+      [
+        "Способ / актив / сеть",
+        "Route / asset / network",
+        "Example route · USDT · network TBD"
+      ],
+      [
+        "Реквизиты",
+        "Recipient",
+        "RECIP-01 · active example"
+      ]
+    ],
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "payout-ll",
+    "title": [
+      "Выплата · Limitless",
+      "Payout · Limitless"
+    ],
+    "body": [
+      "PART-024 · весь доступный баланс $40.00.\nОтдельный источник и маршрут. Баланс Polymarket не используется автоматически.",
+      "PART-024 · full available balance $40.00.\nSeparate source and route. Polymarket funds are not used automatically."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Нет подключённого пути",
+          "No connected route"
+        ],
+        "target": "no-route"
+      },
+      {
+        "label": [
+          "Назад",
+          "Back"
+        ],
+        "target": "partner"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": [
+      [
+        "Площадка",
+        "Venue",
+        "Limitless"
+      ],
+      [
+        "Сумма обязательства",
+        "Gross liability",
+        "$40.00 · read only"
+      ],
+      [
+        "Способ",
+        "Route",
+        "Not verified / Не проверен"
+      ]
+    ],
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "no-route",
+    "title": [
+      "Нет доступного маршрута",
+      "No available route"
+    ],
+    "body": [
+      "Для выбранной площадки нет подтверждённого источника, сети или актива.\nВыплата остаётся недоступной. Маршрут другой площадки не подставляется.",
+      "Selected venue has no verified source, network or asset.\nPayout remains unavailable. A different venue route is not substituted."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Источники",
+          "Sources"
+        ],
+        "target": "sources"
+      },
+      {
+        "label": [
+          "Назад",
+          "Back"
+        ],
+        "target": "partner"
+      }
+    ],
+    "notice": [
+      "Отправка недоступна",
+      "Dispatch unavailable",
+      "Capability неизвестна или не проверена для выбранной операции.",
+      "Capability is unknown or unverified for this operation."
+    ],
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "preview",
+    "title": [
+      "Проверка полной выплаты",
+      "Review full payout"
+    ],
+    "body": [
+      "PART-024 · Polymarket · preview PRV-021 · версия баланса 7\nПример маршрута: USDT / network TBD · RECIP-01 · SRC-PM.",
+      "PART-024 · Polymarket · preview PRV-021 · balance revision 7\nIllustrative route: USDT / network TBD · RECIP-01 · SRC-PM."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Подтвердить пример",
+          "Confirm example"
+        ],
+        "target": "accepted"
+      },
+      {
+        "label": [
+          "Комиссию платит партнёр",
+          "Partner pays fee"
+        ],
+        "target": "preview-fee"
+      },
+      {
+        "label": [
+          "Сработал порог",
+          "Threshold triggered"
+        ],
+        "target": "second-wait"
+      }
+    ],
+    "notice": [
+      "Расчёт действует до 12:05 UTC",
+      "Preview valid until 12:05 UTC",
+      "Адрес/сумма/комиссия/политики зафиксированы. Изменение требует нового preview.",
+      "Recipient, amount, fee and policies are pinned. A change requires a new preview."
+    ],
+    "rows": [
+      [
+        "Всё обязательство",
+        "Gross liability",
+        "Polymarket",
+        "120 USDT / $120",
+        "Полностью",
+        "Full"
+      ],
+      [
+        "Комиссия перевода",
+        "Transfer fee",
+        "Service / Сервис",
+        "1.20 USDT / $1.20",
+        "Оценка",
+        "Estimate"
+      ],
+      [
+        "Партнёру / списание",
+        "Recipient / source debit",
+        "SRC-PM",
+        "120 / 121.20 USDT",
+        "Без частичной выплаты",
+        "No partial payout"
+      ]
+    ],
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "preview-fee",
+    "title": [
+      "Проверка · комиссия партнёра",
+      "Review · partner fee"
+    ],
+    "body": [
+      "Вариант правила fee-payer = partner. Настройка Owner сохранена в версии.\nПолное gross-обязательство погашается с отдельно раскрытым удержанием.",
+      "Fee-payer = partner policy example. Owner setting is saved by version.\nFull gross liability is settled with a separately disclosed deduction."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Подтвердить пример",
+          "Confirm example"
+        ],
+        "target": "accepted-fee"
+      },
+      {
+        "label": [
+          "Вернуться к сервисной комиссии",
+          "Service fee example"
+        ],
+        "target": "preview"
+      }
+    ],
+    "notice": null,
+    "rows": [
+      [
+        "Всё обязательство",
+        "Gross liability",
+        "Polymarket",
+        "120 USDT / $120",
+        "Полностью",
+        "Full"
+      ],
+      [
+        "Удержание",
+        "Fee deduction",
+        "Partner / Партнёр",
+        "1.20 USDT / $1.20",
+        "Оценка",
+        "Estimate"
+      ],
+      [
+        "Партнёру",
+        "Recipient net",
+        "RECIP-01",
+        "118.80 USDT",
+        "Расчётный net",
+        "Calculated net"
+      ]
+    ],
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "accepted",
+    "title": [
+      "Выплата принята",
+      "Payout accepted"
+    ],
+    "body": [
+      "PAY-021 · полный intent зафиксирован · обязательство в резерве.\nПосле подтверждения система сама исполняет выплату. Реальной отправки в макете нет.",
+      "PAY-021 · full intent frozen · liability reserved.\nSystem executes after confirmation. This prototype does not dispatch."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Пример отправки",
+          "Submitted example"
+        ],
+        "target": "submitted"
+      },
+      {
+        "label": [
+          "Отмена до отправки",
+          "Cancel before dispatch"
+        ],
+        "target": "cancel-confirm"
+      }
+    ],
+    "notice": [
+      "Принято ≠ оплачено",
+      "Accepted is not paid",
+      "Не создавать новую выплату для того же зарезервированного обязательства.",
+      "Do not create another payout for this reserved liability."
+    ],
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "submitted",
+    "title": [
+      "Отправлено · проверяется",
+      "Submitted · checking"
+    ],
+    "body": [
+      "PAY-021 · provider identity получена · ожидаем окончательный результат.\nИсходная отправка не доказывает получение по конечному маршруту.",
+      "PAY-021 · provider identity known · awaiting final result.\nSource submission does not establish destination settlement."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Пример полной оплаты",
+          "Paid example"
+        ],
+        "target": "paid"
+      },
+      {
+        "label": [
+          "Результат неизвестен",
+          "Unknown result"
+        ],
+        "target": "unknown"
+      },
+      {
+        "label": [
+          "Расхождение суммы",
+          "Amount discrepancy"
+        ],
+        "target": "discrepancy"
+      }
+    ],
+    "notice": [
+      "Отмена после отправки недоступна",
+      "Cannot cancel after dispatch",
+      "Повтор не отправляем. Подтверждение зависит от route evidence.",
+      "No resend. Confirmation depends on route evidence."
+    ],
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "paid",
+    "title": [
+      "Полная выплата подтверждена",
+      "Full payout confirmed"
+    ],
+    "body": [
+      "PAY-021 · полный рассчитанный перевод доказан · долг закрыт один раз.\nФактическая комиссия показана отдельным расходом, история сохранена.",
+      "PAY-021 · full calculated transfer proven · obligation settled once.\nActual fee is a separate expense. History is retained."
+    ],
+    "actions": [
+      {
+        "label": [
+          "К выплатам",
+          "Payouts"
+        ],
+        "target": "payouts"
+      },
+      {
+        "label": [
+          "Назад",
+          "Back"
+        ],
+        "target": "partner"
+      }
+    ],
+    "notice": null,
+    "rows": [
+      [
+        "Погашено",
+        "Settled",
+        "Polymarket",
+        "$120.00",
+        "Подтверждено",
+        "Confirmed"
+      ],
+      [
+        "Получено партнёром",
+        "Received by partner",
+        "RECIP-01",
+        "120 USDT",
+        "Подтверждено",
+        "Confirmed"
+      ],
+      [
+        "Расход сервиса",
+        "Service expense",
+        "SRC-PM",
+        "1.20 USDT",
+        "Пример evidence",
+        "Fixture evidence"
+      ]
+    ],
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "unknown",
+    "title": [
+      "Результат выплаты неизвестен",
+      "Payout result unknown"
+    ],
+    "body": [
+      "PAY-021 · результат ещё не доказан. Резерв удерживается.\nТаймаут не равен отказу. Ни повтор, ни ручное «оплачено» недоступны.",
+      "PAY-021 · outcome not yet proven. Reservation retained.\nTimeout is not failure. No resend or manual paid override."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить результат",
+          "Check result"
+        ],
+        "target": "rechecking"
+      },
+      {
+        "label": [
+          "К выплатам",
+          "Payouts"
+        ],
+        "target": "payouts"
+      }
+    ],
+    "notice": [
+      "Повторная отправка заблокирована",
+      "Resend blocked",
+      "Проверяем прежний attempt и конечное поступление, а не создаём новый перевод.",
+      "Look up the original attempt and destination settlement; no new transfer."
+    ],
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "rechecking",
+    "title": [
+      "Проверка результата",
+      "Checking outcome"
+    ],
+    "body": [
+      "Проверяется существующая операция PAY-021. Это read-only наблюдение.\nРезультат пока неизвестен; резерв и запрет повторной отправки остаются.",
+      "Observing existing operation PAY-021. Read-only check.\nOutcome remains unknown; reservation and resend block remain."
+    ],
+    "actions": [
+      {
+        "label": [
+          "К операции",
+          "Operation"
+        ],
+        "target": "unknown"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "discrepancy",
+    "title": [
+      "Расхождение результата",
+      "Settlement discrepancy"
+    ],
+    "body": [
+      "Полученный факт не совпадает с полным рассчитанным переводом.\nСоздан инцидент INC-021. Это не штатная частичная выплата.",
+      "Observed fact differs from the full calculated transfer.\nIncident INC-021 created. This is not a normal partial-paid state."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Карточка расхождения",
+          "Discrepancy details"
+        ],
+        "target": "discrepancy-details"
+      },
+      {
+        "label": [
+          "К выплатам",
+          "Payouts"
+        ],
+        "target": "payouts"
+      }
+    ],
+    "notice": [
+      "Без доплаты остатка",
+      "No remainder payment",
+      "Сначала выяснить полный результат и связанные расходы.",
+      "Resolve full outcome and related expenses first."
+    ],
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "discrepancy-details",
+    "title": [
+      "INC-021 · сверка выплаты",
+      "INC-021 · payout reconciliation"
+    ],
+    "body": [
+      "Ожидалось: полный рассчитанный перевод. Наблюдение: сумма не совпадает.\nEvidence и расходы сохранены. Ручной успех и редактирование ledger отсутствуют.",
+      "Expected: full calculated transfer. Observed: amount mismatch.\nEvidence and expenses retained. No manual success or ledger editing."
+    ],
+    "actions": [
+      {
+        "label": [
+          "К операции",
+          "Operation"
+        ],
+        "target": "discrepancy"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "cancel-confirm",
+    "title": [
+      "Отменить до отправки?",
+      "Cancel before dispatch?"
+    ],
+    "body": [
+      "PAY-021 · доказано, что отправка ещё не началась.\nОтмена освобождает полный резерв. Это не отмена внешней транзакции.",
+      "PAY-021 · dispatch has not started, with evidence.\nCancellation releases the full reservation. It does not cancel an external transaction."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Отменить пример",
+          "Cancel example"
+        ],
+        "target": "cancelled"
+      },
+      {
+        "label": [
+          "Оставить выплату",
+          "Keep payout"
+        ],
+        "target": "accepted"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "cancelled",
+    "title": [
+      "Отменено до отправки",
+      "Cancelled before dispatch"
+    ],
+    "body": [
+      "PAY-021 · внешней отправки не было · весь резерв освобождён.\nДля новой выплаты нужен свежий расчёт и подтверждение Owner.",
+      "PAY-021 · no external dispatch · full reservation released.\nA new payout needs a fresh preview and Owner confirmation."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Новый расчёт",
+          "New preview"
+        ],
+        "target": "payout-route"
+      },
+      {
+        "label": [
+          "К выплатам",
+          "Payouts"
+        ],
+        "target": "payouts"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "insufficient",
+    "title": [
+      "Недостаточно средств источника",
+      "Insufficient source funds"
+    ],
+    "body": [
+      "Для полной выплаты не хватает подтверждённых средств или gas.\nДолг не уменьшается, частичная выплата не предлагается.",
+      "Source lacks confirmed funds or gas for the full payout.\nLiability is not reduced. Partial payout is not offered."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Выбрать другой источник",
+          "Select another source"
+        ],
+        "target": "payout-route"
+      },
+      {
+        "label": [
+          "Назад",
+          "Back"
+        ],
+        "target": "partner"
+      }
+    ],
+    "notice": [
+      "Отправка не начата",
+      "Dispatch has not started",
+      "После изменения источника — новый расчёт и подтверждение.",
+      "New source requires a new preview and confirmation."
+    ],
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "expired",
+    "title": [
+      "Расчёт устарел",
+      "Preview expired"
+    ],
+    "body": [
+      "Изменился баланс, адрес, комиссия, маршрут или версия control/policy.\nПрежнее подтверждение недействительно.",
+      "Balance, recipient, fee, route or control/policy version changed.\nPrevious confirmation is invalid."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Обновить расчёт",
+          "Refresh preview"
+        ],
+        "target": "payout-route"
+      },
+      {
+        "label": [
+          "Назад",
+          "Back"
+        ],
+        "target": "partner"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "blocked",
+    "title": [
+      "Выплаты остановлены",
+      "Partner payouts stopped"
+    ],
+    "body": [
+      "PARTNER_PAYOUTS_OFF · отправка не начата.\nНезависимое восстановление не запускает старую очередь автоматически.",
+      "PARTNER_PAYOUTS_OFF · dispatch has not started.\nIndependent recovery does not automatically send old queued payouts."
+    ],
+    "actions": [
+      {
+        "label": [
+          "К выплатам",
+          "Payouts"
+        ],
+        "target": "payouts"
+      },
+      {
+        "label": [
+          "Назад",
+          "Back"
+        ],
+        "target": "partner"
+      }
+    ],
+    "notice": [
+      "Подтверждение не снимает stop",
+      "Approval does not remove stop",
+      "После восстановления нужны новый preview и актуальные подтверждения.",
+      "Recovery requires new preview and current approvals."
+    ],
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "second-wait",
+    "title": [
+      "Требуется второй Owner",
+      "Second Owner required"
+    ],
+    "body": [
+      "PAY-022 · сработало настроенное защитное правило.\nПолный balance $120.00 не дробится и не уменьшается ради порога.",
+      "PAY-022 · configured security rule triggered.\nFull balance $120.00 is not split or reduced to avoid a threshold."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Пример проверки Owner B",
+          "Preview Owner B review"
+        ],
+        "target": "second-review"
+      },
+      {
+        "label": [
+          "Расчёт изменился",
+          "Preview changed"
+        ],
+        "target": "expired"
+      },
+      {
+        "label": [
+          "Назад",
+          "Back"
+        ],
+        "target": "partner"
+      }
+    ],
+    "notice": [
+      "Owner A не подтверждает за двоих",
+      "Owner A cannot approve twice",
+      "Отправки нет. Численные пороги Owner задают отдельно.",
+      "No dispatch. Owners configure threshold values separately."
+    ],
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "second-review",
+    "title": [
+      "Owner B · независимая проверка",
+      "Owner B · independent review"
+    ],
+    "body": [
+      "Автор Owner A · PAY-022 / digest v7 · Polymarket / SRC-PM / RECIP-01\nПолный gross $120 · net 120 USDT · fee 1.20 USDT, сервис · debit 121.20 USDT.",
+      "Author Owner A · PAY-022 / digest v7 · Polymarket / SRC-PM / RECIP-01\nFull gross $120 · net 120 USDT · fee 1.20 USDT, service · debit 121.20 USDT."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Подтвердить пример",
+          "Approve example"
+        ],
+        "target": "second-approved"
+      },
+      {
+        "label": [
+          "Контекст изменился",
+          "Context changed"
+        ],
+        "target": "expired"
+      }
+    ],
+    "notice": [
+      "Только текущая точная версия",
+      "This exact current version only",
+      "Другая личная identity. Разрешение не отменяет stop/недостаток средств.",
+      "Separate personal identity. Approval does not override stop or insufficient funds."
+    ],
+    "rows": null,
+    "fields": null,
+    "role": "Owner B",
+    "metrics": null
+  },
+  {
+    "key": "second-approved",
+    "title": [
+      "Подтверждение Owner B сохранено",
+      "Owner B approval recorded"
+    ],
+    "body": [
+      "Одноразовое разрешение для PAY-022 / digest v7.\nПеред отправкой проверки выполняются снова; изменения аннулируют approval.",
+      "Single-use approval for PAY-022 / digest v7.\nChecks run again before dispatch. Changes invalidate approval."
+    ],
+    "actions": [
+      {
+        "label": [
+          "К выплатам",
+          "Payouts"
+        ],
+        "target": "payouts"
+      },
+      {
+        "label": [
+          "Активен stop",
+          "Stop active"
+        ],
+        "target": "blocked"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": null,
+    "role": "Owner B",
+    "metrics": null
+  },
+  {
+    "key": "recipients",
+    "title": [
+      "Реквизиты PART-024",
+      "PART-024 recipients"
+    ],
+    "body": [
+      "Версии по партнёру и площадке. Активные адреса не переписываются.",
+      "Versions per partner and venue. Active addresses are never overwritten."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Предложить реквизиты",
+          "Propose recipient"
+        ],
+        "target": "recipient-form"
+      },
+      {
+        "label": [
+          "Ожидает второго Owner",
+          "Awaiting second Owner"
+        ],
+        "target": "recipient-pending"
+      },
+      {
+        "label": [
+          "Назад",
+          "Back"
+        ],
+        "target": "partner"
+      }
+    ],
+    "notice": null,
+    "rows": [
+      [
+        "RECIP-01 · версия 1",
+        "RECIP-01 · version 1",
+        "Polymarket",
+        "USDT · TBD",
+        "Активный пример",
+        "Active fixture"
+      ],
+      [
+        "RECIP-02 · версия 2",
+        "RECIP-02 · version 2",
+        "Limitless",
+        "USDT · TBD",
+        "Ожидает проверки",
+        "Pending review"
+      ]
+    ],
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "recipient-form",
+    "title": [
+      "Предложение реквизитов",
+      "Recipient proposal"
+    ],
+    "body": [
+      "Owner A · PART-024 · Limitless · новая версия 2.\nАдрес ниже синтетический, не инструкция к переводу.",
+      "Owner A · PART-024 · Limitless · new version 2.\nThe address below is synthetic, not a transfer instruction."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Сохранить предложение",
+          "Save proposal"
+        ],
+        "target": "recipient-pending"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "recipients"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": [
+      [
+        "Площадка",
+        "Venue",
+        "Limitless"
+      ],
+      [
+        "Актив",
+        "Asset",
+        "TBD · not verified"
+      ],
+      [
+        "Сеть",
+        "Network",
+        "TBD · not verified"
+      ],
+      [
+        "Полный адрес",
+        "Full address",
+        "0x1111111111111111111111111111111111111111"
+      ],
+      [
+        "Причина",
+        "Reason",
+        "Requested by partner / Запрос партнёра"
+      ],
+      [
+        "Проверка провайдера",
+        "Provider verification",
+        "Not confirmed / Не подтверждено"
+      ]
+    ],
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "recipient-pending",
+    "title": [
+      "Реквизиты ожидают проверки",
+      "Recipient pending review"
+    ],
+    "body": [
+      "RECIP-02 / v2 · автор Owner A · отправка на этот адрес недоступна.\nАвтор не активирует собственное предложение.",
+      "RECIP-02 / v2 · author Owner A · dispatch to this recipient unavailable.\nAuthor cannot activate their own proposal."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Пример проверки Owner B",
+          "Preview Owner B review"
+        ],
+        "target": "recipient-review"
+      },
+      {
+        "label": [
+          "К реквизитам",
+          "Recipients"
+        ],
+        "target": "recipients"
+      }
+    ],
+    "notice": [
+      "Проверка провайдера ещё не подтверждена",
+      "Provider verification not confirmed",
+      "Внутренняя активация и provider verification — разные проверки.",
+      "Internal activation and provider verification are separate checks."
+    ],
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "recipient-review",
+    "title": [
+      "Owner B · реквизиты v2",
+      "Owner B · recipient v2"
+    ],
+    "body": [
+      "Limitless · PART-024 · актив/сеть: illustrative TBD\n0x1111111111111111111111111111111111111111\nАвтор Owner A · причина: запрос партнёра · provider verification: пример подтверждения.",
+      "Limitless · PART-024 · asset/network: illustrative TBD\n0x1111111111111111111111111111111111111111\nAuthor Owner A · reason: partner request · provider verification: confirmed fixture."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Активировать пример",
+          "Activate example"
+        ],
+        "target": "recipient-active"
+      },
+      {
+        "label": [
+          "Отклонить",
+          "Reject"
+        ],
+        "target": "recipient-rejected"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": null,
+    "role": "Owner B",
+    "metrics": null
+  },
+  {
+    "key": "recipient-active",
+    "title": [
+      "Версия реквизитов активирована",
+      "Recipient version activated"
+    ],
+    "body": [
+      "Owner B подтвердил точную версию v2. Оба Owner уведомлены.\nПервая обычная выплата не требует обязательного таймера или третьей подписи.",
+      "Owner B confirmed exact version v2. Both Owners notified.\nFirst ordinary payout has no mandatory timer or third approval."
+    ],
+    "actions": [
+      {
+        "label": [
+          "К реквизитам",
+          "Recipients"
+        ],
+        "target": "recipients"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": null,
+    "role": "Owner B",
+    "metrics": null
+  },
+  {
+    "key": "recipient-rejected",
+    "title": [
+      "Предложение отклонено",
+      "Proposal rejected"
+    ],
+    "body": [
+      "Новая версия не активирована; действующая версия не изменена.\nПричина и автор решения сохранены.",
+      "New version is not active. Existing active version is unchanged.\nReason and decision actor retained."
+    ],
+    "actions": [
+      {
+        "label": [
+          "К реквизитам",
+          "Recipients"
+        ],
+        "target": "recipients"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": null,
+    "role": "Owner B",
+    "metrics": null
+  },
+  {
+    "key": "security-policy",
+    "title": [
+      "Защитные пороги выплат",
+      "Payout security thresholds"
+    ],
+    "body": [
+      "Числа вручную задают Owner. Политика отделена от тарифов.\nСоздать/изменить/отключить предлагает один Owner, активирует другой.",
+      "Owners enter values manually. Security policy is separate from pricing.\nOne Owner proposes creation, changes or disablement; another activates."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Настроить",
+          "Configure"
+        ],
+        "target": "security-form"
+      },
+      {
+        "label": [
+          "Пример согласования",
+          "Approval example"
+        ],
+        "target": "security-review"
+      }
+    ],
+    "notice": [
+      "Порог не уменьшает долг",
+      "Threshold does not reduce liability",
+      "Учитываются отправки и активные резервы/unknown за окно.",
+      "Window includes submitted amounts and active reservations/unknown."
+    ],
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "security-form",
+    "title": [
+      "Новая защитная policy",
+      "New security policy"
+    ],
+    "body": [
+      "На форме задаются: одна выплата, за сутки, по партнёру, источнику и новому адресу.\nОкно/UTC, учёт расходов и база оценки обязательны.",
+      "Configure single payout, daily, partner, source and new-recipient thresholds.\nWindow/UTC, fee inclusion and valuation basis are required."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Показать ошибку",
+          "Validation error"
+        ],
+        "target": "security-invalid"
+      },
+      {
+        "label": [
+          "Пример проверки Owner B",
+          "Preview Owner B review"
+        ],
+        "target": "security-review"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": [
+      [
+        "Одна выплата, USD",
+        "Single payout, USD",
+        "Owner input / Ввод Owner"
+      ],
+      [
+        "За сутки, USD",
+        "Daily total, USD",
+        "Owner input / Ввод Owner"
+      ],
+      [
+        "По партнёру, USD",
+        "Partner total, USD",
+        "Owner input / Ввод Owner"
+      ],
+      [
+        "По источнику, USD",
+        "Source total, USD",
+        "Owner input / Ввод Owner"
+      ],
+      [
+        "Новые реквизиты, USD",
+        "New recipient, USD",
+        "Owner input / Ввод Owner"
+      ],
+      [
+        "Окно / часовой пояс",
+        "Window / timezone",
+        "Owner input / Ввод Owner"
+      ],
+      [
+        "Учитывать расходы",
+        "Include expenses",
+        "Owner choice / Выбор Owner"
+      ],
+      [
+        "База оценки",
+        "Valuation basis",
+        "USD · Owner policy"
+      ],
+      [
+        "Причина",
+        "Reason",
+        "Owner input / Ввод Owner"
+      ]
+    ],
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "security-invalid",
+    "title": [
+      "Policy не готова",
+      "Policy incomplete"
+    ],
+    "body": [
+      "Числа/окно/база оценки не заполнены или значения некорректны.\nПрименить пустую policy и отправлять деньги нельзя.",
+      "Values, window or valuation basis missing or invalid.\nEmpty policy cannot be activated for money dispatch."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Вернуться к форме",
+          "Return to form"
+        ],
+        "target": "security-form"
+      }
+    ],
+    "notice": [
+      "Заполнить обязательные поля",
+      "Complete required fields",
+      "Нет автоматически выбранных защитных чисел.",
+      "No automatically chosen threshold values."
+    ],
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "security-review",
+    "title": [
+      "Owner B · проверка policy",
+      "Owner B · policy review"
+    ],
+    "body": [
+      "Точный diff и версия security policy · автор Owner A.\nЭто пример маршрута согласования; значения остаются на ввод Owner.",
+      "Exact security-policy diff and version · author Owner A.\nApproval-path illustration. Values remain for Owners to enter."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Вернуться к параметрам",
+          "Back to values"
+        ],
+        "target": "security-form"
+      }
+    ],
+    "notice": [
+      "Активация недоступна в пустом примере",
+      "Activation unavailable for empty example",
+      "Owner B подтверждает заполненную точную версию, не пустой шаблон.",
+      "Owner B approves a complete exact version, not an empty template."
+    ],
+    "rows": null,
+    "fields": null,
+    "role": "Owner B",
+    "metrics": null
+  },
+  {
+    "key": "pricing",
+    "title": [
+      "Тарифы и реферальные условия",
+      "Pricing and referral terms"
+    ],
+    "body": [
+      "Действующая alpha: комиссия сервиса 0%, партнёрское вознаграждение 0%.\nБазовый ориентир будущего paid-тарифа 1% — отдельный черновик.",
+      "Active alpha: service fee 0%, partner share 0%.\nFuture paid baseline 1% is a separate draft."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Черновик тарифа",
+          "Tariff draft"
+        ],
+        "target": "tariff-form"
+      },
+      {
+        "label": [
+          "Реферальная лестница",
+          "Referral ladder"
+        ],
+        "target": "referrals"
+      },
+      {
+        "label": [
+          "История",
+          "History"
+        ],
+        "target": "pricing-history"
+      }
+    ],
+    "notice": null,
+    "rows": [
+      [
+        "Alpha · v1",
+        "Alpha · v1",
+        "Both / Обе",
+        "0% / 0%",
+        "Действует",
+        "Active"
+      ],
+      [
+        "Paid · draft v2",
+        "Paid · draft v2",
+        "Both / Обе",
+        "1%",
+        "Черновик",
+        "Draft"
+      ]
+    ],
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "tariff-form",
+    "title": [
+      "Черновик тарифа v2",
+      "Tariff draft v2"
+    ],
+    "body": [
+      "Только Owner меняет числа и публикует. Каждая версия имеет дату действия и причину.\nТариф Shadow и состояние его применения площадкой отображаются отдельно.",
+      "Only Owners edit values and publish. Each version has effective time and reason.\nShadow policy and venue application status are separate."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Симулятор",
+          "Simulator"
+        ],
+        "target": "simulator"
+      },
+      {
+        "label": [
+          "Ошибка значений",
+          "Invalid values"
+        ],
+        "target": "tariff-invalid"
+      },
+      {
+        "label": [
+          "Предпросмотр",
+          "Preview"
+        ],
+        "target": "tariff-preview"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": [
+      [
+        "Комиссия сервиса",
+        "Service fee",
+        "1% · future paid draft"
+      ],
+      [
+        "Область / площадка",
+        "Scope / venue",
+        "Both venues · future paid"
+      ],
+      [
+        "Правило операции",
+        "Action rule",
+        "Owner input / Ввод Owner"
+      ],
+      [
+        "Начало UTC",
+        "Effective from UTC",
+        "Owner input / Ввод Owner"
+      ],
+      [
+        "Окончание UTC",
+        "Effective until UTC",
+        "Optional / Необязательно"
+      ],
+      [
+        "Причина",
+        "Reason",
+        "Owner input / Ввод Owner"
+      ]
+    ],
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "tariff-invalid",
+    "title": [
+      "Тариф не прошёл проверку",
+      "Tariff validation failed"
+    ],
+    "body": [
+      "Не заполнены дата/причина или ставка несовместима с подтверждёнными ограничениями.\nВнешние ограничения площадки не обходятся внутренней публикацией.",
+      "Effective time/reason missing or rate incompatible with verified constraints.\nInternal publication does not bypass venue limitations."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Вернуться к форме",
+          "Return to form"
+        ],
+        "target": "tariff-form"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "simulator",
+    "title": [
+      "Симулятор условий",
+      "Policy simulator"
+    ],
+    "body": [
+      "Пример: оборот $3,200 · будущая ставка 1% · доля партнёра 25%.\nРасчёт $32 комиссии и $8 вознаграждения — только симуляция.",
+      "Example: turnover $3,200 · future rate 1% · partner share 25%.\n$32 fee and $8 reward are simulated only."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Предпросмотр версии",
+          "Version preview"
+        ],
+        "target": "tariff-preview"
+      },
+      {
+        "label": [
+          "Реферальная лестница",
+          "Referral ladder"
+        ],
+        "target": "referrals"
+      }
+    ],
+    "notice": [
+      "Симуляция не попадает в баланс",
+      "Simulation never posts to balances",
+      "Никаких реальных начислений, поступлений или обязательств.",
+      "No actual accruals, receipts or liabilities."
+    ],
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": [
+      [
+        "Комиссия сервиса",
+        "Service fee",
+        "$32.00"
+      ],
+      [
+        "Вознаграждение",
+        "Partner reward",
+        "$8.00"
+      ],
+      [
+        "Сервису до расходов",
+        "Service before expenses",
+        "$24.00"
+      ]
+    ]
+  },
+  {
+    "key": "tariff-preview",
+    "title": [
+      "Предпросмотр версии тарифа",
+      "Tariff version preview"
+    ],
+    "body": [
+      "Diff: alpha 0% → отдельный будущий paid draft 1%. Историю не пересчитываем.\nДля публикации требуются заполненные параметры, дата и успешная проверка.",
+      "Diff: alpha 0% → separate future paid draft 1%. No history recalculation.\nPublishing requires complete values, date and successful validation."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Пример запланированной версии",
+          "Scheduled-version example"
+        ],
+        "target": "tariff-scheduled"
+      },
+      {
+        "label": [
+          "Конфликт версии",
+          "Version conflict"
+        ],
+        "target": "tariff-conflict"
+      },
+      {
+        "label": [
+          "Назад",
+          "Back"
+        ],
+        "target": "tariff-form"
+      }
+    ],
+    "notice": [
+      "Самостоятельная публикация Owner",
+      "Owner publishes independently",
+      "Обязательного внутреннего второго согласования тарифов нет.",
+      "Pricing does not require mandatory second internal approval."
+    ],
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "tariff-scheduled",
+    "title": [
+      "Версия запланирована · пример",
+      "Version scheduled · example"
+    ],
+    "body": [
+      "Внутренняя версия: scheduled. Площадка: применение не подтверждено.\nAlpha сохраняет 0% до фактического перехода. Это fixture, не опубликованный тариф.",
+      "Internal version: scheduled. Venue application: not confirmed.\nAlpha stays at 0% until actual transition. Fixture, not a published tariff."
+    ],
+    "actions": [
+      {
+        "label": [
+          "К тарифам",
+          "Pricing"
+        ],
+        "target": "pricing"
+      },
+      {
+        "label": [
+          "История",
+          "History"
+        ],
+        "target": "pricing-history"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "tariff-conflict",
+    "title": [
+      "Версия изменилась",
+      "Version changed"
+    ],
+    "body": [
+      "Другой Owner обновил применимый контекст. Старый preview недействителен.\nОбновить diff и снова проверить, не переписать чужую версию.",
+      "Another Owner changed applicable context. Old preview is invalid.\nRefresh diff and validate again. Do not overwrite another version."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Обновить",
+          "Refresh"
+        ],
+        "target": "tariff-form"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "pricing-history",
+    "title": [
+      "История условий",
+      "Policy history"
+    ],
+    "body": [
+      "Автор, причина, diff, время действия и ссылки на связанные версии.\nОткат создаёт новую версию. Прошлые расчёты не меняются.",
+      "Actor, reason, diff, effective time and linked versions.\nRollback creates a new version. Historical calculations stay unchanged."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Новая версия из прежней",
+          "New version from previous"
+        ],
+        "target": "tariff-form"
+      }
+    ],
+    "notice": null,
+    "rows": [
+      [
+        "Alpha v1 · Owner A",
+        "Alpha v1 · Owner A",
+        "Both / Обе",
+        "0%",
+        "Действует",
+        "Active"
+      ],
+      [
+        "Paid draft v2 · Owner B",
+        "Paid draft v2 · Owner B",
+        "Both / Обе",
+        "1%",
+        "Черновик",
+        "Draft"
+      ]
+    ],
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "referrals",
+    "title": [
+      "Накопительная реферальная лестница",
+      "Lifetime referral ladder"
+    ],
+    "body": [
+      "Уровень зависит от привлечённых клиентов либо их оборота за всё время.\nПороги, метрику и проценты вводят Owner. Автоматического месячного сброса нет.",
+      "Tier is based on lifetime acquired clients or their turnover.\nOwners enter thresholds, metric and shares. No automatic monthly reset."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Настроить лестницу",
+          "Configure ladder"
+        ],
+        "target": "referral-form"
+      },
+      {
+        "label": [
+          "Симулятор",
+          "Simulator"
+        ],
+        "target": "simulator"
+      },
+      {
+        "label": [
+          "Партнёрский VIP",
+          "Partner VIP"
+        ],
+        "target": "partner-vip"
+      }
+    ],
+    "notice": null,
+    "rows": [
+      [
+        "Level 1",
+        "Level 1",
+        "Lifetime",
+        "Owner input",
+        "Не задано",
+        "Not configured"
+      ],
+      [
+        "Level 2",
+        "Level 2",
+        "Lifetime",
+        "Owner input",
+        "Не задано",
+        "Not configured"
+      ],
+      [
+        "Level 3",
+        "Level 3",
+        "Lifetime",
+        "Owner input",
+        "Не задано",
+        "Not configured"
+      ]
+    ],
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "referral-form",
+    "title": [
+      "Настройка лестницы",
+      "Configure referral ladder"
+    ],
+    "body": [
+      "Share считается от нашей комиссии, не от прибыли или оборота игрока.\nOwner задаёт метрику клиентов/оборота, накопительные пороги, доли и дату действия.",
+      "Share is based on our fee, not profit or player turnover.\nOwner configures clients/turnover metric, lifetime thresholds, shares and effective time."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Пример предпросмотра",
+          "Preview example"
+        ],
+        "target": "referral-preview"
+      },
+      {
+        "label": [
+          "Ошибка лестницы",
+          "Ladder error"
+        ],
+        "target": "referral-invalid"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": [
+      [
+        "Накопительная метрика",
+        "Lifetime metric",
+        "Clients or turnover / Клиенты или оборот"
+      ],
+      [
+        "Уровень 1 · порог",
+        "Level 1 · threshold",
+        "Owner input / Ввод Owner"
+      ],
+      [
+        "Уровень 1 · доля, %",
+        "Level 1 · share, %",
+        "Owner input / Ввод Owner"
+      ],
+      [
+        "Уровень 2 · порог",
+        "Level 2 · threshold",
+        "Owner input / Ввод Owner"
+      ],
+      [
+        "Уровень 2 · доля, %",
+        "Level 2 · share, %",
+        "Owner input / Ввод Owner"
+      ],
+      [
+        "Уровень 3 · порог",
+        "Level 3 · threshold",
+        "Owner input / Ввод Owner"
+      ],
+      [
+        "Уровень 3 · доля, %",
+        "Level 3 · share, %",
+        "Owner input / Ввод Owner"
+      ],
+      [
+        "Начало UTC",
+        "Effective from UTC",
+        "Owner input / Ввод Owner"
+      ],
+      [
+        "Причина",
+        "Reason",
+        "Owner input / Ввод Owner"
+      ]
+    ],
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "referral-invalid",
+    "title": [
+      "Проверьте уровни",
+      "Review tiers"
+    ],
+    "body": [
+      "Порог следующего уровня должен расти; доля и effective interval проходят проверку.\nПустые значения не публикуются, старые начисления не переписываются.",
+      "Next threshold must increase. Share and effective interval must validate.\nEmpty values cannot publish. Previous rewards are not rewritten."
+    ],
+    "actions": [
+      {
+        "label": [
+          "К форме",
+          "Form"
+        ],
+        "target": "referral-form"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "referral-preview",
+    "title": [
+      "Предпросмотр лестницы",
+      "Referral ladder preview"
+    ],
+    "body": [
+      "Показываются diff, метрика, lifetime-границы, доли и применение partner VIP.\nЧисла пока не заданы — публикация недоступна в этом примере.",
+      "Shows diff, metric, lifetime thresholds, shares and partner VIP application.\nValues are not configured; this example cannot publish."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Симулятор",
+          "Simulator"
+        ],
+        "target": "simulator"
+      },
+      {
+        "label": [
+          "Заполнить параметры",
+          "Complete values"
+        ],
+        "target": "referral-form"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "partner-vip",
+    "title": [
+      "Партнёрские VIP-условия",
+      "Partner VIP terms"
+    ],
+    "body": [
+      "PART-024 · индивидуальная доля от комиссии · срок либо бессрочно · причина.\nТолько Owner. Это отдельный профиль, не пользовательский VIP.",
+      "PART-024 · individual fee share · expiry or indefinite · reason.\nOwner only. Separate profile from user VIP."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Предпросмотр VIP",
+          "VIP preview"
+        ],
+        "target": "partner-vip-preview"
+      },
+      {
+        "label": [
+          "Назад",
+          "Back"
+        ],
+        "target": "partner"
+      }
+    ],
+    "notice": null,
+    "rows": null,
+    "fields": [
+      [
+        "Доля от комиссии, %",
+        "Share of fee, %",
+        "Owner input / Ввод Owner"
+      ],
+      [
+        "Начало UTC",
+        "Effective from UTC",
+        "Owner input / Ввод Owner"
+      ],
+      [
+        "Окончание UTC",
+        "Effective until UTC",
+        "Optional / Необязательно"
+      ],
+      [
+        "Бессрочно",
+        "Indefinite",
+        "Owner choice / Выбор Owner"
+      ],
+      [
+        "Профиль",
+        "Profile",
+        "Individual / Индивидуальный"
+      ],
+      [
+        "Причина",
+        "Reason",
+        "Owner input / Ввод Owner"
+      ]
+    ],
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "partner-vip-preview",
+    "title": [
+      "Проверка партнёрского VIP",
+      "Review partner VIP"
+    ],
+    "body": [
+      "Профиль PART-024 · новая версия · доля, период и причина обязательны.\nПрошлые начисления сохраняются. VIP не обходит лимиты, stop или права.",
+      "PART-024 profile · new version · share, period and reason required.\nPast rewards remain unchanged. VIP does not bypass limits, stop or permissions."
+    ],
+    "actions": [
+      {
+        "label": [
+          "К форме VIP",
+          "VIP form"
+        ],
+        "target": "partner-vip"
+      },
+      {
+        "label": [
+          "К партнёру",
+          "Partner"
+        ],
+        "target": "partner"
+      }
+    ],
+    "notice": [
+      "Заполнить параметры перед применением",
+      "Complete values before activation",
+      "В этом fixture нет утверждённого индивидуального процента.",
+      "This fixture has no approved individual share."
+    ],
+    "rows": null,
+    "fields": null,
+    "role": "Owner A",
+    "metrics": null
+  },
+  {
+    "key": "accepted-fee",
+    "title": [
+      "Выплата принята · комиссия партнёра",
+      "Accepted · partner fee"
+    ],
+    "body": [
+      "PAY-023 · gross $120 · удержание 1.20 USDT · net 118.80 USDT.\nПолное обязательство зарезервировано, реальной отправки нет.",
+      "PAY-023 · gross $120 · fee deduction 1.20 USDT · net 118.80 USDT.\nFull liability reserved. No real dispatch."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Пример отправки",
+          "Submitted example"
+        ],
+        "target": "submitted-fee"
+      }
+    ],
+    "role": "Owner A",
+    "notice": null,
+    "rows": null,
+    "fields": null,
+    "metrics": null
+  },
+  {
+    "key": "submitted-fee",
+    "title": [
+      "Проверяется · комиссия партнёра",
+      "Checking · partner fee"
+    ],
+    "body": [
+      "PAY-023 · ожидается полный рассчитанный net 118.80 USDT.\nОтправка не означает подтверждённую оплату.",
+      "PAY-023 · full calculated net 118.80 USDT expected.\nSubmission is not confirmed payment."
+    ],
+    "actions": [
+      {
+        "label": [
+          "Пример подтверждения",
+          "Confirmed example"
+        ],
+        "target": "paid-fee"
+      }
+    ],
+    "role": "Owner A",
+    "notice": null,
+    "rows": null,
+    "fields": null,
+    "metrics": null
+  },
+  {
+    "key": "paid-fee",
+    "title": [
+      "Полная выплата · комиссия партнёра",
+      "Full payout · partner fee"
+    ],
+    "body": [
+      "PAY-023 · gross $120 погашен полностью: 118.80 USDT партнёру и раскрытое удержание 1.20 USDT.\nЭто не частичная выплата.",
+      "PAY-023 · full gross $120 settled: 118.80 USDT to partner and disclosed deduction 1.20 USDT.\nThis is not a partial payout."
+    ],
+    "actions": [
+      {
+        "label": [
+          "К выплатам",
+          "Payouts"
+        ],
+        "target": "payouts"
+      }
+    ],
+    "role": "Owner A",
+    "notice": null,
+    "rows": null,
+    "fields": null,
+    "metrics": null
+  }
+]

@@ -1,5 +1,7 @@
 # Controlled Copy Trading
 
+12.10.2026: [Дизайн финансов, выплат, тарифов и рефералов](docs/123_admin_finance_design_package_02_2026-10-12.md) — 116 новых RU/EN состояний, UI kit и кликабельные сценарии; только дизайн, v0.1 на вычитку.
+
 12.10.2026: [Первый дизайн-пакет админки](docs/122_admin_design_package_01_2026-10-12.md) — RU/EN прототипы, UI kit и handoff; v0.1 на вычитку.
 
 **Русский** · [English](README.en.md)
