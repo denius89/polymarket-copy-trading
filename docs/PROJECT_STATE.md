@@ -1,5 +1,7 @@
 # Текущее состояние проекта
 
+12.10.2026: внесены [исправления клиентской сетки и UI kit 126](126_client_grid_and_ui_kit_fixes_2026-10-12.md) по аудиту 125: поля mobile 20/20, page grid на 306 desktop экранах, шесть sidebars, EN значения и восемь legacy headers; обновлены правила и QA Figma. Админка не менялась. Открыты четыре 40×44 wallet targets, runtime адаптивность, ручной Present и выборочная миграция native kit masters.
+
 12.10.2026: выполнен read-only [аудит клиентской сетки и UI kit 125](125_client_grid_and_ui_kit_audit_2026-10-12.md) на четырёх рабочих страницах Figma (613 экранных фреймов, включая дополнительные/reference/FUTURE). Найдены старые и несимметричные мобильные поля, неполное покрытие desktop grid style, наложенные legacy headers, разрывы EN денежных значений и устаревшие страницы правил/QA. Новые masters kit пока не используются на продуктовых экранах. Правки Figma и админки не выполнялись; полный Present/адаптивная приёмка открыты.
 
 12.10.2026: клиентская сетка и ширина кнопок обновлены в Figma для Mobile/Desktop RU/EN; правила, точные ID и границы проверки — [124](124_client_grid_button_width_handoff_2026-10-12.md) и [`design/client-ui-kit/grid-and-button-width.json`](../design/client-ui-kit/grid-and-button-width.json). Админка не изменялась. Полная адаптивная и ручная Present-приёмка открыта.
