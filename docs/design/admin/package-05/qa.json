@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-12",
+  "designOnly": true,
+  "layout": {
+    "ru": {
+      "language": "ru",
+      "screenCount": 254,
+      "newScreens": 38,
+      "headerProfileCount": 242,
+      "externalLocaleControls": [],
+      "imageFills": 0,
+      "textCount": 7700,
+      "edgeCount": 3892,
+      "issues": []
+    },
+    "en": {
+      "language": "en",
+      "screenCount": 254,
+      "newScreens": 38,
+      "headerProfileCount": 242,
+      "externalLocaleControls": [],
+      "imageFills": 0,
+      "textCount": 7700,
+      "edgeCount": 3892,
+      "issues": []
+    }
+  },
+  "prototypeWiring": {
+    "ru": {
+      "edges": 618,
+      "issues": []
+    },
+    "en": {
+      "edges": 618,
+      "issues": []
+    }
+  },
+  "visual": [
+    "profile RU/EN",
+    "personal details RU",
+    "own sessions RU",
+    "language selection EN after current-state fix",
+    "profile UI kit",
+    "restricted MFA recovery RU"
+  ],
+  "present": {
+    "ru": [
+      "profile → language → EN language-saved",
+      "profile → own sessions → end all other → result → login"
+    ],
+    "languageUrlOpensSeparateTab": true,
+    "otherScenariosNotManuallyWalked": true
+  },
+  "limitations": [
+    "Static fields and fixture branches",
+    "No real auth/MFA/avatar upload/email/session revocation",
+    "No full 508-state manual acceptance",
+    "No runtime accessibility, keyboard or provider-dependent validation",
+    "Profile review fixture uses STAFF-201; server identity mandatory during implementation"
+  ],
+  "prototypeWiringNote": "Initial 36-screen build: 618 edges per language; current global edge counts follow the recovery adjustment and are in layout."
+}

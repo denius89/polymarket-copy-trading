@@ -1,5 +1,5 @@
 {
-  "revision": "0.3",
+  "revision": "0.4",
   "updatedAt": "2026-10-12",
   "purpose": "Living design sitemap; not a production capability inventory or final design acceptance.",
   "figma": {
@@ -14,8 +14,8 @@
     "current Figma RU/EN root frame inventory"
   ],
   "counts": {
-    "ru": 216,
-    "en": 216
+    "ru": 254,
+    "en": 254
   },
   "sections": [
     {
@@ -1325,7 +1325,7 @@
       "id": "ADM-14",
       "title": "Сотрудники и доступ",
       "group": "Управление",
-      "description": "Вход, MFA, пять сотрудников, назначения/изменения/отзыв ролей, компрометация и scoped recovery.",
+      "description": "Роли и административный отзыв доступа; личный профиль, язык, безопасность и свои сессии каждого сотрудника.",
       "screens": [
         {
           "id": "2110:6876",
@@ -1677,6 +1677,424 @@
             "id": "2138:70402",
             "title": "Recovery not authorized",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-70402"
+          }
+        },
+        {
+          "id": "2155:19298",
+          "key": "my-profile",
+          "title": "Мой профиль",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-19298",
+          "english": {
+            "id": "2155:79040",
+            "title": "EN · my-profile · My profile",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-79040"
+          }
+        },
+        {
+          "id": "2155:19430",
+          "key": "profile-edit",
+          "title": "Личные данные",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-19430",
+          "english": {
+            "id": "2155:79172",
+            "title": "EN · profile-edit · Personal details",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-79172"
+          }
+        },
+        {
+          "id": "2155:19556",
+          "key": "profile-saved",
+          "title": "Профиль обновлён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-19556",
+          "english": {
+            "id": "2155:79298",
+            "title": "EN · profile-saved · Profile updated",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-79298"
+          }
+        },
+        {
+          "id": "2155:19662",
+          "key": "profile-error",
+          "title": "Не удалось сохранить профиль",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-19662",
+          "english": {
+            "id": "2155:79404",
+            "title": "EN · profile-error · Could not save profile",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-79404"
+          }
+        },
+        {
+          "id": "2155:19768",
+          "key": "profile-language",
+          "title": "Язык интерфейса",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-19768",
+          "english": {
+            "id": "2155:79510",
+            "title": "EN · profile-language · Interface language",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-79510"
+          }
+        },
+        {
+          "id": "2155:19891",
+          "key": "language-saved",
+          "title": "Язык сохранён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-19891",
+          "english": {
+            "id": "2155:79633",
+            "title": "EN · language-saved · Language saved",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-79633"
+          }
+        },
+        {
+          "id": "2155:19997",
+          "key": "language-error",
+          "title": "Язык не сохранён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-19997",
+          "english": {
+            "id": "2155:79739",
+            "title": "EN · language-error · Language was not saved",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-79739"
+          }
+        },
+        {
+          "id": "2155:20103",
+          "key": "profile-access",
+          "title": "Моя роль и доступ",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-20103",
+          "english": {
+            "id": "2155:79845",
+            "title": "EN · profile-access · My role and access",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-79845"
+          }
+        },
+        {
+          "id": "2155:20217",
+          "key": "account-security",
+          "title": "Безопасность аккаунта",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-20217",
+          "english": {
+            "id": "2155:79959",
+            "title": "EN · account-security · Account security",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-79959"
+          }
+        },
+        {
+          "id": "2155:20362",
+          "key": "password-change",
+          "title": "Изменить пароль",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-20362",
+          "english": {
+            "id": "2155:80104",
+            "title": "EN · password-change · Change password",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-80104"
+          }
+        },
+        {
+          "id": "2155:20488",
+          "key": "password-reauth",
+          "title": "Подтвердить смену пароля",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-20488",
+          "english": {
+            "id": "2155:80230",
+            "title": "EN · password-reauth · Confirm password change",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-80230"
+          }
+        },
+        {
+          "id": "2155:20609",
+          "key": "password-saved",
+          "title": "Пароль изменён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-20609",
+          "english": {
+            "id": "2155:80351",
+            "title": "EN · password-saved · Password changed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-80351"
+          }
+        },
+        {
+          "id": "2155:76313",
+          "key": "password-error",
+          "title": "Проверьте пароль",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-76313",
+          "english": {
+            "id": "2155:80462",
+            "title": "EN · password-error · Check your password",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-80462"
+          }
+        },
+        {
+          "id": "2155:76424",
+          "key": "email-change",
+          "title": "Изменить email входа",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-76424",
+          "english": {
+            "id": "2155:80573",
+            "title": "EN · email-change · Change sign-in email",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-80573"
+          }
+        },
+        {
+          "id": "2155:76540",
+          "key": "email-reauth",
+          "title": "Подтвердить смену email",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-76540",
+          "english": {
+            "id": "2155:80689",
+            "title": "EN · email-reauth · Confirm email change",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-80689"
+          }
+        },
+        {
+          "id": "2155:76656",
+          "key": "email-pending",
+          "title": "Подтвердите новый email",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-76656",
+          "english": {
+            "id": "2155:80805",
+            "title": "EN · email-pending · Verify new email",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-80805"
+          }
+        },
+        {
+          "id": "2155:76767",
+          "key": "email-saved",
+          "title": "Email входа обновлён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-76767",
+          "english": {
+            "id": "2155:80916",
+            "title": "EN · email-saved · Sign-in email updated",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-80916"
+          }
+        },
+        {
+          "id": "2155:76875",
+          "key": "mfa-setup",
+          "title": "Настроить MFA",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-76875",
+          "english": {
+            "id": "2155:81024",
+            "title": "EN · mfa-setup · Set up MFA",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81024"
+          }
+        },
+        {
+          "id": "2155:76988",
+          "key": "mfa-confirm",
+          "title": "Проверить MFA",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-76988",
+          "english": {
+            "id": "2155:81137",
+            "title": "EN · mfa-confirm · Verify MFA",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81137"
+          }
+        },
+        {
+          "id": "2155:77104",
+          "key": "mfa-enabled",
+          "title": "MFA подключена",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-77104",
+          "english": {
+            "id": "2155:81253",
+            "title": "EN · mfa-enabled · MFA enabled",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81253"
+          }
+        },
+        {
+          "id": "2155:77215",
+          "key": "mfa-replace",
+          "title": "Заменить способ MFA",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-77215",
+          "english": {
+            "id": "2155:81364",
+            "title": "EN · mfa-replace · Replace MFA method",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81364"
+          }
+        },
+        {
+          "id": "2155:77336",
+          "key": "mfa-replace-confirm",
+          "title": "Проверить новую MFA",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-77336",
+          "english": {
+            "id": "2155:81485",
+            "title": "EN · mfa-replace-confirm · Verify replacement MFA",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81485"
+          }
+        },
+        {
+          "id": "2155:77452",
+          "key": "mfa-replaced",
+          "title": "MFA заменена",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-77452",
+          "english": {
+            "id": "2155:81601",
+            "title": "EN · mfa-replaced · MFA replaced",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81601"
+          }
+        },
+        {
+          "id": "2155:77558",
+          "key": "recovery-codes",
+          "title": "Резервные коды",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-77558",
+          "english": {
+            "id": "2155:81707",
+            "title": "EN · recovery-codes · Recovery codes",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81707"
+          }
+        },
+        {
+          "id": "2155:77671",
+          "key": "recovery-codes-confirm",
+          "title": "Подтвердить новый набор",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-77671",
+          "english": {
+            "id": "2155:81820",
+            "title": "EN · recovery-codes-confirm · Confirm new code set",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81820"
+          }
+        },
+        {
+          "id": "2155:77787",
+          "key": "recovery-codes-created",
+          "title": "Сохраните резервные коды",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-77787",
+          "english": {
+            "id": "2155:81936",
+            "title": "EN · recovery-codes-created · Save your recovery codes",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81936"
+          }
+        },
+        {
+          "id": "2155:77897",
+          "key": "mfa-lost",
+          "title": "Нет доступа к MFA",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-77897",
+          "english": {
+            "id": "2155:82046",
+            "title": "EN · mfa-lost · Cannot access MFA",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-82046"
+          }
+        },
+        {
+          "id": "2155:78013",
+          "key": "mfa-recovery-code",
+          "title": "Резервное подтверждение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-78013",
+          "english": {
+            "id": "2155:82162",
+            "title": "EN · mfa-recovery-code · Recovery verification",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-82162"
+          }
+        },
+        {
+          "id": "2155:78129",
+          "key": "mfa-recovery-help",
+          "title": "Восстановление доступа",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-78129",
+          "english": {
+            "id": "2155:82278",
+            "title": "EN · mfa-recovery-help · Access recovery",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-82278"
+          }
+        },
+        {
+          "id": "2155:78240",
+          "key": "my-sessions",
+          "title": "Мои сессии",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-78240",
+          "english": {
+            "id": "2155:82389",
+            "title": "EN · my-sessions · My sessions",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-82389"
+          }
+        },
+        {
+          "id": "2155:78371",
+          "key": "session-own-revoke-confirm",
+          "title": "Завершить выбранную сессию?",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-78371",
+          "english": {
+            "id": "2155:82520",
+            "title": "EN · session-own-revoke-confirm · End selected session?",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-82520"
+          }
+        },
+        {
+          "id": "2155:78483",
+          "key": "sessions-other-confirm",
+          "title": "Завершить остальные сессии?",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-78483",
+          "english": {
+            "id": "2155:82632",
+            "title": "EN · sessions-other-confirm · End all other sessions?",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-82632"
+          }
+        },
+        {
+          "id": "2155:78595",
+          "key": "sessions-other-revoked",
+          "title": "Другие сессии завершены",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-78595",
+          "english": {
+            "id": "2155:82744",
+            "title": "EN · sessions-other-revoked · Other sessions ended",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-82744"
+          }
+        },
+        {
+          "id": "2155:78708",
+          "key": "my-sessions-error",
+          "title": "Результат завершения не подтверждён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-78708",
+          "english": {
+            "id": "2155:82857",
+            "title": "EN · my-sessions-error · Session termination not confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-82857"
+          }
+        },
+        {
+          "id": "2155:78814",
+          "key": "profile-avatar",
+          "title": "Изменить аватар",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-78814",
+          "english": {
+            "id": "2155:82963",
+            "title": "EN · profile-avatar · Change avatar",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-82963"
+          }
+        },
+        {
+          "id": "2155:78927",
+          "key": "profile-avatar-preview",
+          "title": "Предпросмотр аватара",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-78927",
+          "english": {
+            "id": "2155:83076",
+            "title": "EN · profile-avatar-preview · Avatar preview",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-83076"
+          }
+        },
+        {
+          "id": "2170:21469",
+          "key": "mfa-recovery-setup",
+          "title": "RU · mfa-recovery-setup · Настроить MFA после восстановления",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2170-21469",
+          "english": {
+            "id": "2170:79468",
+            "title": "EN · mfa-recovery-setup · Set up MFA after recovery",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2170-79468"
+          }
+        },
+        {
+          "id": "2170:21586",
+          "key": "mfa-recovery-complete",
+          "title": "RU · mfa-recovery-complete · Способ входа восстановлен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2170-21586",
+          "english": {
+            "id": "2170:79585",
+            "title": "EN · mfa-recovery-complete · Sign-in method recovered",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2170-79585"
           }
         }
       ],

@@ -1,0 +1,48 @@
+{
+  "id": "SHADOW-ADM-01",
+  "revision": "personal-account-0.1",
+  "synthetic": true,
+  "currentStaffId": "STAFF-201",
+  "source": "../fixtures/shadow-admin-demo.json",
+  "identity": {
+    "name": {
+      "ru": "Елена Морозова",
+      "en": "Elena Morozova"
+    },
+    "email": "elena.owner@demo.example",
+    "role": "Owner A",
+    "avatarInitials": {
+      "ru": "ЕМ",
+      "en": "EM"
+    }
+  },
+  "sampleSessions": [
+    {
+      "id": "SES-ADM-201-A",
+      "current": true,
+      "browser": "Safari",
+      "device": "macOS",
+      "approximateLocation": "Warsaw",
+      "lastActivity": "2026-10-12T12:00:00Z"
+    },
+    {
+      "id": "SES-ADM-201-B",
+      "current": false,
+      "browser": "Chrome",
+      "device": "Windows",
+      "approximateLocation": "Warsaw",
+      "lastActivity": "2026-10-12T11:42:00Z"
+    }
+  ],
+  "branches": {
+    "emailSaved": "elena.new@demo.example",
+    "otherSessionsEnded": [
+      "SES-ADM-201-A"
+    ],
+    "mfaSetup": "awaiting verification",
+    "normalMfa": "enabled"
+  },
+  "authProviderSelected": false,
+  "liveConnected": false,
+  "realSecrets": false
+}

@@ -21,3 +21,7 @@
 Свежие снимки: [финансы RU](evidence/finance-ru.png), [обзор RU](evidence/overview-ru.png), [выплата RU](evidence/payout-ru.png), [финансы EN](evidence/finance-en.png), [тариф EN](evidence/tariff-en.png), [сессия RU](evidence/session-ru.png), [неизвестный результат RU](evidence/unknown-ru.png), [VIP RU](evidence/vip-ru.png), [реферальная форма RU](evidence/referral-ru.png), [обзор EN](evidence/overview-en.png), [реквизиты EN](evidence/recipient-en.png).
 
 Текущий UI kit: [реестр](../ui-kit/registry.json). 25 записей components/component sets и три Admin/Button masters. Прежние package-01/package-02 — исторические документы первого создания; их ранние screenshots, page IDs и графы не описывают текущий вид. Figma остаётся источником точного визуального состояния. JSON — карта ID/переходов и проверки, а не полная резервная копия файла.
+
+## Текущий пакет 05 · личный аккаунт
+
+[Профиль RU](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2155-19298&starting-point-node-id=2155-19298&scaling=scale-down) · [EN](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2155-79040&starting-point-node-id=2155-79040&scaling=scale-down). [Материалы](../package-05/README.md). 254 RU + 254 EN; язык выбирается в профиле, UI kit 0.4.6. Исторические счётчики выше относятся к прежним пакетам.

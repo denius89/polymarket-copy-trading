@@ -38,3 +38,7 @@ Shared foundations: Color `VariableCollectionId:2:3`, Dark `2:1`, Light `7:0`; S
 
 
 12.10.2026 · пакет 04: добавлен исходник Admin/Metadata row (2137:26727) с Title/Detail/Meta, шириной 1144, минимумом 64 и переносами. Колонки используют общие Inter/styles/tokens; денежные действия не скрываются в строке. 15 component sets / 104 variants сохранены; composition masters теперь 7. Alert Title/Body обновлены до Fill/HEIGHT для корректного переноса при 560 px форме входа. [Пакет и проверка](../package-04/README.md).
+
+## Личный кабинет · 0.4.6
+
+Добавлены `Admin/Account button` (Default/Hover/Focus, 44×44) и `Admin/Profile settings row` (Default/Hover/Focus/Disabled, Title/Detail, одна стрелка, перенос текста). 17 семейств / 111 вариантов. Новые source sets находятся в прежней секции «02 · Исходные компоненты»; [витрина экземпляров](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2167-567) — в «03 · Композиции». Иконка заимствована из клиентского header, цветовые токены и Inter общие. Кнопка открывает личный профиль напрямую; язык выбирается в нём. Новый основной sidebar item не добавлен. [Пакет 05](../package-05/README.md).

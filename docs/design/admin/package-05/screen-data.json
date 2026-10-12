@@ -1,0 +1,1811 @@
+[
+  {
+    "key": "my-profile",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Мой профиль",
+      "My profile"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Настройки вашего аккаунта. Изменение личных данных не меняет права доступа.",
+      "Your account settings. Personal changes do not alter access permissions."
+    ],
+    "fields": [],
+    "actions": [],
+    "rows": [],
+    "tone": "Info",
+    "auth": false
+  },
+  {
+    "key": "profile-edit",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Личные данные",
+      "Personal details"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Имя и аватар видны коллегам. Email входа меняется отдельно.",
+      "Your name and avatar are visible to colleagues. Sign-in email is changed separately."
+    ],
+    "fields": [
+      [
+        [
+          "Имя",
+          "Name"
+        ],
+        [
+          "Елена Морозова",
+          "Elena Morozova"
+        ]
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Сохранить",
+          "Save"
+        ],
+        "target": "profile-saved",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "my-profile",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Пример ошибки",
+          "Error example"
+        ],
+        "target": "profile-error",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Изменить аватар",
+          "Change avatar"
+        ],
+        "target": "profile-avatar",
+        "type": "secondary",
+        "icon": "2032:41"
+      }
+    ],
+    "rows": [],
+    "tone": "Info",
+    "auth": false
+  },
+  {
+    "key": "profile-saved",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Профиль обновлён",
+      "Profile updated"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Имя сохранено. Права и email входа прежние. Изменение записано в журнал.",
+      "Name saved. Permissions and sign-in email are unchanged. Change recorded in audit."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "В профиль",
+          "Back to profile"
+        ],
+        "target": "my-profile",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Success",
+    "auth": false
+  },
+  {
+    "key": "profile-error",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Не удалось сохранить профиль",
+      "Could not save profile"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Изменения не применены. Введённое имя сохранено в форме.",
+      "Changes were not applied. Your entered name remains in the form."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "Вернуться к форме",
+          "Return to form"
+        ],
+        "target": "profile-edit",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Danger",
+    "auth": false
+  },
+  {
+    "key": "profile-language",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Язык интерфейса",
+      "Interface language"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Выбор относится только к вашему аккаунту, не к языкам и текстам проекта.",
+      "This choice affects only your account, not project languages or content."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "Русский",
+          "Русский"
+        ],
+        "target": "language-saved",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "English",
+          "English"
+        ],
+        "target": "language-saved",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "В профиль",
+          "Back to profile"
+        ],
+        "target": "my-profile",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Пример ошибки",
+          "Error example"
+        ],
+        "target": "language-error",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [
+      [
+        "Текущий язык | Русский | RU",
+        "Current language | English | EN"
+      ]
+    ],
+    "tone": "Info",
+    "auth": false
+  },
+  {
+    "key": "language-saved",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Язык сохранён",
+      "Language saved"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Предпочтение аккаунта обновлено. В прототипе открыт соответствующий языковой макет.",
+      "Account preference updated. The prototype opens the corresponding language design."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "В профиль",
+          "Back to profile"
+        ],
+        "target": "my-profile",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Success",
+    "auth": false
+  },
+  {
+    "key": "language-error",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Язык не сохранён",
+      "Language was not saved"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Остаётся предыдущий язык. Можно повторить выбор; переключение не затрагивает рабочие данные.",
+      "The previous language remains. Try again; language choice does not affect operational data."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "Повторить выбор",
+          "Choose again"
+        ],
+        "target": "profile-language",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Danger",
+    "auth": false
+  },
+  {
+    "key": "profile-access",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Моя роль и доступ",
+      "My role and access"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Просмотр своих полномочий. Назначения меняются в управлении сотрудниками уполномоченным сотрудником.",
+      "Read-only permissions. Assignments are changed in staff management by an authorized colleague."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "В профиль",
+          "Back to profile"
+        ],
+        "target": "my-profile",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [
+      [
+        "STAFF-201 | Елена Морозова | Owner A",
+        "STAFF-201 | Elena Morozova | Owner A"
+      ],
+      [
+        "Финансы | Выплаты и публикация тарифов | Owner-only",
+        "Finance | Payouts and pricing publication | Owner-only"
+      ],
+      [
+        "Безопасность | Аварийное управление и восстановление | По действующей политике",
+        "Security | Emergency controls and recovery | Subject to active policy"
+      ],
+      [
+        "Личный аккаунт | Профиль, язык, свои сессии | Все активные сотрудники",
+        "Personal account | Profile, language, own sessions | All active staff"
+      ]
+    ],
+    "tone": "Info",
+    "auth": false
+  },
+  {
+    "key": "account-security",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Безопасность аккаунта",
+      "Account security"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "MFA обязательна. Действия с данными входа требуют повторного подтверждения личности.",
+      "MFA is required. Changes to sign-in details require reauthentication."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "Изменить пароль",
+          "Change password"
+        ],
+        "target": "password-change",
+        "type": "secondary",
+        "icon": "2032:38"
+      },
+      {
+        "label": [
+          "Изменить email",
+          "Change email"
+        ],
+        "target": "email-change",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Заменить MFA",
+          "Replace MFA"
+        ],
+        "target": "mfa-replace",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Резервные коды",
+          "Recovery codes"
+        ],
+        "target": "recovery-codes",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Мои сессии",
+          "My sessions"
+        ],
+        "target": "my-sessions",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "В профиль",
+          "Back to profile"
+        ],
+        "target": "my-profile",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Пример первой настройки MFA",
+          "Initial MFA setup example"
+        ],
+        "target": "mfa-setup",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [
+      [
+        "Вход | Email и пароль · учебный вариант | Провайдер не выбран",
+        "Sign-in | Email and password · illustrative option | Provider not selected"
+      ],
+      [
+        "MFA | Приложение-аутентификатор · учебный вариант | Включена",
+        "MFA | Authenticator app · illustrative option | Enabled"
+      ],
+      [
+        "Email | elena.owner@demo.example | Подтверждён",
+        "Email | elena.owner@demo.example | Verified"
+      ],
+      [
+        "Резервные коды | 8 доступны · пример | Значения скрыты",
+        "Recovery codes | 8 available · example | Values hidden"
+      ]
+    ],
+    "tone": "Info",
+    "auth": false
+  },
+  {
+    "key": "password-change",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Изменить пароль",
+      "Change password"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Учебный вариант парольного входа. При внешнем провайдере вместо формы будет ссылка на его настройки.",
+      "Illustrative password sign-in. With an external provider, show its settings link instead."
+    ],
+    "fields": [
+      [
+        [
+          "Новый пароль",
+          "New password"
+        ],
+        [
+          "••••••••••••",
+          "••••••••••••"
+        ]
+      ],
+      [
+        [
+          "Повтор нового пароля",
+          "Repeat new password"
+        ],
+        [
+          "••••••••••••",
+          "••••••••••••"
+        ]
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Продолжить",
+          "Continue"
+        ],
+        "target": "password-reauth",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "account-security",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Пример ошибки",
+          "Error example"
+        ],
+        "target": "password-error",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Info",
+    "auth": false
+  },
+  {
+    "key": "password-reauth",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Подтвердить смену пароля",
+      "Confirm password change"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Сначала подтвердите личность действующим способом. После смены остальные сессии будут завершены.",
+      "Verify your identity with the current method. Other sessions will end after the change."
+    ],
+    "fields": [
+      [
+        [
+          "Текущий пароль",
+          "Current password"
+        ],
+        [
+          "••••••••••••",
+          "••••••••••••"
+        ]
+      ],
+      [
+        [
+          "Код MFA",
+          "MFA code"
+        ],
+        [
+          "Демонстрационный ввод",
+          "Demonstration input"
+        ]
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Подтвердить",
+          "Confirm"
+        ],
+        "target": "password-saved",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "account-security",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Info",
+    "auth": false
+  },
+  {
+    "key": "password-saved",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Пароль изменён",
+      "Password changed"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Остальные сессии завершены. Текущая подтверждённая сессия остаётся активной. Событие записано в журнал.",
+      "Other sessions ended. The current reauthenticated session remains active. Event recorded in audit."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "К безопасности",
+          "Back to security"
+        ],
+        "target": "account-security",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Мои сессии",
+          "My sessions"
+        ],
+        "target": "sessions-other-revoked",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Success",
+    "auth": false
+  },
+  {
+    "key": "password-error",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Проверьте пароль",
+      "Check your password"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Значения не совпадают или не соответствуют политике. Старый пароль остаётся действующим.",
+      "Values do not match or fail the policy. The existing password remains active."
+    ],
+    "fields": [
+      [
+        [
+          "Новый пароль",
+          "New password"
+        ],
+        [
+          "••••••••••••",
+          "••••••••••••"
+        ]
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Исправить",
+          "Correct"
+        ],
+        "target": "password-change",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Danger",
+    "auth": false
+  },
+  {
+    "key": "email-change",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Изменить email входа",
+      "Change sign-in email"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Смена требует повторной проверки личности и подтверждения нового адреса. Старый email действует до завершения.",
+      "Requires reauthentication and verification of the new address. The old email remains active until completion."
+    ],
+    "fields": [
+      [
+        [
+          "Новый email",
+          "New email"
+        ],
+        [
+          "elena.new@demo.example",
+          "elena.new@demo.example"
+        ]
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Продолжить",
+          "Continue"
+        ],
+        "target": "email-reauth",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "account-security",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Info",
+    "auth": false
+  },
+  {
+    "key": "email-reauth",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Подтвердить смену email",
+      "Confirm email change"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Подтверждаем вашу личность. Уведомление об изменении отправляется на прежний адрес.",
+      "Verify your identity. A change notification is sent to the previous address."
+    ],
+    "fields": [
+      [
+        [
+          "Код действующей MFA",
+          "Current MFA code"
+        ],
+        [
+          "Демонстрационный ввод",
+          "Demonstration input"
+        ]
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Отправить подтверждение",
+          "Send verification"
+        ],
+        "target": "email-pending",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "account-security",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Info",
+    "auth": false
+  },
+  {
+    "key": "email-pending",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Подтвердите новый email",
+      "Verify new email"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "В учебном сценарии письмо отправлено на elena.new@demo.example. Старый адрес ещё действует. Прототип не отправляет писем.",
+      "In this sample, verification is sent to elena.new@demo.example. The old address remains active. This prototype sends no emails."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "Пример подтверждения",
+          "Verified example"
+        ],
+        "target": "email-saved",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Назад",
+          "Back"
+        ],
+        "target": "account-security",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Warning",
+    "auth": false
+  },
+  {
+    "key": "email-saved",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Email входа обновлён",
+      "Sign-in email updated"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Новый адрес подтверждён. Другие сессии завершены. Событие записано в журнал. Это отдельная ветвь примера.",
+      "New address verified. Other sessions ended. Event recorded in audit. This is a separate sample branch."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "К безопасности",
+          "Back to security"
+        ],
+        "target": "account-security",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [
+      [
+        "Email входа | elena.new@demo.example | Подтверждён",
+        "Sign-in email | elena.new@demo.example | Verified"
+      ]
+    ],
+    "tone": "Success",
+    "auth": false
+  },
+  {
+    "key": "mfa-setup",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Настроить MFA",
+      "Set up MFA"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Пример первого подключения. Способ MFA выбирается при реализации; настоящий QR или секрет в дизайн не помещаем.",
+      "Initial setup example. The MFA method is chosen during implementation; no real QR or secret is stored in the design."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "Проверить новый способ",
+          "Verify new method"
+        ],
+        "target": "mfa-confirm",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Назад",
+          "Back"
+        ],
+        "target": "account-security",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [
+      [
+        "Настройка | Здесь появится безопасная инструкция провайдера | Не подключено",
+        "Setup | Secure provider instructions appear here | Not connected"
+      ]
+    ],
+    "tone": "Info",
+    "auth": false
+  },
+  {
+    "key": "mfa-confirm",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Проверить MFA",
+      "Verify MFA"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Вход считается защищённым только после успешной проверки нового способа.",
+      "Sign-in is protected only after the new method is successfully verified."
+    ],
+    "fields": [
+      [
+        [
+          "Код нового способа",
+          "New method code"
+        ],
+        [
+          "Демонстрационный ввод",
+          "Demonstration input"
+        ]
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Проверить",
+          "Verify"
+        ],
+        "target": "mfa-enabled",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "mfa-setup",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Info",
+    "auth": false
+  },
+  {
+    "key": "mfa-enabled",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "MFA подключена",
+      "MFA enabled"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Новый способ проверен. Резервные способы доступны в разделе безопасности.",
+      "New method verified. Recovery options are available in security settings."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "К безопасности",
+          "Back to security"
+        ],
+        "target": "account-security",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Резервные коды",
+          "Recovery codes"
+        ],
+        "target": "recovery-codes",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Success",
+    "auth": false
+  },
+  {
+    "key": "mfa-replace",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Заменить способ MFA",
+      "Replace MFA method"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Сначала подтвердите личность действующим способом. Текущая MFA остаётся активной до проверки новой.",
+      "First authenticate with the current method. Existing MFA remains active until the replacement is verified."
+    ],
+    "fields": [
+      [
+        [
+          "Код текущего способа",
+          "Current method code"
+        ],
+        [
+          "Демонстрационный ввод",
+          "Demonstration input"
+        ]
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Настроить новый способ",
+          "Set up new method"
+        ],
+        "target": "mfa-replace-confirm",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Нет доступа к MFA",
+          "Cannot access MFA"
+        ],
+        "target": "mfa-lost",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "account-security",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Info",
+    "auth": false
+  },
+  {
+    "key": "mfa-replace-confirm",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Проверить новую MFA",
+      "Verify replacement MFA"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Учебная инструкция настройки. Новый способ заменит старый только после проверки.",
+      "Illustrative setup instructions. The new method replaces the old one only after verification."
+    ],
+    "fields": [
+      [
+        [
+          "Код нового способа",
+          "New method code"
+        ],
+        [
+          "Демонстрационный ввод",
+          "Demonstration input"
+        ]
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Подтвердить замену",
+          "Confirm replacement"
+        ],
+        "target": "mfa-replaced",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "account-security",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Info",
+    "auth": false
+  },
+  {
+    "key": "mfa-replaced",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "MFA заменена",
+      "MFA replaced"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Новый способ активен, прежний отозван. Другие сессии завершены. Событие записано в журнал.",
+      "New method active; old method revoked. Other sessions ended. Event recorded in audit."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "К безопасности",
+          "Back to security"
+        ],
+        "target": "account-security",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Success",
+    "auth": false
+  },
+  {
+    "key": "recovery-codes",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Резервные коды",
+      "Recovery codes"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Значения скрыты. Новый набор отменяет прежний и требует повторного подтверждения личности.",
+      "Values are hidden. Regenerating replaces the previous set and requires reauthentication."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "Обновить набор",
+          "Regenerate codes"
+        ],
+        "target": "recovery-codes-confirm",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Назад",
+          "Back"
+        ],
+        "target": "account-security",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [
+      [
+        "Набор | 8 доступных кодов · учебное значение | Скрыт",
+        "Set | 8 available codes · illustrative value | Hidden"
+      ]
+    ],
+    "tone": "Info",
+    "auth": false
+  },
+  {
+    "key": "recovery-codes-confirm",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Подтвердить новый набор",
+      "Confirm new code set"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "После подтверждения прежние коды перестанут действовать. Новые значения не попадают в журнал или обычный экспорт.",
+      "Previous codes become invalid after confirmation. New values never enter audit or ordinary exports."
+    ],
+    "fields": [
+      [
+        [
+          "Код действующей MFA",
+          "Current MFA code"
+        ],
+        [
+          "Демонстрационный ввод",
+          "Demonstration input"
+        ]
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Создать новый набор",
+          "Generate new set"
+        ],
+        "target": "recovery-codes-created",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "recovery-codes",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Info",
+    "auth": false
+  },
+  {
+    "key": "recovery-codes-created",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Сохраните резервные коды",
+      "Save your recovery codes"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "В работающем продукте здесь будет однократный показ и безопасное сохранение кодов. Ниже — недействительные подписи макета.",
+      "The product will show codes once for secure saving. Below are invalid design labels, not usable recovery codes."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "Коды сохранены",
+          "Codes saved"
+        ],
+        "target": "account-security",
+        "type": "primary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [
+      [
+        "DEMO · НЕ КОД 01 | DEMO · НЕ КОД 02 | Только макет",
+        "DEMO · NOT A CODE 01 | DEMO · NOT A CODE 02 | Design only"
+      ],
+      [
+        "DEMO · НЕ КОД 03 | DEMO · НЕ КОД 04 | Не работает для входа",
+        "DEMO · NOT A CODE 03 | DEMO · NOT A CODE 04 | Cannot authenticate"
+      ]
+    ],
+    "tone": "Warning",
+    "auth": false
+  },
+  {
+    "key": "mfa-lost",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Нет доступа к MFA",
+      "Cannot access MFA"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Используйте действующий резервный способ или защищённое восстановление личности. Роль не даёт права обойти MFA.",
+      "Use an existing recovery method or protected identity recovery. Your role cannot bypass MFA."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "Резервный способ",
+          "Recovery method"
+        ],
+        "target": "mfa-recovery-code",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Процесс восстановления",
+          "Recovery process"
+        ],
+        "target": "mfa-recovery-help",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Вернуться ко входу",
+          "Return to sign-in"
+        ],
+        "target": "admin-login",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Warning",
+    "auth": true
+  },
+  {
+    "key": "mfa-recovery-code",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Резервное подтверждение",
+      "Recovery verification"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Каждый резервный код используется один раз. Проверка выполняется сервером, не в прототипе.",
+      "Each recovery code is single use. Verification happens on the server, not in the prototype."
+    ],
+    "fields": [
+      [
+        [
+          "Резервный код",
+          "Recovery code"
+        ],
+        [
+          "Недействительный учебный пример",
+          "Invalid demonstration example"
+        ]
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Пример успешной проверки",
+          "Successful example"
+        ],
+        "target": "mfa-recovery-setup",
+        "type": "primary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Назад",
+          "Back"
+        ],
+        "target": "mfa-lost",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Info",
+    "auth": true
+  },
+  {
+    "key": "mfa-recovery-help",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Восстановление доступа",
+      "Access recovery"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Обратитесь к уполномоченному ответственному через согласованный защищённый канал. Проверка личности обязательна. Способ и контакты определяются до запуска.",
+      "Contact the authorized custodian via the agreed secure channel. Identity verification is required. Method and contacts must be set before launch."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "Назад",
+          "Back"
+        ],
+        "target": "mfa-lost",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Если недоступны оба Owner",
+          "If both Owners are unavailable"
+        ],
+        "target": "owners-recovery-guidance",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Warning",
+    "auth": true
+  },
+  {
+    "key": "my-sessions",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Мои сессии",
+      "My sessions"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Завершайте только свои сессии. Действия не требуют права отзывать доступ других сотрудников.",
+      "End only your own sessions. You do not need permission to revoke other staff access."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "Завершить другую сессию",
+          "End other session"
+        ],
+        "target": "session-own-revoke-confirm",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Завершить остальные",
+          "End all other sessions"
+        ],
+        "target": "sessions-other-confirm",
+        "type": "secondary",
+        "icon": "2032:38"
+      },
+      {
+        "label": [
+          "Выйти на этом устройстве",
+          "Sign out on this device"
+        ],
+        "target": "admin-login",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "В профиль",
+          "Back to profile"
+        ],
+        "target": "my-profile",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Пример ошибки",
+          "Error example"
+        ],
+        "target": "my-sessions-error",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [
+      [
+        "SES-ADM-201-A | Safari · macOS · Warsaw · 12:00 UTC | Текущая сессия",
+        "SES-ADM-201-A | Safari · macOS · Warsaw · 12:00 UTC | Current session"
+      ],
+      [
+        "SES-ADM-201-B | Chrome · Windows · Warsaw · 11:42 UTC | Активна",
+        "SES-ADM-201-B | Chrome · Windows · Warsaw · 11:42 UTC | Active"
+      ]
+    ],
+    "tone": "Info",
+    "auth": false
+  },
+  {
+    "key": "session-own-revoke-confirm",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Завершить выбранную сессию?",
+      "End selected session?"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Chrome · Windows · SES-ADM-201-B. На этом устройстве потребуется новый вход. Текущая сессия останется активной.",
+      "Chrome · Windows · SES-ADM-201-B. That device will require sign-in again. Your current session stays active."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "Завершить сессию",
+          "End session"
+        ],
+        "target": "sessions-other-revoked",
+        "type": "danger",
+        "icon": "2032:38"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "my-sessions",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Warning",
+    "auth": false
+  },
+  {
+    "key": "sessions-other-confirm",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Завершить остальные сессии?",
+      "End all other sessions?"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "В этом примере активна одна другая сессия. Вы останетесь в системе на текущем устройстве.",
+      "This sample has one other active session. You stay signed in on the current device."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "Завершить остальные",
+          "End other sessions"
+        ],
+        "target": "sessions-other-revoked",
+        "type": "danger",
+        "icon": "2032:38"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "my-sessions",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [],
+    "tone": "Warning",
+    "auth": false
+  },
+  {
+    "key": "sessions-other-revoked",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Другие сессии завершены",
+      "Other sessions ended"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Осталась только текущая сессия. Подтверждённый результат записан в журнал.",
+      "Only the current session remains. Confirmed result recorded in audit."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "В профиль",
+          "Back to profile"
+        ],
+        "target": "my-profile",
+        "type": "secondary",
+        "icon": "2032:44"
+      },
+      {
+        "label": [
+          "Выйти",
+          "Sign out"
+        ],
+        "target": "admin-login",
+        "type": "secondary",
+        "icon": "2032:44"
+      }
+    ],
+    "rows": [
+      [
+        "SES-ADM-201-A | Safari · macOS · 12:00 UTC | Текущая сессия",
+        "SES-ADM-201-A | Safari · macOS · 12:00 UTC | Current session"
+      ]
+    ],
+    "tone": "Success",
+    "auth": false
+  },
+  {
+    "key": "my-sessions-error",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Результат завершения не подтверждён",
+      "Session termination not confirmed"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника · SHADOW-ADM-01",
+      "Personal staff account · SHADOW-ADM-01"
+    ],
+    "notice": [
+      "Не показываем успех. Обновите статус сессии; backend должен проверять отзыв при каждом защищённом запросе.",
+      "Do not display success. Refresh session status; the backend must check revocation on every protected request."
+    ],
+    "fields": [],
+    "actions": [
+      {
+        "label": [
+          "Обновить статус",
+          "Refresh status"
+        ],
+        "target": "my-sessions",
+        "type": "secondary",
+        "icon": "2032:50"
+      }
+    ],
+    "rows": [],
+    "tone": "Warning",
+    "auth": false
+  },
+  {
+    "key": "profile-avatar",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Изменить аватар",
+      "Change avatar"
+    ],
+    "subtitle": [
+      "Личный аккаунт сотрудника",
+      "Personal staff account"
+    ],
+    "notice": [
+      "Загрузите изображение или используйте инициалы. Файл и допустимые ограничения проверяются при реализации.",
+      "Upload an image or use initials. File validation and supported limits are defined during implementation."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "Текущий аватар | ЕМ · инициалы | Нет загруженного изображения",
+        "Current avatar | EM · initials | No uploaded image"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Выбрать файл · пример",
+          "Choose file · example"
+        ],
+        "target": "profile-avatar-preview",
+        "type": "primary",
+        "icon": "2032:41"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "profile-edit",
+        "type": "secondary",
+        "icon": "2032:47"
+      }
+    ],
+    "auth": false
+  },
+  {
+    "key": "profile-avatar-preview",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "title": [
+      "Предпросмотр аватара",
+      "Avatar preview"
+    ],
+    "subtitle": [
+      "Учебный пример без фотографии",
+      "Illustrative example without a photo"
+    ],
+    "notice": [
+      "В макете используется нейтральный аватар с инициалами. Сохранение не меняет права доступа.",
+      "This design uses a neutral initials avatar. Saving does not change access permissions."
+    ],
+    "tone": "Info",
+    "rows": [
+      [
+        "Предпросмотр | ЕМ · нейтральный пример | Синтетические данные",
+        "Preview | EM · neutral example | Synthetic data"
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Сохранить аватар",
+          "Save avatar"
+        ],
+        "target": "profile-saved",
+        "type": "primary",
+        "icon": "2032:41"
+      },
+      {
+        "label": [
+          "Отмена",
+          "Cancel"
+        ],
+        "target": "profile-avatar",
+        "type": "secondary",
+        "icon": "2032:47"
+      }
+    ],
+    "auth": false
+  },
+  {
+    "key": "mfa-recovery-setup",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "auth": true,
+    "title": [
+      "Настроить MFA после восстановления",
+      "Set up MFA after recovery"
+    ],
+    "subtitle": [
+      "Защищённое восстановление · ограниченный доступ",
+      "Protected recovery · restricted access"
+    ],
+    "notice": [
+      "Резервное подтверждение личности выполнено в этом учебном сценарии. Настройте и проверьте новый способ. Рабочая админка пока недоступна.",
+      "Recovery identity verification succeeded in this sample. Set up and verify a new method. The admin workspace is still unavailable."
+    ],
+    "tone": "Warning",
+    "fields": [
+      [
+        [
+          "Код нового способа",
+          "New method code"
+        ],
+        [
+          "Демонстрационный ввод",
+          "Demonstration input"
+        ]
+      ]
+    ],
+    "actions": [
+      {
+        "label": [
+          "Пример успешной проверки",
+          "Successful verification example"
+        ],
+        "target": "mfa-recovery-complete",
+        "type": "primary",
+        "icon": "2032:38"
+      },
+      {
+        "label": [
+          "Вернуться ко входу",
+          "Return to sign-in"
+        ],
+        "target": "admin-login",
+        "type": "secondary",
+        "icon": "2032:47"
+      }
+    ]
+  },
+  {
+    "key": "mfa-recovery-complete",
+    "adm": "ADM-14",
+    "nav": "staff",
+    "auth": true,
+    "title": [
+      "Способ входа восстановлен",
+      "Sign-in method recovered"
+    ],
+    "subtitle": [
+      "Защищённое восстановление · требуется новый вход",
+      "Protected recovery · sign-in required"
+    ],
+    "notice": [
+      "Новая MFA проверена. Прежний способ и старые сессии отозваны. Для открытия админки войдите заново. Роль и полномочия не менялись.",
+      "New MFA verified. Previous method and old sessions revoked. Sign in again to access the admin workspace. Role and permissions were not changed."
+    ],
+    "tone": "Success",
+    "actions": [
+      {
+        "label": [
+          "Перейти ко входу",
+          "Go to sign-in"
+        ],
+        "target": "admin-login",
+        "type": "primary",
+        "icon": "2032:47"
+      }
+    ]
+  }
+]

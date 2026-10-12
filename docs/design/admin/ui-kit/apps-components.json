@@ -1,5 +1,5 @@
 {
-  "revision": "0.4.5",
+  "revision": "0.4.6",
   "updated": "2026-10-12",
   "fileKey": "lxPP2um7FvIbt02K8eeH4T",
   "pageId": "1981:2",
@@ -9,8 +9,8 @@
     "height": 3318,
     "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2082-125"
   },
-  "componentSetCount": 15,
-  "variantCount": 104,
+  "componentSetCount": 17,
+  "variantCount": 111,
   "components": [
     {
       "id": "2019:16",
@@ -972,6 +972,77 @@
           "Money": "Выплатить"
         }
       }
+    },
+    {
+      "id": "2153:72820",
+      "name": "Admin/Account button",
+      "properties": {
+        "State": {
+          "type": "VARIANT",
+          "defaultValue": "Default",
+          "variantOptions": [
+            "Default",
+            "Hover",
+            "Focus"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2153:72804",
+          "name": "State=Default"
+        },
+        {
+          "id": "2153:72808",
+          "name": "State=Hover"
+        },
+        {
+          "id": "2153:72812",
+          "name": "State=Focus"
+        }
+      ]
+    },
+    {
+      "id": "2153:72845",
+      "name": "Admin/Profile settings row",
+      "properties": {
+        "Title#2153:8": {
+          "type": "TEXT",
+          "defaultValue": "Безопасность"
+        },
+        "Detail#2153:9": {
+          "type": "TEXT",
+          "defaultValue": "Вход, MFA и резервные способы"
+        },
+        "State": {
+          "type": "VARIANT",
+          "defaultValue": "Default",
+          "variantOptions": [
+            "Default",
+            "Hover",
+            "Focus",
+            "Disabled"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2153:72821",
+          "name": "State=Default"
+        },
+        {
+          "id": "2153:72827",
+          "name": "State=Hover"
+        },
+        {
+          "id": "2153:72833",
+          "name": "State=Focus"
+        },
+        {
+          "id": "2153:72839",
+          "name": "State=Disabled"
+        }
+      ]
     }
   ],
   "bindingEvidence": [
@@ -1221,6 +1292,35 @@
         "strokes"
       ],
       "description": "Confirmation pattern. Money requires explicit route, full address, amount, fee and Owner permission. Specimen labels must be set for the concrete action."
+    },
+    {
+      "id": "2153:72820",
+      "variantCount": 3,
+      "fields": [
+        "topLeftRadius",
+        "topRightRadius",
+        "bottomLeftRadius",
+        "bottomRightRadius",
+        "fills"
+      ],
+      "description": "Shared Shadow colors, spacing, radii and Inter. Profile-row text fills available width, wraps with Height. Profile icon reuses existing client silhouette."
+    },
+    {
+      "id": "2153:72845",
+      "variantCount": 4,
+      "fields": [
+        "itemSpacing",
+        "paddingLeft",
+        "paddingTop",
+        "paddingRight",
+        "paddingBottom",
+        "topLeftRadius",
+        "topRightRadius",
+        "bottomLeftRadius",
+        "bottomRightRadius",
+        "fills"
+      ],
+      "description": "Shared Shadow colors, spacing, radii and Inter. Profile-row text fills available width, wraps with Height. Profile icon reuses existing client silhouette."
     }
   ],
   "validation": {
@@ -1506,5 +1606,12 @@
     ],
     "textWidth": "Fill",
     "textHeight": "HEIGHT"
+  },
+  "personalAccount": {
+    "entry": "2153:72804",
+    "settingsRow": "2153:72821",
+    "reviewId": "2167:567",
+    "clientReference": "1036:6136",
+    "rule": "Direct profile entry, grouped settings; locale only inside personal profile. Every active staff account has own self-service without financial privilege escalation."
   }
 }

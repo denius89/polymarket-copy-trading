@@ -77,3 +77,7 @@ Removed the abbreviated filled address specimen. Filled and ReadOnly now show th
 ## Metadata row и responsive alerts · 0.4.5
 
 Admin/Metadata row (2137:26727) — отдельный read-only composition master, а не замена двухколоночного Data row. Title/Detail/Meta, три равных текстовых колонки при 1144 px, 16 px gap, 20 px боковые и 16 px вертикальные поля, minHeight 64. HEIGHT и переносы сохраняют все данные. Instance text задаётся через setProperties; не detach для RU/EN. 15 sets / 104 variants сохранены. Alert Title/Body в четырёх исходных вариантах используют Fill по ширине и HEIGHT; безопасно работают в широкой админке и 560 px форме входа. [Пакет 04](../package-04/README.md).
+
+## Личный кабинет · 0.4.6
+
+Добавлены `Admin/Account button` (Default/Hover/Focus, 44×44) и `Admin/Profile settings row` (Default/Hover/Focus/Disabled, Title/Detail, одна стрелка, перенос текста). 17 семейств / 111 вариантов. Новые source sets находятся в прежней секции «02 · Исходные компоненты»; [витрина экземпляров](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2167-567) — в «03 · Композиции». Иконка заимствована из клиентского header, цветовые токены и Inter общие. Кнопка открывает личный профиль напрямую; язык выбирается в нём. Новый основной sidebar item не добавлен. [Пакет 05](../package-05/README.md).

@@ -21,3 +21,7 @@ Baseline: 12.10.2026, v0.1, draft_for_review. Первый пакет созда
 - [Задание 118](../../118_admin_console_figma_design_brief_2026-10-09.md)
 
 Перед программированием прочитать свежие main, ADR и Figma. Макет показывает визуальные состояния; источником финансовых правил остаются принятые ADR и 115. Конструкционные скрипты не являются точной резервной копией Figma. Реестр IDs — карта текущей ревизии, не вечные идентификаторы продукта.
+
+## Текущий пакет 05 · личный аккаунт
+
+[Профиль RU](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2155-19298&starting-point-node-id=2155-19298&scaling=scale-down) · [EN](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2155-79040&starting-point-node-id=2155-79040&scaling=scale-down). [Материалы](package-05/README.md). 254 RU + 254 EN; язык выбирается в профиле, UI kit 0.4.6. Исторические счётчики выше относятся к прежним пакетам.
