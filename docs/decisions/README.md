@@ -1,5 +1,7 @@
 # Архитектурные решения
 
+[ADR-0043](0043_admin_money_security_and_incident_recovery.md) — принято 12.10.2026: protected recipient/пороги, independent money recovery, PARTNER_PAYOUTS_OFF, isolation/compromise, funding lifecycle, audit integrity и безопасный restart. Уточняет ADR-0030/0031/0032/0037/0040/0041; обычные выплаты/тарифы не получают обязательного второго подтверждения.
+
 [ADR-0013](0013_consolidated_ux_and_risk_boundaries.md): принятые уточнения первого входа, сводок, средств и управления. Формулы/пороги финансовой автопаузы остаются предложением.
 
 [ADR-0014](0014_fixed_paper_copy_size_and_settings_scope.md): фиксированная сумма новой копии в первом paper-сценарии, сохранённые ограничения ADR-0012 и ясная область настроек.
