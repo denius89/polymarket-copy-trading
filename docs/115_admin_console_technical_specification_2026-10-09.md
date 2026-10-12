@@ -2,6 +2,8 @@
 
 Срез: **9 октября 2026**. Версия документа: **1.0 для проектирования и реализации после отдельного GO**.
 
+Уточнение **12.10.2026**: приняты [ADR-0043](decisions/0043_admin_money_security_and_incident_recovery.md) и [правки 119](119_admin_security_review_changes_2026-10-12.md). Новые реквизиты и превышение защитных порогов требуют другого Owner; обычные выплаты остаются самостоятельными. Денежное recovery после аварийной блокировки требует независимого подтверждения. Это требования к реализации, не выполненные live-проверки.
+
 ## 1. Назначение, статус и приоритет источников
 
 Документ описывает полную целевую админку: модули, данные, права, API, фоновые процессы, финансы, управление контентом, безопасность, аварийные режимы, эксплуатацию и критерии приёмки. Он дополняет [план 114](114_admin_console_audit_and_plan_2026-10-06.md) конкретными техническими контрактами. Сверка с пользовательским интерфейсом — [отчёт 116](116_admin_user_interface_consistency_2026-10-09.md).
@@ -79,6 +81,8 @@ Redis/внешний broker не обязателен для первого ср
 
 Для USDT valuation policy равна fixed 1:1. Это не универсальный курс USDC/pUSD/native gas и не обещание внешнего обмена. Token identity — chain + contract, символ недостаточен. Точность USD, округление каждого компонента, ограничения минимальных сумм и conversion quotes требуют версионированного calculation profile до активации live; отсутствие профиля блокирует соответствующий расчёт, не подставляет случайное округление.
 
+Рыночное отклонение USDT контролируется отдельно (§11.5): внутренний фиксированный 1:1 не является обещанием рыночной цены. Guard может остановить затронутый денежный маршрут, но не меняет прошлые оценки/обязательства.
+
 ### 3.3 Внутренний API
 
 Все endpoints ниже — предлагаемые внутренние маршруты Shadow под `/admin/v1`, а не endpoints площадок. User API использует отдельный `/app/v1` и не принимает admin scopes. REST reads используют cursor pagination, whitelist фильтров/sort и bounded page size; экспорт — отдельная асинхронная операция.
@@ -103,6 +107,8 @@ Response envelope: `data`, `data_status`, `source_time`, `observed_at`, `project
 
 | Таблица/aggregate | Обязательные поля сверх общих | Ограничения |
 | --- | --- | --- |
+| `recipient_change_proposals/recipient_activations/payout_security_policy_versions/payout_additional_approvals` | exact digest, author/independent Owner, state/version/effective time | no self-approval, invalidate on security/version change |
+| `funding_operations/funding_observations` | user/venue/route/external event IDs, authorization refs, evidence/state | no double availability, unknown no resend |
 | `staff_accounts/admin_sessions` | identity, status, auth_version; session hash, staff_id, expiry, revoked_at | нет raw session token в audit; uniqueness identity |
 | `role_versions/assignments` | role_id/version, grants, staff_id, scope/expiry | published version immutable; server Owner marker отдельно |
 | `sessions/settings_versions` | user_id, venue, mode, trader_id, lifecycle, settings_version, timezone | unique active demo per user; settings linked/pinned |
@@ -135,6 +141,8 @@ PII, staff auth, source evidence и публичные read projections имею
 | `POST /tickets/{id}/messages`, `/assign`, `/transitions`; `/feedback/{id}/transitions` | support/feedback scopes; public/internal visibility явная |
 | `POST /roles`, `/roles/{id}/versions`, `/staff/{id}/assignments` | role.manage + escalation guard; immutable versions |
 | `POST /admin-sessions/{id}/revoke` | access.revoke; persistent revocation + audit |
+| `POST /staff/{id}/compromise`, `/connections/{id}/isolate` | scoped security права, durable isolation/revoke и incident (§4.4/11.4) |
+| `POST /recipient-proposals/{id}/activate`, `/payout-security-policies/{id}/activate`, `/payouts/{id}/additional-approval` | другой Owner, exact version/digest; guards §10.5/10.6 |
 | `POST /connections/{id}/recheck` | health.recheck — отдельный предлагаемый scope; safe probe job |
 | `POST /tariff-versions`, `/referral-versions`, `/transfer-fee-policies`, `.../{id}/publish` | численные edits и publication только Owner |
 | `POST /pricing/simulations` | pricing.simulate; simulation-only, no ledger posting |
@@ -187,6 +195,12 @@ Grant: `permission`, `environment`, `venue`, `section`, `data_class`, `expires_a
 
 `POST /staff/{id}/sessions/revoke` и `POST /admin-sessions/{id}/revoke` → revoke marker + session/auth version + audit; API/streams/workers проверяют актуальные права перед execution. Уже отправленное внешнее действие не отменяется отзывом staff session. Отозванная identity не может подтверждать recovery или payout. V1 не ротирует venue API keys через админку.
 
+### 4.4 Компрометация сотрудника
+
+`POST /staff/{id}/compromise`: отдельное `security.staff_compromise` в разрешённом staff scope, re-auth, reason/incident, expected auth version. В durable transaction: suspended/compromised status, auth version increment, revoke всех сеансов и неиспользованных recipient/payout/security-policy/recovery approvals этой identity, audit/outbox. Новые HTTP/stream/execution проверки отклоняют identity; jobs от неё до отправки блокируются. После начала отправки — observation/reconciliation, не фиктивная отмена.
+
+Владелец/уполномоченный security-сотрудник может изолировать аккаунт, но это право не назначает Owner и не даёт отправлять выплаты. Отдельно создать incident, уведомить обоих Owner и сохранить ссылки на последние действия. Notification failure фиксируется/повторяется как доставка, не задерживает блокировку. UI показывает фактическое применение по компонентам; возможная race с внешней отправкой обрабатывается как §10.2/12.2. Восстановление account не возвращает старые сеансы/approval; новый доверенный вход и security-runbook обязательны.
+
 ## 5. Полная карта разделов и контрактов
 
 Для каждого раздела обязательны loading/empty/filter-empty/error/stale/disconnected/permission-denied/auth-expired, видимый environment, scope и last update. UI сначала подтверждает приём команды, затем показывает её доказанный результат. Таблица ниже покрывает все ADM-01–ADM-18.
@@ -205,9 +219,9 @@ Grant: `permission`, `environment`, `venue`, `section`, `data_class`, `expires_a
 | ADM-10 Notifications | Notification, DeliveryAttempt, preferences | list/detail/status; controlled readback | `notifications.view` — предлагаемый отдельный scope; нет fake delivered/прочитано |
 | ADM-11 Feedback | FeedbackItem, context, classification | list/detail; categorize/assign/status | feedback.manage; ссылка на ticket/incident по необходимости |
 | ADM-12 Audit | AuditEvent, export job | list/detail; export | audit.view/export; запрет update/delete API |
-| ADM-13 Owner finance | accrual/receipt/ledger/liability/payout/source | journal/balances/partner; prepare/confirm/cancel-before-send | payouts Owner-only; полный eligible snapshot, paid по evidence |
-| ADM-14 Staff & access | staff/roles/grants/admin sessions | staff/role CRUD с versions, permission preview, revoke | deny default, no self-escalation, revoke immediate next check |
-| ADM-15 Integrations & security | ConnectionProfile, capability, check, credential metadata | read metadata/health/scopes/expiry, recheck | metadata без secrets; rotation/revoke credentials не V1 |
+| ADM-13 Owner finance | accrual/receipt/ledger/liability/payout/source; recipient/security-policy/approval | prepare/confirm; другой Owner activate recipient/security policy и threshold payout | Owner-only; полная сумма, exact independent approval по условиям, paid по evidence |
+| ADM-14 Staff & access | staff/roles/grants/admin sessions/compromise | staff/role CRUD, permission preview, revoke/compromise | deny default, no self-escalation, invalidate unused approvals |
+| ADM-15 Integrations & security | ConnectionProfile, capability, check, credential metadata/isolation | read/recheck; emergency isolate; provider revoke evidence отдельно | no secrets; local isolation V1, полный rotation UI позже (§11.4) |
 | ADM-16 Content & localization | keys, immutable bundles, locales, publication | edit/validate/preview/publish/rollback | scopes, без owner approval; placeholder validation и version evidence |
 | ADM-17 Emergency | controls, enforcement acks, recovery/checklist | preview/activate/recovery/confirm/staged restore | activation scope; independent second-person restore |
 | ADM-18 Marketing | AnnouncementVersion, audience, delivery/read | draft/preview/test/publish/schedule/pause | marketing scopes, in-app V1, no obligatory internal approval |
@@ -234,7 +248,26 @@ Session status и её запреты разделены: пользовател
 - Money availability, position value, realized/unrealized P&L, cash flow — отдельные поля. Неизвестные цены/расходы не подставляются нулями.
 - Торговая partial fill допустима; **частичная партнёрская выплата запрещена**. Эти автоматы не используют один status enum.
 
-### 6.3 Не закрывать открытые пользовательские правила случайно
+### 6.3 Пополнение и пользовательский вывод: отдельные lifecycle
+
+Это отдельный от ServicePayout контур по user/venue/account/environment и подтверждённому funding route. В demo показан как неподключённый, реальных запросов/зачислений нет. При live Shadow инициирует только поддержанные действия и читает подтверждённые внешние факты; универсальная custody-модель не предполагается.
+
+`UserFundingOperation`: operation id, direction, user/account/venue, route/asset/network, requested amount при наличии, provider/transaction refs, admission control version, initiator authorization, observations/evidence, state/version, safe reason, correlation. Факт внешнего события уникален по venue/network/provider identity и event/log index; дубли/reorg не дают двойного доступного баланса. Public projection содержит безопасные суммы/состояния, staff-only evidence отдельно.
+
+| Контур | Состояния и переходы |
+| --- | --- |
+| Пополнение | instructions_requested → instructions_ready (или blocked/failed_confirmed) → transfer_observed → confirming → credited_external/available_confirmed либо pending_verification/unknown; при доказанном несоответствии — incident |
+| Вывод | requested → validating → authorization_required/authorized → reserved_external_or_internal (только при доказанной reservation capability) → dispatching → submitted → confirming → completed_confirmed; до send blocked/cancelled_before_dispatch; terminal failure только по evidence; неизвестная отправка/итог → unknown |
+
+Адрес/инструкция не равны поступлению, submitted не равен успешному выводу. Баланс/резерв принадлежат своему фактическому контурy: если reserve у провайдера, UI читает его evidence; внутренний контроль intent не обещает блокировать самостоятельные внешние расходы пользователя. До integration выбираются route-specific verification, authorization, fees и finality; неподдержанная reservation не выдумывается.
+
+На неизвестном исходе нет автоматической повторной отправки/освобождения подтверждённого резерва. Backend/worker проверяют controls до каждого нового side effect и допускают readback уже отправленного. Клиентское подтверждение связано с точным intent/recipient/route/amount; незапущенная заявка после emergency требует нового preflight и подтверждения пользователя, а не сотрудника вместо него.
+
+При DEPOSITS_OFF новые инструкции/requests запрещены. Входящий перевод на старый адрес всё равно наблюдается/сверяется: уже доступный подтверждённый внешний актив показывается как доступный, отсутствие достаточных evidence — как ожидание проверки. Shadow не удерживает актив в самостоятельном кошельке и не скрывает известный факт. UI различает unavailable amount и confirmed amount; админ видит причину/связанный incident. Произвольное зачисление/возврат сотрудником не добавляется.
+
+READ `/user-funding-operations`, detail/observations, prepare/confirm/cancel-before-send и reconcile команды уточняются адаптером до live; серверный контракт включает idempotency, state version, no-resend и permission checks. Таблицы funding_operations/funding_observations/authorization refs и события FundingInstructionsPrepared, FundingTransferObserved, FundingAvailabilityConfirmed, UserWithdrawalSubmitted/Confirmed/Unknown относятся к этому отдельному контурy, не к service ledger.
+
+### 6.4 Не закрывать открытые пользовательские правила случайно
 
 Оставшиеся открытые аспекты BL-05–BL-08 и метрик в MVP_BUSINESS_LOGIC (учёт tracked/manual частей, завершение сессии с позициями, rounding/исполнение и приоритеты ограничений) не объявляются решёнными административной спецификацией. Уже закрытые ADR вопросы BL-01–BL-04 заново не открываются; незавершённые диапазоны/точность sizing отмечаются отдельно. Все связующие DTO должны сохранять unknown/evidence и возможность версии расчёта. До production affected workflow требует отдельного domain contract; админка не вводит новые drawdown thresholds или автопродажи сама.
 
@@ -336,9 +369,11 @@ Liability eligibility — versioned функция от подтверждённ
 
 Confirmation response: `intent_id`, `state`, `operation_id`, `audit_id`, `status_url`, pinned balance/recipient/policy/control revisions. `GET /partners/{id}/balance` возвращает pending/held/available/reserved/paid, revision и exclusions; `GET /partners/{id}/payout-options` — verified/disabled options с reason/evidence time. `GET /payouts/{id}` раскрывает frozen intent/attempts/redacted evidence. `POST /payouts/{id}/reconcile` только читает результат, не повторяет перевод.
 
-Реквизиты — versioned `PartnerPayoutRecipient`: chain/address/token compatibility, verification/allowlist status и actor/reason. Создание/изменение/деактивация через `/partners/{id}/payout-recipients` только Owner; подтверждённый intent остаётся на своей recipient version. API accept новой записи адреса не означает, что площадка уже разрешила его.
+Реквизиты — versioned `PartnerPayoutRecipient`: chain/address/token compatibility, verification/allowlist status и actor/reason. Создание/изменение/деактивация через `/partners/{id}/payout-recipients` только Owner; подтверждённый intent остаётся на своей recipient version. API accept новой записи адреса не означает, что площадка уже разрешила его. По ADR-0043 новый/изменённый recipient сначала pending_second_owner, другой Owner активирует точную версию (§10.5); inactive/unverified/неактивированный recipient блокирует payout.
 
 `SourceSpendReservation` блокирует доступное расходование сервисного источника по account/chain/asset и резерв fee asset, чтобы два разных партнёра не потратили один баланс. Liability reservation и source-spend reservation атомарны с intent/audit/outbox; external balance имеет freshness gate и recheck перед send. Unknown держит оба резерва. Независимые внешние переводы вне Shadow могут изменить баланс, поэтому preflight остаётся обязательным и не обещает абсолютного контроля кошелька.
+
+Дополнительно confirmation проверяет активную recipient version и текущую security-policy. Если полный frozen payout превышает порог, intent остаётся awaiting_second_owner, без внешней отправки, до отдельного подтверждения другого Owner (§10.6). Это исключение, не требование второго подтверждения обычной выплаты. Резервирование при втором подтверждении атомарно с повторной проверкой полного snapshot; changed snapshot требует нового preview/approval. Source spend сохраняет защиту от двух параллельных партнёров.
 
 ### 10.2 Автомат состояний
 
@@ -375,6 +410,22 @@ Bridge route хранит source leg и destination settlement leg с разны
 
 Signing boundary разрешает только source/chain/token/destination-version/amount из frozen intent с control epoch и policy digest. Произвольные calldata/messages через admin API не подписываются. PM Builder header-HMAC authority отдельно от wallet transaction signer; vault/KMS reference сама по себе не доказывает wallet-compatible signing. Настройка signer должна пройти dedicated compatibility/authority test.
 
+### 10.5 Защищённые реквизиты
+
+`RecipientChangeProposal`: partner/venue, точная candidate version с address/network/asset, proposed_by, reason, provider verification/allowlist evidence, state, proposed_at, activated_by/at. Состояния pending_second_owner/active/rejected/invalidated/deactivated. POST create/update — Owner; `POST /.../recipient-proposals/{id}/activate` — другой действующий Owner с re-auth, expected version и точным digest. Author != activator. Оба получают уведомление при предложении и активации; audit сохраняет безопасный diff.
+
+Новая версия не становится доступна executor до внутренней активации И provider/runtime verification. Старая версия не переписывается; допускается деактивировать её отдельно по security scope. Уже frozen intent с прежней версией не перенаправляется; если версия/подключение изолированы, неотправленный intent блокируется. Изменение proposal/прав/compromise/control invalidates approval. После активации любой Owner, включая автора реквизитов, выполняет обычную выплату. Обязательной задержки или третьего подтверждения первой выплаты нет. Security key не заменяет вторую identity.
+
+### 10.6 Защитные пороги выплат
+
+`PayoutSecurityPolicyVersion` отделена от TariffVersion: single-payout, daily-total, partner-total, source-total, new-recipient threshold; aggregation window/timezone, fee inclusion, native/USD valuation basis, effective time, version и approval digest. Owner задаёт числа вручную; создать/изменить/отключить policy может предложить один Owner, активирует другой. Права кастомной роли этого не обходят; изменение тарифов/обычных VIP не получает новый approval.
+
+Превышение любого порога полного available balance → awaiting_second_owner; второй Owner подтверждает конкретные partner/venue/source/recipient/asset/amount/fee/quote/policy/control versions. Один Owner не может подтвердить за две стороны. Разрешение одноразовое для этого intent; изменение параметров, compromise, отзыв прав или новый аварийный control epoch требует нового preview/approval. Это дополнительная проверка, а не поле уменьшения суммы: долг не режется и не дробится ради лимита.
+
+Суммарные thresholds считают подтверждённые отправки плюс активные reservations/unknown, чтобы параллельные intents не обходили дневной/источниковый порог. Второе подтверждение не отменяет недостаток средств, stop, неверный recipient или неизвестный предыдущий результат. Конкретные числа, окна и expense accounting настраиваются/валидируются до live; отсутствующая обязательная security policy блокирует live отправку. UI показывает сработавшее правило и требуемое подтверждение без выдуманных чисел.
+
+Хранение: recipient_change_proposals/recipient_activations, payout_security_policy_versions, payout_additional_approvals; уникальные operation/version/digest и разные identity. Mutation API: propose/activate recipient, propose/activate security policy, approve full payout; события RecipientProposed/Activated, PayoutSecurityPolicyProposed/Activated, PayoutAdditionalApprovalRequired/Recorded/Invalidated. Все проверки повторяются на executor и constrained signer; UI-кнопки не являются защитой.
+
 ## 11. Интеграции, capabilities и health — ADM-06/15
 
 ### 11.1 Venue-neutral adapter contract
@@ -406,17 +457,29 @@ ConnectionProfile: environment/venue/account/profile/signer-context, adapter/con
 
 Нет одного «зелёного» статуса, маскирующего отсутствующую критическую проверку. Ready вычисляется для конкретной операции по её обязательным dependencies. Healthy public catalog не разрешает payout. Freshness/circuit-breaker thresholds калибруются при integration и хранятся версией; unknown threshold не трактуется как бесконечный срок.
 
-V1 показывает metadata и позволяет request recheck. Creation/rotation/revoke venue credentials через админку — следующий этап; `access.revoke` в V1 отзывает только admin session. Secure provisioning выполняется вне content/marketing UI; секреты не попадают в журнал/экспорт.
+V1 показывает metadata и позволяет request recheck. Полное creation/rotation/provider revoke venue credentials через админку — следующий этап; `access.revoke` в V1 отзывает только admin session. Secure provisioning выполняется вне content/marketing UI; секреты не попадают в журнал/экспорт.
 
 Expiry/last-used показываются только при наличии фактического provider metadata; отсутствие — `null + not_provided/unknown`, не дата, выдуманная из created_at.
+
+### 11.4 Изоляция подключения и украденного credential
+
+V1 `POST /connections/{id}/isolate` (`security.connection_isolate` в разрешённой области) запрещает использование secret reference/signing profile внутри Shadow, увеличивает control version и останавливает неотправленные jobs. Evidence/observations незавершённых операций продолжаются безопасным независимым read path; если read credential тоже скомпрометирован, использовать иной проверенный источник или показывать unknown.
+
+Local state isolated не равно provider credential revoked. Внешний отзыв выполняется только через доказанный API/capability либо защищённый провайдерский runbook; отдельно хранить requested/confirmed/failed/unknown и evidence. Нельзя считать украденный ключ обезвреженным локальным stop. Полный интерфейс создания/ротации credentials остаётся следующим этапом, но emergency isolation и план внешнего отзыва требуются до live. Возврат — проверка credential/source/signer, незавершённых операций и независимое monetary recovery §12.3.
+
+### 11.5 Рыночное отклонение USDT
+
+MarketDeviationObservation хранит источник, цену/время/актив, freshness/verification, configured threshold и policy version. Внутренний 1 USDT = $1 сохранён (§3.2); внешняя котировка используется только для отдельного alert/route gate, не для пересчёта старых обязательств. Проверенное отклонение блокирует новые затронутые денежные side effects и создаёт incident; неизвестная обязательная проверка также не является healthy.
+
+До live выбрать источники, порог, stale handling и recovery evidence; отсутствующие значения не заменять фиктивными defaults. Граница затронутых маршрутов явно задаётся, не автоматически вся торговля/все активы. Shadow не получает новую функцию самостоятельного обмена. Уже отправленное наблюдается, снятие аварийного денежного gate проходит §12.3.
 
 ## 12. Аварийное управление — ADM-17
 
 ### 12.1 Ортогональные ограничения
 
-`AvailabilityState`: normal/TECH_MODE. `ActionRestriction`: GLOBAL_STOP, risk pause, read-only, venue isolation, DEPOSITS_OFF, WITHDRAWALS_OFF. Последние scoped ограничения и дополнительные варианты уровня — техническая модель; согласованные GLOBAL_STOP/TECH_MODE/funding controls сохраняются. Комбинация вычисляется сервером как пересечение разрешённых действий; локальный normal не снимает глобальный stop.
+`AvailabilityState`: normal/TECH_MODE. `ActionRestriction`: GLOBAL_STOP, risk pause, read-only, venue isolation, DEPOSITS_OFF, WITHDRAWALS_OFF, PARTNER_PAYOUTS_OFF. Последние scoped ограничения и дополнительные варианты уровня — техническая модель; согласованные GLOBAL_STOP/TECH_MODE/funding controls сохраняются. Комбинация вычисляется сервером как пересечение разрешённых действий; локальный normal не снимает глобальный stop.
 
-Scope: project/environment/venue/subsystem; reason/incident/actor/version/effective time. Availability хранится отдельно от trading state. TECH_MODE закрывает user surfaces/API/product jobs, оставляет emergency/monitoring/audit/incidents/reconciliation. GLOBAL_STOP запрещает новые продуктовые и финансовые side effects; не объявляет уже отправленные операции отменёнными и не удаляет evidence.
+Scope: project/environment/venue/subsystem, staff/user identity, connection, service source/wallet, signer, network, asset/token contract, route + action class; reason/incident/actor/version/effective time. Availability хранится отдельно от trading state. TECH_MODE закрывает user surfaces/API/product jobs, оставляет emergency/monitoring/audit/incidents/reconciliation. GLOBAL_STOP запрещает новые продуктовые и финансовые side effects; не объявляет уже отправленные операции отменёнными и не удаляет evidence.
 
 | Operation class | User pause | GLOBAL_STOP | TECH_MODE | DEPOSITS_OFF / WITHDRAWALS_OFF |
 | --- | --- | --- | --- | --- |
@@ -428,7 +491,7 @@ Scope: project/environment/venue/subsystem; reason/incident/actor/version/effect
 | `observation/reconciliation/audit` | продолжается | продолжается | продолжается | продолжается |
 | `emergency_control/recovery` | отдельно authorized | защищённый control plane доступен | защищённый control plane доступен | доступен |
 
-Отдельный scope-stop сервисных выплат можно добавить как техническое расширение action-class restrictions; имя нового переключателя не считается ранее согласованным. User Withdraw не управляет partner payout.
+По ADR-0043 PARTNER_PAYOUTS_OFF — согласованный самостоятельный запрет service_partner_payout до новой отправки. Чтение/сверка/учёт сохраняются; пользовательский WITHDRAWALS_OFF не заменяет этот переключатель. У target restriction отображается точный запрещённый набор действий, а не обещание глобально остановить чужой кошелёк.
 
 ### 12.2 Enforcement
 
@@ -447,6 +510,10 @@ Activation: emergency.activate, re-auth, reason и incident → durable stop/ver
 Recovery GLOBAL_STOP/TECH_MODE: checklist с evidence → Owner подтверждает → другой независимый staff с разрешением recovery подтверждает ту же version/scope/checklist digest → staged restore. Один человек/одна identity не подписывает обе стороны. Изменились controls/incident/checklist — старое confirmation не действует. Auto-expiry/self-enable запрещены.
 
 Этапы восстановления: read-only verification → один проверенный scope/venue → normal. Отложенные BUY не догоняются, unknown/reserves не исчезают. Возможность risk-reducing live actions определяется отдельным доказанным runbook, не универсальным «close all».
+
+Восстановление денежных возможностей после security/emergency-блокировки (funding/payout/connection/source/signer/network/asset/route) также требует Owner + другого действующего staff с `emergency.recovery_approve` в scope. Activation выполняет один обладатель emergency.activate/соответствующего security-isolate scope. Восстановление неденежного точечного ограничения — назначенное recovery право и checklist; GLOBAL_STOP/TECH_MODE всегда требуют независимого подтверждения. Плановые health/capability recheck не подменяют снятие аварийного stop; права самостоятельной пользовательской pause/resume сохраняются.
+
+Recovery approval одноразово для exact control/checklist digest. Снятие ограничения не переавторизует старый денежный intent: неотправленные заявки требуют fresh preflight/preview и повторного подтверждения Owner для service payout или пользователя для user withdrawal, если поддержан такой маршрут. Дополнительные Owner approvals реквизитов/порогов проверяются повторно. Submitted/unknown сначала reconcile без повторной отправки. Не смешивать recovery authorization с payout authorization.
 
 ### 12.4 Funding controls и user UI
 
@@ -506,6 +573,8 @@ Lifecycle `draft → validated → scheduled/publishing → active → paused/en
 
 Audit и critical command persistence атомарны; если audit/outbox transaction не сохранилась, side effect не выполняется. Export имеет отдельный permission, purpose, job, expiring access и redaction; view scope не даёт экспорт. Retention и обязательные legal сроки — настройка до production, не случайная константа.
 
+Защита от прямого DB access: отдельная audit replica/archive с независимыми credentials и retention; цепочка/контрольные точки целостности, внешний trusted checkpoint, сверка sequence/полноты и обнаружение truncation. Hash chain в той же базе без независимой опоры недостаточен. Queue/local append остаются атомарны; replica lag/недоступность и tamper создают alerts/incidents, а допустимое отставание/guard чувствительных денежных команд определяются до production. Stop не ждёт удалённую доставку audit: durable local emergency record + приоритетная репликация. Конкретный vendor/WORM/retention не считается выбранным; тест DB edit/delete и archive failure обязателен.
+
 ### 16.2 Observability
 
 Metrics: API/error latency по route/venue/env; auth denials; projection/event lag; outbox oldest age; feed gaps/freshness; adapter quotas/circuit state; unknown operations age; reserve/liability mismatches; fee-policy propagation; payout source balance availability; audit-write failure; control version/acks; content bundle propagation; announcement and support delivery failures.
@@ -519,6 +588,10 @@ Logs structured и redacted; trace/correlation переходит API→outbox�
 Backups БД/evidence/config и restore drills включают outbox/inbox/idempotency state, policy history и payout attempts. После восстановления внешние side effects остаются выключенными до read-only reconciliation: старый queued job не отправляется снова только потому, что появился в backup. Конкретные RPO/RTO и retention budgets выбираются до production.
 
 Миграции additive/versioned с rollback-compatible reader, публикации не теряют historical IDs. Deployment gate: compatible schema/event versions, release manifest, controls enabled, source ownership evidence, current credentials metadata. Demo/live имеют независимые конфигурации, queue namespaces, data access и signer references; fixture marker виден в UI.
+
+Compromise/recovery runbooks включают сотрудника/Owner, внешний credential и сервисный источник; изоляция Shadow не доказывает остановку внешнего злоумышленника. Потеря обоих Owner: отдельный защищённый out-of-band identity recovery с независимой проверкой, audit/evidence и тестом. Нет общего master key, staff self-promotion или универсального обхода Owner. Custodians/provider/proof procedure выбираются до production; пока личности и доступ не восстановлены, новые денежные side effects закрыты.
+
+Control state/version защищены от прямого неаудированного изменения БД: executor проверяет authoritative epoch/целостность, mismatch fail-closed и incident. Слепое чтение изменённой строки как разрешения запрещено; trust anchor/topology проверяются до production.
 
 ## 17. Связь с пользовательским интерфейсом
 
@@ -560,6 +633,8 @@ Backups БД/evidence/config и restore drills включают outbox/inbox/ide
 
 Дополнительно: тот же fee event с другой policy version не начисляет второй accrual/liability; failed transfer с gas expense сохраняет расход и освобождает только неистраченный source reserve; late fill с тарифом до изменения; VIP expiry до receipt; fee payer изменён между preview/confirm; data/control store outage не даёт ложного stop success; constrained signer отвергает чужой адрес/calldata; stale worker lease сначала lookup, не второй send.
 
+Дополнительная аварийная матрица ADR-0043: украден один Owner → revoke account/sessions/unused approvals; потеря обоих Owner → проверенный identity recovery без обхода; один Owner меняет recipient и сразу платит → blocked; один Owner повышает/отключает threshold → pending второго Owner; параллельные выплаты не обходят total threshold; security key одной identity не играет роль второго человека; локально изолированный украденный credential не маркируется provider revoked; DEPOSITS_OFF + фактическое поступление → observed/verified без двойного зачисления; stop на границе send → no-send или submitted/unknown + сверка; old backup/outbox → no duplicate send; недошедший ack → partially_enforced; прямые DB control/audit edits → tamper incident/fail-closed; USDT alert не переписывает прошлый 1:1. Это требования тестов, не отчёт об их выполнении.
+
 ### 18.2 Последовательность вертикальных срезов
 
 1. Contracts/identity/RBAC/audit/outbox и paper read models. Получить безопасные login/denied/revoke и общую user/admin session detail.
@@ -582,6 +657,8 @@ Backups БД/evidence/config и restore drills включают outbox/inbox/ide
 - До расширений: landing builder, bulk external marketing, credential rotation, attachments/SLA — отдельные поздние модули.
 
 Эти технические проверки не возвращают согласованные продуктовые вопросы на повторное согласование и не блокируют документирование/дизайн. До доказанного gate соответствующая операция остаётся отключённой с честной причиной.
+
+Дополнительные gates ADR-0043 до денежных live операций: активная двусторонне подтверждённая security-policy, защищённые recipient versions, isolation/provider-revoke runbook, monetary recovery и market deviation gate затронутых маршрутов. До production: независимый audit checkpoint/archive, control tamper detection и identity recovery обоих Owner.
 
 ## 19. Основные источники
 
