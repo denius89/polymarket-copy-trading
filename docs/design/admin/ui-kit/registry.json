@@ -1903,6 +1903,12 @@
           "type": "BOOLEAN",
           "defaultValue": true
         }
+      },
+      "layoutRule": {
+        "horizontal": "HUG",
+        "labelSizing": "HUG",
+        "actionHeight": 44,
+        "iconOptional": true
       }
     },
     {
@@ -1922,6 +1928,12 @@
           "type": "BOOLEAN",
           "defaultValue": true
         }
+      },
+      "layoutRule": {
+        "horizontal": "HUG",
+        "labelSizing": "HUG",
+        "actionHeight": 44,
+        "iconOptional": true
       }
     },
     {
@@ -1941,10 +1953,16 @@
           "type": "BOOLEAN",
           "defaultValue": true
         }
+      },
+      "layoutRule": {
+        "horizontal": "HUG",
+        "labelSizing": "HUG",
+        "actionHeight": 44,
+        "iconOptional": true
       }
     }
   ],
-  "revision": "0.2",
+  "revision": "0.3",
   "currentPages": {
     "ru": "1981:29",
     "en": "1981:30"
@@ -2002,5 +2020,73 @@
       },
       "editorOnly": true
     }
-  ]
+  ],
+  "layoutPatterns": {
+    "heading": {
+      "gap": 8
+    },
+    "pairedPanels": {
+      "columns": [
+        6,
+        6
+      ],
+      "widths": [
+        564,
+        564
+      ],
+      "gap": 16
+    },
+    "focusedTask": {
+      "columns": 8,
+      "width": 757.333333
+    },
+    "broadData": {
+      "columns": 12,
+      "width": 1144
+    },
+    "formField": {
+      "columns": 4,
+      "width": 370.666667
+    },
+    "actions": {
+      "width": "hug-label-and-icon",
+      "height": 44,
+      "minWidth": 96,
+      "gap": 12,
+      "wrap": true
+    },
+    "validation": {
+      "ru": [],
+      "en": []
+    },
+    "recipientAddress": {
+      "columns": 8,
+      "width": 757.333333,
+      "providerCheckColumns": 4
+    },
+    "referral": {
+      "metadataColumns": [
+        4,
+        4,
+        4
+      ],
+      "levelRows": 3,
+      "levelColumns": [
+        4,
+        4
+      ]
+    },
+    "partnerVip": {
+      "termsRow": [
+        "share",
+        "profile",
+        "reason"
+      ],
+      "validityRow": [
+        "start",
+        "end",
+        "indefinite"
+      ]
+    }
+  }
 }
