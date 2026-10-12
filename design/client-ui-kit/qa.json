@@ -1,0 +1,134 @@
+{
+  "date": "2026-10-12",
+  "scope": "native client UI kit only",
+  "counts": {
+    "nativeFamilies": 44,
+    "nativeVariants": 118,
+    "reusedFamilies": 9,
+    "reusedVariants": 46,
+    "tokens": 72,
+    "textStyles": 21
+  },
+  "structural": [
+    {
+      "page": {
+        "id": "1976:2",
+        "name": "09 · Client UI kit · Foundations"
+      },
+      "checks": {
+        "ownedTextCount": 68,
+        "unstyledTexts": [],
+        "missingFonts": [],
+        "zeroSizeTexts": [],
+        "instanceCount": 0,
+        "placeholders": []
+      }
+    },
+    {
+      "page": {
+        "id": "1976:3",
+        "name": "10 · Client UI kit · Controls"
+      },
+      "checks": {
+        "ownedTextCount": 148,
+        "unstyledTexts": [],
+        "missingFonts": [],
+        "zeroSizeTexts": [],
+        "instanceCount": 99,
+        "placeholders": []
+      }
+    },
+    {
+      "page": {
+        "id": "1976:4",
+        "name": "11 · Client UI kit · Data"
+      },
+      "checks": {
+        "ownedTextCount": 150,
+        "unstyledTexts": [],
+        "missingFonts": [],
+        "zeroSizeTexts": [],
+        "instanceCount": 39,
+        "placeholders": []
+      }
+    },
+    {
+      "page": {
+        "id": "1976:5",
+        "name": "12 · Client UI kit · Patterns"
+      },
+      "checks": {
+        "ownedTextCount": 128,
+        "unstyledTexts": [],
+        "missingFonts": [],
+        "zeroSizeTexts": [],
+        "instanceCount": 61,
+        "placeholders": []
+      }
+    }
+  ],
+  "visual": {
+    "passed": true,
+    "method": "Figma MCP PNG renders, all four review boards plus targeted post-fix sections",
+    "reviewed": [
+      {
+        "node": "1977:2",
+        "name": "Foundations"
+      },
+      {
+        "node": "1978:489",
+        "name": "Controls"
+      },
+      {
+        "node": "1979:2",
+        "name": "Data"
+      },
+      {
+        "node": "1980:100",
+        "name": "Patterns"
+      },
+      {
+        "node": "1979:91",
+        "name": "Money/unknown"
+      },
+      {
+        "node": "1980:334",
+        "name": "Copy ticket, final after hint fix"
+      },
+      {
+        "node": "1980:391",
+        "name": "Support form"
+      },
+      {
+        "node": "1980:219",
+        "name": "Confirmation, final warning/manual emphasis"
+      },
+      {
+        "node": "1978:795",
+        "name": "Loading icon"
+      },
+      {
+        "node": "1979:156",
+        "name": "Metric, final shortened loading"
+      }
+    ],
+    "fixed": [
+      "Horizontal review row height/overlap",
+      "State-specific text overwritten by shared TEXT defaults",
+      "Nested support and feedback field widths",
+      "Icon Loading uses fixed Spinner outside INSTANCE_SWAP",
+      "Horizontal control height follows content",
+      "Copy-ticket root hint property default",
+      "Manual control uses warning emphasis",
+      "Metric loading wording"
+    ],
+    "limits": [
+      "No manual Present",
+      "No application runtime/keyboard/screen-reader acceptance",
+      "Existing client screens and their routes not migrated",
+      "Light foundations exist; product Light redesign not accepted",
+      "No team-library publish",
+      "No Code Connect: frontend does not exist"
+    ]
+  }
+}
