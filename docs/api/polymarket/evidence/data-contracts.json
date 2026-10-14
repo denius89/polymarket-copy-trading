@@ -1,0 +1,3716 @@
+{
+  "provenance": {
+    "checked_at": "2026-10-06",
+    "source_url": "https://data-api.polymarket.com/v2/openapi.json",
+    "source_sha256": "6a6fd344532bde1f2a89f8143dc50baa03f71a159be81286ac295c906d277b5c",
+    "status": "documented schema fetched; not runtime validation",
+    "scope": "Predictions MVP selected endpoints; descriptions/examples omitted, functional constraints retained"
+  },
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Polymarket Data API v2",
+    "license": {
+      "name": "MIT",
+      "identifier": "MIT"
+    },
+    "version": "0.1.0"
+  },
+  "servers": [
+    {
+      "url": "https://data-api.polymarket.com",
+      "description": "Production"
+    },
+    {
+      "url": "https://data-api-rs.stage.pmd.use1.polymarket.sh",
+      "description": "Staging"
+    }
+  ],
+  "security": null,
+  "paths": {
+    "/v2/activity": {
+      "get": {
+        "tags": [
+          "feeds"
+        ],
+        "operationId": "get_activity",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int32",
+              "maximum": 1000,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "condition",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "event_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "side",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            }
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "sort_direction",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "exclude_deposits_withdrawals",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActivityPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/approvals": {
+      "get": {
+        "tags": [
+          "wallet"
+        ],
+        "operationId": "get_approvals",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope_Approvals"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/biggest-winners": {
+      "get": {
+        "tags": [
+          "boards"
+        ],
+        "operationId": "get_biggest_winners",
+        "parameters": [
+          {
+            "name": "time_period",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int32",
+              "maximum": 1000,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BiggestWinnersPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/builders/leaderboard": {
+      "get": {
+        "tags": [
+          "boards"
+        ],
+        "operationId": "get_builders_leaderboard",
+        "parameters": [
+          {
+            "name": "time_period",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int32",
+              "maximum": 1000,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildersLeaderboardPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/builders/volume": {
+      "get": {
+        "tags": [
+          "boards"
+        ],
+        "operationId": "get_builders_volume",
+        "parameters": [
+          {
+            "name": "interval",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int32",
+              "maximum": 90,
+              "minimum": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope_Vec_BuilderVolumePoint"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/holders": {
+      "get": {
+        "tags": [
+          "markets"
+        ],
+        "operationId": "get_holders",
+        "parameters": [
+          {
+            "name": "condition",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int32",
+              "maximum": 1000,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "min_balance",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "format": "double"
+            }
+          },
+          {
+            "name": "include_pnl",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HoldersPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/leaderboard": {
+      "get": {
+        "tags": [
+          "boards"
+        ],
+        "operationId": "get_leaderboard",
+        "parameters": [
+          {
+            "name": "time_period",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int32",
+              "maximum": 1000,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeaderboardResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/live-volume": {
+      "get": {
+        "tags": [
+          "markets"
+        ],
+        "operationId": "get_live_volume",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope_LiveVolume"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/oi": {
+      "get": {
+        "tags": [
+          "markets"
+        ],
+        "operationId": "get_oi",
+        "parameters": [
+          {
+            "name": "condition",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope_Vec_OpenInterest"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/positions": {
+      "get": {
+        "tags": [
+          "wallet"
+        ],
+        "operationId": "get_positions",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "condition",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int32",
+              "maximum": 1000,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "event_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "filter_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "filter_amount",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "format": "double"
+            }
+          },
+          {
+            "name": "include_archived",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            }
+          },
+          {
+            "name": "sort_direction",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PositionsPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/prices-history": {
+      "get": {
+        "tags": [
+          "markets"
+        ],
+        "operationId": "get_prices_history",
+        "parameters": [
+          {
+            "name": "token_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            }
+          },
+          {
+            "name": "interval",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "bucket_seconds",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            }
+          },
+          {
+            "name": "as_of",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int32",
+              "maximum": 10000,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PricesHistoryPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/resolutions": {
+      "get": {
+        "tags": [
+          "markets"
+        ],
+        "operationId": "get_resolutions",
+        "parameters": [
+          {
+            "name": "question_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "condition",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "event_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope_Vec_Resolution"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/status": {
+      "get": {
+        "tags": [
+          "service"
+        ],
+        "operationId": "get_status",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope_ServiceStatus"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/trades": {
+      "get": {
+        "tags": [
+          "feeds"
+        ],
+        "operationId": "get_trades",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int32",
+              "maximum": 1000,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "taker_only",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "filter_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "filter_amount",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "format": "double"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            }
+          },
+          {
+            "name": "condition",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "event_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "side",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TradesPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/user-pnl": {
+      "get": {
+        "tags": [
+          "wallet"
+        ],
+        "operationId": "get_user_pnl_v2",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "interval",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "fidelity",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope_UserPnlSeries"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/user-stats": {
+      "get": {
+        "tags": [
+          "wallet"
+        ],
+        "operationId": "get_user_stats",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope_Option_UserStats"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/user-volume": {
+      "get": {
+        "tags": [
+          "wallet"
+        ],
+        "operationId": "get_user_volume",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope_UserVolume"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/value": {
+      "get": {
+        "tags": [
+          "wallet"
+        ],
+        "operationId": "get_value",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          {
+            "name": "condition",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope_PortfolioValue"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ErrorResponse": {
+        "type": "object",
+        "required": [
+          "error",
+          "code",
+          "retryable",
+          "trace_id"
+        ],
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/ErrorCode"
+          },
+          "error": {
+            "type": "string"
+          },
+          "parameter": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "retryable": {
+            "type": "boolean"
+          },
+          "trace_id": {
+            "type": "string"
+          }
+        }
+      },
+      "ErrorCode": {
+        "type": "string",
+        "enum": [
+          "invalid_request",
+          "unauthorized",
+          "not_found",
+          "method_not_allowed",
+          "request_timeout",
+          "rate_limited",
+          "dependency_unavailable",
+          "internal"
+        ]
+      },
+      "Envelope_PortfolioValue": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "type": "object",
+            "required": [
+              "proxy_wallet",
+              "value"
+            ],
+            "properties": {
+              "proxy_wallet": {
+                "type": "string"
+              },
+              "value": {
+                "type": "number",
+                "format": "double"
+              }
+            }
+          }
+        }
+      },
+      "Envelope_UserVolume": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "type": "object",
+            "required": [
+              "volume",
+              "volume_usdc",
+              "trade_count"
+            ],
+            "properties": {
+              "trade_count": {
+                "type": "integer",
+                "format": "int64",
+                "minimum": 0
+              },
+              "volume": {
+                "type": "number",
+                "format": "double"
+              },
+              "volume_usdc": {
+                "type": "number",
+                "format": "double"
+              }
+            }
+          }
+        }
+      },
+      "Envelope_Option_UserStats": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "required": [
+                  "proxy_wallet",
+                  "trades",
+                  "biggest_win",
+                  "views"
+                ],
+                "properties": {
+                  "all_time_pnl": {
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#/components/schemas/UserPnlPoint"
+                      }
+                    ]
+                  },
+                  "biggest_win": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "join_date": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "format": "int64"
+                  },
+                  "proxy_wallet": {
+                    "type": "string"
+                  },
+                  "trades": {
+                    "type": "integer",
+                    "format": "int64",
+                    "minimum": 0
+                  },
+                  "views": {
+                    "type": "integer",
+                    "format": "int64",
+                    "minimum": 0
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "UserPnlPoint": {
+        "type": "object",
+        "required": [
+          "timestamp",
+          "source_block",
+          "realized_market_pnl",
+          "realized_lp_pnl",
+          "realized_combo_pnl",
+          "realized_pnl",
+          "volume",
+          "volume_usdc",
+          "trade_count"
+        ],
+        "properties": {
+          "cashflow_net": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "deposits": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "economic_pnl": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "fees": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "fees_paid": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "fees_refunded": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "maker_rebate": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "position_pnl": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "realized_combo_pnl": {
+            "type": "number",
+            "format": "double"
+          },
+          "realized_lp_pnl": {
+            "type": "number",
+            "format": "double"
+          },
+          "realized_market_pnl": {
+            "type": "number",
+            "format": "double"
+          },
+          "realized_pnl": {
+            "type": "number",
+            "format": "double"
+          },
+          "referral_income": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "reward_income": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "settled_pnl": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "source_block": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sponsored_income": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "taker_rebate": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "timestamp": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "trade_count": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0
+          },
+          "trade_pnl": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "unrealized_pnl": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "volume": {
+            "type": "number",
+            "format": "double"
+          },
+          "volume_usdc": {
+            "type": "number",
+            "format": "double"
+          },
+          "wallet_income": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "withdrawals": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "yield_income": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          }
+        }
+      },
+      "Envelope_UserPnlSeries": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "type": "object",
+            "required": [
+              "proxy_wallet",
+              "interval",
+              "fidelity",
+              "source_fidelity",
+              "points"
+            ],
+            "properties": {
+              "fidelity": {
+                "type": "string"
+              },
+              "interval": {
+                "type": "string"
+              },
+              "points": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/UserPnlPoint"
+                }
+              },
+              "proxy_wallet": {
+                "type": "string"
+              },
+              "source_fidelity": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "TradesPage": {
+        "type": "object",
+        "required": [
+          "data",
+          "pagination"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Trade"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        }
+      },
+      "Pagination": {
+        "type": "object",
+        "required": [
+          "limit",
+          "offset",
+          "has_more"
+        ],
+        "properties": {
+          "has_more": {
+            "type": "boolean"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "next_cursor": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          }
+        }
+      },
+      "Trade": {
+        "type": "object",
+        "required": [
+          "proxy_wallet",
+          "side",
+          "token_id",
+          "condition_id",
+          "size",
+          "price",
+          "timestamp",
+          "title",
+          "slug",
+          "icon",
+          "event_slug",
+          "outcome",
+          "outcome_index",
+          "name",
+          "pseudonym",
+          "bio",
+          "profile_image",
+          "profile_image_optimized",
+          "transaction_hash"
+        ],
+        "properties": {
+          "bio": {
+            "type": "string"
+          },
+          "condition_id": {
+            "type": "string"
+          },
+          "event_slug": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "outcome": {
+            "type": "string"
+          },
+          "outcome_index": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "profile_image": {
+            "type": "string"
+          },
+          "profile_image_optimized": {
+            "type": "string"
+          },
+          "proxy_wallet": {
+            "type": "string"
+          },
+          "pseudonym": {
+            "type": "string"
+          },
+          "side": {
+            "type": "string"
+          },
+          "size": {
+            "type": "number",
+            "format": "double"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "title": {
+            "type": "string"
+          },
+          "token_id": {
+            "type": "string"
+          },
+          "transaction_hash": {
+            "type": "string"
+          }
+        }
+      },
+      "Envelope_ServiceStatus": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "type": "object",
+            "required": [
+              "computed_at",
+              "age_seconds",
+              "serving",
+              "ingestion"
+            ],
+            "properties": {
+              "age_seconds": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "computed_at": {
+                "type": "string"
+              },
+              "ingestion": {
+                "$ref": "#/components/schemas/IngestionFreshness"
+              },
+              "serving": {
+                "$ref": "#/components/schemas/ServingFreshness"
+              }
+            }
+          }
+        }
+      },
+      "ServingFreshness": {
+        "type": "object",
+        "required": [
+          "mechanisms"
+        ],
+        "properties": {
+          "lag_seconds": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int64"
+          },
+          "mechanisms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ServingMechanism"
+            }
+          },
+          "worst": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "ServingMechanism": {
+        "type": "object",
+        "required": [
+          "name",
+          "age_seconds"
+        ],
+        "properties": {
+          "age_seconds": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "blocks_behind": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "IngestionFreshness": {
+        "type": "object",
+        "required": [
+          "cursors",
+          "chain_id",
+          "lagging"
+        ],
+        "properties": {
+          "chain_id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cursors": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "lagging": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CursorLag"
+            }
+          },
+          "max_synced_block": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int64"
+          },
+          "min_synced_block": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int64"
+          },
+          "most_lagged": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/CursorLag"
+              }
+            ]
+          },
+          "network": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "CursorLag": {
+        "type": "object",
+        "required": [
+          "source",
+          "block",
+          "behind_max"
+        ],
+        "properties": {
+          "behind_max": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "block": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "source": {
+            "type": "string"
+          }
+        }
+      },
+      "Envelope_Vec_Resolution": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "status",
+                "extended_review",
+                "was_disputed",
+                "new_version_q",
+                "transaction_hash",
+                "log_index",
+                "last_update_timestamp"
+              ],
+              "properties": {
+                "condition_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "expected_settlement_time": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "extended_review": {
+                  "type": "boolean"
+                },
+                "last_update_timestamp": {
+                  "type": "string"
+                },
+                "log_index": {
+                  "type": "string"
+                },
+                "market_type": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "new_version_q": {
+                  "type": "boolean"
+                },
+                "payouts": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "integer",
+                    "format": "int64"
+                  }
+                },
+                "price": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "proposed_price": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "question_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "reporter": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "reproposed_price": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "resolution_source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "resolved_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "resolved_block": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "format": "int64"
+                },
+                "settlement_time_basis": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "status": {
+                  "type": "string"
+                },
+                "transaction_hash": {
+                  "type": "string"
+                },
+                "was_arbitrated": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "was_disputed": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "PricesHistoryPage": {
+        "type": "object",
+        "required": [
+          "data",
+          "pagination"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PricePoint"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        }
+      },
+      "PricePoint": {
+        "type": "object",
+        "required": [
+          "timestamp",
+          "price",
+          "resolution_seconds"
+        ],
+        "properties": {
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "resolution_seconds": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "timestamp": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "PositionsPage": {
+        "type": "object",
+        "required": [
+          "data",
+          "pagination"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Position"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        }
+      },
+      "Position": {
+        "type": "object",
+        "required": [
+          "proxy_wallet",
+          "token_id",
+          "condition_id",
+          "current_size",
+          "avg_price",
+          "entry_cost_usdc",
+          "entry_fees_usdc",
+          "total_cost_usdc",
+          "current_price",
+          "current_value",
+          "total_size",
+          "realized_pnl",
+          "unrealized_pnl",
+          "total_pnl",
+          "percent_pnl",
+          "percent_realized_pnl",
+          "status",
+          "redeemable",
+          "mergeable",
+          "negative_risk",
+          "archived",
+          "title",
+          "slug",
+          "icon",
+          "event_id",
+          "event_slug",
+          "outcome",
+          "outcome_index",
+          "opposite_outcome",
+          "opposite_token_id",
+          "end_date",
+          "last_event_at",
+          "first_entry_at",
+          "name",
+          "profile_image",
+          "verified"
+        ],
+        "properties": {
+          "archived": {
+            "type": "boolean"
+          },
+          "avg_price": {
+            "type": "number",
+            "format": "double"
+          },
+          "condition_id": {
+            "type": "string"
+          },
+          "current_price": {
+            "type": "number",
+            "format": "double"
+          },
+          "current_size": {
+            "type": "number",
+            "format": "double"
+          },
+          "current_value": {
+            "type": "number",
+            "format": "double"
+          },
+          "end_date": {
+            "type": "string"
+          },
+          "entry_cost_usdc": {
+            "type": "number",
+            "format": "double"
+          },
+          "entry_fees_usdc": {
+            "type": "number",
+            "format": "double"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "event_slug": {
+            "type": "string"
+          },
+          "first_entry_at": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "last_event_at": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "mergeable": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "negative_risk": {
+            "type": "boolean"
+          },
+          "opposite_outcome": {
+            "type": "string"
+          },
+          "opposite_token_id": {
+            "type": "string"
+          },
+          "outcome": {
+            "type": "string"
+          },
+          "outcome_index": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "percent_pnl": {
+            "type": "number",
+            "format": "double"
+          },
+          "percent_realized_pnl": {
+            "type": "number",
+            "format": "double"
+          },
+          "profile_image": {
+            "type": "string"
+          },
+          "proxy_wallet": {
+            "type": "string"
+          },
+          "realized_pnl": {
+            "type": "number",
+            "format": "double"
+          },
+          "redeemable": {
+            "type": "boolean"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "token_id": {
+            "type": "string"
+          },
+          "total_cost_usdc": {
+            "type": "number",
+            "format": "double"
+          },
+          "total_pnl": {
+            "type": "number",
+            "format": "double"
+          },
+          "total_size": {
+            "type": "number",
+            "format": "double"
+          },
+          "unrealized_pnl": {
+            "type": "number",
+            "format": "double"
+          },
+          "verified": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Envelope_Vec_OpenInterest": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "condition_id",
+                "value"
+              ],
+              "properties": {
+                "condition_id": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Envelope_LiveVolume": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "type": "object",
+            "required": [
+              "taker_volume_total",
+              "conditions"
+            ],
+            "properties": {
+              "conditions": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ConditionVolume"
+                }
+              },
+              "taker_volume_total": {
+                "type": "number",
+                "format": "double"
+              }
+            }
+          }
+        }
+      },
+      "ConditionVolume": {
+        "type": "object",
+        "required": [
+          "condition_id",
+          "taker_volume"
+        ],
+        "properties": {
+          "condition_id": {
+            "type": "string"
+          },
+          "taker_volume": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "LeaderboardResponse": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/LeaderboardPage"
+          },
+          {
+            "$ref": "#/components/schemas/Envelope_Option_LeaderboardUserEntry"
+          }
+        ]
+      },
+      "Envelope_Option_LeaderboardUserEntry": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "required": [
+                  "user_id",
+                  "pnl",
+                  "volume",
+                  "user_name",
+                  "profile_image",
+                  "x_username",
+                  "verified"
+                ],
+                "properties": {
+                  "pnl": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "profile_image": {
+                    "type": "string"
+                  },
+                  "rank_pnl": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "format": "int32",
+                    "minimum": 0
+                  },
+                  "rank_volume": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "format": "int32",
+                    "minimum": 0
+                  },
+                  "user_id": {
+                    "type": "string"
+                  },
+                  "user_name": {
+                    "type": "string"
+                  },
+                  "verified": {
+                    "type": "boolean"
+                  },
+                  "volume": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "x_username": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "LeaderboardPage": {
+        "type": "object",
+        "required": [
+          "data",
+          "pagination"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LeaderboardEntry"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        }
+      },
+      "LeaderboardEntry": {
+        "type": "object",
+        "required": [
+          "rank",
+          "user_id",
+          "pnl",
+          "volume",
+          "user_name",
+          "profile_image",
+          "x_username",
+          "verified"
+        ],
+        "properties": {
+          "pnl": {
+            "type": "number",
+            "format": "double"
+          },
+          "profile_image": {
+            "type": "string"
+          },
+          "rank": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "user_id": {
+            "type": "string"
+          },
+          "user_name": {
+            "type": "string"
+          },
+          "verified": {
+            "type": "boolean"
+          },
+          "volume": {
+            "type": "number",
+            "format": "double"
+          },
+          "x_username": {
+            "type": "string"
+          }
+        }
+      },
+      "HoldersPage": {
+        "type": "object",
+        "required": [
+          "data",
+          "pagination"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MetaHolder"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        }
+      },
+      "MetaHolder": {
+        "type": "object",
+        "required": [
+          "token_id",
+          "holders"
+        ],
+        "properties": {
+          "holders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Holder"
+            }
+          },
+          "token_id": {
+            "type": "string"
+          }
+        }
+      },
+      "Holder": {
+        "type": "object",
+        "required": [
+          "proxy_wallet",
+          "bio",
+          "token_id",
+          "pseudonym",
+          "amount",
+          "display_username_public",
+          "outcome_index",
+          "name",
+          "profile_image",
+          "profile_image_optimized",
+          "verified"
+        ],
+        "properties": {
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "avg_price": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "bio": {
+            "type": "string"
+          },
+          "current_price": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "current_value": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "display_username_public": {
+            "type": "boolean"
+          },
+          "entry_cost_usdc": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "name": {
+            "type": "string"
+          },
+          "outcome_index": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "profile_image": {
+            "type": "string"
+          },
+          "profile_image_optimized": {
+            "type": "string"
+          },
+          "proxy_wallet": {
+            "type": "string"
+          },
+          "pseudonym": {
+            "type": "string"
+          },
+          "realized_pnl": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "token_id": {
+            "type": "string"
+          },
+          "total_pnl": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "unrealized_pnl": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "verified": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Envelope_Vec_BuilderVolumePoint": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "date",
+                "rank",
+                "builder_name",
+                "builder_code",
+                "profile_image",
+                "verified",
+                "volume",
+                "active_users"
+              ],
+              "properties": {
+                "active_users": {
+                  "type": "integer",
+                  "format": "int64",
+                  "minimum": 0
+                },
+                "builder_code": {
+                  "type": "string"
+                },
+                "builder_name": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                },
+                "profile_image": {
+                  "type": "string"
+                },
+                "rank": {
+                  "type": "integer",
+                  "format": "int64",
+                  "minimum": 0
+                },
+                "verified": {
+                  "type": "boolean"
+                },
+                "volume": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      },
+      "BuildersLeaderboardPage": {
+        "type": "object",
+        "required": [
+          "data",
+          "pagination"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuilderStanding"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        }
+      },
+      "BuilderStanding": {
+        "type": "object",
+        "required": [
+          "rank",
+          "builder_name",
+          "builder_code",
+          "profile_image",
+          "verified",
+          "volume",
+          "active_users"
+        ],
+        "properties": {
+          "active_users": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0
+          },
+          "builder_code": {
+            "type": "string"
+          },
+          "builder_name": {
+            "type": "string"
+          },
+          "profile_image": {
+            "type": "string"
+          },
+          "rank": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0
+          },
+          "verified": {
+            "type": "boolean"
+          },
+          "volume": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "BiggestWinnersPage": {
+        "type": "object",
+        "required": [
+          "data",
+          "pagination"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BiggestWinner"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        }
+      },
+      "BiggestWinner": {
+        "type": "object",
+        "required": [
+          "win_rank",
+          "kind",
+          "user_id",
+          "pnl",
+          "initial_value",
+          "final_value",
+          "resolved_at",
+          "condition_id",
+          "position_id",
+          "event_id",
+          "event_slug",
+          "event_title",
+          "user_name",
+          "profile_image"
+        ],
+        "properties": {
+          "condition_id": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "event_slug": {
+            "type": "string"
+          },
+          "event_title": {
+            "type": "string"
+          },
+          "final_value": {
+            "type": "number",
+            "format": "double"
+          },
+          "initial_value": {
+            "type": "number",
+            "format": "double"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "pnl": {
+            "type": "number",
+            "format": "double"
+          },
+          "position_id": {
+            "type": "string"
+          },
+          "profile_image": {
+            "type": "string"
+          },
+          "resolved_at": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "user_id": {
+            "type": "string"
+          },
+          "user_name": {
+            "type": "string"
+          },
+          "win_rank": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          }
+        }
+      },
+      "Envelope_Approvals": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "type": "object",
+            "required": [
+              "address",
+              "chain_id",
+              "checked_at",
+              "contracts"
+            ],
+            "properties": {
+              "address": {
+                "type": "string"
+              },
+              "chain_id": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "checked_at": {
+                "type": "string"
+              },
+              "contracts": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ApprovalContract"
+                }
+              }
+            }
+          }
+        }
+      },
+      "ApprovalContract": {
+        "type": "object",
+        "required": [
+          "id",
+          "feature",
+          "token",
+          "spender",
+          "standard",
+          "approved"
+        ],
+        "properties": {
+          "amount": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "approved": {
+            "type": "boolean"
+          },
+          "feature": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "spender": {
+            "type": "string"
+          },
+          "standard": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          }
+        }
+      },
+      "ActivityPage": {
+        "type": "object",
+        "required": [
+          "data",
+          "pagination"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Activity"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        }
+      },
+      "Activity": {
+        "type": "object",
+        "required": [
+          "proxy_wallet",
+          "timestamp",
+          "condition_id",
+          "type",
+          "size",
+          "usdc_size",
+          "transaction_hash",
+          "price",
+          "token_id",
+          "side",
+          "outcome_index",
+          "title",
+          "slug",
+          "icon",
+          "event_slug",
+          "outcome",
+          "name",
+          "pseudonym",
+          "bio",
+          "profile_image",
+          "profile_image_optimized"
+        ],
+        "properties": {
+          "bio": {
+            "type": "string"
+          },
+          "condition_id": {
+            "type": "string"
+          },
+          "event_slug": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "is_combo": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "outcome": {
+            "type": "string"
+          },
+          "outcome_index": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "profile_image": {
+            "type": "string"
+          },
+          "profile_image_optimized": {
+            "type": "string"
+          },
+          "proxy_wallet": {
+            "type": "string"
+          },
+          "pseudonym": {
+            "type": "string"
+          },
+          "side": {
+            "type": "string"
+          },
+          "size": {
+            "type": "number",
+            "format": "double"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "title": {
+            "type": "string"
+          },
+          "token_id": {
+            "type": "string"
+          },
+          "transaction_hash": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "usdc_size": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      }
+    }
+  }
+}

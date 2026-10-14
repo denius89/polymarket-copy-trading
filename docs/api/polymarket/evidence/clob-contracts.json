@@ -1,0 +1,3358 @@
+{
+  "provenance": {
+    "checked_at": "2026-10-06",
+    "source_url": "https://docs.polymarket.com/api-spec/clob-openapi.yaml",
+    "source_sha256": "d993169c2fd17cbc75304c9cd7bc3b6a351fa21f98cbd12dcd4c5dbbca2fedb8",
+    "status": "documented schema fetched; not runtime validation",
+    "scope": "Predictions MVP selected endpoints; descriptions/examples omitted, functional constraints retained"
+  },
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Polymarket CLOB API",
+    "license": {
+      "name": "MIT",
+      "identifier": "MIT"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://clob.polymarket.com",
+      "description": "Production CLOB API"
+    },
+    {
+      "url": "https://clob-staging.polymarket.com",
+      "description": "Staging CLOB API"
+    }
+  ],
+  "security": null,
+  "paths": {
+    "/order": {
+      "post": {
+        "operationId": "postOrder",
+        "tags": [
+          "Trade"
+        ],
+        "security": [
+          {
+            "polyApiKey": [],
+            "polyAddress": [],
+            "polySignature": [],
+            "polyPassphrase": [],
+            "polyTimestamp": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendOrder"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendOrderResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "headers": {
+              "Retry-After": {
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "cancelOrder",
+        "tags": [
+          "Trade"
+        ],
+        "security": [
+          {
+            "polyApiKey": [],
+            "polyAddress": [],
+            "polySignature": [],
+            "polyPassphrase": [],
+            "polyTimestamp": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CancelOrderPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CancelOrdersResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders": {
+      "post": {
+        "operationId": "postOrders",
+        "tags": [
+          "Trade"
+        ],
+        "security": [
+          {
+            "polyApiKey": [],
+            "polyAddress": [],
+            "polySignature": [],
+            "polyPassphrase": [],
+            "polyTimestamp": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SendOrder"
+                },
+                "maxItems": 15
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SendOrderResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "headers": {
+              "Retry-After": {
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "cancelOrders",
+        "tags": [
+          "Trade"
+        ],
+        "security": [
+          {
+            "polyApiKey": [],
+            "polyAddress": [],
+            "polySignature": [],
+            "polyPassphrase": [],
+            "polyTimestamp": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "maxItems": 1000
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CancelOrdersResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/data/orders": {
+      "get": {
+        "operationId": "getOrders",
+        "tags": [
+          "Trade"
+        ],
+        "security": [
+          {
+            "polyApiKey": [],
+            "polyAddress": [],
+            "polySignature": [],
+            "polyPassphrase": [],
+            "polyTimestamp": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "market",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "asset_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "next_cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrdersResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/data/order/{orderID}": {
+      "get": {
+        "operationId": "getOrder",
+        "tags": [
+          "Trade"
+        ],
+        "security": [
+          {
+            "polyApiKey": [],
+            "polyAddress": [],
+            "polySignature": [],
+            "polyPassphrase": [],
+            "polyTimestamp": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "orderID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OpenOrder"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cancel-all": {
+      "delete": {
+        "operationId": "cancelAllOrders",
+        "tags": [
+          "Trade"
+        ],
+        "security": [
+          {
+            "polyApiKey": [],
+            "polyAddress": [],
+            "polySignature": [],
+            "polyPassphrase": [],
+            "polyTimestamp": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CancelOrdersResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cancel-market-orders": {
+      "delete": {
+        "operationId": "cancelMarketOrders",
+        "tags": [
+          "Trade"
+        ],
+        "security": [
+          {
+            "polyApiKey": [],
+            "polyAddress": [],
+            "polySignature": [],
+            "polyPassphrase": [],
+            "polyTimestamp": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderMarketCancelParams"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CancelOrdersResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/time": {
+      "get": {
+        "operationId": "getTime",
+        "tags": [
+          "Data"
+        ],
+        "security": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/midpoint": {
+      "get": {
+        "operationId": "getMidpoint",
+        "tags": [
+          "Data"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "name": "token_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "mid_price"
+                  ],
+                  "properties": {
+                    "mid_price": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/spread": {
+      "get": {
+        "operationId": "getSpread",
+        "tags": [
+          "Market Data"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "name": "token_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "spread"
+                  ],
+                  "properties": {
+                    "spread": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/last-trade-price": {
+      "get": {
+        "operationId": "getLastTradePrice",
+        "tags": [
+          "Market Data"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "name": "token_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "price",
+                    "side"
+                  ],
+                  "properties": {
+                    "price": {
+                      "type": "string"
+                    },
+                    "side": {
+                      "type": "string",
+                      "enum": [
+                        "BUY",
+                        "SELL",
+                        ""
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fee-rate": {
+      "get": {
+        "operationId": "getFeeRate",
+        "tags": [
+          "Market Data"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "name": "token_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeeRate"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tick-size": {
+      "get": {
+        "operationId": "getTickSize",
+        "tags": [
+          "Market Data"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "name": "token_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TickSize"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/neg-risk": {
+      "get": {
+        "operationId": "getNegRisk",
+        "tags": [
+          "Market Data"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "name": "token_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NegRisk"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/price": {
+      "get": {
+        "operationId": "getPrice",
+        "tags": [
+          "Market Data"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "name": "token_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "side",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "BUY",
+                "SELL"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "price"
+                  ],
+                  "properties": {
+                    "price": {
+                      "type": "number",
+                      "format": "double"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/prices": {
+      "get": {
+        "operationId": "getPricesGet",
+        "tags": [
+          "Market Data"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "name": "token_ids",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sides",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "number",
+                      "format": "double"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "security": [],
+        "operationId": "getPricesPost",
+        "tags": [
+          "Market Data"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/BookRequest"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "number",
+                      "format": "double"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/book": {
+      "get": {
+        "operationId": "getBook",
+        "tags": [
+          "Market Data"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "name": "token_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderBookSummary"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/books": {
+      "get": {
+        "operationId": "getBooksGet",
+        "tags": [
+          "Market Data"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "name": "token_ids",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrderBookSummary"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "security": [],
+        "operationId": "getBooksPost",
+        "tags": [
+          "Market Data"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/BookRequest"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrderBookSummary"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/clob-markets/{condition_id}": {
+      "get": {
+        "operationId": "getClobMarketInfo",
+        "tags": [
+          "Markets"
+        ],
+        "parameters": [
+          {
+            "name": "condition_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClobMarketDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/api-key": {
+      "post": {
+        "operationId": "createApiKey",
+        "tags": [
+          "Account"
+        ],
+        "security": [
+          {
+            "polyAddress": [],
+            "polySignature": [],
+            "polyTimestamp": [],
+            "polyNonce": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiKeyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "deleteApiKey",
+        "tags": [
+          "Account"
+        ],
+        "security": [
+          {
+            "polyApiKey": [],
+            "polyAddress": [],
+            "polySignature": [],
+            "polyPassphrase": [],
+            "polyTimestamp": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/derive-api-key": {
+      "get": {
+        "operationId": "deriveApiKey",
+        "tags": [
+          "Account"
+        ],
+        "security": [
+          {
+            "polyAddress": [],
+            "polySignature": [],
+            "polyTimestamp": [],
+            "polyNonce": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiKeyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/balance-allowance": {
+      "get": {
+        "operationId": "getBalanceAllowance",
+        "tags": [
+          "Account"
+        ],
+        "security": [
+          {
+            "polyApiKey": [],
+            "polyAddress": [],
+            "polySignature": [],
+            "polyPassphrase": [],
+            "polyTimestamp": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "asset_type",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "COLLATERAL",
+                "CONDITIONAL"
+              ]
+            }
+          },
+          {
+            "name": "token_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "signature_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "enum": [
+                0,
+                1,
+                2
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BalanceAllowanceResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "updateBalanceAllowance",
+        "tags": [
+          "Account"
+        ],
+        "security": [
+          {
+            "polyApiKey": [],
+            "polyAddress": [],
+            "polySignature": [],
+            "polyPassphrase": [],
+            "polyTimestamp": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "asset_type",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "COLLATERAL",
+                "CONDITIONAL"
+              ]
+            }
+          },
+          {
+            "name": "token_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "signature_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "enum": [
+                0,
+                1,
+                2
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/balance-allowance/update": {
+      "get": {
+        "operationId": "getUpdateBalanceAllowance",
+        "tags": [
+          "Account"
+        ],
+        "security": [
+          {
+            "polyApiKey": [],
+            "polyAddress": [],
+            "polySignature": [],
+            "polyPassphrase": [],
+            "polyTimestamp": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "asset_type",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "COLLATERAL",
+                "CONDITIONAL"
+              ]
+            }
+          },
+          {
+            "name": "token_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "signature_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "enum": [
+                0,
+                1,
+                2
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BalanceAllowanceResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/ban-status/closed-only": {
+      "get": {
+        "operationId": "getClosedOnlyMode",
+        "tags": [
+          "Account"
+        ],
+        "security": [
+          {
+            "polyApiKey": [],
+            "polyAddress": [],
+            "polySignature": [],
+            "polyPassphrase": [],
+            "polyTimestamp": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClosedOnlyResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notifications": {
+      "get": {
+        "operationId": "getNotifications",
+        "tags": [
+          "Notifications"
+        ],
+        "security": [
+          {
+            "polyApiKey": [],
+            "polyAddress": [],
+            "polySignature": [],
+            "polyPassphrase": [],
+            "polyTimestamp": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "signature_type",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1,
+                2
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Notification"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "dropNotifications",
+        "tags": [
+          "Notifications"
+        ],
+        "security": [
+          {
+            "polyApiKey": [],
+            "polyAddress": [],
+            "polySignature": [],
+            "polyPassphrase": [],
+            "polyTimestamp": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/heartbeats": {
+      "post": {
+        "operationId": "sendHeartbeat",
+        "tags": [
+          "Trade"
+        ],
+        "security": [
+          {
+            "polyApiKey": [],
+            "polyAddress": [],
+            "polySignature": [],
+            "polyPassphrase": [],
+            "polyTimestamp": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HeartbeatResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/heartbeats": {
+      "post": {
+        "operationId": "sendHeartbeatV1",
+        "tags": [
+          "Trade"
+        ],
+        "security": [
+          {
+            "polyApiKey": [],
+            "polyAddress": [],
+            "polySignature": [],
+            "polyPassphrase": [],
+            "polyTimestamp": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HeartbeatRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HeartbeatV1Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HeartbeatErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/data/trades": {
+      "get": {
+        "operationId": "getTrades",
+        "tags": [
+          "Trade"
+        ],
+        "security": [
+          {
+            "polyApiKey": [],
+            "polyAddress": [],
+            "polySignature": [],
+            "polyPassphrase": [],
+            "polyTimestamp": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "maker_address",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            }
+          },
+          {
+            "name": "market",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{64}$"
+            }
+          },
+          {
+            "name": "asset_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d+$"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d+$"
+            }
+          },
+          {
+            "name": "next_cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TradesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/builder/trades": {
+      "get": {
+        "operationId": "getBuilderTrades",
+        "tags": [
+          "Trade"
+        ],
+        "parameters": [
+          {
+            "name": "builder_code",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{64}$"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "market",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{64}$"
+            }
+          },
+          {
+            "name": "asset_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d+$"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d+$"
+            }
+          },
+          {
+            "name": "next_cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuilderTradesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ErrorResponse": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "retry_after_seconds": {
+            "type": "integer"
+          }
+        }
+      },
+      "BuilderTradesResponse": {
+        "type": "object",
+        "required": [
+          "limit",
+          "next_cursor",
+          "count",
+          "data"
+        ],
+        "properties": {
+          "limit": {
+            "type": "integer"
+          },
+          "next_cursor": {
+            "type": "string"
+          },
+          "count": {
+            "type": "integer"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuilderTrade"
+            }
+          }
+        }
+      },
+      "BuilderTrade": {
+        "type": "object",
+        "required": [
+          "id",
+          "tradeType",
+          "takerOrderHash",
+          "builder",
+          "market",
+          "assetId",
+          "side",
+          "size",
+          "sizeUsdc",
+          "price",
+          "status",
+          "outcome",
+          "outcomeIndex",
+          "owner",
+          "maker",
+          "transactionHash",
+          "matchTime",
+          "bucketIndex",
+          "fee",
+          "feeUsdc"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "tradeType": {
+            "type": "string"
+          },
+          "takerOrderHash": {
+            "type": "string"
+          },
+          "builder": {
+            "type": "string",
+            "pattern": "^0x[a-fA-F0-9]{64}$"
+          },
+          "market": {
+            "type": "string",
+            "pattern": "^0x[a-fA-F0-9]{64}$"
+          },
+          "assetId": {
+            "type": "string"
+          },
+          "side": {
+            "type": "string",
+            "enum": [
+              "BUY",
+              "SELL"
+            ]
+          },
+          "size": {
+            "type": "string"
+          },
+          "sizeUsdc": {
+            "type": "string"
+          },
+          "price": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "outcome": {
+            "type": "string"
+          },
+          "outcomeIndex": {
+            "type": "integer"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "maker": {
+            "type": "string",
+            "pattern": "^0x[a-fA-F0-9]{40}$"
+          },
+          "transactionHash": {
+            "type": "string",
+            "pattern": "^0x[a-fA-F0-9]{64}$"
+          },
+          "matchTime": {
+            "type": "string"
+          },
+          "bucketIndex": {
+            "type": "integer"
+          },
+          "fee": {
+            "type": "string"
+          },
+          "feeUsdc": {
+            "type": "string"
+          },
+          "err_msg": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "TradesResponse": {
+        "type": "object",
+        "required": [
+          "limit",
+          "next_cursor",
+          "count",
+          "data"
+        ],
+        "properties": {
+          "limit": {
+            "type": "integer"
+          },
+          "next_cursor": {
+            "type": "string"
+          },
+          "count": {
+            "type": "integer"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Trade"
+            }
+          }
+        }
+      },
+      "Trade": {
+        "type": "object",
+        "required": [
+          "id",
+          "taker_order_id",
+          "market",
+          "asset_id",
+          "side",
+          "size",
+          "price",
+          "status",
+          "match_time",
+          "last_update",
+          "outcome",
+          "bucket_index",
+          "owner",
+          "maker_address",
+          "trader_side"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "taker_order_id": {
+            "type": "string"
+          },
+          "market": {
+            "type": "string",
+            "pattern": "^0x[a-fA-F0-9]{64}$"
+          },
+          "asset_id": {
+            "type": "string"
+          },
+          "side": {
+            "type": "string",
+            "enum": [
+              "BUY",
+              "SELL"
+            ]
+          },
+          "size": {
+            "type": "string"
+          },
+          "fee_rate_bps": {
+            "type": "string"
+          },
+          "price": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "TRADE_STATUS_CONFIRMED",
+              "TRADE_STATUS_FAILED",
+              "TRADE_STATUS_RETRYING",
+              "TRADE_STATUS_MATCHED",
+              "TRADE_STATUS_MINED"
+            ]
+          },
+          "match_time": {
+            "type": "string"
+          },
+          "match_time_nano": {
+            "type": "string"
+          },
+          "last_update": {
+            "type": "string"
+          },
+          "outcome": {
+            "type": "string"
+          },
+          "bucket_index": {
+            "type": "integer"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "maker_address": {
+            "type": "string",
+            "pattern": "^0x[a-fA-F0-9]{40}$"
+          },
+          "transaction_hash": {
+            "type": "string",
+            "pattern": "^0x[a-fA-F0-9]{64}$"
+          },
+          "err_msg": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "maker_orders": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "order_id": {
+                  "type": "string"
+                },
+                "owner": {
+                  "type": "string"
+                },
+                "maker_address": {
+                  "type": "string"
+                },
+                "matched_amount": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "string"
+                },
+                "fee_rate_bps": {
+                  "type": "string"
+                },
+                "asset_id": {
+                  "type": "string"
+                },
+                "outcome": {
+                  "type": "string"
+                },
+                "side": {
+                  "type": "string",
+                  "enum": [
+                    "BUY",
+                    "SELL"
+                  ]
+                }
+              }
+            }
+          },
+          "trader_side": {
+            "type": "string",
+            "enum": [
+              "TAKER",
+              "MAKER"
+            ]
+          }
+        }
+      },
+      "HeartbeatErrorResponse": {
+        "type": "object",
+        "required": [
+          "error",
+          "heartbeat_id"
+        ],
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "heartbeat_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "HeartbeatV1Response": {
+        "type": "object",
+        "required": [
+          "heartbeat_id"
+        ],
+        "properties": {
+          "heartbeat_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "HeartbeatRequest": {
+        "type": "object",
+        "required": [
+          "heartbeat_id"
+        ],
+        "properties": {
+          "heartbeat_id": {
+            "type": "string"
+          }
+        }
+      },
+      "HeartbeatResponse": {
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "type": "string"
+          }
+        }
+      },
+      "Notification": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "type": {
+            "type": "integer",
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ]
+          },
+          "payload": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "timestamp": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "payload",
+          "timestamp"
+        ]
+      },
+      "ClosedOnlyResponse": {
+        "type": "object",
+        "properties": {
+          "closed_only": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "closed_only"
+        ]
+      },
+      "BalanceAllowanceResponse": {
+        "type": "object",
+        "required": [
+          "balance",
+          "allowances"
+        ],
+        "properties": {
+          "balance": {
+            "type": "string"
+          },
+          "allowances": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ApiKeyResponse": {
+        "type": "object",
+        "required": [
+          "apiKey",
+          "secret",
+          "passphrase"
+        ],
+        "properties": {
+          "apiKey": {
+            "type": "string"
+          },
+          "secret": {
+            "type": "string"
+          },
+          "passphrase": {
+            "type": "string"
+          }
+        }
+      },
+      "ClobMarketDetails": {
+        "type": "object",
+        "properties": {
+          "gst": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "r": {
+            "$ref": "#/components/schemas/ClobRewards"
+          },
+          "t": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClobToken"
+            }
+          },
+          "mos": {
+            "type": "number",
+            "format": "float"
+          },
+          "mts": {
+            "type": "number",
+            "format": "float"
+          },
+          "mbf": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "tbf": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "rfqe": {
+            "type": "boolean"
+          },
+          "itode": {
+            "type": "boolean"
+          },
+          "ibce": {
+            "type": "boolean"
+          },
+          "fd": {
+            "$ref": "#/components/schemas/FeeDetails"
+          },
+          "oas": {
+            "type": "integer"
+          }
+        }
+      },
+      "FeeDetails": {
+        "type": "object",
+        "properties": {
+          "r": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "e": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "to": {
+            "type": "boolean",
+            "nullable": true
+          }
+        }
+      },
+      "ClobToken": {
+        "type": "object",
+        "properties": {
+          "t": {
+            "type": "string"
+          },
+          "o": {
+            "type": "string"
+          }
+        }
+      },
+      "ClobRewards": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "OrderBookSummary": {
+        "type": "object",
+        "required": [
+          "market",
+          "asset_id",
+          "timestamp",
+          "hash",
+          "bids",
+          "asks",
+          "min_order_size",
+          "tick_size",
+          "neg_risk",
+          "last_trade_price"
+        ],
+        "properties": {
+          "market": {
+            "type": "string"
+          },
+          "asset_id": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "hash": {
+            "type": "string"
+          },
+          "bids": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderSummary"
+            }
+          },
+          "asks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderSummary"
+            }
+          },
+          "min_order_size": {
+            "type": "string"
+          },
+          "tick_size": {
+            "type": "string"
+          },
+          "neg_risk": {
+            "type": "boolean"
+          },
+          "last_trade_price": {
+            "type": "string"
+          }
+        }
+      },
+      "OrderSummary": {
+        "type": "object",
+        "required": [
+          "price",
+          "size"
+        ],
+        "properties": {
+          "price": {
+            "type": "string"
+          },
+          "size": {
+            "type": "string"
+          }
+        }
+      },
+      "BookRequest": {
+        "type": "object",
+        "required": [
+          "token_id"
+        ],
+        "properties": {
+          "token_id": {
+            "type": "string"
+          },
+          "side": {
+            "type": "string",
+            "enum": [
+              "BUY",
+              "SELL"
+            ]
+          }
+        }
+      },
+      "NegRisk": {
+        "type": "object",
+        "required": [
+          "neg_risk"
+        ],
+        "properties": {
+          "neg_risk": {
+            "type": "boolean"
+          }
+        }
+      },
+      "TickSize": {
+        "type": "object",
+        "required": [
+          "minimum_tick_size"
+        ],
+        "properties": {
+          "minimum_tick_size": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "FeeRate": {
+        "type": "object",
+        "required": [
+          "base_fee"
+        ],
+        "properties": {
+          "base_fee": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "CancelOrdersResponse": {
+        "type": "object",
+        "required": [
+          "canceled",
+          "not_canceled"
+        ],
+        "properties": {
+          "canceled": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "not_canceled": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "OrderMarketCancelParams": {
+        "type": "object",
+        "required": [
+          "market",
+          "asset_id"
+        ],
+        "properties": {
+          "market": {
+            "type": "string"
+          },
+          "asset_id": {
+            "type": "string"
+          }
+        }
+      },
+      "OpenOrder": {
+        "type": "object",
+        "required": [
+          "id",
+          "status",
+          "owner",
+          "maker_address",
+          "market",
+          "asset_id",
+          "side",
+          "original_size",
+          "size_matched",
+          "price",
+          "expiration",
+          "order_type",
+          "created_at",
+          "outcome"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "LIVE",
+              "INVALID",
+              "CANCELED_MARKET_RESOLVED",
+              "CANCELED",
+              "MATCHED"
+            ]
+          },
+          "owner": {
+            "type": "string"
+          },
+          "maker_address": {
+            "type": "string"
+          },
+          "market": {
+            "type": "string"
+          },
+          "asset_id": {
+            "type": "string"
+          },
+          "side": {
+            "type": "string",
+            "enum": [
+              "BUY",
+              "SELL"
+            ]
+          },
+          "original_size": {
+            "type": "string"
+          },
+          "size_matched": {
+            "type": "string"
+          },
+          "price": {
+            "type": "string"
+          },
+          "outcome": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          },
+          "order_type": {
+            "type": "string",
+            "enum": [
+              "GTC",
+              "FOK",
+              "GTD",
+              "FAK"
+            ]
+          },
+          "associate_trades": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "created_at": {
+            "type": "integer"
+          }
+        }
+      },
+      "OrdersResponse": {
+        "type": "object",
+        "required": [
+          "limit",
+          "next_cursor",
+          "count",
+          "data"
+        ],
+        "properties": {
+          "limit": {
+            "type": "integer"
+          },
+          "next_cursor": {
+            "type": "string"
+          },
+          "count": {
+            "type": "integer"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OpenOrder"
+            }
+          }
+        }
+      },
+      "SendOrderResponse": {
+        "type": "object",
+        "required": [
+          "success",
+          "orderID",
+          "status"
+        ],
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "orderID": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "live",
+              "matched",
+              "delayed"
+            ]
+          },
+          "makingAmount": {
+            "type": "string"
+          },
+          "takingAmount": {
+            "type": "string"
+          },
+          "transactionsHashes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tradeIDs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "errorMsg": {
+            "type": "string"
+          }
+        }
+      },
+      "SendOrder": {
+        "type": "object",
+        "required": [
+          "order",
+          "owner"
+        ],
+        "properties": {
+          "order": {
+            "$ref": "#/components/schemas/Order"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "orderType": {
+            "type": "string",
+            "enum": [
+              "GTC",
+              "FOK",
+              "GTD",
+              "FAK"
+            ],
+            "default": "GTC"
+          },
+          "deferExec": {
+            "type": "boolean",
+            "default": false
+          },
+          "postOnly": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      },
+      "Order": {
+        "type": "object",
+        "required": [
+          "maker",
+          "signer",
+          "tokenId",
+          "makerAmount",
+          "takerAmount",
+          "side",
+          "expiration",
+          "timestamp",
+          "builder",
+          "signature",
+          "salt",
+          "signatureType"
+        ],
+        "properties": {
+          "maker": {
+            "type": "string"
+          },
+          "signer": {
+            "type": "string"
+          },
+          "tokenId": {
+            "type": "string"
+          },
+          "makerAmount": {
+            "type": "string"
+          },
+          "takerAmount": {
+            "type": "string"
+          },
+          "side": {
+            "type": "string",
+            "enum": [
+              "BUY",
+              "SELL"
+            ]
+          },
+          "expiration": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "string"
+          },
+          "builder": {
+            "type": "string"
+          },
+          "signature": {
+            "type": "string"
+          },
+          "salt": {
+            "type": "integer"
+          },
+          "signatureType": {
+            "type": "integer",
+            "enum": [
+              0,
+              1,
+              2
+            ]
+          }
+        }
+      },
+      "CancelOrderPayload": {
+        "type": "object",
+        "required": [
+          "orderID"
+        ],
+        "properties": {
+          "orderID": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "polyApiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "POLY_API_KEY"
+      },
+      "polyAddress": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "POLY_ADDRESS"
+      },
+      "polySignature": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "POLY_SIGNATURE"
+      },
+      "polyPassphrase": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "POLY_PASSPHRASE"
+      },
+      "polyTimestamp": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "POLY_TIMESTAMP"
+      },
+      "polyNonce": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "POLY_NONCE"
+      }
+    }
+  }
+}

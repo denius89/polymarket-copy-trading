@@ -1,0 +1,559 @@
+{
+  "provenance": {
+    "checked_at": "2026-10-06",
+    "source_url": "https://docs.polymarket.com/api-spec/bridge-openapi.yaml",
+    "source_sha256": "e6ea7f3209c4b33f2e1fe8360681c0248f8a0f304c336b60b4d265fb731b6f15",
+    "status": "documented schema fetched; not runtime validation",
+    "scope": "Predictions MVP selected endpoints; descriptions/examples omitted, functional constraints retained"
+  },
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Polymarket Bridge API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://bridge.polymarket.com",
+      "description": "Polymarket Bridge API"
+    }
+  ],
+  "security": null,
+  "paths": {
+    "/supported-assets": {
+      "get": {
+        "tags": [
+          "Bridge"
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupportedAssetsResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quote": {
+      "post": {
+        "tags": [
+          "Bridge"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuoteResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deposit": {
+      "post": {
+        "tags": [
+          "Bridge"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/BuilderCodeHeader"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DepositRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DepositResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/withdraw": {
+      "post": {
+        "tags": [
+          "Bridge"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/BuilderCodeHeader"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WithdrawalRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DepositResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/status/{address}": {
+      "get": {
+        "tags": [
+          "Bridge"
+        ],
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "paginate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionStatusResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "error"
+        ]
+      },
+      "TransactionStatusResponse": {
+        "type": "object",
+        "required": [
+          "transactions",
+          "nextCursor"
+        ],
+        "properties": {
+          "transactions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Transaction"
+            }
+          },
+          "nextCursor": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "Transaction": {
+        "type": "object",
+        "properties": {
+          "fromChainId": {
+            "type": "string"
+          },
+          "fromTokenAddress": {
+            "type": "string"
+          },
+          "fromAmountBaseUnit": {
+            "type": "string"
+          },
+          "toChainId": {
+            "type": "string"
+          },
+          "toTokenAddress": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DEPOSIT_DETECTED",
+              "PROCESSING",
+              "ORIGIN_TX_CONFIRMED",
+              "SUBMITTED",
+              "COMPLETED",
+              "FAILED"
+            ]
+          },
+          "txHash": {
+            "type": "string"
+          },
+          "createdTimeMs": {
+            "type": "number"
+          }
+        }
+      },
+      "DepositResponse": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "object",
+            "properties": {
+              "evm": {
+                "type": "string"
+              },
+              "svm": {
+                "type": "string"
+              },
+              "btc": {
+                "type": "string"
+              },
+              "tron": {
+                "type": "string"
+              }
+            }
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      },
+      "WithdrawalRequest": {
+        "type": "object",
+        "required": [
+          "address",
+          "toChainId",
+          "toTokenAddress",
+          "recipientAddr"
+        ],
+        "properties": {
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "toChainId": {
+            "type": "string"
+          },
+          "toTokenAddress": {
+            "type": "string"
+          },
+          "recipientAddr": {
+            "type": "string"
+          }
+        }
+      },
+      "Address": {
+        "type": "string",
+        "pattern": "^0x[a-fA-F0-9]{40}$"
+      },
+      "DepositRequest": {
+        "type": "object",
+        "required": [
+          "address"
+        ],
+        "properties": {
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          }
+        }
+      },
+      "QuoteResponse": {
+        "type": "object",
+        "properties": {
+          "estCheckoutTimeMs": {
+            "type": "integer"
+          },
+          "estFeeBreakdown": {
+            "$ref": "#/components/schemas/FeeBreakdown"
+          },
+          "estInputUsd": {
+            "type": "number"
+          },
+          "estOutputUsd": {
+            "type": "number"
+          },
+          "estToTokenBaseUnit": {
+            "type": "string"
+          },
+          "quoteId": {
+            "type": "string"
+          }
+        }
+      },
+      "FeeBreakdown": {
+        "type": "object",
+        "properties": {
+          "appFeeLabel": {
+            "type": "string"
+          },
+          "appFeePercent": {
+            "type": "number"
+          },
+          "appFeeUsd": {
+            "type": "number"
+          },
+          "fillCostPercent": {
+            "type": "number"
+          },
+          "fillCostUsd": {
+            "type": "number"
+          },
+          "gasUsd": {
+            "type": "number"
+          },
+          "maxSlippage": {
+            "type": "number"
+          },
+          "minReceived": {
+            "type": "number"
+          },
+          "swapImpact": {
+            "type": "number"
+          },
+          "swapImpactUsd": {
+            "type": "number"
+          },
+          "totalImpact": {
+            "type": "number"
+          },
+          "totalImpactUsd": {
+            "type": "number"
+          }
+        }
+      },
+      "QuoteRequest": {
+        "type": "object",
+        "required": [
+          "fromAmountBaseUnit",
+          "fromChainId",
+          "fromTokenAddress",
+          "recipientAddress",
+          "toChainId",
+          "toTokenAddress"
+        ],
+        "properties": {
+          "fromAmountBaseUnit": {
+            "type": "string"
+          },
+          "fromChainId": {
+            "type": "string"
+          },
+          "fromTokenAddress": {
+            "type": "string"
+          },
+          "recipientAddress": {
+            "type": "string"
+          },
+          "toChainId": {
+            "type": "string"
+          },
+          "toTokenAddress": {
+            "type": "string"
+          }
+        }
+      },
+      "SupportedAssetsResponse": {
+        "type": "object",
+        "properties": {
+          "supportedAssets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SupportedAsset"
+            }
+          }
+        }
+      },
+      "SupportedAsset": {
+        "type": "object",
+        "properties": {
+          "chainId": {
+            "type": "string"
+          },
+          "chainName": {
+            "type": "string"
+          },
+          "token": {
+            "$ref": "#/components/schemas/Token"
+          },
+          "minCheckoutUsd": {
+            "type": "number"
+          }
+        }
+      },
+      "Token": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "decimals": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "parameters": {
+      "BuilderCodeHeader": {
+        "name": "X-Builder-Code",
+        "in": "header",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{64}$"
+        }
+      }
+    }
+  }
+}
