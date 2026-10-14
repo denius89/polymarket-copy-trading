@@ -1,0 +1,11 @@
+const p=await figma.getNodeByIdAsync('1981:2');await figma.setCurrentPageAsync(p);
+const created=[],mutated=[],track=n=>{created.push(n.id);return n;};
+const styles=await figma.getLocalTextStylesAsync();const style=styles.find(s=>s.name==='Body/Small medium');await figma.loadFontAsync(style.fontName);
+const vars=await figma.variables.getLocalVariablesAsync(),vm=new Map(vars.map(v=>[v.name,v]));const collections=await figma.variables.getLocalVariableCollectionsAsync(),cm=new Map(collections.map(c=>[c.id,c])),vi=new Map(vars.map(v=>[v.id,v]));
+function resolve(v){const c=cm.get(v.variableCollectionId),x=v.valuesByMode[c.modes.find(m=>m.name==='Dark')?.modeId||c.defaultModeId];return x?.type==='VARIABLE_ALIAS'?resolve(vi.get(x.id)):x;}
+function fill(name){const v=vm.get(name),rgb=resolve(v);return figma.variables.setBoundVariableForPaint({type:'SOLID',color:{r:rgb.r,g:rgb.g,b:rgb.b}},'color',v);}
+
+const host=await figma.getNodeByIdAsync('2097:5418');const c=track(figma.createComponent());host.appendChild(c);c.name='Admin/Breadcrumbs';c.layoutMode='HORIZONTAL';c.resize(1144,32);c.primaryAxisSizingMode='FIXED';c.counterAxisSizingMode='FIXED';c.counterAxisAlignItems='CENTER';c.itemSpacing=8;c.fills=[];c.setBoundVariable('itemSpacing',vm.get('spacing/2'));c.x=1560;c.y=5530;
+const labels=[['Home','Обзор',60],['Separator 1','/',8],['Section','Пользователи',230],['Separator 2','/',8],['Current','U-DEMO-001 · Профиль',806]];
+for(const [name,value,w]of labels){const t=track(figma.createText());c.appendChild(t);t.name=name;t.textStyleId=style.id;t.characters=value;t.textAutoResize='HEIGHT';t.resize(w,t.height);t.fills=[fill(name==='Current'?'color/text/primary':'color/text/secondary')];if(!name.startsWith('Separator')){const prop=c.addComponentProperty(name,'TEXT',value);t.componentPropertyReferences={characters:prop};}}
+c.description='Clickable Home and Section; Current is location text. Route scoped, independent from collapsible sidebar. Hide on unauthenticated screens.';await c.screenshot({scale:0.85});return {createdNodeIds:created,mutatedNodeIds:[],id:c.id,properties:c.componentPropertyDefinitions};

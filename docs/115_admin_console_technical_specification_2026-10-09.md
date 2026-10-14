@@ -1,5 +1,7 @@
 # Shadow: техническая спецификация админки
 
+Актуальное уточнение 14.10.2026: в Paper Alpha комиссия сервиса 0%; 1% — только пример будущей платной версии, которая пока не активна. Технический режим полностью отключает пользовательскую часть и продуктовые фоновые задачи по [ADR-0045](decisions/0045_technical_mode_full_user_shutdown.md). [Актуальные макеты, правила и границы проверки](design/admin/SYNC_2026-10-14.md). Эти уточнения имеют приоритет над прежними общими формулировками ниже.
+
 Срез: **9 октября 2026**. Версия документа: **1.0 для проектирования и реализации после отдельного GO**.
 
 Уточнение **12.10.2026**: приняты [ADR-0043](decisions/0043_admin_money_security_and_incident_recovery.md) и [правки 119](119_admin_security_review_changes_2026-10-12.md). Новые реквизиты и превышение защитных порогов требуют другого Owner; обычные выплаты остаются самостоятельными. Денежное recovery после аварийной блокировки требует независимого подтверждения. Это требования к реализации, не выполненные live-проверки.
@@ -180,7 +182,7 @@ Grant: `permission`, `environment`, `venue`, `section`, `data_class`, `expires_a
 | Operations | `operations.view`, `session.pause`, `session.resume_demo`, `session.disconnect_demo`, `incident.view/assign/resolve`, `reconciliation.view/run` | live submit/close за пользователя не делегируется этим набором; resume снимает только разрешённую demo-паузу, не emergency gate |
 | User context | `users.view_minimal`, `users.view_extended` | extended отдельно; нет impersonation login |
 | Support | `support.view/reply/assign`, `feedback.view/manage` | ticket visibility по policy, без изменения ledger |
-| Data | `health.view`, `traders.view`, `ingestion.view` | ручное исправление source metrics не предусмотрено |
+| Data | `health.view`, `traders.view`, `ingestion.view`; новые edit/publish/simulate scopes — предложение ADR-0044 | source metrics read-only; настройка версий сборщиков/валидации/рейтинга добавлена в дизайн; права публикации ещё на вычитке |
 | Pricing | `pricing.view/simulate`, подготовка описания | численные параметры, publish, user/partner VIP activation — только Owner |
 | Finance | `finance.view_aggregate`, `finance.view_detail`, `finance.export` | create/confirm/cancel payout и изменение реквизитов — только Owner |
 | Staff | `staff.view`, `role.manage`, `access.revoke` | scope не даёт self-escalation или Owner-only действий |
@@ -213,7 +215,7 @@ Grant: `permission`, `environment`, `venue`, `section`, `data_class`, `expires_a
 | ADM-04 Incidents | Incident, assignment, evidence refs, resolution | list/detail; assign/comment/resolve | incident scopes; resolving ticket/incident не меняет operation outcome |
 | ADM-05 Reconciliation | Case, Attempt, evidence, discrepancies | list/detail; `POST /reconciliation-runs` | reconciliation.run; readback только того же operation identity |
 | ADM-06 Venues & data | VenueHealth, MarketSnapshot, FeedCheckpoint | health/catalog/data gaps, request readback | health.view; каждый venue/account/environment отдельно |
-| ADM-07 Traders & ingestion | TraderIdentity, metrics, RatingSnapshot, ingestion coverage | traders/detail/ingestion-attempts | traders.view; read-only, manual address не требует рейтинга |
+| ADM-07 Data & rating | TraderIdentity, source observations, coverage, collector/validator/rating policy versions, RatingSnapshot | reads плюс проектируемые draft/validate/impact/apply/restore commands | raw facts read-only; manual address не требует рейтинга; настройки расширены ADR-0044, новые права — предложения |
 | ADM-08 Tariffs & commissions | TariffVersion, ReferralPolicyVersion, SimulatorRun, overrides | list/draft/simulate/publish/schedule/rollback | numbers и publication Owner-only; snapshots/version history |
 | ADM-09 Support | Ticket, Message, Assignment, user/session context | tickets/detail; reply/assign/status | support scopes; одна переписка user/admin, send_unknown отдельно |
 | ADM-10 Notifications | Notification, DeliveryAttempt, preferences | list/detail/status; controlled readback | `notifications.view` — предлагаемый отдельный scope; нет fake delivered/прочитано |
@@ -481,7 +483,7 @@ MarketDeviationObservation хранит источник, цену/время/а
 
 `AvailabilityState`: normal/TECH_MODE. `ActionRestriction`: GLOBAL_STOP, risk pause, read-only, venue isolation, DEPOSITS_OFF, WITHDRAWALS_OFF, PARTNER_PAYOUTS_OFF. Последние scoped ограничения и дополнительные варианты уровня — техническая модель; согласованные GLOBAL_STOP/TECH_MODE/funding controls сохраняются. Комбинация вычисляется сервером как пересечение разрешённых действий; локальный normal не снимает глобальный stop.
 
-Scope: project/environment/venue/subsystem, staff/user identity, connection, service source/wallet, signer, network, asset/token contract, route + action class; reason/incident/actor/version/effective time. Availability хранится отдельно от trading state. TECH_MODE закрывает user surfaces/API/product jobs, оставляет emergency/monitoring/audit/incidents/reconciliation. GLOBAL_STOP запрещает новые продуктовые и финансовые side effects; не объявляет уже отправленные операции отменёнными и не удаляет evidence.
+Scope: project/environment/venue/subsystem, staff/user identity, connection, service source/wallet, signer, network, asset/token contract, route + action class; reason/incident/actor/version/effective time. Availability хранится отдельно от trading state. Технический режим полностью закрывает приложение и публичный API для пользователей, блокирует новые торговые и денежные действия через Shadow и останавливает все продуктовые фоновые задачи в выбранной среде. Работают только аварийная админка, мониторинг, журнал аудита, инциденты, безопасная сверка и восстановление. Сверка ничего не отправляет; уже отправленные операции могут завершиться. Прямые действия вне Shadow не блокируются. GLOBAL_STOP запрещает новые продуктовые и финансовые side effects; не объявляет уже отправленные операции отменёнными и не удаляет evidence.
 
 | Operation class | User pause | GLOBAL_STOP | TECH_MODE | DEPOSITS_OFF / WITHDRAWALS_OFF |
 | --- | --- | --- | --- | --- |
@@ -669,3 +671,8 @@ Control state/version защищены от прямого неаудирова�
 ## Личный аккаунт сотрудника · уточнение 12.10.2026
 
 По поручению владельца личный профиль оформлен как в клиентском UI, переключение языка перенесено внутрь него. Self-service каждого активного сотрудника отделён от управления чужим доступом и Owner-only действиями. Дизайн, состояния и auth-provider open questions — [пакет 05](design/admin/package-05/README.md) и [контракт](design/admin/package-05/account-contract.md). 38 новых RU/EN состояний на язык; существующие auth/revoked/expired используются повторно. Это дизайн для вычитки, не реализованный auth/API и не выбранный провайдер.
+
+
+## Уточнение 13.10.2026 · ADM-07 «Данные и рейтинг»
+
+По поручению владельца прежний observational-only блок расширен настройками сборщиков и версионируемых правил валидатора/рейтинга. Согласованные R-1 веса и eligibility ADR-0011 сохранены; новые демо значения не утверждены. [ADR-0044](decisions/0044_data_ingestion_validator_and_rating_controls.md) и [контракт дизайна](design/admin/package-09/data-rating-contract.md) задают границы, preview, command evidence, proposed rights и открытые API-specific вопросы. Публикация должна переключать клиентский каталог только на готовый подтверждённый единый snapshot, не на смесь частично пересчитанных профилей.

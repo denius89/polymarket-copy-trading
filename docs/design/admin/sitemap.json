@@ -1,6 +1,6 @@
 {
-  "revision": "0.4",
-  "updatedAt": "2026-10-12",
+  "revision": "0.12",
+  "updatedAt": "2026-10-14",
   "purpose": "Living design sitemap; not a production capability inventory or final design acceptance.",
   "figma": {
     "fileKey": "lxPP2um7FvIbt02K8eeH4T",
@@ -14,8 +14,8 @@
     "current Figma RU/EN root frame inventory"
   ],
   "counts": {
-    "ru": 254,
-    "en": 254
+    "ru": 427,
+    "en": 427
   },
   "sections": [
     {
@@ -76,7 +76,7 @@
       "id": "ADM-02",
       "title": "Пользователи",
       "group": "Операции",
-      "description": "Список, карточка пользователя, назначение VIP.",
+      "description": "Профили и настройки, связь с сессиями; Owner и Operations. Пересборка двух ранних карточек ждёт разрешения.",
       "screens": [
         {
           "id": "1982:37788",
@@ -175,6 +175,50 @@
             "id": "1982:38849",
             "title": "EN · vip-done · VIP applied · demo",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38849"
+          }
+        },
+        {
+          "id": "2210:21620",
+          "key": "user-noor",
+          "title": "Профиль Demo Noor",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2210-21620",
+          "english": {
+            "id": "2210:82672",
+            "title": "EN · user-noor · Demo Noor profile",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2210-82672"
+          }
+        },
+        {
+          "id": "2210:21952",
+          "key": "user-settings",
+          "title": "Настройки Demo Atlas",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2210-21952",
+          "english": {
+            "id": "2210:82846",
+            "title": "EN · user-settings · Demo Atlas settings",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2210-82846"
+          }
+        },
+        {
+          "id": "2210:22126",
+          "key": "user-noor-settings",
+          "title": "Настройки Demo Noor",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2210-22126",
+          "english": {
+            "id": "2210:83020",
+            "title": "EN · user-noor-settings · Demo Noor settings",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2210-83020"
+          }
+        },
+        {
+          "id": "2223:25930",
+          "key": "user-ops-settings",
+          "title": "Настройки пользователя · Operations",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2223-25930",
+          "english": {
+            "id": "2223:52047",
+            "title": "EN · user-ops-settings · User settings · Operations",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2223-52047"
           }
         }
       ],
@@ -436,8 +480,8 @@
     {
       "id": "ADM-04",
       "title": "Инциденты",
-      "group": "Операции",
-      "description": "Есть карточка инцидента по выплате. Общая очередь и полный цикл — впереди.",
+      "group": "Управление",
+      "description": "Очередь, карточка, назначение, заметка и закрытие с основанием. Общий срез пакета 10: 18 RU/EN состояний.",
       "screens": [
         {
           "id": "2004:552",
@@ -449,16 +493,172 @@
             "title": "EN · discrepancy-details · INC-021 · payout reconciliation",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-1085"
           }
+        },
+        {
+          "id": "2414:117179",
+          "key": "ops-queue",
+          "title": "Инциденты",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-117179",
+          "english": {
+            "id": "2414:120601",
+            "key": "ops-queue",
+            "title": "Incidents",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-120601"
+          }
+        },
+        {
+          "id": "2414:117392",
+          "key": "ops-filtered",
+          "title": "Инциденты · Polymarket",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-117392",
+          "english": {
+            "id": "2414:120812",
+            "key": "ops-filtered",
+            "title": "Incidents · Polymarket",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-120812"
+          }
+        },
+        {
+          "id": "2414:117599",
+          "key": "ops-empty",
+          "title": "Инциденты · нет результатов",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-117599",
+          "english": {
+            "id": "2414:121019",
+            "key": "ops-empty",
+            "title": "Incidents · no results",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-121019"
+          }
+        },
+        {
+          "id": "2414:117789",
+          "key": "ops-error",
+          "title": "Инциденты · загрузка не удалась",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-117789",
+          "english": {
+            "id": "2414:121209",
+            "key": "ops-error",
+            "title": "Incidents · load failed",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-121209"
+          }
+        },
+        {
+          "id": "2414:117985",
+          "key": "ops-incident",
+          "title": "INC-DEMO-03 · неизвестный результат",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-117985",
+          "english": {
+            "id": "2414:121405",
+            "key": "ops-incident",
+            "title": "INC-DEMO-03 · unknown outcome",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-121405"
+          }
+        },
+        {
+          "id": "2414:118177",
+          "key": "ops-assigned",
+          "title": "INC-DEMO-03 · в работе",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-118177",
+          "english": {
+            "id": "2414:121597",
+            "key": "ops-assigned",
+            "title": "INC-DEMO-03 · investigating",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-121597"
+          }
+        },
+        {
+          "id": "2414:118369",
+          "key": "ops-note",
+          "title": "Внутренняя заметка",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-118369",
+          "english": {
+            "id": "2414:121789",
+            "key": "ops-note",
+            "title": "Internal note",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-121789"
+          }
+        },
+        {
+          "id": "2414:118558",
+          "key": "ops-note-saved",
+          "title": "Заметка сохранена",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-118558",
+          "english": {
+            "id": "2414:121978",
+            "key": "ops-note-saved",
+            "title": "Note saved",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-121978"
+          }
+        },
+        {
+          "id": "2414:119859",
+          "key": "ops-resolve",
+          "title": "Закрытие инцидента",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-119859",
+          "english": {
+            "id": "2414:123279",
+            "key": "ops-resolve",
+            "title": "Close incident",
+            "height": 1222,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-123279"
+          }
+        },
+        {
+          "id": "2414:120059",
+          "key": "ops-closed",
+          "title": "INC-DEMO-03 · закрыт",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-120059",
+          "english": {
+            "id": "2414:123479",
+            "key": "ops-closed",
+            "title": "INC-DEMO-03 · closed",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-123479"
+          }
+        },
+        {
+          "id": "2414:120247",
+          "key": "ops-readonly",
+          "title": "INC-DEMO-03 · только просмотр",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-120247",
+          "english": {
+            "id": "2414:123667",
+            "key": "ops-readonly",
+            "title": "INC-DEMO-03 · view only",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-123667"
+          }
+        },
+        {
+          "id": "2414:120428",
+          "key": "ops-session",
+          "title": "S-DEMO-002 · контекст сессии",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-120428",
+          "english": {
+            "id": "2414:123848",
+            "key": "ops-session",
+            "title": "S-DEMO-002 · session context",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-123848"
+          }
         }
       ],
-      "status": "Частично",
+      "status": "На вычитке · пакет 10",
       "mapNodeId": "2105:5794"
     },
     {
       "id": "ADM-05",
       "title": "Сверка",
-      "group": "Операции",
-      "description": "Есть проверка и расхождение выплаты. Общая очередь сверки — впереди.",
+      "group": "Управление",
+      "description": "Очередь и проверка заявки: pending/unknown/discrepancy/confirmed, без повторной отправки. Другие типы случаев далее.",
       "screens": [
         {
           "id": "2004:481",
@@ -481,9 +681,87 @@
             "title": "EN · discrepancy · Settlement discrepancy",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-1047"
           }
+        },
+        {
+          "id": "2414:118751",
+          "key": "ops-cases",
+          "title": "Очередь сверки",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-118751",
+          "english": {
+            "id": "2414:122171",
+            "key": "ops-cases",
+            "title": "Reconciliation queue",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-122171"
+          }
+        },
+        {
+          "id": "2414:118914",
+          "key": "ops-case",
+          "title": "CASE-DEMO-03 · сверка заявки",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-118914",
+          "english": {
+            "id": "2414:122334",
+            "key": "ops-case",
+            "title": "CASE-DEMO-03 · order reconciliation",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-122334"
+          }
+        },
+        {
+          "id": "2414:119101",
+          "key": "ops-pending",
+          "title": "Проверка выполняется",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-119101",
+          "english": {
+            "id": "2414:122521",
+            "key": "ops-pending",
+            "title": "Verification running",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-122521"
+          }
+        },
+        {
+          "id": "2414:119294",
+          "key": "ops-unknown",
+          "title": "Результат пока неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-119294",
+          "english": {
+            "id": "2414:122714",
+            "key": "ops-unknown",
+            "title": "Outcome still unknown",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-122714"
+          }
+        },
+        {
+          "id": "2414:119483",
+          "key": "ops-mismatch",
+          "title": "Обнаружено расхождение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-119483",
+          "english": {
+            "id": "2414:122903",
+            "key": "ops-mismatch",
+            "title": "Discrepancy detected",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-122903"
+          }
+        },
+        {
+          "id": "2414:119672",
+          "key": "ops-confirmed",
+          "title": "Результат подтверждён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-119672",
+          "english": {
+            "id": "2414:123092",
+            "key": "ops-confirmed",
+            "title": "Outcome confirmed",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-123092"
+          }
         }
       ],
-      "status": "Частично",
+      "status": "На вычитке · пакет 10",
       "mapNodeId": "2105:5799"
     },
     {
@@ -520,11 +798,668 @@
     },
     {
       "id": "ADM-07",
-      "title": "Трейдеры",
-      "group": "Операции",
-      "description": "Рейтинг, показатели, сбор данных, проверка адреса.",
-      "screens": [],
-      "status": "Запланировано",
+      "title": "Данные и рейтинг",
+      "group": "Управление",
+      "description": "Сборщики, внутренний валидатор, методика рейтинга, проверка адреса и результаты.",
+      "screens": [
+        {
+          "id": "2395:34055",
+          "key": "data-overview",
+          "title": "Данные и рейтинг",
+          "section": "Overview",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-34055",
+          "english": {
+            "id": "2395:113367",
+            "key": "data-overview",
+            "title": "Data and rating",
+            "section": "Overview",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-113367"
+          }
+        },
+        {
+          "id": "2395:34187",
+          "key": "data-collectors",
+          "title": "Сбор данных",
+          "section": "Collectors",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-34187",
+          "english": {
+            "id": "2395:113487",
+            "key": "data-collectors",
+            "title": "Data collection",
+            "section": "Collectors",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-113487"
+          }
+        },
+        {
+          "id": "2395:34287",
+          "key": "data-collector-pm",
+          "title": "Сборщик Polymarket",
+          "section": "Collectors",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-34287",
+          "english": {
+            "id": "2395:113577",
+            "key": "data-collector-pm",
+            "title": "Polymarket collector",
+            "section": "Collectors",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-113577"
+          }
+        },
+        {
+          "id": "2395:34398",
+          "key": "data-collector-ll",
+          "title": "Сборщик Limitless",
+          "section": "Collectors",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-34398",
+          "english": {
+            "id": "2395:113688",
+            "key": "data-collector-ll",
+            "title": "Limitless collector",
+            "section": "Collectors",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-113688"
+          }
+        },
+        {
+          "id": "2395:34481",
+          "key": "data-collector-edit",
+          "title": "Настройки сборщика",
+          "section": "Collectors",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-34481",
+          "english": {
+            "id": "2395:113771",
+            "key": "data-collector-edit",
+            "title": "Collector settings",
+            "section": "Collectors",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-113771"
+          }
+        },
+        {
+          "id": "2395:34584",
+          "key": "data-collector-invalid",
+          "title": "Некорректный интервал",
+          "section": "Collectors",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-34584",
+          "english": {
+            "id": "2395:113874",
+            "key": "data-collector-invalid",
+            "title": "Invalid interval",
+            "section": "Collectors",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-113874"
+          }
+        },
+        {
+          "id": "2395:34690",
+          "key": "data-collector-preview",
+          "title": "Проверка изменений сборщика",
+          "section": "Collectors",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-34690",
+          "english": {
+            "id": "2395:113980",
+            "key": "data-collector-preview",
+            "title": "Review collector changes",
+            "section": "Collectors",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-113980"
+          }
+        },
+        {
+          "id": "2395:34793",
+          "key": "data-collector-applying",
+          "title": "Настройки применяются",
+          "section": "Collectors",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-34793",
+          "english": {
+            "id": "2395:114083",
+            "key": "data-collector-applying",
+            "title": "Applying collector settings",
+            "section": "Collectors",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-114083"
+          }
+        },
+        {
+          "id": "2395:34875",
+          "key": "data-collector-applied",
+          "title": "Настройки применены",
+          "section": "Collectors",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-34875",
+          "english": {
+            "id": "2395:114165",
+            "key": "data-collector-applied",
+            "title": "Collector settings applied",
+            "section": "Collectors",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-114165"
+          }
+        },
+        {
+          "id": "2395:34966",
+          "key": "data-collector-unknown",
+          "title": "Результат изменения неизвестен",
+          "section": "Collectors",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-34966",
+          "english": {
+            "id": "2395:114256",
+            "key": "data-collector-unknown",
+            "title": "Configuration result unknown",
+            "section": "Collectors",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-114256"
+          }
+        },
+        {
+          "id": "2395:35048",
+          "key": "data-collector-pause",
+          "title": "Приостановить сбор каталога",
+          "section": "Collectors",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-35048",
+          "english": {
+            "id": "2395:114338",
+            "key": "data-collector-pause",
+            "title": "Pause catalog collection",
+            "section": "Collectors",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-114338"
+          }
+        },
+        {
+          "id": "2395:108499",
+          "key": "data-collector-paused",
+          "title": "Сбор каталога приостановлен",
+          "section": "Collectors",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-108499",
+          "english": {
+            "id": "2395:115090",
+            "key": "data-collector-paused",
+            "title": "Catalog collection paused",
+            "section": "Collectors",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-115090"
+          }
+        },
+        {
+          "id": "2395:108600",
+          "key": "data-validator",
+          "title": "Внутренний валидатор",
+          "section": "Validation",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-108600",
+          "english": {
+            "id": "2395:115191",
+            "key": "data-validator",
+            "title": "Internal validator",
+            "section": "Validation",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-115191"
+          }
+        },
+        {
+          "id": "2395:108704",
+          "key": "data-validator-edit",
+          "title": "Настройки проверки",
+          "section": "Validation",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-108704",
+          "english": {
+            "id": "2395:115295",
+            "key": "data-validator-edit",
+            "title": "Validation settings",
+            "section": "Validation",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-115295"
+          }
+        },
+        {
+          "id": "2395:108819",
+          "key": "data-validator-preview",
+          "title": "Проверка правил валидатора",
+          "section": "Validation",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-108819",
+          "english": {
+            "id": "2395:115410",
+            "key": "data-validator-preview",
+            "title": "Review validation rules",
+            "section": "Validation",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-115410"
+          }
+        },
+        {
+          "id": "2395:108922",
+          "key": "data-validator-applying",
+          "title": "Правила применяются",
+          "section": "Validation",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-108922",
+          "english": {
+            "id": "2395:115513",
+            "key": "data-validator-applying",
+            "title": "Applying validation rules",
+            "section": "Validation",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-115513"
+          }
+        },
+        {
+          "id": "2395:109004",
+          "key": "data-validator-applied",
+          "title": "Правила валидатора применены",
+          "section": "Validation",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-109004",
+          "english": {
+            "id": "2395:115595",
+            "key": "data-validator-applied",
+            "title": "Validation rules applied",
+            "section": "Validation",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-115595"
+          }
+        },
+        {
+          "id": "2395:109095",
+          "key": "data-validator-unknown",
+          "title": "Результат применения правил неизвестен",
+          "section": "Validation",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-109095",
+          "english": {
+            "id": "2395:115686",
+            "key": "data-validator-unknown",
+            "title": "Validation result unknown",
+            "section": "Validation",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-115686"
+          }
+        },
+        {
+          "id": "2395:109177",
+          "key": "data-address",
+          "title": "Проверка адреса",
+          "section": "Validation",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-109177",
+          "english": {
+            "id": "2395:115768",
+            "key": "data-address",
+            "title": "Address lookup",
+            "section": "Validation",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-115768"
+          }
+        },
+        {
+          "id": "2395:109275",
+          "key": "data-address-rated",
+          "title": "Адрес найден · рейтинг есть",
+          "section": "Validation",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-109275",
+          "english": {
+            "id": "2395:115866",
+            "key": "data-address-rated",
+            "title": "Address found · rated",
+            "section": "Validation",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-115866"
+          }
+        },
+        {
+          "id": "2395:109389",
+          "key": "data-address-insufficient",
+          "title": "Адрес найден · данных недостаточно",
+          "section": "Validation",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-109389",
+          "english": {
+            "id": "2395:115980",
+            "key": "data-address-insufficient",
+            "title": "Address found · insufficient data",
+            "section": "Validation",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-115980"
+          }
+        },
+        {
+          "id": "2395:110103",
+          "key": "data-address-invalid",
+          "title": "Некорректный формат адреса",
+          "section": "Validation",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-110103",
+          "english": {
+            "id": "2395:116694",
+            "key": "data-address-invalid",
+            "title": "Invalid address format",
+            "section": "Validation",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-116694"
+          }
+        },
+        {
+          "id": "2395:110204",
+          "key": "data-address-not-found",
+          "title": "Адрес не найден",
+          "section": "Validation",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-110204",
+          "english": {
+            "id": "2395:116795",
+            "key": "data-address-not-found",
+            "title": "Address not found",
+            "section": "Validation",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-116795"
+          }
+        },
+        {
+          "id": "2395:110318",
+          "key": "data-address-unavailable",
+          "title": "Источник недоступен",
+          "section": "Validation",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-110318",
+          "english": {
+            "id": "2395:116909",
+            "key": "data-address-unavailable",
+            "title": "Source unavailable",
+            "section": "Validation",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-116909"
+          }
+        },
+        {
+          "id": "2395:110432",
+          "key": "data-rating",
+          "title": "Методика рейтинга",
+          "section": "Rating",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-110432",
+          "english": {
+            "id": "2395:117023",
+            "key": "data-rating",
+            "title": "Rating methodology",
+            "section": "Rating",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-117023"
+          }
+        },
+        {
+          "id": "2395:110546",
+          "key": "data-rating-edit",
+          "title": "Черновик методики",
+          "section": "Rating",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-110546",
+          "english": {
+            "id": "2395:117137",
+            "key": "data-rating-edit",
+            "title": "Methodology draft",
+            "section": "Rating",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-117137"
+          }
+        },
+        {
+          "id": "2395:110665",
+          "key": "data-rating-invalid",
+          "title": "Сумма весов неверна",
+          "section": "Rating",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-110665",
+          "english": {
+            "id": "2395:117256",
+            "key": "data-rating-invalid",
+            "title": "Weights do not total 100%",
+            "section": "Rating",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-117256"
+          }
+        },
+        {
+          "id": "2395:110784",
+          "key": "data-rating-impact",
+          "title": "Влияние на каталог",
+          "section": "Rating",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-110784",
+          "english": {
+            "id": "2395:117375",
+            "key": "data-rating-impact",
+            "title": "Catalog impact",
+            "section": "Rating",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-117375"
+          }
+        },
+        {
+          "id": "2395:110904",
+          "key": "data-rating-review",
+          "title": "Публикация методики",
+          "section": "Rating",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-110904",
+          "english": {
+            "id": "2395:117495",
+            "key": "data-rating-review",
+            "title": "Publish methodology",
+            "section": "Rating",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-117495"
+          }
+        },
+        {
+          "id": "2395:110999",
+          "key": "data-rating-applying",
+          "title": "Методика публикуется",
+          "section": "Rating",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-110999",
+          "english": {
+            "id": "2395:117590",
+            "key": "data-rating-applying",
+            "title": "Publishing methodology",
+            "section": "Rating",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-117590"
+          }
+        },
+        {
+          "id": "2395:111081",
+          "key": "data-rating-applied",
+          "title": "Методика опубликована",
+          "section": "Rating",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-111081",
+          "english": {
+            "id": "2395:117672",
+            "key": "data-rating-applied",
+            "title": "Methodology published",
+            "section": "Rating",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-117672"
+          }
+        },
+        {
+          "id": "2395:111776",
+          "key": "data-rating-unknown",
+          "title": "Результат публикации неизвестен",
+          "section": "Rating",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-111776",
+          "english": {
+            "id": "2395:118367",
+            "key": "data-rating-unknown",
+            "title": "Publication result unknown",
+            "section": "Rating",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-118367"
+          }
+        },
+        {
+          "id": "2395:111858",
+          "key": "data-rating-history",
+          "title": "История методик",
+          "section": "Rating",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-111858",
+          "english": {
+            "id": "2395:118449",
+            "key": "data-rating-history",
+            "title": "Methodology history",
+            "section": "Rating",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-118449"
+          }
+        },
+        {
+          "id": "2395:111950",
+          "key": "data-rating-rollback",
+          "title": "Восстановить предыдущие правила",
+          "section": "Rating",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-111950",
+          "english": {
+            "id": "2395:118541",
+            "key": "data-rating-rollback",
+            "title": "Restore previous rules",
+            "section": "Rating",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-118541"
+          }
+        },
+        {
+          "id": "2395:112037",
+          "key": "data-rating-restoring",
+          "title": "Восстановление методики",
+          "section": "Rating",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-112037",
+          "english": {
+            "id": "2395:118628",
+            "key": "data-rating-restoring",
+            "title": "Restoring methodology",
+            "section": "Rating",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-118628"
+          }
+        },
+        {
+          "id": "2395:112119",
+          "key": "data-rating-restored",
+          "title": "Предыдущие правила восстановлены",
+          "section": "Rating",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-112119",
+          "english": {
+            "id": "2395:118710",
+            "key": "data-rating-restored",
+            "title": "Previous rules restored",
+            "section": "Rating",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-118710"
+          }
+        },
+        {
+          "id": "2395:112218",
+          "key": "data-results",
+          "title": "Результаты обработки",
+          "section": "Results",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-112218",
+          "english": {
+            "id": "2395:118809",
+            "key": "data-results",
+            "title": "Processing results",
+            "section": "Results",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-118809"
+          }
+        },
+        {
+          "id": "2395:112343",
+          "key": "data-trader",
+          "title": "Диагностика трейдера",
+          "section": "Results",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-112343",
+          "english": {
+            "id": "2395:118934",
+            "key": "data-trader",
+            "title": "Trader diagnostics",
+            "section": "Results",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-118934"
+          }
+        },
+        {
+          "id": "2395:112465",
+          "key": "data-view-only",
+          "title": "Просмотр данных",
+          "section": "Overview",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-112465",
+          "english": {
+            "id": "2395:119056",
+            "key": "data-view-only",
+            "title": "View data",
+            "section": "Overview",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-119056"
+          }
+        },
+        {
+          "id": "2395:112579",
+          "key": "data-no-access",
+          "title": "Нет доступа к данным",
+          "section": "Overview",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-112579",
+          "english": {
+            "id": "2395:119170",
+            "key": "data-no-access",
+            "title": "Data access denied",
+            "section": "Overview",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-119170"
+          }
+        },
+        {
+          "id": "2395:112642",
+          "key": "data-results-r2",
+          "title": "Результаты по новой методике",
+          "section": "Results",
+          "height": 1200,
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-112642",
+          "english": {
+            "id": "2395:119233",
+            "key": "data-results-r2",
+            "title": "Results under the new methodology",
+            "section": "Results",
+            "height": 1200,
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-119233"
+          }
+        }
+      ],
+      "status": "На вычитке",
       "mapNodeId": "2105:5809"
     },
     {
@@ -695,9 +1630,373 @@
       "id": "ADM-09",
       "title": "Поддержка",
       "group": "Коммуникации",
-      "description": "Обращения, переписка, назначение, связь с пользователем и сессией.",
-      "screens": [],
-      "status": "Запланировано",
+      "description": "Очередь, public reply/staff-only note, назначения, delivery states и безопасный user/session context.",
+      "screens": [
+        {
+          "id": "2185:21070",
+          "key": "support",
+          "title": "RU · support · Поддержка",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2185-21070",
+          "english": {
+            "id": "2188:84282",
+            "title": "EN · support · Support",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-84282"
+          }
+        },
+        {
+          "id": "2185:21286",
+          "key": "support-filtered",
+          "title": "RU · support-filtered · Поддержка · ожидают ответа",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2185-21286",
+          "english": {
+            "id": "2188:84494",
+            "title": "EN · support-filtered · Support · waiting for a reply",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-84494"
+          }
+        },
+        {
+          "id": "2185:21482",
+          "key": "support-empty",
+          "title": "RU · support-empty · Обращений не найдено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2185-21482",
+          "english": {
+            "id": "2188:84685",
+            "title": "EN · support-empty · No tickets found",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-84685"
+          }
+        },
+        {
+          "id": "2185:21662",
+          "key": "support-load-error",
+          "title": "RU · support-load-error · Очередь временно недоступна",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2185-21662",
+          "english": {
+            "id": "2188:84865",
+            "title": "EN · support-load-error · Ticket queue temporarily unavailable",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-84865"
+          }
+        },
+        {
+          "id": "2185:21842",
+          "key": "support-page2",
+          "title": "RU · support-page2 · Поддержка · страница 2",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2185-21842",
+          "english": {
+            "id": "2188:85045",
+            "title": "EN · support-page2 · Support · page 2",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-85045"
+          }
+        },
+        {
+          "id": "2185:22038",
+          "key": "support-ticket",
+          "title": "RU · support-ticket · TKT-1042 · пропускаются покупки",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2185-22038",
+          "english": {
+            "id": "2188:85241",
+            "title": "EN · support-ticket · TKT-1042 · buys are being skipped",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-85241"
+          }
+        },
+        {
+          "id": "2185:22203",
+          "key": "support-general",
+          "title": "RU · support-general · TKT-1050 · общий вопрос",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2185-22203",
+          "english": {
+            "id": "2188:85409",
+            "title": "EN · support-general · TKT-1050 · general question",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-85409"
+          }
+        },
+        {
+          "id": "2185:22354",
+          "key": "support-limitless",
+          "title": "RU · support-limitless · TKT-1046 · рынки Limitless",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2185-22354",
+          "english": {
+            "id": "2188:85543",
+            "title": "EN · support-limitless · TKT-1046 · Limitless markets",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-85543"
+          }
+        },
+        {
+          "id": "2186:22083",
+          "key": "support-reply-draft",
+          "title": "RU · support-reply-draft · TKT-1042 · ответ клиенту",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2186-22083",
+          "english": {
+            "id": "2188:85677",
+            "title": "EN · support-reply-draft · TKT-1042 · reply to user",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-85677"
+          }
+        },
+        {
+          "id": "2186:22248",
+          "key": "support-reply-sending",
+          "title": "RU · support-reply-sending · TKT-1042 · отправляем ответ",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2186-22248",
+          "english": {
+            "id": "2188:85842",
+            "title": "EN · support-reply-sending · TKT-1042 · sending reply",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-85842"
+          }
+        },
+        {
+          "id": "2186:22424",
+          "key": "support-reply-sent",
+          "title": "RU · support-reply-sent · TKT-1042 · ответ отправлен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2186-22424",
+          "english": {
+            "id": "2188:86018",
+            "title": "EN · support-reply-sent · TKT-1042 · reply sent",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-86018"
+          }
+        },
+        {
+          "id": "2186:22593",
+          "key": "support-reply-failed",
+          "title": "RU · support-reply-failed · TKT-1042 · ответ не отправлен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2186-22593",
+          "english": {
+            "id": "2188:86190",
+            "title": "EN · support-reply-failed · TKT-1042 · reply failed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-86190"
+          }
+        },
+        {
+          "id": "2186:22758",
+          "key": "support-reply-unknown",
+          "title": "RU · support-reply-unknown · TKT-1042 · результат отправки неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2186-22758",
+          "english": {
+            "id": "2188:86355",
+            "title": "EN · support-reply-unknown · TKT-1042 · send result unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-86355"
+          }
+        },
+        {
+          "id": "2186:22924",
+          "key": "support-note-draft",
+          "title": "RU · support-note-draft · TKT-1042 · внутренняя заметка",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2186-22924",
+          "english": {
+            "id": "2188:86521",
+            "title": "EN · support-note-draft · TKT-1042 · internal note",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-86521"
+          }
+        },
+        {
+          "id": "2186:23089",
+          "key": "support-note-saved",
+          "title": "RU · support-note-saved · TKT-1042 · заметка сохранена",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2186-23089",
+          "english": {
+            "id": "2188:86686",
+            "title": "EN · support-note-saved · TKT-1042 · note saved",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-86686"
+          }
+        },
+        {
+          "id": "2186:23258",
+          "key": "support-assignment",
+          "title": "RU · support-assignment · Назначить ответственного",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2186-23258",
+          "english": {
+            "id": "2188:86858",
+            "title": "EN · support-assignment · Assign a staff member",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-86858"
+          }
+        },
+        {
+          "id": "2187:22966",
+          "key": "support-assigned",
+          "title": "RU · support-assigned · TKT-1042 · ответственный изменён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2187-22966",
+          "english": {
+            "id": "2188:86969",
+            "title": "EN · support-assigned · TKT-1042 · assignment updated",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-86969"
+          }
+        },
+        {
+          "id": "2187:23135",
+          "key": "support-conflict",
+          "title": "RU · support-conflict · Обращение изменилось",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2187-23135",
+          "english": {
+            "id": "2188:87137",
+            "title": "EN · support-conflict · Ticket changed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-87137"
+          }
+        },
+        {
+          "id": "2187:23231",
+          "key": "support-status",
+          "title": "RU · support-status · Изменить статус обращения",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2187-23231",
+          "english": {
+            "id": "2188:87233",
+            "title": "EN · support-status · Change ticket status",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-87233"
+          }
+        },
+        {
+          "id": "2187:23342",
+          "key": "support-waiting-user",
+          "title": "RU · support-waiting-user · TKT-1042 · ждём клиента",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2187-23342",
+          "english": {
+            "id": "2188:87344",
+            "title": "EN · support-waiting-user · TKT-1042 · waiting for user",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-87344"
+          }
+        },
+        {
+          "id": "2187:23514",
+          "key": "support-resolved",
+          "title": "RU · support-resolved · TKT-1042 · вопрос разрешён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2187-23514",
+          "english": {
+            "id": "2188:87516",
+            "title": "EN · support-resolved · TKT-1042 · issue resolved",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-87516"
+          }
+        },
+        {
+          "id": "2187:23670",
+          "key": "support-closed",
+          "title": "RU · support-closed · TKT-1042 · обращение закрыто",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2187-23670",
+          "english": {
+            "id": "2188:87672",
+            "title": "EN · support-closed · TKT-1042 · ticket closed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-87672"
+          }
+        },
+        {
+          "id": "2187:23822",
+          "key": "support-reopened",
+          "title": "RU · support-reopened · TKT-1042 · обращение возобновлено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2187-23822",
+          "english": {
+            "id": "2188:87824",
+            "title": "EN · support-reopened · TKT-1042 · ticket reopened",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-87824"
+          }
+        },
+        {
+          "id": "2187:23990",
+          "key": "support-readonly",
+          "title": "RU · support-readonly · TKT-1042 · только просмотр",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2187-23990",
+          "english": {
+            "id": "2188:87992",
+            "title": "EN · support-readonly · TKT-1042 · read only",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-87992"
+          }
+        },
+        {
+          "id": "2188:23792",
+          "key": "support-no-access",
+          "title": "RU · support-no-access · Нет доступа к обращению",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-23792",
+          "english": {
+            "id": "2188:88157",
+            "title": "EN · support-no-access · No access to this ticket",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-88157"
+          }
+        },
+        {
+          "id": "2188:23888",
+          "key": "support-user-context",
+          "title": "RU · support-user-context · Пользователь обращения",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-23888",
+          "english": {
+            "id": "2188:88253",
+            "title": "EN · support-user-context · Ticket user",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-88253"
+          }
+        },
+        {
+          "id": "2188:23990",
+          "key": "support-session-context",
+          "title": "RU · support-session-context · Связанная сессия",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-23990",
+          "english": {
+            "id": "2188:88355",
+            "title": "EN · support-session-context · Linked session",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-88355"
+          }
+        },
+        {
+          "id": "2188:24088",
+          "key": "support-audit",
+          "title": "RU · support-audit · История обращения",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-24088",
+          "english": {
+            "id": "2188:88453",
+            "title": "EN · support-audit · Ticket audit history",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-88453"
+          }
+        },
+        {
+          "id": "2188:24187",
+          "key": "support-context-unavailable",
+          "title": "RU · support-context-unavailable · Контекст недоступен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-24187",
+          "english": {
+            "id": "2188:88552",
+            "title": "EN · support-context-unavailable · Context unavailable",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-88552"
+          }
+        },
+        {
+          "id": "2188:24283",
+          "key": "support-general-draft",
+          "title": "RU · support-general-draft · TKT-1050 · ответ клиенту",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-24283",
+          "english": {
+            "id": "2188:88648",
+            "title": "EN · support-general-draft · TKT-1050 · reply to user",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-88648"
+          }
+        },
+        {
+          "id": "2188:24414",
+          "key": "support-general-sent",
+          "title": "RU · support-general-sent · TKT-1050 · ответ отправлен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-24414",
+          "english": {
+            "id": "2188:88779",
+            "title": "EN · support-general-sent · TKT-1050 · reply sent",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-88779"
+          }
+        },
+        {
+          "id": "2188:24552",
+          "key": "support-limitless-draft",
+          "title": "RU · support-limitless-draft · TKT-1046 · ответ клиенту",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-24552",
+          "english": {
+            "id": "2188:88917",
+            "title": "EN · support-limitless-draft · TKT-1046 · reply to user",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-88917"
+          }
+        },
+        {
+          "id": "2188:24683",
+          "key": "support-limitless-sent",
+          "title": "RU · support-limitless-sent · TKT-1046 · ответ отправлен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-24683",
+          "english": {
+            "id": "2188:89048",
+            "title": "EN · support-limitless-sent · TKT-1046 · reply sent",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-89048"
+          }
+        }
+      ],
+      "status": "Частично · на вычитке",
       "mapNodeId": "2105:5829"
     },
     {
@@ -1325,7 +2624,7 @@
       "id": "ADM-14",
       "title": "Сотрудники и доступ",
       "group": "Управление",
-      "description": "Роли и административный отзыв доступа; личный профиль, язык, безопасность и свои сессии каждого сотрудника.",
+      "description": "Роли и административный отзыв доступа; собственный аккаунт: обзор → личные данные, безопасность, устройства/сессии, интерфейс и права. Меню аватара: аккаунт / выход.",
       "screens": [
         {
           "id": "2110:6876",
@@ -1682,11 +2981,11 @@
         {
           "id": "2155:19298",
           "key": "my-profile",
-          "title": "Мой профиль",
+          "title": "Мой аккаунт",
           "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-19298",
           "english": {
             "id": "2155:79040",
-            "title": "EN · my-profile · My profile",
+            "title": "My account",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-79040"
           }
         },
@@ -1726,11 +3025,11 @@
         {
           "id": "2155:19768",
           "key": "profile-language",
-          "title": "Язык интерфейса",
+          "title": "Настройки интерфейса",
           "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-19768",
           "english": {
             "id": "2155:79510",
-            "title": "EN · profile-language · Interface language",
+            "title": "Interface preferences",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-79510"
           }
         },
@@ -1759,11 +3058,11 @@
         {
           "id": "2155:20103",
           "key": "profile-access",
-          "title": "Моя роль и доступ",
+          "title": "Мои права",
           "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-20103",
           "english": {
             "id": "2155:79845",
-            "title": "EN · profile-access · My role and access",
+            "title": "My permissions",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-79845"
           }
         },
@@ -2001,11 +3300,11 @@
         {
           "id": "2155:78240",
           "key": "my-sessions",
-          "title": "Мои сессии",
+          "title": "Устройства и сессии",
           "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-78240",
           "english": {
             "id": "2155:82389",
-            "title": "EN · my-sessions · My sessions",
+            "title": "Devices and sessions",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-82389"
           }
         },
@@ -2095,6 +3394,17 @@
             "id": "2170:79585",
             "title": "EN · mfa-recovery-complete · Sign-in method recovered",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2170-79585"
+          }
+        },
+        {
+          "id": "2258:92779",
+          "key": "language-dropdown-open",
+          "title": "Язык интерфейса · список раскрыт",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2258-92779",
+          "english": {
+            "id": "2258:92949",
+            "title": "Interface language · dropdown open",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2258-92949"
           }
         }
       ],
@@ -2511,9 +3821,384 @@
       "id": "ADM-16",
       "title": "Тексты и языки",
       "group": "Управление",
-      "description": "Каталог, RU/EN, версии, предпросмотр и публикация по правам.",
-      "screens": [],
-      "status": "Запланировано",
+      "description": "Каталог, RU/EN редактор, validation, preview, атомарная публикация, версии/откат, раздельные права и черновик языка.",
+      "screens": [
+        {
+          "id": "2337:26585",
+          "key": "content-catalog",
+          "title": "Тексты и языки",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2337-26585",
+          "english": {
+            "id": "2340:95732",
+            "title": "Texts and languages",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-95732"
+          }
+        },
+        {
+          "id": "2337:26858",
+          "key": "content-filtered",
+          "title": "Пропущенные переводы",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2337-26858",
+          "english": {
+            "id": "2340:96010",
+            "title": "Missing translations",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-96010"
+          }
+        },
+        {
+          "id": "2337:27065",
+          "key": "content-empty",
+          "title": "Ничего не найдено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2337-27065",
+          "english": {
+            "id": "2340:96223",
+            "title": "No results",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-96223"
+          }
+        },
+        {
+          "id": "2337:27225",
+          "key": "content-load-error",
+          "title": "Каталог недоступен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2337-27225",
+          "english": {
+            "id": "2340:96383",
+            "title": "Catalog unavailable",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-96383"
+          }
+        },
+        {
+          "id": "2337:27385",
+          "key": "content-editor",
+          "title": "Редактор текста",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2337-27385",
+          "english": {
+            "id": "2340:96543",
+            "title": "Text editor",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-96543"
+          }
+        },
+        {
+          "id": "2337:27573",
+          "key": "content-draft-saved",
+          "title": "Черновик сохранён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2337-27573",
+          "english": {
+            "id": "2340:96731",
+            "title": "Draft saved",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-96731"
+          }
+        },
+        {
+          "id": "2339:27052",
+          "key": "content-missing",
+          "title": "Перевод не заполнен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2339-27052",
+          "english": {
+            "id": "2340:96918",
+            "title": "Translation missing",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-96918"
+          }
+        },
+        {
+          "id": "2339:27282",
+          "key": "content-placeholder-error",
+          "title": "Ошибка переменной",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2339-27282",
+          "english": {
+            "id": "2340:97109",
+            "title": "Placeholder error",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-97109"
+          }
+        },
+        {
+          "id": "2339:27473",
+          "key": "content-length-error",
+          "title": "Текст слишком длинный",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2339-27473",
+          "english": {
+            "id": "2340:97300",
+            "title": "Text exceeds limit",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-97300"
+          }
+        },
+        {
+          "id": "2339:27664",
+          "key": "content-validated",
+          "title": "Переводы проверены",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2339-27664",
+          "english": {
+            "id": "2340:97491",
+            "title": "Translations validated",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-97491"
+          }
+        },
+        {
+          "id": "2339:27855",
+          "key": "content-conflict",
+          "title": "Текст уже изменён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2339-27855",
+          "english": {
+            "id": "2340:97682",
+            "title": "Text changed by another editor",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-97682"
+          }
+        },
+        {
+          "id": "2339:28030",
+          "key": "content-preview",
+          "title": "Предпросмотр текста",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2339-28030",
+          "english": {
+            "id": "2340:97857",
+            "title": "Text preview",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-97857"
+          }
+        },
+        {
+          "id": "2339:93266",
+          "key": "content-publish-review",
+          "title": "Публикация языкового набора",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2339-93266",
+          "english": {
+            "id": "2341:27482",
+            "title": "Publish language bundle",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-27482"
+          }
+        },
+        {
+          "id": "2339:93444",
+          "key": "content-publishing",
+          "title": "Публикация выполняется",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2339-93444",
+          "english": {
+            "id": "2341:27699",
+            "title": "Publication in progress",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-27699"
+          }
+        },
+        {
+          "id": "2339:93611",
+          "key": "content-published",
+          "title": "Набор опубликован",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2339-93611",
+          "english": {
+            "id": "2341:27866",
+            "title": "Bundle published",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-27866"
+          }
+        },
+        {
+          "id": "2339:93778",
+          "key": "content-publish-error",
+          "title": "Публикация не выполнена",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2339-93778",
+          "english": {
+            "id": "2341:28033",
+            "title": "Publication failed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-28033"
+          }
+        },
+        {
+          "id": "2339:93945",
+          "key": "content-publish-unknown",
+          "title": "Результат публикации неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2339-93945",
+          "english": {
+            "id": "2341:28200",
+            "title": "Publication result unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-28200"
+          }
+        },
+        {
+          "id": "2339:94112",
+          "key": "content-history",
+          "title": "История версий",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2339-94112",
+          "english": {
+            "id": "2341:28367",
+            "title": "Version history",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-28367"
+          }
+        },
+        {
+          "id": "2340:27848",
+          "key": "content-version",
+          "title": "Версия B-12",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-27848",
+          "english": {
+            "id": "2341:28535",
+            "title": "Version B-12",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-28535"
+          }
+        },
+        {
+          "id": "2340:28060",
+          "key": "content-rollback-review",
+          "title": "Откат новой публикацией",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-28060",
+          "english": {
+            "id": "2341:28708",
+            "title": "Restore through a new publication",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-28708"
+          }
+        },
+        {
+          "id": "2340:28238",
+          "key": "content-rollback-pending",
+          "title": "Восстановление выполняется",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-28238",
+          "english": {
+            "id": "2341:28885",
+            "title": "Restoration in progress",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-28885"
+          }
+        },
+        {
+          "id": "2340:28405",
+          "key": "content-rollback-done",
+          "title": "Значения восстановлены",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-28405",
+          "english": {
+            "id": "2341:29052",
+            "title": "Values restored",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-29052"
+          }
+        },
+        {
+          "id": "2340:28572",
+          "key": "content-readonly",
+          "title": "Просмотр текста",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-28572",
+          "english": {
+            "id": "2341:29219",
+            "title": "View text",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-29219"
+          }
+        },
+        {
+          "id": "2340:28762",
+          "key": "content-no-access",
+          "title": "Нет доступа к текстам",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-28762",
+          "english": {
+            "id": "2341:29409",
+            "title": "Content access denied",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-29409"
+          }
+        },
+        {
+          "id": "2340:28922",
+          "key": "content-locales",
+          "title": "Языки проекта",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-28922",
+          "english": {
+            "id": "2341:96924",
+            "title": "Project languages",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-96924"
+          }
+        },
+        {
+          "id": "2340:29094",
+          "key": "content-locale-form",
+          "title": "Новый язык · черновик",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-29094",
+          "english": {
+            "id": "2341:97096",
+            "title": "New language · draft",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-97096"
+          }
+        },
+        {
+          "id": "2340:29285",
+          "key": "content-locale-draft",
+          "title": "Черновик языка сохранён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-29285",
+          "english": {
+            "id": "2341:97287",
+            "title": "Language draft saved",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-97287"
+          }
+        },
+        {
+          "id": "2340:29460",
+          "key": "content-history-restored",
+          "title": "История после восстановления",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-29460",
+          "english": {
+            "id": "2341:97462",
+            "title": "History after restoration",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-97462"
+          }
+        },
+        {
+          "id": "2340:29632",
+          "key": "content-preview-previous",
+          "title": "Предпросмотр B-12",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-29632",
+          "english": {
+            "id": "2341:97634",
+            "title": "Preview B-12",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-97634"
+          }
+        },
+        {
+          "id": "2340:29822",
+          "key": "content-view-catalog",
+          "title": "Пустой каталог",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-29822",
+          "english": {
+            "id": "2341:97824",
+            "title": "Empty catalog",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-97824"
+          }
+        },
+        {
+          "id": "2340:29986",
+          "key": "content-view-support",
+          "title": "Ответ отправлен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-29986",
+          "english": {
+            "id": "2341:97988",
+            "title": "Reply sent",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-97988"
+          }
+        },
+        {
+          "id": "2340:30150",
+          "key": "content-view-onboarding",
+          "title": "Подключение кошелька",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-30150",
+          "english": {
+            "id": "2341:98152",
+            "title": "Wallet connection",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-98152"
+          }
+        },
+        {
+          "id": "2340:30314",
+          "key": "content-edit-only",
+          "title": "Редактирование без публикации",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-30314",
+          "english": {
+            "id": "2341:98316",
+            "title": "Editing without publication",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-98316"
+          }
+        },
+        {
+          "id": "2340:30501",
+          "key": "content-preview-edit-only",
+          "title": "Предпросмотр без публикации",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-30501",
+          "english": {
+            "id": "2341:98503",
+            "title": "Preview without publication",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-98503"
+          }
+        }
+      ],
+      "status": "Макеты есть · на вычитке",
       "mapNodeId": "2105:5859"
     },
     {
@@ -2981,9 +4666,417 @@
       "id": "ADM-18",
       "title": "Маркетинг",
       "group": "Коммуникации",
-      "description": "Объявления в приложении, аудитория, расписание, доставка. Публикация по правам.",
-      "screens": [],
-      "status": "Запланировано",
+      "description": "37 RU/EN: объявления, редактор, аудитория, расписание, публикация, доставка, пауза, историческая доставка, версии и права. Только in-app.",
+      "screens": [
+        {
+          "id": "2376:29545",
+          "key": "marketing-list",
+          "title": "Маркетинг",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2376-29545",
+          "english": {
+            "id": "2378:102168",
+            "title": "Marketing",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-102168"
+          }
+        },
+        {
+          "id": "2376:29744",
+          "key": "marketing-filtered",
+          "title": "Запланированные объявления",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2376-29744",
+          "english": {
+            "id": "2378:102365",
+            "title": "Scheduled announcements",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-102365"
+          }
+        },
+        {
+          "id": "2376:29923",
+          "key": "marketing-empty",
+          "title": "Объявлений нет",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2376-29923",
+          "english": {
+            "id": "2378:102544",
+            "title": "No announcements",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-102544"
+          }
+        },
+        {
+          "id": "2376:30044",
+          "key": "marketing-load-error",
+          "title": "Не удалось загрузить объявления",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2376-30044",
+          "english": {
+            "id": "2378:102665",
+            "title": "Announcements unavailable",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-102665"
+          }
+        },
+        {
+          "id": "2376:30165",
+          "key": "marketing-editor",
+          "title": "Новое объявление",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2376-30165",
+          "english": {
+            "id": "2378:102786",
+            "title": "New announcement",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-102786"
+          }
+        },
+        {
+          "id": "2376:30363",
+          "key": "marketing-draft-saved",
+          "title": "Черновик сохранён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2376-30363",
+          "english": {
+            "id": "2378:102984",
+            "title": "Draft saved",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-102984"
+          }
+        },
+        {
+          "id": "2376:30564",
+          "key": "marketing-invalid",
+          "title": "Заполните перевод",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2376-30564",
+          "english": {
+            "id": "2378:103185",
+            "title": "Complete the translation",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-103185"
+          }
+        },
+        {
+          "id": "2376:30765",
+          "key": "marketing-validated",
+          "title": "Объявление проверено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2376-30765",
+          "english": {
+            "id": "2378:103386",
+            "title": "Announcement validated",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-103386"
+          }
+        },
+        {
+          "id": "2376:30966",
+          "key": "marketing-audience",
+          "title": "Проверка аудитории",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2376-30966",
+          "english": {
+            "id": "2378:103587",
+            "title": "Audience eligibility",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-103587"
+          }
+        },
+        {
+          "id": "2376:31133",
+          "key": "marketing-policy-blocked",
+          "title": "Правило согласия не задано",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2376-31133",
+          "english": {
+            "id": "2378:103754",
+            "title": "Consent rule not configured",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-103754"
+          }
+        },
+        {
+          "id": "2376:31273",
+          "key": "marketing-preview",
+          "title": "Предпросмотр объявления",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2376-31273",
+          "english": {
+            "id": "2378:103894",
+            "title": "Announcement preview",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-103894"
+          }
+        },
+        {
+          "id": "2376:31421",
+          "key": "marketing-test",
+          "title": "Тестовый просмотр",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2376-31421",
+          "english": {
+            "id": "2378:104042",
+            "title": "Test view",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-104042"
+          }
+        },
+        {
+          "id": "2378:30633",
+          "key": "marketing-publish-review",
+          "title": "Публикация объявления",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-30633",
+          "english": {
+            "id": "2378:104190",
+            "title": "Publish announcement",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-104190"
+          }
+        },
+        {
+          "id": "2378:30768",
+          "key": "marketing-publishing",
+          "title": "Публикация выполняется",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-30768",
+          "english": {
+            "id": "2378:104323",
+            "title": "Publishing",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-104323"
+          }
+        },
+        {
+          "id": "2378:30896",
+          "key": "marketing-active",
+          "title": "Объявление активно",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-30896",
+          "english": {
+            "id": "2378:104451",
+            "title": "Announcement active",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-104451"
+          }
+        },
+        {
+          "id": "2378:31051",
+          "key": "marketing-schedule",
+          "title": "Расписание объявления",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-31051",
+          "english": {
+            "id": "2378:104606",
+            "title": "Announcement schedule",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-104606"
+          }
+        },
+        {
+          "id": "2378:31188",
+          "key": "marketing-schedule-review",
+          "title": "Подтверждение расписания",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-31188",
+          "english": {
+            "id": "2378:104743",
+            "title": "Review schedule",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-104743"
+          }
+        },
+        {
+          "id": "2378:31321",
+          "key": "marketing-scheduled",
+          "title": "Объявление запланировано",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-31321",
+          "english": {
+            "id": "2378:104876",
+            "title": "Announcement scheduled",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-104876"
+          }
+        },
+        {
+          "id": "2378:31455",
+          "key": "marketing-scheduler-blocked",
+          "title": "Запуск заблокирован",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-31455",
+          "english": {
+            "id": "2378:105010",
+            "title": "Scheduled launch blocked",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-105010"
+          }
+        },
+        {
+          "id": "2378:31583",
+          "key": "marketing-publish-failed",
+          "title": "Публикация не выполнена",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-31583",
+          "english": {
+            "id": "2378:105138",
+            "title": "Publication failed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-105138"
+          }
+        },
+        {
+          "id": "2378:31711",
+          "key": "marketing-unknown",
+          "title": "Результат публикации неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-31711",
+          "english": {
+            "id": "2378:105266",
+            "title": "Publication result unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-105266"
+          }
+        },
+        {
+          "id": "2378:31839",
+          "key": "marketing-delivery",
+          "title": "Доставка и прочтение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-31839",
+          "english": {
+            "id": "2378:105394",
+            "title": "Delivery and reading",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-105394"
+          }
+        },
+        {
+          "id": "2378:32009",
+          "key": "marketing-delivery-unknown",
+          "title": "Неизвестная доставка",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-32009",
+          "english": {
+            "id": "2378:105564",
+            "title": "Unknown delivery",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-105564"
+          }
+        },
+        {
+          "id": "2378:32179",
+          "key": "marketing-pause-confirm",
+          "title": "Приостановить объявление",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-32179",
+          "english": {
+            "id": "2378:105734",
+            "title": "Pause announcement",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-105734"
+          }
+        },
+        {
+          "id": "2378:100353",
+          "key": "marketing-pausing",
+          "title": "Пауза применяется",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-100353",
+          "english": {
+            "id": "2378:105867",
+            "title": "Applying pause",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-105867"
+          }
+        },
+        {
+          "id": "2378:100481",
+          "key": "marketing-paused",
+          "title": "Объявление приостановлено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-100481",
+          "english": {
+            "id": "2378:105995",
+            "title": "Announcement paused",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-105995"
+          }
+        },
+        {
+          "id": "2378:100636",
+          "key": "marketing-pause-failed",
+          "title": "Пауза не применена",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-100636",
+          "english": {
+            "id": "2378:106150",
+            "title": "Pause failed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-106150"
+          }
+        },
+        {
+          "id": "2378:100764",
+          "key": "marketing-history",
+          "title": "История объявления",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-100764",
+          "english": {
+            "id": "2378:106278",
+            "title": "Announcement history",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-106278"
+          }
+        },
+        {
+          "id": "2378:100906",
+          "key": "marketing-version",
+          "title": "Предыдущая версия A-1",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-100906",
+          "english": {
+            "id": "2378:106420",
+            "title": "Previous version A-1",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-106420"
+          }
+        },
+        {
+          "id": "2378:101035",
+          "key": "marketing-revision",
+          "title": "Черновик на основе A-1",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-101035",
+          "english": {
+            "id": "2378:106549",
+            "title": "Draft based on A-1",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-106549"
+          }
+        },
+        {
+          "id": "2378:101229",
+          "key": "marketing-readonly",
+          "title": "Просмотр объявления",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-101229",
+          "english": {
+            "id": "2378:106743",
+            "title": "View announcement",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-106743"
+          }
+        },
+        {
+          "id": "2378:101372",
+          "key": "marketing-no-access",
+          "title": "Нет доступа к маркетингу",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-101372",
+          "english": {
+            "id": "2378:106886",
+            "title": "Marketing access denied",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-106886"
+          }
+        },
+        {
+          "id": "2378:101493",
+          "key": "marketing-edit-only",
+          "title": "Редактирование без публикации",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-101493",
+          "english": {
+            "id": "2378:107007",
+            "title": "Edit without publication",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-107007"
+          }
+        },
+        {
+          "id": "2378:101690",
+          "key": "marketing-ended",
+          "title": "Период объявления завершён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-101690",
+          "english": {
+            "id": "2378:107204",
+            "title": "Announcement ended",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-107204"
+          }
+        },
+        {
+          "id": "2378:101845",
+          "key": "marketing-revision-saved",
+          "title": "Новый черновик сохранён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-101845",
+          "english": {
+            "id": "2378:107359",
+            "title": "New draft saved",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-107359"
+          }
+        },
+        {
+          "id": "2378:101968",
+          "key": "marketing-edit-only-saved",
+          "title": "Сохранено без публикации",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-101968",
+          "english": {
+            "id": "2378:107482",
+            "title": "Saved without publication",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-107482"
+          }
+        },
+        {
+          "id": "2385:33206",
+          "key": "marketing-delivery-paused",
+          "title": "Доставка до паузы",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2385-33206",
+          "english": {
+            "id": "2385:105089",
+            "title": "Delivery before pause",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2385-105089"
+          }
+        }
+      ],
+      "status": "Макеты есть · на вычитке",
       "mapNodeId": "2105:5841"
     }
   ],
@@ -3532,5 +5625,64 @@
       "createdNodeIds": []
     }
   },
-  "package": "package-04"
+  "package": "package-08",
+  "accountMenuOverlays": {
+    "purpose": "Functional prototype assets; not alternative design branches",
+    "ru": {
+      "1000": "2314:52938",
+      "1120": "2314:52949",
+      "1200": "2303:26697"
+    },
+    "en": {
+      "1000": "2314:53240",
+      "1120": "2314:53251",
+      "1200": "2305:53198"
+    }
+  },
+  "marketingQa": "package-08/qa.json",
+  "contextHelp": {
+    "primaryScreensPerLocale": 41,
+    "triggersPerLocale": 45,
+    "detailsOverlays": {
+      "ru": [
+        {
+          "id": "2454:41017",
+          "key": "help-details-global",
+          "title": "Глобальная остановка",
+          "code": "GLOBAL_STOP",
+          "type": "details"
+        },
+        {
+          "id": "2454:41041",
+          "key": "help-details-tech",
+          "title": "Технический режим",
+          "code": "TECH_MODE",
+          "type": "details"
+        }
+      ],
+      "en": [
+        {
+          "id": "2455:41009",
+          "key": "help-details-global",
+          "title": "Global stop",
+          "code": "GLOBAL_STOP",
+          "type": "details"
+        },
+        {
+          "id": "2455:41033",
+          "key": "help-details-tech",
+          "title": "Technical mode",
+          "code": "TECH_MODE",
+          "type": "details"
+        }
+      ]
+    },
+    "evidence": "control-help-2026-10-14/README.md"
+  },
+  "technicalModeRule": {
+    "decision": "ADR-0045",
+    "date": "2026-10-14",
+    "evidence": "technical-mode-full-stop-2026-10-14/manifest.json",
+    "coverage": "Entire user product within selected environment; not a venue subset."
+  }
 }

@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-14",
+  "ruScreens": 41,
+  "enScreens": 41,
+  "triggersPerLocale": 45,
+  "rootFramesPerLocale": 427,
+  "visualRU": "passed",
+  "visualEN": "passed after final shared component change",
+  "manualRU": [
+    "pin global tooltip",
+    "open global details panel",
+    "close details panel",
+    "close tooltip by pressing question icon again",
+    "control states unchanged"
+  ],
+  "notRun": [
+    "all 82 screen manual pass",
+    "complete keyboard pass",
+    "manual EN pass"
+  ],
+  "prototypeDifference": "No close X in tooltip; repeat question click closes. Details panel retains functional X. Production closes via X/Escape/outside.",
+  "defaultStateErrorsEN": []
+}

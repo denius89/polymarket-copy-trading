@@ -1,0 +1,454 @@
+[
+  {
+    "key": "content-catalog",
+    "ru": "Тексты и языки",
+    "en": "Texts and languages",
+    "type": "catalog",
+    "actions": []
+  },
+  {
+    "key": "content-filtered",
+    "ru": "Пропущенные переводы",
+    "en": "Missing translations",
+    "type": "catalog",
+    "actions": []
+  },
+  {
+    "key": "content-empty",
+    "ru": "Ничего не найдено",
+    "en": "No results",
+    "type": "empty",
+    "actions": [
+      [
+        "Сбросить фильтры",
+        "Reset filters",
+        "content-catalog"
+      ]
+    ]
+  },
+  {
+    "key": "content-load-error",
+    "ru": "Каталог недоступен",
+    "en": "Catalog unavailable",
+    "type": "empty",
+    "actions": [
+      [
+        "Повторить загрузку",
+        "Retry loading",
+        "content-catalog"
+      ]
+    ]
+  },
+  {
+    "key": "content-editor",
+    "ru": "Редактор текста",
+    "en": "Text editor",
+    "type": "editor",
+    "actions": [
+      [
+        "Сохранить черновик",
+        "Save draft",
+        "content-draft-saved"
+      ],
+      [
+        "Проверить переводы",
+        "Validate translations",
+        "content-placeholder-error"
+      ]
+    ]
+  },
+  {
+    "key": "content-draft-saved",
+    "ru": "Черновик сохранён",
+    "en": "Draft saved",
+    "type": "editor",
+    "actions": [
+      [
+        "Проверить переводы",
+        "Validate translations",
+        "content-placeholder-error"
+      ]
+    ]
+  },
+  {
+    "key": "content-missing",
+    "ru": "Перевод не заполнен",
+    "en": "Translation missing",
+    "type": "editor",
+    "actions": [
+      [
+        "Заполнить перевод",
+        "Complete translation",
+        "content-validated"
+      ]
+    ]
+  },
+  {
+    "key": "content-placeholder-error",
+    "ru": "Ошибка переменной",
+    "en": "Placeholder error",
+    "type": "editor",
+    "actions": [
+      [
+        "Исправить перевод",
+        "Correct translation",
+        "content-validated"
+      ]
+    ]
+  },
+  {
+    "key": "content-length-error",
+    "ru": "Текст слишком длинный",
+    "en": "Text exceeds limit",
+    "type": "editor",
+    "actions": [
+      [
+        "Использовать короткий текст",
+        "Use shorter text",
+        "content-validated"
+      ]
+    ]
+  },
+  {
+    "key": "content-validated",
+    "ru": "Переводы проверены",
+    "en": "Translations validated",
+    "type": "editor",
+    "actions": [
+      [
+        "Предпросмотр",
+        "Preview",
+        "content-preview"
+      ],
+      [
+        "Подготовить публикацию",
+        "Prepare publication",
+        "content-publish-review"
+      ]
+    ]
+  },
+  {
+    "key": "content-conflict",
+    "ru": "Текст уже изменён",
+    "en": "Text changed by another editor",
+    "type": "conflict",
+    "actions": [
+      [
+        "Загрузить текущую версию",
+        "Load current version",
+        "content-editor"
+      ]
+    ]
+  },
+  {
+    "key": "content-preview",
+    "ru": "Предпросмотр текста",
+    "en": "Text preview",
+    "type": "preview",
+    "actions": [
+      [
+        "К редактору",
+        "Back to editor",
+        "content-validated"
+      ],
+      [
+        "Подготовить публикацию",
+        "Prepare publication",
+        "content-publish-review"
+      ]
+    ]
+  },
+  {
+    "key": "content-publish-review",
+    "ru": "Публикация языкового набора",
+    "en": "Publish language bundle",
+    "type": "review",
+    "actions": [
+      [
+        "Опубликовать набор",
+        "Publish bundle",
+        "content-publishing"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "content-validated"
+      ]
+    ]
+  },
+  {
+    "key": "content-publishing",
+    "ru": "Публикация выполняется",
+    "en": "Publication in progress",
+    "type": "result",
+    "actions": [
+      [
+        "Проверить статус",
+        "Check status",
+        "content-published"
+      ]
+    ]
+  },
+  {
+    "key": "content-published",
+    "ru": "Набор опубликован",
+    "en": "Bundle published",
+    "type": "result",
+    "actions": [
+      [
+        "История версий",
+        "Version history",
+        "content-history"
+      ]
+    ]
+  },
+  {
+    "key": "content-publish-error",
+    "ru": "Публикация не выполнена",
+    "en": "Publication failed",
+    "type": "result",
+    "actions": [
+      [
+        "Повторно проверить набор",
+        "Revalidate bundle",
+        "content-publish-review"
+      ]
+    ]
+  },
+  {
+    "key": "content-publish-unknown",
+    "ru": "Результат публикации неизвестен",
+    "en": "Publication result unknown",
+    "type": "result",
+    "actions": [
+      [
+        "Проверить статус",
+        "Check status",
+        "content-published"
+      ]
+    ]
+  },
+  {
+    "key": "content-history",
+    "ru": "История версий",
+    "en": "Version history",
+    "type": "history",
+    "actions": []
+  },
+  {
+    "key": "content-version",
+    "ru": "Версия B-12",
+    "en": "Version B-12",
+    "type": "version",
+    "actions": [
+      [
+        "Предпросмотр",
+        "Preview",
+        "content-preview-previous"
+      ],
+      [
+        "Вернуть значения B-12",
+        "Restore B-12 values",
+        "content-rollback-review"
+      ]
+    ]
+  },
+  {
+    "key": "content-rollback-review",
+    "ru": "Откат новой публикацией",
+    "en": "Restore through a new publication",
+    "type": "review",
+    "actions": [
+      [
+        "Опубликовать восстановление",
+        "Publish restoration",
+        "content-rollback-pending"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "content-history"
+      ]
+    ]
+  },
+  {
+    "key": "content-rollback-pending",
+    "ru": "Восстановление выполняется",
+    "en": "Restoration in progress",
+    "type": "result",
+    "actions": [
+      [
+        "Проверить статус",
+        "Check status",
+        "content-rollback-done"
+      ]
+    ]
+  },
+  {
+    "key": "content-rollback-done",
+    "ru": "Значения восстановлены",
+    "en": "Values restored",
+    "type": "result",
+    "actions": [
+      [
+        "История версий",
+        "Version history",
+        "content-history-restored"
+      ]
+    ]
+  },
+  {
+    "key": "content-readonly",
+    "ru": "Просмотр текста",
+    "en": "View text",
+    "type": "editor",
+    "actions": [
+      [
+        "История версий",
+        "Version history",
+        "content-history"
+      ]
+    ]
+  },
+  {
+    "key": "content-no-access",
+    "ru": "Нет доступа к текстам",
+    "en": "Content access denied",
+    "type": "empty",
+    "actions": [
+      [
+        "К обзору",
+        "Back to overview",
+        "overview"
+      ]
+    ]
+  },
+  {
+    "key": "content-locales",
+    "ru": "Языки проекта",
+    "en": "Project languages",
+    "type": "locales",
+    "actions": [
+      [
+        "Добавить язык",
+        "Add language",
+        "content-locale-form"
+      ]
+    ]
+  },
+  {
+    "key": "content-locale-form",
+    "ru": "Новый язык · черновик",
+    "en": "New language · draft",
+    "type": "localeForm",
+    "actions": [
+      [
+        "Сохранить черновик",
+        "Save draft",
+        "content-locale-draft"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "content-locales"
+      ]
+    ]
+  },
+  {
+    "key": "content-locale-draft",
+    "ru": "Черновик языка сохранён",
+    "en": "Language draft saved",
+    "type": "locales",
+    "actions": []
+  },
+  {
+    "key": "content-history-restored",
+    "ru": "История после восстановления",
+    "en": "History after restoration",
+    "type": "history",
+    "actions": []
+  },
+  {
+    "key": "content-preview-previous",
+    "ru": "Предпросмотр B-12",
+    "en": "Preview B-12",
+    "type": "preview",
+    "actions": [
+      [
+        "К версии B-12",
+        "Back to B-12",
+        "content-version"
+      ],
+      [
+        "К истории",
+        "Back to history",
+        "content-history"
+      ]
+    ]
+  },
+  {
+    "key": "content-view-catalog",
+    "ru": "Пустой каталог",
+    "en": "Empty catalog",
+    "type": "view",
+    "actions": [
+      [
+        "К каталогу",
+        "Back to catalog",
+        "content-catalog"
+      ]
+    ]
+  },
+  {
+    "key": "content-view-support",
+    "ru": "Ответ отправлен",
+    "en": "Reply sent",
+    "type": "view",
+    "actions": [
+      [
+        "К каталогу",
+        "Back to catalog",
+        "content-catalog"
+      ]
+    ]
+  },
+  {
+    "key": "content-view-onboarding",
+    "ru": "Подключение кошелька",
+    "en": "Wallet connection",
+    "type": "view",
+    "actions": [
+      [
+        "К каталогу",
+        "Back to catalog",
+        "content-catalog"
+      ]
+    ]
+  },
+  {
+    "key": "content-edit-only",
+    "ru": "Редактирование без публикации",
+    "en": "Editing without publication",
+    "type": "editor",
+    "actions": [
+      [
+        "Предпросмотр",
+        "Preview",
+        "content-preview-edit-only"
+      ]
+    ]
+  },
+  {
+    "key": "content-preview-edit-only",
+    "ru": "Предпросмотр без публикации",
+    "en": "Preview without publication",
+    "type": "preview",
+    "actions": [
+      [
+        "К редактору",
+        "Back to editor",
+        "content-edit-only"
+      ]
+    ]
+  }
+]

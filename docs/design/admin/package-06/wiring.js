@@ -1,0 +1,6 @@
+
+const p=await figma.getNodeByIdAsync(PAGE);await figma.setCurrentPageAsync(p);const mutated=[],issues=[];let count=0;
+for(const l of LINKS){const n=await figma.getNodeByIdAsync(l.sourceId),target=TARGETS[l.target];if(!n||!target){issues.push(l);continue;}let root=n;while(root.parent&&root.parent!==p)root=root.parent;if(root.id===target){await n.setReactionsAsync([]);mutated.push(n.id);continue;}await n.setReactionsAsync([{trigger:{type:'ON_CLICK'},actions:[{type:'NODE',destinationId:target,navigation:'NAVIGATE',transition:null}]}]);mutated.push(n.id);count++;}
+for(const f of FRAMES){const side=await figma.getNodeByIdAsync(f.sidebarId);for(const n of side.children.filter(c=>c.type==='INSTANCE')){const key=NAV[n.id.split(';').pop()];if(!key||!TARGETS[key])continue;if(TARGETS[key]===f.id){await n.setReactionsAsync([]);mutated.push(n.id);continue;}await n.setReactionsAsync([{trigger:{type:'ON_CLICK'},actions:[{type:'NODE',destinationId:TARGETS[key],navigation:'NAVIGATE',transition:null}]}]);mutated.push(n.id);count++;}}
+p.flowStartingPoints=[...p.flowStartingPoints.filter(f=>f.nodeId!==TARGETS.support),{nodeId:TARGETS.support,name:LANG.toUpperCase()+' · Support'}];mutated.push(p.id);
+return {mutatedNodeIds:mutated,edgeCount:count,issues};

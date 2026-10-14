@@ -1,4 +1,6 @@
-# Admin UI kit v0.4.5
+# Admin UI kit v0.4.20
+
+Текущий реестр: 28 наборов / 168 вариантов, включая контекстные подсказки ограничений. [Срез на 14.10.2026](../SYNC_2026-10-14.md). Ниже сохранена история изменений.
 
 После [упорядочивания дизайн-системы](../../design-system-consolidation-2026-10-12.md) текущая страница — **08 · Admin UI kit** (`1981:2`). Секция `2097:5418` «Исходные компоненты · сохранять связи» хранит ранние Admin masters (`113:203`), используемые действующими RU/EN экранами. Отдельная витрина `2152:1084` убрана по замечанию владельца. Они перенесены без замены и отсоединения экземпляров; исходный UI kit v0.4.5 остаётся на той же странице.
 
@@ -42,3 +44,52 @@ Shared foundations: Color `VariableCollectionId:2:3`, Dark `2:1`, Light `7:0`; S
 ## Личный кабинет · 0.4.6
 
 Добавлены `Admin/Account button` (Default/Hover/Focus, 44×44) и `Admin/Profile settings row` (Default/Hover/Focus/Disabled, Title/Detail, одна стрелка, перенос текста). 17 семейств / 111 вариантов. Новые source sets находятся в прежней секции «02 · Исходные компоненты»; [витрина экземпляров](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2167-567) — в «03 · Композиции». Иконка заимствована из клиентского header, цветовые токены и Inter общие. Кнопка открывает личный профиль напрямую; язык выбирается в нём. Новый основной sidebar item не добавлен. [Пакет 05](../package-05/README.md).
+
+## Поддержка · 0.4.7
+
+13.10.2026: Support ticket row (4 states), Support message (User/PublicReply/InternalNote). 19 семейств / 118 вариантов state-library, sidebar14. Client/Textarea reused (1978:941), клиентские masters/экраны не менялись; общие Shadow tokens/Inter. [Витрина](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2193-597) · [Контракт](../package-06/support-contract.md).
+
+
+13.10.2026: исправлены заголовки столбцов RU/EN — по 107 новых шапок и 14 уточнённых финансовых таблиц. UI kit 0.4.8: Admin/Table header, варианты Metadata/Support; 20 семейств / 120 вариантов. [Правила, узлы и QA](../table-headers-2026-10-13/README.md).
+
+
+13.10.2026: UI kit 0.4.9 — Admin/Navigation group (12 вариантов RU/EN × open/closed × 3 группы) и Admin/Breadcrumbs. 21 набор вариантов / 132 варианта; Breadcrumbs — отдельный component. Меню активно сгруппировано, ранние плоские пункты скрыты, ID Sidebar сохранён. [Профили и навигация](../profile-navigation-2026-10-13/README.md).
+
+
+13.10.2026: Admin/Section navigation — внутреннее меню для подразделов профиля и настроек, 6 Active variants, общие nav items. Сетка 2 + 10. [Применение и QA](../section-navigation-2026-10-13/README.md).
+
+
+13.10.2026 · UI kit 0.4.11: Admin/Language selector (4 variants) и Admin/Icon/Chevron down. [Контракт выбора языка аккаунта](../language-dropdown-2026-10-13/README.md).
+
+
+13.10.2026 · UI kit 0.4.12: после вставки шапок требуется проверка фактического потока строк и пересчёт auto-layout; двухстрочный пункт аварийного меню занимает 64 px. [Исправления и расширенная приёмка](../table-flow-2026-10-13/README.md).
+
+
+13.10.2026 · UI kit 0.4.13: Show icon=false по умолчанию. Иконку выбирать по действию; универсальную стрелку вправо не показывать на Save/Cancel/Confirm. [Правила и витрина](../button-icons-2026-10-13/README.md).
+
+
+13.10.2026 · UI kit 0.4.14: навигационный пункт имеет минимальную, а не фиксированную высоту 44 px; Label/Icon общие для всех шести состояний. [Проверка sidebar и правило переноса](../sidebar-wrapping-2026-10-13/README.md).
+
+
+13.10.2026: настройки пользователя группируются по сущностям: сведения/доступ клиента, отдельный снимок сессии с footer действия, тариф/VIP и история. [Паттерн и проверка](../user-settings-grouping-2026-10-13/README.md).
+
+
+13.10.2026 · UI kit 0.4.15: [Личный аккаунт — обзор и отдельные страницы](../account-hub-2026-10-13/README.md). Витрина 2316:1132 заменяет удалённую раннюю 2167:567. Меню аватара открывает аккаунт/выход. Admin/Section navigation: порядок 1,2,4,5,3,6, прежние Active keys сохранены. 23 набора / 142 варианта; новой библиотеки или ветки нет.
+
+
+13.10.2026 · UI kit 0.4.16: [контент и локализация](../package-07/README.md), Content key row Default/Hover/Focus + Content table header. 24 набора / 145 вариантов. Шапки и строки metadata таблиц занимают всю ширину; footer выравнивается по внутренним полям. Client/Textarea используется без изменения его masters.
+
+
+## Маркетинг · 0.4.17
+
+13.10.2026: Admin/Announcement row (Default/Hover/Focus) и standalone Announcement table header. 25 наборов / 148 вариантов. Общие tokens, Inter и сетка; ширина 1144, шесть выровненных столбцов. Marketing source nav добавлен в Management. [Пакет и QA](../package-08/README.md) · [Витрина в Figma](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2375-1268).
+
+UI kit 0.4.18: 26 наборов / 158 вариантов. Добавлены Data sections (5 вкладок × RU/EN), Data result row/header с колонками 40/30/30 и полным адресом в 14 px. [Проверки](../package-09/qa.json).
+
+0.4.19: [пакет 10](../package-10/README.md) переиспользует существующие компоненты; добавлены 4 source Nav item instances Ops в Management RU/EN/open/closed. 26 наборов /158 вариантов сохраняются.
+
+
+14.10.2026: [Контекстные подсказки аварийных ограничений](../control-help-2026-10-14/README.md). UI kit 0.4.20; карта 0.12, 427 RU +427 EN.
+
+
+14.10.2026: [правило подписей комиссий](../paper-alpha-fee-clarity-2026-10-14/README.md): Paper Alpha — 0%; 1% только как пример неактивной будущей платной версии. Числовое поле не заменять описанием; пояснение указывать рядом. Компоненты и их версии не менялись.

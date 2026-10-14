@@ -1,5 +1,11 @@
 # Текущая админка — единый дизайн v0.4
 
+Текущий срез 14.10.2026: **427 RU + 427 EN корневых макетов**, из них 422 основных состояния и 5 технических оболочек на язык. Карта 0.12, набор компонентов админки 0.4.20 (28 наборов / 168 вариантов). [Последние решения и передача](../SYNC_2026-10-14.md). Ниже сохранён исторический журнал; его промежуточные числа и версии не заменяют текущий реестр.
+
+13.10.2026: внутреннее меню 2 + 10 применено на 37 RU + 37 EN состояниях личного аккаунта и профилей пользователей. 5 самостоятельных recovery/auth экранов сохранены без меню. UI kit 0.4.10, 22 набора / 138 вариантов. Новых экранов и функций нет; 291 RU + 291 EN. [Контракт и проверки](../section-navigation-2026-10-13/README.md). Пакет локальный; frontend/live не начаты.
+
+13.10.2026: актуально 291 RU + 291 EN. Добавлены профиль Noor, настройки обоих пользователей и отдельный просмотр Operations; группировка меню и breadcrumbs — на 280 экранах с sidebar каждого языка. Две ранние карточки сохранены и дополнены входом в настройки; полная пересборка ждёт согласия после auto-review. [Узлы, проверки и ограничения](../profile-navigation-2026-10-13/README.md). Пакет пока локальный; код/live не начаты.
+
 Актуальный старт: [сценарии RU](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2138-9818&starting-point-node-id=2138-9818&scaling=scale-down) · [EN](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67397&starting-point-node-id=2138-67397&scaling=scale-down). [Пакет 04](../package-04/README.md) и [fixture](../fixtures/README.md). Исторические ссылки пакета 03:
 
 Новые стартовые точки: [подключения](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2109-5830&starting-point-node-id=2109-5830&scaling=scale-down), [сотрудники](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2110-6876&starting-point-node-id=2110-6876&scaling=scale-down), [аварийное управление](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2110-52505&starting-point-node-id=2110-52505&scaling=scale-down).
@@ -25,3 +31,16 @@
 ## Текущий пакет 05 · личный аккаунт
 
 [Профиль RU](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2155-19298&starting-point-node-id=2155-19298&scaling=scale-down) · [EN](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2155-79040&starting-point-node-id=2155-79040&scaling=scale-down). [Материалы](../package-05/README.md). 254 RU + 254 EN; язык выбирается в профиле, UI kit 0.4.6. Исторические счётчики выше относятся к прежним пакетам.
+
+## Поддержка · пакет 06
+
+[Реестр](../package-06/manifest.json) · [Контракт](../package-06/support-contract.md) · [QA](../package-06/qa.json). 33 новых состояния на язык, всего 287 RU + 287 EN. Старые счётчики выше исторические.
+
+
+13.10.2026: исправлены заголовки столбцов RU/EN — по 107 новых шапок и 14 уточнённых финансовых таблиц. UI kit 0.4.8: Admin/Table header, варианты Metadata/Support; 20 семейств / 120 вариантов. [Правила, узлы и QA](../table-headers-2026-10-13/README.md).
+
+
+13.10.2026 · UI kit 0.4.13: Show icon=false по умолчанию. Иконку выбирать по действию; универсальную стрелку вправо не показывать на Save/Cancel/Confirm. [Правила и витрина](../button-icons-2026-10-13/README.md).
+
+
+13.10.2026: настройки пользователя группируются по сущностям: сведения/доступ клиента, отдельный снимок сессии с footer действия, тариф/VIP и история. [Паттерн и проверка](../user-settings-grouping-2026-10-13/README.md).

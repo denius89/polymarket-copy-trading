@@ -1,6 +1,6 @@
-# Admin Apps Components · v0.4.5
+# Admin Apps Components · v0.4.17
 
-Updated 12.10.2026. Design only. Native editable Figma component sets, variants and instances; no application implementation.
+Updated 13.10.2026. Design only. Native editable Figma component sets, variants and instances; no application implementation.
 
 [Open the showcase](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2082-125).
 Existing page: `1981:2`; showcase: `2082:125`, 1600 × 3318. Construction masters remain outside the review frame. No new file, branch or page was created.
@@ -81,3 +81,40 @@ Admin/Metadata row (2137:26727) — отдельный read-only composition mas
 ## Личный кабинет · 0.4.6
 
 Добавлены `Admin/Account button` (Default/Hover/Focus, 44×44) и `Admin/Profile settings row` (Default/Hover/Focus/Disabled, Title/Detail, одна стрелка, перенос текста). 17 семейств / 111 вариантов. Новые source sets находятся в прежней секции «02 · Исходные компоненты»; [витрина экземпляров](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2167-567) — в «03 · Композиции». Иконка заимствована из клиентского header, цветовые токены и Inter общие. Кнопка открывает личный профиль напрямую; язык выбирается в нём. Новый основной sidebar item не добавлен. [Пакет 05](../package-05/README.md).
+
+## Поддержка · 0.4.7
+
+13.10.2026: Support ticket row (4 states), Support message (User/PublicReply/InternalNote). 19 семейств / 118 вариантов state-library, sidebar14. Client/Textarea reused (1978:941), клиентские masters/экраны не менялись; общие Shadow tokens/Inter. [Витрина](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2193-597) · [Контракт](../package-06/support-contract.md).
+
+
+13.10.2026: исправлены заголовки столбцов RU/EN — по 107 новых шапок и 14 уточнённых финансовых таблиц. UI kit 0.4.8: Admin/Table header, варианты Metadata/Support; 20 семейств / 120 вариантов. [Правила, узлы и QA](../table-headers-2026-10-13/README.md).
+
+
+13.10.2026: UI kit 0.4.9 — Admin/Navigation group (12 вариантов RU/EN × open/closed × 3 группы) и Admin/Breadcrumbs. 21 набор вариантов / 132 варианта; Breadcrumbs — отдельный component. Меню активно сгруппировано, ранние плоские пункты скрыты, ID Sidebar сохранён. [Профили и навигация](../profile-navigation-2026-10-13/README.md).
+
+
+13.10.2026: Admin/Section navigation — внутреннее меню для подразделов профиля и настроек, 6 Active variants, общие nav items. Сетка 2 + 10. [Применение и QA](../section-navigation-2026-10-13/README.md).
+
+
+13.10.2026 · UI kit 0.4.11: Admin/Language selector (4 variants) и Admin/Icon/Chevron down. [Контракт выбора языка аккаунта](../language-dropdown-2026-10-13/README.md).
+
+
+13.10.2026 · UI kit 0.4.13: Show icon=false по умолчанию. Иконку выбирать по действию; универсальную стрелку вправо не показывать на Save/Cancel/Confirm. [Правила и витрина](../button-icons-2026-10-13/README.md).
+
+
+13.10.2026 · UI kit 0.4.14: навигационный пункт имеет минимальную, а не фиксированную высоту 44 px; Label/Icon общие для всех шести состояний. [Проверка sidebar и правило переноса](../sidebar-wrapping-2026-10-13/README.md).
+
+
+13.10.2026 · UI kit 0.4.15: [Личный аккаунт — обзор и отдельные страницы](../account-hub-2026-10-13/README.md). Витрина 2316:1132 заменяет удалённую раннюю 2167:567. Меню аватара открывает аккаунт/выход. Admin/Section navigation: порядок 1,2,4,5,3,6, прежние Active keys сохранены. 23 набора / 142 варианта; новой библиотеки или ветки нет.
+
+
+13.10.2026 · UI kit 0.4.16: [контент и локализация](../package-07/README.md), Content key row Default/Hover/Focus + Content table header. 24 набора / 145 вариантов. Шапки и строки metadata таблиц занимают всю ширину; footer выравнивается по внутренним полям. Client/Textarea используется без изменения его masters.
+
+
+## Маркетинг · 0.4.17
+
+13.10.2026: Admin/Announcement row (Default/Hover/Focus) и standalone Announcement table header. 25 наборов / 148 вариантов. Общие tokens, Inter и сетка; ширина 1144, шесть выровненных столбцов. Marketing source nav добавлен в Management. [Пакет и QA](../package-08/README.md) · [Витрина в Figma](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2375-1268).
+
+0.4.18 — Admin/Data sections, Admin/Data result row и header. Ширина таблицы 1144; колонки 425.6 / 319.2 / 319.2; padding 24, gap 16. Адрес целиком, без многоточия; при узком viewport горизонтальная прокрутка. [Пакет](../package-09/README.md).
+
+0.4.19: source Ops navigation — 2414:1452 /1467 RU, 2414:1476 /1491 EN. Связанные экземпляры Nav item; не новая семья. [QA](../package-10/qa.json).

@@ -1,0 +1,17 @@
+
+const page=await figma.getNodeByIdAsync("1981:2");await figma.setCurrentPageAsync(page);
+const created=[],mutated=[],frames=[],links=[];const track=n=>{created.push(n.id);return n;};
+const styles=await figma.getLocalTextStylesAsync(),styleMap=new Map(styles.map(s=>[s.name,s]));for(const s of styles)await figma.loadFontAsync(s.fontName);
+const vs=await figma.variables.getLocalVariablesAsync(),vm=new Map(vs.map(v=>[v.name,v])),vi=new Map(vs.map(v=>[v.id,v]));const cs=await figma.variables.getLocalVariableCollectionsAsync(),cm=new Map(cs.map(c=>[c.id,c]));
+function resolve(v){const c=cm.get(v.variableCollectionId),x=v.valuesByMode[c.modes.find(m=>m.name==='Dark')?.modeId??c.defaultModeId];return x?.type==='VARIABLE_ALIAS'?resolve(vi.get(x.id)):x;}
+function fill(name){const v=vm.get(name),rgb=resolve(v);return figma.variables.setBoundVariableForPaint({type:'SOLID',color:{r:rgb.r,g:rgb.g,b:rgb.b}},'color',v);}
+function bind(n,k,name){n.setBoundVariable(k,vm.get(name));}
+function box(parent,name,dir,w,color){const n=track(figma.createAutoLayout(dir));parent.appendChild(n);n.name=name;n.resize(w,80);n.fills=color?[fill(color)]:[];n.primaryAxisSizingMode=dir==='VERTICAL'?'AUTO':'FIXED';n.counterAxisSizingMode=dir==='VERTICAL'?'FIXED':'AUTO';bind(n,'itemSpacing','spacing/4');return n;}
+function text(parent,label,style='Body/Small',w=parent.width,color='color/text/primary'){const t=track(figma.createText());parent.appendChild(t);t.name=label.slice(0,55);t.textStyleId=styleMap.get(style).id;t.characters=label;t.textAutoResize='HEIGHT';t.resize(w,t.height);t.fills=[fill(color)];return t;}
+const masters={};for(const [key,id]of Object.entries({sidebar:'1981:16',nav:'2032:67',navSelected:'2032:74',primary:'2081:38',secondary:'2081:65',danger:'2081:119',field:'2081:150',fieldError:'2081:155',check:'2081:486',unchecked:'2081:483',disabledCheck:'2081:485',alertInfo:'2081:580',alertSuccess:'2081:581',alertWarning:'2081:582',alertDanger:'2081:583',status:'2081:356',metadata:'2137:26727'}))masters[key]=await figma.getNodeByIdAsync(id);
+function inst(parent,key,props,width){const n=track(masters[key].createInstance());parent.appendChild(n);const vals={};for(const [name,value]of Object.entries(props)){const prop=Object.keys(n.componentProperties).find(p=>p.split('#')[0]===name);if(prop)vals[prop]=value;}n.setProperties(vals);if(width)n.resize(width,n.height);return n;}
+const P=(a,b)=>[a,b];
+const section=await figma.getNodeByIdAsync("2097:5418");const comp=track(figma.createComponent());section.appendChild(comp);comp.name="Admin/Icon/Chevron down";comp.x=1560;comp.y=6510;comp.resize(24,24);comp.fills=[];comp.description="Down disclosure for select and dropdown controls.";
+const svg=figma.createNodeFromSvg('<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 9L12 15L18 9" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');comp.appendChild(svg);created.push(svg.id,...svg.findAll(()=>true).map(n=>n.id));for(const v of svg.findAllWithCriteria({types:["VECTOR"]})){v.strokes=[fill("color/text/primary")];mutated.push(v.id);}
+for(const id of ["2254:1060","2254:1069","2254:1087","2254:1096"]){const n=await figma.getNodeByIdAsync(id);const icon=n.findOne(x=>x.type==="INSTANCE"&&x.name==="Icon");icon.swapComponent(comp);mutated.push(icon.id);}
+const review=await figma.getNodeByIdAsync("2255:92744");await review.screenshot({scale:1});return {createdNodeIds:created,mutatedNodeIds:mutated,iconId:comp.id,reviewId:review.id};

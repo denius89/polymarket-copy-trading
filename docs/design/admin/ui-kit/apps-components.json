@@ -1,6 +1,6 @@
 {
-  "revision": "0.4.6",
-  "updated": "2026-10-12",
+  "revision": "0.4.20",
+  "updated": "2026-10-14",
   "fileKey": "lxPP2um7FvIbt02K8eeH4T",
   "pageId": "1981:2",
   "showcase": {
@@ -9,8 +9,8 @@
     "height": 3318,
     "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2082-125"
   },
-  "componentSetCount": 17,
-  "variantCount": 111,
+  "componentSetCount": 28,
+  "variantCount": 168,
   "components": [
     {
       "id": "2019:16",
@@ -239,7 +239,14 @@
           "id": "2081:333",
           "name": "State=Disabled"
         }
-      ]
+      ],
+      "layoutContract": {
+        "minHeight": 44,
+        "height": "content-dependent in all six states",
+        "labelSizing": "HEIGHT + FILL horizontal",
+        "sharedLabelProperty": "Label#2033:0",
+        "sharedIconProperty": "Icon#2032:2"
+      }
     },
     {
       "id": "2081:44",
@@ -251,7 +258,7 @@
         },
         "Show icon#2081:7": {
           "type": "BOOLEAN",
-          "defaultValue": true
+          "defaultValue": false
         },
         "Icon#2081:14": {
           "type": "INSTANCE_SWAP",
@@ -312,7 +319,7 @@
         },
         "Show icon#2081:28": {
           "type": "BOOLEAN",
-          "defaultValue": true
+          "defaultValue": false
         },
         "Icon#2081:35": {
           "type": "INSTANCE_SWAP",
@@ -373,7 +380,7 @@
         },
         "Show icon#2081:49": {
           "type": "BOOLEAN",
-          "defaultValue": true
+          "defaultValue": false
         },
         "Icon#2081:56": {
           "type": "INSTANCE_SWAP",
@@ -434,7 +441,7 @@
         },
         "Show icon#2081:70": {
           "type": "BOOLEAN",
-          "defaultValue": true
+          "defaultValue": false
         },
         "Icon#2081:77": {
           "type": "INSTANCE_SWAP",
@@ -1043,6 +1050,1130 @@
           "name": "State=Disabled"
         }
       ]
+    },
+    {
+      "id": "2183:625",
+      "name": "Admin/Support ticket row",
+      "properties": {
+        "Title#2183:20": {
+          "type": "TEXT",
+          "defaultValue": "TKT-1042 · Пропускаются покупки"
+        },
+        "Context#2183:21": {
+          "type": "TEXT",
+          "defaultValue": "Амина Рахман · Polymarket · S-CP-041"
+        },
+        "Status#2183:22": {
+          "type": "TEXT",
+          "defaultValue": "Ожидает поддержку"
+        },
+        "Assignee#2183:23": {
+          "type": "TEXT",
+          "defaultValue": "Нора Азиз · 10:12 UTC"
+        },
+        "Updated#2183:24": {
+          "type": "TEXT",
+          "defaultValue": "13 Oct · 10:12"
+        },
+        "State": {
+          "type": "VARIANT",
+          "defaultValue": "Default",
+          "variantOptions": [
+            "Default",
+            "Hover",
+            "Selected",
+            "Focus"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2183:593",
+          "name": "State=Default"
+        },
+        {
+          "id": "2183:601",
+          "name": "State=Hover"
+        },
+        {
+          "id": "2183:609",
+          "name": "State=Selected"
+        },
+        {
+          "id": "2183:617",
+          "name": "State=Focus"
+        }
+      ],
+      "bindings": {
+        "itemSpacing": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:54"
+        },
+        "paddingLeft": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:54"
+        },
+        "paddingTop": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:54"
+        },
+        "paddingRight": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:54"
+        },
+        "paddingBottom": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:54"
+        },
+        "topLeftRadius": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:62"
+        },
+        "topRightRadius": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:62"
+        },
+        "bottomLeftRadius": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:62"
+        },
+        "bottomRightRadius": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:62"
+        },
+        "fills": [
+          {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:2:29"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2183:638",
+      "name": "Admin/Support message",
+      "properties": {
+        "Author#2183:34": {
+          "type": "TEXT",
+          "defaultValue": "Амина Рахман"
+        },
+        "Body#2183:35": {
+          "type": "TEXT",
+          "defaultValue": "Почему покупка трейдера не скопировалась?"
+        },
+        "Meta#2183:36": {
+          "type": "TEXT",
+          "defaultValue": "13 Oct · 10:12 UTC · MSG-1042-A"
+        },
+        "Kind": {
+          "type": "VARIANT",
+          "defaultValue": "User",
+          "variantOptions": [
+            "User",
+            "PublicReply",
+            "InternalNote"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2183:626",
+          "name": "Kind=User"
+        },
+        {
+          "id": "2183:630",
+          "name": "Kind=PublicReply"
+        },
+        {
+          "id": "2183:634",
+          "name": "Kind=InternalNote"
+        }
+      ],
+      "bindings": {
+        "itemSpacing": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:52"
+        },
+        "paddingLeft": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:53"
+        },
+        "paddingTop": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:53"
+        },
+        "paddingRight": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:53"
+        },
+        "paddingBottom": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:53"
+        },
+        "topLeftRadius": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:62"
+        },
+        "topRightRadius": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:62"
+        },
+        "bottomLeftRadius": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:62"
+        },
+        "bottomRightRadius": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:62"
+        },
+        "fills": [
+          {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:2:29"
+          }
+        ],
+        "strokes": [
+          {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:2:32"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2202:642",
+      "name": "Admin/Table header",
+      "type": "COMPONENT_SET",
+      "properties": {
+        "Column 1#2202:6": {
+          "type": "TEXT",
+          "defaultValue": "Параметр"
+        },
+        "Column 2#2202:7": {
+          "type": "TEXT",
+          "defaultValue": "Значение"
+        },
+        "Column 3#2202:8": {
+          "type": "TEXT",
+          "defaultValue": "Примечание"
+        },
+        "Layout": {
+          "type": "VARIANT",
+          "defaultValue": "Metadata",
+          "variantOptions": [
+            "Metadata",
+            "Support"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2202:634",
+          "name": "Layout=Metadata",
+          "width": 1144,
+          "height": 48,
+          "bindings": {
+            "itemSpacing": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:54"
+            },
+            "paddingLeft": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:55"
+            },
+            "paddingTop": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "paddingRight": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:55"
+            },
+            "paddingBottom": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "fills": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:2:29"
+              }
+            ],
+            "strokes": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:2:32"
+              }
+            ]
+          },
+          "children": [
+            {
+              "id": "2202:635",
+              "name": "Column 1",
+              "textStyleId": "S:98976c4e05f7a72e968a80dd149b28b68b1cafaa,",
+              "width": 357.3333435058594,
+              "bindings": {
+                "fills": [
+                  {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:2:34"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "2202:636",
+              "name": "Column 2",
+              "textStyleId": "S:98976c4e05f7a72e968a80dd149b28b68b1cafaa,",
+              "width": 357.3333435058594,
+              "bindings": {
+                "fills": [
+                  {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:2:34"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "2202:637",
+              "name": "Column 3",
+              "textStyleId": "S:98976c4e05f7a72e968a80dd149b28b68b1cafaa,",
+              "width": 357.3333435058594,
+              "bindings": {
+                "fills": [
+                  {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:2:34"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "2202:638",
+          "name": "Layout=Support",
+          "width": 1144,
+          "height": 48,
+          "bindings": {
+            "itemSpacing": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:54"
+            },
+            "paddingLeft": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:54"
+            },
+            "paddingTop": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "paddingRight": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:54"
+            },
+            "paddingBottom": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "fills": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:2:29"
+              }
+            ],
+            "strokes": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:2:32"
+              }
+            ]
+          },
+          "children": [
+            {
+              "id": "2202:639",
+              "name": "Column 1",
+              "textStyleId": "S:98976c4e05f7a72e968a80dd149b28b68b1cafaa,",
+              "width": 660,
+              "bindings": {
+                "fills": [
+                  {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:2:34"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "2202:640",
+              "name": "Column 2",
+              "textStyleId": "S:98976c4e05f7a72e968a80dd149b28b68b1cafaa,",
+              "width": 244,
+              "bindings": {
+                "fills": [
+                  {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:2:34"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "2202:641",
+              "name": "Column 3",
+              "textStyleId": "S:98976c4e05f7a72e968a80dd149b28b68b1cafaa,",
+              "width": 176,
+              "bindings": {
+                "fills": [
+                  {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:2:34"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2207:1223",
+      "name": "Admin/Navigation group",
+      "type": "COMPONENT_SET",
+      "properties": {
+        "Group": {
+          "type": "VARIANT",
+          "defaultValue": "Clients",
+          "variantOptions": [
+            "Clients",
+            "Finance",
+            "Management"
+          ]
+        },
+        "Open": {
+          "type": "VARIANT",
+          "defaultValue": "No",
+          "variantOptions": [
+            "No",
+            "Yes"
+          ]
+        },
+        "Locale": {
+          "type": "VARIANT",
+          "defaultValue": "RU",
+          "variantOptions": [
+            "RU",
+            "EN"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2207:659",
+          "name": "Group=Clients, Open=No, Locale=RU",
+          "width": 208,
+          "height": 44,
+          "bindings": {
+            "itemSpacing": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:51"
+            }
+          }
+        },
+        {
+          "id": "2207:693",
+          "name": "Group=Clients, Open=Yes, Locale=RU",
+          "width": 208,
+          "height": 188,
+          "bindings": {
+            "itemSpacing": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:51"
+            }
+          }
+        },
+        {
+          "id": "2207:727",
+          "name": "Group=Clients, Open=No, Locale=EN",
+          "width": 208,
+          "height": 44,
+          "bindings": {
+            "itemSpacing": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:51"
+            }
+          }
+        },
+        {
+          "id": "2207:761",
+          "name": "Group=Clients, Open=Yes, Locale=EN",
+          "width": 208,
+          "height": 188,
+          "bindings": {
+            "itemSpacing": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:51"
+            }
+          }
+        },
+        {
+          "id": "2207:795",
+          "name": "Group=Finance, Open=No, Locale=RU",
+          "width": 208,
+          "height": 44,
+          "bindings": {
+            "itemSpacing": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:51"
+            }
+          }
+        },
+        {
+          "id": "2207:860",
+          "name": "Group=Finance, Open=Yes, Locale=RU",
+          "width": 208,
+          "height": 332,
+          "bindings": {
+            "itemSpacing": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:51"
+            }
+          }
+        },
+        {
+          "id": "2207:925",
+          "name": "Group=Finance, Open=No, Locale=EN",
+          "width": 208,
+          "height": 44,
+          "bindings": {
+            "itemSpacing": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:51"
+            }
+          }
+        },
+        {
+          "id": "2207:990",
+          "name": "Group=Finance, Open=Yes, Locale=EN",
+          "width": 208,
+          "height": 332,
+          "bindings": {
+            "itemSpacing": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:51"
+            }
+          }
+        },
+        {
+          "id": "2207:1055",
+          "name": "Group=Management, Open=No, Locale=RU",
+          "width": 208,
+          "height": 44,
+          "bindings": {
+            "itemSpacing": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:51"
+            }
+          }
+        },
+        {
+          "id": "2207:1097",
+          "name": "Group=Management, Open=Yes, Locale=RU",
+          "width": 208,
+          "height": 236,
+          "bindings": {
+            "itemSpacing": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:51"
+            }
+          }
+        },
+        {
+          "id": "2207:1139",
+          "name": "Group=Management, Open=No, Locale=EN",
+          "width": 208,
+          "height": 44,
+          "bindings": {
+            "itemSpacing": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:51"
+            }
+          }
+        },
+        {
+          "id": "2207:1181",
+          "name": "Group=Management, Open=Yes, Locale=EN",
+          "width": 208,
+          "height": 236,
+          "bindings": {
+            "itemSpacing": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:51"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "2211:740",
+      "name": "Admin/Breadcrumbs",
+      "type": "COMPONENT",
+      "properties": {
+        "Home#2211:0": {
+          "type": "TEXT",
+          "defaultValue": "Обзор"
+        },
+        "Section#2211:1": {
+          "type": "TEXT",
+          "defaultValue": "Пользователи"
+        },
+        "Current#2211:2": {
+          "type": "TEXT",
+          "defaultValue": "U-DEMO-001 · Профиль"
+        }
+      },
+      "bindings": {
+        "itemSpacing": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:52"
+        },
+        "paddingTop": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:51"
+        },
+        "paddingBottom": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:51"
+        }
+      }
+    },
+    {
+      "id": "2233:1217",
+      "name": "Admin/Section navigation",
+      "type": "COMPONENT_SET",
+      "properties": {
+        "Title#2233:24": {
+          "type": "TEXT",
+          "defaultValue": "Разделы"
+        },
+        "Show related label#2233:25": {
+          "type": "BOOLEAN",
+          "defaultValue": false
+        },
+        "Show item 5#2233:26": {
+          "type": "BOOLEAN",
+          "defaultValue": true
+        },
+        "Show item 6#2233:27": {
+          "type": "BOOLEAN",
+          "defaultValue": true
+        },
+        "Active": {
+          "type": "VARIANT",
+          "defaultValue": "1",
+          "variantOptions": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2233:839",
+          "name": "Active=1",
+          "width": 177.3333282470703,
+          "height": 326,
+          "bindings": {
+            "itemSpacing": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:51"
+            },
+            "paddingLeft": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "paddingTop": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "paddingRight": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "paddingBottom": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "topLeftRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "topRightRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "bottomLeftRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "bottomRightRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "fills": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:2:29"
+              }
+            ],
+            "strokes": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:2:32"
+              }
+            ]
+          }
+        },
+        {
+          "id": "2233:902",
+          "name": "Active=2",
+          "width": 177.3333282470703,
+          "height": 326,
+          "bindings": {
+            "itemSpacing": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:51"
+            },
+            "paddingLeft": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "paddingTop": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "paddingRight": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "paddingBottom": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "topLeftRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "topRightRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "bottomLeftRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "bottomRightRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "fills": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:2:29"
+              }
+            ],
+            "strokes": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:2:32"
+              }
+            ]
+          }
+        },
+        {
+          "id": "2233:965",
+          "name": "Active=3",
+          "width": 177.3333282470703,
+          "height": 326,
+          "bindings": {
+            "itemSpacing": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:51"
+            },
+            "paddingLeft": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "paddingTop": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "paddingRight": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "paddingBottom": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "topLeftRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "topRightRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "bottomLeftRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "bottomRightRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "fills": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:2:29"
+              }
+            ],
+            "strokes": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:2:32"
+              }
+            ]
+          }
+        },
+        {
+          "id": "2233:1028",
+          "name": "Active=4",
+          "width": 177.3333282470703,
+          "height": 326,
+          "bindings": {
+            "itemSpacing": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:51"
+            },
+            "paddingLeft": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "paddingTop": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "paddingRight": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "paddingBottom": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "topLeftRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "topRightRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "bottomLeftRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "bottomRightRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "fills": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:2:29"
+              }
+            ],
+            "strokes": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:2:32"
+              }
+            ]
+          }
+        },
+        {
+          "id": "2233:1091",
+          "name": "Active=5",
+          "width": 177.3333282470703,
+          "height": 326,
+          "bindings": {
+            "itemSpacing": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:51"
+            },
+            "paddingLeft": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "paddingTop": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "paddingRight": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "paddingBottom": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "topLeftRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "topRightRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "bottomLeftRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "bottomRightRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "fills": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:2:29"
+              }
+            ],
+            "strokes": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:2:32"
+              }
+            ]
+          }
+        },
+        {
+          "id": "2233:1154",
+          "name": "Active=6",
+          "width": 177.3333282470703,
+          "height": 326,
+          "bindings": {
+            "itemSpacing": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:51"
+            },
+            "paddingLeft": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "paddingTop": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "paddingRight": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "paddingBottom": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:52"
+            },
+            "topLeftRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "topRightRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "bottomLeftRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "bottomRightRadius": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:2:63"
+            },
+            "fills": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:2:29"
+              }
+            ],
+            "strokes": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:2:32"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "2254:1114",
+      "name": "Admin/Language selector",
+      "type": "COMPONENT_SET",
+      "properties": {
+        "Locale": {
+          "type": "VARIANT",
+          "defaultValue": "RU",
+          "variantOptions": [
+            "RU",
+            "EN"
+          ]
+        },
+        "State": {
+          "type": "VARIANT",
+          "defaultValue": "Closed",
+          "variantOptions": [
+            "Closed",
+            "Open"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "2254:1060",
+          "name": "Locale=RU, State=Closed"
+        },
+        {
+          "id": "2254:1069",
+          "name": "Locale=RU, State=Open"
+        },
+        {
+          "id": "2254:1087",
+          "name": "Locale=EN, State=Closed"
+        },
+        {
+          "id": "2254:1096",
+          "name": "Locale=EN, State=Open"
+        }
+      ]
+    },
+    {
+      "id": "2375:1260",
+      "name": "Admin/Announcement row",
+      "type": "COMPONENT_SET",
+      "properties": {
+        "Title#2375:21": {
+          "type": "TEXT",
+          "defaultValue": "Знакомство с каталогом"
+        },
+        "Detail#2375:22": {
+          "type": "TEXT",
+          "defaultValue": "ANN-DEMO-01 · Marketing"
+        },
+        "Audience#2375:23": {
+          "type": "TEXT",
+          "defaultValue": "100 клиентов"
+        },
+        "Locales#2375:24": {
+          "type": "TEXT",
+          "defaultValue": "RU / EN"
+        },
+        "Status#2375:25": {
+          "type": "TEXT",
+          "defaultValue": "Черновик"
+        },
+        "Schedule#2375:26": {
+          "type": "TEXT",
+          "defaultValue": "Сразу"
+        },
+        "Updated#2375:27": {
+          "type": "TEXT",
+          "defaultValue": "Ирина Волкова\n13 Oct · 12:15 UTC"
+        },
+        "State": {
+          "type": "VARIANT",
+          "defaultValue": "Default",
+          "variantOptions": [
+            "Default",
+            "Hover",
+            "Focus"
+          ]
+        }
+      },
+      "variantIds": [
+        "2375:1233",
+        "2375:1242",
+        "2375:1251"
+      ]
+    },
+    {
+      "id": "2375:1261",
+      "name": "Admin/Announcement table header",
+      "type": "COMPONENT",
+      "width": 1144,
+      "columns": [
+        "Announcement / purpose",
+        "Audience",
+        "Locales",
+        "Status",
+        "Schedule",
+        "Author / date"
+      ]
+    },
+    {
+      "id": "2394:1485",
+      "name": "Admin/Data sections",
+      "type": "COMPONENT_SET",
+      "properties": {
+        "Active": {
+          "type": "VARIANT",
+          "defaultValue": "Overview",
+          "variantOptions": [
+            "Overview",
+            "Collectors",
+            "Validation",
+            "Rating",
+            "Results"
+          ]
+        },
+        "Locale": {
+          "type": "VARIANT",
+          "defaultValue": "RU",
+          "variantOptions": [
+            "RU",
+            "EN"
+          ]
+        }
+      }
+    },
+    {
+      "id": "2406:1443",
+      "name": "Admin/Data result row",
+      "type": "COMPONENT",
+      "properties": {
+        "Title#2406:0": {
+          "type": "TEXT",
+          "defaultValue": "0x3333333333333333333333333333333333333333\nT-DEMO-03 · Polymarket"
+        },
+        "Detail#2406:1": {
+          "type": "TEXT",
+          "defaultValue": "40 days · 22 events"
+        },
+        "Meta#2406:2": {
+          "type": "TEXT",
+          "defaultValue": "Insufficient data · R-2"
+        }
+      }
+    },
+    {
+      "id": "2406:1447",
+      "name": "Admin/Data result header",
+      "type": "COMPONENT"
     }
   ],
   "bindingEvidence": [
@@ -1613,5 +2744,283 @@
     "reviewId": "2167:567",
     "clientReference": "1036:6136",
     "rule": "Direct profile entry, grouped settings; locale only inside personal profile. Every active staff account has own self-service without financial privilege escalation."
+  },
+  "support": {
+    "reviewId": "2193:597",
+    "navId": "2183:639",
+    "textareaReuse": {
+      "setId": "1978:941",
+      "used": [
+        "1978:921",
+        "1978:931",
+        "1978:936"
+      ]
+    },
+    "visibility": "Separate staff-only note; server serialization required"
+  },
+  "tableHeaders": {
+    "componentId": "2202:642",
+    "reviewId": "2202:643",
+    "qa": "../table-headers-2026-10-13/qa.json",
+    "date": "2026-10-13"
+  },
+  "navigation": {
+    "groupSetId": "2207:1223",
+    "breadcrumbId": "2211:740",
+    "reviewId": "2226:740",
+    "sourceGroups": [
+      {
+        "key": "Clients",
+        "sourceId": "2207:1236"
+      },
+      {
+        "key": "Finance",
+        "sourceId": "2207:1245"
+      },
+      {
+        "key": "Management",
+        "sourceId": "2207:1255"
+      }
+    ],
+    "qa": "../profile-navigation-2026-10-13/qa.json"
+  },
+  "sectionNavigation": {
+    "componentId": "2233:1217",
+    "reviewId": "2248:93029",
+    "grid": [
+      177.333333,
+      16,
+      950.666667
+    ],
+    "changedPerLanguage": 37,
+    "qa": "../section-navigation-2026-10-13/qa.json"
+  },
+  "accountHub": {
+    "reviewId": "2316:1132",
+    "sourceNavigationId": "2233:1217",
+    "navigationSemanticOrder": [
+      1,
+      2,
+      4,
+      5,
+      3,
+      6
+    ],
+    "contentWidth": 950.666667,
+    "qa": "../account-hub-2026-10-13/qa.json",
+    "removedReviewId": "2167:567",
+    "avatarBehavior": "Open account menu; My account and Sign out"
+  },
+  "contentLocalization": {
+    "rowSetId": "2336:1220",
+    "rowDefaultId": "2336:1193",
+    "headerId": "2336:1221",
+    "reviewId": "2336:1228",
+    "properties": {
+      "Key#2336:7": {
+        "type": "TEXT",
+        "defaultValue": "funds.withdraw.confirmation.body"
+      },
+      "Usage#2336:8": {
+        "type": "TEXT",
+        "defaultValue": "Подтверждение вывода"
+      },
+      "Surface#2336:9": {
+        "type": "TEXT",
+        "defaultValue": "Средства"
+      },
+      "Locales#2336:10": {
+        "type": "TEXT",
+        "defaultValue": "RU / EN"
+      },
+      "Status#2336:11": {
+        "type": "TEXT",
+        "defaultValue": "Черновик"
+      },
+      "Version#2336:12": {
+        "type": "TEXT",
+        "defaultValue": "D-13"
+      },
+      "Updated#2336:13": {
+        "type": "TEXT",
+        "defaultValue": "Ирина Волкова\n13 Oct · 12:15 UTC"
+      },
+      "State": {
+        "type": "VARIANT",
+        "defaultValue": "Default",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Focus"
+        ]
+      }
+    },
+    "qa": "../package-07/qa.json"
+  },
+  "marketing": {
+    "rowSetId": "2375:1260",
+    "rowDefaultId": "2375:1233",
+    "headerId": "2375:1261",
+    "reviewId": "2375:1268",
+    "variantIds": [
+      "2375:1233",
+      "2375:1242",
+      "2375:1251"
+    ],
+    "properties": {
+      "Title#2375:21": {
+        "type": "TEXT",
+        "defaultValue": "Знакомство с каталогом"
+      },
+      "Detail#2375:22": {
+        "type": "TEXT",
+        "defaultValue": "ANN-DEMO-01 · Marketing"
+      },
+      "Audience#2375:23": {
+        "type": "TEXT",
+        "defaultValue": "100 клиентов"
+      },
+      "Locales#2375:24": {
+        "type": "TEXT",
+        "defaultValue": "RU / EN"
+      },
+      "Status#2375:25": {
+        "type": "TEXT",
+        "defaultValue": "Черновик"
+      },
+      "Schedule#2375:26": {
+        "type": "TEXT",
+        "defaultValue": "Сразу"
+      },
+      "Updated#2375:27": {
+        "type": "TEXT",
+        "defaultValue": "Ирина Волкова\n13 Oct · 12:15 UTC"
+      },
+      "State": {
+        "type": "VARIANT",
+        "defaultValue": "Default",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Focus"
+        ]
+      }
+    },
+    "qa": "../package-08/qa.json"
+  },
+  "dataRating": {
+    "setId": "2394:1485",
+    "variantIds": [
+      "2394:1273",
+      "2394:1296",
+      "2394:1317",
+      "2394:1338",
+      "2394:1359",
+      "2394:1380",
+      "2394:1401",
+      "2394:1422",
+      "2394:1443",
+      "2394:1464"
+    ],
+    "reviewId": "2394:1486",
+    "properties": {
+      "Active": {
+        "type": "VARIANT",
+        "defaultValue": "Overview",
+        "variantOptions": [
+          "Overview",
+          "Collectors",
+          "Validation",
+          "Rating",
+          "Results"
+        ]
+      },
+      "Locale": {
+        "type": "VARIANT",
+        "defaultValue": "RU",
+        "variantOptions": [
+          "RU",
+          "EN"
+        ]
+      }
+    },
+    "navRecords": [
+      {
+        "id": "2394:1552",
+        "locale": "RU",
+        "variant": "2207:1055"
+      },
+      {
+        "id": "2394:1566",
+        "locale": "RU",
+        "variant": "2207:1097"
+      },
+      {
+        "id": "2394:1574",
+        "locale": "EN",
+        "variant": "2207:1139"
+      },
+      {
+        "id": "2394:1588",
+        "locale": "EN",
+        "variant": "2207:1181"
+      }
+    ],
+    "resultRowId": "2406:1443",
+    "resultHeaderId": "2406:1447",
+    "resultReviewId": "2406:1451",
+    "resultColumns": [
+      425.6,
+      319.2,
+      319.2
+    ],
+    "resultWidth": 1144,
+    "address": "Full address, Body/Small 14 px, no ellipsis; narrow views require controlled horizontal scroll.",
+    "qa": "../package-09/qa.json"
+  },
+  "opsNavigation": {
+    "records": [
+      {
+        "id": "2414:1452",
+        "locale": "RU",
+        "variant": "2207:1055"
+      },
+      {
+        "id": "2414:1467",
+        "locale": "RU",
+        "variant": "2207:1097"
+      },
+      {
+        "id": "2414:1476",
+        "locale": "EN",
+        "variant": "2207:1139"
+      },
+      {
+        "id": "2414:1491",
+        "locale": "EN",
+        "variant": "2207:1181"
+      }
+    ],
+    "uses": "Existing Admin/Nav item in Management; incident/reconciliation horizontal links reuse existing Admin buttons.",
+    "qa": "../package-10/qa.json"
+  },
+  "contextHelp": {
+    "triggerSetId": "2445:1481",
+    "bubbleSetId": "2445:1503",
+    "rowId": "2445:1504",
+    "panelId": "2445:1515",
+    "closeId": "2446:1516",
+    "reviewId": "2445:1534",
+    "states": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Pinned"
+    ],
+    "placements": [
+      "Right",
+      "Left"
+    ],
+    "evidence": "../control-help-2026-10-14/README.md"
   }
 }

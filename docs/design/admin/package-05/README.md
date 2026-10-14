@@ -1,5 +1,7 @@
 # Пакет 05 · личный кабинет сотрудника
 
+Актуальная компоновка с 13.10.2026 — [обзор аккаунта и отдельные страницы](../account-hub-2026-10-13/README.md). Пакет ниже сохраняет контракт сценариев; ранняя витрина 2167:567 заменена.
+
 12.10.2026. Дизайн на совместную вычитку, без программирования и реальной авторизации. Исходный main прочитан: `877b613b73d65376cad1cb3e7ff03ad22f4e2a6d`; для сохранения учтён свежий `f7e92d9e1573b52623b2da820e59abed61d37ce0` с параллельными правками UI kit.
 
 [Прототип RU](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2155-19298&starting-point-node-id=2155-19298&scaling=scale-down) · [EN](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2155-79040&starting-point-node-id=2155-79040&scaling=scale-down) · [Контракт личного аккаунта](account-contract.md) · [Реестр](manifest.json).

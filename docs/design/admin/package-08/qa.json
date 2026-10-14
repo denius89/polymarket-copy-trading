@@ -1,0 +1,891 @@
+{
+  "date": "2026-10-13",
+  "scope": "ADM-18 design only",
+  "counts": {
+    "RU": 37,
+    "EN": 37,
+    "totalRU": 366,
+    "totalEN": 366,
+    "actionLinks": 180
+  },
+  "structural": {
+    "RU": {
+      "createdNodeIds": [],
+      "mutatedNodeIds": [
+        "I2376:29714;2375:1236",
+        "I2376:29723;2375:1236",
+        "I2376:29911;2375:1236",
+        "2376:31096",
+        "2376:31263",
+        "2378:30752",
+        "2378:31013",
+        "2378:31307",
+        "2378:31438",
+        "2378:100603",
+        "2378:100619",
+        "2378:100598",
+        "2378:101346",
+        "2378:101812",
+        "2378:101807",
+        "2385:33375",
+        "2385:33380",
+        "I2385:33228;2343:1238",
+        "I2385:33228;2379:1278",
+        "2385:33344"
+      ],
+      "removedNodeIds": [
+        "2376:29732"
+      ],
+      "wires": [
+        {
+          "id": "2378:100619",
+          "targetId": "2385:33206",
+          "targetKey": "marketing-delivery-paused"
+        },
+        {
+          "id": "2385:33375",
+          "targetId": "2378:100481",
+          "targetKey": "marketing-paused"
+        },
+        {
+          "id": "2385:33380",
+          "targetId": "2378:100764",
+          "targetKey": "marketing-history"
+        }
+      ],
+      "issues": [],
+      "counts": [
+        {
+          "id": "2376:29545",
+          "key": "marketing-list",
+          "types": {
+            "FRAME": 24,
+            "TEXT": 48,
+            "INSTANCE": 34,
+            "VECTOR": 26
+          }
+        },
+        {
+          "id": "2376:29744",
+          "key": "marketing-filtered",
+          "types": {
+            "FRAME": 23,
+            "TEXT": 44,
+            "INSTANCE": 34,
+            "VECTOR": 26
+          }
+        },
+        {
+          "id": "2376:29923",
+          "key": "marketing-empty",
+          "types": {
+            "FRAME": 14,
+            "TEXT": 19,
+            "INSTANCE": 23,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2376:30044",
+          "key": "marketing-load-error",
+          "types": {
+            "FRAME": 14,
+            "TEXT": 19,
+            "INSTANCE": 23,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2376:30165",
+          "key": "marketing-editor",
+          "types": {
+            "FRAME": 33,
+            "TEXT": 50,
+            "INSTANCE": 37,
+            "VECTOR": 26
+          }
+        },
+        {
+          "id": "2376:30363",
+          "key": "marketing-draft-saved",
+          "types": {
+            "FRAME": 33,
+            "TEXT": 52,
+            "INSTANCE": 38,
+            "VECTOR": 26
+          }
+        },
+        {
+          "id": "2376:30564",
+          "key": "marketing-invalid",
+          "types": {
+            "FRAME": 33,
+            "TEXT": 51,
+            "INSTANCE": 37,
+            "VECTOR": 26
+          }
+        },
+        {
+          "id": "2376:30765",
+          "key": "marketing-validated",
+          "types": {
+            "FRAME": 33,
+            "TEXT": 52,
+            "INSTANCE": 38,
+            "VECTOR": 26
+          }
+        },
+        {
+          "id": "2376:30966",
+          "key": "marketing-audience",
+          "types": {
+            "FRAME": 17,
+            "TEXT": 50,
+            "INSTANCE": 33,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2376:31133",
+          "key": "marketing-policy-blocked",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 33,
+            "INSTANCE": 27,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2376:31273",
+          "key": "marketing-preview",
+          "types": {
+            "FRAME": 19,
+            "TEXT": 32,
+            "INSTANCE": 26,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2376:31421",
+          "key": "marketing-test",
+          "types": {
+            "FRAME": 19,
+            "TEXT": 32,
+            "INSTANCE": 26,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:30633",
+          "key": "marketing-publish-review",
+          "types": {
+            "FRAME": 14,
+            "TEXT": 27,
+            "INSTANCE": 25,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:30768",
+          "key": "marketing-publishing",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 22,
+            "INSTANCE": 24,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:30896",
+          "key": "marketing-active",
+          "types": {
+            "FRAME": 16,
+            "TEXT": 38,
+            "INSTANCE": 30,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:31051",
+          "key": "marketing-schedule",
+          "types": {
+            "FRAME": 16,
+            "TEXT": 28,
+            "INSTANCE": 26,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:31188",
+          "key": "marketing-schedule-review",
+          "types": {
+            "FRAME": 14,
+            "TEXT": 27,
+            "INSTANCE": 25,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:31321",
+          "key": "marketing-scheduled",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 27,
+            "INSTANCE": 25,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:31455",
+          "key": "marketing-scheduler-blocked",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 22,
+            "INSTANCE": 24,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:31583",
+          "key": "marketing-publish-failed",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 22,
+            "INSTANCE": 24,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:31711",
+          "key": "marketing-unknown",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 22,
+            "INSTANCE": 24,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:31839",
+          "key": "marketing-delivery",
+          "types": {
+            "FRAME": 16,
+            "TEXT": 52,
+            "INSTANCE": 35,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:32009",
+          "key": "marketing-delivery-unknown",
+          "types": {
+            "FRAME": 16,
+            "TEXT": 52,
+            "INSTANCE": 35,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:32179",
+          "key": "marketing-pause-confirm",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 26,
+            "INSTANCE": 25,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:100353",
+          "key": "marketing-pausing",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 22,
+            "INSTANCE": 24,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:100481",
+          "key": "marketing-paused",
+          "types": {
+            "FRAME": 16,
+            "TEXT": 38,
+            "INSTANCE": 30,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:100636",
+          "key": "marketing-pause-failed",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 22,
+            "INSTANCE": 24,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:100764",
+          "key": "marketing-history",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 34,
+            "INSTANCE": 28,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:100906",
+          "key": "marketing-version",
+          "types": {
+            "FRAME": 14,
+            "TEXT": 24,
+            "INSTANCE": 24,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:101035",
+          "key": "marketing-revision",
+          "types": {
+            "FRAME": 33,
+            "TEXT": 49,
+            "INSTANCE": 36,
+            "VECTOR": 26
+          }
+        },
+        {
+          "id": "2378:101229",
+          "key": "marketing-readonly",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 36,
+            "INSTANCE": 27,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:101372",
+          "key": "marketing-no-access",
+          "types": {
+            "FRAME": 14,
+            "TEXT": 19,
+            "INSTANCE": 23,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:101493",
+          "key": "marketing-edit-only",
+          "types": {
+            "FRAME": 33,
+            "TEXT": 51,
+            "INSTANCE": 37,
+            "VECTOR": 26
+          }
+        },
+        {
+          "id": "2378:101690",
+          "key": "marketing-ended",
+          "types": {
+            "FRAME": 16,
+            "TEXT": 38,
+            "INSTANCE": 30,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:101845",
+          "key": "marketing-revision-saved",
+          "types": {
+            "FRAME": 14,
+            "TEXT": 21,
+            "INSTANCE": 23,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:101968",
+          "key": "marketing-edit-only-saved",
+          "types": {
+            "FRAME": 33,
+            "TEXT": 53,
+            "INSTANCE": 38,
+            "VECTOR": 26
+          }
+        },
+        {
+          "id": "2385:33206",
+          "key": "marketing-delivery-paused",
+          "types": {
+            "FRAME": 16,
+            "TEXT": 54,
+            "INSTANCE": 36,
+            "VECTOR": 23
+          }
+        }
+      ],
+      "frameCount": 366,
+      "nonLocaleRoots": [
+        {
+          "id": "2314:52938",
+          "name": "Account menu · RU · viewport 1000"
+        },
+        {
+          "id": "2314:52949",
+          "name": "Account menu · RU · viewport 1120"
+        }
+      ]
+    },
+    "EN": {
+      "createdNodeIds": [],
+      "mutatedNodeIds": [
+        "2378:106117",
+        "2378:106133",
+        "2378:107326",
+        "2385:105258",
+        "2385:105262",
+        "I2385:105111;2343:1262",
+        "I2385:105111;2379:1302",
+        "2385:105227"
+      ],
+      "removedNodeIds": [
+        "2378:102353"
+      ],
+      "wires": [
+        {
+          "id": "2378:106133",
+          "targetId": "2385:105089",
+          "targetKey": "marketing-delivery-paused"
+        },
+        {
+          "id": "2385:105258",
+          "targetId": "2378:105995",
+          "targetKey": "marketing-paused"
+        },
+        {
+          "id": "2385:105262",
+          "targetId": "2378:106278",
+          "targetKey": "marketing-history"
+        }
+      ],
+      "issues": [],
+      "counts": [
+        {
+          "id": "2378:102168",
+          "key": "marketing-list",
+          "types": {
+            "FRAME": 24,
+            "TEXT": 48,
+            "INSTANCE": 34,
+            "VECTOR": 26
+          }
+        },
+        {
+          "id": "2378:102365",
+          "key": "marketing-filtered",
+          "types": {
+            "FRAME": 23,
+            "TEXT": 44,
+            "INSTANCE": 34,
+            "VECTOR": 26
+          }
+        },
+        {
+          "id": "2378:102544",
+          "key": "marketing-empty",
+          "types": {
+            "FRAME": 14,
+            "TEXT": 19,
+            "INSTANCE": 23,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:102665",
+          "key": "marketing-load-error",
+          "types": {
+            "FRAME": 14,
+            "TEXT": 19,
+            "INSTANCE": 23,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:102786",
+          "key": "marketing-editor",
+          "types": {
+            "FRAME": 33,
+            "TEXT": 50,
+            "INSTANCE": 37,
+            "VECTOR": 26
+          }
+        },
+        {
+          "id": "2378:102984",
+          "key": "marketing-draft-saved",
+          "types": {
+            "FRAME": 33,
+            "TEXT": 52,
+            "INSTANCE": 38,
+            "VECTOR": 26
+          }
+        },
+        {
+          "id": "2378:103185",
+          "key": "marketing-invalid",
+          "types": {
+            "FRAME": 33,
+            "TEXT": 51,
+            "INSTANCE": 37,
+            "VECTOR": 26
+          }
+        },
+        {
+          "id": "2378:103386",
+          "key": "marketing-validated",
+          "types": {
+            "FRAME": 33,
+            "TEXT": 52,
+            "INSTANCE": 38,
+            "VECTOR": 26
+          }
+        },
+        {
+          "id": "2378:103587",
+          "key": "marketing-audience",
+          "types": {
+            "FRAME": 17,
+            "TEXT": 50,
+            "INSTANCE": 33,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:103754",
+          "key": "marketing-policy-blocked",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 33,
+            "INSTANCE": 27,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:103894",
+          "key": "marketing-preview",
+          "types": {
+            "FRAME": 19,
+            "TEXT": 32,
+            "INSTANCE": 26,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:104042",
+          "key": "marketing-test",
+          "types": {
+            "FRAME": 19,
+            "TEXT": 32,
+            "INSTANCE": 26,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:104190",
+          "key": "marketing-publish-review",
+          "types": {
+            "FRAME": 14,
+            "TEXT": 27,
+            "INSTANCE": 25,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:104323",
+          "key": "marketing-publishing",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 22,
+            "INSTANCE": 24,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:104451",
+          "key": "marketing-active",
+          "types": {
+            "FRAME": 16,
+            "TEXT": 38,
+            "INSTANCE": 30,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:104606",
+          "key": "marketing-schedule",
+          "types": {
+            "FRAME": 16,
+            "TEXT": 28,
+            "INSTANCE": 26,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:104743",
+          "key": "marketing-schedule-review",
+          "types": {
+            "FRAME": 14,
+            "TEXT": 27,
+            "INSTANCE": 25,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:104876",
+          "key": "marketing-scheduled",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 27,
+            "INSTANCE": 25,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:105010",
+          "key": "marketing-scheduler-blocked",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 22,
+            "INSTANCE": 24,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:105138",
+          "key": "marketing-publish-failed",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 22,
+            "INSTANCE": 24,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:105266",
+          "key": "marketing-unknown",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 22,
+            "INSTANCE": 24,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:105394",
+          "key": "marketing-delivery",
+          "types": {
+            "FRAME": 16,
+            "TEXT": 52,
+            "INSTANCE": 35,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:105564",
+          "key": "marketing-delivery-unknown",
+          "types": {
+            "FRAME": 16,
+            "TEXT": 52,
+            "INSTANCE": 35,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:105734",
+          "key": "marketing-pause-confirm",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 26,
+            "INSTANCE": 25,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:105867",
+          "key": "marketing-pausing",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 22,
+            "INSTANCE": 24,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:105995",
+          "key": "marketing-paused",
+          "types": {
+            "FRAME": 16,
+            "TEXT": 38,
+            "INSTANCE": 30,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:106150",
+          "key": "marketing-pause-failed",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 22,
+            "INSTANCE": 24,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:106278",
+          "key": "marketing-history",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 34,
+            "INSTANCE": 28,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:106420",
+          "key": "marketing-version",
+          "types": {
+            "FRAME": 14,
+            "TEXT": 24,
+            "INSTANCE": 24,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:106549",
+          "key": "marketing-revision",
+          "types": {
+            "FRAME": 33,
+            "TEXT": 49,
+            "INSTANCE": 36,
+            "VECTOR": 26
+          }
+        },
+        {
+          "id": "2378:106743",
+          "key": "marketing-readonly",
+          "types": {
+            "FRAME": 15,
+            "TEXT": 36,
+            "INSTANCE": 27,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:106886",
+          "key": "marketing-no-access",
+          "types": {
+            "FRAME": 14,
+            "TEXT": 19,
+            "INSTANCE": 23,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:107007",
+          "key": "marketing-edit-only",
+          "types": {
+            "FRAME": 33,
+            "TEXT": 51,
+            "INSTANCE": 37,
+            "VECTOR": 26
+          }
+        },
+        {
+          "id": "2378:107204",
+          "key": "marketing-ended",
+          "types": {
+            "FRAME": 16,
+            "TEXT": 38,
+            "INSTANCE": 30,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:107359",
+          "key": "marketing-revision-saved",
+          "types": {
+            "FRAME": 14,
+            "TEXT": 21,
+            "INSTANCE": 23,
+            "VECTOR": 23
+          }
+        },
+        {
+          "id": "2378:107482",
+          "key": "marketing-edit-only-saved",
+          "types": {
+            "FRAME": 33,
+            "TEXT": 53,
+            "INSTANCE": 38,
+            "VECTOR": 26
+          }
+        },
+        {
+          "id": "2385:105089",
+          "key": "marketing-delivery-paused",
+          "types": {
+            "FRAME": 16,
+            "TEXT": 54,
+            "INSTANCE": 36,
+            "VECTOR": 23
+          }
+        }
+      ],
+      "frameCount": 366,
+      "nonLocaleRoots": [
+        {
+          "id": "2314:53240",
+          "name": "Account menu · EN · viewport 1000"
+        },
+        {
+          "id": "2314:53251",
+          "name": "Account menu · EN · viewport 1120"
+        }
+      ]
+    }
+  },
+  "visual": [
+    "catalog RU/EN",
+    "validated editor RU/EN",
+    "paused RU/EN",
+    "historical delivery RU/EN",
+    "UI kit"
+  ],
+  "fixtureAssertions": {
+    "candidateMinusExclusions": true,
+    "lateOptOut": true,
+    "deliveryTotals": true,
+    "readSubset": true
+  },
+  "manual": {
+    "RU": [
+      "P-07 complete through confirmed pause",
+      "history → A-1 → new draft A-3 → saved",
+      "paused → delivery history → back preserves paused"
+    ],
+    "EN": "Native/structural checked; full manual pass pending",
+    "pending": [
+      "Full EN click-through",
+      "Role-preserving contexts and rare failures",
+      "Client placement/consent/read UI joint review",
+      "Scheduled cancellation and repeated publication full click-through"
+    ]
+  },
+  "repoChecks": {
+    "projectCheck": "passed",
+    "gitDiffCheck": "passed"
+  },
+  "publication": "local only"
+}

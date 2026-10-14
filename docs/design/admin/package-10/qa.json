@@ -1,0 +1,49 @@
+{
+  "scope": "Design only; 18 RU and 18 EN",
+  "counts": {
+    "ru": 18,
+    "en": 18,
+    "totalRu": 425,
+    "totalEn": 425
+  },
+  "structural": {
+    "ru": [],
+    "en": [],
+    "font": "Inter",
+    "rasterUI": 0,
+    "sidebar": "Only current ops item selected after source variant swap"
+  },
+  "manual": {
+    "ru": "Present: queue → incident → take ownership → reconciliation → running → unknown → running → confirmed → closure reason → closed. Passed.",
+    "en": "Native screenshots and structural checks passed; full manual pending"
+  },
+  "pending": [
+    "Full EN and role review",
+    "Other case types and failed/reopen/concurrency flows",
+    "Broader filters and pagination",
+    "Backend authorization and integration"
+  ],
+  "repoChecks": {
+    "projectCheck": "passed",
+    "gitDiffCheck": "passed",
+    "previews": "6 PNG signatures valid",
+    "registry": "18 RU /18 EN, primary targets resolved"
+  },
+  "publication": "local only",
+  "readonlyReturn": [
+    {
+      "locale": "RU",
+      "createdNodeIds": [],
+      "mutatedNodeIds": [
+        "2414:120409"
+      ]
+    },
+    {
+      "locale": "EN",
+      "createdNodeIds": [],
+      "mutatedNodeIds": [
+        "2414:123829"
+      ]
+    }
+  ]
+}

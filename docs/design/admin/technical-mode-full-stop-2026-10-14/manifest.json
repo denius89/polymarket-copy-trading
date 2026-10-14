@@ -1,0 +1,133 @@
+{
+  "date": "2026-10-14",
+  "decision": "ADR-0045",
+  "rule": "Технический режим полностью закрывает доступ пользователей к приложению и публичному API, блокирует новые торговые и денежные действия через Shadow и останавливает все продуктовые фоновые задачи. Продолжают работать только аварийная админка, мониторинг, журнал аудита, обработка инцидентов, безопасная сверка и восстановление.",
+  "documentId": "1Naou6fcC1MKNe6RC4vbriZFy4nKBQzCcaXRw-YUyPuk",
+  "documentUrl": "https://docs.google.com/document/d/1Naou6fcC1MKNe6RC4vbriZFy4nKBQzCcaXRw-YUyPuk",
+  "revisionId": "AHj4eMQoCGT4z8iZaGE252pUgvSTuQ8AvDAsUuPQ4-alYzRBXkGJFk3xO72OAETI9KUde2-TFjvw9vtL4J2MBw",
+  "verifiedParagraphs": 17,
+  "screenCards": 422,
+  "config": {
+    "key": "tech",
+    "code": "TECH_MODE",
+    "ru": {
+      "title": "Технический режим",
+      "summary": "Полностью закрывает приложение и публичный API; останавливает все продуктовые фоновые задачи.",
+      "body": "Пользователь видит «Сервис временно недоступен». Новые торговые и денежные действия через Shadow запрещены также на сервере. Работают только аварийная админка, мониторинг, журнал аудита, инциденты, безопасная сверка и восстановление.",
+      "off": "Всё приложение и публичный API для пользователей; новые торговые и денежные действия через Shadow; все продуктовые фоновые задачи.",
+      "on": "Только аварийная админка, мониторинг, журнал аудита, инциденты, безопасная сверка и восстановление. Сверка проверяет результаты и не отправляет сделки, переводы или повторные заявки.",
+      "started": "Уже отправленные на площадку или в блокчейн операции могут завершиться. Прямые действия вне Shadow не блокируются. Неизвестный результат проверяется без повторной отправки.",
+      "restore": "Устранение причины, проверки и независимое подтверждение восстановления. Функции возвращаются поэтапно; другие ограничения сохраняются. Старые заявки автоматически не отправляются."
+    },
+    "en": {
+      "title": "Technical mode",
+      "summary": "Closes the entire user app and public API; stops all product background jobs.",
+      "body": "Users see “Service temporarily unavailable”. New trading and money actions through Shadow are also blocked on the server. Only emergency administration, monitoring, audit, incidents, safe reconciliation and recovery remain available.",
+      "off": "The entire user app and public API; new trading and money actions through Shadow; all product background jobs.",
+      "on": "Only emergency administration, monitoring, audit, incidents, safe reconciliation and recovery. Reconciliation verifies outcomes; it does not submit trades, transfers or repeat requests.",
+      "started": "Operations already sent to a venue or blockchain may complete. Direct actions outside Shadow are not blocked. Unknown outcomes are verified without resubmission.",
+      "restore": "Resolve the cause, run checks and obtain independent recovery confirmation. Restore in stages; other restrictions remain active. Old requests are not submitted automatically."
+    }
+  },
+  "ruScreens": [
+    {
+      "id": "I2139:17766;2445:1508",
+      "root": "2110:52505",
+      "key": "tech"
+    },
+    {
+      "id": "2454:45291",
+      "root": "2138:60069",
+      "key": "tech"
+    },
+    {
+      "id": "2454:45306",
+      "root": "2138:60194",
+      "key": "tech"
+    },
+    {
+      "id": "2454:45321",
+      "root": "2138:60308",
+      "key": "tech"
+    },
+    {
+      "id": "2454:45336",
+      "root": "2138:60418",
+      "key": "tech"
+    },
+    {
+      "id": "2454:45351",
+      "root": "2138:60532",
+      "key": "tech"
+    },
+    {
+      "id": "2454:45366",
+      "root": "2138:60653",
+      "key": "tech"
+    },
+    {
+      "id": "2454:45381",
+      "root": "2138:60767",
+      "key": "tech"
+    },
+    {
+      "id": "2454:45396",
+      "root": "2138:60881",
+      "key": "tech"
+    }
+  ],
+  "enScreens": [
+    {
+      "id": "I2139:35034;2445:1508",
+      "root": "2110:57242",
+      "key": "tech"
+    },
+    {
+      "id": "2455:45239",
+      "root": "2138:70512",
+      "key": "tech"
+    },
+    {
+      "id": "2455:45254",
+      "root": "2138:70637",
+      "key": "tech"
+    },
+    {
+      "id": "2455:45269",
+      "root": "2138:70751",
+      "key": "tech"
+    },
+    {
+      "id": "2455:45284",
+      "root": "2138:70861",
+      "key": "tech"
+    },
+    {
+      "id": "2455:45299",
+      "root": "2138:70975",
+      "key": "tech"
+    },
+    {
+      "id": "2455:45314",
+      "root": "2138:71096",
+      "key": "tech"
+    },
+    {
+      "id": "2455:45329",
+      "root": "2138:71210",
+      "key": "tech"
+    },
+    {
+      "id": "2455:45344",
+      "root": "2138:71324",
+      "key": "tech"
+    }
+  ],
+  "qa": {
+    "documentParagraphs": 17,
+    "documentCards": 422,
+    "realOperations": false,
+    "manualPrototypePass": "not rerun; existing links preserved",
+    "visual": "RU and EN native screenshots passed after final placement correction; details panels passed"
+  }
+}
