@@ -1,9 +1,9 @@
 {
-  "date": "2026-10-12",
+  "date": "2026-10-15",
   "scope": "native client UI kit only",
   "counts": {
-    "nativeFamilies": 44,
-    "nativeVariants": 118,
+    "nativeFamilies": 49,
+    "nativeVariants": 146,
     "reusedFamilies": 9,
     "reusedVariants": 46,
     "tokens": 72,
@@ -13,18 +13,19 @@
     {
       "page": {
         "id": "1976:2",
-        "name": "09 · Client UI kit"
+        "name": "07 · Client UI kit"
       },
-      "componentSets": 33,
+      "componentSets": 38,
       "standaloneComponents": 11,
-      "totalNativeComponents": 118,
+      "totalNativeComponents": 146,
       "instances": 228,
       "brokenInstances": [],
       "sections": [
         "1997:1665",
         "1997:1666",
         "1997:1667",
-        "1997:1668"
+        "1997:1668",
+        "2703:528"
       ],
       "removedEmptyPages": [
         "1976:3",
@@ -35,7 +36,7 @@
   ],
   "visual": {
     "passed": true,
-    "method": "Figma MCP PNG renders, all four review boards plus targeted post-fix sections",
+    "method": "Figma MCP PNG renders, four earlier review boards plus the new Home account section",
     "reviewed": [
       {
         "node": "1977:2",
@@ -52,6 +53,10 @@
       {
         "node": "1980:100",
         "name": "Patterns"
+      },
+      {
+        "node": "2703:528",
+        "name": "Home account: current paper and future multi-account variants"
       },
       {
         "node": "1979:91",
@@ -213,5 +218,31 @@
       "No product-screen component migration or prototype-route acceptance",
       "Browser keyboard, 200% text zoom and responsive runtime untested"
     ]
+  },
+  "latestDesktopHeaderParity": {
+    "date": "2026-10-15",
+    "componentId": "819:330",
+    "filledInstanceCounts": {
+      "desktopEn": 117,
+      "desktopRu": 123,
+      "desktopEnFinal": 65,
+      "desktopRuFinal": 70
+    },
+    "totalFilledInstances": 375,
+    "balanceOrBadgeOrRightAlignmentIssues": 0,
+    "visualReviewed": ["2562:136283", "2504:7100"],
+    "ruFinalActionDestinations": ["2499:2344", "2499:2042", "2499:2422"],
+    "manualPresent": false
+  },
+  "latestClientGridAudit": {
+    "date": "2026-10-15",
+    "desktopTopLevelScreensWithVisibleSharedStyle": 464,
+    "desktopNestedGridsHidden": 632,
+    "mobileTopLevelScreensWithHiddenSharedStyle": 492,
+    "missingOrWrongTopLevelGridsAfterFix": 0,
+    "adminTouched": false,
+    "manualEditorVisualReview": false,
+    "manualPresent": false,
+    "report": "../../docs/design/client/client-grid-final-audit-2026-10-15.md"
   }
 }
