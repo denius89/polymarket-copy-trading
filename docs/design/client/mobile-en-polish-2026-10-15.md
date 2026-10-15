@@ -26,4 +26,3 @@ The copy setup and review screens (`2502:19857`, `2502:19957`), email entry/erro
 - The checked Positions, Tickets, Help, Notifications and global-risk prototype actions have no missing node destinations.
 - Screenshots of Positions, Tickets, Help and Notifications were rechecked after the color change; the same token-bound style was applied to the other four list screens and all eight reactions were retained.
 - This is a design and Figma-prototype check. It does not replace a complete interactive Present walkthrough or implementation testing in the web client.
-

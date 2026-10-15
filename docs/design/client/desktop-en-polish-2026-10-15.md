@@ -21,4 +21,3 @@ Scope: Figma file `lxPP2um7FvIbt02K8eeH4T`, page `2499:3` (**Final desktop EN**)
 - Structural scan of 75 visible EN Final desktop screens found 3,010 visible text nodes, no remaining visible `ticket-##`, `event-###`, `notification-##` or `Partial-fill learning example` labels, and no missing fonts.
 - The `Review settings` button was repositioned within the existing screen, rather than reparented into the right-column auto-layout. Its position is correct for the fixed 1440 px Final frame; implementation should place the action in layout flow for responsiveness.
 - A full manual click-through of every prototype path was not repeated in this pass. Existing reactions were kept on changed interactive nodes; the new column labels are non-interactive.
-
