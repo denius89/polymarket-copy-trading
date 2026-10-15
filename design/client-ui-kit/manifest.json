@@ -3550,6 +3550,132 @@
             "instanceCount": 61,
             "placeholders": []
           }
+        },
+        {
+          "section": {
+            "id": "2703:528",
+            "name": "05 · Home account / Счета на Главной"
+          },
+          "components": [
+            {
+              "id": "2703:590",
+              "name": "Client/Home account summary · Desktop",
+              "type": "COMPONENT_SET",
+              "properties": [
+                {
+                  "key": "Account",
+                  "type": "VARIANT"
+                }
+              ],
+              "variants": [
+                {
+                  "id": "2703:547",
+                  "name": "Account=Paper demo",
+                  "w": 370,
+                  "h": 296
+                },
+                {
+                  "id": "2703:568",
+                  "name": "Account=Future demo",
+                  "w": 370,
+                  "h": 296
+                },
+                {
+                  "id": "2703:589",
+                  "name": "Account=Future Polymarket",
+                  "w": 370,
+                  "h": 296
+                }
+              ]
+            },
+            {
+              "id": "2703:639",
+              "name": "Client/Home account summary · Mobile",
+              "type": "COMPONENT_SET",
+              "properties": [
+                {
+                  "key": "Account",
+                  "type": "VARIANT"
+                }
+              ],
+              "variants": [
+                {
+                  "id": "2703:604",
+                  "name": "Account=Paper demo",
+                  "w": 350,
+                  "h": 210
+                },
+                {
+                  "id": "2703:621",
+                  "name": "Account=Future demo",
+                  "w": 350,
+                  "h": 234
+                },
+                {
+                  "id": "2703:638",
+                  "name": "Account=Future Polymarket",
+                  "w": 350,
+                  "h": 234
+                }
+              ]
+            },
+            {
+              "id": "2703:661",
+              "name": "Client/Home account menu · Desktop",
+              "type": "COMPONENT_SET",
+              "properties": [
+                {
+                  "key": "Selected",
+                  "type": "VARIANT"
+                }
+              ],
+              "variants": [
+                {
+                  "id": "2703:649",
+                  "name": "Selected=Demo",
+                  "w": 322,
+                  "h": 160
+                },
+                {
+                  "id": "2703:660",
+                  "name": "Selected=Polymarket",
+                  "w": 322,
+                  "h": 160
+                }
+              ]
+            },
+            {
+              "id": "2703:694",
+              "name": "Client/Home account sheet · Mobile",
+              "type": "COMPONENT_SET",
+              "properties": [
+                {
+                  "key": "Selected",
+                  "type": "VARIANT"
+                }
+              ],
+              "variants": [
+                {
+                  "id": "2703:677",
+                  "name": "Selected=Demo",
+                  "w": 390,
+                  "h": 288
+                },
+                {
+                  "id": "2703:693",
+                  "name": "Selected=Polymarket",
+                  "w": 390,
+                  "h": 288
+                }
+              ]
+            }
+          ],
+          "qa": {
+            "screenshotReviewed": true,
+            "brokenInstances": [],
+            "prototypeReactions": 0,
+            "variableBoundNodes": 112
+          }
         }
       ],
       "currentSourceSection": {
@@ -3635,6 +3761,27 @@
     "currentNativeFamilies": 45,
     "currentNativeVariants": 136,
     "note": "Original page and component registry above remains an initial-build record; this extension records the later client-only addition."
+  },
+  "currentDesktopHeaderParity": {
+    "date": "2026-10-15",
+    "componentId": "819:330",
+    "mobileReferenceId": "819:294",
+    "balanceVisible": false,
+    "actions": ["Help", "Notifications", "Profile"],
+    "actionSize": 44,
+    "actionGap": 8,
+    "unreadBadgeId": "2752:5213",
+    "unreadCountIsDemoData": true,
+    "source": "../../docs/design/client/desktop-header-mobile-parity-2026-10-15.md"
+  },
+  "currentClientGridReconciliation": {
+    "date": "2026-10-15",
+    "visibleDesktopPageStyleId": "S:ed02de4878249e16fabc681420b29754c3711641,",
+    "hiddenDesktopShellStyleId": "S:fe4fe28a263a2b3122d4b3f39d939ace93e25d18,",
+    "mobilePageStyleId": "S:0cc709616cba807e88bd955144a334db7b4f676f,",
+    "desktopTopLevelScreens": 464,
+    "mobileTopLevelScreens": 492,
+    "source": "../../docs/design/client/client-grid-final-audit-2026-10-15.md"
   },
   "construction": "Initial-build records; native export is authoritative. No frontend or Code Connect mappings.",
   "organization": {
@@ -3732,5 +3879,19 @@
     "supportReviewId": "1980:391",
     "feedbackReviewId": "1980:480",
     "note": "Figma masters and instances remain linked; review source guide clearances and fixed-height empty textarea before implementation."
+  },
+  "homeAccountExtension": {
+    "date": "2026-10-15",
+    "sectionId": "2703:528",
+    "scope": "Current paper demo and future account selection, client only",
+    "sourceFinalPages": [
+      "2477:528",
+      "2499:2",
+      "2477:529",
+      "2499:3"
+    ],
+    "totalComponentSets": 4,
+    "totalVariants": 10,
+    "usage": "Paper demo has no switcher; future variants are isolated from the current route and use instance text overrides for EN."
   }
 }

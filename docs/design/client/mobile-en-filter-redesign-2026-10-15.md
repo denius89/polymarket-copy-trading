@@ -1,0 +1,14 @@
+# Mobile EN: compact filters for Positions, Orders, and Activity
+
+15.10.2026. At the owner's request, the multi-row chip groups and horizontal chip carousel on the three English mobile screens were replaced with a single 350 × 48 px filter selector. The current choice is shown in that selector; the result count remains on its own line. Positions / Orders navigation remains above it. The same layout and interactions were applied to the Final and original English mobile pages. The admin interface was not changed.
+
+| Page | Positions screen → selector → sheet | Orders screen → selector → sheet | Activity screen → selector → sheet |
+| --- | --- | --- | --- |
+| [Final EN mobile](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2499-2) | `2502:17587` → `2720:15944` → `2720:15883` | `2502:17663` → `2720:16012` → `2720:15951` | `2502:17762` → `2720:16083` → `2720:16019` |
+| [Original EN mobile](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=29-2) | `905:1890` → `2720:137609` → `2720:137584` | `905:1924` → `2720:137640` → `2720:137615` | `905:1958` → `2720:137674` → `2720:137646` |
+
+The selector opens a full-screen prototype overlay with a quiet bottom-sheet list: one full-width 48 px action row per value, with no pill borders or carousel. Positions and Orders each retain six choices; Activity retains seven. Each choice carries its original `SET_VARIABLE` sequence, followed by `CLOSE`. The selected-value label is bound to the existing active-filter string variable. The Orders result count, previously missing its character binding, was bound to the existing count variable on both pages. The original page's old `SCROLL_TO` action could not be carried into an overlay because its target is unreachable from that source; the value-changing actions were retained. This has no observed effect on the filtered results.
+
+Visual checks covered all six closed screens and the three Final expanded sheets, with no clipped labels or options. In Figma Present, Final EN Positions `Current` changed the label and count to `Results: 5`; Orders `Partial` changed them to `Results: 1`; Activity `Needs attention` changed them to `Results: 8`. Original EN Positions `Current` also closed the sheet and showed `Results: 5`. Structural inspection confirmed each selector's `OVERLAY` destination and all 19 option rows' `SET_VARIABLE` + `CLOSE` actions on each page. The open list intentionally does not show a fixed selected mark: the live selection is stated in the collapsed selector, avoiding a misleading highlight after a different choice is applied.
+
+This is Figma prototype behavior and visual specification, not application runtime validation. The new selector and sheets are local screen compositions; if they are reused elsewhere, register a shared UI-kit component and migrate the instances as a separate library change.
