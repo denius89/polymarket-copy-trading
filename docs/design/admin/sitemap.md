@@ -1,6 +1,6 @@
 # Живая карта админки
 
-Текущий срез 14.10.2026: **427 RU + 427 EN корневых макетов**, из них 422 основных состояния и 5 технических оболочек на язык. Карта 0.12, набор компонентов админки 0.4.20 (28 наборов / 168 вариантов). [Последние решения и передача](SYNC_2026-10-14.md). Ниже сохранён исторический журнал; его промежуточные числа и версии не заменяют текущий реестр.
+Текущий срез 16.10.2026: **437 RU + 437 EN корневых макетов**, из них 432 основных состояния и 5 технических оболочек на язык. Карта 0.14, набор компонентов админки 0.4.20 (28 наборов / 168 вариантов). [Последние решения и передача](SYNC_2026-10-14.md). Ниже сохранён исторический журнал; его промежуточные числа и версии не заменяют текущий реестр.
 
 13.10.2026 · ревизия 0.7: 295 RU + 295 EN, включая по три меню аватара для viewport прототипа. Личный аккаунт пересобран как обзор и отдельные страницы. [Паттерн, узлы и QA](account-hub-2026-10-13/README.md).
 
@@ -194,7 +194,7 @@
 | Предложение реквизитов | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-935) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-725) |
 | Реквизиты ожидают проверки | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-983) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-773) |
 | Owner B · реквизиты v2 | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1021) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-811) |
-| Версия реквизитов активирована | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1056) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-846) |
+| Адрес подтверждён · ожидание 24 часа | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1056) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-846) |
 | Предложение отклонено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1089) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-879) |
 | Защитные пороги выплат | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1122) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-912) |
 | Новая защитная policy | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1160) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-950) |
@@ -370,3 +370,6 @@ Revision 0.11: 425 RU +425 EN root frames. [Пакет 10](package-10/README.md)
 
 
 14.10.2026: [Контекстные подсказки аварийных ограничений](control-help-2026-10-14/README.md). UI kit 0.4.20; карта 0.12, 427 RU +427 EN.
+
+
+16.10.2026: [источники, пополнения, сверка и задержка адреса 24 часа](treasury-review-2026-10-16/README.md). Карта 0.14, 437 RU +437 EN. Новых страниц Figma и компонентных наборов нет.

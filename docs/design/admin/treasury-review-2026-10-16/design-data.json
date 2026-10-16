@@ -1,0 +1,561 @@
+[
+  {
+    "key": "treasury-source",
+    "title": [
+      "Источник выплат · SRC-PM",
+      "Payout source · SRC-PM"
+    ],
+    "body": [
+      "Собственные средства Shadow · учебный пример будущей платной версии. Сеть и контракт уточняются при интеграции; реальные подключения выключены.",
+      "Shadow own funds · future paid-stage demo. Network and contract await integration; real connections are disabled."
+    ],
+    "rows": [
+      [
+        "Назначение / тип",
+        "Purpose / type",
+        "Партнёрские выплаты",
+        "Partner payouts",
+        "Не пользовательские средства",
+        "No customer money"
+      ],
+      [
+        "Адрес кошелька",
+        "Wallet address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный полный адрес",
+        "Synthetic full address"
+      ],
+      [
+        "Площадка / актив / сеть",
+        "Venue / asset / network",
+        "Polymarket · USDT · не подключена",
+        "Polymarket · USDT · not connected",
+        "Контракт не подтверждён; отправка выключена",
+        "Unverified contract; sending disabled"
+      ],
+      [
+        "Пригодный баланс",
+        "Eligible balance",
+        "200 USDT",
+        "200 USDT",
+        "Подтверждённые собственные средства",
+        "Confirmed own funds"
+      ],
+      [
+        "Резервы операций",
+        "Operation reservations",
+        "50 USDT",
+        "50 USDT",
+        "Уникальные; чужой резерв недоступен",
+        "Unique; other operations remain reserved"
+      ],
+      [
+        "Операционный резерв",
+        "Operating reserve",
+        "20 USDT",
+        "20 USDT",
+        "Отдельная сумма, без повторного вычета",
+        "Separate amount, never deducted twice"
+      ],
+      [
+        "Свободно до комиссии",
+        "Free before fee",
+        "130 USDT",
+        "130 USDT",
+        "200 − 50 − 20; долг партнёрам отдельно",
+        "200 − 50 − 20; partner debt is separate"
+      ],
+      [
+        "Контроль / свежесть",
+        "Control / freshness",
+        "Владелец A · способ подписи не подключён",
+        "Owner A · signing not connected",
+        "16.10.2026 12:00 UTC · демонстрация",
+        "16 Oct 2026 12:00 UTC · demo"
+      ]
+    ],
+    "actions": [
+      [
+        "Пополнить · пример",
+        "Fund · demo",
+        "treasury-funding-review"
+      ],
+      [
+        "Изменить источник",
+        "Change source",
+        "treasury-source-review"
+      ],
+      [
+        "К источникам",
+        "Sources",
+        "sources"
+      ]
+    ]
+  },
+  {
+    "key": "treasury-source-review",
+    "title": [
+      "Второй владелец · источник v2",
+      "Second Owner · source v2"
+    ],
+    "body": [
+      "Владелец B проверяет предложение владельца A. Добавление, изменение, повторная активация и архивирование требуют двух владельцев. Экстренное отключение доступно одному.",
+      "Owner B reviews Owner A's proposal. Add, change, reactivate and archive require two distinct Owners; one Owner may disable in an emergency."
+    ],
+    "rows": [
+      [
+        "Версия",
+        "Version",
+        "SRC-PM · v2",
+        "SRC-PM · v2",
+        "Автор: владелец A; проверяет B",
+        "Author: Owner A; reviewer B"
+      ],
+      [
+        "Адрес",
+        "Address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Полный адрес; сеть/актив/контракт проверяются",
+        "Full address; verify network, asset and contract"
+      ],
+      [
+        "Правило",
+        "Rule",
+        "Только зарегистрированные свои источники",
+        "Registered own sources only",
+        "Без произвольной отправки и раскрытия ключей",
+        "No arbitrary sending or private-key display"
+      ],
+      [
+        "Подтверждение",
+        "Approval",
+        "Физический ключ · точная версия",
+        "Physical key · exact version",
+        "Изменение данных отменяет подтверждение",
+        "Any data change invalidates approval"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить · демо",
+        "Approve · demo",
+        "treasury-source"
+      ],
+      [
+        "Отклонить",
+        "Reject",
+        "sources"
+      ]
+    ]
+  },
+  {
+    "key": "treasury-funding-review",
+    "title": [
+      "Пополнение источника · проверка",
+      "Fund source · review"
+    ],
+    "body": [
+      "Ручной перевод собственных средств, не доход и не выплата партнёру. Доступны только разрешённые источники и направления. Числа — учебный пример; автоматическое пополнение выключено.",
+      "Manual transfer of own funds, neither income nor partner payout. Registered sources and allowed directions only. Demo amounts; automatic funding is disabled."
+    ],
+    "rows": [
+      [
+        "Откуда",
+        "From",
+        "SRC-REV-PM · доход Shadow",
+        "SRC-REV-PM · Shadow income",
+        "0x1111111111111111111111111111111111111111",
+        "0x1111111111111111111111111111111111111111"
+      ],
+      [
+        "Куда",
+        "To",
+        "SRC-PM · партнёрские выплаты",
+        "SRC-PM · partner payouts",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678"
+      ],
+      [
+        "Сумма / расходы",
+        "Amount / cost",
+        "100 USDT + 0,50 USDT",
+        "100 USDT + 0.50 USDT",
+        "Расход учтён один раз; платит сервис",
+        "Cost counted once; service pays"
+      ],
+      [
+        "Проверка ограничений",
+        "Limit check",
+        "Цель, максимум, сутки и направления",
+        "Target, hard cap, daily limits and direction",
+        "Без действующих правил реальная отправка закрыта",
+        "Real sending disabled without effective rules"
+      ],
+      [
+        "Подтверждение",
+        "Approval",
+        "Владелец A · физический ключ",
+        "Owner A · physical key",
+        "Защитный порог может потребовать владельца B",
+        "Threshold may require Owner B"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить · демо",
+        "Confirm · demo",
+        "treasury-transfer-unknown"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "treasury-source"
+      ]
+    ]
+  },
+  {
+    "key": "treasury-transfer-unknown",
+    "title": [
+      "Перевод между источниками · результат неизвестен",
+      "Internal transfer · result unknown"
+    ],
+    "body": [
+      "TRF-DEMO-01 отправлен в учебном сценарии. Резерв сохраняется. Повтор с тем же назначением запрещён до сверки. Остатки двух источников не увеличиваются одновременно одной и той же суммой.",
+      "TRF-DEMO-01 submitted in a demo scenario. Keep reservation; no repeat for the same economic purpose before reconciliation. The same amount never increases both source balances."
+    ],
+    "rows": [
+      [
+        "Операция",
+        "Operation",
+        "TRF-DEMO-01 · 100 USDT",
+        "TRF-DEMO-01 · 100 USDT",
+        "Назначение: пополнение SRC-PM",
+        "Purpose: fund SRC-PM"
+      ],
+      [
+        "Внешний результат",
+        "External result",
+        "Не подтверждён",
+        "Not confirmed",
+        "Идентификатор и подтверждения сети проверяются",
+        "Verify external ID and network confirmations"
+      ],
+      [
+        "Следующий шаг",
+        "Next step",
+        "Сверить существующий перевод",
+        "Reconcile existing transfer",
+        "Нет повторной отправки или ручного успеха",
+        "No resend or manual success"
+      ]
+    ],
+    "actions": [
+      [
+        "Открыть сверку",
+        "Open reconciliation",
+        "treasury-reconcile"
+      ],
+      [
+        "К источнику",
+        "Source",
+        "treasury-source"
+      ]
+    ]
+  },
+  {
+    "key": "treasury-reconcile",
+    "title": [
+      "Сверка собственных средств",
+      "Own-funds reconciliation"
+    ],
+    "body": [
+      "Ожидаемое и фактическое движение денег отделено от начислений и партнёрского долга. Ручное расследование не позволяет объявить неподтверждённую выплату успешной.",
+      "Expected and actual fund movements are separate from accruals and partner debt. Manual investigation cannot declare an unconfirmed payout successful."
+    ],
+    "rows": [
+      [
+        "Ожидается",
+        "Expected",
+        "TRF-DEMO-01 · 100 USDT",
+        "TRF-DEMO-01 · 100 USDT",
+        "Точный исходный источник и получатель",
+        "Exact source and destination"
+      ],
+      [
+        "Фактически обнаружено",
+        "Observed",
+        "99,50 USDT · пример расхождения",
+        "99.50 USDT · discrepancy example",
+        "Подтверждения и внешнее событие проверяются",
+        "Verify confirmations and external event"
+      ],
+      [
+        "Сопоставление",
+        "Matching",
+        "Частичное · требуется расследование",
+        "Partial · investigation required",
+        "Не является разрешением частичной выплаты",
+        "Does not permit a partial partner payout"
+      ],
+      [
+        "Действие",
+        "Action",
+        "Инцидент, подтверждающие данные, корректировка",
+        "Incident, evidence, adjustment",
+        "Исходная запись не переписывается",
+        "Original record is immutable"
+      ]
+    ],
+    "actions": [
+      [
+        "К неизвестному результату",
+        "Unknown result",
+        "treasury-transfer-unknown"
+      ],
+      [
+        "К источникам",
+        "Sources",
+        "sources"
+      ]
+    ]
+  },
+  {
+    "key": "treasury-recovery-blocked",
+    "title": [
+      "Пополнение запрещено · полное отключение",
+      "Funding blocked · full shutdown"
+    ],
+    "body": [
+      "Технический режим и глобальный денежный запрет запрещают отправку восстановительного пополнения. Два подтверждения операции не обходят остановку. Приложение, публичный API, торговля и продуктовые задания выключены.",
+      "Technical mode and global money stop prohibit recovery funding. Two operation approvals do not bypass shutdown. App, public API, trading and product background jobs remain off."
+    ],
+    "rows": [
+      [
+        "Разрешено",
+        "Allowed",
+        "Наблюдение, журнал, инциденты и сверка",
+        "Monitoring, audit, incidents and reconciliation",
+        "Сверка не отправляет деньги",
+        "Reconciliation never sends money"
+      ],
+      [
+        "Переход к восстановлению",
+        "Recovery transition",
+        "Только конкретный маршрут · два владельца",
+        "Specific route only · two distinct Owners",
+        "Отдельное решение, не подтверждение перевода",
+        "Separate decision, not transfer approval"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить маршрут восстановления",
+        "Review recovery route",
+        "treasury-recovery-route"
+      ],
+      [
+        "К источникам",
+        "Sources",
+        "sources"
+      ]
+    ]
+  },
+  {
+    "key": "treasury-recovery-route",
+    "title": [
+      "Ограниченное восстановление · маршрут",
+      "Limited recovery · route"
+    ],
+    "body": [
+      "Владелец B проверяет отдельное предложение владельца A разрешить только указанный маршрут. Остальные аварийные ограничения сохраняются. В журнале фиксируются причина, точная область, версия и оба владельца.",
+      "Owner B reviews Owner A's separate request to allow only the specified route. All other emergency restrictions remain. Audit reason, exact scope, version and both Owners."
+    ],
+    "rows": [
+      [
+        "Маршрут",
+        "Route",
+        "SRC-REV-PM → SRC-PM · USDT",
+        "SRC-REV-PM → SRC-PM · USDT",
+        "Сеть и адреса — точная проверенная версия",
+        "Network and addresses bind the verified version"
+      ],
+      [
+        "Причина",
+        "Reason",
+        "INC-DEMO-04 · восстановление источника",
+        "INC-DEMO-04 · source recovery",
+        "Причина аварии зафиксирована",
+        "Incident cause recorded"
+      ],
+      [
+        "Что остаётся закрыто",
+        "Still blocked",
+        "Приложение, API, торговля, обычные выплаты",
+        "App, API, trading and ordinary payouts",
+        "Прочие продуктовые задания выключены",
+        "Other product background jobs remain off"
+      ],
+      [
+        "Последствие",
+        "Effect",
+        "Разрешён только маршрут восстановления",
+        "Recovery route allowed only",
+        "Перевод требует отдельного подтверждения",
+        "Transfer requires separate approval"
+      ]
+    ],
+    "actions": [
+      [
+        "Разрешить маршрут · демо",
+        "Allow route · demo",
+        "treasury-recovery-transfer"
+      ],
+      [
+        "Отклонить",
+        "Reject",
+        "treasury-recovery-blocked"
+      ]
+    ]
+  },
+  {
+    "key": "treasury-recovery-transfer",
+    "title": [
+      "Восстановительное пополнение · два владельца",
+      "Recovery funding · two Owners"
+    ],
+    "body": [
+      "Маршрут отдельно разрешён в ограниченном восстановлении. Теперь владелец B подтверждает точный перевод после владельца A. Повторное полное отключение немедленно запрещает новую отправку.",
+      "The route was separately allowed in limited recovery. Owner B now confirms the exact transfer after Owner A. A new full shutdown immediately blocks submission."
+    ],
+    "rows": [
+      [
+        "Откуда / куда",
+        "From / to",
+        "SRC-REV-PM → SRC-PM",
+        "SRC-REV-PM → SRC-PM",
+        "Точные собственные адреса и сеть",
+        "Exact own addresses and network"
+      ],
+      [
+        "Сумма / расходы",
+        "Amount / cost",
+        "100 USDT + 0,50 USDT",
+        "100 USDT + 0.50 USDT",
+        "Причина INC-DEMO-04 · без нового дохода",
+        "Reason INC-DEMO-04 · no new income"
+      ],
+      [
+        "Подтверждения",
+        "Approvals",
+        "Владелец A — подтверждено; B — проверяет",
+        "Owner A approved; Owner B reviewing",
+        "Физические ключи; точная версия и срок",
+        "Physical keys; exact version and expiry"
+      ],
+      [
+        "После перевода",
+        "After transfer",
+        "Ограничения не снимаются",
+        "Restrictions remain",
+        "При неизвестном результате повтор запрещён",
+        "No repeat while result is unknown"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить перевод · демо",
+        "Approve transfer · demo",
+        "treasury-transfer-unknown"
+      ],
+      [
+        "Полное отключение",
+        "Full shutdown",
+        "treasury-recovery-blocked"
+      ]
+    ]
+  },
+  {
+    "key": "recipient-activated-after-wait",
+    "title": [
+      "Адрес активен · 24 часа истекли",
+      "Address active · 24 hours elapsed"
+    ],
+    "body": [
+      "Учебное время: 17.10.2026 12:01 UTC. После второго подтверждения прошло 24 часа. Точная версия v2 повторно проверена; блокирующих ограничений нет. Это не подтверждение выплаты.",
+      "Demo clock: 17 Oct 2026 12:01 UTC. 24 hours elapsed after the second approval. Exact v2 rechecked; no blocking restrictions. This is not payout approval."
+    ],
+    "rows": [
+      [
+        "Адрес",
+        "Address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "PART-024 · v2 · учебный пример",
+        "PART-024 · v2 · demo"
+      ],
+      [
+        "Состояние",
+        "State",
+        "Активен после проверки",
+        "Active after recheck",
+        "Обычная выплата требует нового подтверждения",
+        "Ordinary payout needs fresh approval"
+      ]
+    ],
+    "actions": [
+      [
+        "К реквизитам",
+        "Recipients",
+        "recipients"
+      ],
+      [
+        "Проверить полную выплату",
+        "Review full payout",
+        "payout-preview"
+      ]
+    ]
+  },
+  {
+    "key": "recipient-change-cancelled",
+    "title": [
+      "Изменение адреса отменено",
+      "Address change cancelled"
+    ],
+    "body": [
+      "Ожидающая версия v2 отменена владельцем в течение задержки. Она не активируется по истечении времени. История и причина сохранены; ускоренного включения нет.",
+      "Pending v2 cancelled by an Owner during the waiting period. It will not activate when time elapses. Keep history and reason; no expedited activation."
+    ],
+    "rows": [
+      [
+        "Версия",
+        "Version",
+        "PART-024 · v2 · отменена",
+        "PART-024 · v2 · cancelled",
+        "Оба владельца уведомлены",
+        "Both Owners notified"
+      ],
+      [
+        "Повторное изменение",
+        "New change",
+        "Новая версия и новые подтверждения",
+        "New version and fresh approvals",
+        "24 часа начинаются заново после второго подтверждения",
+        "Full 24-hour wait restarts after second approval"
+      ]
+    ],
+    "actions": [
+      [
+        "К реквизитам",
+        "Recipients",
+        "recipients"
+      ],
+      [
+        "Новое предложение",
+        "New proposal",
+        "recipient-form"
+      ]
+    ]
+  }
+]
