@@ -286,5 +286,35 @@
     "adminTouched": false,
     "limits": ["Prototype and demo-data checks only", "Not all routes, narrow widths, 200% text zoom, keyboard, screen reader or backend actions tested"],
     "report": "../../docs/design/client/final-acceptance-fixes-2026-10-16.md"
+  },
+  "finalClientReleaseReview20261016": {
+    "date": "2026-10-16",
+    "figmaPages": ["2477:528", "2499:2", "2477:529", "2499:3"],
+    "mobileProfileCtaAdditionalVariants": {"ru": 7, "en": 7, "actionY": 330, "periodY": 394, "resultY": 458},
+    "mobileManualPauseScreens": {
+      "ru": ["2865:2966", "2865:3095", "2865:3224", "2867:153346"],
+      "en": ["2870:186643", "2870:186772", "2870:186901", "2870:186973"]
+    },
+    "mobileManualCatalogRu": {"catalog": "2889:143739", "profilePeriods": 5, "cardReactionsRetargeted": 146, "originalReactionsRestored": 18},
+    "mobileManualCatalogEn": {"catalog": "2892:3070", "profilePeriods": 5, "originalFramesUntouched": true},
+    "desktopManualPauseScreens": {
+      "ru": ["2529:133953", "2859:4786", "2884:49632", "2884:49688", "2883:143474", "2883:143514"],
+      "en": ["2529:135786", "2884:143694", "2884:144007", "2884:144042", "2884:143854", "2884:143889"]
+    },
+    "presentChecked": [
+      "RU mobile pause → resume → three positions → resumed Home",
+      "RU mobile paused Home → separate Traders catalog → Momentum Fox profile → 24h → paused Home",
+      "EN mobile pause → resume → three positions → three confirmed activity events → resumed Home → pause",
+      "EN mobile paused/resumed Home → separate Traders catalog → local 30d profile → same Home state; local Positions and Activity retain three confirmed records",
+      "RU desktop pause → resume → three positions → resumed Home",
+      "EN desktop pause → resume → Manage session → pause; paused Positions and Activity → paused Home",
+      "EN desktop paused/resumed Home → separate Traders catalog → local 30d profile → same Home state",
+      "RU desktop paused/resumed Home → separate Traders catalog → local 30d profile → same Home state",
+      "EN desktop first-run → fresh Home with $200/0/0 and empty positions"
+    ],
+    "newComponentFamilies": 0,
+    "newTokens": 0,
+    "adminTouched": false,
+    "report": "../../docs/design/client/final-client-release-review-2026-10-16.md"
   }
 }
