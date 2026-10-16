@@ -1,0 +1,1459 @@
+[
+  {
+    "key": "source-balance-details",
+    "section": "ADM-13",
+    "num": "13.74",
+    "paras": [
+      {
+        "text": "13.74 — Баланс источника · состав и подтверждения\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Учебный снимок 16 Oct 12:00 UTC. Данные сети, сопоставления и ограничений имеют отдельные основания; неизвестное значение не равно нулю.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Источник / полный адрес — 0x1234567890abcdef1234567890abcdef12345678 (SRC-PM · собственные средства); Сеть / актив — DEMO-NET-PM · USDT (Контракт · 0x3333333333333333333333333333333333333333); Подтверждено / ожидается — 225 / 10 USDT (Ожидаемые 10: 12 / 20 подтверждений · учебно); Что подтверждено — EVID-BAL-01 · блок DEMO-120 (225 уже окончательны; 10 ещё не окончательны); Не сопоставлено / заблокировано — 25 / 0 USDT (MATCH-01: 25 не сопоставлено с поступлением); Пригодно / резервы / операционный — 200 / 50 / 20 USDT; Свободно / долг партнёрам — 130 / 185 USDT (Долг отдельно; резервы не вычитаются дважды); Наблюдение / время — OBS-DEMO-PM · 16 Oct 12:00 UTC (Все подтверждения синтетические).\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: Ожидаемое поступление; Данные устарели · пример; Ошибка проверки · пример; К источнику. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-154943&starting-point-node-id=2904-154943&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-44958&starting-point-node-id=2904-44958&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "source-pending-receipt",
+    "section": "ADM-13",
+    "num": "13.75",
+    "paras": [
+      {
+        "text": "13.75 — Поступление ожидает подтверждений\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: 10 USDT ещё не увеличивают пригодный баланс. Завершение определяется проверенными правилами выбранной сети, а не числом из макета.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Источник / полный адрес — 0x1234567890abcdef1234567890abcdef12345678 (SRC-PM · собственные средства); Сеть / актив — DEMO-NET-PM · USDT (Контракт · 0x3333333333333333333333333333333333333333); Поступление / внешний идентификатор — RCT-DEMO-10 · TX-DEMO-IN-10; Сумма / подтверждения — 10 USDT · 12 / 20 · учебно; Статус учёта — Не окончательно · не доступно для выплаты; Наблюдение / сверка — OBS-DEMO-PM · EVID-PENDING-10 (Повторная обработка не создаёт новое поступление).\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: Вернуться к составу баланса. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-155101&starting-point-node-id=2904-155101&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-45116&starting-point-node-id=2904-45116&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "source-observation-stale",
+    "section": "ADM-13",
+    "num": "13.76",
+    "paras": [
+      {
+        "text": "13.76 — Баланс устарел · отправка недоступна\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Последний снимок сохранён для просмотра, но его нельзя использовать для новой денежной отправки. Обновление только читает данные.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Источник / полный адрес — 0x1234567890abcdef1234567890abcdef12345678 (SRC-PM · собственные средства); Сеть / актив — DEMO-NET-PM · USDT (Контракт · 0x3333333333333333333333333333333333333333); Последняя успешная проверка — 16 Oct 11:00 UTC · OBS-DEMO-PM; Текущее время / правило свежести — 16 Oct 12:00 UTC · FRESH v2 (Порог задают владельцы; пример устарел); Остаток / доступность — Последний: 225 USDT · актуальный: неизвестен; Что заблокировано — Новые выплаты и пополнения с этого источника.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: Повторить чтение · демо; Ошибка чтения · пример; К источникам. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-155239&starting-point-node-id=2904-155239&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-45254&starting-point-node-id=2904-45254&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "source-observation-error",
+    "section": "ADM-13",
+    "num": "13.77",
+    "paras": [
+      {
+        "text": "13.77 — Не удалось проверить баланс\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Новый пригодный баланс не рассчитан. Сервис не подставляет ноль и не использует старое подтверждение для отправки.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Источник / полный адрес — 0x1234567890abcdef1234567890abcdef12345678 (SRC-PM · собственные средства); Сеть / актив — DEMO-NET-PM · USDT (Контракт · 0x3333333333333333333333333333333333333333); Ошибка / событие — OBS-503 · INC-OBS-01 (Подключение наблюдения не ответило); Последние данные — 225 USDT · 16 Oct 11:00 UTC (Исторический снимок, не разрешение отправки); Повтор проверки — Без сделки, перевода или изменения долга.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: Повторить проверку · демо; К устаревшему снимку. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-155385&starting-point-node-id=2904-155385&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-45400&starting-point-node-id=2904-45400&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "payout-request-exists",
+    "section": "ADM-13",
+    "num": "13.78",
+    "paras": [
+      {
+        "text": "13.78 — Такая выплата уже создана\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Повторный запрос возвращает существующую PAY-021. Новая отправка, новый резерв и второй долг не создаются.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Партнёр / площадка — PART-024 · Polymarket; Экономическое назначение — Полный доступный долг · 120 USDT; Найденная операция — PAY-021 · отправлена · результат проверяется; Резерв / повтор — 121.20 USDT · тот же уникальный резерв; Идентификатор запроса — REQ-DEMO-PAY-021 (Служебный идентификатор; не секретный ключ).\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: Открыть существующую выплату; К списку выплат. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-155523&starting-point-node-id=2904-155523&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-45538&starting-point-node-id=2904-45538&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "source-reservations-busy",
+    "section": "ADM-13",
+    "num": "13.79",
+    "paras": [
+      {
+        "text": "13.79 — Средства источника уже зарезервированы\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Свободных средств не хватает на полную новую выплату. Чужой резерв недоступен; сумму не уменьшаем и обходной запрос не создаём.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Источник / полный адрес — 0x1234567890abcdef1234567890abcdef12345678 (SRC-PM · собственные средства); Сеть / актив — DEMO-NET-PM · USDT (Контракт · 0x3333333333333333333333333333333333333333); Пригодно / операционный резерв — 200 / 20 USDT; Другие резервы — 50 + 121.20 = 171.20 USDT (PAY-025 · другой партнёр PART-025); Свободно / нужно — 8.80 / 121.20 USDT; Новый долг / результат — PART-024: 120 USDT · новая выплата не создана; Разрешённый следующий шаг — Проверить существующие резервы либо пополнить источник.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: Состав резервов; Подготовить пополнение; К выплатам. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-155661&starting-point-node-id=2904-155661&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-45676&starting-point-node-id=2904-45676&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "source-reservation-details",
+    "section": "ADM-13",
+    "num": "13.80",
+    "paras": [
+      {
+        "text": "13.80 — Резервы источника · только просмотр\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Это отдельный учебный снимок занятого источника. Просмотр не освобождает чужие средства и не отменяет неизвестную отправку.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Источник / полный адрес — 0x1234567890abcdef1234567890abcdef12345678 (SRC-PM · собственные средства); Сеть / актив — DEMO-NET-PM · USDT (Контракт · 0x3333333333333333333333333333333333333333); Ранее выделено — 50 USDT · другая операция; PAY-025 / PART-025 — 121.20 USDT · результат неизвестен; Операционный резерв — 20 USDT; Свободно — 8.80 USDT (200 − 50 − 121.20 − 20); Снять резерв вручную — Недоступно: требуется окончательный подтверждённый исход.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: Вернуться к занятому источнику. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-155811&starting-point-node-id=2904-155811&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-45826&starting-point-node-id=2904-45826&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "payout-failure-proof",
+    "section": "ADM-13",
+    "num": "13.81",
+    "paras": [
+      {
+        "text": "13.81 — Проверка окончательного отказа выплаты\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Результат отличается от неизвестного: сеть доказала окончательный отказ без передачи средств получателю. Сверка только проверяет данные.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Операция / партнёр — PAY-021 · PART-024 · Polymarket; Получатель / полный адрес — 0x2222222222222222222222222222222222222222; Требовалось / получено — 120 / 0 USDT; Окончательные данные — EVID-FAIL-021 · TX-DEMO-FAIL-021 (Окончательный отказ · учебная сеть); Фактические расходы / плательщик — 0.30 USDT · сервис; Резерв / долг — 121.20 / 120 USDT (До записи итога резерв сохраняется).\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: Показать итог сверки · демо; Доказательств недостаточно. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-155953&starting-point-node-id=2904-155953&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-45968&starting-point-node-id=2904-45968&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "payout-failed-final",
+    "section": "ADM-13",
+    "num": "13.82",
+    "paras": [
+      {
+        "text": "13.82 — Выплата не исполнена · отказ доказан\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Долг 120 USDT остаётся непогашенным. Резерв закрыт отдельной записью, фактические расходы 0.30 сохранены. Новая попытка требует новой проверки и согласия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Операция / итог — PAY-021 · окончательный отказ; Связанные записи — EVID-FAIL-021 · RES-RELEASE-021 · FEE-021; Полный долг / погашено — 120 / 0 USDT; Пригодно после расходов — 199.70 USDT (200 − фактические расходы 0.30); Другие резервы / операционный — 50 / 20 USDT; Свободно — 129.70 USDT (Собственный резерв PAY-021 больше не действует).\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: К выплатам · новая проверка; Подтверждающие данные. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-156095&starting-point-node-id=2904-156095&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-46110&starting-point-node-id=2904-46110&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "payout-unexpected-shortfall",
+    "section": "ADM-13",
+    "num": "13.83",
+    "paras": [
+      {
+        "text": "13.83 — Получено меньше ожидаемого · инцидент\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Неполный внешний перевод — ошибка исполнения, а не разрешённая частичная выплата. Автоматическая досылка запрещена; исход и остаток обязательства проверяются отдельно.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Операция / инцидент — PAY-ERR-01 · INC-PAY-01; Получатель / полный адрес — 0x2222222222222222222222222222222222222222; Ожидалось / подтверждено — 120 / 100 USDT; Расхождение — 20 USDT · на сверке; Расходы / данные — 1.20 USDT · EVID-SHORT-01; Статус выплаты — Не «выплачено»; исходная запись не переписывается; Повтор / остаток — Повтор запрещён; непогашенное обязательство не теряется.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: Подтверждающие данные; К выплатам. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-156237&starting-point-node-id=2904-156237&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-46252&starting-point-node-id=2904-46252&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "recipient-version-conflict",
+    "section": "ADM-13",
+    "num": "13.84",
+    "paras": [
+      {
+        "text": "13.84 — Версия реквизитов изменилась\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Согласия на REC v2 не разрешают REC v3. Нельзя переносить время ожидания или автоматически включать новый адрес.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Партнёр / площадка — PART-024 · Polymarket; Предложенный полный адрес — 0x5555555555555555555555555555555555555555 (REC v2 · новая версия); Сеть / актив — DEMO-NET-PM · USDT; Подтверждения / план активации — A + B · 16 Oct 12:00 → 17 Oct 12:00 UTC (24 часа после второго владельца); Новая версия / адрес — REC v3 · 0x6666666666666666666666666666666666666666; Результат проверки — Согласия v2 аннулированы · v3 не активна.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: Новое предложение v3; К реквизитам. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-156383&starting-point-node-id=2904-156383&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-46398&starting-point-node-id=2904-46398&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "recipient-reviewer-revoked",
+    "section": "ADM-13",
+    "num": "13.85",
+    "paras": [
+      {
+        "text": "13.85 — Подтверждавший владелец утратил доступ\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: После отзыва владельца B его неиспользованное согласие недействительно. Даже истёкшие 24 часа не разрешают активацию.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Партнёр / площадка — PART-024 · Polymarket; Предложенный полный адрес — 0x5555555555555555555555555555555555555555 (REC v2 · новая версия); Сеть / актив — DEMO-NET-PM · USDT; Подтверждения / план активации — A + B · 16 Oct 12:00 → 17 Oct 12:00 UTC (24 часа после второго владельца); Событие / время — REVOKE-B-01 · 17 Oct 11:00 UTC; Активация / причина — Запрещена · нет действующей пары владельцев; Восстановление доступа — Не восстанавливает старое согласие автоматически.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: К реквизитам. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-156525&starting-point-node-id=2904-156525&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-46540&starting-point-node-id=2904-46540&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "recipient-activation-blocked",
+    "section": "ADM-13",
+    "num": "13.86",
+    "paras": [
+      {
+        "text": "13.86 — 24 часа истекли · активация запрещена\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Время ожидания закончилось, но действует ограничение. Адрес не становится доступным и ограничения не снимаются автоматически.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Партнёр / площадка — PART-024 · Polymarket; Предложенный полный адрес — 0x5555555555555555555555555555555555555555 (REC v2 · новая версия); Сеть / актив — DEMO-NET-PM · USDT; Подтверждения / план активации — A + B · 16 Oct 12:00 → 17 Oct 12:00 UTC (24 часа после второго владельца); Сейчас / проверка — 17 Oct 12:01 UTC · CTRL-NET v4; Причина запрета — DEMO-NET-PM изолирована · INC-NET-01; Новый адрес / выплаты — Ожидает разрешённой повторной проверки · выплат нет.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: К реквизитам; Изменение версии · пример. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-156671&starting-point-node-id=2904-156671&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-46686&starting-point-node-id=2904-46686&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "recipient-restart-pending",
+    "section": "ADM-13",
+    "num": "13.87",
+    "paras": [
+      {
+        "text": "13.87 — Реквизиты v3 · новое предложение\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Владелец A заново предложил REC v3. Ни старые подписи, ни прошедшее время не применяются. До нового подтверждения B отсчёт не начинается.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Партнёр / площадка — PART-024 · Polymarket; Предложенный полный адрес — 0x6666666666666666666666666666666666666666 (REC v3 · новая версия); Сеть / актив — DEMO-NET-PM · USDT; Автор / предложение — Владелец A · REC-PROP-03 · 17 Oct 12:55 UTC; Старые согласия — Аннулированы · новый срок ещё не начался.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: Проверка владельца B; К реквизитам. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-156817&starting-point-node-id=2904-156817&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-46832&starting-point-node-id=2904-46832&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "recipient-restart-review",
+    "section": "ADM-13",
+    "num": "13.88",
+    "paras": [
+      {
+        "text": "13.88 — Владелец B · повторная проверка v3\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Повторное подтверждение относится только к REC v3. Новые 24 часа начнутся 17 Oct 13:00 UTC, если проверка успешна.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Партнёр / площадка — PART-024 · Polymarket; Предложенный полный адрес — 0x6666666666666666666666666666666666666666 (REC v3 · новая версия); Сеть / актив — DEMO-NET-PM · USDT; Автор / проверяющий — Владелец A / владелец B; Срок после нового согласия — 17 Oct 13:00 → 18 Oct 13:00 UTC; Повторная проверка личности — Физический ключ владельца B.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: Подтвердить новую версию · демо; Вернуть автору. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-156955&starting-point-node-id=2904-156955&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-46970&starting-point-node-id=2904-46970&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "recipient-restart-wait",
+    "section": "ADM-13",
+    "num": "13.89",
+    "paras": [
+      {
+        "text": "13.89 — Реквизиты v3 · новые 24 часа\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: REC v3 подтверждена заново. Старое ожидание v2 не сократило срок. Адрес ещё не доступен для выплат.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Партнёр / площадка — PART-024 · Polymarket; Предложенный полный адрес — 0x6666666666666666666666666666666666666666 (REC v3 · новая версия); Сеть / актив — DEMO-NET-PM · USDT; Подтверждения / план активации — A + B · 17 Oct 13:00 → 18 Oct 13:00 UTC (24 часа после второго владельца); Осталось / часовой пояс — 24 часа · UTC; Отмена / ускорение — Любой владелец может отменить; ускорения нет.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: К реквизитам. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-157097&starting-point-node-id=2904-157097&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-47112&starting-point-node-id=2904-47112&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "payout-approval-history",
+    "section": "ADM-13",
+    "num": "13.90",
+    "paras": [
+      {
+        "text": "13.90 — Выплата · история согласий\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Все события связаны с точной версией и конкретным владельцем. Учебное правило: срок каждого согласия 5 минут; отправка возможна только пока действуют оба.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Выплата / снимок — PAY-022 · digest v7 · SEC-T2; Владелец A / срок — 16 Oct 12:00 → 12:05 UTC (APPROVE-A-022 · физический ключ); Владелец B / срок — 16 Oct 12:01 → 12:06 UTC (APPROVE-B-022 · другой человек); Общее разрешённое окно — До 16 Oct 12:05 UTC (Минимум сроков; не продлевается просмотром); История версии — v7 · суммы, адреса и ограничения закреплены; Неиспользованное разрешение — Смена версии / отзыв / истечение отменяют.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: Срок истёк · пример; Версия изменилась · пример; К выплатам. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-157235&starting-point-node-id=2904-157235&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-47250&starting-point-node-id=2904-47250&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "payout-approval-expired",
+    "section": "ADM-13",
+    "num": "13.91",
+    "paras": [
+      {
+        "text": "13.91 — Согласие истекло · отправки нет\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Сейчас 16 Oct 12:05:01 UTC. Срок A закончился; ещё действующая подпись B не позволяет отправить выплату.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Выплата / исход — PAY-022 · не отправлена; A / B — Истекло / действует до 12:06 UTC; Причина / событие — APPROVAL_EXPIRED · AUD-022-03; Следующий шаг — Новый снимок и необходимые согласия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: История согласий; К выплатам · новая проверка. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-157381&starting-point-node-id=2904-157381&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-47396&starting-point-node-id=2904-47396&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "payout-approval-invalidated",
+    "section": "ADM-13",
+    "num": "13.92",
+    "paras": [
+      {
+        "text": "13.92 — Версия изменилась · согласия отменены\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Ограничения изменились после согласия. Предыдущие подписи сохраняются в истории, но не используются для отправки.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Выплата / версии — PAY-022 · CTRL v2 → v3; Согласия A / B — Оба аннулированы; Причина / время — CTRL-CHANGE-022 · 16 Oct 12:02 UTC; Отправка / прошлое — Не выполнена · старые записи неизменны.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: История согласий; Новый снимок через список. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-157515&starting-point-node-id=2904-157515&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-47530&starting-point-node-id=2904-47530&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "recovery-route-revoked",
+    "section": "ADM-13",
+    "num": "13.93",
+    "paras": [
+      {
+        "text": "13.93 — Разрешение восстановления отозвано\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Маршрут отозван до отправки. Даже два действующих согласия на перевод не дают права отправить его без маршрута.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Операция / инцидент — TRF-REC-01 · INC-DEMO-04; Отправитель / полный адрес — 0x1111111111111111111111111111111111111111 (SRC-REV-PM); Получатель / полный адрес — 0x1234567890abcdef1234567890abcdef12345678 (SRC-PM · DEMO-NET-PM · USDT); Сумма / расходы / резерв — 100 / 0.50 / 100.50 USDT; Ограниченный маршрут — REC-ROUTE v3 · CTRL-REC v3 (Остальные денежные действия закрыты); Отзыв / причина — CTRL-REC v4 · 16 Oct 12:03 UTC (Новое полное отключение · AUD-REC-04); Отправка / резерв — Не отправлено · резерв закрывается отдельным событием.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: К полному отключению. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-157649&starting-point-node-id=2904-157649&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-47664&starting-point-node-id=2904-47664&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "recovery-route-expired",
+    "section": "ADM-13",
+    "num": "13.94",
+    "paras": [
+      {
+        "text": "13.94 — Срок маршрута восстановления истёк\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Плановое разрешение действовало до 12:15 UTC. Просмотр или подтверждение перевода не продлевают его. Нужен новый отдельный маршрут и новые согласия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Операция / инцидент — TRF-REC-01 · INC-DEMO-04; Отправитель / полный адрес — 0x1111111111111111111111111111111111111111 (SRC-REV-PM); Получатель / полный адрес — 0x1234567890abcdef1234567890abcdef12345678 (SRC-PM · DEMO-NET-PM · USDT); Сумма / расходы / резерв — 100 / 0.50 / 100.50 USDT; Ограниченный маршрут — REC-ROUTE v3 · CTRL-REC v3 (Остальные денежные действия закрыты); Срок / сейчас — 16 Oct 12:15 / 12:15:01 UTC; Результат проверки — Новая отправка запрещена.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: К полному отключению. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-157791&starting-point-node-id=2904-157791&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-47806&starting-point-node-id=2904-47806&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "recovery-failure-proof",
+    "section": "ADM-13",
+    "num": "13.95",
+    "paras": [
+      {
+        "text": "13.95 — Восстановительный перевод · отказ доказан\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Проверка доказала отказ без поступления 100 USDT. Фактические расходы 0.20 USDT сохраняются. Повторная отправка не выполняется.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Операция / инцидент — TRF-REC-01 · INC-DEMO-04; Отправитель / полный адрес — 0x1111111111111111111111111111111111111111 (SRC-REV-PM); Получатель / полный адрес — 0x1234567890abcdef1234567890abcdef12345678 (SRC-PM · DEMO-NET-PM · USDT); Сумма / расходы / резерв — 100 / 0.50 / 100.50 USDT; Окончательный результат — Не исполнен · EVID-REC-FAIL-01; Фактические расходы / плательщик — 0.20 USDT · сервис; Аварийный контекст — INC-DEMO-04 · CTRL-REC v3 (Остальные ограничения сохранены).\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: Показать итог сверки · демо; Данных недостаточно. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-157933&starting-point-node-id=2904-157933&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-47948&starting-point-node-id=2904-47948&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "recovery-failed-final",
+    "section": "ADM-13",
+    "num": "13.96",
+    "paras": [
+      {
+        "text": "13.96 — Восстановление · перевод не выполнен\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Резерв 100.50 закрыт отдельной записью; списаны только доказанные расходы 0.20. Долг партнёрам не меняется, обычные действия не включаются.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Операция / инцидент — TRF-REC-01 · INC-DEMO-04; Отправитель / полный адрес — 0x1111111111111111111111111111111111111111 (SRC-REV-PM); Получатель / полный адрес — 0x1234567890abcdef1234567890abcdef12345678 (SRC-PM · DEMO-NET-PM · USDT); Расходы / освобождение — 0.20 USDT · RES-REC-RELEASE-01; Поступление / долг — 0 USDT · долг без изменений; Перед новой попыткой — Новый разрешённый маршрут и новые два согласия; Контекст — INC-DEMO-04 · остальные действия закрыты.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: К полному отключению. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-158079&starting-point-node-id=2904-158079&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-48094&starting-point-node-id=2904-48094&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "recovery-stop-after-send",
+    "section": "ADM-13",
+    "num": "13.97",
+    "paras": [
+      {
+        "text": "13.97 — Повторное отключение после отправки\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Перевод уже отправлен до нового ограничения. Остановить его задним числом нельзя. Допустимы только наблюдение и сверка; новых отправок нет.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Операция / инцидент — TRF-REC-01 · INC-DEMO-04; Отправитель / полный адрес — 0x1111111111111111111111111111111111111111 (SRC-REV-PM); Получатель / полный адрес — 0x1234567890abcdef1234567890abcdef12345678 (SRC-PM · DEMO-NET-PM · USDT); Сумма / расходы / резерв — 100 / 0.50 / 100.50 USDT; Ограниченный маршрут — REC-ROUTE v3 · CTRL-REC v3 (Остальные денежные действия закрыты); Новое ограничение / порядок — CTRL-REC v4 · после отправки; Результат / резерв — Неизвестен · резерв 100.50 сохраняется.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: К полному отключению. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-158221&starting-point-node-id=2904-158221&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-48236&starting-point-node-id=2904-48236&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "source-archive-proposal",
+    "section": "ADM-13",
+    "num": "13.98",
+    "paras": [
+      {
+        "text": "13.98 — Архивировать собственный источник\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Владелец A предлагает закрыть конфигурацию для новых операций. Архив не удаляет историю, долг, остаток или незавершённую сверку.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Источник / полный адрес — 0x1234567890abcdef1234567890abcdef12345678 (SRC-PM · собственные средства); Сеть / актив — DEMO-NET-PM · USDT (Контракт · 0x3333333333333333333333333333333333333333); Причина / версия — Закрытие старого маршрута · SRC-PM v2; Незавершённая операция — PAY-025 · результат неизвестен; Последствия — Новых отправок нет; существующее только сверяется; История / обязательства — Сохраняются, не обнуляются.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: Передать владельцу B; Отмена. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-158367&starting-point-node-id=2904-158367&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-48382&starting-point-node-id=2904-48382&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "source-archive-review",
+    "section": "ADM-13",
+    "num": "13.99",
+    "paras": [
+      {
+        "text": "13.99 — Владелец B · архивирование источника\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Независимый владелец проверяет ту же версию и причину. Архивирование не является переводом или списанием долга.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Источник / полный адрес — 0x1234567890abcdef1234567890abcdef12345678 (SRC-PM · собственные средства); Сеть / актив — DEMO-NET-PM · USDT (Контракт · 0x3333333333333333333333333333333333333333); Предложение / причина — ARCH-SRC-01 · закрытие старого маршрута; Автор / проверяющий — Владелец A / владелец B; Открытый случай — PAY-025 · сверка продолжается; Проверка личности — Новая проверка физическим ключом B.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: Архивировать · демо; Вернуть автору. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-158509&starting-point-node-id=2904-158509&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-48524&starting-point-node-id=2904-48524&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "source-archived",
+    "section": "ADM-13",
+    "num": "13.100",
+    "paras": [
+      {
+        "text": "13.100 — Источник архивирован · история сохранена\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Конфигурация недоступна для новых выплат и пополнений. История, средства и сверка сохраняются; возврат требует нового предложения и второго владельца.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Источник / полный адрес — 0x1234567890abcdef1234567890abcdef12345678 (SRC-PM · собственные средства); Сеть / актив — DEMO-NET-PM · USDT (Контракт · 0x3333333333333333333333333333333333333333); Архив / подтверждения — ARCH-SRC-01 · A + B · SRC-PM v3; История / долг — Сохранены · без списания; Незавершённая операция — PAY-025 · только безопасная сверка.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: К выборке после архивирования. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-158651&starting-point-node-id=2904-158651&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-48666&starting-point-node-id=2904-48666&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "stopped-operation-queue",
+    "section": "ADM-17",
+    "num": "17.42",
+    "paras": [
+      {
+        "text": "17.42 — После остановки · очередь операций\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Восстановление соединения не отправляет старые задания автоматически. Неотправленные и уже отправленные операции разделены.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: PAY-026 · не отправлена — Согласия устарели · новой отправки нет (Новый снимок и новые согласия); TRF-DEMO-02 · не отправлен — Источник и ограничения требуют новой проверки; PAY-021 · отправлена — Результат неизвестен · повтор запрещён (Только сверка уже отправленного); Ограничение / история — CTRL-STOP v5 · исходные задания сохранены.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: Неотправленная операция; Сверка отправленного; К аварийному управлению. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-158785&starting-point-node-id=2904-158785&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-48800&starting-point-node-id=2904-48800&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "stopped-operation-recheck",
+    "section": "ADM-17",
+    "num": "17.43",
+    "paras": [
+      {
+        "text": "17.43 — Старое задание требует новой проверки\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: PAY-026 не отправлена. Нельзя повторно использовать прежний снимок и согласия. Открытие проверки не ставит старое задание на отправку.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Задание / состояние — PAY-026 · остановлено до отправки; Старое разрешение — PRV-026 v1 · недействительно; Новая проверка — Текущий долг, адрес, средства, версия и ограничения; Технический режим — Пока запрет действует — новая отправка невозможна.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: К списку выплат · без отправки; К остановленной очереди. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-158923&starting-point-node-id=2904-158923&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2904-48938&starting-point-node-id=2904-48938&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "payout-shortfall-evidence",
+    "section": "ADM-13",
+    "num": "13.101",
+    "paras": [
+      {
+        "text": "13.101 — Неполное поступление · подтверждающие данные\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Проверяется только PAY-ERR-01. Нельзя объявить её полностью выплаченной или автоматически отправить разницу. Подтверждённые факты сохраняются отдельно от ожидаемого результата.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: Операция / инцидент — PAY-ERR-01 · INC-PAY-01; Получатель / полный адрес — 0x2222222222222222222222222222222222222222 (DEMO-NET-PM · USDT); Ожидалось / получено / разница — 120 / 100 / 20 USDT; Фактические расходы — 1.20 USDT · FEE-ERR-01 (Сервис · учебное правило); Данные сверки — EVID-SHORT-01 · TX-DEMO-SHORT-01 (Окончательность и разнесение проверяются отдельно); Остаток обязательства — 20 USDT не теряются · случай не закрыт (Уже учтённое поступление не начисляется снова).\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: Вернуться к расхождению. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2906-54214&starting-point-node-id=2906-54214&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2906-152259&starting-point-node-id=2906-152259&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "source-catalog-archived",
+    "section": "ADM-13",
+    "num": "13.102",
+    "paras": [
+      {
+        "text": "13.102 — Источники · после архивирования\n",
+        "style": "HEADING_2",
+        "links": []
+      },
+      {
+        "text": "Назначение: Учебная выборка после ARCH-SRC-01. Архивный источник остаётся видимым в истории; новые отправки и пополнения через него недоступны. Незавершённая сверка не исчезает.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "На экране: SRC-PM · состояние — Архивирован · v3 (ARCH-SRC-01 · A + B); Полный собственный адрес — 0x1234567890abcdef1234567890abcdef12345678 (Polymarket · DEMO-NET-PM · USDT); Открытая операция — PAY-025 · результат неизвестен (Новых отправок нет; существующее сверяется); Долг и история — Сохранены без обнуления; Другие источники — SRC-LL · отдельная площадка, не подключена (Остатки разных маршрутов не объединяются).\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Что проверить: Открыть архивный источник; Добавить другой источник. Переходы показывают учебные исходы; они не запускают реальные проверки или денежные действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": []
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип RU",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2906-54352&starting-point-node-id=2906-54352&page-id=1981-29&scaling=scale-down"
+          }
+        ]
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "label": "Прототип EN",
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2906-152397&starting-point-node-id=2906-152397&page-id=1981-30&scaling=scale-down"
+          }
+        ]
+      }
+    ]
+  }
+]

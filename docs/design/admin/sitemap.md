@@ -1,6 +1,6 @@
 # Живая карта админки
 
-Текущий срез 16.10.2026: **459 RU + 459 EN корневых макетов**, из них 454 основных состояния и 5 технических оболочек на язык. Карта 0.15, набор компонентов админки 0.4.20 (28 наборов / 168 вариантов). [Последние решения и передача](money-confirmations-sources-2026-10-16/README.md). Ниже сохранён исторический журнал; его промежуточные числа и версии не заменяют текущий реестр.
+Текущий срез 16.10.2026: **490 RU + 490 EN корневых макетов**, из них 485 основных состояний и 5 технических оболочек на язык. Карта 0.16, набор компонентов админки 0.4.20 (28 наборов / 168 вариантов). [Последние решения и передача](money-exceptions-2026-10-16/README.md). Ниже сохранён исторический журнал; его промежуточные числа и версии не заменяют текущий реестр.
 
 13.10.2026 · ревизия 0.7: 295 RU + 295 EN, включая по три меню аватара для viewport прототипа. Личный аккаунт пересобран как обзор и отдельные страницы. [Паттерн, узлы и QA](account-hub-2026-10-13/README.md).
 
@@ -235,6 +235,35 @@
 | Восстановительный перевод · результат неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-49084) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-149589) |
 | Восстановительное пополнение сверено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-49227) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-149731) |
 | Выплата на новый адрес · проверка | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2868-47683) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2868-143426) |
+| Баланс источника · состав и подтверждения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-154943) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-44958) |
+| Поступление ожидает подтверждений | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-155101) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-45116) |
+| Баланс устарел · отправка недоступна | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-155239) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-45254) |
+| Не удалось проверить баланс | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-155385) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-45400) |
+| Такая выплата уже создана | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-155523) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-45538) |
+| Средства источника уже зарезервированы | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-155661) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-45676) |
+| Резервы источника · только просмотр | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-155811) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-45826) |
+| Проверка окончательного отказа выплаты | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-155953) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-45968) |
+| Выплата не исполнена · отказ доказан | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-156095) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-46110) |
+| Получено меньше ожидаемого · инцидент | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-156237) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-46252) |
+| Версия реквизитов изменилась | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-156383) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-46398) |
+| Подтверждавший владелец утратил доступ | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-156525) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-46540) |
+| 24 часа истекли · активация запрещена | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-156671) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-46686) |
+| Реквизиты v3 · новое предложение | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-156817) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-46832) |
+| Владелец B · повторная проверка v3 | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-156955) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-46970) |
+| Реквизиты v3 · новые 24 часа | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-157097) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-47112) |
+| Выплата · история согласий | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-157235) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-47250) |
+| Согласие истекло · отправки нет | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-157381) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-47396) |
+| Версия изменилась · согласия отменены | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-157515) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-47530) |
+| Разрешение восстановления отозвано | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-157649) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-47664) |
+| Срок маршрута восстановления истёк | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-157791) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-47806) |
+| Восстановительный перевод · отказ доказан | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-157933) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-47948) |
+| Восстановление · перевод не выполнен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-158079) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-48094) |
+| Повторное отключение после отправки | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-158221) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-48236) |
+| Архивировать собственный источник | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-158367) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-48382) |
+| Владелец B · архивирование источника | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-158509) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-48524) |
+| Источник архивирован · история сохранена | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-158651) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-48666) |
+| Неполное поступление · подтверждающие данные | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2906-54214) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2906-152259) |
+| Источники · после архивирования | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2906-54352) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2906-152397) |
 
 ## ADM-14 · Сотрудники и доступ
 
@@ -326,7 +355,7 @@
 
 ## ADM-17 · Аварийное управление
 
-Частично. GLOBAL_STOP и четыре отдельных ограничения: область, применение, независимое восстановление.
+GLOBAL_STOP и четыре отдельных ограничения: область, применение, независимое восстановление.
 
 | Состояние | RU | EN |
 | --- | --- | --- |
@@ -371,6 +400,8 @@
 | Поэтапный возврат функций | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-63538) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-73981) |
 | Возврат функций заблокирован | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-63652) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-74095) |
 | Поступления при отключённых пополнениях | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-63762) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-74205) |
+| После остановки · очередь операций | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-158785) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-48800) |
+| Старое задание требует новой проверки | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-158923) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-48938) |
 
 ## ADM-18 · Маркетинг
 

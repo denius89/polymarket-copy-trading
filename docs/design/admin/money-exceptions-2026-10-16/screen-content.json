@@ -1,0 +1,2313 @@
+[
+  {
+    "key": "source-balance-details",
+    "title": [
+      "Баланс источника · состав и подтверждения",
+      "Source balance · breakdown and evidence"
+    ],
+    "body": [
+      "Учебный снимок 16 Oct 12:00 UTC. Данные сети, сопоставления и ограничений имеют отдельные основания; неизвестное значение не равно нулю.",
+      "Synthetic snapshot at 16 Oct 12:00 UTC. Network, matching and restrictions have separate evidence; unknown is not zero."
+    ],
+    "rows": [
+      [
+        "Источник / полный адрес",
+        "Source / full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · собственные средства",
+        "SRC-PM · own funds"
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Подтверждено / ожидается",
+        "Confirmed / pending",
+        "225 / 10 USDT",
+        "225 / 10 USDT",
+        "Ожидаемые 10: 12 / 20 подтверждений · учебно",
+        "Pending 10: 12 / 20 confirmations · demo"
+      ],
+      [
+        "Что подтверждено",
+        "Confirmed evidence",
+        "EVID-BAL-01 · блок DEMO-120",
+        "EVID-BAL-01 · block DEMO-120",
+        "225 уже окончательны; 10 ещё не окончательны",
+        "225 finalized; 10 not finalized"
+      ],
+      [
+        "Не сопоставлено / заблокировано",
+        "Unmatched / blocked",
+        "25 / 0 USDT",
+        "25 / 0 USDT",
+        "MATCH-01: 25 не сопоставлено с поступлением",
+        "MATCH-01: 25 not matched to a receipt"
+      ],
+      [
+        "Пригодно / резервы / операционный",
+        "Eligible / reservations / operating",
+        "200 / 50 / 20 USDT",
+        "200 / 50 / 20 USDT",
+        "",
+        ""
+      ],
+      [
+        "Свободно / долг партнёрам",
+        "Free / partner debt",
+        "130 / 185 USDT",
+        "130 / 185 USDT",
+        "Долг отдельно; резервы не вычитаются дважды",
+        "Debt separate; reservations counted once"
+      ],
+      [
+        "Наблюдение / время",
+        "Observation / time",
+        "OBS-DEMO-PM · 16 Oct 12:00 UTC",
+        "OBS-DEMO-PM · 16 Oct 12:00 UTC",
+        "Все подтверждения синтетические",
+        "All evidence is synthetic"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Ожидаемое поступление",
+        "Pending receipt",
+        "source-pending-receipt"
+      ],
+      [
+        "Данные устарели · пример",
+        "Stale example",
+        "source-observation-stale"
+      ],
+      [
+        "Ошибка проверки · пример",
+        "Observation error example",
+        "source-observation-error"
+      ],
+      [
+        "К источнику",
+        "Back to source",
+        "treasury-source"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "source-pending-receipt",
+    "title": [
+      "Поступление ожидает подтверждений",
+      "Receipt awaiting confirmations"
+    ],
+    "body": [
+      "10 USDT ещё не увеличивают пригодный баланс. Завершение определяется проверенными правилами выбранной сети, а не числом из макета.",
+      "10 USDT does not increase eligible funds yet. Finality depends on verified network rules, not the count in this mock."
+    ],
+    "rows": [
+      [
+        "Источник / полный адрес",
+        "Source / full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · собственные средства",
+        "SRC-PM · own funds"
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Поступление / внешний идентификатор",
+        "Receipt / external identity",
+        "RCT-DEMO-10 · TX-DEMO-IN-10",
+        "RCT-DEMO-10 · TX-DEMO-IN-10",
+        "",
+        ""
+      ],
+      [
+        "Сумма / подтверждения",
+        "Amount / confirmations",
+        "10 USDT · 12 / 20 · учебно",
+        "10 USDT · 12 / 20 · demo",
+        "",
+        ""
+      ],
+      [
+        "Статус учёта",
+        "Accounting status",
+        "Не окончательно · не доступно для выплаты",
+        "Not final · unavailable for payout",
+        "",
+        ""
+      ],
+      [
+        "Наблюдение / сверка",
+        "Observation / reconciliation",
+        "OBS-DEMO-PM · EVID-PENDING-10",
+        "OBS-DEMO-PM · EVID-PENDING-10",
+        "Повторная обработка не создаёт новое поступление",
+        "Reprocessing does not create another receipt"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Вернуться к составу баланса",
+        "Back to breakdown",
+        "source-balance-details"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "source-observation-stale",
+    "title": [
+      "Баланс устарел · отправка недоступна",
+      "Stale balance · sending unavailable"
+    ],
+    "body": [
+      "Последний снимок сохранён для просмотра, но его нельзя использовать для новой денежной отправки. Обновление только читает данные.",
+      "The last snapshot remains visible but cannot authorize new sending. Refresh reads data only."
+    ],
+    "rows": [
+      [
+        "Источник / полный адрес",
+        "Source / full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · собственные средства",
+        "SRC-PM · own funds"
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Последняя успешная проверка",
+        "Last successful check",
+        "16 Oct 11:00 UTC · OBS-DEMO-PM",
+        "16 Oct 11:00 UTC · OBS-DEMO-PM",
+        "",
+        ""
+      ],
+      [
+        "Текущее время / правило свежести",
+        "Current time / freshness rule",
+        "16 Oct 12:00 UTC · FRESH v2",
+        "16 Oct 12:00 UTC · FRESH v2",
+        "Порог задают владельцы; пример устарел",
+        "Owners configure the threshold; this example is stale"
+      ],
+      [
+        "Остаток / доступность",
+        "Balance / availability",
+        "Последний: 225 USDT · актуальный: неизвестен",
+        "Last: 225 USDT · current: unknown",
+        "",
+        ""
+      ],
+      [
+        "Что заблокировано",
+        "Blocked actions",
+        "Новые выплаты и пополнения с этого источника",
+        "New payouts and funding from this source",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Повторить чтение · демо",
+        "Retry reading · demo",
+        "source-balance-details"
+      ],
+      [
+        "Ошибка чтения · пример",
+        "Read error example",
+        "source-observation-error"
+      ],
+      [
+        "К источникам",
+        "Back to sources",
+        "sources"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "source-observation-error",
+    "title": [
+      "Не удалось проверить баланс",
+      "Balance check failed"
+    ],
+    "body": [
+      "Новый пригодный баланс не рассчитан. Сервис не подставляет ноль и не использует старое подтверждение для отправки.",
+      "No fresh eligible balance was calculated. The service neither assumes zero nor uses old evidence to authorize sending."
+    ],
+    "rows": [
+      [
+        "Источник / полный адрес",
+        "Source / full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · собственные средства",
+        "SRC-PM · own funds"
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Ошибка / событие",
+        "Error / event",
+        "OBS-503 · INC-OBS-01",
+        "OBS-503 · INC-OBS-01",
+        "Подключение наблюдения не ответило",
+        "Observation connection did not respond"
+      ],
+      [
+        "Последние данные",
+        "Last data",
+        "225 USDT · 16 Oct 11:00 UTC",
+        "225 USDT · 16 Oct 11:00 UTC",
+        "Исторический снимок, не разрешение отправки",
+        "Historical snapshot, not sending authorization"
+      ],
+      [
+        "Повтор проверки",
+        "Retry check",
+        "Без сделки, перевода или изменения долга",
+        "No trade, transfer or debt change",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Повторить проверку · демо",
+        "Retry check · demo",
+        "source-balance-details"
+      ],
+      [
+        "К устаревшему снимку",
+        "View stale snapshot",
+        "source-observation-stale"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "payout-request-exists",
+    "title": [
+      "Такая выплата уже создана",
+      "Payout already exists"
+    ],
+    "body": [
+      "Повторный запрос возвращает существующую PAY-021. Новая отправка, новый резерв и второй долг не создаются.",
+      "A repeated request returns existing PAY-021. It creates no new sending, reservation or debt."
+    ],
+    "rows": [
+      [
+        "Партнёр / площадка",
+        "Partner / venue",
+        "PART-024 · Polymarket",
+        "PART-024 · Polymarket",
+        "",
+        ""
+      ],
+      [
+        "Экономическое назначение",
+        "Economic purpose",
+        "Полный доступный долг · 120 USDT",
+        "Full eligible debt · 120 USDT",
+        "",
+        ""
+      ],
+      [
+        "Найденная операция",
+        "Existing operation",
+        "PAY-021 · отправлена · результат проверяется",
+        "PAY-021 · submitted · result pending",
+        "",
+        ""
+      ],
+      [
+        "Резерв / повтор",
+        "Reservation / repeat",
+        "121.20 USDT · тот же уникальный резерв",
+        "121.20 USDT · same unique reservation",
+        "",
+        ""
+      ],
+      [
+        "Идентификатор запроса",
+        "Request identity",
+        "REQ-DEMO-PAY-021",
+        "REQ-DEMO-PAY-021",
+        "Служебный идентификатор; не секретный ключ",
+        "Request identifier, not a secret key"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Открыть существующую выплату",
+        "Open existing payout",
+        "submitted"
+      ],
+      [
+        "К списку выплат",
+        "Back to payouts",
+        "payouts"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "source-reservations-busy",
+    "title": [
+      "Средства источника уже зарезервированы",
+      "Source funds already reserved"
+    ],
+    "body": [
+      "Свободных средств не хватает на полную новую выплату. Чужой резерв недоступен; сумму не уменьшаем и обходной запрос не создаём.",
+      "Insufficient free funds for the new full payout. Other-operation reservations are unavailable; no reduced or bypass request is created."
+    ],
+    "rows": [
+      [
+        "Источник / полный адрес",
+        "Source / full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · собственные средства",
+        "SRC-PM · own funds"
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Пригодно / операционный резерв",
+        "Eligible / operating reserve",
+        "200 / 20 USDT",
+        "200 / 20 USDT",
+        "",
+        ""
+      ],
+      [
+        "Другие резервы",
+        "Other reservations",
+        "50 + 121.20 = 171.20 USDT",
+        "50 + 121.20 = 171.20 USDT",
+        "PAY-025 · другой партнёр PART-025",
+        "PAY-025 · other partner PART-025"
+      ],
+      [
+        "Свободно / нужно",
+        "Free / required",
+        "8.80 / 121.20 USDT",
+        "8.80 / 121.20 USDT",
+        "",
+        ""
+      ],
+      [
+        "Новый долг / результат",
+        "New debt / result",
+        "PART-024: 120 USDT · новая выплата не создана",
+        "PART-024: 120 USDT · no new payout",
+        "",
+        ""
+      ],
+      [
+        "Разрешённый следующий шаг",
+        "Allowed next step",
+        "Проверить существующие резервы либо пополнить источник",
+        "Inspect existing reservations or fund the source",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Состав резервов",
+        "Reservation breakdown",
+        "source-reservation-details"
+      ],
+      [
+        "Подготовить пополнение",
+        "Prepare funding",
+        "source-funding-form"
+      ],
+      [
+        "К выплатам",
+        "Back to payouts",
+        "payouts"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "source-reservation-details",
+    "title": [
+      "Резервы источника · только просмотр",
+      "Source reservations · read-only"
+    ],
+    "body": [
+      "Это отдельный учебный снимок занятого источника. Просмотр не освобождает чужие средства и не отменяет неизвестную отправку.",
+      "Separate busy-source fixture. Viewing cannot release other-operation funds or cancel an unknown send."
+    ],
+    "rows": [
+      [
+        "Источник / полный адрес",
+        "Source / full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · собственные средства",
+        "SRC-PM · own funds"
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Ранее выделено",
+        "Earlier allocation",
+        "50 USDT · другая операция",
+        "50 USDT · another operation",
+        "",
+        ""
+      ],
+      [
+        "PAY-025 / PART-025",
+        "PAY-025 / PART-025",
+        "121.20 USDT · результат неизвестен",
+        "121.20 USDT · result unknown",
+        "",
+        ""
+      ],
+      [
+        "Операционный резерв",
+        "Operating reserve",
+        "20 USDT",
+        "20 USDT",
+        "",
+        ""
+      ],
+      [
+        "Свободно",
+        "Free",
+        "8.80 USDT",
+        "8.80 USDT",
+        "200 − 50 − 121.20 − 20",
+        "200 − 50 − 121.20 − 20"
+      ],
+      [
+        "Снять резерв вручную",
+        "Manual release",
+        "Недоступно: требуется окончательный подтверждённый исход",
+        "Unavailable: final verified outcome required",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Вернуться к занятому источнику",
+        "Back to busy source",
+        "source-reservations-busy"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "payout-failure-proof",
+    "title": [
+      "Проверка окончательного отказа выплаты",
+      "Verify final payout failure"
+    ],
+    "body": [
+      "Результат отличается от неизвестного: сеть доказала окончательный отказ без передачи средств получателю. Сверка только проверяет данные.",
+      "Unlike an unknown result, the network proves a final failure without delivering recipient funds. Reconciliation reads evidence only."
+    ],
+    "rows": [
+      [
+        "Операция / партнёр",
+        "Operation / partner",
+        "PAY-021 · PART-024 · Polymarket",
+        "PAY-021 · PART-024 · Polymarket",
+        "",
+        ""
+      ],
+      [
+        "Получатель / полный адрес",
+        "Recipient / full address",
+        "0x2222222222222222222222222222222222222222",
+        "0x2222222222222222222222222222222222222222",
+        "",
+        ""
+      ],
+      [
+        "Требовалось / получено",
+        "Required / received",
+        "120 / 0 USDT",
+        "120 / 0 USDT",
+        "",
+        ""
+      ],
+      [
+        "Окончательные данные",
+        "Final evidence",
+        "EVID-FAIL-021 · TX-DEMO-FAIL-021",
+        "EVID-FAIL-021 · TX-DEMO-FAIL-021",
+        "Окончательный отказ · учебная сеть",
+        "Final failure · demo network"
+      ],
+      [
+        "Фактические расходы / плательщик",
+        "Actual costs / payer",
+        "0.30 USDT · сервис",
+        "0.30 USDT · service",
+        "",
+        ""
+      ],
+      [
+        "Резерв / долг",
+        "Reservation / debt",
+        "121.20 / 120 USDT",
+        "121.20 / 120 USDT",
+        "До записи итога резерв сохраняется",
+        "Reservation remains until outcome recorded"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Показать итог сверки · демо",
+        "Show reconciled outcome · demo",
+        "payout-failed-final"
+      ],
+      [
+        "Доказательств недостаточно",
+        "Insufficient evidence",
+        "unknown"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "payout-failed-final",
+    "title": [
+      "Выплата не исполнена · отказ доказан",
+      "Payout failed · final evidence"
+    ],
+    "body": [
+      "Долг 120 USDT остаётся непогашенным. Резерв закрыт отдельной записью, фактические расходы 0.30 сохранены. Новая попытка требует новой проверки и согласия.",
+      "The 120 USDT debt remains unpaid. A linked event closes the reservation and retains actual costs of 0.30. A new attempt needs a fresh preview and approval."
+    ],
+    "rows": [
+      [
+        "Операция / итог",
+        "Operation / outcome",
+        "PAY-021 · окончательный отказ",
+        "PAY-021 · final failure",
+        "",
+        ""
+      ],
+      [
+        "Связанные записи",
+        "Linked entries",
+        "EVID-FAIL-021 · RES-RELEASE-021 · FEE-021",
+        "EVID-FAIL-021 · RES-RELEASE-021 · FEE-021",
+        "",
+        ""
+      ],
+      [
+        "Полный долг / погашено",
+        "Full debt / settled",
+        "120 / 0 USDT",
+        "120 / 0 USDT",
+        "",
+        ""
+      ],
+      [
+        "Пригодно после расходов",
+        "Eligible after costs",
+        "199.70 USDT",
+        "199.70 USDT",
+        "200 − фактические расходы 0.30",
+        "200 − actual costs 0.30"
+      ],
+      [
+        "Другие резервы / операционный",
+        "Other reservations / operating",
+        "50 / 20 USDT",
+        "50 / 20 USDT",
+        "",
+        ""
+      ],
+      [
+        "Свободно",
+        "Free",
+        "129.70 USDT",
+        "129.70 USDT",
+        "Собственный резерв PAY-021 больше не действует",
+        "PAY-021 own reservation is no longer active"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "К выплатам · новая проверка",
+        "Back to payouts · fresh review",
+        "payouts"
+      ],
+      [
+        "Подтверждающие данные",
+        "Review evidence",
+        "payout-failure-proof"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "payout-unexpected-shortfall",
+    "title": [
+      "Получено меньше ожидаемого · инцидент",
+      "Received below expected · incident"
+    ],
+    "body": [
+      "Неполный внешний перевод — ошибка исполнения, а не разрешённая частичная выплата. Автоматическая досылка запрещена; исход и остаток обязательства проверяются отдельно.",
+      "An incomplete external transfer is an execution error, not an allowed partial payout. No automatic top-up; outcome and remaining debt require reconciliation."
+    ],
+    "rows": [
+      [
+        "Операция / инцидент",
+        "Operation / incident",
+        "PAY-ERR-01 · INC-PAY-01",
+        "PAY-ERR-01 · INC-PAY-01",
+        "",
+        ""
+      ],
+      [
+        "Получатель / полный адрес",
+        "Recipient / full address",
+        "0x2222222222222222222222222222222222222222",
+        "0x2222222222222222222222222222222222222222",
+        "",
+        ""
+      ],
+      [
+        "Ожидалось / подтверждено",
+        "Expected / confirmed",
+        "120 / 100 USDT",
+        "120 / 100 USDT",
+        "",
+        ""
+      ],
+      [
+        "Расхождение",
+        "Difference",
+        "20 USDT · на сверке",
+        "20 USDT · reconciliation required",
+        "",
+        ""
+      ],
+      [
+        "Расходы / данные",
+        "Costs / evidence",
+        "1.20 USDT · EVID-SHORT-01",
+        "1.20 USDT · EVID-SHORT-01",
+        "",
+        ""
+      ],
+      [
+        "Статус выплаты",
+        "Payout status",
+        "Не «выплачено»; исходная запись не переписывается",
+        "Not paid; original record is preserved",
+        "",
+        ""
+      ],
+      [
+        "Повтор / остаток",
+        "Resend / remainder",
+        "Повтор запрещён; непогашенное обязательство не теряется",
+        "Resend blocked; unpaid debt retained",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Подтверждающие данные",
+        "Reconciliation evidence",
+        "payout-shortfall-evidence"
+      ],
+      [
+        "К выплатам",
+        "Back to payouts",
+        "payouts"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "recipient-version-conflict",
+    "title": [
+      "Версия реквизитов изменилась",
+      "Recipient version changed"
+    ],
+    "body": [
+      "Согласия на REC v2 не разрешают REC v3. Нельзя переносить время ожидания или автоматически включать новый адрес.",
+      "REC v2 approvals cannot authorize REC v3. The old delay cannot be carried over or used for automatic activation."
+    ],
+    "rows": [
+      [
+        "Партнёр / площадка",
+        "Partner / venue",
+        "PART-024 · Polymarket",
+        "PART-024 · Polymarket",
+        "",
+        ""
+      ],
+      [
+        "Предложенный полный адрес",
+        "Proposed full address",
+        "0x5555555555555555555555555555555555555555",
+        "0x5555555555555555555555555555555555555555",
+        "REC v2 · новая версия",
+        "REC v2 · proposed version"
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "",
+        ""
+      ],
+      [
+        "Подтверждения / план активации",
+        "Approvals / activation plan",
+        "A + B · 16 Oct 12:00 → 17 Oct 12:00 UTC",
+        "A + B · 16 Oct 12:00 → 17 Oct 12:00 UTC",
+        "24 часа после второго владельца",
+        "24 hours after the second Owner"
+      ],
+      [
+        "Новая версия / адрес",
+        "New version / address",
+        "REC v3 · 0x6666666666666666666666666666666666666666",
+        "REC v3 · 0x6666666666666666666666666666666666666666",
+        "",
+        ""
+      ],
+      [
+        "Результат проверки",
+        "Check outcome",
+        "Согласия v2 аннулированы · v3 не активна",
+        "v2 approvals invalidated · v3 inactive",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Новое предложение v3",
+        "New v3 proposal",
+        "recipient-restart-pending"
+      ],
+      [
+        "К реквизитам",
+        "Back to recipients",
+        "recipients"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "recipient-reviewer-revoked",
+    "title": [
+      "Подтверждавший владелец утратил доступ",
+      "Approving Owner access revoked"
+    ],
+    "body": [
+      "После отзыва владельца B его неиспользованное согласие недействительно. Даже истёкшие 24 часа не разрешают активацию.",
+      "Revoking Owner B invalidates their unused approval. Even an elapsed 24-hour delay cannot authorize activation."
+    ],
+    "rows": [
+      [
+        "Партнёр / площадка",
+        "Partner / venue",
+        "PART-024 · Polymarket",
+        "PART-024 · Polymarket",
+        "",
+        ""
+      ],
+      [
+        "Предложенный полный адрес",
+        "Proposed full address",
+        "0x5555555555555555555555555555555555555555",
+        "0x5555555555555555555555555555555555555555",
+        "REC v2 · новая версия",
+        "REC v2 · proposed version"
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "",
+        ""
+      ],
+      [
+        "Подтверждения / план активации",
+        "Approvals / activation plan",
+        "A + B · 16 Oct 12:00 → 17 Oct 12:00 UTC",
+        "A + B · 16 Oct 12:00 → 17 Oct 12:00 UTC",
+        "24 часа после второго владельца",
+        "24 hours after the second Owner"
+      ],
+      [
+        "Событие / время",
+        "Event / time",
+        "REVOKE-B-01 · 17 Oct 11:00 UTC",
+        "REVOKE-B-01 · 17 Oct 11:00 UTC",
+        "",
+        ""
+      ],
+      [
+        "Активация / причина",
+        "Activation / reason",
+        "Запрещена · нет действующей пары владельцев",
+        "Blocked · no valid pair of Owners",
+        "",
+        ""
+      ],
+      [
+        "Восстановление доступа",
+        "Access recovery",
+        "Не восстанавливает старое согласие автоматически",
+        "Never restores old approval automatically",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "К реквизитам",
+        "Back to recipients",
+        "recipients"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "recipient-activation-blocked",
+    "title": [
+      "24 часа истекли · активация запрещена",
+      "24 hours elapsed · activation blocked"
+    ],
+    "body": [
+      "Время ожидания закончилось, но действует ограничение. Адрес не становится доступным и ограничения не снимаются автоматически.",
+      "The delay elapsed, but a blocking control remains active. The address stays unavailable and controls are not automatically lifted."
+    ],
+    "rows": [
+      [
+        "Партнёр / площадка",
+        "Partner / venue",
+        "PART-024 · Polymarket",
+        "PART-024 · Polymarket",
+        "",
+        ""
+      ],
+      [
+        "Предложенный полный адрес",
+        "Proposed full address",
+        "0x5555555555555555555555555555555555555555",
+        "0x5555555555555555555555555555555555555555",
+        "REC v2 · новая версия",
+        "REC v2 · proposed version"
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "",
+        ""
+      ],
+      [
+        "Подтверждения / план активации",
+        "Approvals / activation plan",
+        "A + B · 16 Oct 12:00 → 17 Oct 12:00 UTC",
+        "A + B · 16 Oct 12:00 → 17 Oct 12:00 UTC",
+        "24 часа после второго владельца",
+        "24 hours after the second Owner"
+      ],
+      [
+        "Сейчас / проверка",
+        "Now / recheck",
+        "17 Oct 12:01 UTC · CTRL-NET v4",
+        "17 Oct 12:01 UTC · CTRL-NET v4",
+        "",
+        ""
+      ],
+      [
+        "Причина запрета",
+        "Blocking reason",
+        "DEMO-NET-PM изолирована · INC-NET-01",
+        "DEMO-NET-PM isolated · INC-NET-01",
+        "",
+        ""
+      ],
+      [
+        "Новый адрес / выплаты",
+        "New recipient / payouts",
+        "Ожидает разрешённой повторной проверки · выплат нет",
+        "Awaiting an allowed recheck · no payouts",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "К реквизитам",
+        "Back to recipients",
+        "recipients"
+      ],
+      [
+        "Изменение версии · пример",
+        "Version-change example",
+        "recipient-version-conflict"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "recipient-restart-pending",
+    "title": [
+      "Реквизиты v3 · новое предложение",
+      "Recipient v3 · new proposal"
+    ],
+    "body": [
+      "Владелец A заново предложил REC v3. Ни старые подписи, ни прошедшее время не применяются. До нового подтверждения B отсчёт не начинается.",
+      "Owner A proposed REC v3 afresh. Prior approvals and elapsed time do not apply. The new delay starts only after a new approval from B."
+    ],
+    "rows": [
+      [
+        "Партнёр / площадка",
+        "Partner / venue",
+        "PART-024 · Polymarket",
+        "PART-024 · Polymarket",
+        "",
+        ""
+      ],
+      [
+        "Предложенный полный адрес",
+        "Proposed full address",
+        "0x6666666666666666666666666666666666666666",
+        "0x6666666666666666666666666666666666666666",
+        "REC v3 · новая версия",
+        "REC v3 · proposed version"
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "",
+        ""
+      ],
+      [
+        "Автор / предложение",
+        "Author / proposal",
+        "Владелец A · REC-PROP-03 · 17 Oct 12:55 UTC",
+        "Owner A · REC-PROP-03 · 17 Oct 12:55 UTC",
+        "",
+        ""
+      ],
+      [
+        "Старые согласия",
+        "Previous approvals",
+        "Аннулированы · новый срок ещё не начался",
+        "Invalidated · new delay not started",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Проверка владельца B",
+        "Owner B review",
+        "recipient-restart-review"
+      ],
+      [
+        "К реквизитам",
+        "Back to recipients",
+        "recipients"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "recipient-restart-review",
+    "title": [
+      "Владелец B · повторная проверка v3",
+      "Owner B · fresh v3 review"
+    ],
+    "body": [
+      "Повторное подтверждение относится только к REC v3. Новые 24 часа начнутся 17 Oct 13:00 UTC, если проверка успешна.",
+      "Fresh approval applies only to REC v3. A new 24-hour delay starts at 17 Oct 13:00 UTC if verification succeeds."
+    ],
+    "rows": [
+      [
+        "Партнёр / площадка",
+        "Partner / venue",
+        "PART-024 · Polymarket",
+        "PART-024 · Polymarket",
+        "",
+        ""
+      ],
+      [
+        "Предложенный полный адрес",
+        "Proposed full address",
+        "0x6666666666666666666666666666666666666666",
+        "0x6666666666666666666666666666666666666666",
+        "REC v3 · новая версия",
+        "REC v3 · proposed version"
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "",
+        ""
+      ],
+      [
+        "Автор / проверяющий",
+        "Author / reviewer",
+        "Владелец A / владелец B",
+        "Owner A / Owner B",
+        "",
+        ""
+      ],
+      [
+        "Срок после нового согласия",
+        "Delay after new approval",
+        "17 Oct 13:00 → 18 Oct 13:00 UTC",
+        "17 Oct 13:00 → 18 Oct 13:00 UTC",
+        "",
+        ""
+      ],
+      [
+        "Повторная проверка личности",
+        "Fresh identity check",
+        "Физический ключ владельца B",
+        "Owner B physical key",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Подтвердить новую версию · демо",
+        "Approve new version · demo",
+        "recipient-restart-wait"
+      ],
+      [
+        "Вернуть автору",
+        "Return to author",
+        "recipient-restart-pending"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "recipient-restart-wait",
+    "title": [
+      "Реквизиты v3 · новые 24 часа",
+      "Recipient v3 · fresh 24-hour delay"
+    ],
+    "body": [
+      "REC v3 подтверждена заново. Старое ожидание v2 не сократило срок. Адрес ещё не доступен для выплат.",
+      "REC v3 was approved afresh. The old v2 delay did not shorten the new one. It remains unavailable for payouts."
+    ],
+    "rows": [
+      [
+        "Партнёр / площадка",
+        "Partner / venue",
+        "PART-024 · Polymarket",
+        "PART-024 · Polymarket",
+        "",
+        ""
+      ],
+      [
+        "Предложенный полный адрес",
+        "Proposed full address",
+        "0x6666666666666666666666666666666666666666",
+        "0x6666666666666666666666666666666666666666",
+        "REC v3 · новая версия",
+        "REC v3 · proposed version"
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "",
+        ""
+      ],
+      [
+        "Подтверждения / план активации",
+        "Approvals / activation plan",
+        "A + B · 17 Oct 13:00 → 18 Oct 13:00 UTC",
+        "A + B · 17 Oct 13:00 → 18 Oct 13:00 UTC",
+        "24 часа после второго владельца",
+        "24 hours after the second Owner"
+      ],
+      [
+        "Осталось / часовой пояс",
+        "Remaining / timezone",
+        "24 часа · UTC",
+        "24 hours · UTC",
+        "",
+        ""
+      ],
+      [
+        "Отмена / ускорение",
+        "Cancel / expedite",
+        "Любой владелец может отменить; ускорения нет",
+        "Either Owner may cancel; no expedite",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "К реквизитам",
+        "Back to recipients",
+        "recipients"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "payout-approval-history",
+    "title": [
+      "Выплата · история согласий",
+      "Payout · approval history"
+    ],
+    "body": [
+      "Все события связаны с точной версией и конкретным владельцем. Учебное правило: срок каждого согласия 5 минут; отправка возможна только пока действуют оба.",
+      "Each event belongs to an exact version and a specific Owner. Demo rule: each approval lasts 5 minutes; sending requires both to remain valid."
+    ],
+    "rows": [
+      [
+        "Выплата / снимок",
+        "Payout / snapshot",
+        "PAY-022 · digest v7 · SEC-T2",
+        "PAY-022 · digest v7 · SEC-T2",
+        "",
+        ""
+      ],
+      [
+        "Владелец A / срок",
+        "Owner A / expiry",
+        "16 Oct 12:00 → 12:05 UTC",
+        "16 Oct 12:00 → 12:05 UTC",
+        "APPROVE-A-022 · физический ключ",
+        "APPROVE-A-022 · physical key"
+      ],
+      [
+        "Владелец B / срок",
+        "Owner B / expiry",
+        "16 Oct 12:01 → 12:06 UTC",
+        "16 Oct 12:01 → 12:06 UTC",
+        "APPROVE-B-022 · другой человек",
+        "APPROVE-B-022 · independent identity"
+      ],
+      [
+        "Общее разрешённое окно",
+        "Shared valid window",
+        "До 16 Oct 12:05 UTC",
+        "Until 16 Oct 12:05 UTC",
+        "Минимум сроков; не продлевается просмотром",
+        "Earliest expiry; viewing never extends it"
+      ],
+      [
+        "История версии",
+        "Version history",
+        "v7 · суммы, адреса и ограничения закреплены",
+        "v7 · amounts, addresses and controls pinned",
+        "",
+        ""
+      ],
+      [
+        "Неиспользованное разрешение",
+        "Unused approval",
+        "Смена версии / отзыв / истечение отменяют",
+        "Version change / revocation / expiry invalidates",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Срок истёк · пример",
+        "Expiry example",
+        "payout-approval-expired"
+      ],
+      [
+        "Версия изменилась · пример",
+        "Version-change example",
+        "payout-approval-invalidated"
+      ],
+      [
+        "К выплатам",
+        "Back to payouts",
+        "payouts"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "payout-approval-expired",
+    "title": [
+      "Согласие истекло · отправки нет",
+      "Approval expired · not sent"
+    ],
+    "body": [
+      "Сейчас 16 Oct 12:05:01 UTC. Срок A закончился; ещё действующая подпись B не позволяет отправить выплату.",
+      "Now 16 Oct 12:05:01 UTC. A's approval expired; B's still-valid approval cannot authorize sending alone."
+    ],
+    "rows": [
+      [
+        "Выплата / исход",
+        "Payout / outcome",
+        "PAY-022 · не отправлена",
+        "PAY-022 · not sent",
+        "",
+        ""
+      ],
+      [
+        "A / B",
+        "A / B",
+        "Истекло / действует до 12:06 UTC",
+        "Expired / valid until 12:06 UTC",
+        "",
+        ""
+      ],
+      [
+        "Причина / событие",
+        "Reason / event",
+        "APPROVAL_EXPIRED · AUD-022-03",
+        "APPROVAL_EXPIRED · AUD-022-03",
+        "",
+        ""
+      ],
+      [
+        "Следующий шаг",
+        "Next step",
+        "Новый снимок и необходимые согласия",
+        "Fresh preview and required approvals",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "История согласий",
+        "Approval history",
+        "payout-approval-history"
+      ],
+      [
+        "К выплатам · новая проверка",
+        "Back to payouts · fresh review",
+        "payouts"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "payout-approval-invalidated",
+    "title": [
+      "Версия изменилась · согласия отменены",
+      "Version changed · approvals invalidated"
+    ],
+    "body": [
+      "Ограничения изменились после согласия. Предыдущие подписи сохраняются в истории, но не используются для отправки.",
+      "Controls changed after approval. Prior approvals remain in history but cannot authorize sending."
+    ],
+    "rows": [
+      [
+        "Выплата / версии",
+        "Payout / versions",
+        "PAY-022 · CTRL v2 → v3",
+        "PAY-022 · CTRL v2 → v3",
+        "",
+        ""
+      ],
+      [
+        "Согласия A / B",
+        "A / B approvals",
+        "Оба аннулированы",
+        "Both invalidated",
+        "",
+        ""
+      ],
+      [
+        "Причина / время",
+        "Reason / time",
+        "CTRL-CHANGE-022 · 16 Oct 12:02 UTC",
+        "CTRL-CHANGE-022 · 16 Oct 12:02 UTC",
+        "",
+        ""
+      ],
+      [
+        "Отправка / прошлое",
+        "Sending / history",
+        "Не выполнена · старые записи неизменны",
+        "Not sent · historical records retained",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "История согласий",
+        "Approval history",
+        "payout-approval-history"
+      ],
+      [
+        "Новый снимок через список",
+        "Fresh review from list",
+        "payouts"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "recovery-route-revoked",
+    "title": [
+      "Разрешение восстановления отозвано",
+      "Recovery authorization revoked"
+    ],
+    "body": [
+      "Маршрут отозван до отправки. Даже два действующих согласия на перевод не дают права отправить его без маршрута.",
+      "The route was revoked before sending. Even two valid transfer approvals cannot authorize sending without the route."
+    ],
+    "rows": [
+      [
+        "Операция / инцидент",
+        "Operation / incident",
+        "TRF-REC-01 · INC-DEMO-04",
+        "TRF-REC-01 · INC-DEMO-04",
+        "",
+        ""
+      ],
+      [
+        "Отправитель / полный адрес",
+        "Sender / full address",
+        "0x1111111111111111111111111111111111111111",
+        "0x1111111111111111111111111111111111111111",
+        "SRC-REV-PM",
+        "SRC-REV-PM"
+      ],
+      [
+        "Получатель / полный адрес",
+        "Recipient / full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · DEMO-NET-PM · USDT",
+        "SRC-PM · DEMO-NET-PM · USDT"
+      ],
+      [
+        "Сумма / расходы / резерв",
+        "Amount / fee / reservation",
+        "100 / 0.50 / 100.50 USDT",
+        "100 / 0.50 / 100.50 USDT",
+        "",
+        ""
+      ],
+      [
+        "Ограниченный маршрут",
+        "Limited route",
+        "REC-ROUTE v3 · CTRL-REC v3",
+        "REC-ROUTE v3 · CTRL-REC v3",
+        "Остальные денежные действия закрыты",
+        "All other monetary actions remain blocked"
+      ],
+      [
+        "Отзыв / причина",
+        "Revocation / reason",
+        "CTRL-REC v4 · 16 Oct 12:03 UTC",
+        "CTRL-REC v4 · 16 Oct 12:03 UTC",
+        "Новое полное отключение · AUD-REC-04",
+        "Fresh full shutdown · AUD-REC-04"
+      ],
+      [
+        "Отправка / резерв",
+        "Sending / reservation",
+        "Не отправлено · резерв закрывается отдельным событием",
+        "Not sent · reservation released by a linked event",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "К полному отключению",
+        "Back to full shutdown",
+        "treasury-recovery-blocked"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "recovery-route-expired",
+    "title": [
+      "Срок маршрута восстановления истёк",
+      "Recovery route authorization expired"
+    ],
+    "body": [
+      "Плановое разрешение действовало до 12:15 UTC. Просмотр или подтверждение перевода не продлевают его. Нужен новый отдельный маршрут и новые согласия.",
+      "Route authorization ended at 12:15 UTC. Viewing or approving the transfer cannot extend it. A new separate route and new approvals are required."
+    ],
+    "rows": [
+      [
+        "Операция / инцидент",
+        "Operation / incident",
+        "TRF-REC-01 · INC-DEMO-04",
+        "TRF-REC-01 · INC-DEMO-04",
+        "",
+        ""
+      ],
+      [
+        "Отправитель / полный адрес",
+        "Sender / full address",
+        "0x1111111111111111111111111111111111111111",
+        "0x1111111111111111111111111111111111111111",
+        "SRC-REV-PM",
+        "SRC-REV-PM"
+      ],
+      [
+        "Получатель / полный адрес",
+        "Recipient / full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · DEMO-NET-PM · USDT",
+        "SRC-PM · DEMO-NET-PM · USDT"
+      ],
+      [
+        "Сумма / расходы / резерв",
+        "Amount / fee / reservation",
+        "100 / 0.50 / 100.50 USDT",
+        "100 / 0.50 / 100.50 USDT",
+        "",
+        ""
+      ],
+      [
+        "Ограниченный маршрут",
+        "Limited route",
+        "REC-ROUTE v3 · CTRL-REC v3",
+        "REC-ROUTE v3 · CTRL-REC v3",
+        "Остальные денежные действия закрыты",
+        "All other monetary actions remain blocked"
+      ],
+      [
+        "Срок / сейчас",
+        "Expiry / now",
+        "16 Oct 12:15 / 12:15:01 UTC",
+        "16 Oct 12:15 / 12:15:01 UTC",
+        "",
+        ""
+      ],
+      [
+        "Результат проверки",
+        "Check result",
+        "Новая отправка запрещена",
+        "New sending blocked",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "К полному отключению",
+        "Back to full shutdown",
+        "treasury-recovery-blocked"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "recovery-failure-proof",
+    "title": [
+      "Восстановительный перевод · отказ доказан",
+      "Recovery transfer · final failure verified"
+    ],
+    "body": [
+      "Проверка доказала отказ без поступления 100 USDT. Фактические расходы 0.20 USDT сохраняются. Повторная отправка не выполняется.",
+      "Evidence proves failure without receiving 100 USDT. Actual costs of 0.20 USDT are retained. No resend is performed."
+    ],
+    "rows": [
+      [
+        "Операция / инцидент",
+        "Operation / incident",
+        "TRF-REC-01 · INC-DEMO-04",
+        "TRF-REC-01 · INC-DEMO-04",
+        "",
+        ""
+      ],
+      [
+        "Отправитель / полный адрес",
+        "Sender / full address",
+        "0x1111111111111111111111111111111111111111",
+        "0x1111111111111111111111111111111111111111",
+        "SRC-REV-PM",
+        "SRC-REV-PM"
+      ],
+      [
+        "Получатель / полный адрес",
+        "Recipient / full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · DEMO-NET-PM · USDT",
+        "SRC-PM · DEMO-NET-PM · USDT"
+      ],
+      [
+        "Сумма / расходы / резерв",
+        "Amount / fee / reservation",
+        "100 / 0.50 / 100.50 USDT",
+        "100 / 0.50 / 100.50 USDT",
+        "",
+        ""
+      ],
+      [
+        "Окончательный результат",
+        "Final outcome",
+        "Не исполнен · EVID-REC-FAIL-01",
+        "Failed · EVID-REC-FAIL-01",
+        "",
+        ""
+      ],
+      [
+        "Фактические расходы / плательщик",
+        "Actual costs / payer",
+        "0.20 USDT · сервис",
+        "0.20 USDT · service",
+        "",
+        ""
+      ],
+      [
+        "Аварийный контекст",
+        "Emergency context",
+        "INC-DEMO-04 · CTRL-REC v3",
+        "INC-DEMO-04 · CTRL-REC v3",
+        "Остальные ограничения сохранены",
+        "All other restrictions remain"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Показать итог сверки · демо",
+        "Show reconciled outcome · demo",
+        "recovery-failed-final"
+      ],
+      [
+        "Данных недостаточно",
+        "Evidence insufficient",
+        "source-recovery-unknown"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "recovery-failed-final",
+    "title": [
+      "Восстановление · перевод не выполнен",
+      "Recovery · transfer failed"
+    ],
+    "body": [
+      "Резерв 100.50 закрыт отдельной записью; списаны только доказанные расходы 0.20. Долг партнёрам не меняется, обычные действия не включаются.",
+      "A linked event closes the 100.50 reservation; only proven costs of 0.20 were spent. Partner debt is unchanged and ordinary actions remain blocked."
+    ],
+    "rows": [
+      [
+        "Операция / инцидент",
+        "Operation / incident",
+        "TRF-REC-01 · INC-DEMO-04",
+        "TRF-REC-01 · INC-DEMO-04",
+        "",
+        ""
+      ],
+      [
+        "Отправитель / полный адрес",
+        "Sender / full address",
+        "0x1111111111111111111111111111111111111111",
+        "0x1111111111111111111111111111111111111111",
+        "SRC-REV-PM",
+        "SRC-REV-PM"
+      ],
+      [
+        "Получатель / полный адрес",
+        "Recipient / full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · DEMO-NET-PM · USDT",
+        "SRC-PM · DEMO-NET-PM · USDT"
+      ],
+      [
+        "Расходы / освобождение",
+        "Costs / release",
+        "0.20 USDT · RES-REC-RELEASE-01",
+        "0.20 USDT · RES-REC-RELEASE-01",
+        "",
+        ""
+      ],
+      [
+        "Поступление / долг",
+        "Receipt / debt",
+        "0 USDT · долг без изменений",
+        "0 USDT · partner debt unchanged",
+        "",
+        ""
+      ],
+      [
+        "Перед новой попыткой",
+        "Before another attempt",
+        "Новый разрешённый маршрут и новые два согласия",
+        "New authorized route and two fresh approvals",
+        "",
+        ""
+      ],
+      [
+        "Контекст",
+        "Context",
+        "INC-DEMO-04 · остальные действия закрыты",
+        "INC-DEMO-04 · other actions blocked",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "К полному отключению",
+        "Back to full shutdown",
+        "treasury-recovery-blocked"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "recovery-stop-after-send",
+    "title": [
+      "Повторное отключение после отправки",
+      "Full shutdown after submission"
+    ],
+    "body": [
+      "Перевод уже отправлен до нового ограничения. Остановить его задним числом нельзя. Допустимы только наблюдение и сверка; новых отправок нет.",
+      "The transfer was submitted before the new control. It cannot be stopped retroactively. Only observation and reconciliation remain allowed; no new sending."
+    ],
+    "rows": [
+      [
+        "Операция / инцидент",
+        "Operation / incident",
+        "TRF-REC-01 · INC-DEMO-04",
+        "TRF-REC-01 · INC-DEMO-04",
+        "",
+        ""
+      ],
+      [
+        "Отправитель / полный адрес",
+        "Sender / full address",
+        "0x1111111111111111111111111111111111111111",
+        "0x1111111111111111111111111111111111111111",
+        "SRC-REV-PM",
+        "SRC-REV-PM"
+      ],
+      [
+        "Получатель / полный адрес",
+        "Recipient / full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · DEMO-NET-PM · USDT",
+        "SRC-PM · DEMO-NET-PM · USDT"
+      ],
+      [
+        "Сумма / расходы / резерв",
+        "Amount / fee / reservation",
+        "100 / 0.50 / 100.50 USDT",
+        "100 / 0.50 / 100.50 USDT",
+        "",
+        ""
+      ],
+      [
+        "Ограниченный маршрут",
+        "Limited route",
+        "REC-ROUTE v3 · CTRL-REC v3",
+        "REC-ROUTE v3 · CTRL-REC v3",
+        "Остальные денежные действия закрыты",
+        "All other monetary actions remain blocked"
+      ],
+      [
+        "Новое ограничение / порядок",
+        "New control / order",
+        "CTRL-REC v4 · после отправки",
+        "CTRL-REC v4 · after submission",
+        "",
+        ""
+      ],
+      [
+        "Результат / резерв",
+        "Result / reservation",
+        "Неизвестен · резерв 100.50 сохраняется",
+        "Unknown · 100.50 reservation retained",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "К полному отключению",
+        "Back to full shutdown",
+        "treasury-recovery-blocked"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "source-archive-proposal",
+    "title": [
+      "Архивировать собственный источник",
+      "Archive own source"
+    ],
+    "body": [
+      "Владелец A предлагает закрыть конфигурацию для новых операций. Архив не удаляет историю, долг, остаток или незавершённую сверку.",
+      "Owner A proposes to close the configuration to new operations. Archive never deletes history, debt, balance or pending reconciliation."
+    ],
+    "rows": [
+      [
+        "Источник / полный адрес",
+        "Source / full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · собственные средства",
+        "SRC-PM · own funds"
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Причина / версия",
+        "Reason / version",
+        "Закрытие старого маршрута · SRC-PM v2",
+        "Retire old route · SRC-PM v2",
+        "",
+        ""
+      ],
+      [
+        "Незавершённая операция",
+        "Pending operation",
+        "PAY-025 · результат неизвестен",
+        "PAY-025 · result unknown",
+        "",
+        ""
+      ],
+      [
+        "Последствия",
+        "Effects",
+        "Новых отправок нет; существующее только сверяется",
+        "No new sends; existing operations reconciled",
+        "",
+        ""
+      ],
+      [
+        "История / обязательства",
+        "History / liabilities",
+        "Сохраняются, не обнуляются",
+        "Retained, never reset",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Передать владельцу B",
+        "Send to Owner B",
+        "source-archive-review"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "treasury-source"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "source-archive-review",
+    "title": [
+      "Владелец B · архивирование источника",
+      "Owner B · source archive review"
+    ],
+    "body": [
+      "Независимый владелец проверяет ту же версию и причину. Архивирование не является переводом или списанием долга.",
+      "A different Owner checks the same version and reason. Archive is neither a transfer nor debt write-off."
+    ],
+    "rows": [
+      [
+        "Источник / полный адрес",
+        "Source / full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · собственные средства",
+        "SRC-PM · own funds"
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Предложение / причина",
+        "Proposal / reason",
+        "ARCH-SRC-01 · закрытие старого маршрута",
+        "ARCH-SRC-01 · retire old route",
+        "",
+        ""
+      ],
+      [
+        "Автор / проверяющий",
+        "Author / reviewer",
+        "Владелец A / владелец B",
+        "Owner A / Owner B",
+        "",
+        ""
+      ],
+      [
+        "Открытый случай",
+        "Open case",
+        "PAY-025 · сверка продолжается",
+        "PAY-025 · reconciliation continues",
+        "",
+        ""
+      ],
+      [
+        "Проверка личности",
+        "Identity verification",
+        "Новая проверка физическим ключом B",
+        "Fresh verification with B's physical key",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Архивировать · демо",
+        "Archive · demo",
+        "source-archived"
+      ],
+      [
+        "Вернуть автору",
+        "Return to author",
+        "source-archive-proposal"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "source-archived",
+    "title": [
+      "Источник архивирован · история сохранена",
+      "Source archived · history retained"
+    ],
+    "body": [
+      "Конфигурация недоступна для новых выплат и пополнений. История, средства и сверка сохраняются; возврат требует нового предложения и второго владельца.",
+      "The configuration cannot be used for new payouts or funding. History, funds and reconciliation remain; reactivation needs a fresh proposal and a different Owner."
+    ],
+    "rows": [
+      [
+        "Источник / полный адрес",
+        "Source / full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · собственные средства",
+        "SRC-PM · own funds"
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Архив / подтверждения",
+        "Archive / approvals",
+        "ARCH-SRC-01 · A + B · SRC-PM v3",
+        "ARCH-SRC-01 · A + B · SRC-PM v3",
+        "",
+        ""
+      ],
+      [
+        "История / долг",
+        "History / debt",
+        "Сохранены · без списания",
+        "Retained · no write-off",
+        "",
+        ""
+      ],
+      [
+        "Незавершённая операция",
+        "Pending operation",
+        "PAY-025 · только безопасная сверка",
+        "PAY-025 · safe reconciliation only",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "К выборке после архивирования",
+        "Back to archived-source list",
+        "source-catalog-archived"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "stopped-operation-queue",
+    "title": [
+      "После остановки · очередь операций",
+      "After stop · operation queue"
+    ],
+    "body": [
+      "Восстановление соединения не отправляет старые задания автоматически. Неотправленные и уже отправленные операции разделены.",
+      "Restoring a connection never automatically sends old tasks. Unsent and submitted operations remain separate."
+    ],
+    "rows": [
+      [
+        "PAY-026 · не отправлена",
+        "PAY-026 · not sent",
+        "Согласия устарели · новой отправки нет",
+        "Approvals stale · no sending",
+        "Новый снимок и новые согласия",
+        "Fresh preview and approvals"
+      ],
+      [
+        "TRF-DEMO-02 · не отправлен",
+        "TRF-DEMO-02 · not sent",
+        "Источник и ограничения требуют новой проверки",
+        "Source and controls require recheck",
+        "",
+        ""
+      ],
+      [
+        "PAY-021 · отправлена",
+        "PAY-021 · submitted",
+        "Результат неизвестен · повтор запрещён",
+        "Unknown result · resend blocked",
+        "Только сверка уже отправленного",
+        "Reconcile submitted operation only"
+      ],
+      [
+        "Ограничение / история",
+        "Control / history",
+        "CTRL-STOP v5 · исходные задания сохранены",
+        "CTRL-STOP v5 · original tasks retained",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Неотправленная операция",
+        "Unsent operation",
+        "stopped-operation-recheck"
+      ],
+      [
+        "Сверка отправленного",
+        "Reconcile submitted operation",
+        "unknown"
+      ],
+      [
+        "К аварийному управлению",
+        "Back to emergency controls",
+        "emergency"
+      ]
+    ],
+    "role": "A",
+    "columns": [
+      [
+        "Операция / контекст",
+        "Operation / context"
+      ],
+      [
+        "Состояние отправки",
+        "Submission state"
+      ],
+      [
+        "Следующий шаг",
+        "Next step"
+      ]
+    ]
+  },
+  {
+    "key": "stopped-operation-recheck",
+    "title": [
+      "Старое задание требует новой проверки",
+      "Old task needs a fresh review"
+    ],
+    "body": [
+      "PAY-026 не отправлена. Нельзя повторно использовать прежний снимок и согласия. Открытие проверки не ставит старое задание на отправку.",
+      "PAY-026 was not sent. The old snapshot and approvals cannot be reused. Opening a review does not queue the old task for sending."
+    ],
+    "rows": [
+      [
+        "Задание / состояние",
+        "Task / status",
+        "PAY-026 · остановлено до отправки",
+        "PAY-026 · stopped before sending",
+        "",
+        ""
+      ],
+      [
+        "Старое разрешение",
+        "Old authorization",
+        "PRV-026 v1 · недействительно",
+        "PRV-026 v1 · invalid",
+        "",
+        ""
+      ],
+      [
+        "Новая проверка",
+        "Fresh review",
+        "Текущий долг, адрес, средства, версия и ограничения",
+        "Current debt, recipient, funds, versions and controls",
+        "",
+        ""
+      ],
+      [
+        "Технический режим",
+        "Technical mode",
+        "Пока запрет действует — новая отправка невозможна",
+        "No new sending while a block remains",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "К списку выплат · без отправки",
+        "Back to payouts · no sending",
+        "payouts"
+      ],
+      [
+        "К остановленной очереди",
+        "Back to stopped queue",
+        "stopped-operation-queue"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "payout-shortfall-evidence",
+    "title": [
+      "Неполное поступление · подтверждающие данные",
+      "Short receipt · reconciliation evidence"
+    ],
+    "body": [
+      "Проверяется только PAY-ERR-01. Нельзя объявить её полностью выплаченной или автоматически отправить разницу. Подтверждённые факты сохраняются отдельно от ожидаемого результата.",
+      "This inspects PAY-ERR-01 only. It cannot be marked fully paid or automatically topped up. Confirmed facts remain separate from the expected outcome."
+    ],
+    "fields": [],
+    "role": "A",
+    "rows": [
+      [
+        "Операция / инцидент",
+        "Operation / incident",
+        "PAY-ERR-01 · INC-PAY-01",
+        "PAY-ERR-01 · INC-PAY-01",
+        "",
+        ""
+      ],
+      [
+        "Получатель / полный адрес",
+        "Recipient / full address",
+        "0x2222222222222222222222222222222222222222",
+        "0x2222222222222222222222222222222222222222",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT"
+      ],
+      [
+        "Ожидалось / получено / разница",
+        "Expected / received / difference",
+        "120 / 100 / 20 USDT",
+        "120 / 100 / 20 USDT",
+        "",
+        ""
+      ],
+      [
+        "Фактические расходы",
+        "Actual costs",
+        "1.20 USDT · FEE-ERR-01",
+        "1.20 USDT · FEE-ERR-01",
+        "Сервис · учебное правило",
+        "Service · demo rule"
+      ],
+      [
+        "Данные сверки",
+        "Reconciliation evidence",
+        "EVID-SHORT-01 · TX-DEMO-SHORT-01",
+        "EVID-SHORT-01 · TX-DEMO-SHORT-01",
+        "Окончательность и разнесение проверяются отдельно",
+        "Finality and allocation checked separately"
+      ],
+      [
+        "Остаток обязательства",
+        "Remaining liability",
+        "20 USDT не теряются · случай не закрыт",
+        "20 USDT retained · case remains open",
+        "Уже учтённое поступление не начисляется снова",
+        "Recorded receipt is not counted twice"
+      ]
+    ],
+    "actions": [
+      [
+        "Вернуться к расхождению",
+        "Back to discrepancy",
+        "payout-unexpected-shortfall"
+      ]
+    ]
+  },
+  {
+    "key": "source-catalog-archived",
+    "title": [
+      "Источники · после архивирования",
+      "Sources · after archive"
+    ],
+    "body": [
+      "Учебная выборка после ARCH-SRC-01. Архивный источник остаётся видимым в истории; новые отправки и пополнения через него недоступны. Незавершённая сверка не исчезает.",
+      "Demo list after ARCH-SRC-01. The archived source remains visible in history; it cannot send or receive new managed funding. Pending reconciliation remains visible."
+    ],
+    "fields": [],
+    "role": "B",
+    "rows": [
+      [
+        "SRC-PM · состояние",
+        "SRC-PM · status",
+        "Архивирован · v3",
+        "Archived · v3",
+        "ARCH-SRC-01 · A + B",
+        "ARCH-SRC-01 · A + B"
+      ],
+      [
+        "Полный собственный адрес",
+        "Full own address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Polymarket · DEMO-NET-PM · USDT"
+      ],
+      [
+        "Открытая операция",
+        "Open operation",
+        "PAY-025 · результат неизвестен",
+        "PAY-025 · result unknown",
+        "Новых отправок нет; существующее сверяется",
+        "No new sending; existing operation reconciled"
+      ],
+      [
+        "Долг и история",
+        "Debt and history",
+        "Сохранены без обнуления",
+        "Retained without reset",
+        "",
+        ""
+      ],
+      [
+        "Другие источники",
+        "Other sources",
+        "SRC-LL · отдельная площадка, не подключена",
+        "SRC-LL · separate venue, disconnected",
+        "Остатки разных маршрутов не объединяются",
+        "Different-route balances are not merged"
+      ]
+    ],
+    "actions": [
+      [
+        "Открыть архивный источник",
+        "Open archived source",
+        "source-archived"
+      ],
+      [
+        "Добавить другой источник",
+        "Add another source",
+        "source-create"
+      ]
+    ]
+  }
+]

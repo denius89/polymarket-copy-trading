@@ -1,0 +1,873 @@
+{
+  "locale": "en",
+  "screens": [
+    {
+      "key": "source-balance-details",
+      "id": "2904:44958",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      "actor": "Workspace · Owner A",
+      "actions": [
+        {
+          "button": "2906:168024",
+          "target": "2904:45116"
+        },
+        {
+          "button": "2906:168029",
+          "target": "2904:45254"
+        },
+        {
+          "button": "2906:168034",
+          "target": "2904:45400"
+        },
+        {
+          "button": "2906:168039",
+          "target": "2827:43053"
+        }
+      ]
+    },
+    {
+      "key": "source-pending-receipt",
+      "id": "2904:45116",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      "actor": "Workspace · Owner A",
+      "actions": [
+        {
+          "button": "2906:168044",
+          "target": "2904:44958"
+        }
+      ]
+    },
+    {
+      "key": "source-observation-stale",
+      "id": "2904:45254",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      "actor": "Workspace · Owner A",
+      "actions": [
+        {
+          "button": "2906:168049",
+          "target": "2904:44958"
+        },
+        {
+          "button": "2906:168054",
+          "target": "2904:45400"
+        },
+        {
+          "button": "2906:168059",
+          "target": "2007:466"
+        }
+      ]
+    },
+    {
+      "key": "source-observation-error",
+      "id": "2904:45400",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      "actor": "Workspace · Owner A",
+      "actions": [
+        {
+          "button": "2906:168064",
+          "target": "2904:44958"
+        },
+        {
+          "button": "2906:168069",
+          "target": "2904:45254"
+        }
+      ]
+    },
+    {
+      "key": "payout-request-exists",
+      "id": "2904:45538",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [],
+      "actor": "Workspace · Owner A",
+      "actions": [
+        {
+          "button": "2906:168074",
+          "target": "2007:876"
+        },
+        {
+          "button": "2906:168079",
+          "target": "2007:520"
+        }
+      ]
+    },
+    {
+      "key": "source-reservations-busy",
+      "id": "2904:45676",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      "actor": "Workspace · Owner A",
+      "actions": [
+        {
+          "button": "2906:168084",
+          "target": "2904:45826"
+        },
+        {
+          "button": "2906:168089",
+          "target": "2867:148933"
+        },
+        {
+          "button": "2906:168094",
+          "target": "2007:520"
+        }
+      ]
+    },
+    {
+      "key": "source-reservation-details",
+      "id": "2904:45826",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      "actor": "Workspace · Owner A",
+      "actions": [
+        {
+          "button": "2906:168099",
+          "target": "2904:45676"
+        }
+      ]
+    },
+    {
+      "key": "payout-failure-proof",
+      "id": "2904:45968",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x2222222222222222222222222222222222222222"
+      ],
+      "actor": "Workspace · Owner A",
+      "actions": [
+        {
+          "button": "2906:168104",
+          "target": "2904:46110"
+        },
+        {
+          "button": "2906:168109",
+          "target": "2007:976"
+        }
+      ]
+    },
+    {
+      "key": "payout-failed-final",
+      "id": "2904:46110",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [],
+      "actor": "Workspace · Owner A",
+      "actions": [
+        {
+          "button": "2906:168114",
+          "target": "2007:520"
+        },
+        {
+          "button": "2906:168119",
+          "target": "2904:45968"
+        }
+      ]
+    },
+    {
+      "key": "payout-unexpected-shortfall",
+      "id": "2904:46252",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x2222222222222222222222222222222222222222"
+      ],
+      "actor": "Workspace · Owner A",
+      "actions": [
+        {
+          "button": "2906:168124",
+          "target": "2906:152259"
+        },
+        {
+          "button": "2906:168129",
+          "target": "2007:520"
+        }
+      ]
+    },
+    {
+      "key": "recipient-version-conflict",
+      "id": "2904:46398",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x5555555555555555555555555555555555555555",
+        "0x6666666666666666666666666666666666666666"
+      ],
+      "actor": "Workspace · Owner A",
+      "actions": [
+        {
+          "button": "2906:168134",
+          "target": "2904:46832"
+        },
+        {
+          "button": "2906:168139",
+          "target": "2008:669"
+        }
+      ]
+    },
+    {
+      "key": "recipient-reviewer-revoked",
+      "id": "2904:46540",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x5555555555555555555555555555555555555555"
+      ],
+      "actor": "Workspace · Owner A",
+      "actions": [
+        {
+          "button": "2906:168144",
+          "target": "2008:669"
+        }
+      ]
+    },
+    {
+      "key": "recipient-activation-blocked",
+      "id": "2904:46686",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x5555555555555555555555555555555555555555"
+      ],
+      "actor": "Workspace · Owner A",
+      "actions": [
+        {
+          "button": "2906:168149",
+          "target": "2008:669"
+        },
+        {
+          "button": "2906:168154",
+          "target": "2904:46398"
+        }
+      ]
+    },
+    {
+      "key": "recipient-restart-pending",
+      "id": "2904:46832",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x6666666666666666666666666666666666666666"
+      ],
+      "actor": "Workspace · Owner A",
+      "actions": [
+        {
+          "button": "2906:168159",
+          "target": "2904:46970"
+        },
+        {
+          "button": "2906:168164",
+          "target": "2008:669"
+        }
+      ]
+    },
+    {
+      "key": "recipient-restart-review",
+      "id": "2904:46970",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x6666666666666666666666666666666666666666"
+      ],
+      "actor": "Workspace · Owner B",
+      "actions": [
+        {
+          "button": "2906:168169",
+          "target": "2904:47112"
+        },
+        {
+          "button": "2906:168174",
+          "target": "2904:46832"
+        }
+      ]
+    },
+    {
+      "key": "recipient-restart-wait",
+      "id": "2904:47112",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x6666666666666666666666666666666666666666"
+      ],
+      "actor": "Workspace · Owner B",
+      "actions": [
+        {
+          "button": "2906:168179",
+          "target": "2008:669"
+        }
+      ]
+    },
+    {
+      "key": "payout-approval-history",
+      "id": "2904:47250",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [],
+      "actor": "Workspace · Owner B",
+      "actions": [
+        {
+          "button": "2906:168184",
+          "target": "2904:47396"
+        },
+        {
+          "button": "2906:168189",
+          "target": "2904:47530"
+        },
+        {
+          "button": "2906:168194",
+          "target": "2007:520"
+        }
+      ]
+    },
+    {
+      "key": "payout-approval-expired",
+      "id": "2904:47396",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [],
+      "actor": "Workspace · Owner B",
+      "actions": [
+        {
+          "button": "2906:168199",
+          "target": "2904:47250"
+        },
+        {
+          "button": "2906:168204",
+          "target": "2007:520"
+        }
+      ]
+    },
+    {
+      "key": "payout-approval-invalidated",
+      "id": "2904:47530",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [],
+      "actor": "Workspace · Owner B",
+      "actions": [
+        {
+          "button": "2906:168209",
+          "target": "2904:47250"
+        },
+        {
+          "button": "2906:168214",
+          "target": "2007:520"
+        }
+      ]
+    },
+    {
+      "key": "recovery-route-revoked",
+      "id": "2904:47664",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x1111111111111111111111111111111111111111",
+        "0x1234567890abcdef1234567890abcdef12345678"
+      ],
+      "actor": "Workspace · Owner B",
+      "actions": [
+        {
+          "button": "2906:168219",
+          "target": "2827:44553"
+        }
+      ]
+    },
+    {
+      "key": "recovery-route-expired",
+      "id": "2904:47806",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x1111111111111111111111111111111111111111",
+        "0x1234567890abcdef1234567890abcdef12345678"
+      ],
+      "actor": "Workspace · Owner B",
+      "actions": [
+        {
+          "button": "2906:168224",
+          "target": "2827:44553"
+        }
+      ]
+    },
+    {
+      "key": "recovery-failure-proof",
+      "id": "2904:47948",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x1111111111111111111111111111111111111111",
+        "0x1234567890abcdef1234567890abcdef12345678"
+      ],
+      "actor": "Workspace · Owner B",
+      "actions": [
+        {
+          "button": "2906:168229",
+          "target": "2904:48094"
+        },
+        {
+          "button": "2906:168234",
+          "target": "2867:149589"
+        }
+      ]
+    },
+    {
+      "key": "recovery-failed-final",
+      "id": "2904:48094",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x1111111111111111111111111111111111111111",
+        "0x1234567890abcdef1234567890abcdef12345678"
+      ],
+      "actor": "Workspace · Owner B",
+      "actions": [
+        {
+          "button": "2906:168239",
+          "target": "2827:44553"
+        }
+      ]
+    },
+    {
+      "key": "recovery-stop-after-send",
+      "id": "2904:48236",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x1111111111111111111111111111111111111111",
+        "0x1234567890abcdef1234567890abcdef12345678"
+      ],
+      "actor": "Workspace · Owner B",
+      "actions": [
+        {
+          "button": "2906:168244",
+          "target": "2827:44553"
+        }
+      ]
+    },
+    {
+      "key": "source-archive-proposal",
+      "id": "2904:48382",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      "actor": "Workspace · Owner A",
+      "actions": [
+        {
+          "button": "2906:168249",
+          "target": "2904:48524"
+        },
+        {
+          "button": "2906:168254",
+          "target": "2827:43053"
+        }
+      ]
+    },
+    {
+      "key": "source-archive-review",
+      "id": "2904:48524",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      "actor": "Workspace · Owner B",
+      "actions": [
+        {
+          "button": "2906:168259",
+          "target": "2904:48666"
+        },
+        {
+          "button": "2906:168264",
+          "target": "2904:48382"
+        }
+      ]
+    },
+    {
+      "key": "source-archived",
+      "id": "2904:48666",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      "actor": "Workspace · Owner B",
+      "actions": [
+        {
+          "button": "2906:168269",
+          "target": "2906:152397"
+        }
+      ]
+    },
+    {
+      "key": "stopped-operation-queue",
+      "id": "2904:48800",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [],
+      "actor": "Workspace · Owner A",
+      "actions": [
+        {
+          "button": "2906:168274",
+          "target": "2904:48938"
+        },
+        {
+          "button": "2906:168279",
+          "target": "2007:976"
+        },
+        {
+          "button": "2906:168284",
+          "target": "2110:57242"
+        }
+      ]
+    },
+    {
+      "key": "stopped-operation-recheck",
+      "id": "2904:48938",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [],
+      "actor": "Workspace · Owner A",
+      "actions": [
+        {
+          "button": "2906:168468",
+          "target": "2007:520"
+        },
+        {
+          "button": "2906:168473",
+          "target": "2904:48800"
+        }
+      ]
+    },
+    {
+      "key": "payout-shortfall-evidence",
+      "id": "2906:152259",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x2222222222222222222222222222222222222222"
+      ],
+      "actor": "Workspace · Owner A",
+      "actions": [
+        {
+          "button": "2906:168657",
+          "target": "2904:46252"
+        }
+      ]
+    },
+    {
+      "key": "source-catalog-archived",
+      "id": "2906:152397",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x1234567890abcdef1234567890abcdef12345678"
+      ],
+      "actor": "Workspace · Owner B",
+      "actions": [
+        {
+          "button": "2906:168662",
+          "target": "2904:48666"
+        },
+        {
+          "button": "2906:168667",
+          "target": "2867:145968"
+        }
+      ]
+    },
+    {
+      "key": "entry-0",
+      "id": "2827:43053",
+      "height": 1200,
+      "fields": 0,
+      "fullAddresses": [
+        "0x1234567890abcdef1234567890abcdef12345678"
+      ],
+      "actor": "Workspace · Owner A",
+      "actions": [
+        {
+          "button": "2868:146887",
+          "target": "2867:148933"
+        },
+        {
+          "button": "2868:146891",
+          "target": "2867:146595"
+        },
+        {
+          "button": "2868:146895",
+          "target": "2867:147687"
+        },
+        {
+          "button": "2868:146899",
+          "target": "2867:148519"
+        },
+        {
+          "button": "2868:146903",
+          "target": "2007:466"
+        },
+        {
+          "button": "2906:168672",
+          "target": "2904:44958"
+        },
+        {
+          "button": "2906:168677",
+          "target": "2904:48382"
+        }
+      ]
+    },
+    {
+      "key": "entry-1",
+      "id": "2007:713",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x2222222222222222222222222222222222222222",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      "actor": "Workspace · Owner A",
+      "actions": [
+        {
+          "button": "2868:146503",
+          "target": "2007:838"
+        },
+        {
+          "button": "2868:146507",
+          "target": "2007:778"
+        },
+        {
+          "button": "2868:146511",
+          "target": "2008:596"
+        },
+        {
+          "button": "2906:168682",
+          "target": "2904:45538"
+        },
+        {
+          "button": "2906:168687",
+          "target": "2904:45676"
+        }
+      ]
+    },
+    {
+      "key": "entry-2",
+      "id": "2007:976",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [],
+      "actor": "Workspace / Owner A",
+      "actions": [
+        {
+          "button": "2007:997",
+          "target": "2007:1014"
+        },
+        {
+          "button": "2007:998",
+          "target": "2007:520"
+        },
+        {
+          "button": "2906:168692",
+          "target": "2904:45968"
+        },
+        {
+          "button": "2906:168697",
+          "target": "2904:46252"
+        }
+      ]
+    },
+    {
+      "key": "entry-3",
+      "id": "2008:846",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x2222222222222222222222222222222222222222",
+        "0x5555555555555555555555555555555555555555",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      "actor": "Workspace · Owner B",
+      "actions": [
+        {
+          "button": "2868:147545",
+          "target": "2827:45433"
+        },
+        {
+          "button": "2868:147549",
+          "target": "2827:45721"
+        },
+        {
+          "button": "2868:147553",
+          "target": "2008:669"
+        },
+        {
+          "button": "2906:168702",
+          "target": "2904:46398"
+        },
+        {
+          "button": "2906:168707",
+          "target": "2904:46540"
+        },
+        {
+          "button": "2906:168712",
+          "target": "2904:46686"
+        }
+      ]
+    },
+    {
+      "key": "entry-4",
+      "id": "2008:634",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [],
+      "actor": "Workspace / Owner B",
+      "actions": [
+        {
+          "button": "2008:654",
+          "target": "2007:520"
+        },
+        {
+          "button": "2008:655",
+          "target": "2007:1261"
+        },
+        {
+          "button": "2906:168717",
+          "target": "2904:47250"
+        }
+      ]
+    },
+    {
+      "key": "entry-5",
+      "id": "2827:45137",
+      "height": 1160,
+      "fields": 0,
+      "fullAddresses": [
+        "0x1111111111111111111111111111111111111111",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      "actor": "Workspace · Owner B",
+      "actions": [
+        {
+          "button": "2868:147279",
+          "target": "2867:149589"
+        },
+        {
+          "button": "2868:147283",
+          "target": "2827:44553"
+        },
+        {
+          "button": "2906:168722",
+          "target": "2904:47664"
+        },
+        {
+          "button": "2906:168727",
+          "target": "2904:47806"
+        }
+      ]
+    },
+    {
+      "key": "entry-6",
+      "id": "2867:149589",
+      "height": 1120,
+      "fields": 0,
+      "fullAddresses": [
+        "0x1111111111111111111111111111111111111111",
+        "0x1234567890abcdef1234567890abcdef12345678"
+      ],
+      "actor": "Workspace · Owner B",
+      "actions": [
+        {
+          "button": "2867:149722",
+          "target": "2867:149731"
+        },
+        {
+          "button": "2867:149726",
+          "target": "2827:44553"
+        },
+        {
+          "button": "2906:168732",
+          "target": "2904:47948"
+        },
+        {
+          "button": "2906:168737",
+          "target": "2904:48236"
+        }
+      ]
+    },
+    {
+      "key": "entry-7",
+      "id": "2110:57242",
+      "height": 1200,
+      "fields": 0,
+      "fullAddresses": [],
+      "actions": [
+        {
+          "button": "2110:57350",
+          "target": "2110:57361"
+        },
+        {
+          "button": "2110:57355",
+          "target": "2110:57681"
+        },
+        {
+          "button": "2139:35050",
+          "target": "2138:70512"
+        },
+        {
+          "button": "2139:35055",
+          "target": "2138:71434"
+        },
+        {
+          "button": "2139:35060",
+          "target": "2138:72361"
+        },
+        {
+          "button": "2139:35065",
+          "target": "2138:73283"
+        },
+        {
+          "button": "2906:168742",
+          "target": "2904:48800"
+        }
+      ]
+    }
+  ],
+  "issues": [],
+  "linkIssues": [],
+  "images": [],
+  "fontFamilies": [
+    "Inter"
+  ],
+  "rootCount": 490
+}
