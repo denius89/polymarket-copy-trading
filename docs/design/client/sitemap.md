@@ -1,6 +1,10 @@
 # Карта клиентского интерфейса
 
-Актуально на **12.10.2026**. [Визуальная карта в Figma](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2113-60630) находится на существующей странице «00 · Начать здесь», внутри [карты и таблицы 4 версий](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1664-2). Это одна информационная архитектура для RU/EN и mobile/desktop. Точные узлы и статус хранятся рядом в [sitemap.json](sitemap.json).
+Исходная карта от **12.10.2026**, дополнение Final от **16.10.2026**. [Визуальная карта в Figma](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2113-60630) находится на существующей странице «00 · Начать здесь», внутри [карты и таблицы 4 версий](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1664-2). Это одна информационная архитектура для RU/EN и mobile/desktop. Точные узлы и статус хранятся рядом в [sitemap.json](sitemap.json).
+
+**Дополнение 16.10.2026 для Final:** историческая таблица ниже оставлена как карта исходной структуры. Рабочие страницы клиентского прототипа: [RU mobile](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2477-528), [EN mobile](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2499-2), [RU desktop](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2477-529), [EN desktop](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2499-3). Для ручной паузы/возобновления mobile используйте RU `2865:2966`/`2865:3095` и EN `2870:186643`/`2870:186772`; у каждой ветки собственные согласованные позиции и события. Точные проверки и desktop IDs — в [актуальной сверке](final-client-release-review-2026-10-16.md). Это дополнение не переписывает старые узлы в `sitemap.json`; при реализации первичны Final-страницы и новая сверка.
+
+Каталоги ручной сессии отделены от первого запуска: mobile RU `2889:143739`, mobile EN `2892:3070`; desktop RU пауза/активно `2906:168747`/`2911:171729`, desktop EN `2901:49669`/`2906:156915`. Каждый возвращает через локальный профиль к своему Home. Вспомогательные общие шаблоны не задают состояние сессии для реализации.
 
 ## Как читать
 
