@@ -1,0 +1,2378 @@
+[
+  {
+    "key": "source-create",
+    "title": [
+      "Добавить собственный источник",
+      "Add own source"
+    ],
+    "body": [
+      "Владелец A готовит SRC-PM-02. Адрес, сеть и контракт вымышлены. Сохранение не включает отправку: нужен другой владелец и проверенные подключения.",
+      "Owner A prepares SRC-PM-02. Address, network and contract are synthetic. Saving never enables sending: another Owner and verified integrations are required."
+    ],
+    "rows": [],
+    "fields": [
+      {
+        "label": [
+          "Название",
+          "Name"
+        ],
+        "value": [
+          "Новый источник PM",
+          "New PM source"
+        ],
+        "kind": "Input",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Тип средств",
+          "Fund type"
+        ],
+        "value": [
+          "Партнёрские выплаты",
+          "Partner payouts"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Площадка",
+          "Venue"
+        ],
+        "value": [
+          "Polymarket",
+          "Polymarket"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Среда и режим",
+          "Environment / mode"
+        ],
+        "value": [
+          "Демо · будущая платная версия",
+          "Demo · future paid stage"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Сеть · учебная",
+          "Network · demo"
+        ],
+        "value": [
+          "DEMO-NET-PM",
+          "DEMO-NET-PM"
+        ],
+        "kind": "Input",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Актив",
+          "Asset"
+        ],
+        "value": [
+          "USDT",
+          "USDT"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Контракт · вымышленный",
+          "Contract · synthetic"
+        ],
+        "value": [
+          "0x3333333333333333333333333333333333333333",
+          "0x3333333333333333333333333333333333333333"
+        ],
+        "kind": "Address",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Собственный адрес",
+          "Own address"
+        ],
+        "value": [
+          "0x4444444444444444444444444444444444444444",
+          "0x4444444444444444444444444444444444444444"
+        ],
+        "kind": "Address",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Кто контролирует",
+          "Controlled by"
+        ],
+        "value": [
+          "Shadow · владелец A",
+          "Shadow · Owner A"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Способ подписи",
+          "Signing profile"
+        ],
+        "value": [
+          "SIGN-DEMO-01 · не подключён",
+          "SIGN-DEMO-01 · disconnected"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Источник баланса",
+          "Balance source"
+        ],
+        "value": [
+          "OBS-DEMO-PM · учебный профиль",
+          "OBS-DEMO-PM · demo profile"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Разрешённый вход",
+          "Allowed inbound"
+        ],
+        "value": [
+          "Только SRC-REV-PM / SRC-FUND",
+          "SRC-REV-PM / SRC-FUND only"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Разрешённый выход",
+          "Allowed outbound"
+        ],
+        "value": [
+          "Партнёры по активным реквизитам",
+          "Partners with active recipients"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Начальные ограничения",
+          "Initial limits"
+        ],
+        "value": [
+          "LIMITS-PM v1 · до проверки отправка закрыта",
+          "LIMITS-PM v1 · sending blocked until verified"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Причина изменения",
+          "Reason"
+        ],
+        "value": [
+          "Регистрация своего источника",
+          "Register own source"
+        ],
+        "kind": "Input",
+        "hint": [
+          "",
+          ""
+        ]
+      }
+    ],
+    "actions": [
+      [
+        "Передать владельцу B",
+        "Send to Owner B",
+        "source-create-review"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "sources"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "source-create-review",
+    "title": [
+      "Владелец B · регистрация источника",
+      "Owner B · register source"
+    ],
+    "body": [
+      "Независимая проверка точной версии своего источника. 24 часа здесь не вводятся: задержка относится к адресам партнёра. Реальные подключения выключены.",
+      "Independent verification of the exact own-source version. No 24-hour delay here: that delay applies to partner recipients. Real integrations remain disabled."
+    ],
+    "rows": [
+      [
+        "Источник / версия",
+        "Source / version",
+        "SRC-PM-02 · новая v1",
+        "SRC-PM-02 · новая v1",
+        "Автор A · проверяет B",
+        "Author A · reviewer B"
+      ],
+      [
+        "Адрес целиком",
+        "Full address",
+        "0x4444444444444444444444444444444444444444",
+        "0x4444444444444444444444444444444444444444",
+        "",
+        ""
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "Контракт 0x3333333333333333333333333333333333333333",
+        "Contract 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Назначение / контроль",
+        "Purpose / control",
+        "Выплаты · свои средства Shadow",
+        "Payouts · Shadow own funds",
+        "SIGN-DEMO-01 · не подключён",
+        "SIGN-DEMO-01 · disconnected"
+      ],
+      [
+        "Направления",
+        "Directions",
+        "SRC-REV-PM / SRC-FUND → источник",
+        "SRC-REV-PM / SRC-FUND → source",
+        "Выход: только активные реквизиты",
+        "Outbound: active recipients only"
+      ],
+      [
+        "Баланс / ограничения",
+        "Balance / limits",
+        "OBS-DEMO-PM · LIMITS-PM v1",
+        "OBS-DEMO-PM · LIMITS-PM v1",
+        "Не подтверждены для реальных денег",
+        "Not verified for real funds"
+      ],
+      [
+        "Причина / срок",
+        "Reason / expiry",
+        "Свой источник · DEMO-PROP-S2",
+        "Own source · DEMO-PROP-S2",
+        "16 Oct 12:00 → 12:05 UTC · пример",
+        "16 Oct 12:00 → 12:05 UTC · demo"
+      ],
+      [
+        "Проверка владельца B",
+        "Owner B review",
+        "Новая проверка физическим ключом",
+        "Fresh physical-key verification",
+        "Автор не подтверждает свою версию",
+        "Author cannot approve own version"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Подтвердить регистрацию · демо",
+        "Approve registration · demo",
+        "source-created"
+      ],
+      [
+        "Вернуть автору",
+        "Return to author",
+        "source-create"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "source-created",
+    "title": [
+      "Источник зарегистрирован · демо",
+      "Source registered · demo"
+    ],
+    "body": [
+      "SRC-PM-02 сохранён после двух владельцев. Средства не переводились. Реальные отправки закрыты до подтверждения сети, контракта, подписи и лимитов.",
+      "SRC-PM-02 recorded after two distinct Owners. No funds moved. Real sending remains blocked until network, contract, signing and limits are verified."
+    ],
+    "rows": [
+      [
+        "Источник",
+        "Source",
+        "SRC-PM-02 · v1",
+        "SRC-PM-02 · v1",
+        "",
+        ""
+      ],
+      [
+        "Адрес",
+        "Address",
+        "0x4444444444444444444444444444444444444444",
+        "0x4444444444444444444444444444444444444444",
+        "",
+        ""
+      ],
+      [
+        "Состояние / баланс",
+        "State / balance",
+        "Зарегистрирован · 0 USDT",
+        "Registered · 0 USDT",
+        "Не подключён для реальных денег",
+        "Disconnected for real funds"
+      ],
+      [
+        "Аудит",
+        "Audit",
+        "AUD-SRC-02 · A + B",
+        "AUD-SRC-02 · A + B",
+        "Создание не является пополнением",
+        "Registration is not funding"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "К источникам",
+        "Sources",
+        "sources"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "source-edit",
+    "title": [
+      "Настройки собственного источника",
+      "Own source settings"
+    ],
+    "body": [
+      "Владелец A меняет SRC-PM v1 → v2. Все численные примеры и адреса учебные. Исходные записи и незавершённые операции не переписываются.",
+      "Owner A changes SRC-PM v1 → v2. All numeric values and addresses are demo data. Historical records and pending operations are unchanged."
+    ],
+    "rows": [],
+    "fields": [
+      {
+        "label": [
+          "Название",
+          "Name"
+        ],
+        "value": [
+          "Источник выплат PM",
+          "PM payout source"
+        ],
+        "kind": "Input",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Тип средств",
+          "Fund type"
+        ],
+        "value": [
+          "Партнёрские выплаты",
+          "Partner payouts"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Площадка",
+          "Venue"
+        ],
+        "value": [
+          "Polymarket",
+          "Polymarket"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Среда и режим",
+          "Environment / mode"
+        ],
+        "value": [
+          "Демо · будущая платная версия",
+          "Demo · future paid stage"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Сеть · учебная",
+          "Network · demo"
+        ],
+        "value": [
+          "DEMO-NET-PM",
+          "DEMO-NET-PM"
+        ],
+        "kind": "Input",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Актив",
+          "Asset"
+        ],
+        "value": [
+          "USDT",
+          "USDT"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Контракт · вымышленный",
+          "Contract · synthetic"
+        ],
+        "value": [
+          "0x3333333333333333333333333333333333333333",
+          "0x3333333333333333333333333333333333333333"
+        ],
+        "kind": "Address",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Собственный адрес",
+          "Own address"
+        ],
+        "value": [
+          "0x1234567890abcdef1234567890abcdef12345678",
+          "0x1234567890abcdef1234567890abcdef12345678"
+        ],
+        "kind": "Address",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Кто контролирует",
+          "Controlled by"
+        ],
+        "value": [
+          "Shadow · владелец A",
+          "Shadow · Owner A"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Способ подписи",
+          "Signing profile"
+        ],
+        "value": [
+          "SIGN-DEMO-01 · не подключён",
+          "SIGN-DEMO-01 · disconnected"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Источник баланса",
+          "Balance source"
+        ],
+        "value": [
+          "OBS-DEMO-PM · учебный профиль",
+          "OBS-DEMO-PM · demo profile"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Разрешённый вход",
+          "Allowed inbound"
+        ],
+        "value": [
+          "Только SRC-REV-PM / SRC-FUND",
+          "SRC-REV-PM / SRC-FUND only"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Разрешённый выход",
+          "Allowed outbound"
+        ],
+        "value": [
+          "Партнёры по активным реквизитам",
+          "Partners with active recipients"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Начальные ограничения",
+          "Initial limits"
+        ],
+        "value": [
+          "LIMITS-PM v1 · до проверки отправка закрыта",
+          "LIMITS-PM v1 · sending blocked until verified"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Причина изменения",
+          "Reason"
+        ],
+        "value": [
+          "Уточнение конфигурации источника",
+          "Update source configuration"
+        ],
+        "kind": "Input",
+        "hint": [
+          "",
+          ""
+        ]
+      }
+    ],
+    "actions": [
+      [
+        "Передать на проверку",
+        "Submit for review",
+        "source-change-pending"
+      ],
+      [
+        "Пример ошибки",
+        "Error example",
+        "source-config-invalid"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "treasury-source"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "source-config-invalid",
+    "title": [
+      "Источник не готов к проверке",
+      "Source not ready for review"
+    ],
+    "body": [
+      "В этом учебном примере адрес контракта не совпадает с выбранным активом. Отправка на проверку закрыта; действующая конфигурация не меняется.",
+      "In this demo, contract address does not match the selected asset. Submission is blocked; the effective configuration is unchanged."
+    ],
+    "rows": [],
+    "fields": [
+      {
+        "label": [
+          "Название",
+          "Name"
+        ],
+        "value": [
+          "Источник выплат PM",
+          "PM payout source"
+        ],
+        "kind": "Input",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Тип средств",
+          "Fund type"
+        ],
+        "value": [
+          "Партнёрские выплаты",
+          "Partner payouts"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Площадка",
+          "Venue"
+        ],
+        "value": [
+          "Polymarket",
+          "Polymarket"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Среда и режим",
+          "Environment / mode"
+        ],
+        "value": [
+          "Демо · будущая платная версия",
+          "Demo · future paid stage"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Сеть · учебная",
+          "Network · demo"
+        ],
+        "value": [
+          "DEMO-NET-PM",
+          "DEMO-NET-PM"
+        ],
+        "kind": "Input",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Актив",
+          "Asset"
+        ],
+        "value": [
+          "USDT",
+          "USDT"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Контракт · вымышленный",
+          "Contract · synthetic"
+        ],
+        "value": [
+          "0x3333333333333333333333333333333333333333",
+          "0x3333333333333333333333333333333333333333"
+        ],
+        "kind": "Address",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Собственный адрес",
+          "Own address"
+        ],
+        "value": [
+          "0x1234567890abcdef1234567890abcdef12345678",
+          "0x1234567890abcdef1234567890abcdef12345678"
+        ],
+        "kind": "Address",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Кто контролирует",
+          "Controlled by"
+        ],
+        "value": [
+          "Shadow · владелец A",
+          "Shadow · Owner A"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Способ подписи",
+          "Signing profile"
+        ],
+        "value": [
+          "SIGN-DEMO-01 · не подключён",
+          "SIGN-DEMO-01 · disconnected"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Источник баланса",
+          "Balance source"
+        ],
+        "value": [
+          "OBS-DEMO-PM · учебный профиль",
+          "OBS-DEMO-PM · demo profile"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Разрешённый вход",
+          "Allowed inbound"
+        ],
+        "value": [
+          "Только SRC-REV-PM / SRC-FUND",
+          "SRC-REV-PM / SRC-FUND only"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Разрешённый выход",
+          "Allowed outbound"
+        ],
+        "value": [
+          "Партнёры по активным реквизитам",
+          "Partners with active recipients"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Начальные ограничения",
+          "Initial limits"
+        ],
+        "value": [
+          "LIMITS-PM v1 · до проверки отправка закрыта",
+          "LIMITS-PM v1 · sending blocked until verified"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Причина изменения",
+          "Reason"
+        ],
+        "value": [
+          "Уточнение конфигурации источника",
+          "Update source configuration"
+        ],
+        "kind": "Input",
+        "hint": [
+          "",
+          ""
+        ]
+      }
+    ],
+    "actions": [
+      [
+        "Исправить пример",
+        "Correct example",
+        "source-edit"
+      ]
+    ],
+    "role": "A",
+    "notice": {
+      "field": "Контракт · вымышленный",
+      "fieldEN": "Contract · synthetic",
+      "value": "0xBAD",
+      "hint": [
+        "Проверьте полный адрес и связку сеть/актив",
+        "Verify full address and network/asset match"
+      ]
+    }
+  },
+  {
+    "key": "source-change-pending",
+    "title": [
+      "Источник ожидает второго владельца",
+      "Source awaiting another Owner"
+    ],
+    "body": [
+      "Предложение DEMO-PROP-S2 сохранено владельцем A. До проверки владельцем B действует v1. Автор не может подтвердить свою версию.",
+      "Owner A saved DEMO-PROP-S2. v1 remains effective until Owner B reviews. The author cannot approve their own change."
+    ],
+    "rows": [
+      [
+        "Источник / версия",
+        "Source / version",
+        "SRC-PM · v1 → v2",
+        "SRC-PM · v1 → v2",
+        "Автор A · проверяет B",
+        "Author A · reviewer B"
+      ],
+      [
+        "Адрес целиком",
+        "Full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "",
+        ""
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "Контракт 0x3333333333333333333333333333333333333333",
+        "Contract 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Назначение / контроль",
+        "Purpose / control",
+        "Выплаты · свои средства Shadow",
+        "Payouts · Shadow own funds",
+        "SIGN-DEMO-01 · не подключён",
+        "SIGN-DEMO-01 · disconnected"
+      ],
+      [
+        "Направления",
+        "Directions",
+        "SRC-REV-PM / SRC-FUND → источник",
+        "SRC-REV-PM / SRC-FUND → source",
+        "Выход: только активные реквизиты",
+        "Outbound: active recipients only"
+      ],
+      [
+        "Баланс / ограничения",
+        "Balance / limits",
+        "OBS-DEMO-PM · LIMITS-PM v1",
+        "OBS-DEMO-PM · LIMITS-PM v1",
+        "Не подтверждены для реальных денег",
+        "Not verified for real funds"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Проверка владельца B · демо",
+        "Owner B review · demo",
+        "treasury-source-review"
+      ],
+      [
+        "Изменить предложение",
+        "Edit proposal",
+        "source-edit"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "source-change-conflict",
+    "title": [
+      "Версия источника изменилась",
+      "Source version changed"
+    ],
+    "body": [
+      "Предложение уже изменено или подтверждение отозвано. Старая проверка недействительна. Никакие деньги не отправлены.",
+      "Proposal changed or approval was revoked. The old review is invalid. No funds were sent."
+    ],
+    "rows": [
+      [
+        "Предложение / версия",
+        "Proposal / version",
+        "DEMO-PROP-S2 · v2 устарела",
+        "DEMO-PROP-S2 · v2 stale",
+        "",
+        ""
+      ],
+      [
+        "Следующий шаг",
+        "Next step",
+        "Получить свежую версию и проверить заново",
+        "Fetch current version and review again",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "К настройкам",
+        "Settings",
+        "source-edit"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "source-config-saved",
+    "title": [
+      "Конфигурация источника сохранена",
+      "Source configuration saved"
+    ],
+    "body": [
+      "SRC-PM v2 подтверждён другим владельцем. Это не пополнение и не разрешение реальных переводов. История v1 сохраняется.",
+      "Another Owner approved SRC-PM v2. This is neither funding nor permission for real transfers. Keep v1 history."
+    ],
+    "rows": [
+      [
+        "Источник / версия",
+        "Source / version",
+        "SRC-PM · v1 → v2",
+        "SRC-PM · v1 → v2",
+        "Автор A · проверяет B",
+        "Author A · reviewer B"
+      ],
+      [
+        "Адрес целиком",
+        "Full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "",
+        ""
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "Контракт 0x3333333333333333333333333333333333333333",
+        "Contract 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Назначение / контроль",
+        "Purpose / control",
+        "Выплаты · свои средства Shadow",
+        "Payouts · Shadow own funds",
+        "SIGN-DEMO-01 · не подключён",
+        "SIGN-DEMO-01 · disconnected"
+      ],
+      [
+        "Направления",
+        "Directions",
+        "SRC-REV-PM / SRC-FUND → источник",
+        "SRC-REV-PM / SRC-FUND → source",
+        "Выход: только активные реквизиты",
+        "Outbound: active recipients only"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "К источнику",
+        "Source",
+        "treasury-source"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "source-limits-edit",
+    "title": [
+      "Остатки и лимиты источника",
+      "Source balances and limits"
+    ],
+    "body": [
+      "Учебные числа для проверки дизайна. Цель предупреждает, максимум запрещает, защитный порог требует второго владельца. Изменение самих правил проверяет другой владелец.",
+      "Demo values for design review. Target warns, hard cap blocks, approval threshold requires another Owner. A different Owner approves changes to the rules themselves."
+    ],
+    "rows": [],
+    "fields": [
+      {
+        "label": [
+          "Целевой остаток, USDT",
+          "Target balance, USDT"
+        ],
+        "value": [
+          "300",
+          "300"
+        ],
+        "kind": "Amount",
+        "hint": [
+          "Предупреждение, не запрет",
+          "Warning, not a block"
+        ]
+      },
+      {
+        "label": [
+          "Жёсткий максимум, USDT",
+          "Hard balance cap, USDT"
+        ],
+        "value": [
+          "500",
+          "500"
+        ],
+        "kind": "Amount",
+        "hint": [
+          "Пополнение сверх суммы запрещено",
+          "Managed funding above cap is blocked"
+        ]
+      },
+      {
+        "label": [
+          "Операционный резерв, USDT",
+          "Operating reserve, USDT"
+        ],
+        "value": [
+          "20",
+          "20"
+        ],
+        "kind": "Amount",
+        "hint": [
+          "Не вычитается повторно",
+          "Never deducted twice"
+        ]
+      },
+      {
+        "label": [
+          "Порог второй проверки, USDT",
+          "Second-Owner threshold, USDT"
+        ],
+        "value": [
+          "250",
+          "250"
+        ],
+        "kind": "Amount",
+        "hint": [
+          "Превышение требует второго владельца",
+          "Above this requires another Owner"
+        ]
+      },
+      {
+        "label": [
+          "Суточный лимит выплат, USDT",
+          "Daily payout cap, USDT"
+        ],
+        "value": [
+          "1000",
+          "1000"
+        ],
+        "kind": "Amount",
+        "hint": [
+          "Жёсткий запрет превышения",
+          "Hard block on excess"
+        ]
+      },
+      {
+        "label": [
+          "Одному партнёру / адресату",
+          "Partner / address daily cap"
+        ],
+        "value": [
+          "500",
+          "500"
+        ],
+        "kind": "Amount",
+        "hint": [
+          "Связанные операции суммируются",
+          "Related operations are aggregated"
+        ]
+      },
+      {
+        "label": [
+          "Часовой пояс / граница суток",
+          "Timezone / day boundary"
+        ],
+        "value": [
+          "UTC · 00:00",
+          "UTC · 00:00"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Учёт комиссии",
+          "Fee accounting"
+        ],
+        "value": [
+          "Один раз, в резерве операции",
+          "Once, in operation reservation"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Срок подтверждения, минуты",
+          "Approval lifetime, minutes"
+        ],
+        "value": [
+          "5",
+          "5"
+        ],
+        "kind": "Amount",
+        "hint": [
+          "Учебный пример, не настройка запуска",
+          "Demo value, not a launch setting"
+        ]
+      },
+      {
+        "label": [
+          "Плательщик комиссии",
+          "Transfer fee payer"
+        ],
+        "value": [
+          "Сервис",
+          "Service"
+        ],
+        "kind": "Select",
+        "hint": [
+          "Можно выбрать партнёра",
+          "Partner may be selected"
+        ]
+      },
+      {
+        "label": [
+          "Причина",
+          "Reason"
+        ],
+        "value": [
+          "Рабочий резерв и защита источника",
+          "Working reserve and source protection"
+        ],
+        "kind": "Input",
+        "hint": [
+          "",
+          ""
+        ]
+      }
+    ],
+    "actions": [
+      [
+        "Проверка владельца B",
+        "Owner B review",
+        "source-limits-review"
+      ],
+      [
+        "Пример ошибки",
+        "Error example",
+        "source-limits-invalid"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "treasury-source"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "source-limits-invalid",
+    "title": [
+      "Проверьте ограничения источника",
+      "Review source limits"
+    ],
+    "body": [
+      "Учебный максимум 100 USDT меньше целевого остатка 300 USDT. Такая конфигурация не передаётся на утверждение. Действующая версия сохраняется.",
+      "Demo hard cap 100 USDT is below target 300 USDT. This configuration cannot be submitted for approval. Keep the effective version."
+    ],
+    "rows": [],
+    "fields": [
+      {
+        "label": [
+          "Целевой остаток, USDT",
+          "Target balance, USDT"
+        ],
+        "value": [
+          "300",
+          "300"
+        ],
+        "kind": "Amount",
+        "hint": [
+          "Предупреждение, не запрет",
+          "Warning, not a block"
+        ]
+      },
+      {
+        "label": [
+          "Жёсткий максимум, USDT",
+          "Hard balance cap, USDT"
+        ],
+        "value": [
+          "500",
+          "500"
+        ],
+        "kind": "Amount",
+        "hint": [
+          "Пополнение сверх суммы запрещено",
+          "Managed funding above cap is blocked"
+        ]
+      },
+      {
+        "label": [
+          "Операционный резерв, USDT",
+          "Operating reserve, USDT"
+        ],
+        "value": [
+          "20",
+          "20"
+        ],
+        "kind": "Amount",
+        "hint": [
+          "Не вычитается повторно",
+          "Never deducted twice"
+        ]
+      },
+      {
+        "label": [
+          "Порог второй проверки, USDT",
+          "Second-Owner threshold, USDT"
+        ],
+        "value": [
+          "250",
+          "250"
+        ],
+        "kind": "Amount",
+        "hint": [
+          "Превышение требует второго владельца",
+          "Above this requires another Owner"
+        ]
+      },
+      {
+        "label": [
+          "Суточный лимит выплат, USDT",
+          "Daily payout cap, USDT"
+        ],
+        "value": [
+          "1000",
+          "1000"
+        ],
+        "kind": "Amount",
+        "hint": [
+          "Жёсткий запрет превышения",
+          "Hard block on excess"
+        ]
+      },
+      {
+        "label": [
+          "Одному партнёру / адресату",
+          "Partner / address daily cap"
+        ],
+        "value": [
+          "500",
+          "500"
+        ],
+        "kind": "Amount",
+        "hint": [
+          "Связанные операции суммируются",
+          "Related operations are aggregated"
+        ]
+      },
+      {
+        "label": [
+          "Часовой пояс / граница суток",
+          "Timezone / day boundary"
+        ],
+        "value": [
+          "UTC · 00:00",
+          "UTC · 00:00"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Учёт комиссии",
+          "Fee accounting"
+        ],
+        "value": [
+          "Один раз, в резерве операции",
+          "Once, in operation reservation"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Срок подтверждения, минуты",
+          "Approval lifetime, minutes"
+        ],
+        "value": [
+          "5",
+          "5"
+        ],
+        "kind": "Amount",
+        "hint": [
+          "Учебный пример, не настройка запуска",
+          "Demo value, not a launch setting"
+        ]
+      },
+      {
+        "label": [
+          "Плательщик комиссии",
+          "Transfer fee payer"
+        ],
+        "value": [
+          "Сервис",
+          "Service"
+        ],
+        "kind": "Select",
+        "hint": [
+          "Можно выбрать партнёра",
+          "Partner may be selected"
+        ]
+      },
+      {
+        "label": [
+          "Причина",
+          "Reason"
+        ],
+        "value": [
+          "Рабочий резерв и защита источника",
+          "Working reserve and source protection"
+        ],
+        "kind": "Input",
+        "hint": [
+          "",
+          ""
+        ]
+      }
+    ],
+    "actions": [
+      [
+        "Исправить значения",
+        "Correct values",
+        "source-limits-edit"
+      ]
+    ],
+    "role": "A",
+    "notice": {
+      "field": "Жёсткий максимум, USDT",
+      "fieldEN": "Hard balance cap, USDT",
+      "value": "100",
+      "hint": [
+        "Максимум не может быть меньше цели 300",
+        "Hard cap cannot be below target 300"
+      ]
+    }
+  },
+  {
+    "key": "source-limits-review",
+    "title": [
+      "Владелец B · ограничения источника",
+      "Owner B · source limits"
+    ],
+    "body": [
+      "Проверьте значения и их последствия. Превышение жёсткого предела нельзя разрешить подтверждением выплаты. Прямые входящие переводы блокчейна не блокируются этим лимитом.",
+      "Review values and effects. Payout approval cannot override a hard cap. This cap cannot prevent direct incoming blockchain transfers."
+    ],
+    "rows": [
+      [
+        "Источник / версия",
+        "Source / version",
+        "SRC-PM · LIMITS v1 → v2",
+        "SRC-PM · LIMITS v1 → v2",
+        "",
+        ""
+      ],
+      [
+        "Цель / жёсткий максимум",
+        "Target / hard cap",
+        "300 / 500 USDT",
+        "300 / 500 USDT",
+        "Предупреждение / запрет пополнения",
+        "Warning / managed-funding block"
+      ],
+      [
+        "Операционный резерв",
+        "Operating reserve",
+        "20 USDT",
+        "20 USDT",
+        "Отдельно от уникальных резервов заявок",
+        "Separate from unique operation reservations"
+      ],
+      [
+        "Порог второго владельца",
+        "Second-Owner threshold",
+        "250 USDT",
+        "250 USDT",
+        "Второй владелец не снимает жёсткий запрет",
+        "Second approval cannot bypass hard caps"
+      ],
+      [
+        "Сутки / партнёр",
+        "Daily / partner cap",
+        "1000 / 500 USDT",
+        "1000 / 500 USDT",
+        "UTC · 00:00 · связанные операции",
+        "UTC · 00:00 · related operations"
+      ],
+      [
+        "Комиссия / срок подтверждения",
+        "Fee / approval lifetime",
+        "Сервис · один раз · 5 минут",
+        "Service · counted once · 5 minutes",
+        "Все значения учебные",
+        "All values are demo only"
+      ],
+      [
+        "Автор / проверяющий",
+        "Author / reviewer",
+        "Владелец A / владелец B",
+        "Owner A / Owner B",
+        "DEMO-PROP-L2 · причина сохранена",
+        "DEMO-PROP-L2 · reason recorded"
+      ],
+      [
+        "Последствие",
+        "Effect",
+        "Новая версия, без изменения старых фактов",
+        "New version; historical facts unchanged",
+        "Проверка личности физическим ключом",
+        "Fresh physical-key verification"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Утвердить версию · демо",
+        "Approve version · demo",
+        "source-limits-saved"
+      ],
+      [
+        "Вернуть автору",
+        "Return to author",
+        "source-limits-edit"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "source-limits-saved",
+    "title": [
+      "Ограничения сохранены · демо",
+      "Limits saved · demo"
+    ],
+    "body": [
+      "LIMITS-PM v2 подтверждена владельцами A и B. Исторические обязательства и операции не пересчитаны. Это настройки учебного сценария, не запуск сервиса.",
+      "Owners A and B approved LIMITS-PM v2. Historical debt and operations are unchanged. These are demo settings, not a service launch."
+    ],
+    "rows": [
+      [
+        "Источник / версия",
+        "Source / version",
+        "SRC-PM · LIMITS v1 → v2",
+        "SRC-PM · LIMITS v1 → v2",
+        "",
+        ""
+      ],
+      [
+        "Цель / жёсткий максимум",
+        "Target / hard cap",
+        "300 / 500 USDT",
+        "300 / 500 USDT",
+        "Предупреждение / запрет пополнения",
+        "Warning / managed-funding block"
+      ],
+      [
+        "Операционный резерв",
+        "Operating reserve",
+        "20 USDT",
+        "20 USDT",
+        "Отдельно от уникальных резервов заявок",
+        "Separate from unique operation reservations"
+      ],
+      [
+        "Порог второго владельца",
+        "Second-Owner threshold",
+        "250 USDT",
+        "250 USDT",
+        "Второй владелец не снимает жёсткий запрет",
+        "Second approval cannot bypass hard caps"
+      ],
+      [
+        "Сутки / партнёр",
+        "Daily / partner cap",
+        "1000 / 500 USDT",
+        "1000 / 500 USDT",
+        "UTC · 00:00 · связанные операции",
+        "UTC · 00:00 · related operations"
+      ],
+      [
+        "Комиссия / срок подтверждения",
+        "Fee / approval lifetime",
+        "Сервис · один раз · 5 минут",
+        "Service · counted once · 5 minutes",
+        "Все значения учебные",
+        "All values are demo only"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "К источнику",
+        "Source",
+        "treasury-source"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "source-disable-confirm",
+    "title": [
+      "Экстренно отключить источник?",
+      "Disable source in emergency?"
+    ],
+    "body": [
+      "Один владелец может запретить новые действия через этот источник. Отправленное продолжает сверяться; прямые внешние переводы этим не останавливаются.",
+      "One Owner may block new actions through this source. Reconcile submitted operations; direct external transfers cannot be stopped here."
+    ],
+    "rows": [
+      [
+        "Источник",
+        "Source",
+        "SRC-PM · v1",
+        "SRC-PM · v1",
+        "",
+        ""
+      ],
+      [
+        "Адрес",
+        "Address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "",
+        ""
+      ],
+      [
+        "Причина",
+        "Reason",
+        "INC-DEMO-SRC-01 · подозрение на компрометацию",
+        "INC-DEMO-SRC-01 · suspected compromise",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Отключить · демо",
+        "Disable · demo",
+        "source-disabled"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "treasury-source"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "source-disabled",
+    "title": [
+      "Источник отключён",
+      "Source disabled"
+    ],
+    "body": [
+      "Новые пополнения и выплаты через SRC-PM запрещены. Сверка уже отправленного и история доступны. Один владелец не может включить источник обратно.",
+      "New funding and payouts through SRC-PM are blocked. Existing-result reconciliation and history remain available. One Owner cannot reactivate it."
+    ],
+    "rows": [
+      [
+        "Источник / адрес",
+        "Source / address",
+        "SRC-PM",
+        "SRC-PM",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678"
+      ],
+      [
+        "Ограничение",
+        "Restriction",
+        "SOURCE-OFF · INC-DEMO-SRC-01",
+        "SOURCE-OFF · INC-DEMO-SRC-01",
+        "",
+        ""
+      ],
+      [
+        "Восстановление",
+        "Recovery",
+        "После проверки и двух разных владельцев",
+        "After verification and two distinct Owners",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Независимая проверка возврата",
+        "Independent reactivation review",
+        "source-reactivation-review"
+      ],
+      [
+        "К источникам",
+        "Sources",
+        "sources"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "source-reactivation-review",
+    "title": [
+      "Владелец B · возврат источника",
+      "Owner B · reactivate source"
+    ],
+    "body": [
+      "Владелец A подготовил основание восстановления. Владелец B отдельно проверяет источник и разрешённые функции. Это не снимает глобальные ограничения и не отправляет старые задания.",
+      "Owner A prepared recovery evidence. Owner B separately reviews the source and allowed functions. Global restrictions remain and old queued work is not sent."
+    ],
+    "rows": [
+      [
+        "Источник / версия",
+        "Source / version",
+        "SRC-PM · v1 → v2",
+        "SRC-PM · v1 → v2",
+        "Автор A · проверяет B",
+        "Author A · reviewer B"
+      ],
+      [
+        "Адрес целиком",
+        "Full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "",
+        ""
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "Контракт 0x3333333333333333333333333333333333333333",
+        "Contract 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Назначение / контроль",
+        "Purpose / control",
+        "Выплаты · свои средства Shadow",
+        "Payouts · Shadow own funds",
+        "SIGN-DEMO-01 · не подключён",
+        "SIGN-DEMO-01 · disconnected"
+      ],
+      [
+        "Направления",
+        "Directions",
+        "SRC-REV-PM / SRC-FUND → источник",
+        "SRC-REV-PM / SRC-FUND → source",
+        "Выход: только активные реквизиты",
+        "Outbound: active recipients only"
+      ],
+      [
+        "Основание",
+        "Evidence",
+        "EVID-DEMO-SRC-01 · INC-DEMO-SRC-01",
+        "EVID-DEMO-SRC-01 · INC-DEMO-SRC-01",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Подтвердить возврат · демо",
+        "Approve return · demo",
+        "source-config-saved"
+      ],
+      [
+        "Оставить отключённым",
+        "Keep disabled",
+        "source-disabled"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "source-funding-form",
+    "title": [
+      "Пополнить источник своими средствами",
+      "Fund source with own funds"
+    ],
+    "body": [
+      "Владелец выбирает только зарегистрированные свои источники и разрешённые направления. Сумма вводится вручную. Это перевод средств сервиса, не доход и не пользовательский депозит.",
+      "Owner selects registered own sources and allowed directions only. Enter amount manually. This is a service-funds transfer, not income or a customer deposit."
+    ],
+    "rows": [],
+    "fields": [
+      {
+        "label": [
+          "Исходный источник",
+          "From source"
+        ],
+        "value": [
+          "SRC-REV-PM",
+          "SRC-REV-PM"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Источник назначения",
+          "To source"
+        ],
+        "value": [
+          "SRC-PM",
+          "SRC-PM"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Сеть / актив",
+          "Network / asset"
+        ],
+        "value": [
+          "DEMO-NET-PM · USDT",
+          "DEMO-NET-PM · USDT"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Адрес отправителя",
+          "Sender address"
+        ],
+        "value": [
+          "0x1111111111111111111111111111111111111111",
+          "0x1111111111111111111111111111111111111111"
+        ],
+        "kind": "Address",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Адрес назначения",
+          "Destination address"
+        ],
+        "value": [
+          "0x1234567890abcdef1234567890abcdef12345678",
+          "0x1234567890abcdef1234567890abcdef12345678"
+        ],
+        "kind": "Address",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Сумма, USDT",
+          "Amount, USDT"
+        ],
+        "value": [
+          "100",
+          "100"
+        ],
+        "kind": "Amount",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Расход / плательщик",
+          "Cost / payer"
+        ],
+        "value": [
+          "0,50 USDT · сервис",
+          "0.50 USDT · service"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Классификация",
+          "Classification"
+        ],
+        "value": [
+          "Перевод своих средств, не доход",
+          "Own-funds transfer, not income"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Причина",
+          "Reason"
+        ],
+        "value": [
+          "Пополнение рабочего источника",
+          "Fund working payout source"
+        ],
+        "kind": "Input",
+        "hint": [
+          "",
+          ""
+        ]
+      }
+    ],
+    "actions": [
+      [
+        "Проверить перевод",
+        "Review transfer",
+        "treasury-funding-review"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "treasury-source"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "source-funding-queued",
+    "title": [
+      "Пополнение принято · ждёт результата",
+      "Funding accepted · awaiting result"
+    ],
+    "body": [
+      "Создан TRF-DEMO-01. Резерв 100,50 USDT принадлежит этой операции и учитывается один раз. В источник назначения поступление ещё не подтверждено.",
+      "TRF-DEMO-01 created. Its 100.50 USDT reservation is counted once. Receipt at the destination is not yet confirmed."
+    ],
+    "rows": [
+      [
+        "Откуда / куда",
+        "From / to",
+        "SRC-REV-PM → SRC-PM",
+        "SRC-REV-PM → SRC-PM",
+        "",
+        ""
+      ],
+      [
+        "Сумма / резерв",
+        "Amount / reservation",
+        "100 / 100,50 USDT",
+        "100 / 100.50 USDT",
+        "",
+        ""
+      ],
+      [
+        "Состояние",
+        "State",
+        "Не является подтверждённым поступлением",
+        "Not a confirmed receipt",
+        "",
+        ""
+      ],
+      [
+        "Назначение",
+        "Purpose",
+        "Пополнение · не доход и не погашение долга",
+        "Funding · not income or debt settlement",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Подтверждённый результат · демо",
+        "Confirmed result · demo",
+        "source-funding-confirmed"
+      ],
+      [
+        "Результат неизвестен · демо",
+        "Unknown result · demo",
+        "treasury-transfer-unknown"
+      ],
+      [
+        "Доказанный отказ · демо",
+        "Proven rejection · demo",
+        "source-funding-failed"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "source-funding-confirmed",
+    "title": [
+      "Пополнение подтверждено · демо",
+      "Funding confirmed · demo"
+    ],
+    "body": [
+      "Сверка подтвердила TRF-DEMO-01: источник получил 100 USDT, расход сервиса 0,50 USDT. Долг партнёрам не изменился; внутренний перевод не создаёт доход.",
+      "Reconciliation confirmed TRF-DEMO-01: source received 100 USDT; service cost 0.50 USDT. Partner debt is unchanged; internal funding creates no income."
+    ],
+    "rows": [
+      [
+        "Поступило / подтверждение",
+        "Received / evidence",
+        "100 USDT · EVID-TRF-01",
+        "100 USDT · EVID-TRF-01",
+        "",
+        ""
+      ],
+      [
+        "Баланс назначения",
+        "Destination balance",
+        "Фактический 325 · пригодный 300 USDT",
+        "Actual 325 · eligible 300 USDT",
+        "",
+        ""
+      ],
+      [
+        "Свободно до комиссии",
+        "Free before fee",
+        "230 USDT",
+        "230 USDT",
+        "300 − 50 резервы − 20 операционный",
+        "300 − 50 reserved − 20 operating"
+      ],
+      [
+        "Резерв перевода",
+        "Transfer reservation",
+        "Погашен результатом, не вычитается повторно",
+        "Settled by result; never deducted again",
+        "",
+        ""
+      ],
+      [
+        "Долг партнёрам",
+        "Partner debt",
+        "185 USDT · без изменений",
+        "185 USDT · unchanged",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "К источникам",
+        "Sources",
+        "sources"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "source-funding-failed",
+    "title": [
+      "Пополнение отклонено · подтверждено",
+      "Funding rejected · confirmed"
+    ],
+    "body": [
+      "В учебном случае доказан окончательный отказ без внешнего списания. Резерв 100,50 USDT освобождён отдельным событием; фактический расход 0. В других случаях расход берётся из подтверждающих данных.",
+      "This demo proves final rejection without external debit. A separate event released the 100.50 USDT reservation; actual cost 0. Other cases use evidenced actual costs."
+    ],
+    "rows": [
+      [
+        "Операция",
+        "Operation",
+        "TRF-DEMO-01 · EVID-REJECT-01",
+        "TRF-DEMO-01 · EVID-REJECT-01",
+        "",
+        ""
+      ],
+      [
+        "Поступление / расход",
+        "Receipt / cost",
+        "0 / 0 USDT",
+        "0 / 0 USDT",
+        "",
+        ""
+      ],
+      [
+        "Долг партнёрам",
+        "Partner debt",
+        "Не изменён",
+        "Unchanged",
+        "",
+        ""
+      ],
+      [
+        "Новая попытка",
+        "New attempt",
+        "Только новый расчёт после доказанного отказа",
+        "New review only after proven rejection",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Новый перевод",
+        "New transfer",
+        "source-funding-form"
+      ],
+      [
+        "К источнику",
+        "Source",
+        "treasury-source"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "source-recovery-unknown",
+    "title": [
+      "Восстановительный перевод · результат неизвестен",
+      "Recovery transfer · result unknown"
+    ],
+    "body": [
+      "TRF-REC-01 в INC-DEMO-04. Разрешён только маршрут CTRL-REC v3. Приложение, API, торговля, обычные выплаты и пополнения остаются закрыты. Резерв сохраняется, повтор запрещён.",
+      "TRF-REC-01 in INC-DEMO-04. Only route CTRL-REC v3 is allowed. App, API, trading, ordinary payouts and funding remain blocked. Keep reservation; no resend."
+    ],
+    "rows": [
+      [
+        "Сумма / резерв",
+        "Amount / reservation",
+        "100 / 100,50 USDT",
+        "100 / 100.50 USDT",
+        "",
+        ""
+      ],
+      [
+        "Исходный адрес",
+        "From address",
+        "0x1111111111111111111111111111111111111111",
+        "0x1111111111111111111111111111111111111111",
+        "",
+        ""
+      ],
+      [
+        "Адрес назначения",
+        "To address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "",
+        ""
+      ],
+      [
+        "Проверка",
+        "Review",
+        "A + B · разрешение маршрута отдельно",
+        "A + B · separate route permission",
+        "",
+        ""
+      ],
+      [
+        "Ограничения",
+        "Restrictions",
+        "Сохраняются; нового разрешения отправки нет",
+        "Remain; no new send permission",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Подтверждение сверки · демо",
+        "Reconciliation confirmed · demo",
+        "source-recovery-confirmed"
+      ],
+      [
+        "Повторное полное отключение",
+        "Full shutdown again",
+        "treasury-recovery-blocked"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "source-recovery-confirmed",
+    "title": [
+      "Восстановительное пополнение сверено",
+      "Recovery funding reconciled"
+    ],
+    "body": [
+      "Подтверждено поступление 100 USDT в TRF-REC-01. Это не включает сервис и не снимает аварийные ограничения. Следующие денежные действия требуют отдельного решения.",
+      "Receipt of 100 USDT confirmed for TRF-REC-01. This does not restart the service or remove emergency restrictions. Further monetary actions require a separate decision."
+    ],
+    "rows": [
+      [
+        "Операция / инцидент",
+        "Operation / incident",
+        "TRF-REC-01 · INC-DEMO-04",
+        "TRF-REC-01 · INC-DEMO-04",
+        "",
+        ""
+      ],
+      [
+        "Подтверждение",
+        "Evidence",
+        "EVID-REC-01 · 16 Oct 12:02 UTC",
+        "EVID-REC-01 · 16 Oct 12:02 UTC",
+        "",
+        ""
+      ],
+      [
+        "Поступление / расходы",
+        "Receipt / cost",
+        "100 / 0,50 USDT",
+        "100 / 0.50 USDT",
+        "",
+        ""
+      ],
+      [
+        "Режим",
+        "Mode",
+        "Ограниченное восстановление · ограничения сохранены",
+        "Limited recovery · restrictions retained",
+        "",
+        ""
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "К аварийному ограничению",
+        "Emergency restriction",
+        "treasury-recovery-blocked"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "recipient-payout-preview",
+    "ids": null,
+    "title": [
+      "Выплата на новый адрес · проверка",
+      "Payout to new recipient · review"
+    ],
+    "body": [
+      "Учебное время: 17 Oct 12:01 UTC. Новый адрес REC v2 уже прошёл 24 часа. Это новый снимок, прежнее согласие на старый адрес неприменимо. Paper Alpha: комиссия сервиса 0%.",
+      "Demo time: 17 Oct 12:01 UTC. REC v2 passed the 24-hour delay. This fresh preview cannot reuse approval for the old address. Paper Alpha service fee is 0%."
+    ],
+    "rows": [
+      [
+        "Партнёр / долг",
+        "Partner / debt",
+        "PART-024 · 120.00 USDT",
+        "PART-024 · 120.00 USDT",
+        "Polymarket · весь доступный долг",
+        "Polymarket · full eligible debt"
+      ],
+      [
+        "Источник / собственный адрес",
+        "Source / own address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · v1 · свои средства",
+        "SRC-PM · v1 · own funds"
+      ],
+      [
+        "Получатель / полный адрес",
+        "Recipient / full address",
+        "0x5555555555555555555555555555555555555555",
+        "0x5555555555555555555555555555555555555555",
+        "PART-024 · REC v2 · активен 17 Oct",
+        "PART-024 · REC v2 · active 17 Oct"
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Получит / комиссия / спишется",
+        "Recipient / fee / debit",
+        "120.00 / 1.20 / 121.20 USDT",
+        "120.00 / 1.20 / 121.20 USDT",
+        "Комиссия за счёт сервиса",
+        "Service pays transfer fee"
+      ],
+      [
+        "Правила / ограничения",
+        "Rules / controls",
+        "RULE-PART-024 v3 · CTRL v2",
+        "RULE-PART-024 v3 · CTRL v2",
+        "SEC v8 · порог 250 USDT · пример",
+        "SEC v8 · 250 USDT threshold · demo"
+      ],
+      [
+        "Снимок / срок действия",
+        "Snapshot / expires",
+        "PRV-022 v1 · 17 Oct 12:06 UTC",
+        "PRV-022 v1 · 17 Oct 12:06 UTC",
+        "Новая проверка перед отправкой; изменения отменяют согласие",
+        "Recheck before sending; changed context invalidates approval"
+      ],
+      [
+        "Операция / подтверждающий",
+        "Operation / approver",
+        "PAY-021 · Владелец A",
+        "PAY-021 · Owner A",
+        "Физический ключ · защита от повторной отправки",
+        "Physical key · duplicate-send protection"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Подтвердить · демо",
+        "Confirm · demo",
+        "accepted"
+      ],
+      [
+        "К реквизитам",
+        "Back to recipients",
+        "recipients"
+      ]
+    ],
+    "role": "A"
+  }
+]

@@ -1,0 +1,3890 @@
+[
+  {
+    "id": "G01",
+    "area": "Общее",
+    "requirement": "Две площадки, среда, режим и вымышленные данные явно различаются",
+    "status": "готово",
+    "keys": [
+      "ADM-01/overview",
+      "ADM-15/connection-pm",
+      "ADM-15/connection-ll"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "overview",
+        "section": "ADM-01",
+        "ru": "1982:37690",
+        "en": "1982:38513",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37690",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38513"
+      },
+      {
+        "key": "connection-pm",
+        "section": "ADM-15",
+        "ru": "2109:5947",
+        "en": "2110:54585",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-5947",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-54585"
+      },
+      {
+        "key": "connection-ll",
+        "section": "ADM-15",
+        "ru": "2109:6061",
+        "en": "2110:54699",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-6061",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-54699"
+      }
+    ]
+  },
+  {
+    "id": "G02",
+    "area": "Общее",
+    "requirement": "Навигация, крошки, профиль и язык в личном профиле",
+    "status": "готово",
+    "keys": [
+      "ADM-14/my-profile",
+      "ADM-14/language-dropdown-open"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "my-profile",
+        "section": "ADM-14",
+        "ru": "2155:19298",
+        "en": "2155:79040",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-19298",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-79040"
+      },
+      {
+        "key": "language-dropdown-open",
+        "section": "ADM-14",
+        "ru": "2258:92779",
+        "en": "2258:92949",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2258-92779",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2258-92949"
+      }
+    ]
+  },
+  {
+    "id": "G03",
+    "area": "Общее",
+    "requirement": "Поиск по точным ID разных сущностей с отказом и пустым результатом",
+    "status": "частично",
+    "keys": [
+      "ADM-02/users",
+      "ADM-09/support-empty"
+    ],
+    "gap": "Нет общего проверенного пути ID → сущность → возврат; часть фильтров остаётся описанием фиксированной выборки.",
+    "priority": "P2",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "users",
+        "section": "ADM-02",
+        "ru": "1982:37788",
+        "en": "1982:38611",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37788",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38611"
+      },
+      {
+        "key": "support-empty",
+        "section": "ADM-09",
+        "ru": "2185:21482",
+        "en": "2188:84685",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2185-21482",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-84685"
+      }
+    ]
+  },
+  {
+    "id": "G04",
+    "area": "Общее",
+    "requirement": "Фильтры, сортировка, пагинация и сохранение выборки при возврате",
+    "status": "частично",
+    "keys": [
+      "ADM-02/users",
+      "ADM-09/support-page2",
+      "ADM-12/audit-page-2"
+    ],
+    "gap": "Пагинация есть в отдельных разделах; полный набор фильтров и сохранение состояния списков не покрыты сквозным сценарием.",
+    "priority": "P2",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "users",
+        "section": "ADM-02",
+        "ru": "1982:37788",
+        "en": "1982:38611",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37788",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38611"
+      },
+      {
+        "key": "support-page2",
+        "section": "ADM-09",
+        "ru": "2185:21842",
+        "en": "2188:85045",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2185-21842",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-85045"
+      },
+      {
+        "key": "audit-page-2",
+        "section": "ADM-12",
+        "ru": "2138:66608",
+        "en": "2138:76506",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66608",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76506"
+      }
+    ]
+  },
+  {
+    "id": "G05",
+    "area": "Общее",
+    "requirement": "Загрузка, пусто, ошибка, устаревание и конфликт в рабочих разделах",
+    "status": "частично",
+    "keys": [
+      "ADM-01/stale",
+      "ADM-09/support-load-error",
+      "ADM-16/content-conflict"
+    ],
+    "gap": "Часть состояний есть, но нет общей матрицы и покрытия загрузки/ошибок для каждого рабочего списка.",
+    "priority": "P2",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "stale",
+        "section": "ADM-01",
+        "ru": "1982:37735",
+        "en": "1982:38558",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37735",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38558"
+      },
+      {
+        "key": "support-load-error",
+        "section": "ADM-09",
+        "ru": "2185:21662",
+        "en": "2188:84865",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2185-21662",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-84865"
+      },
+      {
+        "key": "content-conflict",
+        "section": "ADM-16",
+        "ru": "2339:27855",
+        "en": "2340:97682",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2339-27855",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-97682"
+      }
+    ]
+  },
+  {
+    "id": "G06",
+    "area": "Общее",
+    "requirement": "Права чтения, изменения и экспорта не смешиваются",
+    "status": "частично",
+    "keys": [
+      "ADM-14/role-escalation-denied",
+      "ADM-12/audit-export-preview"
+    ],
+    "gap": "Есть демонстрации, но сквозная проверка скрытых разделов, вложенных данных, финансовых сумм и экспорта для всех ролей не проведена.",
+    "priority": "P1",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "role-escalation-denied",
+        "section": "ADM-14",
+        "ru": "2138:58390",
+        "en": "2138:68833",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-58390",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68833"
+      },
+      {
+        "key": "audit-export-preview",
+        "section": "ADM-12",
+        "ru": "2138:66730",
+        "en": "2138:76628",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66730",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76628"
+      }
+    ]
+  },
+  {
+    "id": "G07",
+    "area": "Общее",
+    "requirement": "Таблицы с заголовками, полные адреса и объяснения ограничений",
+    "status": "частично",
+    "keys": [
+      "ADM-13/treasury-source",
+      "ADM-13/preview"
+    ],
+    "gap": "Таблицы и адрес в карточке источника есть, но в критических подтверждениях адреса отсутствуют.",
+    "priority": "P1",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "treasury-source",
+        "section": "ADM-13",
+        "ru": "2827:88865",
+        "en": "2827:43053",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-88865",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-43053"
+      },
+      {
+        "key": "preview",
+        "section": "ADM-13",
+        "ru": "2003:713",
+        "en": "2007:713",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-713",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-713"
+      }
+    ]
+  },
+  {
+    "id": "G08",
+    "area": "Общее",
+    "requirement": "RU/EN пары, общий UI kit и редактируемые слои",
+    "status": "готово",
+    "keys": [
+      "ADM-16/content-editor"
+    ],
+    "gap": "Структурное наличие пар подтверждено; это не полная языковая или визуальная приёмка.",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "content-editor",
+        "section": "ADM-16",
+        "ru": "2337:27385",
+        "en": "2340:96543",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2337-27385",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-96543"
+      }
+    ]
+  },
+  {
+    "id": "O01",
+    "area": "ADM-01",
+    "requirement": "Сводка сессий, пользователей и требующих внимания случаев",
+    "status": "готово",
+    "keys": [
+      "overview"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "overview",
+        "section": "ADM-01",
+        "ru": "1982:37690",
+        "en": "1982:38513",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37690",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38513"
+      }
+    ]
+  },
+  {
+    "id": "O02",
+    "area": "ADM-01",
+    "requirement": "Метаданные обеих площадок, пустой и устаревший обзор",
+    "status": "готово",
+    "keys": [
+      "overview",
+      "stale",
+      "empty"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "overview",
+        "section": "ADM-01",
+        "ru": "1982:37690",
+        "en": "1982:38513",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37690",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38513"
+      },
+      {
+        "key": "stale",
+        "section": "ADM-01",
+        "ru": "1982:37735",
+        "en": "1982:38558",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37735",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38558"
+      },
+      {
+        "key": "empty",
+        "section": "ADM-01",
+        "ru": "1982:37763",
+        "en": "1982:38586",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37763",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38586"
+      }
+    ]
+  },
+  {
+    "id": "O03",
+    "area": "ADM-01",
+    "requirement": "Переходы счётчиков в соответствующую сохранённую выборку",
+    "status": "частично",
+    "keys": [
+      "overview"
+    ],
+    "gap": "Есть переходы, но согласованное состояние фильтров и возврата не подтверждено.",
+    "priority": "P2",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "overview",
+        "section": "ADM-01",
+        "ru": "1982:37690",
+        "en": "1982:38513",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37690",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38513"
+      }
+    ]
+  },
+  {
+    "id": "U01",
+    "area": "ADM-02",
+    "requirement": "Список пользователей с поиском и предметными фильтрами",
+    "status": "частично",
+    "keys": [
+      "users",
+      "user-empty"
+    ],
+    "gap": "Текущий список показывает два примера; VIP, статус, период и все требуемые столбцы не представлены полноценными отдельными контролами.",
+    "priority": "P2",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "users",
+        "section": "ADM-02",
+        "ru": "1982:37788",
+        "en": "1982:38611",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37788",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38611"
+      },
+      {
+        "key": "user-empty",
+        "section": "ADM-02",
+        "ru": "1982:37819",
+        "en": "1982:38642",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37819",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38642"
+      }
+    ]
+  },
+  {
+    "id": "U02",
+    "area": "ADM-02",
+    "requirement": "Карточки пользователей и связанные настройки/сессии/поддержка",
+    "status": "готово",
+    "keys": [
+      "user",
+      "user-noor",
+      "user-settings",
+      "user-ops-settings"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "user",
+        "section": "ADM-02",
+        "ru": "1982:37844",
+        "en": "1982:38667",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37844",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38667"
+      },
+      {
+        "key": "user-noor",
+        "section": "ADM-02",
+        "ru": "2210:21620",
+        "en": "2210:82672",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2210-21620",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2210-82672"
+      },
+      {
+        "key": "user-settings",
+        "section": "ADM-02",
+        "ru": "2210:21952",
+        "en": "2210:82846",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2210-21952",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2210-82846"
+      },
+      {
+        "key": "user-ops-settings",
+        "section": "ADM-02",
+        "ru": "2223:25930",
+        "en": "2223:52047",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2223-25930",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2223-52047"
+      }
+    ]
+  },
+  {
+    "id": "U03",
+    "area": "ADM-02",
+    "requirement": "Назначение и изменение VIP владельцем с причиной и предпросмотром",
+    "status": "готово",
+    "keys": [
+      "vip-form",
+      "vip-error",
+      "vip-preview",
+      "vip-conflict",
+      "vip-done"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "vip-form",
+        "section": "ADM-02",
+        "ru": "1982:37913",
+        "en": "1982:38736",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37913",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38736"
+      },
+      {
+        "key": "vip-error",
+        "section": "ADM-02",
+        "ru": "1982:37945",
+        "en": "1982:38768",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37945",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38768"
+      },
+      {
+        "key": "vip-preview",
+        "section": "ADM-02",
+        "ru": "1982:37972",
+        "en": "1982:38795",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37972",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38795"
+      },
+      {
+        "key": "vip-conflict",
+        "section": "ADM-02",
+        "ru": "1982:38001",
+        "en": "1982:38824",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38001",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38824"
+      },
+      {
+        "key": "vip-done",
+        "section": "ADM-02",
+        "ru": "1982:38026",
+        "en": "1982:38849",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38026",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38849"
+      }
+    ]
+  },
+  {
+    "id": "U04",
+    "area": "ADM-02",
+    "requirement": "Будущий, срочный и завершённый VIP, прекращение без пересчёта прошлого",
+    "status": "частично",
+    "keys": [
+      "vip-form",
+      "vip-done"
+    ],
+    "gap": "Показан бессрочный пример и поля; нет завершённого сквозного сценария запланированного VIP и его окончания.",
+    "priority": "P1",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "vip-form",
+        "section": "ADM-02",
+        "ru": "1982:37913",
+        "en": "1982:38736",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37913",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38736"
+      },
+      {
+        "key": "vip-done",
+        "section": "ADM-02",
+        "ru": "1982:38026",
+        "en": "1982:38849",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38026",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38849"
+      }
+    ]
+  },
+  {
+    "id": "S01",
+    "area": "ADM-03",
+    "requirement": "Карточка сессии, контекст и бюджет/резервы",
+    "status": "готово",
+    "keys": [
+      "session",
+      "ops-session"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "session",
+        "section": "ADM-03",
+        "ru": "1982:38090",
+        "en": "1982:38913",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38090",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38913"
+      },
+      {
+        "key": "ops-session",
+        "section": "ADM-03",
+        "ru": "1984:398",
+        "en": "1984:38802",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-398",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-38802"
+      }
+    ]
+  },
+  {
+    "id": "S02",
+    "area": "ADM-03",
+    "requirement": "Пауза, возобновление и отключение с ожиданием результата",
+    "status": "готово",
+    "keys": [
+      "pause-confirm",
+      "pause-pending",
+      "paused",
+      "resume-confirm",
+      "resumed",
+      "disconnect-pending",
+      "disconnected"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "pause-confirm",
+        "section": "ADM-03",
+        "ru": "1982:38128",
+        "en": "1982:38951",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38128",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38951"
+      },
+      {
+        "key": "pause-pending",
+        "section": "ADM-03",
+        "ru": "1982:38155",
+        "en": "1982:38978",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38155",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38978"
+      },
+      {
+        "key": "paused",
+        "section": "ADM-03",
+        "ru": "1982:38180",
+        "en": "1982:39003",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38180",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-39003"
+      },
+      {
+        "key": "resume-confirm",
+        "section": "ADM-03",
+        "ru": "1982:38250",
+        "en": "1982:39073",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38250",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-39073"
+      },
+      {
+        "key": "resumed",
+        "section": "ADM-03",
+        "ru": "1982:38279",
+        "en": "1982:39102",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38279",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-39102"
+      },
+      {
+        "key": "disconnect-pending",
+        "section": "ADM-03",
+        "ru": "1982:38340",
+        "en": "1982:39163",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38340",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-39163"
+      },
+      {
+        "key": "disconnected",
+        "section": "ADM-03",
+        "ru": "1982:38365",
+        "en": "1982:39188",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38365",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-39188"
+      }
+    ]
+  },
+  {
+    "id": "S03",
+    "area": "ADM-03",
+    "requirement": "Независимые причины паузы и запрет обхода риска",
+    "status": "готово",
+    "keys": [
+      "risk",
+      "ops-risk"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "risk",
+        "section": "ADM-03",
+        "ru": "1982:38216",
+        "en": "1982:39039",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38216",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-39039"
+      },
+      {
+        "key": "ops-risk",
+        "section": "ADM-03",
+        "ru": "1984:518",
+        "en": "1984:38922",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-518",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-38922"
+      }
+    ]
+  },
+  {
+    "id": "S04",
+    "area": "ADM-03",
+    "requirement": "Позиции, заявки, действия трейдера, принятые/пропущенные сигналы и причины",
+    "status": "частично",
+    "keys": [
+      "session",
+      "unknown"
+    ],
+    "gap": "Основной пример пустой; нет набора админских списков/деталей с реальными учебными записями по каждому типу.",
+    "priority": "P1",
+    "source": "115 §6; 118 ADM-03",
+    "evidence": [
+      {
+        "key": "session",
+        "section": "ADM-03",
+        "ru": "1982:38090",
+        "en": "1982:38913",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38090",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38913"
+      },
+      {
+        "key": "unknown",
+        "section": "ADM-03",
+        "ru": "1982:38392",
+        "en": "1982:39215",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38392",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-39215"
+      }
+    ]
+  },
+  {
+    "id": "S05",
+    "area": "ADM-03",
+    "requirement": "Частичное торговое исполнение, отмена остатка и позднее исполнение",
+    "status": "отсутствует",
+    "keys": [
+      "session"
+    ],
+    "gap": "В реестре админки нет самостоятельных деталей заявки для этих состояний; клиентские макеты не засчитываются как админские.",
+    "priority": "P1",
+    "source": "115 §6.2; 118 ADM-03",
+    "evidence": [
+      {
+        "key": "session",
+        "section": "ADM-03",
+        "ru": "1982:38090",
+        "en": "1982:38913",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38090",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38913"
+      }
+    ]
+  },
+  {
+    "id": "I01",
+    "area": "ADM-04",
+    "requirement": "Очередь инцидентов, назначение и внутренние заметки",
+    "status": "готово",
+    "keys": [
+      "ops-queue",
+      "ops-assigned",
+      "ops-note-saved"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "ops-queue",
+        "section": "ADM-04",
+        "ru": "2414:117179",
+        "en": "2414:120601",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-117179",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-120601"
+      },
+      {
+        "key": "ops-assigned",
+        "section": "ADM-04",
+        "ru": "2414:118177",
+        "en": "2414:121597",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-118177",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-121597"
+      },
+      {
+        "key": "ops-note-saved",
+        "section": "ADM-04",
+        "ru": "2414:118558",
+        "en": "2414:121978",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-118558",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-121978"
+      }
+    ]
+  },
+  {
+    "id": "I02",
+    "area": "ADM-04",
+    "requirement": "Закрытие с основанием не снимает ограничения и не оплачивает операцию",
+    "status": "готово",
+    "keys": [
+      "ops-resolve",
+      "ops-closed"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "ops-resolve",
+        "section": "ADM-04",
+        "ru": "2414:119859",
+        "en": "2414:123279",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-119859",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-123279"
+      },
+      {
+        "key": "ops-closed",
+        "section": "ADM-04",
+        "ru": "2414:120059",
+        "en": "2414:123479",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-120059",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-123479"
+      }
+    ]
+  },
+  {
+    "id": "I03",
+    "area": "ADM-04",
+    "requirement": "Повторное открытие, конфликт действий и разные типы инцидентов",
+    "status": "частично",
+    "keys": [
+      "ops-incident",
+      "ops-closed"
+    ],
+    "gap": "Пакет 10 оставляет reopen/concurrency и другие типы на доработку. Нет законченных новых ветвей.",
+    "priority": "P2",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "ops-incident",
+        "section": "ADM-04",
+        "ru": "2414:117985",
+        "en": "2414:121405",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-117985",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-121405"
+      },
+      {
+        "key": "ops-closed",
+        "section": "ADM-04",
+        "ru": "2414:120059",
+        "en": "2414:123479",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-120059",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-123479"
+      }
+    ]
+  },
+  {
+    "id": "R01",
+    "area": "ADM-05",
+    "requirement": "Проверка прежней заявки: ожидание, неизвестность, расхождение, подтверждение",
+    "status": "готово",
+    "keys": [
+      "ops-case",
+      "ops-pending",
+      "ops-unknown",
+      "ops-mismatch",
+      "ops-confirmed"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "ops-case",
+        "section": "ADM-05",
+        "ru": "2414:118914",
+        "en": "2414:122334",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-118914",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-122334"
+      },
+      {
+        "key": "ops-pending",
+        "section": "ADM-05",
+        "ru": "2414:119101",
+        "en": "2414:122521",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-119101",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-122521"
+      },
+      {
+        "key": "ops-unknown",
+        "section": "ADM-05",
+        "ru": "2414:119294",
+        "en": "2414:122714",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-119294",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-122714"
+      },
+      {
+        "key": "ops-mismatch",
+        "section": "ADM-05",
+        "ru": "2414:119483",
+        "en": "2414:122903",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-119483",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-122903"
+      },
+      {
+        "key": "ops-confirmed",
+        "section": "ADM-05",
+        "ru": "2414:119672",
+        "en": "2414:123092",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-119672",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-123092"
+      }
+    ]
+  },
+  {
+    "id": "R02",
+    "area": "ADM-05",
+    "requirement": "Сверка выплат, поступлений и пользовательских денежных операций",
+    "status": "частично",
+    "keys": [
+      "rechecking",
+      "ADM-13/treasury-reconcile"
+    ],
+    "gap": "Есть отдельные примеры, но нет единой типизированной очереди/деталей всех денежных случаев с подтверждающими данными.",
+    "priority": "P1",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "rechecking",
+        "section": "ADM-05",
+        "ru": "2004:481",
+        "en": "2007:1014",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-481",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-1014"
+      },
+      {
+        "key": "treasury-reconcile",
+        "section": "ADM-13",
+        "ru": "2827:90061",
+        "en": "2827:44257",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-90061",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-44257"
+      }
+    ]
+  },
+  {
+    "id": "R03",
+    "area": "ADM-05",
+    "requirement": "Ошибка проверки и недостаток доказательств без опасного повтора",
+    "status": "частично",
+    "keys": [
+      "ops-unknown",
+      "ADM-04/ops-error"
+    ],
+    "gap": "Неизвестный результат показан; отдельный отказ самой проверки и безопасное продолжение для каждого типа не завершены.",
+    "priority": "P2",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "ops-unknown",
+        "section": "ADM-05",
+        "ru": "2414:119294",
+        "en": "2414:122714",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-119294",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-122714"
+      },
+      {
+        "section": "ADM-04",
+        "key": "ops-error",
+        "ru": "2414:117789",
+        "en": "2414:121209",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-117789",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-121209"
+      }
+    ]
+  },
+  {
+    "id": "D01",
+    "area": "ADM-06",
+    "requirement": "Независимое состояние площадок и устаревших потоков",
+    "status": "готово",
+    "keys": [
+      "connections",
+      "health-stale",
+      "ADM-15/connection-pm",
+      "ADM-15/connection-ll"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "connections",
+        "section": "ADM-06",
+        "ru": "2109:5830",
+        "en": "2110:54469",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-5830",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-54469"
+      },
+      {
+        "key": "health-stale",
+        "section": "ADM-06",
+        "ru": "2109:6174",
+        "en": "2110:54813",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-6174",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-54813"
+      },
+      {
+        "key": "connection-pm",
+        "section": "ADM-15",
+        "ru": "2109:5947",
+        "en": "2110:54585",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-5947",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-54585"
+      },
+      {
+        "key": "connection-ll",
+        "section": "ADM-15",
+        "ru": "2109:6061",
+        "en": "2110:54699",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-6061",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-54699"
+      }
+    ]
+  },
+  {
+    "id": "D02",
+    "area": "ADM-06",
+    "requirement": "Таблица рынков/источников, поиск, актуальность, задержки и пропуски",
+    "status": "отсутствует",
+    "keys": [
+      "connections"
+    ],
+    "gap": "Отдельного каталога рынков/источников нет; сборщики и рейтинг трейдеров не заменяют этот список.",
+    "priority": "P2",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "connections",
+        "section": "ADM-06",
+        "ru": "2109:5830",
+        "en": "2110:54469",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-5830",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-54469"
+      }
+    ]
+  },
+  {
+    "id": "D03",
+    "area": "ADM-06",
+    "requirement": "История деградации и связь функции с подключением/инцидентом",
+    "status": "частично",
+    "keys": [
+      "connections",
+      "ADM-15/connection-pm"
+    ],
+    "gap": "Карточки подключения есть; отдельная история качества потоков и переходы по каждому сбою покрыты не полностью.",
+    "priority": "P2",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "connections",
+        "section": "ADM-06",
+        "ru": "2109:5830",
+        "en": "2110:54469",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-5830",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-54469"
+      },
+      {
+        "key": "connection-pm",
+        "section": "ADM-15",
+        "ru": "2109:5947",
+        "en": "2110:54585",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-5947",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-54585"
+      }
+    ]
+  },
+  {
+    "id": "T01",
+    "area": "ADM-07",
+    "requirement": "Настройки сборщиков обеих площадок с проверкой и применением",
+    "status": "готово",
+    "keys": [
+      "data-collector-pm",
+      "data-collector-ll",
+      "data-collector-edit",
+      "data-collector-invalid",
+      "data-collector-applied"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "data-collector-pm",
+        "section": "ADM-07",
+        "ru": "2395:34287",
+        "en": "2395:113577",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-34287",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-113577"
+      },
+      {
+        "key": "data-collector-ll",
+        "section": "ADM-07",
+        "ru": "2395:34398",
+        "en": "2395:113688",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-34398",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-113688"
+      },
+      {
+        "key": "data-collector-edit",
+        "section": "ADM-07",
+        "ru": "2395:34481",
+        "en": "2395:113771",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-34481",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-113771"
+      },
+      {
+        "key": "data-collector-invalid",
+        "section": "ADM-07",
+        "ru": "2395:34584",
+        "en": "2395:113874",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-34584",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-113874"
+      },
+      {
+        "key": "data-collector-applied",
+        "section": "ADM-07",
+        "ru": "2395:34875",
+        "en": "2395:114165",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-34875",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-114165"
+      }
+    ]
+  },
+  {
+    "id": "T02",
+    "area": "ADM-07",
+    "requirement": "Внутренний валидатор, дубли, актуальность и правила исключения",
+    "status": "готово",
+    "keys": [
+      "data-validator",
+      "data-validator-edit",
+      "data-validator-preview",
+      "data-validator-applied"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "data-validator",
+        "section": "ADM-07",
+        "ru": "2395:108600",
+        "en": "2395:115191",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-108600",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-115191"
+      },
+      {
+        "key": "data-validator-edit",
+        "section": "ADM-07",
+        "ru": "2395:108704",
+        "en": "2395:115295",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-108704",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-115295"
+      },
+      {
+        "key": "data-validator-preview",
+        "section": "ADM-07",
+        "ru": "2395:108819",
+        "en": "2395:115410",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-108819",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-115410"
+      },
+      {
+        "key": "data-validator-applied",
+        "section": "ADM-07",
+        "ru": "2395:109004",
+        "en": "2395:115595",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-109004",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-115595"
+      }
+    ]
+  },
+  {
+    "id": "T03",
+    "area": "ADM-07",
+    "requirement": "Методика рейтинга: проверка, влияние, версия, история и восстановление",
+    "status": "готово",
+    "keys": [
+      "data-rating-edit",
+      "data-rating-invalid",
+      "data-rating-impact",
+      "data-rating-history",
+      "data-rating-restored"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "data-rating-edit",
+        "section": "ADM-07",
+        "ru": "2395:110546",
+        "en": "2395:117137",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-110546",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-117137"
+      },
+      {
+        "key": "data-rating-invalid",
+        "section": "ADM-07",
+        "ru": "2395:110665",
+        "en": "2395:117256",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-110665",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-117256"
+      },
+      {
+        "key": "data-rating-impact",
+        "section": "ADM-07",
+        "ru": "2395:110784",
+        "en": "2395:117375",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-110784",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-117375"
+      },
+      {
+        "key": "data-rating-history",
+        "section": "ADM-07",
+        "ru": "2395:111858",
+        "en": "2395:118449",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-111858",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-118449"
+      },
+      {
+        "key": "data-rating-restored",
+        "section": "ADM-07",
+        "ru": "2395:112119",
+        "en": "2395:118710",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-112119",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-118710"
+      }
+    ]
+  },
+  {
+    "id": "T04",
+    "area": "ADM-07",
+    "requirement": "Проверка произвольного адреса с четырьмя различными исходами",
+    "status": "готово",
+    "keys": [
+      "data-address-rated",
+      "data-address-insufficient",
+      "data-address-not-found",
+      "data-address-unavailable"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "data-address-rated",
+        "section": "ADM-07",
+        "ru": "2395:109275",
+        "en": "2395:115866",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-109275",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-115866"
+      },
+      {
+        "key": "data-address-insufficient",
+        "section": "ADM-07",
+        "ru": "2395:109389",
+        "en": "2395:115980",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-109389",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-115980"
+      },
+      {
+        "key": "data-address-not-found",
+        "section": "ADM-07",
+        "ru": "2395:110204",
+        "en": "2395:116795",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-110204",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-116795"
+      },
+      {
+        "key": "data-address-unavailable",
+        "section": "ADM-07",
+        "ru": "2395:110318",
+        "en": "2395:116909",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-110318",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-116909"
+      }
+    ]
+  },
+  {
+    "id": "T05",
+    "area": "ADM-07",
+    "requirement": "Права новых команд и сбои/устаревание/конкурентное изменение конфигураций",
+    "status": "частично",
+    "keys": [
+      "data-view-only",
+      "data-no-access",
+      "data-collector-unknown"
+    ],
+    "gap": "Просмотр и неизвестный исход есть; полная матрица прав команд и ветви устаревших/параллельных изменений ещё на вычитке.",
+    "priority": "P1",
+    "source": "ADR-0044; ADR-0046",
+    "evidence": [
+      {
+        "key": "data-view-only",
+        "section": "ADM-07",
+        "ru": "2395:112465",
+        "en": "2395:119056",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-112465",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-119056"
+      },
+      {
+        "key": "data-no-access",
+        "section": "ADM-07",
+        "ru": "2395:112579",
+        "en": "2395:119170",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-112579",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-119170"
+      },
+      {
+        "key": "data-collector-unknown",
+        "section": "ADM-07",
+        "ru": "2395:34966",
+        "en": "2395:114256",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-34966",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-114256"
+      }
+    ]
+  },
+  {
+    "id": "P01",
+    "area": "ADM-08",
+    "requirement": "Настраиваемые тарифы с датами, причиной, ошибкой и симулятором",
+    "status": "готово",
+    "keys": [
+      "tariff-form",
+      "tariff-invalid",
+      "simulator"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "tariff-form",
+        "section": "ADM-08",
+        "ru": "2005:859",
+        "en": "2008:1126",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-859",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1126"
+      },
+      {
+        "key": "tariff-invalid",
+        "section": "ADM-08",
+        "ru": "2005:909",
+        "en": "2008:1176",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-909",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1176"
+      },
+      {
+        "key": "simulator",
+        "section": "ADM-08",
+        "ru": "2005:942",
+        "en": "2008:1209",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-942",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1209"
+      }
+    ]
+  },
+  {
+    "id": "P02",
+    "area": "ADM-08",
+    "requirement": "Накопительная реферальная лестница и персональные условия",
+    "status": "готово",
+    "keys": [
+      "referrals",
+      "referral-form",
+      "partner-vip"
+    ],
+    "gap": "Формы есть; публикация оценивается отдельно.",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "referrals",
+        "section": "ADM-08",
+        "ru": "2005:1153",
+        "en": "2008:1420",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-1153",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1420"
+      },
+      {
+        "key": "referral-form",
+        "section": "ADM-08",
+        "ru": "2005:1215",
+        "en": "2008:1482",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-1215",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1482"
+      },
+      {
+        "key": "partner-vip",
+        "section": "ADM-08",
+        "ru": "2005:1331",
+        "en": "2008:1598",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-1331",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1598"
+      }
+    ]
+  },
+  {
+    "id": "P03",
+    "area": "ADM-08",
+    "requirement": "Полный процесс публикации, применения, окончания и отката тарифов",
+    "status": "частично",
+    "keys": [
+      "tariff-preview",
+      "tariff-scheduled",
+      "pricing-history"
+    ],
+    "gap": "Есть планирование/история, но нет законченных ветвей применения, окончания и отката с исходами.",
+    "priority": "P1",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "tariff-preview",
+        "section": "ADM-08",
+        "ru": "2005:993",
+        "en": "2008:1260",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-993",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1260"
+      },
+      {
+        "key": "tariff-scheduled",
+        "section": "ADM-08",
+        "ru": "2005:1033",
+        "en": "2008:1300",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-1033",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1300"
+      },
+      {
+        "key": "pricing-history",
+        "section": "ADM-08",
+        "ru": "2005:1101",
+        "en": "2008:1368",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-1101",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1368"
+      }
+    ]
+  },
+  {
+    "id": "P04",
+    "area": "ADM-08",
+    "requirement": "Два владельца для денежных партнёрских правил",
+    "status": "отсутствует",
+    "keys": [
+      "referral-preview",
+      "partner-vip-preview"
+    ],
+    "gap": "Экраны остановлены на незаполненном примере; нет передачи точной версии второму владельцу и результата его подтверждения.",
+    "priority": "P1",
+    "source": "ADR-0047 §2",
+    "evidence": [
+      {
+        "key": "referral-preview",
+        "section": "ADM-08",
+        "ru": "2005:1296",
+        "en": "2008:1563",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-1296",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1563"
+      },
+      {
+        "key": "partner-vip-preview",
+        "section": "ADM-08",
+        "ru": "2005:1379",
+        "en": "2008:1646",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-1379",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1646"
+      }
+    ]
+  },
+  {
+    "id": "P05",
+    "area": "ADM-08",
+    "requirement": "Внутренняя публикация отдельно от применения площадкой",
+    "status": "частично",
+    "keys": [
+      "tariff-form",
+      "tariff-preview"
+    ],
+    "gap": "Различие написано в пояснении, но статусы применения по каждой площадке не разложены на самостоятельные состояния.",
+    "priority": "P2",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "tariff-form",
+        "section": "ADM-08",
+        "ru": "2005:859",
+        "en": "2008:1126",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-859",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1126"
+      },
+      {
+        "key": "tariff-preview",
+        "section": "ADM-08",
+        "ru": "2005:993",
+        "en": "2008:1260",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-993",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1260"
+      }
+    ]
+  },
+  {
+    "id": "H01",
+    "area": "ADM-09",
+    "requirement": "Очередь, карточка обращения и общий вопрос без сессии",
+    "status": "готово",
+    "keys": [
+      "support",
+      "support-ticket",
+      "support-general"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "support",
+        "section": "ADM-09",
+        "ru": "2185:21070",
+        "en": "2188:84282",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2185-21070",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-84282"
+      },
+      {
+        "key": "support-ticket",
+        "section": "ADM-09",
+        "ru": "2185:22038",
+        "en": "2188:85241",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2185-22038",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-85241"
+      },
+      {
+        "key": "support-general",
+        "section": "ADM-09",
+        "ru": "2185:22203",
+        "en": "2188:85409",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2185-22203",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-85409"
+      }
+    ]
+  },
+  {
+    "id": "H02",
+    "area": "ADM-09",
+    "requirement": "Публичный ответ отдельно от внутренней заметки, сбои и неизвестная отправка",
+    "status": "готово",
+    "keys": [
+      "support-reply-sending",
+      "support-reply-sent",
+      "support-reply-failed",
+      "support-reply-unknown",
+      "support-note-saved"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "support-reply-sending",
+        "section": "ADM-09",
+        "ru": "2186:22248",
+        "en": "2188:85842",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2186-22248",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-85842"
+      },
+      {
+        "key": "support-reply-sent",
+        "section": "ADM-09",
+        "ru": "2186:22424",
+        "en": "2188:86018",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2186-22424",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-86018"
+      },
+      {
+        "key": "support-reply-failed",
+        "section": "ADM-09",
+        "ru": "2186:22593",
+        "en": "2188:86190",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2186-22593",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-86190"
+      },
+      {
+        "key": "support-reply-unknown",
+        "section": "ADM-09",
+        "ru": "2186:22758",
+        "en": "2188:86355",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2186-22758",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-86355"
+      },
+      {
+        "key": "support-note-saved",
+        "section": "ADM-09",
+        "ru": "2186:23089",
+        "en": "2188:86686",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2186-23089",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-86686"
+      }
+    ]
+  },
+  {
+    "id": "H03",
+    "area": "ADM-09",
+    "requirement": "Назначение, конфликт, закрытие и повторное открытие обращения",
+    "status": "готово",
+    "keys": [
+      "support-assignment",
+      "support-conflict",
+      "support-closed",
+      "support-reopened"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "support-assignment",
+        "section": "ADM-09",
+        "ru": "2186:23258",
+        "en": "2188:86858",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2186-23258",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-86858"
+      },
+      {
+        "key": "support-conflict",
+        "section": "ADM-09",
+        "ru": "2187:23135",
+        "en": "2188:87137",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2187-23135",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-87137"
+      },
+      {
+        "key": "support-closed",
+        "section": "ADM-09",
+        "ru": "2187:23670",
+        "en": "2188:87672",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2187-23670",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-87672"
+      },
+      {
+        "key": "support-reopened",
+        "section": "ADM-09",
+        "ru": "2187:23822",
+        "en": "2188:87824",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2187-23822",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-87824"
+      }
+    ]
+  },
+  {
+    "id": "H04",
+    "area": "ADM-09",
+    "requirement": "Разрешённый контекст позиции, заявки, активности и счёта",
+    "status": "частично",
+    "keys": [
+      "support-user-context",
+      "support-session-context",
+      "support-context-unavailable"
+    ],
+    "gap": "Сессия/пользователь покрыты; остальные типизированные контексты явно оставлены на доработку.",
+    "priority": "P1",
+    "source": "115 §13; package-06 QA",
+    "evidence": [
+      {
+        "key": "support-user-context",
+        "section": "ADM-09",
+        "ru": "2188:23888",
+        "en": "2188:88253",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-23888",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-88253"
+      },
+      {
+        "key": "support-session-context",
+        "section": "ADM-09",
+        "ru": "2188:23990",
+        "en": "2188:88355",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-23990",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-88355"
+      },
+      {
+        "key": "support-context-unavailable",
+        "section": "ADM-09",
+        "ru": "2188:24187",
+        "en": "2188:88552",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-24187",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-88552"
+      }
+    ]
+  },
+  {
+    "id": "N01",
+    "area": "ADM-10",
+    "requirement": "Общий список операционных уведомлений и фильтры",
+    "status": "отсутствует",
+    "keys": [
+      "ADM-15/monitor-notifications"
+    ],
+    "gap": "ADM-10 имеет 0 макетов. Список уведомлений USDT покрывает только один источник событий.",
+    "priority": "P1",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "monitor-notifications",
+        "section": "ADM-15",
+        "ru": "2138:65347",
+        "en": "2138:75265",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-65347",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-75265"
+      }
+    ]
+  },
+  {
+    "id": "N02",
+    "area": "ADM-10",
+    "requirement": "Карточка уведомления: событие, адресат, канал, попытки и связанная операция",
+    "status": "частично",
+    "keys": [
+      "ADM-15/monitor-notification-detail",
+      "ADM-09/support-reply-unknown"
+    ],
+    "gap": "Есть частные уведомления/сообщения; общей карточки для операционных и защитных событий нет.",
+    "priority": "P1",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "monitor-notification-detail",
+        "section": "ADM-15",
+        "ru": "2138:65467",
+        "en": "2138:75385",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-65467",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-75385"
+      },
+      {
+        "key": "support-reply-unknown",
+        "section": "ADM-09",
+        "ru": "2186:22758",
+        "en": "2188:86355",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2186-22758",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-86355"
+      }
+    ]
+  },
+  {
+    "id": "N03",
+    "area": "ADM-10",
+    "requirement": "Доступность, доставка, прочтение и неизвестность — разные факты",
+    "status": "частично",
+    "keys": [
+      "ADM-18/marketing-delivery",
+      "ADM-15/monitor-notification-unknown"
+    ],
+    "gap": "Различие есть в маркетинге и USDT; не покрывает общий операционный журнал уведомлений.",
+    "priority": "P2",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "marketing-delivery",
+        "section": "ADM-18",
+        "ru": "2378:31839",
+        "en": "2378:105394",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-31839",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-105394"
+      },
+      {
+        "key": "monitor-notification-unknown",
+        "section": "ADM-15",
+        "ru": "2138:65788",
+        "en": "2138:75706",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-65788",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-75706"
+      }
+    ]
+  },
+  {
+    "id": "F01",
+    "area": "ADM-11",
+    "requirement": "Список и карточка обратной связи как отдельной сущности",
+    "status": "отсутствует",
+    "keys": [],
+    "gap": "ADM-11 имеет 0 макетов; обычное обращение поддержки не является карточкой исходного отзыва.",
+    "priority": "P1",
+    "source": "118",
+    "evidence": []
+  },
+  {
+    "id": "F02",
+    "area": "ADM-11",
+    "requirement": "Классификация, назначение, статус и связь с обращением/инцидентом",
+    "status": "отсутствует",
+    "keys": [],
+    "gap": "Нет процесса обработки отзыва с сохранением оригинала и связей.",
+    "priority": "P1",
+    "source": "118",
+    "evidence": []
+  },
+  {
+    "id": "F03",
+    "area": "ADM-11",
+    "requirement": "Отзыв без контекста и похожие/повторные отзывы",
+    "status": "отсутствует",
+    "keys": [],
+    "gap": "Нет соответствующих состояний.",
+    "priority": "P2",
+    "source": "118",
+    "evidence": []
+  },
+  {
+    "id": "A01",
+    "area": "ADM-12",
+    "requirement": "Журнал, фильтры, подробности события и безопасные изменения до/после",
+    "status": "готово",
+    "keys": [
+      "audit",
+      "audit-filters",
+      "audit-filtered",
+      "audit-entry"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "audit",
+        "section": "ADM-12",
+        "ru": "2110:52274",
+        "en": "2110:57011",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-52274",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-57011"
+      },
+      {
+        "key": "audit-filters",
+        "section": "ADM-12",
+        "ru": "2138:66255",
+        "en": "2138:76153",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66255",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76153"
+      },
+      {
+        "key": "audit-filtered",
+        "section": "ADM-12",
+        "ru": "2138:66380",
+        "en": "2138:76278",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66380",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76278"
+      },
+      {
+        "key": "audit-entry",
+        "section": "ADM-12",
+        "ru": "2110:52393",
+        "en": "2110:57130",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-52393",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-57130"
+      }
+    ]
+  },
+  {
+    "id": "A02",
+    "area": "ADM-12",
+    "requirement": "Экспорт: подготовка, результат, ошибка, отдельное право",
+    "status": "частично",
+    "keys": [
+      "audit-export-preview",
+      "audit-export-ready",
+      "audit-export-failed"
+    ],
+    "gap": "Экспорт нарисован; запрет для роли с одним просмотром и весь возврат в разрешённую область не прошли полную проверку.",
+    "priority": "P2",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "audit-export-preview",
+        "section": "ADM-12",
+        "ru": "2138:66730",
+        "en": "2138:76628",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66730",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76628"
+      },
+      {
+        "key": "audit-export-ready",
+        "section": "ADM-12",
+        "ru": "2138:66849",
+        "en": "2138:76747",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66849",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76747"
+      },
+      {
+        "key": "audit-export-failed",
+        "section": "ADM-12",
+        "ru": "2138:66955",
+        "en": "2138:76853",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66955",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76853"
+      }
+    ]
+  },
+  {
+    "id": "A03",
+    "area": "ADM-12",
+    "requirement": "Целостность аудита: неизвестность и выявленное нарушение",
+    "status": "готово",
+    "keys": [
+      "audit-integrity-demo",
+      "audit-integrity-unknown",
+      "audit-integrity-mismatch"
+    ],
+    "gap": "Готовы только состояния интерфейса, не инфраструктурная защита журнала.",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "audit-integrity-demo",
+        "section": "ADM-12",
+        "ru": "2138:67052",
+        "en": "2138:76950",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67052",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76950"
+      },
+      {
+        "key": "audit-integrity-unknown",
+        "section": "ADM-12",
+        "ru": "2138:67167",
+        "en": "2138:77065",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67167",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-77065"
+      },
+      {
+        "key": "audit-integrity-mismatch",
+        "section": "ADM-12",
+        "ru": "2138:67282",
+        "en": "2138:77180",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67282",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-77180"
+      }
+    ]
+  },
+  {
+    "id": "M01",
+    "area": "ADM-13",
+    "requirement": "Начисления, поступления, финансирование, долг и выплаты раздельны",
+    "status": "готово",
+    "keys": [
+      "finance",
+      "ledger",
+      "liabilities",
+      "sources"
+    ],
+    "gap": "Карточки и классификация есть; детальные исключения оцениваются ниже.",
+    "priority": "—",
+    "source": "ADR-0047 §§1–3",
+    "evidence": [
+      {
+        "key": "finance",
+        "section": "ADM-13",
+        "ru": "2003:2",
+        "en": "2007:2",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-2",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-2"
+      },
+      {
+        "key": "ledger",
+        "section": "ADM-13",
+        "ru": "2003:153",
+        "en": "2007:153",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-153",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-153"
+      },
+      {
+        "key": "liabilities",
+        "section": "ADM-13",
+        "ru": "2003:249",
+        "en": "2007:249",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-249",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-249"
+      },
+      {
+        "key": "sources",
+        "section": "ADM-13",
+        "ru": "2003:466",
+        "en": "2007:466",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-466",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-466"
+      }
+    ]
+  },
+  {
+    "id": "M02",
+    "area": "ADM-13",
+    "requirement": "Каталог собственных источников с разделением назначения и площадки",
+    "status": "готово",
+    "keys": [
+      "sources",
+      "treasury-source"
+    ],
+    "gap": "Каталог содержит доходы, финансирование, выплаты PM/LL; адрес в карточке источника полный.",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "sources",
+        "section": "ADM-13",
+        "ru": "2003:466",
+        "en": "2007:466",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-466",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-466"
+      },
+      {
+        "key": "treasury-source",
+        "section": "ADM-13",
+        "ru": "2827:88865",
+        "en": "2827:43053",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-88865",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-43053"
+      }
+    ]
+  },
+  {
+    "id": "M03",
+    "area": "ADM-13",
+    "requirement": "Добавление и редактирование источника с полной конфигурацией",
+    "status": "частично",
+    "keys": [
+      "treasury-source-review"
+    ],
+    "gap": "Есть второй просмотр, но нет формы подготовки назначения, сети/контракта, направлений, подписанта и источника баланса.",
+    "priority": "P1",
+    "source": "ADR-0047 §§5,8",
+    "evidence": [
+      {
+        "key": "treasury-source-review",
+        "section": "ADM-13",
+        "ru": "2827:89179",
+        "en": "2827:43369",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-89179",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-43369"
+      }
+    ]
+  },
+  {
+    "id": "M04",
+    "area": "ADM-13",
+    "requirement": "Целевой остаток, жёсткий максимум и операционный резерв настраиваются владельцем",
+    "status": "отсутствует",
+    "keys": [
+      "treasury-source",
+      "security-form"
+    ],
+    "gap": "Есть пояснения и старые защитные пороги, но нет контролов ввода новых величин и их отдельного двухстороннего утверждения.",
+    "priority": "P1",
+    "source": "ADR-0047 §§3,6",
+    "evidence": [
+      {
+        "key": "treasury-source",
+        "section": "ADM-13",
+        "ru": "2827:88865",
+        "en": "2827:43053",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-88865",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-43053"
+      },
+      {
+        "key": "security-form",
+        "section": "ADM-13",
+        "ru": "2004:1160",
+        "en": "2008:950",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1160",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-950"
+      }
+    ]
+  },
+  {
+    "id": "M05",
+    "area": "ADM-13",
+    "requirement": "Фактический/пригодный/заблокированный/несопоставленный баланс, долги и свежесть",
+    "status": "частично",
+    "keys": [
+      "treasury-source"
+    ],
+    "gap": "Пригодный баланс и уникальные резервы показаны; остальные категории, подтверждения сети и источник данных не выведены полностью.",
+    "priority": "P1",
+    "source": "ADR-0047 §8",
+    "evidence": [
+      {
+        "key": "treasury-source",
+        "section": "ADM-13",
+        "ru": "2827:88865",
+        "en": "2827:43053",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-88865",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-43053"
+      }
+    ]
+  },
+  {
+    "id": "M06",
+    "area": "ADM-13",
+    "requirement": "Ручное пополнение из зарегистрированных своих источников",
+    "status": "частично",
+    "keys": [
+      "treasury-funding-review"
+    ],
+    "gap": "Есть заполненная проверка, но нет формы выбора/суммы/причины и законченных успешного/отказного исходов.",
+    "priority": "P1",
+    "source": "ADR-0047 §§1,5",
+    "evidence": [
+      {
+        "key": "treasury-funding-review",
+        "section": "ADM-13",
+        "ru": "2827:89473",
+        "en": "2827:43665",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-89473",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-43665"
+      }
+    ]
+  },
+  {
+    "id": "M07",
+    "area": "ADM-13",
+    "requirement": "Подготовка всей подтверждённой доступной суммы по выбранной площадке",
+    "status": "готово",
+    "keys": [
+      "payout-route",
+      "payout-ll",
+      "preview",
+      "insufficient"
+    ],
+    "gap": "Пути площадок разделены; кнопки реальных переводов не работают.",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "payout-route",
+        "section": "ADM-13",
+        "ru": "2003:574",
+        "en": "2007:574",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-574",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-574"
+      },
+      {
+        "key": "payout-ll",
+        "section": "ADM-13",
+        "ru": "2003:627",
+        "en": "2007:627",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-627",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-627"
+      },
+      {
+        "key": "preview",
+        "section": "ADM-13",
+        "ru": "2003:713",
+        "en": "2007:713",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-713",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-713"
+      },
+      {
+        "key": "insufficient",
+        "section": "ADM-13",
+        "ru": "2004:655",
+        "en": "2007:1188",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-655",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-1188"
+      }
+    ]
+  },
+  {
+    "id": "M08",
+    "area": "ADM-13",
+    "requirement": "Полный адрес, партнёр, актив/сеть и точные версии видны до подтверждения выплаты",
+    "status": "частично",
+    "keys": [
+      "preview",
+      "preview-fee"
+    ],
+    "gap": "В проверенном RU/EN preview нет полного адреса и фактической версии правила: есть только текст «показаны». Нужны значения полей, а не их перечисление.",
+    "priority": "P1",
+    "source": "118 ADM-13; ADR-0047 §8",
+    "evidence": [
+      {
+        "key": "preview",
+        "section": "ADM-13",
+        "ru": "2003:713",
+        "en": "2007:713",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-713",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-713"
+      },
+      {
+        "key": "preview-fee",
+        "section": "ADM-13",
+        "ru": "2003:778",
+        "en": "2007:778",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-778",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-778"
+      }
+    ]
+  },
+  {
+    "id": "M09",
+    "area": "ADM-13",
+    "requirement": "Комиссия отдельно, плательщик и полное списание сервиса/получение партнёром",
+    "status": "готово",
+    "keys": [
+      "preview",
+      "preview-fee",
+      "paid-fee"
+    ],
+    "gap": "Примеры раздельных расчётов присутствуют; правило настройки плательщика требует проверки формы.",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "preview",
+        "section": "ADM-13",
+        "ru": "2003:713",
+        "en": "2007:713",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-713",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-713"
+      },
+      {
+        "key": "preview-fee",
+        "section": "ADM-13",
+        "ru": "2003:778",
+        "en": "2007:778",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-778",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-778"
+      },
+      {
+        "key": "paid-fee",
+        "section": "ADM-13",
+        "ru": "2005:1483",
+        "en": "2008:1750",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-1483",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1750"
+      }
+    ]
+  },
+  {
+    "id": "M10",
+    "area": "ADM-13",
+    "requirement": "Нехватка средств блокирует всю выплату без частичного перевода",
+    "status": "готово",
+    "keys": [
+      "insufficient"
+    ],
+    "gap": "Долг сохранён; источники не подменяются автоматически.",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "insufficient",
+        "section": "ADM-13",
+        "ru": "2004:655",
+        "en": "2007:1188",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-655",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-1188"
+      }
+    ]
+  },
+  {
+    "id": "M11",
+    "area": "ADM-13",
+    "requirement": "Источник занят другой операцией / запрос уже создан",
+    "status": "отсутствует",
+    "keys": [
+      "accepted",
+      "insufficient"
+    ],
+    "gap": "Нет самостоятельных состояний возврата существующей операции и занятого источника; принятие/нехватка средств их не заменяют.",
+    "priority": "P1",
+    "source": "118 ADM-13; P-04",
+    "evidence": [
+      {
+        "key": "accepted",
+        "section": "ADM-13",
+        "ru": "2003:838",
+        "en": "2007:838",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-838",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-838"
+      },
+      {
+        "key": "insufficient",
+        "section": "ADM-13",
+        "ru": "2004:655",
+        "en": "2007:1188",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-655",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-1188"
+      }
+    ]
+  },
+  {
+    "id": "M12",
+    "area": "ADM-13",
+    "requirement": "Принято, отправлено, подтверждено, неизвестно и отмена до отправки",
+    "status": "готово",
+    "keys": [
+      "accepted",
+      "submitted",
+      "paid",
+      "unknown",
+      "cancel-confirm",
+      "cancelled"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "accepted",
+        "section": "ADM-13",
+        "ru": "2003:838",
+        "en": "2007:838",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-838",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-838"
+      },
+      {
+        "key": "submitted",
+        "section": "ADM-13",
+        "ru": "2003:876",
+        "en": "2007:876",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-876",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-876"
+      },
+      {
+        "key": "paid",
+        "section": "ADM-13",
+        "ru": "2003:916",
+        "en": "2007:916",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-916",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-916"
+      },
+      {
+        "key": "unknown",
+        "section": "ADM-13",
+        "ru": "2003:976",
+        "en": "2007:976",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-976",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-976"
+      },
+      {
+        "key": "cancel-confirm",
+        "section": "ADM-13",
+        "ru": "2004:585",
+        "en": "2007:1118",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-585",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-1118"
+      },
+      {
+        "key": "cancelled",
+        "section": "ADM-13",
+        "ru": "2004:620",
+        "en": "2007:1153",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-620",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-1153"
+      }
+    ]
+  },
+  {
+    "id": "M13",
+    "area": "ADM-13",
+    "requirement": "Окончательный отказ отправки и расходы неуспешной транзакции",
+    "status": "отсутствует",
+    "keys": [
+      "unknown",
+      "cancelled"
+    ],
+    "gap": "Нет отдельного доказанного отказа с освобождением резерва и сохранением фактических расходов. Неизвестность и отмена до отправки — другие состояния.",
+    "priority": "P1",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "unknown",
+        "section": "ADM-13",
+        "ru": "2003:976",
+        "en": "2007:976",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-976",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-976"
+      },
+      {
+        "key": "cancelled",
+        "section": "ADM-13",
+        "ru": "2004:620",
+        "en": "2007:1153",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-620",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-1153"
+      }
+    ]
+  },
+  {
+    "id": "M14",
+    "area": "ADM-13",
+    "requirement": "Неизвестный результат сохраняет резерв, запрещает повтор/ручной успех",
+    "status": "готово",
+    "keys": [
+      "unknown",
+      "ADM-05/rechecking",
+      "treasury-transfer-unknown"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "unknown",
+        "section": "ADM-13",
+        "ru": "2003:976",
+        "en": "2007:976",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-976",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-976"
+      },
+      {
+        "key": "rechecking",
+        "section": "ADM-05",
+        "ru": "2004:481",
+        "en": "2007:1014",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-481",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-1014"
+      },
+      {
+        "key": "treasury-transfer-unknown",
+        "section": "ADM-13",
+        "ru": "2827:89771",
+        "en": "2827:43965",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-89771",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-43965"
+      }
+    ]
+  },
+  {
+    "id": "M15",
+    "area": "ADM-13",
+    "requirement": "Предложение адреса и независимая проверка точных реквизитов",
+    "status": "частично",
+    "keys": [
+      "recipient-form",
+      "recipient-review"
+    ],
+    "gap": "В проверке владельца B адрес, сеть и актив не показаны значениями: полный адрес отсутствует.",
+    "priority": "P1",
+    "source": "ADR-0047 §4",
+    "evidence": [
+      {
+        "key": "recipient-form",
+        "section": "ADM-13",
+        "ru": "2004:935",
+        "en": "2008:725",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-935",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-725"
+      },
+      {
+        "key": "recipient-review",
+        "section": "ADM-13",
+        "ru": "2004:1021",
+        "en": "2008:811",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1021",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-811"
+      }
+    ]
+  },
+  {
+    "id": "M16",
+    "area": "ADM-13",
+    "requirement": "24 часа после второго подтверждения, без ускорения, с отменой и итогом",
+    "status": "готово",
+    "keys": [
+      "recipient-active",
+      "recipient-change-cancelled",
+      "recipient-activated-after-wait"
+    ],
+    "gap": "Основные демонстрационные состояния есть, время и полный адрес видны на ожидании.",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "recipient-active",
+        "section": "ADM-13",
+        "ru": "2004:1056",
+        "en": "2008:846",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1056",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-846"
+      },
+      {
+        "key": "recipient-change-cancelled",
+        "section": "ADM-13",
+        "ru": "2827:91515",
+        "en": "2827:45721",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-91515",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-45721"
+      },
+      {
+        "key": "recipient-activated-after-wait",
+        "section": "ADM-13",
+        "ru": "2827:91229",
+        "en": "2827:45433",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-91229",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-45433"
+      }
+    ]
+  },
+  {
+    "id": "M17",
+    "area": "ADM-13",
+    "requirement": "Конфликт/изменение версии, отзыв согласующего и запрет активации после истечения 24 часов",
+    "status": "частично",
+    "keys": [
+      "recipient-pending",
+      "recipient-activated-after-wait"
+    ],
+    "gap": "Ограничения описаны, но нет соответствующих отказных ветвей активации и повторного старта срока.",
+    "priority": "P1",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "recipient-pending",
+        "section": "ADM-13",
+        "ru": "2004:983",
+        "en": "2008:773",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-983",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-773"
+      },
+      {
+        "key": "recipient-activated-after-wait",
+        "section": "ADM-13",
+        "ru": "2827:91229",
+        "en": "2827:45433",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-91229",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-45433"
+      }
+    ]
+  },
+  {
+    "id": "M18",
+    "area": "ADM-13",
+    "requirement": "Полная выплата сверх порога подтверждается другим владельцем",
+    "status": "готово",
+    "keys": [
+      "second-wait",
+      "second-review",
+      "second-approved"
+    ],
+    "gap": "Механизм показан; недостатки состава реквизитов относятся к M08.",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "second-wait",
+        "section": "ADM-13",
+        "ru": "2004:766",
+        "en": "2007:1299",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-766",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-1299"
+      },
+      {
+        "key": "second-review",
+        "section": "ADM-13",
+        "ru": "2004:806",
+        "en": "2008:596",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-806",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-596"
+      },
+      {
+        "key": "second-approved",
+        "section": "ADM-13",
+        "ru": "2004:844",
+        "en": "2008:634",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-844",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-634"
+      }
+    ]
+  },
+  {
+    "id": "M19",
+    "area": "ADM-13",
+    "requirement": "Защитные пороги и их изменение требуют второго владельца",
+    "status": "готово",
+    "keys": [
+      "security-form",
+      "security-invalid",
+      "security-review"
+    ],
+    "gap": "Новые целевой и жёсткий остатки этим старым редактором не покрыты — см. M04.",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "security-form",
+        "section": "ADM-13",
+        "ru": "2004:1160",
+        "en": "2008:950",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1160",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-950"
+      },
+      {
+        "key": "security-invalid",
+        "section": "ADM-13",
+        "ru": "2004:1208",
+        "en": "2008:998",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1208",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-998"
+      },
+      {
+        "key": "security-review",
+        "section": "ADM-13",
+        "ru": "2005:767",
+        "en": "2008:1034",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-767",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1034"
+      }
+    ]
+  },
+  {
+    "id": "M20",
+    "area": "ADM-13",
+    "requirement": "Срок подтверждения, история и причина аннулирования точной версии",
+    "status": "частично",
+    "keys": [
+      "expired",
+      "second-approved"
+    ],
+    "gap": "Срок preview есть; отдельные время/срок обоих подтверждений и история аннулирования не выведены полностью.",
+    "priority": "P1",
+    "source": "ADR-0047 §5",
+    "evidence": [
+      {
+        "key": "expired",
+        "section": "ADM-13",
+        "ru": "2004:693",
+        "en": "2007:1226",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-693",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-1226"
+      },
+      {
+        "key": "second-approved",
+        "section": "ADM-13",
+        "ru": "2004:844",
+        "en": "2008:634",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-844",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-634"
+      }
+    ]
+  },
+  {
+    "id": "M21",
+    "area": "ADM-13",
+    "requirement": "Экстренное отключение источника одним владельцем, повторная активация двумя",
+    "status": "частично",
+    "keys": [
+      "treasury-source",
+      "treasury-source-review",
+      "ADM-17/emergency"
+    ],
+    "gap": "Общее аварийное управление есть; прямой путь от источника к его отключению и независимому возврату не завершён.",
+    "priority": "P2",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "treasury-source",
+        "section": "ADM-13",
+        "ru": "2827:88865",
+        "en": "2827:43053",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-88865",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-43053"
+      },
+      {
+        "key": "treasury-source-review",
+        "section": "ADM-13",
+        "ru": "2827:89179",
+        "en": "2827:43369",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-89179",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-43369"
+      },
+      {
+        "key": "emergency",
+        "section": "ADM-17",
+        "ru": "2110:52505",
+        "en": "2110:57242",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-52505",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-57242"
+      }
+    ]
+  },
+  {
+    "id": "M22",
+    "area": "ADM-13",
+    "requirement": "Восстановление: отдельно разрешить маршрут, отдельно подтвердить перевод",
+    "status": "частично",
+    "keys": [
+      "treasury-recovery-blocked",
+      "treasury-recovery-route",
+      "treasury-recovery-transfer"
+    ],
+    "gap": "Основные шаги есть, но в финальном подтверждении нет полных адресов; шапка показывает владельца A, тогда как текст говорит о проверке владельцем B. Нет отдельных исходов ошибки/отзыва разрешения.",
+    "priority": "P1",
+    "source": "ADR-0047 §7",
+    "evidence": [
+      {
+        "key": "treasury-recovery-blocked",
+        "section": "ADM-13",
+        "ru": "2827:90355",
+        "en": "2827:44553",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-90355",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-44553"
+      },
+      {
+        "key": "treasury-recovery-route",
+        "section": "ADM-13",
+        "ru": "2827:90641",
+        "en": "2827:44841",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-90641",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-44841"
+      },
+      {
+        "key": "treasury-recovery-transfer",
+        "section": "ADM-13",
+        "ru": "2827:90935",
+        "en": "2827:45137",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-90935",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-45137"
+      }
+    ]
+  },
+  {
+    "id": "M23",
+    "area": "ADM-13",
+    "requirement": "Аварийный контекст сохраняется после отправки восстановительного перевода",
+    "status": "частично",
+    "keys": [
+      "treasury-recovery-transfer",
+      "treasury-transfer-unknown"
+    ],
+    "gap": "Подтверждение ведёт в общий unknown обычного пополнения; далее доступен возврат в обычный источник. Нужно сохранить инцидент и ограничения в этой ветви.",
+    "priority": "P1",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "treasury-recovery-transfer",
+        "section": "ADM-13",
+        "ru": "2827:90935",
+        "en": "2827:45137",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-90935",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-45137"
+      },
+      {
+        "key": "treasury-transfer-unknown",
+        "section": "ADM-13",
+        "ru": "2827:89771",
+        "en": "2827:43965",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-89771",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-43965"
+      }
+    ]
+  },
+  {
+    "id": "B01",
+    "area": "ADM-14",
+    "requirement": "Сотрудники, карточки, назначения и отзыв сеансов",
+    "status": "готово",
+    "keys": [
+      "staff",
+      "staff-detail",
+      "role-assignment",
+      "role-revoked",
+      "sessions-revoked"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "staff",
+        "section": "ADM-14",
+        "ru": "2110:6876",
+        "en": "2110:55811",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-6876",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-55811"
+      },
+      {
+        "key": "staff-detail",
+        "section": "ADM-14",
+        "ru": "2110:6995",
+        "en": "2110:55931",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-6995",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-55931"
+      },
+      {
+        "key": "role-assignment",
+        "section": "ADM-14",
+        "ru": "2138:57454",
+        "en": "2138:67897",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-57454",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67897"
+      },
+      {
+        "key": "role-revoked",
+        "section": "ADM-14",
+        "ru": "2138:58283",
+        "en": "2138:68726",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-58283",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68726"
+      },
+      {
+        "key": "sessions-revoked",
+        "section": "ADM-14",
+        "ru": "2110:51959",
+        "en": "2110:56696",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-51959",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-56696"
+      }
+    ]
+  },
+  {
+    "id": "B02",
+    "area": "ADM-14",
+    "requirement": "Кастомные роли с просмотром/изменением/экспортом и областями действия",
+    "status": "частично",
+    "keys": [
+      "role-form",
+      "role-edit",
+      "role-preview"
+    ],
+    "gap": "Базовые формы и шаблоны есть; полная матрица разделов, площадок, сред, сроков и итоговых прав не доведена.",
+    "priority": "P2",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "role-form",
+        "section": "ADM-14",
+        "ru": "2110:7106",
+        "en": "2110:56043",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-7106",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-56043"
+      },
+      {
+        "key": "role-edit",
+        "section": "ADM-14",
+        "ru": "2138:57816",
+        "en": "2138:68259",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-57816",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68259"
+      },
+      {
+        "key": "role-preview",
+        "section": "ADM-14",
+        "ru": "2110:7243",
+        "en": "2110:56179",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-7243",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-56179"
+      }
+    ]
+  },
+  {
+    "id": "B03",
+    "area": "ADM-14",
+    "requirement": "Запрет самоэскалации и выдачи денежных прав кастомной роли",
+    "status": "готово",
+    "keys": [
+      "role-escalation-denied"
+    ],
+    "gap": "Есть явное состояние запрета; серверная защита не оценивается макетом.",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "role-escalation-denied",
+        "section": "ADM-14",
+        "ru": "2138:58390",
+        "en": "2138:68833",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-58390",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68833"
+      }
+    ]
+  },
+  {
+    "id": "B04",
+    "area": "ADM-14",
+    "requirement": "Приглашение/активация отдельной учётной записи сотрудника",
+    "status": "частично",
+    "keys": [
+      "staff",
+      "admin-login"
+    ],
+    "gap": "Существующие сотрудники и вход есть; способ приглашения зависит от невыбранного поставщика. Нужно уточнить путь добавления сотрудника до проектирования формы, не считать её автоматически принятой функцией.",
+    "priority": "P2",
+    "source": "115 §4.1",
+    "evidence": [
+      {
+        "key": "staff",
+        "section": "ADM-14",
+        "ru": "2110:6876",
+        "en": "2110:55811",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-6876",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-55811"
+      },
+      {
+        "key": "admin-login",
+        "section": "ADM-14",
+        "ru": "2138:9959",
+        "en": "2138:67538",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-9959",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67538"
+      }
+    ]
+  },
+  {
+    "id": "B05",
+    "area": "ADM-14",
+    "requirement": "Личный профиль, язык, безопасность, собственные сеансы и выход",
+    "status": "готово",
+    "keys": [
+      "my-profile",
+      "profile-language",
+      "my-sessions",
+      "account-security"
+    ],
+    "gap": "Смена аватара и другие статические поля не являются рабочей загрузкой файла.",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "my-profile",
+        "section": "ADM-14",
+        "ru": "2155:19298",
+        "en": "2155:79040",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-19298",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-79040"
+      },
+      {
+        "key": "profile-language",
+        "section": "ADM-14",
+        "ru": "2155:19768",
+        "en": "2155:79510",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-19768",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-79510"
+      },
+      {
+        "key": "my-sessions",
+        "section": "ADM-14",
+        "ru": "2155:78240",
+        "en": "2155:82389",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-78240",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-82389"
+      },
+      {
+        "key": "account-security",
+        "section": "ADM-14",
+        "ru": "2155:20217",
+        "en": "2155:79959",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-20217",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-79959"
+      }
+    ]
+  },
+  {
+    "id": "B06",
+    "area": "ADM-14",
+    "requirement": "Основной и запасной физические ключи с отдельным результатом проверки",
+    "status": "частично",
+    "keys": [
+      "mfa-setup",
+      "mfa-confirm",
+      "mfa-enabled"
+    ],
+    "gap": "Требование написано, но один переход «Проверить» сразу ведёт к успеху обоих ключей; отдельных результатов/сбоя второго ключа нет.",
+    "priority": "P1",
+    "source": "ADR-0046",
+    "evidence": [
+      {
+        "key": "mfa-setup",
+        "section": "ADM-14",
+        "ru": "2155:76875",
+        "en": "2155:81024",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-76875",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81024"
+      },
+      {
+        "key": "mfa-confirm",
+        "section": "ADM-14",
+        "ru": "2155:76988",
+        "en": "2155:81137",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-76988",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81137"
+      },
+      {
+        "key": "mfa-enabled",
+        "section": "ADM-14",
+        "ru": "2155:77104",
+        "en": "2155:81253",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-77104",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81253"
+      }
+    ]
+  },
+  {
+    "id": "B07",
+    "area": "ADM-14",
+    "requirement": "Ограниченное восстановление по кодам без немедленного денежного доступа",
+    "status": "готово",
+    "keys": [
+      "mfa-recovery-code",
+      "mfa-recovery-setup",
+      "mfa-recovery-complete"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "mfa-recovery-code",
+        "section": "ADM-14",
+        "ru": "2155:78013",
+        "en": "2155:82162",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-78013",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-82162"
+      },
+      {
+        "key": "mfa-recovery-setup",
+        "section": "ADM-14",
+        "ru": "2170:21469",
+        "en": "2170:79468",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2170-21469",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2170-79468"
+      },
+      {
+        "key": "mfa-recovery-complete",
+        "section": "ADM-14",
+        "ru": "2170:21586",
+        "en": "2170:79585",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2170-21586",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2170-79585"
+      }
+    ]
+  },
+  {
+    "id": "B08",
+    "area": "ADM-14",
+    "requirement": "Компрометация сотрудника, отзыв сеансов/подтверждений, инцидент и восстановление",
+    "status": "готово",
+    "keys": [
+      "compromise-confirm",
+      "account-blocked",
+      "account-recovery-check",
+      "owners-recovery-guidance"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "compromise-confirm",
+        "section": "ADM-14",
+        "ru": "2110:52058",
+        "en": "2110:56795",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-52058",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-56795"
+      },
+      {
+        "key": "account-blocked",
+        "section": "ADM-14",
+        "ru": "2110:52165",
+        "en": "2110:56902",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-52165",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-56902"
+      },
+      {
+        "key": "account-recovery-check",
+        "section": "ADM-14",
+        "ru": "2138:59614",
+        "en": "2138:70057",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-59614",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-70057"
+      },
+      {
+        "key": "owners-recovery-guidance",
+        "section": "ADM-14",
+        "ru": "2138:10212",
+        "en": "2138:67791",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-10212",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67791"
+      }
+    ]
+  },
+  {
+    "id": "C01",
+    "area": "ADM-15",
+    "requirement": "Метаданные и готовность отдельных функций Polymarket/Limitless",
+    "status": "готово",
+    "keys": [
+      "connection-pm",
+      "connection-ll",
+      "ADM-06/health-stale"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "connection-pm",
+        "section": "ADM-15",
+        "ru": "2109:5947",
+        "en": "2110:54585",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-5947",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-54585"
+      },
+      {
+        "key": "connection-ll",
+        "section": "ADM-15",
+        "ru": "2109:6061",
+        "en": "2110:54699",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-6061",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-54699"
+      },
+      {
+        "key": "health-stale",
+        "section": "ADM-06",
+        "ru": "2109:6174",
+        "en": "2110:54813",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-6174",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-54813"
+      }
+    ]
+  },
+  {
+    "id": "C02",
+    "area": "ADM-15",
+    "requirement": "Изоляция не обещает внешний отзыв ключа; независимое восстановление",
+    "status": "готово",
+    "keys": [
+      "connection-isolated",
+      "connection-ll-isolated",
+      "connection-pm-recovery-check",
+      "connection-ll-recovery-review"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "connection-isolated",
+        "section": "ADM-15",
+        "ru": "2109:6491",
+        "en": "2110:55133",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-6491",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-55133"
+      },
+      {
+        "key": "connection-ll-isolated",
+        "section": "ADM-15",
+        "ru": "2109:6598",
+        "en": "2110:55241",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2109-6598",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-55241"
+      },
+      {
+        "key": "connection-pm-recovery-check",
+        "section": "ADM-15",
+        "ru": "2138:58598",
+        "en": "2138:69041",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-58598",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-69041"
+      },
+      {
+        "key": "connection-ll-recovery-review",
+        "section": "ADM-15",
+        "ru": "2138:59288",
+        "en": "2138:69731",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-59288",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-69731"
+      }
+    ]
+  },
+  {
+    "id": "C03",
+    "area": "ADM-15",
+    "requirement": "Настройки контроля USDT, источники/расхождения, сообщения и восстановление",
+    "status": "готово",
+    "keys": [
+      "usdt-settings",
+      "monitor-profile",
+      "monitor-source-disagreement",
+      "monitor-notification-unknown",
+      "market-recovery-restored"
+    ],
+    "gap": "Это дизайн контроля, не подключённый источник реальной цены.",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "usdt-settings",
+        "section": "ADM-15",
+        "ru": "2110:6537",
+        "en": "2110:55469",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-6537",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-55469"
+      },
+      {
+        "key": "monitor-profile",
+        "section": "ADM-15",
+        "ru": "2138:64012",
+        "en": "2138:74455",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-64012",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-74455"
+      },
+      {
+        "key": "monitor-source-disagreement",
+        "section": "ADM-15",
+        "ru": "2138:65119",
+        "en": "2138:75037",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-65119",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-75037"
+      },
+      {
+        "key": "monitor-notification-unknown",
+        "section": "ADM-15",
+        "ru": "2138:65788",
+        "en": "2138:75706",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-65788",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-75706"
+      },
+      {
+        "key": "market-recovery-restored",
+        "section": "ADM-15",
+        "ru": "2138:66141",
+        "en": "2138:76039",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66141",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76039"
+      }
+    ]
+  },
+  {
+    "id": "L01",
+    "area": "ADM-16",
+    "requirement": "Ключи, RU/EN, переменные, ограничения и ошибки переводов",
+    "status": "готово",
+    "keys": [
+      "content-catalog",
+      "content-editor",
+      "content-placeholder-error",
+      "content-length-error"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "content-catalog",
+        "section": "ADM-16",
+        "ru": "2337:26585",
+        "en": "2340:95732",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2337-26585",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-95732"
+      },
+      {
+        "key": "content-editor",
+        "section": "ADM-16",
+        "ru": "2337:27385",
+        "en": "2340:96543",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2337-27385",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-96543"
+      },
+      {
+        "key": "content-placeholder-error",
+        "section": "ADM-16",
+        "ru": "2339:27282",
+        "en": "2340:97109",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2339-27282",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-97109"
+      },
+      {
+        "key": "content-length-error",
+        "section": "ADM-16",
+        "ru": "2339:27473",
+        "en": "2340:97300",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2339-27473",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-97300"
+      }
+    ]
+  },
+  {
+    "id": "L02",
+    "area": "ADM-16",
+    "requirement": "Публикация по правам, версии, конфликт и откат новой версией",
+    "status": "готово",
+    "keys": [
+      "content-conflict",
+      "content-published",
+      "content-history",
+      "content-rollback-done",
+      "content-edit-only"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "content-conflict",
+        "section": "ADM-16",
+        "ru": "2339:27855",
+        "en": "2340:97682",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2339-27855",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-97682"
+      },
+      {
+        "key": "content-published",
+        "section": "ADM-16",
+        "ru": "2339:93611",
+        "en": "2341:27866",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2339-93611",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-27866"
+      },
+      {
+        "key": "content-history",
+        "section": "ADM-16",
+        "ru": "2339:94112",
+        "en": "2341:28367",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2339-94112",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-28367"
+      },
+      {
+        "key": "content-rollback-done",
+        "section": "ADM-16",
+        "ru": "2340:28405",
+        "en": "2341:29052",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-28405",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-29052"
+      },
+      {
+        "key": "content-edit-only",
+        "section": "ADM-16",
+        "ru": "2340:30314",
+        "en": "2341:98316",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-30314",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-98316"
+      }
+    ]
+  },
+  {
+    "id": "L03",
+    "area": "ADM-16",
+    "requirement": "Языки и состояния готовности/включения/выключения",
+    "status": "частично",
+    "keys": [
+      "content-locales",
+      "content-locale-form",
+      "content-locale-draft"
+    ],
+    "gap": "Список RU/EN и черновик нового языка есть. Активация, отключение и влияние резервного языка не представлены законченными состояниями.",
+    "priority": "P2",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "content-locales",
+        "section": "ADM-16",
+        "ru": "2340:28922",
+        "en": "2341:96924",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-28922",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-96924"
+      },
+      {
+        "key": "content-locale-form",
+        "section": "ADM-16",
+        "ru": "2340:29094",
+        "en": "2341:97096",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-29094",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-97096"
+      },
+      {
+        "key": "content-locale-draft",
+        "section": "ADM-16",
+        "ru": "2340:29285",
+        "en": "2341:97287",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2340-29285",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-97287"
+      }
+    ]
+  },
+  {
+    "id": "E01",
+    "area": "ADM-17",
+    "requirement": "Глобальная остановка, технический режим, пополнения, выводы и партнёрские выплаты раздельны",
+    "status": "готово",
+    "keys": [
+      "emergency",
+      "control-tech-active",
+      "control-withdrawals-active",
+      "control-partner-payouts-active"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "emergency",
+        "section": "ADM-17",
+        "ru": "2110:52505",
+        "en": "2110:57242",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-52505",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-57242"
+      },
+      {
+        "key": "control-tech-active",
+        "section": "ADM-17",
+        "ru": "2138:60418",
+        "en": "2138:70861",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-60418",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-70861"
+      },
+      {
+        "key": "control-withdrawals-active",
+        "section": "ADM-17",
+        "ru": "2138:62267",
+        "en": "2138:72710",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-62267",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-72710"
+      },
+      {
+        "key": "control-partner-payouts-active",
+        "section": "ADM-17",
+        "ru": "2138:63189",
+        "en": "2138:73632",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-63189",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-73632"
+      }
+    ]
+  },
+  {
+    "id": "E02",
+    "area": "ADM-17",
+    "requirement": "Полное техническое отключение сохраняет только аварийные функции",
+    "status": "готово",
+    "keys": [
+      "control-tech-active",
+      "control-tech-recovery-review"
+    ],
+    "gap": "Показан смысл ограничения. Подтверждение фактического отключения сервера не входит в дизайн.",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "control-tech-active",
+        "section": "ADM-17",
+        "ru": "2138:60418",
+        "en": "2138:70861",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-60418",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-70861"
+      },
+      {
+        "key": "control-tech-recovery-review",
+        "section": "ADM-17",
+        "ru": "2138:60653",
+        "en": "2138:71096",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-60653",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-71096"
+      }
+    ]
+  },
+  {
+    "id": "E03",
+    "area": "ADM-17",
+    "requirement": "Неполное применение и независимое поэтапное восстановление",
+    "status": "готово",
+    "keys": [
+      "stop-partial",
+      "recovery-review",
+      "recovery-staged",
+      "control-tech-blocked"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "stop-partial",
+        "section": "ADM-17",
+        "ru": "2110:52729",
+        "en": "2110:57466",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-52729",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-57466"
+      },
+      {
+        "key": "recovery-review",
+        "section": "ADM-17",
+        "ru": "2110:53061",
+        "en": "2110:57798",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-53061",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-57798"
+      },
+      {
+        "key": "recovery-staged",
+        "section": "ADM-17",
+        "ru": "2110:53171",
+        "en": "2110:57908",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-53171",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-57908"
+      },
+      {
+        "key": "control-tech-blocked",
+        "section": "ADM-17",
+        "ru": "2138:60881",
+        "en": "2138:71324",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-60881",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-71324"
+      }
+    ]
+  },
+  {
+    "id": "E04",
+    "area": "ADM-17",
+    "requirement": "Точная область staff/user/source/signer/network/asset/route",
+    "status": "частично",
+    "keys": [
+      "control-partner-payouts-scope",
+      "control-deposits-scope"
+    ],
+    "gap": "Есть подготовленные области, но нет полной формы выбора всех разрешённых типов/объектов с проверкой связей.",
+    "priority": "P2",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "control-partner-payouts-scope",
+        "section": "ADM-17",
+        "ru": "2138:62840",
+        "en": "2138:73283",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-62840",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-73283"
+      },
+      {
+        "key": "control-deposits-scope",
+        "section": "ADM-17",
+        "ru": "2138:60991",
+        "en": "2138:71434",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-60991",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-71434"
+      }
+    ]
+  },
+  {
+    "id": "E05",
+    "area": "ADM-17",
+    "requirement": "Остановка выплат одновременно запрещает обычное пополнение их источников",
+    "status": "частично",
+    "keys": [
+      "control-partner-payouts-active",
+      "ADM-13/blocked"
+    ],
+    "gap": "Финансовая ветвь уже описывает оба запрета, а экран и подсказка PARTNER_PAYOUTS_OFF по-прежнему говорят только о выплатах.",
+    "priority": "P1",
+    "source": "ADR-0047 §7",
+    "evidence": [
+      {
+        "key": "control-partner-payouts-active",
+        "section": "ADM-17",
+        "ru": "2138:63189",
+        "en": "2138:73632",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-63189",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-73632"
+      },
+      {
+        "key": "blocked",
+        "section": "ADM-13",
+        "ru": "2004:728",
+        "en": "2007:1261",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-728",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-1261"
+      }
+    ]
+  },
+  {
+    "id": "E06",
+    "area": "ADM-17",
+    "requirement": "Старые задания после восстановления не отправляются автоматически",
+    "status": "частично",
+    "keys": [
+      "deposits-observed",
+      "recovery-staged"
+    ],
+    "gap": "Общий принцип и наблюдение поступлений есть; отдельные списки незапущенных/отправленных заявок с повторным подтверждением покрыты не полностью.",
+    "priority": "P1",
+    "source": "115 §12; P-17",
+    "evidence": [
+      {
+        "key": "deposits-observed",
+        "section": "ADM-17",
+        "ru": "2138:63762",
+        "en": "2138:74205",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-63762",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-74205"
+      },
+      {
+        "key": "recovery-staged",
+        "section": "ADM-17",
+        "ru": "2110:53171",
+        "en": "2110:57908",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-53171",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-57908"
+      }
+    ]
+  },
+  {
+    "id": "K01",
+    "area": "ADM-18",
+    "requirement": "Объявления RU/EN, черновик, проверка, предпросмотр и расписание",
+    "status": "готово",
+    "keys": [
+      "marketing-editor",
+      "marketing-invalid",
+      "marketing-preview",
+      "marketing-scheduled"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "marketing-editor",
+        "section": "ADM-18",
+        "ru": "2376:30165",
+        "en": "2378:102786",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2376-30165",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-102786"
+      },
+      {
+        "key": "marketing-invalid",
+        "section": "ADM-18",
+        "ru": "2376:30564",
+        "en": "2378:103185",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2376-30564",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-103185"
+      },
+      {
+        "key": "marketing-preview",
+        "section": "ADM-18",
+        "ru": "2376:31273",
+        "en": "2378:103894",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2376-31273",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-103894"
+      },
+      {
+        "key": "marketing-scheduled",
+        "section": "ADM-18",
+        "ru": "2378:31321",
+        "en": "2378:104876",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-31321",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-104876"
+      }
+    ]
+  },
+  {
+    "id": "K02",
+    "area": "ADM-18",
+    "requirement": "Аудитория, согласие, ограничения и причины исключения",
+    "status": "готово",
+    "keys": [
+      "marketing-audience",
+      "marketing-policy-blocked"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "marketing-audience",
+        "section": "ADM-18",
+        "ru": "2376:30966",
+        "en": "2378:103587",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2376-30966",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-103587"
+      },
+      {
+        "key": "marketing-policy-blocked",
+        "section": "ADM-18",
+        "ru": "2376:31133",
+        "en": "2378:103754",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2376-31133",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-103754"
+      }
+    ]
+  },
+  {
+    "id": "K03",
+    "area": "ADM-18",
+    "requirement": "Доставка/прочтение/неизвестность, пауза и сохранение истории",
+    "status": "готово",
+    "keys": [
+      "marketing-delivery",
+      "marketing-delivery-unknown",
+      "marketing-paused",
+      "marketing-delivery-paused",
+      "marketing-history"
+    ],
+    "gap": "",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "marketing-delivery",
+        "section": "ADM-18",
+        "ru": "2378:31839",
+        "en": "2378:105394",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-31839",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-105394"
+      },
+      {
+        "key": "marketing-delivery-unknown",
+        "section": "ADM-18",
+        "ru": "2378:32009",
+        "en": "2378:105564",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-32009",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-105564"
+      },
+      {
+        "key": "marketing-paused",
+        "section": "ADM-18",
+        "ru": "2378:100481",
+        "en": "2378:105995",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-100481",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-105995"
+      },
+      {
+        "key": "marketing-delivery-paused",
+        "section": "ADM-18",
+        "ru": "2385:33206",
+        "en": "2385:105089",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2385-33206",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2385-105089"
+      },
+      {
+        "key": "marketing-history",
+        "section": "ADM-18",
+        "ru": "2378:100764",
+        "en": "2378:106278",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-100764",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-106278"
+      }
+    ]
+  },
+  {
+    "id": "K04",
+    "area": "ADM-18",
+    "requirement": "Самостоятельная публикация по правам без согласования владельца",
+    "status": "готово",
+    "keys": [
+      "marketing-readonly",
+      "marketing-no-access",
+      "marketing-edit-only",
+      "marketing-active"
+    ],
+    "gap": "Полная ручная проверка всех ролей остаётся отдельно.",
+    "priority": "—",
+    "source": "118",
+    "evidence": [
+      {
+        "key": "marketing-readonly",
+        "section": "ADM-18",
+        "ru": "2378:101229",
+        "en": "2378:106743",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-101229",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-106743"
+      },
+      {
+        "key": "marketing-no-access",
+        "section": "ADM-18",
+        "ru": "2378:101372",
+        "en": "2378:106886",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-101372",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-106886"
+      },
+      {
+        "key": "marketing-edit-only",
+        "section": "ADM-18",
+        "ru": "2378:101493",
+        "en": "2378:107007",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-101493",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-107007"
+      },
+      {
+        "key": "marketing-active",
+        "section": "ADM-18",
+        "ru": "2378:30896",
+        "en": "2378:104451",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-30896",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-104451"
+      }
+    ]
+  },
+  {
+    "id": "X01",
+    "area": "Передача",
+    "requirement": "Полный проход обязательных сценариев P-01–P-18 на RU/EN и ролях",
+    "status": "частично",
+    "keys": [],
+    "gap": "Пакеты имеют выборочные проходы; нельзя объявлять приёмку всех сценариев по числу макетов.",
+    "priority": "P1",
+    "source": "118 §6; package QA",
+    "evidence": []
+  },
+  {
+    "id": "X02",
+    "area": "Передача",
+    "requirement": "Действующая спецификация не противоречит ADR-0047",
+    "status": "частично",
+    "keys": [],
+    "gap": "115 §10.5 всё ещё отрицает задержку; §10.5 и новая глава описывают разные состояния. Нужно свести ранний контракт/API и новые решения.",
+    "priority": "P1",
+    "source": "115 §10.5; ADR-0047",
+    "evidence": []
+  },
+  {
+    "id": "X03",
+    "area": "Передача",
+    "requirement": "Главный указатель документации ведёт на последний срез",
+    "status": "частично",
+    "keys": [],
+    "gap": "docs/README.md называет актуальным срез 14 октября с 427 макетами, хотя действующий срез 16 октября — 437. Исторические отчёты нужно явно отделить.",
+    "priority": "P2",
+    "source": "118",
+    "evidence": []
+  },
+  {
+    "id": "X04",
+    "area": "Передача",
+    "requirement": "Пользовательский интерфейс соответствует ограничениям админки",
+    "status": "частично",
+    "keys": [],
+    "gap": "Нужен совместный проход сообщений о недоступности, остановке денежных действий, VIP и связанных обращений. В этом аудите клиентские макеты не инспектировались.",
+    "priority": "P1",
+    "source": "116; 118 §7",
+    "evidence": []
+  },
+  {
+    "id": "Z01",
+    "area": "Позже",
+    "requirement": "Конструктор лендинга и управление блоками/SEO",
+    "status": "отложено",
+    "keys": [],
+    "gap": "Согласован следующий этап, не недоделка первой версии.",
+    "priority": "—",
+    "source": "ADR-0034; 115 §14.3",
+    "evidence": []
+  },
+  {
+    "id": "Z02",
+    "area": "Позже",
+    "requirement": "Массовые email/Telegram/push",
+    "status": "отложено",
+    "keys": [],
+    "gap": "Первая версия — объявления в приложении. Защитные уведомления администраторам не являются массовым маркетингом.",
+    "priority": "—",
+    "source": "ADR-0033",
+    "evidence": []
+  },
+  {
+    "id": "Z03",
+    "area": "Позже",
+    "requirement": "Создание и ротация ключей интеграций из админки",
+    "status": "отложено",
+    "keys": [],
+    "gap": "Метаданные и экстренная изоляция нужны сейчас; ротация отдельным этапом.",
+    "priority": "—",
+    "source": "ADR-0032",
+    "evidence": []
+  },
+  {
+    "id": "Z04",
+    "area": "Позже",
+    "requirement": "Вложения обращений и SLA",
+    "status": "отложено",
+    "keys": [],
+    "gap": "Не входят в первую версию поддержки.",
+    "priority": "—",
+    "source": "ADR-0036",
+    "evidence": []
+  },
+  {
+    "id": "Z05",
+    "area": "Позже",
+    "requirement": "Автоматическое пополнение источников выплат",
+    "status": "отложено",
+    "keys": [],
+    "gap": "Первая версия — ручное пополнение владельцем.",
+    "priority": "—",
+    "source": "ADR-0047",
+    "evidence": []
+  },
+  {
+    "id": "Z06",
+    "area": "Позже",
+    "requirement": "Реальные сети/активы/адреса, поставщик подписи и рабочие денежные операции",
+    "status": "отложено",
+    "keys": [],
+    "gap": "Проверяются и отдельно разрешаются до интеграции/реальных денег. Их отсутствие не считается отсутствующим макетом.",
+    "priority": "—",
+    "source": "ADR-0040; ADR-0047 §9",
+    "evidence": []
+  },
+  {
+    "id": "G09",
+    "area": "Общее",
+    "requirement": "Понятные русские подписи вместо оставшихся английских терминов",
+    "status": "частично",
+    "keys": [
+      "ADM-13/security-form",
+      "ADM-13/preview"
+    ],
+    "gap": "В действующих макетах остаются policy, Owner, preview и другие английские подписи вне технических идентификаторов; нужна адресная вычитка.",
+    "priority": "P2",
+    "source": "Уточнение владельца 14.10.2026; 118 §8",
+    "evidence": [
+      {
+        "key": "security-form",
+        "section": "ADM-13",
+        "ru": "2004:1160",
+        "en": "2008:950",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1160",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-950"
+      },
+      {
+        "key": "preview",
+        "section": "ADM-13",
+        "ru": "2003:713",
+        "en": "2007:713",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-713",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-713"
+      }
+    ]
+  }
+]

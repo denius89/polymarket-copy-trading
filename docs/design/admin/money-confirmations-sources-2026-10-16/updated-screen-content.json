@@ -1,0 +1,1361 @@
+[
+  {
+    "key": "preview",
+    "ids": [
+      "2003:713",
+      "2007:713"
+    ],
+    "title": [
+      "Проверка полной выплаты",
+      "Review full payout"
+    ],
+    "body": [
+      "Учебный пример будущей платной версии. Paper Alpha: комиссия сервиса 0%. Здесь проверяем перевод своего долга партнёру; 1.20 USDT — комиссия перевода, не комиссия сервиса.",
+      "Future paid-stage demo. Paper Alpha service fee is 0%. This reviews settlement of own partner debt; 1.20 USDT is the transfer fee, not a service fee."
+    ],
+    "rows": [
+      [
+        "Партнёр / долг",
+        "Partner / debt",
+        "PART-024 · 120.00 USDT",
+        "PART-024 · 120.00 USDT",
+        "Polymarket · весь доступный долг",
+        "Polymarket · full eligible debt"
+      ],
+      [
+        "Источник / собственный адрес",
+        "Source / own address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · v1 · свои средства",
+        "SRC-PM · v1 · own funds"
+      ],
+      [
+        "Получатель / полный адрес",
+        "Recipient / full address",
+        "0x2222222222222222222222222222222222222222",
+        "0x2222222222222222222222222222222222222222",
+        "PART-024 · REC v1 · активен",
+        "PART-024 · REC v1 · active"
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Получит / комиссия / спишется",
+        "Recipient / fee / debit",
+        "120.00 / 1.20 / 121.20 USDT",
+        "120.00 / 1.20 / 121.20 USDT",
+        "Комиссия за счёт сервиса",
+        "Service pays transfer fee"
+      ],
+      [
+        "Правила / ограничения",
+        "Rules / controls",
+        "RULE-PART-024 v3 · CTRL v2",
+        "RULE-PART-024 v3 · CTRL v2",
+        "SEC v8 · порог 250 USDT · пример",
+        "SEC v8 · 250 USDT threshold · demo"
+      ],
+      [
+        "Снимок / срок действия",
+        "Snapshot / expires",
+        "PRV-021 v7 · 16 Oct 12:05 UTC",
+        "PRV-021 v7 · 16 Oct 12:05 UTC",
+        "Новая проверка перед отправкой; изменения отменяют согласие",
+        "Recheck before sending; changed context invalidates approval"
+      ],
+      [
+        "Операция / подтверждающий",
+        "Operation / approver",
+        "PAY-021 · Владелец A",
+        "PAY-021 · Owner A",
+        "Физический ключ · защита от повторной отправки",
+        "Physical key · duplicate-send protection"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Подтвердить · демо",
+        "Confirm · demo",
+        "accepted"
+      ],
+      [
+        "Комиссия за счёт партнёра",
+        "Partner pays transfer fee",
+        "preview-fee"
+      ],
+      [
+        "Пример второго подтверждения",
+        "Second approval example",
+        "second-review"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "preview-fee",
+    "ids": [
+      "2003:778",
+      "2007:778"
+    ],
+    "title": [
+      "Полная выплата · комиссию платит партнёр",
+      "Full payout · partner pays fee"
+    ],
+    "body": [
+      "Долг погашается целиком: 120 USDT. Партнёр получает 118.80 USDT, ещё 1.20 USDT уходит на комиссию перевода. Частичной выплаты нет. Все значения учебные.",
+      "The full 120 USDT debt is settled: the partner receives 118.80 USDT and 1.20 USDT pays the transfer fee. This is not a partial payout. All values are synthetic."
+    ],
+    "rows": [
+      [
+        "Партнёр / долг",
+        "Partner / debt",
+        "PART-024 · 120.00 USDT",
+        "PART-024 · 120.00 USDT",
+        "Polymarket · весь доступный долг",
+        "Polymarket · full eligible debt"
+      ],
+      [
+        "Источник / собственный адрес",
+        "Source / own address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · v1 · свои средства",
+        "SRC-PM · v1 · own funds"
+      ],
+      [
+        "Получатель / полный адрес",
+        "Recipient / full address",
+        "0x2222222222222222222222222222222222222222",
+        "0x2222222222222222222222222222222222222222",
+        "PART-024 · REC v1 · активен",
+        "PART-024 · REC v1 · active"
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Получит / комиссия / спишется",
+        "Recipient / fee / debit",
+        "118.80 / 1.20 / 120.00 USDT",
+        "118.80 / 1.20 / 120.00 USDT",
+        "Комиссия за счёт партнёра",
+        "Partner pays transfer fee"
+      ],
+      [
+        "Правила / ограничения",
+        "Rules / controls",
+        "RULE-PART-024 v3 · CTRL v2",
+        "RULE-PART-024 v3 · CTRL v2",
+        "SEC v8 · порог 250 USDT · пример",
+        "SEC v8 · 250 USDT threshold · demo"
+      ],
+      [
+        "Снимок / срок действия",
+        "Snapshot / expires",
+        "PRV-021 v7 · 16 Oct 12:05 UTC",
+        "PRV-021 v7 · 16 Oct 12:05 UTC",
+        "Новая проверка перед отправкой; изменения отменяют согласие",
+        "Recheck before sending; changed context invalidates approval"
+      ],
+      [
+        "Операция / подтверждающий",
+        "Operation / approver",
+        "PAY-023 · Владелец A",
+        "PAY-023 · Owner A",
+        "Физический ключ · защита от повторной отправки",
+        "Physical key · duplicate-send protection"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Подтвердить · демо",
+        "Confirm · demo",
+        "accepted-fee"
+      ],
+      [
+        "Вернуться к проверке",
+        "Back to review",
+        "preview"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "second-review",
+    "ids": [
+      "2004:806",
+      "2008:596"
+    ],
+    "title": [
+      "Владелец B · проверка полной выплаты",
+      "Owner B · review full payout"
+    ],
+    "body": [
+      "Отдельный учебный порог SEC-T2: 100 USDT. Владелец A уже подтвердил точный снимок. Владелец B независимо проверяет адреса и суммы. Его подтверждение не обходит жёсткие запреты.",
+      "Separate SEC-T2 demo threshold: 100 USDT. Owner A has approved this exact snapshot. Owner B independently checks addresses and amounts. Approval cannot bypass hard blocks."
+    ],
+    "rows": [
+      [
+        "Партнёр / долг",
+        "Partner / debt",
+        "PART-024 · 120.00 USDT",
+        "PART-024 · 120.00 USDT",
+        "Polymarket · весь доступный долг",
+        "Polymarket · full eligible debt"
+      ],
+      [
+        "Источник / собственный адрес",
+        "Source / own address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · v1 · свои средства",
+        "SRC-PM · v1 · own funds"
+      ],
+      [
+        "Получатель / полный адрес",
+        "Recipient / full address",
+        "0x2222222222222222222222222222222222222222",
+        "0x2222222222222222222222222222222222222222",
+        "PART-024 · REC v1 · активен",
+        "PART-024 · REC v1 · active"
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Получит / комиссия / спишется",
+        "Recipient / fee / debit",
+        "120.00 / 1.20 / 121.20 USDT",
+        "120.00 / 1.20 / 121.20 USDT",
+        "Комиссия за счёт сервиса",
+        "Service pays transfer fee"
+      ],
+      [
+        "Правила / ограничения",
+        "Rules / controls",
+        "RULE-PART-024 v3 · CTRL v2",
+        "RULE-PART-024 v3 · CTRL v2",
+        "SEC-T2 · порог 100 USDT · учебная ветвь",
+        "SEC-T2 · 100 USDT threshold · demo branch"
+      ],
+      [
+        "Снимок / срок действия",
+        "Snapshot / expires",
+        "PRV-021 v7 · 16 Oct 12:05 UTC",
+        "PRV-021 v7 · 16 Oct 12:05 UTC",
+        "Новая проверка перед отправкой; изменения отменяют согласие",
+        "Recheck before sending; changed context invalidates approval"
+      ],
+      [
+        "Операция / подтверждающий",
+        "Operation / approver",
+        "PAY-022 · A → B",
+        "PAY-022 · A → B",
+        "Физический ключ · защита от повторной отправки",
+        "Physical key · duplicate-send protection"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Подтвердить · демо",
+        "Confirm · demo",
+        "second-approved"
+      ],
+      [
+        "Снимок устарел",
+        "Snapshot changed",
+        "expired"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "recipient-review",
+    "ids": [
+      "2004:1021",
+      "2008:811"
+    ],
+    "title": [
+      "Владелец B · новые реквизиты",
+      "Owner B · proposed recipient"
+    ],
+    "body": [
+      "Проверьте адрес целиком. Второе подтверждение запускает обязательные 24 часа; оно не делает новый адрес доступным для выплаты сразу.",
+      "Verify the full address. Second approval starts the mandatory 24-hour delay; the new address cannot receive payouts immediately."
+    ],
+    "rows": [
+      [
+        "Партнёр / версия",
+        "Partner / version",
+        "PART-024 · REC v1 → v2",
+        "PART-024 · REC v1 → v2",
+        "Первая / новая версия адреса",
+        "Current / proposed address"
+      ],
+      [
+        "Действующий полный адрес",
+        "Current full address",
+        "0x2222222222222222222222222222222222222222",
+        "0x2222222222222222222222222222222222222222",
+        "v1 · используется до активации v2",
+        "v1 · used until v2 is activated"
+      ],
+      [
+        "Предложенный полный адрес",
+        "Proposed full address",
+        "0x5555555555555555555555555555555555555555",
+        "0x5555555555555555555555555555555555555555",
+        "v2 · вымышленный адрес",
+        "v2 · synthetic address"
+      ],
+      [
+        "Площадка / сеть / актив",
+        "Venue / network / asset",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Причина / автор",
+        "Reason / author",
+        "DEMO-REC-02 · владелец A",
+        "DEMO-REC-02 · Owner A",
+        "Смена адреса партнёра · 16 Oct 12:00 UTC",
+        "Partner address change · 16 Oct 12:00 UTC"
+      ],
+      [
+        "Второе подтверждение",
+        "Second approval",
+        "Владелец B · физический ключ",
+        "Owner B · physical key",
+        "Автор не подтверждает собственное изменение",
+        "Author cannot approve own change"
+      ],
+      [
+        "Задержка после подтверждения",
+        "Delay after second approval",
+        "16 Oct 12:00 → 17 Oct 12:00 UTC",
+        "16 Oct 12:00 → 17 Oct 12:00 UTC",
+        "24 часа обязательны; любой владелец может отменить",
+        "24 hours required; either Owner can cancel"
+      ],
+      [
+        "Перед активацией",
+        "Before activation",
+        "Проверить версию и ограничения повторно",
+        "Recheck version and controls",
+        "Ускорения нет; смена реквизитов сбрасывает срок",
+        "No expedite; changing details resets the delay"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Подтвердить · ждать 24 часа",
+        "Approve · wait 24 hours",
+        "recipient-active"
+      ],
+      [
+        "Отклонить",
+        "Reject",
+        "recipient-rejected"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "treasury-source",
+    "ids": [
+      "2827:88865",
+      "2827:43053"
+    ],
+    "title": [
+      "Источник выплат · SRC-PM",
+      "Payout source · SRC-PM"
+    ],
+    "body": [
+      "Учебный снимок собственных средств. Учёт 1 USDT = $1. Сеть и контракт вымышлены, реальные отправки выключены. Настройки источника, ограничения и пополнение открываются отдельно.",
+      "Synthetic own-funds snapshot. Internal accounting: 1 USDT = $1. Network and contract are synthetic; real sending is disabled. Configuration, limits and funding have separate forms."
+    ],
+    "rows": [
+      [
+        "Источник / полный адрес",
+        "Source / full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · v1 · свои средства",
+        "SRC-PM · v1 · own funds"
+      ],
+      [
+        "Подтверждено / ожидается",
+        "Confirmed / pending",
+        "225 / 10 USDT",
+        "225 / 10 USDT",
+        "Ожидаемые 10 не входят в 225",
+        "Pending 10 is outside confirmed 225"
+      ],
+      [
+        "Не сопоставлено / заблокировано",
+        "Unmatched / blocked",
+        "25 / 0 USDT",
+        "25 / 0 USDT",
+        "Исключено до расчёта пригодного",
+        "Excluded before calculating eligible funds"
+      ],
+      [
+        "Пригодные средства",
+        "Eligible funds",
+        "200 USDT",
+        "200 USDT",
+        "225 − 25 − 0 · без ожидаемых",
+        "225 − 25 − 0 · pending excluded"
+      ],
+      [
+        "Резервы операций / операционный",
+        "Operation / operating reserves",
+        "50 / 20 USDT",
+        "50 / 20 USDT",
+        "Уникальные резервы; комиссия один раз",
+        "Unique reservations; fee counted once"
+      ],
+      [
+        "Свободно до новой операции",
+        "Free before new operation",
+        "130 USDT",
+        "130 USDT",
+        "200 − 50 − 20",
+        "200 − 50 − 20"
+      ],
+      [
+        "Подтверждённый долг партнёрам",
+        "Confirmed partner debt",
+        "185 USDT",
+        "185 USDT",
+        "PART-024: 120; из долга 50 уже зарезервировано",
+        "PART-024: 120; 50 of debt already reserved"
+      ],
+      [
+        "Почему долг не вычтен ещё раз",
+        "Why debt is not subtracted again",
+        "185 USDT показываем отдельно",
+        "185 USDT shown separately",
+        "Резерв 50 уже учтён; двойного вычета нет",
+        "Reservation 50 already counted; no double subtraction"
+      ],
+      [
+        "Сеть / наблюдение / свежесть",
+        "Network / observer / freshness",
+        "DEMO-NET-PM · USDT · OBS-DEMO-PM",
+        "DEMO-NET-PM · USDT · OBS-DEMO-PM",
+        "16 Oct 12:00 UTC · источник не подключён",
+        "16 Oct 12:00 UTC · source disconnected"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Пополнить источник",
+        "Fund source",
+        "source-funding-form"
+      ],
+      [
+        "Настройки источника",
+        "Source settings",
+        "source-edit"
+      ],
+      [
+        "Остатки и лимиты",
+        "Balances and limits",
+        "source-limits-edit"
+      ],
+      [
+        "Экстренно отключить",
+        "Emergency disable",
+        "source-disable-confirm"
+      ],
+      [
+        "К источникам",
+        "Back to sources",
+        "sources"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "treasury-source-review",
+    "ids": [
+      "2827:89179",
+      "2827:43369"
+    ],
+    "title": [
+      "Владелец B · изменение источника",
+      "Owner B · source change"
+    ],
+    "body": [
+      "Второй владелец проверяет точную версию конфигурации. Сохранение не перемещает деньги и не подключает реальную подпись. Смена версии отменяет прежнее согласие.",
+      "A different Owner checks the exact configuration version. Saving neither moves funds nor connects real signing. A version change invalidates prior approval."
+    ],
+    "rows": [
+      [
+        "Источник / версия",
+        "Source / version",
+        "SRC-PM · v1 → v2",
+        "SRC-PM · v1 → v2",
+        "Автор A · проверяет B",
+        "Author A · reviewer B"
+      ],
+      [
+        "Адрес целиком",
+        "Full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "",
+        ""
+      ],
+      [
+        "Сеть / актив",
+        "Network / asset",
+        "DEMO-NET-PM · USDT",
+        "DEMO-NET-PM · USDT",
+        "Контракт 0x3333333333333333333333333333333333333333",
+        "Contract 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Назначение / контроль",
+        "Purpose / control",
+        "Выплаты · свои средства Shadow",
+        "Payouts · Shadow own funds",
+        "SIGN-DEMO-01 · не подключён",
+        "SIGN-DEMO-01 · disconnected"
+      ],
+      [
+        "Направления",
+        "Directions",
+        "SRC-REV-PM / SRC-FUND → источник",
+        "SRC-REV-PM / SRC-FUND → source",
+        "Выход: только активные реквизиты",
+        "Outbound: active recipients only"
+      ],
+      [
+        "Баланс / ограничения",
+        "Balance / limits",
+        "OBS-DEMO-PM · LIMITS-PM v1",
+        "OBS-DEMO-PM · LIMITS-PM v1",
+        "Не подтверждены для реальных денег",
+        "Not verified for real funds"
+      ],
+      [
+        "Причина / срок",
+        "Reason / expiry",
+        "Свой источник · DEMO-PROP-S2",
+        "Own source · DEMO-PROP-S2",
+        "16 Oct 12:00 → 12:05 UTC · пример",
+        "16 Oct 12:00 → 12:05 UTC · demo"
+      ],
+      [
+        "Проверка владельца B",
+        "Owner B review",
+        "Новая проверка физическим ключом",
+        "Fresh physical-key verification",
+        "Автор не подтверждает свою версию",
+        "Author cannot approve own version"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Утвердить версию · демо",
+        "Approve version · demo",
+        "source-config-saved"
+      ],
+      [
+        "Конфликт версии · пример",
+        "Version conflict · example",
+        "source-change-conflict"
+      ],
+      [
+        "Вернуть автору",
+        "Return to author",
+        "source-edit"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "treasury-funding-review",
+    "ids": [
+      "2827:89473",
+      "2827:43665"
+    ],
+    "title": [
+      "Проверка пополнения источника",
+      "Review source funding"
+    ],
+    "body": [
+      "Собственные средства Shadow. Обычное пополнение заблокировано при остановке выплат, пополнений или полном отключении. В прототипе показан разрешённый учебный маршрут.",
+      "Shadow own funds. Ordinary funding is blocked by payout stop, funding stop or full shutdown. This prototype shows an allowed synthetic route."
+    ],
+    "rows": [
+      [
+        "Перевод / контекст",
+        "Transfer / context",
+        "TRF-DEMO-01 · внутренний перевод",
+        "TRF-DEMO-01 · internal transfer",
+        "DEMO-FUND-01 · без дохода и погашения долга",
+        "DEMO-FUND-01 · neither revenue nor debt settlement"
+      ],
+      [
+        "Откуда / полный адрес",
+        "From / full address",
+        "0x1111111111111111111111111111111111111111",
+        "0x1111111111111111111111111111111111111111",
+        "SRC-REV-PM · свои средства",
+        "SRC-REV-PM · own funds"
+      ],
+      [
+        "Куда / полный адрес",
+        "To / full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · источник партнёрских выплат",
+        "SRC-PM · partner payout source"
+      ],
+      [
+        "Площадка / сеть / актив",
+        "Venue / network / asset",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Поступит / комиссия / спишется",
+        "Receive / fee / debit",
+        "100.00 / 0.50 / 100.50 USDT",
+        "100.00 / 0.50 / 100.50 USDT",
+        "Комиссия за счёт сервиса · резерв 100.50 один раз",
+        "Service pays fee · reserve 100.50 once"
+      ],
+      [
+        "Средства / жёсткий максимум",
+        "Funds / hard cap",
+        "SRC-REV: 1000 · SRC-PM: 225 → 325",
+        "SRC-REV: 1000 · SRC-PM: 225 → 325",
+        "325 ≤ 500 USDT · лимит учебный",
+        "325 ≤ 500 USDT · demo cap"
+      ],
+      [
+        "Версии / срок согласия",
+        "Versions / approval expiry",
+        "LIMITS v2 · TRF-DEMO v1",
+        "LIMITS v2 · TRF-DEMO v1",
+        "16 Oct 12:00 → 12:05 UTC · пример",
+        "16 Oct 12:00 → 12:05 UTC · demo"
+      ],
+      [
+        "Кто подтверждает",
+        "Approvers",
+        "Владелец A",
+        "Owner A",
+        "Новая проверка физическим ключом",
+        "Fresh physical-key verification"
+      ],
+      [
+        "Перед отправкой",
+        "Before sending",
+        "Повторная проверка суммы, версии и ограничений",
+        "Recheck amounts, versions and controls",
+        "Неизвестный результат блокирует повтор",
+        "Unknown result blocks any resend"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Подтвердить · демо",
+        "Confirm · demo",
+        "source-funding-queued"
+      ],
+      [
+        "Вернуться к форме",
+        "Back to form",
+        "source-funding-form"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "treasury-recovery-route",
+    "ids": [
+      "2827:90641",
+      "2827:44841"
+    ],
+    "title": [
+      "Владелец B · разрешить маршрут восстановления",
+      "Owner B · authorize recovery route"
+    ],
+    "body": [
+      "Владелец A предложил ограниченное исключение. Согласие B разрешает только указанный маршрут и срок, без отправки денег. Остальные ограничения технического режима сохраняются.",
+      "Owner A proposed a limited exception. Owner B authorizes only this route and duration, without sending funds. All other technical-mode restrictions remain."
+    ],
+    "rows": [
+      [
+        "Перевод / контекст",
+        "Transfer / context",
+        "TRF-REC-01 · INC-DEMO-04",
+        "TRF-REC-01 · INC-DEMO-04",
+        "CTRL-REC v3 · обычные маршруты закрыты",
+        "CTRL-REC v3 · ordinary routes remain closed"
+      ],
+      [
+        "Откуда / полный адрес",
+        "From / full address",
+        "0x1111111111111111111111111111111111111111",
+        "0x1111111111111111111111111111111111111111",
+        "SRC-REV-PM · свои средства",
+        "SRC-REV-PM · own funds"
+      ],
+      [
+        "Куда / полный адрес",
+        "To / full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · источник партнёрских выплат",
+        "SRC-PM · partner payout source"
+      ],
+      [
+        "Площадка / сеть / актив",
+        "Venue / network / asset",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Границы разрешения",
+        "Authorization limits",
+        "До 100 USDT · 1 перевод · до 12:15 UTC",
+        "Up to 100 USDT · 1 transfer · until 12:15 UTC",
+        "16 Oct · значение и срок учебные",
+        "16 Oct · synthetic amount and time"
+      ],
+      [
+        "Запрос / согласие",
+        "Request / approval",
+        "REC-ROUTE v3 · владелец A → B",
+        "REC-ROUTE v3 · Owner A → B",
+        "Физический ключ; отдельно от согласия на деньги",
+        "Physical key; separate from transfer approval"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Разрешить маршрут · демо",
+        "Authorize route · demo",
+        "treasury-recovery-transfer"
+      ],
+      [
+        "Отклонить",
+        "Reject",
+        "treasury-recovery-blocked"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "treasury-recovery-transfer",
+    "ids": [
+      "2827:90935",
+      "2827:45137"
+    ],
+    "title": [
+      "Владелец B · восстановительный перевод",
+      "Owner B · recovery transfer"
+    ],
+    "body": [
+      "Маршрут REC-ROUTE v3 уже разрешён двумя владельцами. Теперь B независимо подтверждает сам перевод, подготовленный A. Новое полное отключение отменяет возможность отправки.",
+      "REC-ROUTE v3 was separately authorized by two Owners. Owner B now independently approves the transfer prepared by A. A fresh full shutdown blocks any new sending."
+    ],
+    "rows": [
+      [
+        "Перевод / контекст",
+        "Transfer / context",
+        "TRF-REC-01 · INC-DEMO-04",
+        "TRF-REC-01 · INC-DEMO-04",
+        "CTRL-REC v3 · обычные маршруты закрыты",
+        "CTRL-REC v3 · ordinary routes remain closed"
+      ],
+      [
+        "Откуда / полный адрес",
+        "From / full address",
+        "0x1111111111111111111111111111111111111111",
+        "0x1111111111111111111111111111111111111111",
+        "SRC-REV-PM · свои средства",
+        "SRC-REV-PM · own funds"
+      ],
+      [
+        "Куда / полный адрес",
+        "To / full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · источник партнёрских выплат",
+        "SRC-PM · partner payout source"
+      ],
+      [
+        "Площадка / сеть / актив",
+        "Venue / network / asset",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Поступит / комиссия / спишется",
+        "Receive / fee / debit",
+        "100.00 / 0.50 / 100.50 USDT",
+        "100.00 / 0.50 / 100.50 USDT",
+        "Комиссия за счёт сервиса · резерв 100.50 один раз",
+        "Service pays fee · reserve 100.50 once"
+      ],
+      [
+        "Средства / жёсткий максимум",
+        "Funds / hard cap",
+        "SRC-REV: 1000 · SRC-PM: 225 → 325",
+        "SRC-REV: 1000 · SRC-PM: 225 → 325",
+        "325 ≤ 500 USDT · лимит учебный",
+        "325 ≤ 500 USDT · demo cap"
+      ],
+      [
+        "Версии / срок согласия",
+        "Versions / approval expiry",
+        "CTRL-REC v3 · TRF-REC v1",
+        "CTRL-REC v3 · TRF-REC v1",
+        "16 Oct 12:00 → 12:05 UTC · пример",
+        "16 Oct 12:00 → 12:05 UTC · demo"
+      ],
+      [
+        "Кто подтверждает",
+        "Approvers",
+        "Владелец A → владелец B",
+        "Owner A → Owner B",
+        "Маршрут разрешён отдельно; это согласие на перевод",
+        "Route separately authorized; this approves transfer"
+      ],
+      [
+        "Перед отправкой",
+        "Before sending",
+        "Повторная проверка суммы, версии и ограничений",
+        "Recheck amounts, versions and controls",
+        "Неизвестный результат блокирует повтор",
+        "Unknown result blocks any resend"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Подтвердить перевод · демо",
+        "Confirm transfer · demo",
+        "source-recovery-unknown"
+      ],
+      [
+        "Полное отключение",
+        "Full shutdown",
+        "treasury-recovery-blocked"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "treasury-transfer-unknown",
+    "ids": [
+      "2827:89771",
+      "2827:43965"
+    ],
+    "title": [
+      "Пополнение · результат неизвестен",
+      "Funding · result unknown"
+    ],
+    "body": [
+      "Повторная отправка и ручная отметка «выплачено» недоступны. Только проверка фактов; резерв 100.50 USDT сохраняется до достоверного окончательного результата.",
+      "Resend and manual paid marking are unavailable. Read-only reconciliation only; the 100.50 USDT reservation remains until a reliable final result."
+    ],
+    "rows": [
+      [
+        "Перевод / контекст",
+        "Transfer / context",
+        "TRF-DEMO-01 · внутренний перевод",
+        "TRF-DEMO-01 · internal transfer",
+        "DEMO-FUND-01 · без дохода и погашения долга",
+        "DEMO-FUND-01 · neither revenue nor debt settlement"
+      ],
+      [
+        "Откуда / полный адрес",
+        "From / full address",
+        "0x1111111111111111111111111111111111111111",
+        "0x1111111111111111111111111111111111111111",
+        "SRC-REV-PM · свои средства",
+        "SRC-REV-PM · own funds"
+      ],
+      [
+        "Куда / полный адрес",
+        "To / full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · источник партнёрских выплат",
+        "SRC-PM · partner payout source"
+      ],
+      [
+        "Площадка / сеть / актив",
+        "Venue / network / asset",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Поступит / комиссия / спишется",
+        "Receive / fee / debit",
+        "100.00 / 0.50 / 100.50 USDT",
+        "100.00 / 0.50 / 100.50 USDT",
+        "Комиссия за счёт сервиса · резерв 100.50 один раз",
+        "Service pays fee · reserve 100.50 once"
+      ],
+      [
+        "Средства / жёсткий максимум",
+        "Funds / hard cap",
+        "SRC-REV: 1000 · SRC-PM: 225 → 325",
+        "SRC-REV: 1000 · SRC-PM: 225 → 325",
+        "325 ≤ 500 USDT · лимит учебный",
+        "325 ≤ 500 USDT · demo cap"
+      ],
+      [
+        "Версии / срок согласия",
+        "Versions / approval expiry",
+        "LIMITS v2 · TRF-DEMO v1",
+        "LIMITS v2 · TRF-DEMO v1",
+        "16 Oct 12:00 → 12:05 UTC · пример",
+        "16 Oct 12:00 → 12:05 UTC · demo"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Проверить подтверждающие данные",
+        "Inspect reconciliation evidence",
+        "treasury-reconcile"
+      ],
+      [
+        "К источнику",
+        "Back to source",
+        "treasury-source"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "treasury-reconcile",
+    "ids": [
+      "2827:90061",
+      "2827:44257"
+    ],
+    "title": [
+      "Сверка пополнения · без отправки",
+      "Reconcile funding · no sending"
+    ],
+    "body": [
+      "Учебные подтверждающие данные EVID-FUND-01: получено 100 USDT, комиссия 0.50 USDT. Показанный итог не создаёт новой транзакции.",
+      "Synthetic evidence EVID-FUND-01: received 100 USDT, fee 0.50 USDT. This reconciliation outcome creates no new transaction."
+    ],
+    "rows": [
+      [
+        "Перевод / контекст",
+        "Transfer / context",
+        "TRF-DEMO-01 · внутренний перевод",
+        "TRF-DEMO-01 · internal transfer",
+        "DEMO-FUND-01 · без дохода и погашения долга",
+        "DEMO-FUND-01 · neither revenue nor debt settlement"
+      ],
+      [
+        "Откуда / полный адрес",
+        "From / full address",
+        "0x1111111111111111111111111111111111111111",
+        "0x1111111111111111111111111111111111111111",
+        "SRC-REV-PM · свои средства",
+        "SRC-REV-PM · own funds"
+      ],
+      [
+        "Куда / полный адрес",
+        "To / full address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "SRC-PM · источник партнёрских выплат",
+        "SRC-PM · partner payout source"
+      ],
+      [
+        "Площадка / сеть / актив",
+        "Venue / network / asset",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Поступит / комиссия / спишется",
+        "Receive / fee / debit",
+        "100.00 / 0.50 / 100.50 USDT",
+        "100.00 / 0.50 / 100.50 USDT",
+        "Комиссия за счёт сервиса · резерв 100.50 один раз",
+        "Service pays fee · reserve 100.50 once"
+      ],
+      [
+        "Итог сверки",
+        "Reconciliation outcome",
+        "Подтверждено · EVID-FUND-01",
+        "Confirmed · EVID-FUND-01",
+        "Долг партнёрам не изменяется",
+        "Partner debt unchanged"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Показать подтверждённый итог",
+        "Show confirmed outcome",
+        "source-funding-confirmed"
+      ],
+      [
+        "Данных недостаточно",
+        "Evidence insufficient",
+        "treasury-transfer-unknown"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "recipient-active",
+    "ids": [
+      "2004:1056",
+      "2008:846"
+    ],
+    "title": [
+      "Новый адрес · ожидание 24 часов",
+      "New recipient · 24-hour delay"
+    ],
+    "body": [
+      "Оба владельца подтвердили REC v2. Адрес ещё недоступен для выплаты. Только смена учебного времени показывает ветку после задержки; ускорения нет.",
+      "Both Owners approved REC v2. It cannot receive payouts yet. The next branch changes demo time only; there is no expedite."
+    ],
+    "rows": [
+      [
+        "Партнёр / версия",
+        "Partner / version",
+        "PART-024 · REC v1 → v2",
+        "PART-024 · REC v1 → v2",
+        "Первая / новая версия адреса",
+        "Current / proposed address"
+      ],
+      [
+        "Действующий полный адрес",
+        "Current full address",
+        "0x2222222222222222222222222222222222222222",
+        "0x2222222222222222222222222222222222222222",
+        "v1 · используется до активации v2",
+        "v1 · used until v2 is activated"
+      ],
+      [
+        "Предложенный полный адрес",
+        "Proposed full address",
+        "0x5555555555555555555555555555555555555555",
+        "0x5555555555555555555555555555555555555555",
+        "v2 · вымышленный адрес",
+        "v2 · synthetic address"
+      ],
+      [
+        "Площадка / сеть / актив",
+        "Venue / network / asset",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Причина / автор",
+        "Reason / author",
+        "DEMO-REC-02 · владелец A",
+        "DEMO-REC-02 · Owner A",
+        "Смена адреса партнёра · 16 Oct 12:00 UTC",
+        "Partner address change · 16 Oct 12:00 UTC"
+      ],
+      [
+        "Второе подтверждение",
+        "Second approval",
+        "Владелец B · физический ключ",
+        "Owner B · physical key",
+        "Автор не подтверждает собственное изменение",
+        "Author cannot approve own change"
+      ],
+      [
+        "Задержка после подтверждения",
+        "Delay after second approval",
+        "16 Oct 12:00 → 17 Oct 12:00 UTC",
+        "16 Oct 12:00 → 17 Oct 12:00 UTC",
+        "24 часа обязательны; любой владелец может отменить",
+        "24 hours required; either Owner can cancel"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "После 24 часов · демо",
+        "After 24 hours · demo",
+        "recipient-activated-after-wait"
+      ],
+      [
+        "Отменить изменение",
+        "Cancel change",
+        "recipient-change-cancelled"
+      ],
+      [
+        "К реквизитам",
+        "Back to recipients",
+        "recipients"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "recipient-activated-after-wait",
+    "ids": [
+      "2827:91229",
+      "2827:45433"
+    ],
+    "title": [
+      "Новый адрес активен · 24 часа истекли",
+      "New recipient active · 24 hours elapsed"
+    ],
+    "body": [
+      "Учебное время: 17 Oct 12:01 UTC. REC v2 не менялась; срок истёк, ограничения проверены повторно. Активация не выполняет выплату.",
+      "Demo time: 17 Oct 12:01 UTC. REC v2 is unchanged; the delay elapsed and controls were rechecked. Activation does not send a payout."
+    ],
+    "rows": [
+      [
+        "Партнёр / версия",
+        "Partner / version",
+        "PART-024 · REC v1 → v2",
+        "PART-024 · REC v1 → v2",
+        "Первая / новая версия адреса",
+        "Current / proposed address"
+      ],
+      [
+        "Действующий полный адрес",
+        "Current full address",
+        "0x2222222222222222222222222222222222222222",
+        "0x2222222222222222222222222222222222222222",
+        "v1 · используется до активации v2",
+        "v1 · used until v2 is activated"
+      ],
+      [
+        "Предложенный полный адрес",
+        "Proposed full address",
+        "0x5555555555555555555555555555555555555555",
+        "0x5555555555555555555555555555555555555555",
+        "v2 · вымышленный адрес",
+        "v2 · synthetic address"
+      ],
+      [
+        "Площадка / сеть / актив",
+        "Venue / network / asset",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние / активация",
+        "State / activation",
+        "REC v2 · активен · 17 Oct 12:01 UTC",
+        "REC v2 · active · 17 Oct 12:01 UTC",
+        "Новое подтверждение выплаты использует этот адрес",
+        "A fresh payout preview uses this address"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Проверить выплату на новый адрес",
+        "Review payout to new recipient",
+        "recipient-payout-preview"
+      ],
+      [
+        "К реквизитам",
+        "Back to recipients",
+        "recipients"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "recipient-change-cancelled",
+    "ids": [
+      "2827:91515",
+      "2827:45721"
+    ],
+    "title": [
+      "Смена адреса отменена",
+      "Recipient change cancelled"
+    ],
+    "body": [
+      "Владелец A отменил REC v2 во время ожидания. Новый адрес не активирован; история сохранена. Новый запрос требует двух владельцев и нового срока 24 часа.",
+      "Owner A cancelled REC v2 during the delay. The candidate is not active; history is preserved. A new request needs two Owners and a new 24-hour delay."
+    ],
+    "rows": [
+      [
+        "Партнёр / версия",
+        "Partner / version",
+        "PART-024 · REC v1 → v2",
+        "PART-024 · REC v1 → v2",
+        "Первая / новая версия адреса",
+        "Current / proposed address"
+      ],
+      [
+        "Действующий полный адрес",
+        "Current full address",
+        "0x2222222222222222222222222222222222222222",
+        "0x2222222222222222222222222222222222222222",
+        "v1 · используется до активации v2",
+        "v1 · used until v2 is activated"
+      ],
+      [
+        "Предложенный полный адрес",
+        "Proposed full address",
+        "0x5555555555555555555555555555555555555555",
+        "0x5555555555555555555555555555555555555555",
+        "v2 · вымышленный адрес",
+        "v2 · synthetic address"
+      ],
+      [
+        "Площадка / сеть / актив",
+        "Venue / network / asset",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Причина / автор",
+        "Reason / author",
+        "DEMO-REC-02 · владелец A",
+        "DEMO-REC-02 · Owner A",
+        "Смена адреса партнёра · 16 Oct 12:00 UTC",
+        "Partner address change · 16 Oct 12:00 UTC"
+      ]
+    ],
+    "fields": [],
+    "actions": [
+      [
+        "Новое предложение",
+        "New proposal",
+        "recipient-form"
+      ],
+      [
+        "К реквизитам",
+        "Back to recipients",
+        "recipients"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "recipient-pending",
+    "ids": [
+      "2004:983",
+      "2008:773"
+    ],
+    "title": [
+      "Новые реквизиты ожидают проверки",
+      "Proposed recipient awaits review"
+    ],
+    "body": [
+      "Владелец A сохранил предложение REC v2. Оно не используется для выплат. Второй владелец должен проверить точную версию; после согласия начнутся 24 часа.",
+      "Owner A saved REC v2. It cannot receive payouts. Another Owner must check the exact version; approval starts the 24-hour delay."
+    ],
+    "rows": [
+      [
+        "Партнёр / версия",
+        "Partner / version",
+        "PART-024 · REC v1 → v2",
+        "PART-024 · REC v1 → v2",
+        "Первая / новая версия адреса",
+        "Current / proposed address"
+      ],
+      [
+        "Действующий полный адрес",
+        "Current full address",
+        "0x2222222222222222222222222222222222222222",
+        "0x2222222222222222222222222222222222222222",
+        "v1 · используется до активации v2",
+        "v1 · used until v2 is activated"
+      ],
+      [
+        "Предложенный полный адрес",
+        "Proposed full address",
+        "0x5555555555555555555555555555555555555555",
+        "0x5555555555555555555555555555555555555555",
+        "v2 · вымышленный адрес",
+        "v2 · synthetic address"
+      ],
+      [
+        "Площадка / сеть / актив",
+        "Venue / network / asset",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Polymarket · DEMO-NET-PM · USDT",
+        "Контракт · 0x3333333333333333333333333333333333333333",
+        "Contract · 0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Причина / автор",
+        "Reason / author",
+        "DEMO-REC-02 · владелец A",
+        "DEMO-REC-02 · Owner A",
+        "Смена адреса партнёра · 16 Oct 12:00 UTC",
+        "Partner address change · 16 Oct 12:00 UTC"
+      ]
+    ],
+    "fields": [],
+    "role": "A",
+    "actions": [
+      [
+        "Открыть проверку владельца B",
+        "Open Owner B review",
+        "recipient-review"
+      ],
+      [
+        "Вернуться к предложению",
+        "Back to proposal",
+        "recipient-form"
+      ]
+    ]
+  }
+]

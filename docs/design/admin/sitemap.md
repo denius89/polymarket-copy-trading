@@ -1,6 +1,6 @@
 # Живая карта админки
 
-Текущий срез 16.10.2026: **437 RU + 437 EN корневых макетов**, из них 432 основных состояния и 5 технических оболочек на язык. Карта 0.14, набор компонентов админки 0.4.20 (28 наборов / 168 вариантов). [Последние решения и передача](SYNC_2026-10-14.md). Ниже сохранён исторический журнал; его промежуточные числа и версии не заменяют текущий реестр.
+Текущий срез 16.10.2026: **459 RU + 459 EN корневых макетов**, из них 454 основных состояния и 5 технических оболочек на язык. Карта 0.15, набор компонентов админки 0.4.20 (28 наборов / 168 вариантов). [Последние решения и передача](money-confirmations-sources-2026-10-16/README.md). Ниже сохранён исторический журнал; его промежуточные числа и версии не заменяют текущий реестр.
 
 13.10.2026 · ревизия 0.7: 295 RU + 295 EN, включая по три меню аватара для viewport прототипа. Личный аккаунт пересобран как обзор и отдельные страницы. [Паттерн, узлы и QA](account-hub-2026-10-13/README.md).
 
@@ -158,7 +158,7 @@
 
 ## ADM-13 · Финансы и выплаты
 
-Макеты есть. Учёт, обязательства, партнёры, источники, полная выплата, реквизиты и защитные пороги.
+Учёт, полная выплата, реквизиты с задержкой 24 часа, формы своих источников и ограничений, ручное и восстановительное пополнение. Часть ветвей ещё открыта.
 
 | Состояние | RU | EN |
 | --- | --- | --- |
@@ -177,7 +177,7 @@
 | Выплата · Limitless | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-627) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-627) |
 | Нет доступного маршрута | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-675) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-675) |
 | Проверка полной выплаты | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-713) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-713) |
-| Проверка · комиссия партнёра | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-778) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-778) |
+| Полная выплата · комиссию платит партнёр | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-778) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-778) |
 | Выплата принята | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-838) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-838) |
 | Отправлено · проверяется | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-876) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-876) |
 | Полная выплата подтверждена | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-916) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-916) |
@@ -188,13 +188,13 @@
 | Расчёт устарел | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-693) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-1226) |
 | Выплаты остановлены | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-728) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-1261) |
 | Требуется второй Owner | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-766) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-1299) |
-| Owner B · независимая проверка | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-806) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-596) |
+| Владелец B · проверка полной выплаты | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-806) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-596) |
 | Подтверждение Owner B сохранено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-844) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-634) |
 | Реквизиты PART-024 | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-879) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-669) |
 | Предложение реквизитов | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-935) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-725) |
-| Реквизиты ожидают проверки | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-983) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-773) |
-| Owner B · реквизиты v2 | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1021) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-811) |
-| Адрес подтверждён · ожидание 24 часа | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1056) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-846) |
+| Новые реквизиты ожидают проверки | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-983) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-773) |
+| Владелец B · новые реквизиты | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1021) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-811) |
+| Новый адрес · ожидание 24 часов | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1056) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-846) |
 | Предложение отклонено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1089) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-879) |
 | Защитные пороги выплат | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1122) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-912) |
 | Новая защитная policy | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1160) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-950) |
@@ -203,6 +203,38 @@
 | Выплата принята · комиссия партнёра | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-1417) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1684) |
 | Проверяется · комиссия партнёра | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-1450) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1717) |
 | Полная выплата · комиссия партнёра | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-1483) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1750) |
+| Источник выплат · SRC-PM | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-88865) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-43053) |
+| Владелец B · изменение источника | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-89179) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-43369) |
+| Проверка пополнения источника | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-89473) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-43665) |
+| Пополнение · результат неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-89771) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-43965) |
+| Сверка пополнения · без отправки | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-90061) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-44257) |
+| Пополнение запрещено · полное отключение | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-90355) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-44553) |
+| Владелец B · разрешить маршрут восстановления | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-90641) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-44841) |
+| Владелец B · восстановительный перевод | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-90935) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-45137) |
+| Новый адрес активен · 24 часа истекли | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-91229) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-45433) |
+| Смена адреса отменена | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-91515) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-45721) |
+| Добавить собственный источник | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-45444) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-145968) |
+| Владелец B · регистрация источника | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-45784) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-146307) |
+| Источник зарегистрирован · демо | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-45939) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-146461) |
+| Настройки собственного источника | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-46074) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-146595) |
+| Источник не готов к проверке | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-46418) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-146938) |
+| Источник ожидает второго владельца | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-46758) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-147277) |
+| Версия источника изменилась | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-46905) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-147423) |
+| Конфигурация источника сохранена | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-47032) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-147549) |
+| Остатки и лимиты источника | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-47171) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-147687) |
+| Проверьте ограничения источника | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-47442) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-147957) |
+| Владелец B · ограничения источника | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-47709) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-148223) |
+| Ограничения сохранены · демо | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-47864) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-148377) |
+| Экстренно отключить источник? | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-48007) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-148519) |
+| Источник отключён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-48142) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-148653) |
+| Владелец B · возврат источника | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-48277) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-148787) |
+| Пополнить источник своими средствами | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-48424) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-148933) |
+| Пополнение принято · ждёт результата | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-48663) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-149171) |
+| Пополнение подтверждено · демо | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-48806) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-149313) |
+| Пополнение отклонено · подтверждено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-48945) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-149451) |
+| Восстановительный перевод · результат неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-49084) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-149589) |
+| Восстановительное пополнение сверено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-49227) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2867-149731) |
+| Выплата на новый адрес · проверка | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2868-47683) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2868-143426) |
 
 ## ADM-14 · Сотрудники и доступ
 
