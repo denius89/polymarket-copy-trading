@@ -6,7 +6,7 @@
 
 ## Организация Figma
 
-На странице `07 · Client UI kit` пять рабочих секций. Их роли:
+На странице `07 · Client UI kit` шесть рабочих секций. Их роли:
 
 | Секция | Что искать |
 | --- | --- |
@@ -15,6 +15,11 @@
 | Data | Значения, статусы, карточки и повторяемые представления данных |
 | Patterns | Составные примеры применения компонентов |
 | [Home account](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2703-528) | Утверждённая карточка счёта на Главной и будущий выбор счёта, отдельно для desktop/mobile |
+| [Final client patterns](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2805-527) | Мобильные фильтры и нижний список, раскрытие и строки перехода; примеры RU/EN и состояния |
+
+С 16.10.2026 на странице шесть рабочих секций. В Final client patterns находятся `Client/Filter selector · Mobile` (350×48; Default/Focus/Expanded/Disabled), `Client/Filter option row · Mobile` (350×48; Default/Selected/Disabled), `Client/Filter chip · Mobile` (высота 36, ширина по подписи; Default/Selected/Disabled), `Client/Disclosure row` (Closed/Open), `Client/Related action row` (Mobile/Desktop × Default/Disabled) и `Client/Filter sheet · Mobile` (6 или 7 вариантов выбора). Подписи RU/EN меняются через text properties экземпляра. Для длинных списков Positions/Orders/Activity используйте селектор с нижним листом; компактный chip подходит только коротким спискам Help/Tickets. Весь ряд остаётся областью нажатия, а знак раскрытия или перехода стоит рядом с подписью. У chip высота 36 px визуальная; при реализации область нажатия должна быть не меньше 44 px.
+
+Это новые мастера для разработки. Экземпляры на финальных продуктовых экранах пока используют прежние исходники и их реакции; создание kit не означает миграцию экранов. Примеры и проверка: [пакет от 16.10.2026](../../docs/design/client/final-client-patterns-kit-2026-10-16.md).
 
 В `Home account` четыре семейства: `Client/Home account summary · Desktop`, `Client/Home account summary · Mobile`, `Client/Home account menu · Desktop`, `Client/Home account sheet · Mobile`. Вариант `Account=Paper demo` соответствует текущему MVP и не содержит переключателя. `Future demo` и `Future Polymarket` применяются только когда доступны несколько счетов; их суммы не объединяются, а остальные блоки Главной сохраняют явный демо-контекст. Меню и нижняя панель имеют варианты `Selected=Demo/Polymarket`. EN-текст задаётся через переопределение экземпляра; сам мастер не содержит переходов на конкретные экраны. При использовании нужно связать кнопку и пункты выбора с маршрутом продукта.
 

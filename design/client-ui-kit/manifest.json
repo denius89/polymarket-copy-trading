@@ -3893,5 +3893,28 @@
     "totalComponentSets": 4,
     "totalVariants": 10,
     "usage": "Paper demo has no switcher; future variants are isolated from the current route and use instance text overrides for EN."
+  },
+  "finalClientPatternsExtension": {
+    "date": "2026-10-16",
+    "pageId": "1976:2",
+    "sectionId": "2805:527",
+    "reviewBoardId": "2807:535",
+    "scope": "Approved client RU/EN mobile filters and mobile/desktop disclosure/action patterns; admin excluded",
+    "newFamilies": 6,
+    "newVariants": 18,
+    "currentNativeFamilies": 55,
+    "currentNativeVariants": 164,
+    "componentSets": [
+      {"id": "2805:556", "name": "Client/Filter selector · Mobile", "size": "350×48", "variants": ["2805:533", "2805:540", "2805:547", "2805:554"], "properties": ["Label", "Value"]},
+      {"id": "2806:543", "name": "Client/Filter option row · Mobile", "size": "350×48", "variants": ["2806:533", "2806:536", "2806:542"], "properties": ["Label"]},
+      {"id": "2806:550", "name": "Client/Filter chip · Mobile", "size": "min 72×36; hugs label", "variants": ["2806:544", "2806:546", "2806:548"], "properties": ["Label"]},
+      {"id": "2806:561", "name": "Client/Disclosure row", "size": "318×44 closed / 318×72 open", "variants": ["2806:551", "2806:556"], "properties": ["Title", "Body"]},
+      {"id": "2806:578", "name": "Client/Related action row", "size": "350×52 mobile / 368×58 desktop", "variants": ["2806:565", "2806:569", "2806:573", "2806:577"], "properties": ["Label"]},
+      {"id": "2806:619", "name": "Client/Filter sheet · Mobile", "size": "390×392 six options / 390×440 seven options", "variants": ["2806:596", "2806:617"], "properties": ["Title", "Option 1–7"]}
+    ],
+    "dependencies": ["Existing semantic color, spacing and radius variables", "Existing shared chevron/close/check icon masters", "Approved final client screen compositions"],
+    "screenInstancesMigrated": false,
+    "prototypeReactionsChanged": false,
+    "adminTouched": false
   }
 }
