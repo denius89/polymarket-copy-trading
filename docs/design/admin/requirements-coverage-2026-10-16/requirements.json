@@ -1871,118 +1871,376 @@
     "id": "N01",
     "area": "ADM-10",
     "requirement": "Общий список операционных уведомлений и фильтры",
-    "status": "отсутствует",
+    "status": "готово",
     "keys": [
-      "ADM-15/monitor-notifications"
+      "notifications",
+      "notification-filters",
+      "notification-filtered",
+      "notification-empty",
+      "notification-loading",
+      "notification-load-error"
     ],
-    "gap": "ADM-10 имеет 0 макетов. Список уведомлений USDT покрывает только один источник событий.",
-    "priority": "P1",
+    "gap": "",
+    "priority": "—",
     "source": "118",
     "evidence": [
       {
-        "key": "monitor-notifications",
-        "section": "ADM-15",
-        "ru": "2138:65347",
-        "en": "2138:75265",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-65347",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-75265"
+        "key": "notifications",
+        "section": "ADM-10",
+        "ru": "2954:166821",
+        "en": "2956:53051",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-166821",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-53051"
+      },
+      {
+        "key": "notification-filters",
+        "section": "ADM-10",
+        "ru": "2954:167369",
+        "en": "2956:53555",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-167369",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-53555"
+      },
+      {
+        "key": "notification-filtered",
+        "section": "ADM-10",
+        "ru": "2954:167805",
+        "en": "2956:53991",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-167805",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-53991"
+      },
+      {
+        "key": "notification-empty",
+        "section": "ADM-10",
+        "ru": "2954:168400",
+        "en": "2956:54586",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-168400",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-54586"
+      },
+      {
+        "key": "notification-loading",
+        "section": "ADM-10",
+        "ru": "2954:168131",
+        "en": "2956:54317",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-168131",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-54317"
+      },
+      {
+        "key": "notification-load-error",
+        "section": "ADM-10",
+        "ru": "2954:168669",
+        "en": "2956:54855",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-168669",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-54855"
       }
-    ]
+    ],
+    "previousStatus": "отсутствует",
+    "closedIn": "notifications-feedback-2026-10-16",
+    "validationNote": "Покрытие проверенными макетами и документацией; не реализация и не полная ручная приёмка."
   },
   {
     "id": "N02",
     "area": "ADM-10",
     "requirement": "Карточка уведомления: событие, адресат, канал, попытки и связанная операция",
-    "status": "частично",
+    "status": "готово",
     "keys": [
-      "ADM-15/monitor-notification-detail",
-      "ADM-09/support-reply-unknown"
+      "notification-detail",
+      "notification-detail-b",
+      "notification-attempts",
+      "notification-channel-off",
+      "notification-readonly",
+      "notification-no-access"
     ],
-    "gap": "Есть частные уведомления/сообщения; общей карточки для операционных и защитных событий нет.",
-    "priority": "P1",
+    "gap": "",
+    "priority": "—",
     "source": "118",
     "evidence": [
       {
-        "key": "monitor-notification-detail",
-        "section": "ADM-15",
-        "ru": "2138:65467",
-        "en": "2138:75385",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-65467",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-75385"
+        "key": "notification-detail",
+        "section": "ADM-10",
+        "ru": "2954:168938",
+        "en": "2956:55124",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-168938",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-55124"
       },
       {
-        "key": "support-reply-unknown",
-        "section": "ADM-09",
-        "ru": "2186:22758",
-        "en": "2188:86355",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2186-22758",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-86355"
+        "key": "notification-detail-b",
+        "section": "ADM-10",
+        "ru": "2954:172157",
+        "en": "2956:58343",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-172157",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-58343"
+      },
+      {
+        "key": "notification-attempts",
+        "section": "ADM-10",
+        "ru": "2954:169284",
+        "en": "2956:55470",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-169284",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-55470"
+      },
+      {
+        "key": "notification-channel-off",
+        "section": "ADM-10",
+        "ru": "2954:170922",
+        "en": "2956:57108",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-170922",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-57108"
+      },
+      {
+        "key": "notification-readonly",
+        "section": "ADM-10",
+        "ru": "2954:171570",
+        "en": "2956:57756",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-171570",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-57756"
+      },
+      {
+        "key": "notification-no-access",
+        "section": "ADM-10",
+        "ru": "2954:171888",
+        "en": "2956:58074",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-171888",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-58074"
       }
-    ]
+    ],
+    "previousStatus": "частично",
+    "closedIn": "notifications-feedback-2026-10-16",
+    "validationNote": "Покрытие проверенными макетами и документацией; не реализация и не полная ручная приёмка."
   },
   {
     "id": "N03",
     "area": "ADM-10",
     "requirement": "Доступность, доставка, прочтение и неизвестность — разные факты",
-    "status": "частично",
+    "status": "готово",
     "keys": [
-      "ADM-18/marketing-delivery",
-      "ADM-15/monitor-notification-unknown"
+      "notification-facts",
+      "notification-unknown",
+      "notification-checked",
+      "notification-failed",
+      "notification-acknowledged"
     ],
-    "gap": "Различие есть в маркетинге и USDT; не покрывает общий операционный журнал уведомлений.",
-    "priority": "P2",
+    "gap": "",
+    "priority": "—",
     "source": "118",
     "evidence": [
       {
-        "key": "marketing-delivery",
-        "section": "ADM-18",
-        "ru": "2378:31839",
-        "en": "2378:105394",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-31839",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-105394"
+        "key": "notification-facts",
+        "section": "ADM-10",
+        "ru": "2954:171244",
+        "en": "2956:57430",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-171244",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-57430"
       },
       {
-        "key": "monitor-notification-unknown",
-        "section": "ADM-15",
-        "ru": "2138:65788",
-        "en": "2138:75706",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-65788",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-75706"
+        "key": "notification-unknown",
+        "section": "ADM-10",
+        "ru": "2954:169936",
+        "en": "2956:56122",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-169936",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-56122"
+      },
+      {
+        "key": "notification-checked",
+        "section": "ADM-10",
+        "ru": "2954:170266",
+        "en": "2956:56452",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-170266",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-56452"
+      },
+      {
+        "key": "notification-failed",
+        "section": "ADM-10",
+        "ru": "2954:170596",
+        "en": "2956:56782",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-170596",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-56782"
+      },
+      {
+        "key": "notification-acknowledged",
+        "section": "ADM-10",
+        "ru": "2954:169610",
+        "en": "2956:55796",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-169610",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-55796"
       }
-    ]
+    ],
+    "previousStatus": "частично",
+    "closedIn": "notifications-feedback-2026-10-16",
+    "validationNote": "Покрытие проверенными макетами и документацией; не реализация и не полная ручная приёмка."
   },
   {
     "id": "F01",
     "area": "ADM-11",
     "requirement": "Список и карточка обратной связи как отдельной сущности",
-    "status": "отсутствует",
-    "keys": [],
-    "gap": "ADM-11 имеет 0 макетов; обычное обращение поддержки не является карточкой исходного отзыва.",
-    "priority": "P1",
+    "status": "готово",
+    "keys": [
+      "feedback",
+      "feedback-filtered",
+      "feedback-detail",
+      "feedback-readonly",
+      "feedback-no-access"
+    ],
+    "gap": "",
+    "priority": "—",
     "source": "118",
-    "evidence": []
+    "evidence": [
+      {
+        "key": "feedback",
+        "section": "ADM-11",
+        "ru": "2960:55007",
+        "en": "2960:177403",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-55007",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-177403"
+      },
+      {
+        "key": "feedback-filtered",
+        "section": "ADM-11",
+        "ru": "2960:55930",
+        "en": "2960:178234",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-55930",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-178234"
+      },
+      {
+        "key": "feedback-detail",
+        "section": "ADM-11",
+        "ru": "2960:57059",
+        "en": "2960:179363",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-57059",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-179363"
+      },
+      {
+        "key": "feedback-readonly",
+        "section": "ADM-11",
+        "ru": "2960:60503",
+        "en": "2960:182805",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-60503",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-182805"
+      },
+      {
+        "key": "feedback-no-access",
+        "section": "ADM-11",
+        "ru": "2960:60829",
+        "en": "2960:183131",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-60829",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-183131"
+      }
+    ],
+    "previousStatus": "отсутствует",
+    "closedIn": "notifications-feedback-2026-10-16",
+    "validationNote": "Покрытие проверенными макетами и документацией; не реализация и не полная ручная приёмка."
   },
   {
     "id": "F02",
     "area": "ADM-11",
     "requirement": "Классификация, назначение, статус и связь с обращением/инцидентом",
-    "status": "отсутствует",
-    "keys": [],
-    "gap": "Нет процесса обработки отзыва с сохранением оригинала и связей.",
-    "priority": "P1",
+    "status": "готово",
+    "keys": [
+      "feedback-edit",
+      "feedback-invalid",
+      "feedback-updated",
+      "feedback-conflict",
+      "feedback-link-review",
+      "feedback-linked",
+      "feedback-resolved"
+    ],
+    "gap": "",
+    "priority": "—",
     "source": "118",
-    "evidence": []
+    "evidence": [
+      {
+        "key": "feedback-edit",
+        "section": "ADM-11",
+        "ru": "2960:57405",
+        "en": "2960:179709",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-57405",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-179709"
+      },
+      {
+        "key": "feedback-invalid",
+        "section": "ADM-11",
+        "ru": "2960:57825",
+        "en": "2960:180129",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-57825",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-180129"
+      },
+      {
+        "key": "feedback-updated",
+        "section": "ADM-11",
+        "ru": "2960:58197",
+        "en": "2960:180499",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-58197",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-180499"
+      },
+      {
+        "key": "feedback-conflict",
+        "section": "ADM-11",
+        "ru": "2960:58543",
+        "en": "2960:180845",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-58543",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-180845"
+      },
+      {
+        "key": "feedback-link-review",
+        "section": "ADM-11",
+        "ru": "2960:59517",
+        "en": "2960:181819",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-59517",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-181819"
+      },
+      {
+        "key": "feedback-linked",
+        "section": "ADM-11",
+        "ru": "2960:59851",
+        "en": "2960:182153",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-59851",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-182153"
+      },
+      {
+        "key": "feedback-resolved",
+        "section": "ADM-11",
+        "ru": "2960:60181",
+        "en": "2960:182483",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-60181",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-182483"
+      }
+    ],
+    "previousStatus": "отсутствует",
+    "closedIn": "notifications-feedback-2026-10-16",
+    "validationNote": "Покрытие проверенными макетами и документацией; не реализация и не полная ручная приёмка."
   },
   {
     "id": "F03",
     "area": "ADM-11",
     "requirement": "Отзыв без контекста и похожие/повторные отзывы",
-    "status": "отсутствует",
-    "keys": [],
-    "gap": "Нет соответствующих состояний.",
-    "priority": "P2",
+    "status": "готово",
+    "keys": [
+      "feedback-no-context",
+      "feedback-similar"
+    ],
+    "gap": "",
+    "priority": "—",
     "source": "118",
-    "evidence": []
+    "evidence": [
+      {
+        "key": "feedback-no-context",
+        "section": "ADM-11",
+        "ru": "2960:58865",
+        "en": "2960:181167",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-58865",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-181167"
+      },
+      {
+        "key": "feedback-similar",
+        "section": "ADM-11",
+        "ru": "2960:59191",
+        "en": "2960:181493",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-59191",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-181493"
+      }
+    ],
+    "previousStatus": "отсутствует",
+    "closedIn": "notifications-feedback-2026-10-16",
+    "validationNote": "Покрытие проверенными макетами и документацией; не реализация и не полная ручная приёмка."
   },
   {
     "id": "A01",

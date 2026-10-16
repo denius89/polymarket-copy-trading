@@ -1,0 +1,1982 @@
+[
+  {
+    "key": "notifications",
+    "section": "ADM-10",
+    "num": "10.01",
+    "paras": [
+      {
+        "text": "10.01 — Операционные уведомления\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 93578
+      },
+      {
+        "text": "Назначение: Операционные и защитные сообщения. Доставка не равна прочтению; здесь нет массовых рассылок. Все записи и подтверждения учебные.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 93611
+      },
+      {
+        "text": "На экране: NOT-DEMO-01A · новые реквизиты — Владелец A · аварийная админка (16.10 12:00 UTC · доступно; отметки прочтения нет); NOT-DEMO-01B · то же событие — Владелец B · аварийная админка (16.10 12:00 UTC · доступно; прочтение неизвестно); NOT-DEMO-02 · пауза копирования — U-DEMO-001 · в приложении (16.10 12:01 UTC · результат доставки неизвестен); NOT-DEMO-03 · защитное событие — Владелец A · email (Канал не подключён; попытки нет).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 93752
+      },
+      {
+        "text": "Что проверить: Фильтры; Открыть NOT-DEMO-01A; Неизвестная доставка; Неподключённый канал. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 94183
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2954-166821&starting-point-node-id=2954-166821&scaling=scale-down"
+          }
+        ],
+        "startIndex": 94367
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2956-53051&starting-point-node-id=2956-53051&scaling=scale-down"
+          }
+        ],
+        "startIndex": 94379
+      }
+    ]
+  },
+  {
+    "key": "notification-filters",
+    "section": "ADM-10",
+    "num": "10.02",
+    "paras": [
+      {
+        "text": "10.02 — Уведомления · фильтры\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 94391
+      },
+      {
+        "text": "Назначение: Операционные и защитные сообщения. Доставка не равна прочтению; здесь нет массовых рассылок. Все записи и подтверждения учебные.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 94421
+      },
+      {
+        "text": "На экране: Пример выборки — Защитное событие · аварийная админка (При возврате сохраняются фильтры и положение).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 94562
+      },
+      {
+        "text": "Что проверить: Применить пример; Пример без совпадений; Сбросить. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 94675
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2954-167369&starting-point-node-id=2954-167369&scaling=scale-down"
+          }
+        ],
+        "startIndex": 94835
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2956-53555&starting-point-node-id=2956-53555&scaling=scale-down"
+          }
+        ],
+        "startIndex": 94847
+      }
+    ]
+  },
+  {
+    "key": "notification-filtered",
+    "section": "ADM-10",
+    "num": "10.03",
+    "paras": [
+      {
+        "text": "10.03 — Уведомления · защитные события\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 94859
+      },
+      {
+        "text": "Назначение: Выборка: новые реквизиты · аварийная админка · 16 октября UTC · без площадки. Две записи соответствуют двум отдельным адресатам.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 94898
+      },
+      {
+        "text": "На экране: NOT-DEMO-01A · новые реквизиты — Владелец A · аварийная админка (16.10 12:00 UTC · доступно; отметки прочтения нет); NOT-DEMO-01B · то же событие — Владелец B · аварийная админка (16.10 12:00 UTC · доступно; прочтение неизвестно).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 95039
+      },
+      {
+        "text": "Что проверить: Открыть NOT-DEMO-01A; Изменить фильтры; Сбросить фильтры. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 95272
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2954-167805&starting-point-node-id=2954-167805&scaling=scale-down"
+          }
+        ],
+        "startIndex": 95439
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2956-53991&starting-point-node-id=2956-53991&scaling=scale-down"
+          }
+        ],
+        "startIndex": 95451
+      }
+    ]
+  },
+  {
+    "key": "notification-loading",
+    "section": "ADM-10",
+    "num": "10.04",
+    "paras": [
+      {
+        "text": "10.04 — Уведомления · загрузка\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 95463
+      },
+      {
+        "text": "Назначение: Запрашиваем записи. Счётчики ещё неизвестны; это не пустой список.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 95494
+      },
+      {
+        "text": "На экране: явное состояние с пояснением; содержимое недоступных записей не раскрывается.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 95573
+      },
+      {
+        "text": "Что проверить: Повторить чтение · демо. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 95662
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2954-168131&starting-point-node-id=2954-168131&scaling=scale-down"
+          }
+        ],
+        "startIndex": 95796
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2956-54317&starting-point-node-id=2956-54317&scaling=scale-down"
+          }
+        ],
+        "startIndex": 95808
+      }
+    ]
+  },
+  {
+    "key": "notification-empty",
+    "section": "ADM-10",
+    "num": "10.05",
+    "paras": [
+      {
+        "text": "10.05 — Уведомления · нет совпадений\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 95820
+      },
+      {
+        "text": "Назначение: По выбранным фильтрам нет записей. Данные успешно получены; фильтры сохранены.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 95857
+      },
+      {
+        "text": "На экране: явное состояние с пояснением; содержимое недоступных записей не раскрывается.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 95948
+      },
+      {
+        "text": "Что проверить: Изменить фильтры. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 96037
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2954-168400&starting-point-node-id=2954-168400&scaling=scale-down"
+          }
+        ],
+        "startIndex": 96164
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2956-54586&starting-point-node-id=2956-54586&scaling=scale-down"
+          }
+        ],
+        "startIndex": 96176
+      }
+    ]
+  },
+  {
+    "key": "notification-load-error",
+    "section": "ADM-10",
+    "num": "10.06",
+    "paras": [
+      {
+        "text": "10.06 — Уведомления · ошибка загрузки\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 96188
+      },
+      {
+        "text": "Назначение: Список не получен. Нельзя показывать ноль сообщений или устаревшие данные как свежие. Повтор проверяет список, не отправляет сообщения.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 96226
+      },
+      {
+        "text": "На экране: явное состояние с пояснением; содержимое недоступных записей не раскрывается.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 96374
+      },
+      {
+        "text": "Что проверить: Повторить чтение · демо. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 96463
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2954-168669&starting-point-node-id=2954-168669&scaling=scale-down"
+          }
+        ],
+        "startIndex": 96597
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2956-54855&starting-point-node-id=2956-54855&scaling=scale-down"
+          }
+        ],
+        "startIndex": 96609
+      }
+    ]
+  },
+  {
+    "key": "notification-detail",
+    "section": "ADM-10",
+    "num": "10.07",
+    "paras": [
+      {
+        "text": "10.07 — NOT-DEMO-01A · защитное уведомление\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 96621
+      },
+      {
+        "text": "Назначение: Операционные и защитные сообщения. Доставка не равна прочтению; здесь нет массовых рассылок. Все записи и подтверждения учебные.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 96665
+      },
+      {
+        "text": "На экране: Событие / область — EVT-REC-DEMO-01 · REC-DEMO v2 (Предложены реквизиты · финансовый контекст по правам); Уведомление / назначение — NOT-DEMO-01A · защитное (Текст не содержит ключи и полные реквизиты); Адресат / канал — Владелец A · аварийная админка (Для B отдельная NOT-DEMO-01B); Содержание — Предложена новая версия реквизитов. Проверьте её в защищённом разделе.; Доступность / доставка / прочтение — Доступно / подтверждено / нет отметки (AV-DEMO-01 / DL-DEMO-01; отметки прочтения нет); Время / версия записи — 16.10 12:00 UTC · v1 (Уведомление не подтверждает и не активирует реквизиты).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 96806
+      },
+      {
+        "text": "Что проверить: Попытки доставки; Отметить своё ознакомление · демо; Защитные события; Все уведомления; Связанные реквизиты · по правам. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 97414
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2954-168938&starting-point-node-id=2954-168938&scaling=scale-down"
+          }
+        ],
+        "startIndex": 97644
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2956-55124&starting-point-node-id=2956-55124&scaling=scale-down"
+          }
+        ],
+        "startIndex": 97656
+      }
+    ]
+  },
+  {
+    "key": "notification-attempts",
+    "section": "ADM-10",
+    "num": "10.08",
+    "paras": [
+      {
+        "text": "10.08 — NOT-DEMO-01A · попытки доставки\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 97668
+      },
+      {
+        "text": "Назначение: Попытка — отдельная запись доставки. Подтверждение сообщения не является подтверждением денежного действия.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 97708
+      },
+      {
+        "text": "На экране: ATT-DEMO-01 · 12:00:00 UTC — Записано в аварийную админку (DL-DEMO-01 · результат подтверждён); Ключ уникальности — EVT-REC-DEMO-01 / A / admin (Одинаковое событие не создаёт вторую запись адресату); Прочтение — Нет отметки (Не выводится из факта открытия админки).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 97828
+      },
+      {
+        "text": "Что проверить: Карточка уведомления; Другой пример · ошибка. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 98105
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2954-169284&starting-point-node-id=2954-169284&scaling=scale-down"
+          }
+        ],
+        "startIndex": 98260
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2956-55470&starting-point-node-id=2956-55470&scaling=scale-down"
+          }
+        ],
+        "startIndex": 98272
+      }
+    ]
+  },
+  {
+    "key": "notification-acknowledged",
+    "section": "ADM-10",
+    "num": "10.09",
+    "paras": [
+      {
+        "text": "10.09 — NOT-DEMO-01A · ознакомление отмечено\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 98284
+      },
+      {
+        "text": "Назначение: Отметка относится только к текущему владельцу A. Владелец B не отмечается автоматически. Аварийные ограничения и денежные согласия не меняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 98329
+      },
+      {
+        "text": "На экране: A / подтверждение — Прочитано · READ-DEMO-A · 12:03 UTC; B / отдельная запись — NOT-DEMO-01B · прочтение неизвестно; Ограничения / согласия — Без изменений.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 98485
+      },
+      {
+        "text": "Что проверить: К уведомлениям; Доставка и прочтение. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 98653
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2954-169610&starting-point-node-id=2954-169610&scaling=scale-down"
+          }
+        ],
+        "startIndex": 98800
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2956-55796&starting-point-node-id=2956-55796&scaling=scale-down"
+          }
+        ],
+        "startIndex": 98812
+      }
+    ]
+  },
+  {
+    "key": "notification-unknown",
+    "section": "ADM-10",
+    "num": "10.10",
+    "paras": [
+      {
+        "text": "10.10 — NOT-DEMO-02 · доставка неизвестна\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 98824
+      },
+      {
+        "text": "Назначение: Универсальной кнопки повторной отправки нет. Проверка читает результат прежней попытки и не создаёт новое сообщение.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 98866
+      },
+      {
+        "text": "На экране: Уведомление / событие — NOT-DEMO-02 · EVT-PAUSE-DEMO-02; Адресат / площадка — U-DEMO-001 · Polymarket · в приложении; Попытка / время — ATT-DEMO-02 · 16.10 12:01 UTC (Ответ после записи потерян; дубликат возможен); Доставка / прочтение — Результат неизвестен / неизвестно (Нет подтверждающих данных; не подставлять успех).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 98995
+      },
+      {
+        "text": "Что проверить: Проверить результат · демо; Все уведомления. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 99329
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2954-169936&starting-point-node-id=2954-169936&scaling=scale-down"
+          }
+        ],
+        "startIndex": 99483
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2956-56122&starting-point-node-id=2956-56122&scaling=scale-down"
+          }
+        ],
+        "startIndex": 99495
+      }
+    ]
+  },
+  {
+    "key": "notification-checked",
+    "section": "ADM-10",
+    "num": "10.11",
+    "paras": [
+      {
+        "text": "10.11 — NOT-DEMO-02 · проверка без нового результата\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 99507
+      },
+      {
+        "text": "Назначение: Чтение выполнено в 12:04 UTC; подтверждение не получено. Неизвестность сохраняется. Новая отправка не выполняется.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 99560
+      },
+      {
+        "text": "На экране: Уведомление / событие — NOT-DEMO-02 · EVT-PAUSE-DEMO-02; Адресат / площадка — U-DEMO-001 · Polymarket · в приложении; Попытка / время — ATT-DEMO-02 · 16.10 12:01 UTC (Ответ после записи потерян; дубликат возможен); Доставка / прочтение — Результат неизвестен / неизвестно (Нет подтверждающих данных; не подставлять успех).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 99687
+      },
+      {
+        "text": "Что проверить: Назад к записи; Все уведомления. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 100021
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2954-170266&starting-point-node-id=2954-170266&scaling=scale-down"
+          }
+        ],
+        "startIndex": 100163
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2956-56452&starting-point-node-id=2956-56452&scaling=scale-down"
+          }
+        ],
+        "startIndex": 100175
+      }
+    ]
+  },
+  {
+    "key": "notification-failed",
+    "section": "ADM-10",
+    "num": "10.12",
+    "paras": [
+      {
+        "text": "10.12 — Доставка · подтверждённая ошибка\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 100187
+      },
+      {
+        "text": "Назначение: Отдельный учебный исход ATT-DEMO-02: подтверждено, что запись сообщения не принята. Это не переход неизвестного результата в ошибку без доказательства.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 100228
+      },
+      {
+        "text": "На экране: Попытка / ошибка — ATT-DEMO-02 · FAIL-DEMO-02 (Проверка не нашла принятого сообщения); Доставка / прочтение — Не доставлено / отметки нет; Следующий шаг — Устранить причину по регламенту доставки (Нет массовой или бесконтрольной повторной отправки).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 100392
+      },
+      {
+        "text": "Что проверить: Все уведомления; Различия статусов. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 100653
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2954-170596&starting-point-node-id=2954-170596&scaling=scale-down"
+          }
+        ],
+        "startIndex": 100798
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2956-56782&starting-point-node-id=2956-56782&scaling=scale-down"
+          }
+        ],
+        "startIndex": 100810
+      }
+    ]
+  },
+  {
+    "key": "notification-channel-off",
+    "section": "ADM-10",
+    "num": "10.13",
+    "paras": [
+      {
+        "text": "10.13 — NOT-DEMO-03 · канал не подключён\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 100822
+      },
+      {
+        "text": "Назначение: Защитный email-канал ещё не подключён. Сообщение не выдаётся за отправленное или доставленное. Внешние защитные уведомления отделены от маркетинговых рассылок.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 100863
+      },
+      {
+        "text": "На экране: Канал / адресат — Email · владелец A (Адрес получателя скрыт по текущим правам); Попытки / доставка — 0 / отправка не начиналась (Недоступность канала не является ошибкой выполненной попытки); Изменение подключения — В настройках интеграции по отдельному праву (Просмотр уведомлений не даёт менять получателей или ключи).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 101035
+      },
+      {
+        "text": "Что проверить: Все уведомления. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 101368
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2954-170922&starting-point-node-id=2954-170922&scaling=scale-down"
+          }
+        ],
+        "startIndex": 101494
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2956-57108&starting-point-node-id=2956-57108&scaling=scale-down"
+          }
+        ],
+        "startIndex": 101506
+      }
+    ]
+  },
+  {
+    "key": "notification-facts",
+    "section": "ADM-10",
+    "num": "10.14",
+    "paras": [
+      {
+        "text": "10.14 — Доступно, доставлено и прочитано\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 101518
+      },
+      {
+        "text": "Назначение: Учебная запись NOT-FACT-DEMO. Каждый факт требует своих подтверждающих данных; отсутствие данных означает неизвестность, не отрицательный или успешный результат.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 101559
+      },
+      {
+        "text": "На экране: Создано — 16.10 12:00:00 UTC · EVT-FACT-DEMO (Ещё не означает доступность адресату); Доступно в приложении — 12:00:01 · AV-FACT-DEMO (Подтверждена запись в разрешённый раздел); Доставлено клиенту — 12:00:04 · DL-FACT-DEMO (Подтверждено получение клиентом; не чтение); Прочитано — 12:02:00 · READ-FACT-DEMO (Явная отметка пользователя; не просто доставка).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 101733
+      },
+      {
+        "text": "Что проверить: К уведомлениям. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 102100
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2954-171244&starting-point-node-id=2954-171244&scaling=scale-down"
+          }
+        ],
+        "startIndex": 102225
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2956-57430&starting-point-node-id=2956-57430&scaling=scale-down"
+          }
+        ],
+        "startIndex": 102237
+      }
+    ]
+  },
+  {
+    "key": "notification-readonly",
+    "section": "ADM-10",
+    "num": "10.15",
+    "paras": [
+      {
+        "text": "10.15 — Уведомления · только просмотр\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 102249
+      },
+      {
+        "text": "Назначение: Просмотр разрешённых записей и результата доставки. Право просмотра не разрешает менять подключения, адресатов, правила или отметку прочтения другого сотрудника.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 102287
+      },
+      {
+        "text": "На экране: NOT-DEMO-01A · новые реквизиты — Владелец A · аварийная админка (16.10 12:00 UTC · доступно; отметки прочтения нет).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 102461
+      },
+      {
+        "text": "Что проверить: Пример записи · только просмотр; Нет доступа · пример. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 102580
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2954-171570&starting-point-node-id=2954-171570&scaling=scale-down"
+          }
+        ],
+        "startIndex": 102744
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2956-57756&starting-point-node-id=2956-57756&scaling=scale-down"
+          }
+        ],
+        "startIndex": 102756
+      }
+    ]
+  },
+  {
+    "key": "notification-no-access",
+    "section": "ADM-10",
+    "num": "10.16",
+    "paras": [
+      {
+        "text": "10.16 — Уведомления · нет доступа\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 102768
+      },
+      {
+        "text": "Назначение: Нет права просмотра этого раздела или записи. Чужие адресаты и содержимое не раскрываются. Прямая ссылка не расширяет доступ.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 102802
+      },
+      {
+        "text": "На экране: явное состояние с пояснением; содержимое недоступных записей не раскрывается.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 102940
+      },
+      {
+        "text": "Что проверить: Обзор. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 103029
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2954-171888&starting-point-node-id=2954-171888&scaling=scale-down"
+          }
+        ],
+        "startIndex": 103145
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2956-58074&starting-point-node-id=2956-58074&scaling=scale-down"
+          }
+        ],
+        "startIndex": 103157
+      }
+    ]
+  },
+  {
+    "key": "notification-detail-b",
+    "section": "ADM-10",
+    "num": "10.17",
+    "paras": [
+      {
+        "text": "10.17 — NOT-DEMO-01B · другой адресат\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 103169
+      },
+      {
+        "text": "Назначение: Просмотр записи владельца B по разрешённой области. Владелец A не может отметить ознакомление за B. Данные и подтверждения учебные.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 103207
+      },
+      {
+        "text": "На экране: Уведомление / событие — NOT-DEMO-01B · EVT-REC-DEMO-01; Адресат / канал — Владелец B · аварийная админка; Доставка / прочтение — Доступно; доставка подтверждена / неизвестно (Нет отметки B; чтение A не меняет состояние B).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 103351
+      },
+      {
+        "text": "Что проверить: Назад к выборке; Все уведомления. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 103585
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2954-172157&starting-point-node-id=2954-172157&scaling=scale-down"
+          }
+        ],
+        "startIndex": 103728
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2956-58343&starting-point-node-id=2956-58343&scaling=scale-down"
+          }
+        ],
+        "startIndex": 103740
+      }
+    ]
+  },
+  {
+    "key": "feedback",
+    "section": "ADM-11",
+    "num": "11.01",
+    "paras": [
+      {
+        "text": "11.01 — Обратная связь\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 103882
+      },
+      {
+        "text": "Назначение: Исходный отзыв сохраняется отдельно от его обработки. Это не автоматически созданное обращение поддержки. Все данные учебные.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 103905
+      },
+      {
+        "text": "На экране: FB-DEMO-01 · почему нет покупки — Новое · не назначено (16.10 12:00 UTC · USR-1007 · Polymarket); FB-DEMO-02 · похожий вопрос — В работе · Нора Азиз (16.10 12:05 UTC · другой пользователь); FB-DEMO-03 · идея для интерфейса — Новое · контекст не передан (16.10 12:07 UTC · отправитель неизвестен).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 104043
+      },
+      {
+        "text": "Что проверить: Фильтры; Открыть FB-DEMO-01; Без контекста; Похожие отзывы. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 104351
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-55007&starting-point-node-id=2960-55007&scaling=scale-down"
+          }
+        ],
+        "startIndex": 104520
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-177403&starting-point-node-id=2960-177403&scaling=scale-down"
+          }
+        ],
+        "startIndex": 104532
+      }
+    ]
+  },
+  {
+    "key": "feedback-filters",
+    "section": "ADM-11",
+    "num": "11.02",
+    "paras": [
+      {
+        "text": "11.02 — Обратная связь · фильтры\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 104544
+      },
+      {
+        "text": "Назначение: Исходный отзыв сохраняется отдельно от его обработки. Это не автоматически созданное обращение поддержки. Все данные учебные.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 104577
+      },
+      {
+        "text": "На экране: явное состояние с пояснением; содержимое недоступных записей не раскрывается.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 104715
+      },
+      {
+        "text": "Что проверить: Применить пример; Нет совпадений · пример; Сбросить фильтры. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 104804
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-55551&starting-point-node-id=2960-55551&scaling=scale-down"
+          }
+        ],
+        "startIndex": 104974
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-177855&starting-point-node-id=2960-177855&scaling=scale-down"
+          }
+        ],
+        "startIndex": 104986
+      }
+    ]
+  },
+  {
+    "key": "feedback-filtered",
+    "section": "ADM-11",
+    "num": "11.03",
+    "paras": [
+      {
+        "text": "11.03 — Отзывы · новые и неразобранные\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 104998
+      },
+      {
+        "text": "Назначение: Категория: не разобрано; статус: новое; не назначено; 16 октября UTC. Выборка сохраняется отдельным подготовленным экраном.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 105037
+      },
+      {
+        "text": "На экране: FB-DEMO-01 · почему нет покупки — Новое · не назначено (16.10 12:00 UTC · USR-1007 · Polymarket).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 105173
+      },
+      {
+        "text": "Что проверить: Открыть FB-DEMO-01; Изменить фильтры; Сбросить. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 105282
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-55930&starting-point-node-id=2960-55930&scaling=scale-down"
+          }
+        ],
+        "startIndex": 105439
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-178234&starting-point-node-id=2960-178234&scaling=scale-down"
+          }
+        ],
+        "startIndex": 105451
+      }
+    ]
+  },
+  {
+    "key": "feedback-empty",
+    "section": "ADM-11",
+    "num": "11.04",
+    "paras": [
+      {
+        "text": "11.04 — Отзывы · нет совпадений\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 105463
+      },
+      {
+        "text": "Назначение: Данные получены, по текущим фильтрам отзывов нет. Фильтры не сброшены.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 105495
+      },
+      {
+        "text": "На экране: явное состояние с пояснением; содержимое недоступных записей не раскрывается.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 105578
+      },
+      {
+        "text": "Что проверить: Изменить фильтры. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 105667
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-56252&starting-point-node-id=2960-56252&scaling=scale-down"
+          }
+        ],
+        "startIndex": 105794
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-178556&starting-point-node-id=2960-178556&scaling=scale-down"
+          }
+        ],
+        "startIndex": 105806
+      }
+    ]
+  },
+  {
+    "key": "feedback-loading",
+    "section": "ADM-11",
+    "num": "11.05",
+    "paras": [
+      {
+        "text": "11.05 — Отзывы · загрузка\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 105818
+      },
+      {
+        "text": "Назначение: Получаем отзывы. Количество пока неизвестно; пустое состояние не показывается.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 105844
+      },
+      {
+        "text": "На экране: явное состояние с пояснением; содержимое недоступных записей не раскрывается.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 105935
+      },
+      {
+        "text": "Что проверить: Повторить чтение · демо. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 106024
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-56521&starting-point-node-id=2960-56521&scaling=scale-down"
+          }
+        ],
+        "startIndex": 106158
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-178825&starting-point-node-id=2960-178825&scaling=scale-down"
+          }
+        ],
+        "startIndex": 106170
+      }
+    ]
+  },
+  {
+    "key": "feedback-load-error",
+    "section": "ADM-11",
+    "num": "11.06",
+    "paras": [
+      {
+        "text": "11.06 — Отзывы · ошибка загрузки\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 106182
+      },
+      {
+        "text": "Назначение: Невозможно получить список. Ранее сохранённые отзывы не считаются удалёнными. Повтор читает данные, не создаёт новые отзывы.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 106215
+      },
+      {
+        "text": "На экране: явное состояние с пояснением; содержимое недоступных записей не раскрывается.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 106352
+      },
+      {
+        "text": "Что проверить: Повторить чтение · демо. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 106441
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-56790&starting-point-node-id=2960-56790&scaling=scale-down"
+          }
+        ],
+        "startIndex": 106575
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-179094&starting-point-node-id=2960-179094&scaling=scale-down"
+          }
+        ],
+        "startIndex": 106587
+      }
+    ]
+  },
+  {
+    "key": "feedback-detail",
+    "section": "ADM-11",
+    "num": "11.07",
+    "paras": [
+      {
+        "text": "11.07 — FB-DEMO-01 · исходный отзыв\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 106599
+      },
+      {
+        "text": "Назначение: Исходный отзыв сохраняется отдельно от его обработки. Это не автоматически созданное обращение поддержки. Все данные учебные.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 106635
+      },
+      {
+        "text": "На экране: Отзыв / версия обработки — FB-DEMO-01 · v3 (Исходный текст ORIGINAL-FB-01 неизменяем); Исходный текст · без правок — В демо покупка не появляется. Хочу понимать причину пропуска.; Происхождение / время — Форма обратной связи · 16.10 12:00 UTC (Язык RU; это содержание автора, не внутренний ответ); Пользователь / контекст — Амина Рахман · USR-1007 · Polymarket (S-CP-041 · paper / demo · экран активности); Категория / статус / сотрудник — Не разобрано / новое / не назначено (Изменения обработки журналируются отдельно); Связи / заметки — Связей нет · внутренних заметок нет (Отзыв не стал автоматически тикетом).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 106773
+      },
+      {
+        "text": "Что проверить: Классифицировать и назначить; Похожие отзывы; Новые и неразобранные; Все отзывы. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 107399
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-57059&starting-point-node-id=2960-57059&scaling=scale-down"
+          }
+        ],
+        "startIndex": 107589
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-179363&starting-point-node-id=2960-179363&scaling=scale-down"
+          }
+        ],
+        "startIndex": 107601
+      }
+    ]
+  },
+  {
+    "key": "feedback-edit",
+    "section": "ADM-11",
+    "num": "11.08",
+    "paras": [
+      {
+        "text": "11.08 — FB-DEMO-01 · обработка\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 107613
+      },
+      {
+        "text": "Назначение: Меняются только классификация, назначение, статус и внутренняя заметка. Исходный отзыв не редактируется. Владельца привлекать для обычной обработки не нужно.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 107644
+      },
+      {
+        "text": "На экране: Ожидаемая версия — v3 → v4 (Одновременная правка проверяется при сохранении); Видимость заметки — Только сотрудники с разрешением (Клиенту ничего не отправляется).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 107814
+      },
+      {
+        "text": "Что проверить: Сохранить обработку · демо; Ошибка поля · пример; Конфликт · пример; Отмена. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 107989
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-57405&starting-point-node-id=2960-57405&scaling=scale-down"
+          }
+        ],
+        "startIndex": 108175
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-179709&starting-point-node-id=2960-179709&scaling=scale-down"
+          }
+        ],
+        "startIndex": 108187
+      }
+    ]
+  },
+  {
+    "key": "feedback-invalid",
+    "section": "ADM-11",
+    "num": "11.09",
+    "paras": [
+      {
+        "text": "11.09 — Обработка отзыва · ошибка поля\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 108199
+      },
+      {
+        "text": "Назначение: Категория не выбрана. Изменения не сохранены; исходный отзыв и прежняя версия остаются без изменений.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 108238
+      },
+      {
+        "text": "На экране: явное состояние с пояснением; содержимое недоступных записей не раскрывается.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 108352
+      },
+      {
+        "text": "Что проверить: Исправить категорию; Карточка отзыва. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 108441
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-57825&starting-point-node-id=2960-57825&scaling=scale-down"
+          }
+        ],
+        "startIndex": 108588
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-180129&starting-point-node-id=2960-180129&scaling=scale-down"
+          }
+        ],
+        "startIndex": 108600
+      }
+    ]
+  },
+  {
+    "key": "feedback-updated",
+    "section": "ADM-11",
+    "num": "11.10",
+    "paras": [
+      {
+        "text": "11.10 — FB-DEMO-01 · назначен в работу\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 108612
+      },
+      {
+        "text": "Назначение: Исходный отзыв сохраняется отдельно от его обработки. Это не автоматически созданное обращение поддержки. Все данные учебные.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 108651
+      },
+      {
+        "text": "На экране: Отзыв / версия обработки — FB-DEMO-01 · v4 (Исходный текст ORIGINAL-FB-01 неизменяем); Исходный текст · без правок — В демо покупка не появляется. Хочу понимать причину пропуска.; Происхождение / время — Форма обратной связи · 16.10 12:00 UTC (Язык RU; это содержание автора, не внутренний ответ); Пользователь / контекст — Амина Рахман · USR-1007 · Polymarket (S-CP-041 · paper / demo · экран активности); Обработка / ответственный — Вопрос о копировании · в работе · Нора Азиз; Внутренняя заметка — Проверить объяснение пропуска в сессии (Только для сотрудников; не отправлено клиенту); История изменения — Нора Азиз · 16.10 12:10 UTC · v3 → v4 (Старое и новое значения сохраняются).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 108789
+      },
+      {
+        "text": "Что проверить: Связать с обращением; Завершить обработку · демо; Все отзывы. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 109486
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-58197&starting-point-node-id=2960-58197&scaling=scale-down"
+          }
+        ],
+        "startIndex": 109657
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-180499&starting-point-node-id=2960-180499&scaling=scale-down"
+          }
+        ],
+        "startIndex": 109669
+      }
+    ]
+  },
+  {
+    "key": "feedback-conflict",
+    "section": "ADM-11",
+    "num": "11.11",
+    "paras": [
+      {
+        "text": "11.11 — Отзыв изменён другим сотрудником\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 109681
+      },
+      {
+        "text": "Назначение: Пока открыта форма v3, другой сотрудник сохранил v4. Перезаписывать новые данные нельзя. Собственная заметка остаётся черновиком до повторной проверки.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 109722
+      },
+      {
+        "text": "На экране: Ожидалась / актуальна — v3 / v4 (Конфликт не меняет исходный отзыв); Сохранение — Не выполнено (Откройте актуальную карточку, сравните изменения).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 109886
+      },
+      {
+        "text": "Что проверить: Открыть актуальную версию; Все отзывы. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 110044
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-58543&starting-point-node-id=2960-58543&scaling=scale-down"
+          }
+        ],
+        "startIndex": 110192
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-180845&starting-point-node-id=2960-180845&scaling=scale-down"
+          }
+        ],
+        "startIndex": 110204
+      }
+    ]
+  },
+  {
+    "key": "feedback-no-context",
+    "section": "ADM-11",
+    "num": "11.12",
+    "paras": [
+      {
+        "text": "11.12 — FB-DEMO-03 · контекст не передан\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 110216
+      },
+      {
+        "text": "Назначение: Отзыв принят без пользователя, сессии или площадки. Сотрудник не восстанавливает личность по предположению. Исходный текст и неизвестные поля сохранены.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 110257
+      },
+      {
+        "text": "На экране: Исходный текст — I want an explanation next to the status.; Источник / язык / время — Форма отзыва · EN · 16.10 12:07 UTC (Показан оригинальный текст на EN; он не заменяется переводом); Пользователь / сессия / площадка — Не переданы / неизвестны (Нет ложных ссылок на чужой профиль или сессию); Допустимая обработка — Категория: идея интерфейса; очередь разбора (Не требуется автоматически создавать поддержку).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 110422
+      },
+      {
+        "text": "Что проверить: Все отзывы. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 110845
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-58865&starting-point-node-id=2960-58865&scaling=scale-down"
+          }
+        ],
+        "startIndex": 110966
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-181167&starting-point-node-id=2960-181167&scaling=scale-down"
+          }
+        ],
+        "startIndex": 110978
+      }
+    ]
+  },
+  {
+    "key": "feedback-similar",
+    "section": "ADM-11",
+    "num": "11.13",
+    "paras": [
+      {
+        "text": "11.13 — Похожие отзывы · без объединения исходников\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 110990
+      },
+      {
+        "text": "Назначение: Похожая тема не означает одну и ту же операцию или пользователя. FB-DEMO-01 и FB-DEMO-02 остаются отдельными записями, их тексты и история не удаляются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 111042
+      },
+      {
+        "text": "На экране: FB-DEMO-01 — USR-1007 · почему нет покупки (Оригинал ORIGINAL-FB-01 · v3); FB-DEMO-02 — Другой пользователь · похожая тема (Отдельные контекст, ответственный и статус); Связь похожести — Можно связать по теме по праву обработки (Не создаёт общего обращения или общей личности).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 111207
+      },
+      {
+        "text": "Что проверить: Открыть FB-DEMO-01; Все отзывы. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 111496
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-59191&starting-point-node-id=2960-59191&scaling=scale-down"
+          }
+        ],
+        "startIndex": 111637
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-181493&starting-point-node-id=2960-181493&scaling=scale-down"
+          }
+        ],
+        "startIndex": 111649
+      }
+    ]
+  },
+  {
+    "key": "feedback-link-review",
+    "section": "ADM-11",
+    "num": "11.14",
+    "paras": [
+      {
+        "text": "11.14 — FB-DEMO-01 · связь с поддержкой\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 111661
+      },
+      {
+        "text": "Назначение: Проверьте существующее обращение и совпадение разрешённого контекста. Создаётся только связь, не второе обращение и не ответ клиенту.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 111701
+      },
+      {
+        "text": "На экране: Исходный отзыв — FB-DEMO-01 · ORIGINAL-FB-01; Найденное обращение — TKT-1042 · пропускаются покупки (Амина Рахман · USR-1007); Сверка контекста — Polymarket · S-CP-041 · paper / demo (Пользователь и сессия совпадают в учебном примере); Права / повторная проверка — Просмотр обращения + обработка отзыва (Связь не расширяет доступ; повтор не создаёт дубль).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 111847
+      },
+      {
+        "text": "Что проверить: Сохранить связь · демо; Посмотреть TKT-1042; Отмена. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 112215
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-59517&starting-point-node-id=2960-59517&scaling=scale-down"
+          }
+        ],
+        "startIndex": 112377
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-181819&starting-point-node-id=2960-181819&scaling=scale-down"
+          }
+        ],
+        "startIndex": 112389
+      }
+    ]
+  },
+  {
+    "key": "feedback-linked",
+    "section": "ADM-11",
+    "num": "11.15",
+    "paras": [
+      {
+        "text": "11.15 — FB-DEMO-01 · обращение связано\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 112401
+      },
+      {
+        "text": "Назначение: Связь FB-DEMO-01 ↔ TKT-1042 сохранена как учебный результат. Оригинал отзыва, переписка поддержки и их статусы существуют отдельно. Нового обращения не создано.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 112440
+      },
+      {
+        "text": "На экране: Связь / основание — FB-DEMO-01 → TKT-1042 · совпадает контекст; Автор / время — Нора Азиз · 16.10 12:12 UTC (Новая версия обработки v5; текст отзыва прежний); Раздельные статусы — Отзыв: в работе; обращение: ожидает поддержку (Завершение отзыва не закрывает обращение).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 112613
+      },
+      {
+        "text": "Что проверить: Открыть TKT-1042; Завершить обработку · демо; Все отзывы. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 112894
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-59851&starting-point-node-id=2960-59851&scaling=scale-down"
+          }
+        ],
+        "startIndex": 113061
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-182153&starting-point-node-id=2960-182153&scaling=scale-down"
+          }
+        ],
+        "startIndex": 113073
+      }
+    ]
+  },
+  {
+    "key": "feedback-resolved",
+    "section": "ADM-11",
+    "num": "11.16",
+    "paras": [
+      {
+        "text": "11.16 — FB-DEMO-01 · обработка завершена\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 113085
+      },
+      {
+        "text": "Назначение: Статус означает завершение внутреннего разбора отзыва, а не устранение ошибки или закрытие поддержки. Ответ клиенту при необходимости отправляют в связанном обращении.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 113126
+      },
+      {
+        "text": "На экране: Статус / версия — Разобрано · новая версия обработки; Результат / автор — Классифицировано и передано в поддержку · Нора Азиз; Исходный отзыв / переписка — Оригинал сохранён; сообщения не отправлялись (Связи сохраняются, если были созданы ранее).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 113306
+      },
+      {
+        "text": "Что проверить: Все отзывы. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 113564
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-60181&starting-point-node-id=2960-60181&scaling=scale-down"
+          }
+        ],
+        "startIndex": 113685
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-182483&starting-point-node-id=2960-182483&scaling=scale-down"
+          }
+        ],
+        "startIndex": 113697
+      }
+    ]
+  },
+  {
+    "key": "feedback-readonly",
+    "section": "ADM-11",
+    "num": "11.17",
+    "paras": [
+      {
+        "text": "11.17 — Обратная связь · только просмотр\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 113709
+      },
+      {
+        "text": "Назначение: Разрешённый текст и история доступны для просмотра. Классификация, назначение, заметки и связи требуют отдельного права обработки; кнопок изменения нет.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 113750
+      },
+      {
+        "text": "На экране: Отзыв / версия обработки — FB-DEMO-01 · v3 (Исходный текст ORIGINAL-FB-01 неизменяем); Исходный текст · без правок — В демо покупка не появляется. Хочу понимать причину пропуска.; Происхождение / время — Форма обратной связи · 16.10 12:00 UTC (Язык RU; это содержание автора, не внутренний ответ); Пользователь / контекст — Амина Рахман · USR-1007 · Polymarket (S-CP-041 · paper / demo · экран активности).\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 113915
+      },
+      {
+        "text": "Что проверить: Обзор. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 114333
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-60503&starting-point-node-id=2960-60503&scaling=scale-down"
+          }
+        ],
+        "startIndex": 114449
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-182805&starting-point-node-id=2960-182805&scaling=scale-down"
+          }
+        ],
+        "startIndex": 114461
+      }
+    ]
+  },
+  {
+    "key": "feedback-no-access",
+    "section": "ADM-11",
+    "num": "11.18",
+    "paras": [
+      {
+        "text": "11.18 — Обратная связь · нет доступа\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 114473
+      },
+      {
+        "text": "Назначение: Нет права просмотра отзыва. Текст, пользователь и связанные записи не раскрываются; прямая ссылка не расширяет доступ.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 114510
+      },
+      {
+        "text": "На экране: явное состояние с пояснением; содержимое недоступных записей не раскрывается.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 114641
+      },
+      {
+        "text": "Что проверить: Обзор. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 114730
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-60829&starting-point-node-id=2960-60829&scaling=scale-down"
+          }
+        ],
+        "startIndex": 114846
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-183131&starting-point-node-id=2960-183131&scaling=scale-down"
+          }
+        ],
+        "startIndex": 114858
+      }
+    ]
+  },
+  {
+    "key": "feedback-tech-blocked",
+    "section": "ADM-11",
+    "num": "11.19",
+    "paras": [
+      {
+        "text": "11.19 — Обратная связь · технический режим\n",
+        "style": "HEADING_2",
+        "links": [],
+        "startIndex": 114870
+      },
+      {
+        "text": "Назначение: Работает только аварийная часть админки. Продуктовая обработка отзывов недоступна; новые изменения не выполняются. Аварийные уведомления и журнал работают отдельно.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 114913
+      },
+      {
+        "text": "На экране: явное состояние с пояснением; содержимое недоступных записей не раскрывается.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 115090
+      },
+      {
+        "text": "Что проверить: Аварийное управление. Поля и исходы подготовлены; свободный ввод, фактическое сохранение и отправка не выполняются.\n",
+        "style": "NORMAL_TEXT",
+        "links": [],
+        "startIndex": 115179
+      },
+      {
+        "text": "Прототип RU\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-61098&starting-point-node-id=2960-61098&scaling=scale-down"
+          }
+        ],
+        "startIndex": 115310
+      },
+      {
+        "text": "Прототип EN\n",
+        "style": "NORMAL_TEXT",
+        "links": [
+          {
+            "start": 0,
+            "end": 11,
+            "url": "https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=2960-183400&starting-point-node-id=2960-183400&scaling=scale-down"
+          }
+        ],
+        "startIndex": 115322
+      }
+    ]
+  }
+]

@@ -1,3 +1,7 @@
+# Текущий набор компонентов · 0.4.21
+
+16.10.2026: 28 наборов /168 вариантов. Обновлена навигация двух новых разделов без новых вариантов или токенов. [Последний пакет](../notifications-feedback-2026-10-16/README.md) · [реестр](registry.json). Далее сохранено описание прежних витрин и история обновлений.
+
 # Admin Apps Components · v0.4.17
 
 Updated 13.10.2026. Design only. Native editable Figma component sets, variants and instances; no application implementation.

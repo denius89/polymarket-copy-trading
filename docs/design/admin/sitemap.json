@@ -1,5 +1,5 @@
 {
-  "revision": "0.17",
+  "revision": "0.18",
   "updatedAt": "2026-10-16",
   "purpose": "Living design sitemap; not a production capability inventory or final design acceptance.",
   "figma": {
@@ -14,8 +14,8 @@
     "current Figma RU/EN root frame inventory"
   ],
   "counts": {
-    "ru": 522,
-    "en": 522
+    "ru": 558,
+    "en": 558
   },
   "sections": [
     {
@@ -2355,19 +2355,419 @@
       "id": "ADM-10",
       "title": "Уведомления",
       "group": "Коммуникации",
-      "description": "Операционные сообщения, попытки доставки и результат.",
-      "screens": [],
-      "status": "Запланировано",
-      "mapNodeId": "2105:5833"
+      "description": "Операционные и защитные сообщения: фильтры, карточка, попытки, отдельные факты доставки и прочтения, неизвестность и права.",
+      "screens": [
+        {
+          "key": "notifications",
+          "id": "2954:166821",
+          "title": "Операционные уведомления",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-166821",
+          "english": {
+            "id": "2956:53051",
+            "title": "EN · notifications · Operational notifications",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-53051"
+          }
+        },
+        {
+          "key": "notification-filters",
+          "id": "2954:167369",
+          "title": "Уведомления · фильтры",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-167369",
+          "english": {
+            "id": "2956:53555",
+            "title": "EN · notification-filters · Notifications · filters",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-53555"
+          }
+        },
+        {
+          "key": "notification-filtered",
+          "id": "2954:167805",
+          "title": "Уведомления · защитные события",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-167805",
+          "english": {
+            "id": "2956:53991",
+            "title": "EN · notification-filtered · Notifications · security events",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-53991"
+          }
+        },
+        {
+          "key": "notification-loading",
+          "id": "2954:168131",
+          "title": "Уведомления · загрузка",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-168131",
+          "english": {
+            "id": "2956:54317",
+            "title": "EN · notification-loading · Notifications · loading",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-54317"
+          }
+        },
+        {
+          "key": "notification-empty",
+          "id": "2954:168400",
+          "title": "Уведомления · нет совпадений",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-168400",
+          "english": {
+            "id": "2956:54586",
+            "title": "EN · notification-empty · Notifications · no matches",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-54586"
+          }
+        },
+        {
+          "key": "notification-load-error",
+          "id": "2954:168669",
+          "title": "Уведомления · ошибка загрузки",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-168669",
+          "english": {
+            "id": "2956:54855",
+            "title": "EN · notification-load-error · Notifications · load error",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-54855"
+          }
+        },
+        {
+          "key": "notification-detail",
+          "id": "2954:168938",
+          "title": "NOT-DEMO-01A · защитное уведомление",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-168938",
+          "english": {
+            "id": "2956:55124",
+            "title": "EN · notification-detail · NOT-DEMO-01A · security notification",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-55124"
+          }
+        },
+        {
+          "key": "notification-attempts",
+          "id": "2954:169284",
+          "title": "NOT-DEMO-01A · попытки доставки",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-169284",
+          "english": {
+            "id": "2956:55470",
+            "title": "EN · notification-attempts · NOT-DEMO-01A · delivery attempts",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-55470"
+          }
+        },
+        {
+          "key": "notification-acknowledged",
+          "id": "2954:169610",
+          "title": "NOT-DEMO-01A · ознакомление отмечено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-169610",
+          "english": {
+            "id": "2956:55796",
+            "title": "EN · notification-acknowledged · NOT-DEMO-01A · acknowledged",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-55796"
+          }
+        },
+        {
+          "key": "notification-unknown",
+          "id": "2954:169936",
+          "title": "NOT-DEMO-02 · доставка неизвестна",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-169936",
+          "english": {
+            "id": "2956:56122",
+            "title": "EN · notification-unknown · NOT-DEMO-02 · delivery unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-56122"
+          }
+        },
+        {
+          "key": "notification-checked",
+          "id": "2954:170266",
+          "title": "NOT-DEMO-02 · проверка без нового результата",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-170266",
+          "english": {
+            "id": "2956:56452",
+            "title": "EN · notification-checked · NOT-DEMO-02 · checked, still unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-56452"
+          }
+        },
+        {
+          "key": "notification-failed",
+          "id": "2954:170596",
+          "title": "Доставка · подтверждённая ошибка",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-170596",
+          "english": {
+            "id": "2956:56782",
+            "title": "EN · notification-failed · Delivery · confirmed failure",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-56782"
+          }
+        },
+        {
+          "key": "notification-channel-off",
+          "id": "2954:170922",
+          "title": "NOT-DEMO-03 · канал не подключён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-170922",
+          "english": {
+            "id": "2956:57108",
+            "title": "EN · notification-channel-off · NOT-DEMO-03 · channel not connected",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-57108"
+          }
+        },
+        {
+          "key": "notification-facts",
+          "id": "2954:171244",
+          "title": "Доступно, доставлено и прочитано",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-171244",
+          "english": {
+            "id": "2956:57430",
+            "title": "EN · notification-facts · Available, delivered and read",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-57430"
+          }
+        },
+        {
+          "key": "notification-readonly",
+          "id": "2954:171570",
+          "title": "Уведомления · только просмотр",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-171570",
+          "english": {
+            "id": "2956:57756",
+            "title": "EN · notification-readonly · Notifications · read only",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-57756"
+          }
+        },
+        {
+          "key": "notification-no-access",
+          "id": "2954:171888",
+          "title": "Уведомления · нет доступа",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-171888",
+          "english": {
+            "id": "2956:58074",
+            "title": "EN · notification-no-access · Notifications · access denied",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-58074"
+          }
+        },
+        {
+          "key": "notification-detail-b",
+          "id": "2954:172157",
+          "title": "NOT-DEMO-01B · другой адресат",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-172157",
+          "english": {
+            "id": "2956:58343",
+            "title": "EN · notification-detail-b · NOT-DEMO-01B · another recipient",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-58343"
+          }
+        }
+      ],
+      "status": "Макеты на вычитке",
+      "mapNodeId": "2105:5833",
+      "navigationGroup": "Управление"
     },
     {
       "id": "ADM-11",
       "title": "Обратная связь",
       "group": "Коммуникации",
-      "description": "Список, карточка и обработка обратной связи.",
-      "screens": [],
-      "status": "Запланировано",
-      "mapNodeId": "2105:5837"
+      "description": "Исходный отзыв, классификация, назначение, заметки, история и связь с поддержкой. Без контекста и похожие отзывы сохранены отдельно.",
+      "screens": [
+        {
+          "key": "feedback",
+          "id": "2960:55007",
+          "title": "Обратная связь",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-55007",
+          "english": {
+            "id": "2960:177403",
+            "title": "EN · feedback · Feedback",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-177403"
+          }
+        },
+        {
+          "key": "feedback-filters",
+          "id": "2960:55551",
+          "title": "Обратная связь · фильтры",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-55551",
+          "english": {
+            "id": "2960:177855",
+            "title": "EN · feedback-filters · Feedback · filters",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-177855"
+          }
+        },
+        {
+          "key": "feedback-filtered",
+          "id": "2960:55930",
+          "title": "Отзывы · новые и неразобранные",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-55930",
+          "english": {
+            "id": "2960:178234",
+            "title": "EN · feedback-filtered · Feedback · new and unclassified",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-178234"
+          }
+        },
+        {
+          "key": "feedback-empty",
+          "id": "2960:56252",
+          "title": "Отзывы · нет совпадений",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-56252",
+          "english": {
+            "id": "2960:178556",
+            "title": "EN · feedback-empty · Feedback · no matches",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-178556"
+          }
+        },
+        {
+          "key": "feedback-loading",
+          "id": "2960:56521",
+          "title": "Отзывы · загрузка",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-56521",
+          "english": {
+            "id": "2960:178825",
+            "title": "EN · feedback-loading · Feedback · loading",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-178825"
+          }
+        },
+        {
+          "key": "feedback-load-error",
+          "id": "2960:56790",
+          "title": "Отзывы · ошибка загрузки",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-56790",
+          "english": {
+            "id": "2960:179094",
+            "title": "EN · feedback-load-error · Feedback · load error",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-179094"
+          }
+        },
+        {
+          "key": "feedback-detail",
+          "id": "2960:57059",
+          "title": "FB-DEMO-01 · исходный отзыв",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-57059",
+          "english": {
+            "id": "2960:179363",
+            "title": "EN · feedback-detail · FB-DEMO-01 · original feedback",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-179363"
+          }
+        },
+        {
+          "key": "feedback-edit",
+          "id": "2960:57405",
+          "title": "FB-DEMO-01 · обработка",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-57405",
+          "english": {
+            "id": "2960:179709",
+            "title": "EN · feedback-edit · FB-DEMO-01 · processing",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-179709"
+          }
+        },
+        {
+          "key": "feedback-invalid",
+          "id": "2960:57825",
+          "title": "Обработка отзыва · ошибка поля",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-57825",
+          "english": {
+            "id": "2960:180129",
+            "title": "EN · feedback-invalid · Feedback processing · field error",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-180129"
+          }
+        },
+        {
+          "key": "feedback-updated",
+          "id": "2960:58197",
+          "title": "FB-DEMO-01 · назначен в работу",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-58197",
+          "english": {
+            "id": "2960:180499",
+            "title": "EN · feedback-updated · FB-DEMO-01 · assigned",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-180499"
+          }
+        },
+        {
+          "key": "feedback-conflict",
+          "id": "2960:58543",
+          "title": "Отзыв изменён другим сотрудником",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-58543",
+          "english": {
+            "id": "2960:180845",
+            "title": "EN · feedback-conflict · Feedback changed by another staff member",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-180845"
+          }
+        },
+        {
+          "key": "feedback-no-context",
+          "id": "2960:58865",
+          "title": "FB-DEMO-03 · контекст не передан",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-58865",
+          "english": {
+            "id": "2960:181167",
+            "title": "EN · feedback-no-context · FB-DEMO-03 · no context",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-181167"
+          }
+        },
+        {
+          "key": "feedback-similar",
+          "id": "2960:59191",
+          "title": "Похожие отзывы · без объединения исходников",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-59191",
+          "english": {
+            "id": "2960:181493",
+            "title": "EN · feedback-similar · Similar feedback · originals preserved",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-181493"
+          }
+        },
+        {
+          "key": "feedback-link-review",
+          "id": "2960:59517",
+          "title": "FB-DEMO-01 · связь с поддержкой",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-59517",
+          "english": {
+            "id": "2960:181819",
+            "title": "EN · feedback-link-review · FB-DEMO-01 · link to support",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-181819"
+          }
+        },
+        {
+          "key": "feedback-linked",
+          "id": "2960:59851",
+          "title": "FB-DEMO-01 · обращение связано",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-59851",
+          "english": {
+            "id": "2960:182153",
+            "title": "EN · feedback-linked · FB-DEMO-01 · ticket linked",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-182153"
+          }
+        },
+        {
+          "key": "feedback-resolved",
+          "id": "2960:60181",
+          "title": "FB-DEMO-01 · обработка завершена",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-60181",
+          "english": {
+            "id": "2960:182483",
+            "title": "EN · feedback-resolved · FB-DEMO-01 · processing completed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-182483"
+          }
+        },
+        {
+          "key": "feedback-readonly",
+          "id": "2960:60503",
+          "title": "Обратная связь · только просмотр",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-60503",
+          "english": {
+            "id": "2960:182805",
+            "title": "EN · feedback-readonly · Feedback · read only",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-182805"
+          }
+        },
+        {
+          "key": "feedback-no-access",
+          "id": "2960:60829",
+          "title": "Обратная связь · нет доступа",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-60829",
+          "english": {
+            "id": "2960:183131",
+            "title": "EN · feedback-no-access · Feedback · access denied",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-183131"
+          }
+        },
+        {
+          "key": "feedback-tech-blocked",
+          "id": "2960:61098",
+          "title": "Обратная связь · технический режим",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-61098",
+          "english": {
+            "id": "2960:183400",
+            "title": "EN · feedback-tech-blocked · Feedback · technical mode",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-183400"
+          }
+        }
+      ],
+      "status": "Макеты на вычитке",
+      "mapNodeId": "2105:5837",
+      "navigationGroup": "Управление"
     },
     {
       "id": "ADM-12",

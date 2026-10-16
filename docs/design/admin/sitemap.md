@@ -1,6 +1,6 @@
 # Живая карта админки
 
-Текущий срез 16.10.2026: **522 RU +522 EN корневых макета**, из них 517 основных состояний и 5 технических оболочек на язык. Карта 0.17, набор компонентов 0.4.20 (28 наборов /168 вариантов). [Партнёрские правила, тарифы и VIP](partner-rules-tariffs-vip-2026-10-16/README.md). Ниже — исторический журнал; он не заменяет текущий реестр.
+Текущий срез 16.10.2026: **558 RU +558 EN корневых макетов**, из них 553 основных состояния и 5 технических оболочек на язык. Карта 0.18, UI kit 0.4.21 (28 наборов /168 вариантов). [Уведомления и обратная связь](notifications-feedback-2026-10-16/README.md). Ниже — исторический журнал.
 
 13.10.2026 · ревизия 0.7: 295 RU + 295 EN, включая по три меню аватара для viewport прототипа. Личный аккаунт пересобран как обзор и отдельные страницы. [Паттерн, узлы и QA](account-hub-2026-10-13/README.md).
 
@@ -472,3 +472,45 @@ Revision 0.11: 425 RU +425 EN root frames. [Пакет 10](package-10/README.md)
 - 02.18 · [Пользовательский VIP · срок завершён](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-170820) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-176590)
 - 02.19 · [Пользовательский VIP · прекращение](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-171129) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-176899)
 - 02.20 · [Пользовательский VIP · прекращён](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-171438) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-177208)
+
+
+## Уведомления и обратная связь · 16.10.2026
+
+Карта группирует функции по назначению; в боковом меню новые разделы находятся в «Управлении».
+
+- 10.01 · [Операционные уведомления](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-166821) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-53051)
+- 10.02 · [Уведомления · фильтры](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-167369) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-53555)
+- 10.03 · [Уведомления · защитные события](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-167805) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-53991)
+- 10.04 · [Уведомления · загрузка](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-168131) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-54317)
+- 10.05 · [Уведомления · нет совпадений](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-168400) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-54586)
+- 10.06 · [Уведомления · ошибка загрузки](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-168669) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-54855)
+- 10.07 · [NOT-DEMO-01A · защитное уведомление](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-168938) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-55124)
+- 10.08 · [NOT-DEMO-01A · попытки доставки](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-169284) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-55470)
+- 10.09 · [NOT-DEMO-01A · ознакомление отмечено](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-169610) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-55796)
+- 10.10 · [NOT-DEMO-02 · доставка неизвестна](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-169936) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-56122)
+- 10.11 · [NOT-DEMO-02 · проверка без нового результата](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-170266) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-56452)
+- 10.12 · [Доставка · подтверждённая ошибка](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-170596) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-56782)
+- 10.13 · [NOT-DEMO-03 · канал не подключён](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-170922) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-57108)
+- 10.14 · [Доступно, доставлено и прочитано](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-171244) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-57430)
+- 10.15 · [Уведомления · только просмотр](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-171570) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-57756)
+- 10.16 · [Уведомления · нет доступа](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-171888) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-58074)
+- 10.17 · [NOT-DEMO-01B · другой адресат](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2954-172157) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2956-58343)
+- 11.01 · [Обратная связь](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-55007) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-177403)
+- 11.02 · [Обратная связь · фильтры](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-55551) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-177855)
+- 11.03 · [Отзывы · новые и неразобранные](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-55930) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-178234)
+- 11.04 · [Отзывы · нет совпадений](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-56252) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-178556)
+- 11.05 · [Отзывы · загрузка](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-56521) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-178825)
+- 11.06 · [Отзывы · ошибка загрузки](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-56790) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-179094)
+- 11.07 · [FB-DEMO-01 · исходный отзыв](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-57059) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-179363)
+- 11.08 · [FB-DEMO-01 · обработка](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-57405) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-179709)
+- 11.09 · [Обработка отзыва · ошибка поля](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-57825) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-180129)
+- 11.10 · [FB-DEMO-01 · назначен в работу](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-58197) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-180499)
+- 11.11 · [Отзыв изменён другим сотрудником](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-58543) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-180845)
+- 11.12 · [FB-DEMO-03 · контекст не передан](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-58865) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-181167)
+- 11.13 · [Похожие отзывы · без объединения исходников](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-59191) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-181493)
+- 11.14 · [FB-DEMO-01 · связь с поддержкой](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-59517) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-181819)
+- 11.15 · [FB-DEMO-01 · обращение связано](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-59851) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-182153)
+- 11.16 · [FB-DEMO-01 · обработка завершена](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-60181) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-182483)
+- 11.17 · [Обратная связь · только просмотр](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-60503) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-182805)
+- 11.18 · [Обратная связь · нет доступа](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-60829) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-183131)
+- 11.19 · [Обратная связь · технический режим](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-61098) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2960-183400)

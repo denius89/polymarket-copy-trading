@@ -1,0 +1,2004 @@
+[
+  {
+    "key": "notifications",
+    "section": "ADM-10",
+    "title": [
+      "Операционные уведомления",
+      "Operational notifications"
+    ],
+    "body": [
+      "Операционные и защитные сообщения. Доставка не равна прочтению; здесь нет массовых рассылок. Все записи и подтверждения учебные.",
+      "Operational and security messages. Delivery is not reading; no mass campaigns here. All records and evidence are synthetic."
+    ],
+    "rows": [
+      [
+        "NOT-DEMO-01A · новые реквизиты",
+        "NOT-DEMO-01A · recipient proposed",
+        "Владелец A · аварийная админка",
+        "Owner A · emergency admin",
+        "16.10 12:00 UTC · доступно; отметки прочтения нет",
+        "16 Oct 12:00 UTC · available; no read receipt"
+      ],
+      [
+        "NOT-DEMO-01B · то же событие",
+        "NOT-DEMO-01B · same event",
+        "Владелец B · аварийная админка",
+        "Owner B · emergency admin",
+        "16.10 12:00 UTC · доступно; прочтение неизвестно",
+        "16 Oct 12:00 UTC · available; read unknown"
+      ],
+      [
+        "NOT-DEMO-02 · пауза копирования",
+        "NOT-DEMO-02 · copying paused",
+        "U-DEMO-001 · в приложении",
+        "U-DEMO-001 · in app",
+        "16.10 12:01 UTC · результат доставки неизвестен",
+        "16 Oct 12:01 UTC · delivery unknown"
+      ],
+      [
+        "NOT-DEMO-03 · защитное событие",
+        "NOT-DEMO-03 · security event",
+        "Владелец A · email",
+        "Owner A · email",
+        "Канал не подключён; попытки нет",
+        "Channel not connected; no attempt"
+      ]
+    ],
+    "actions": [
+      [
+        "Фильтры",
+        "Filters",
+        "notification-filters"
+      ],
+      [
+        "Открыть NOT-DEMO-01A",
+        "Open NOT-DEMO-01A",
+        "notification-detail"
+      ],
+      [
+        "Неизвестная доставка",
+        "Unknown delivery",
+        "notification-unknown"
+      ],
+      [
+        "Неподключённый канал",
+        "Channel not connected",
+        "notification-channel-off"
+      ]
+    ],
+    "headers": [
+      [
+        "ID / событие",
+        "ID / event"
+      ],
+      [
+        "Адресат / канал",
+        "Recipient / channel"
+      ],
+      [
+        "Время / состояние",
+        "Time / state"
+      ]
+    ],
+    "rowTargets": [
+      "notification-detail",
+      "notification-detail-b",
+      "notification-unknown",
+      "notification-channel-off"
+    ]
+  },
+  {
+    "key": "notification-filters",
+    "section": "ADM-10",
+    "title": [
+      "Уведомления · фильтры",
+      "Notifications · filters"
+    ],
+    "body": [
+      "Операционные и защитные сообщения. Доставка не равна прочтению; здесь нет массовых рассылок. Все записи и подтверждения учебные.",
+      "Operational and security messages. Delivery is not reading; no mass campaigns here. All records and evidence are synthetic."
+    ],
+    "rows": [
+      [
+        "Пример выборки",
+        "Example selection",
+        "Защитное событие · аварийная админка",
+        "Security event · emergency admin",
+        "При возврате сохраняются фильтры и положение",
+        "Return preserves filters and position"
+      ]
+    ],
+    "actions": [
+      [
+        "Применить пример",
+        "Apply example",
+        "notification-filtered"
+      ],
+      [
+        "Пример без совпадений",
+        "No matches example",
+        "notification-empty"
+      ],
+      [
+        "Сбросить",
+        "Reset",
+        "notifications"
+      ]
+    ],
+    "fields": [
+      {
+        "label": [
+          "Событие",
+          "Event"
+        ],
+        "value": [
+          "Новые реквизиты",
+          "Recipient proposed"
+        ],
+        "kind": "Select"
+      },
+      {
+        "label": [
+          "Канал",
+          "Channel"
+        ],
+        "value": [
+          "Аварийная админка",
+          "Emergency admin"
+        ],
+        "kind": "Select"
+      },
+      {
+        "label": [
+          "Доставка",
+          "Delivery"
+        ],
+        "value": [
+          "Доступно",
+          "Available"
+        ],
+        "kind": "Select"
+      },
+      {
+        "label": [
+          "Период · UTC",
+          "Period · UTC"
+        ],
+        "value": [
+          "16.10.2026 00:00–23:59",
+          "16 Oct 2026 00:00–23:59"
+        ],
+        "kind": "Input"
+      },
+      {
+        "label": [
+          "Площадка",
+          "Venue"
+        ],
+        "value": [
+          "Без площадки",
+          "No venue"
+        ],
+        "kind": "Select"
+      },
+      {
+        "label": [
+          "ID или адресат",
+          "ID or recipient"
+        ],
+        "value": [
+          "Не задано",
+          "Not set"
+        ],
+        "kind": "Search"
+      }
+    ]
+  },
+  {
+    "key": "notification-filtered",
+    "section": "ADM-10",
+    "title": [
+      "Уведомления · защитные события",
+      "Notifications · security events"
+    ],
+    "body": [
+      "Выборка: новые реквизиты · аварийная админка · 16 октября UTC · без площадки. Две записи соответствуют двум отдельным адресатам.",
+      "Selection: recipient proposed · emergency admin · 16 October UTC · no venue. Two records belong to two distinct recipients."
+    ],
+    "rows": [
+      [
+        "NOT-DEMO-01A · новые реквизиты",
+        "NOT-DEMO-01A · recipient proposed",
+        "Владелец A · аварийная админка",
+        "Owner A · emergency admin",
+        "16.10 12:00 UTC · доступно; отметки прочтения нет",
+        "16 Oct 12:00 UTC · available; no read receipt"
+      ],
+      [
+        "NOT-DEMO-01B · то же событие",
+        "NOT-DEMO-01B · same event",
+        "Владелец B · аварийная админка",
+        "Owner B · emergency admin",
+        "16.10 12:00 UTC · доступно; прочтение неизвестно",
+        "16 Oct 12:00 UTC · available; read unknown"
+      ]
+    ],
+    "actions": [
+      [
+        "Открыть NOT-DEMO-01A",
+        "Open NOT-DEMO-01A",
+        "notification-detail"
+      ],
+      [
+        "Изменить фильтры",
+        "Edit filters",
+        "notification-filters"
+      ],
+      [
+        "Сбросить фильтры",
+        "Clear filters",
+        "notifications"
+      ]
+    ],
+    "headers": [
+      [
+        "ID / событие",
+        "ID / event"
+      ],
+      [
+        "Адресат / канал",
+        "Recipient / channel"
+      ],
+      [
+        "Время / состояние",
+        "Time / state"
+      ]
+    ]
+  },
+  {
+    "key": "notification-loading",
+    "section": "ADM-10",
+    "title": [
+      "Уведомления · загрузка",
+      "Notifications · loading"
+    ],
+    "body": [
+      "Запрашиваем записи. Счётчики ещё неизвестны; это не пустой список.",
+      "Loading records. Counts are not yet known; this is not an empty list."
+    ],
+    "rows": [],
+    "actions": [
+      [
+        "Повторить чтение · демо",
+        "Read again · demo",
+        "notifications"
+      ]
+    ]
+  },
+  {
+    "key": "notification-empty",
+    "section": "ADM-10",
+    "title": [
+      "Уведомления · нет совпадений",
+      "Notifications · no matches"
+    ],
+    "body": [
+      "По выбранным фильтрам нет записей. Данные успешно получены; фильтры сохранены.",
+      "No records match. Data loaded successfully; filters retained."
+    ],
+    "rows": [],
+    "actions": [
+      [
+        "Изменить фильтры",
+        "Edit filters",
+        "notification-filters"
+      ]
+    ]
+  },
+  {
+    "key": "notification-load-error",
+    "section": "ADM-10",
+    "title": [
+      "Уведомления · ошибка загрузки",
+      "Notifications · load error"
+    ],
+    "body": [
+      "Список не получен. Нельзя показывать ноль сообщений или устаревшие данные как свежие. Повтор проверяет список, не отправляет сообщения.",
+      "List unavailable. Do not show zero messages or stale data as current. Retry reads the list; it does not send messages."
+    ],
+    "rows": [],
+    "actions": [
+      [
+        "Повторить чтение · демо",
+        "Read again · demo",
+        "notifications"
+      ]
+    ]
+  },
+  {
+    "key": "notification-detail",
+    "section": "ADM-10",
+    "title": [
+      "NOT-DEMO-01A · защитное уведомление",
+      "NOT-DEMO-01A · security notification"
+    ],
+    "body": [
+      "Операционные и защитные сообщения. Доставка не равна прочтению; здесь нет массовых рассылок. Все записи и подтверждения учебные.",
+      "Operational and security messages. Delivery is not reading; no mass campaigns here. All records and evidence are synthetic."
+    ],
+    "rows": [
+      [
+        "Событие / область",
+        "Event / scope",
+        "EVT-REC-DEMO-01 · REC-DEMO v2",
+        "EVT-REC-DEMO-01 · REC-DEMO v2",
+        "Предложены реквизиты · финансовый контекст по правам",
+        "Recipient proposed · finance context subject to permissions"
+      ],
+      [
+        "Уведомление / назначение",
+        "Notification / purpose",
+        "NOT-DEMO-01A · защитное",
+        "NOT-DEMO-01A · security",
+        "Текст не содержит ключи и полные реквизиты",
+        "Message excludes keys and full recipient details"
+      ],
+      [
+        "Адресат / канал",
+        "Recipient / channel",
+        "Владелец A · аварийная админка",
+        "Owner A · emergency admin",
+        "Для B отдельная NOT-DEMO-01B",
+        "B has separate NOT-DEMO-01B"
+      ],
+      [
+        "Содержание",
+        "Content",
+        "Предложена новая версия реквизитов. Проверьте её в защищённом разделе.",
+        "A new recipient version was proposed. Review it in the protected section.",
+        "",
+        ""
+      ],
+      [
+        "Доступность / доставка / прочтение",
+        "Availability / delivery / reading",
+        "Доступно / подтверждено / нет отметки",
+        "Available / confirmed / no read receipt",
+        "AV-DEMO-01 / DL-DEMO-01; отметки прочтения нет",
+        "AV-DEMO-01 / DL-DEMO-01; no read receipt"
+      ],
+      [
+        "Время / версия записи",
+        "Time / record version",
+        "16.10 12:00 UTC · v1",
+        "16 Oct 12:00 UTC · v1",
+        "Уведомление не подтверждает и не активирует реквизиты",
+        "Notification does not approve or activate a recipient"
+      ]
+    ],
+    "actions": [
+      [
+        "Попытки доставки",
+        "Delivery attempts",
+        "notification-attempts"
+      ],
+      [
+        "Отметить своё ознакомление · демо",
+        "Acknowledge for myself · demo",
+        "notification-acknowledged"
+      ],
+      [
+        "Защитные события",
+        "Security events",
+        "notification-filtered"
+      ],
+      [
+        "Все уведомления",
+        "All notifications",
+        "notifications"
+      ],
+      [
+        "Связанные реквизиты · по правам",
+        "Linked recipient · permission checked",
+        "recipient-pending"
+      ]
+    ]
+  },
+  {
+    "key": "notification-attempts",
+    "section": "ADM-10",
+    "title": [
+      "NOT-DEMO-01A · попытки доставки",
+      "NOT-DEMO-01A · delivery attempts"
+    ],
+    "body": [
+      "Попытка — отдельная запись доставки. Подтверждение сообщения не является подтверждением денежного действия.",
+      "An attempt is a separate delivery record. Message acknowledgement is not money-action approval."
+    ],
+    "rows": [
+      [
+        "ATT-DEMO-01 · 12:00:00 UTC",
+        "ATT-DEMO-01 · 12:00:00 UTC",
+        "Записано в аварийную админку",
+        "Stored in emergency admin",
+        "DL-DEMO-01 · результат подтверждён",
+        "DL-DEMO-01 · confirmed result"
+      ],
+      [
+        "Ключ уникальности",
+        "Uniqueness key",
+        "EVT-REC-DEMO-01 / A / admin",
+        "EVT-REC-DEMO-01 / A / admin",
+        "Одинаковое событие не создаёт вторую запись адресату",
+        "Same event does not create another record for recipient"
+      ],
+      [
+        "Прочтение",
+        "Reading",
+        "Нет отметки",
+        "No receipt",
+        "Не выводится из факта открытия админки",
+        "Not inferred from opening admin"
+      ]
+    ],
+    "actions": [
+      [
+        "Карточка уведомления",
+        "Notification detail",
+        "notification-detail"
+      ],
+      [
+        "Другой пример · ошибка",
+        "Other example · failure",
+        "notification-failed"
+      ]
+    ]
+  },
+  {
+    "key": "notification-acknowledged",
+    "section": "ADM-10",
+    "title": [
+      "NOT-DEMO-01A · ознакомление отмечено",
+      "NOT-DEMO-01A · acknowledged"
+    ],
+    "body": [
+      "Отметка относится только к текущему владельцу A. Владелец B не отмечается автоматически. Аварийные ограничения и денежные согласия не меняются.",
+      "Acknowledgement applies only to current Owner A. Owner B is not acknowledged automatically. Emergency restrictions and money approvals are unchanged."
+    ],
+    "rows": [
+      [
+        "A / подтверждение",
+        "A / evidence",
+        "Прочитано · READ-DEMO-A · 12:03 UTC",
+        "Read · READ-DEMO-A · 12:03 UTC",
+        "",
+        ""
+      ],
+      [
+        "B / отдельная запись",
+        "B / separate record",
+        "NOT-DEMO-01B · прочтение неизвестно",
+        "NOT-DEMO-01B · read unknown",
+        "",
+        ""
+      ],
+      [
+        "Ограничения / согласия",
+        "Restrictions / approvals",
+        "Без изменений",
+        "Unchanged",
+        "",
+        ""
+      ]
+    ],
+    "actions": [
+      [
+        "К уведомлениям",
+        "Notifications",
+        "notifications"
+      ],
+      [
+        "Доставка и прочтение",
+        "Delivery and reading",
+        "notification-facts"
+      ]
+    ]
+  },
+  {
+    "key": "notification-unknown",
+    "section": "ADM-10",
+    "title": [
+      "NOT-DEMO-02 · доставка неизвестна",
+      "NOT-DEMO-02 · delivery unknown"
+    ],
+    "body": [
+      "Универсальной кнопки повторной отправки нет. Проверка читает результат прежней попытки и не создаёт новое сообщение.",
+      "There is no universal resend action. Verification reads the existing attempt outcome and does not create a new message."
+    ],
+    "rows": [
+      [
+        "Уведомление / событие",
+        "Notification / event",
+        "NOT-DEMO-02 · EVT-PAUSE-DEMO-02",
+        "NOT-DEMO-02 · EVT-PAUSE-DEMO-02",
+        "",
+        ""
+      ],
+      [
+        "Адресат / площадка",
+        "Recipient / venue",
+        "U-DEMO-001 · Polymarket · в приложении",
+        "U-DEMO-001 · Polymarket · in app",
+        "",
+        ""
+      ],
+      [
+        "Попытка / время",
+        "Attempt / time",
+        "ATT-DEMO-02 · 16.10 12:01 UTC",
+        "ATT-DEMO-02 · 16 Oct 12:01 UTC",
+        "Ответ после записи потерян; дубликат возможен",
+        "Response after write lost; duplicate possible"
+      ],
+      [
+        "Доставка / прочтение",
+        "Delivery / reading",
+        "Результат неизвестен / неизвестно",
+        "Result unknown / unknown",
+        "Нет подтверждающих данных; не подставлять успех",
+        "No evidence; do not infer success"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить результат · демо",
+        "Check outcome · demo",
+        "notification-checked"
+      ],
+      [
+        "Все уведомления",
+        "All notifications",
+        "notifications"
+      ]
+    ]
+  },
+  {
+    "key": "notification-checked",
+    "section": "ADM-10",
+    "title": [
+      "NOT-DEMO-02 · проверка без нового результата",
+      "NOT-DEMO-02 · checked, still unknown"
+    ],
+    "body": [
+      "Чтение выполнено в 12:04 UTC; подтверждение не получено. Неизвестность сохраняется. Новая отправка не выполняется.",
+      "Read completed at 12:04 UTC; no evidence returned. Outcome remains unknown. No new message is sent."
+    ],
+    "rows": [
+      [
+        "Уведомление / событие",
+        "Notification / event",
+        "NOT-DEMO-02 · EVT-PAUSE-DEMO-02",
+        "NOT-DEMO-02 · EVT-PAUSE-DEMO-02",
+        "",
+        ""
+      ],
+      [
+        "Адресат / площадка",
+        "Recipient / venue",
+        "U-DEMO-001 · Polymarket · в приложении",
+        "U-DEMO-001 · Polymarket · in app",
+        "",
+        ""
+      ],
+      [
+        "Попытка / время",
+        "Attempt / time",
+        "ATT-DEMO-02 · 16.10 12:01 UTC",
+        "ATT-DEMO-02 · 16 Oct 12:01 UTC",
+        "Ответ после записи потерян; дубликат возможен",
+        "Response after write lost; duplicate possible"
+      ],
+      [
+        "Доставка / прочтение",
+        "Delivery / reading",
+        "Результат неизвестен / неизвестно",
+        "Result unknown / unknown",
+        "Нет подтверждающих данных; не подставлять успех",
+        "No evidence; do not infer success"
+      ]
+    ],
+    "actions": [
+      [
+        "Назад к записи",
+        "Back to record",
+        "notification-unknown"
+      ],
+      [
+        "Все уведомления",
+        "All notifications",
+        "notifications"
+      ]
+    ]
+  },
+  {
+    "key": "notification-failed",
+    "section": "ADM-10",
+    "title": [
+      "Доставка · подтверждённая ошибка",
+      "Delivery · confirmed failure"
+    ],
+    "body": [
+      "Отдельный учебный исход ATT-DEMO-02: подтверждено, что запись сообщения не принята. Это не переход неизвестного результата в ошибку без доказательства.",
+      "Separate ATT-DEMO-02 example: evidence confirms message was not accepted. Unknown is not changed to failed without proof."
+    ],
+    "rows": [
+      [
+        "Попытка / ошибка",
+        "Attempt / error",
+        "ATT-DEMO-02 · FAIL-DEMO-02",
+        "ATT-DEMO-02 · FAIL-DEMO-02",
+        "Проверка не нашла принятого сообщения",
+        "Verification confirms no accepted message"
+      ],
+      [
+        "Доставка / прочтение",
+        "Delivery / reading",
+        "Не доставлено / отметки нет",
+        "Not delivered / no receipt",
+        "",
+        ""
+      ],
+      [
+        "Следующий шаг",
+        "Next step",
+        "Устранить причину по регламенту доставки",
+        "Fix cause under delivery procedure",
+        "Нет массовой или бесконтрольной повторной отправки",
+        "No mass or uncontrolled resend"
+      ]
+    ],
+    "actions": [
+      [
+        "Все уведомления",
+        "All notifications",
+        "notifications"
+      ],
+      [
+        "Различия статусов",
+        "Status distinctions",
+        "notification-facts"
+      ]
+    ]
+  },
+  {
+    "key": "notification-channel-off",
+    "section": "ADM-10",
+    "title": [
+      "NOT-DEMO-03 · канал не подключён",
+      "NOT-DEMO-03 · channel not connected"
+    ],
+    "body": [
+      "Защитный email-канал ещё не подключён. Сообщение не выдаётся за отправленное или доставленное. Внешние защитные уведомления отделены от маркетинговых рассылок.",
+      "Security email channel is not connected. Message is not shown as sent or delivered. External security alerts are separate from marketing campaigns."
+    ],
+    "rows": [
+      [
+        "Канал / адресат",
+        "Channel / recipient",
+        "Email · владелец A",
+        "Email · Owner A",
+        "Адрес получателя скрыт по текущим правам",
+        "Recipient address hidden under current permissions"
+      ],
+      [
+        "Попытки / доставка",
+        "Attempts / delivery",
+        "0 / отправка не начиналась",
+        "0 / sending not started",
+        "Недоступность канала не является ошибкой выполненной попытки",
+        "Unavailable channel is not a failed attempt"
+      ],
+      [
+        "Изменение подключения",
+        "Connection changes",
+        "В настройках интеграции по отдельному праву",
+        "Integration settings with separate permission",
+        "Просмотр уведомлений не даёт менять получателей или ключи",
+        "Viewing notifications cannot change recipients or keys"
+      ]
+    ],
+    "actions": [
+      [
+        "Все уведомления",
+        "All notifications",
+        "notifications"
+      ]
+    ]
+  },
+  {
+    "key": "notification-facts",
+    "section": "ADM-10",
+    "title": [
+      "Доступно, доставлено и прочитано",
+      "Available, delivered and read"
+    ],
+    "body": [
+      "Учебная запись NOT-FACT-DEMO. Каждый факт требует своих подтверждающих данных; отсутствие данных означает неизвестность, не отрицательный или успешный результат.",
+      "Synthetic record NOT-FACT-DEMO. Every fact needs its own evidence; missing evidence means unknown, not failure or success."
+    ],
+    "rows": [
+      [
+        "Создано",
+        "Created",
+        "16.10 12:00:00 UTC · EVT-FACT-DEMO",
+        "16 Oct 12:00:00 UTC · EVT-FACT-DEMO",
+        "Ещё не означает доступность адресату",
+        "Does not yet mean available to recipient"
+      ],
+      [
+        "Доступно в приложении",
+        "Available in app",
+        "12:00:01 · AV-FACT-DEMO",
+        "12:00:01 · AV-FACT-DEMO",
+        "Подтверждена запись в разрешённый раздел",
+        "Stored in permitted recipient surface"
+      ],
+      [
+        "Доставлено клиенту",
+        "Delivered to client",
+        "12:00:04 · DL-FACT-DEMO",
+        "12:00:04 · DL-FACT-DEMO",
+        "Подтверждено получение клиентом; не чтение",
+        "Client receipt confirmed; not reading"
+      ],
+      [
+        "Прочитано",
+        "Read",
+        "12:02:00 · READ-FACT-DEMO",
+        "12:02:00 · READ-FACT-DEMO",
+        "Явная отметка пользователя; не просто доставка",
+        "Explicit user receipt; not mere delivery"
+      ]
+    ],
+    "actions": [
+      [
+        "К уведомлениям",
+        "Notifications",
+        "notifications"
+      ]
+    ]
+  },
+  {
+    "key": "notification-readonly",
+    "section": "ADM-10",
+    "title": [
+      "Уведомления · только просмотр",
+      "Notifications · read only"
+    ],
+    "body": [
+      "Просмотр разрешённых записей и результата доставки. Право просмотра не разрешает менять подключения, адресатов, правила или отметку прочтения другого сотрудника.",
+      "View permitted records and delivery outcomes. View permission cannot alter connections, recipients, policies or another staff member's read receipt."
+    ],
+    "rows": [
+      [
+        "NOT-DEMO-01A · новые реквизиты",
+        "NOT-DEMO-01A · recipient proposed",
+        "Владелец A · аварийная админка",
+        "Owner A · emergency admin",
+        "16.10 12:00 UTC · доступно; отметки прочтения нет",
+        "16 Oct 12:00 UTC · available; no read receipt"
+      ]
+    ],
+    "actions": [
+      [
+        "Пример записи · только просмотр",
+        "Read-only record example",
+        "notification-detail-b"
+      ],
+      [
+        "Нет доступа · пример",
+        "No access · example",
+        "notification-no-access"
+      ]
+    ],
+    "headers": [
+      [
+        "ID / событие",
+        "ID / event"
+      ],
+      [
+        "Адресат / канал",
+        "Recipient / channel"
+      ],
+      [
+        "Время / состояние",
+        "Time / state"
+      ]
+    ],
+    "actor": [
+      "Просмотр по разрешённой области",
+      "View within permitted scope"
+    ]
+  },
+  {
+    "key": "notification-no-access",
+    "section": "ADM-10",
+    "title": [
+      "Уведомления · нет доступа",
+      "Notifications · access denied"
+    ],
+    "body": [
+      "Нет права просмотра этого раздела или записи. Чужие адресаты и содержимое не раскрываются. Прямая ссылка не расширяет доступ.",
+      "No permission to view this section or record. Other recipients and content are not disclosed. A direct link does not grant access."
+    ],
+    "rows": [],
+    "actions": [
+      [
+        "Обзор",
+        "Overview",
+        "overview"
+      ]
+    ],
+    "actor": [
+      "Сотрудник · без права просмотра",
+      "Staff · no view permission"
+    ]
+  },
+  {
+    "key": "notification-detail-b",
+    "section": "ADM-10",
+    "title": [
+      "NOT-DEMO-01B · другой адресат",
+      "NOT-DEMO-01B · another recipient"
+    ],
+    "body": [
+      "Просмотр записи владельца B по разрешённой области. Владелец A не может отметить ознакомление за B. Данные и подтверждения учебные.",
+      "View Owner B's record within permitted scope. Owner A cannot acknowledge for B. Records and evidence are synthetic."
+    ],
+    "rows": [
+      [
+        "Уведомление / событие",
+        "Notification / event",
+        "NOT-DEMO-01B · EVT-REC-DEMO-01",
+        "NOT-DEMO-01B · EVT-REC-DEMO-01",
+        "",
+        ""
+      ],
+      [
+        "Адресат / канал",
+        "Recipient / channel",
+        "Владелец B · аварийная админка",
+        "Owner B · emergency admin",
+        "",
+        ""
+      ],
+      [
+        "Доставка / прочтение",
+        "Delivery / reading",
+        "Доступно; доставка подтверждена / неизвестно",
+        "Available; delivery confirmed / unknown",
+        "Нет отметки B; чтение A не меняет состояние B",
+        "No B receipt; A viewing does not mark B as read"
+      ]
+    ],
+    "actions": [
+      [
+        "Назад к выборке",
+        "Back to selection",
+        "notification-filtered"
+      ],
+      [
+        "Все уведомления",
+        "All notifications",
+        "notifications"
+      ]
+    ]
+  },
+  {
+    "key": "feedback",
+    "section": "ADM-11",
+    "actor": [
+      "Нора Азиз · операционная работа",
+      "Nora Aziz · operations"
+    ],
+    "title": [
+      "Обратная связь",
+      "Feedback"
+    ],
+    "body": [
+      "Исходный отзыв сохраняется отдельно от его обработки. Это не автоматически созданное обращение поддержки. Все данные учебные.",
+      "The original feedback is preserved separately from its processing. It is not an automatically created support ticket. All data is synthetic."
+    ],
+    "rows": [
+      [
+        "FB-DEMO-01 · почему нет покупки",
+        "FB-DEMO-01 · missing copy",
+        "Новое · не назначено",
+        "New · unassigned",
+        "16.10 12:00 UTC · USR-1007 · Polymarket",
+        "16 Oct 12:00 UTC · USR-1007 · Polymarket"
+      ],
+      [
+        "FB-DEMO-02 · похожий вопрос",
+        "FB-DEMO-02 · similar question",
+        "В работе · Нора Азиз",
+        "In progress · Nora Aziz",
+        "16.10 12:05 UTC · другой пользователь",
+        "16 Oct 12:05 UTC · different user"
+      ],
+      [
+        "FB-DEMO-03 · идея для интерфейса",
+        "FB-DEMO-03 · interface suggestion",
+        "Новое · контекст не передан",
+        "New · context not provided",
+        "16.10 12:07 UTC · отправитель неизвестен",
+        "16 Oct 12:07 UTC · sender unknown"
+      ]
+    ],
+    "actions": [
+      [
+        "Фильтры",
+        "Filters",
+        "feedback-filters"
+      ],
+      [
+        "Открыть FB-DEMO-01",
+        "Open FB-DEMO-01",
+        "feedback-detail"
+      ],
+      [
+        "Без контекста",
+        "No context",
+        "feedback-no-context"
+      ],
+      [
+        "Похожие отзывы",
+        "Similar feedback",
+        "feedback-similar"
+      ]
+    ],
+    "headers": [
+      [
+        "ID / тема",
+        "ID / subject"
+      ],
+      [
+        "Статус / ответственный",
+        "Status / assignee"
+      ],
+      [
+        "Дата / контекст",
+        "Date / context"
+      ]
+    ],
+    "rowTargets": [
+      "feedback-detail",
+      "feedback-similar",
+      "feedback-no-context"
+    ]
+  },
+  {
+    "key": "feedback-filters",
+    "section": "ADM-11",
+    "actor": [
+      "Нора Азиз · операционная работа",
+      "Nora Aziz · operations"
+    ],
+    "title": [
+      "Обратная связь · фильтры",
+      "Feedback · filters"
+    ],
+    "body": [
+      "Исходный отзыв сохраняется отдельно от его обработки. Это не автоматически созданное обращение поддержки. Все данные учебные.",
+      "The original feedback is preserved separately from its processing. It is not an automatically created support ticket. All data is synthetic."
+    ],
+    "rows": [],
+    "actions": [
+      [
+        "Применить пример",
+        "Apply example",
+        "feedback-filtered"
+      ],
+      [
+        "Нет совпадений · пример",
+        "No matches · example",
+        "feedback-empty"
+      ],
+      [
+        "Сбросить фильтры",
+        "Clear filters",
+        "feedback"
+      ]
+    ],
+    "fields": [
+      {
+        "label": [
+          "Категория",
+          "Category"
+        ],
+        "value": [
+          "Не разобрано",
+          "Unclassified"
+        ],
+        "kind": "Select"
+      },
+      {
+        "label": [
+          "Статус",
+          "Status"
+        ],
+        "value": [
+          "Новое",
+          "New"
+        ],
+        "kind": "Select"
+      },
+      {
+        "label": [
+          "Период · UTC",
+          "Period · UTC"
+        ],
+        "value": [
+          "16.10.2026",
+          "16 Oct 2026"
+        ],
+        "kind": "Input"
+      },
+      {
+        "label": [
+          "Назначение",
+          "Assignment"
+        ],
+        "value": [
+          "Не назначено",
+          "Unassigned"
+        ],
+        "kind": "Select"
+      },
+      {
+        "label": [
+          "Поиск по ID / теме",
+          "Search ID / subject"
+        ],
+        "value": [
+          "Не задано",
+          "Not set"
+        ],
+        "kind": "Search"
+      }
+    ]
+  },
+  {
+    "key": "feedback-filtered",
+    "section": "ADM-11",
+    "actor": [
+      "Нора Азиз · операционная работа",
+      "Nora Aziz · operations"
+    ],
+    "title": [
+      "Отзывы · новые и неразобранные",
+      "Feedback · new and unclassified"
+    ],
+    "body": [
+      "Категория: не разобрано; статус: новое; не назначено; 16 октября UTC. Выборка сохраняется отдельным подготовленным экраном.",
+      "Category: unclassified; status: new; unassigned; 16 October UTC. Selection is represented by a separate prepared screen."
+    ],
+    "rows": [
+      [
+        "FB-DEMO-01 · почему нет покупки",
+        "FB-DEMO-01 · missing copy",
+        "Новое · не назначено",
+        "New · unassigned",
+        "16.10 12:00 UTC · USR-1007 · Polymarket",
+        "16 Oct 12:00 UTC · USR-1007 · Polymarket"
+      ]
+    ],
+    "actions": [
+      [
+        "Открыть FB-DEMO-01",
+        "Open FB-DEMO-01",
+        "feedback-detail"
+      ],
+      [
+        "Изменить фильтры",
+        "Edit filters",
+        "feedback-filters"
+      ],
+      [
+        "Сбросить",
+        "Clear",
+        "feedback"
+      ]
+    ],
+    "headers": [
+      [
+        "ID / тема",
+        "ID / subject"
+      ],
+      [
+        "Статус / ответственный",
+        "Status / assignee"
+      ],
+      [
+        "Дата / контекст",
+        "Date / context"
+      ]
+    ],
+    "rowTargets": [
+      "feedback-detail"
+    ]
+  },
+  {
+    "key": "feedback-empty",
+    "section": "ADM-11",
+    "actor": [
+      "Нора Азиз · операционная работа",
+      "Nora Aziz · operations"
+    ],
+    "title": [
+      "Отзывы · нет совпадений",
+      "Feedback · no matches"
+    ],
+    "body": [
+      "Данные получены, по текущим фильтрам отзывов нет. Фильтры не сброшены.",
+      "Data loaded, no feedback matches. Filters were not reset."
+    ],
+    "rows": [],
+    "actions": [
+      [
+        "Изменить фильтры",
+        "Edit filters",
+        "feedback-filters"
+      ]
+    ]
+  },
+  {
+    "key": "feedback-loading",
+    "section": "ADM-11",
+    "actor": [
+      "Нора Азиз · операционная работа",
+      "Nora Aziz · operations"
+    ],
+    "title": [
+      "Отзывы · загрузка",
+      "Feedback · loading"
+    ],
+    "body": [
+      "Получаем отзывы. Количество пока неизвестно; пустое состояние не показывается.",
+      "Loading feedback. Count not known yet; do not show empty state."
+    ],
+    "rows": [],
+    "actions": [
+      [
+        "Повторить чтение · демо",
+        "Read again · demo",
+        "feedback"
+      ]
+    ]
+  },
+  {
+    "key": "feedback-load-error",
+    "section": "ADM-11",
+    "actor": [
+      "Нора Азиз · операционная работа",
+      "Nora Aziz · operations"
+    ],
+    "title": [
+      "Отзывы · ошибка загрузки",
+      "Feedback · load error"
+    ],
+    "body": [
+      "Невозможно получить список. Ранее сохранённые отзывы не считаются удалёнными. Повтор читает данные, не создаёт новые отзывы.",
+      "Cannot load list. Stored feedback is not treated as deleted. Retry reads data; it does not create feedback."
+    ],
+    "rows": [],
+    "actions": [
+      [
+        "Повторить чтение · демо",
+        "Read again · demo",
+        "feedback"
+      ]
+    ]
+  },
+  {
+    "key": "feedback-detail",
+    "section": "ADM-11",
+    "actor": [
+      "Нора Азиз · операционная работа",
+      "Nora Aziz · operations"
+    ],
+    "title": [
+      "FB-DEMO-01 · исходный отзыв",
+      "FB-DEMO-01 · original feedback"
+    ],
+    "body": [
+      "Исходный отзыв сохраняется отдельно от его обработки. Это не автоматически созданное обращение поддержки. Все данные учебные.",
+      "The original feedback is preserved separately from its processing. It is not an automatically created support ticket. All data is synthetic."
+    ],
+    "rows": [
+      [
+        "Отзыв / версия обработки",
+        "Feedback / processing version",
+        "FB-DEMO-01 · v3",
+        "FB-DEMO-01 · v3",
+        "Исходный текст ORIGINAL-FB-01 неизменяем",
+        "Original text ORIGINAL-FB-01 is immutable"
+      ],
+      [
+        "Исходный текст · без правок",
+        "Original text · unchanged",
+        "В демо покупка не появляется. Хочу понимать причину пропуска.",
+        "В демо покупка не появляется. Хочу понимать причину пропуска.",
+        "",
+        ""
+      ],
+      [
+        "Происхождение / время",
+        "Origin / time",
+        "Форма обратной связи · 16.10 12:00 UTC",
+        "Feedback form · 16 Oct 12:00 UTC",
+        "Язык RU; это содержание автора, не внутренний ответ",
+        "RU language; author content, not staff reply"
+      ],
+      [
+        "Пользователь / контекст",
+        "User / context",
+        "Амина Рахман · USR-1007 · Polymarket",
+        "Amina Rahman · USR-1007 · Polymarket",
+        "S-CP-041 · paper / demo · экран активности",
+        "S-CP-041 · paper / demo · activity screen"
+      ],
+      [
+        "Категория / статус / сотрудник",
+        "Category / status / staff",
+        "Не разобрано / новое / не назначено",
+        "Unclassified / new / unassigned",
+        "Изменения обработки журналируются отдельно",
+        "Processing changes logged separately"
+      ],
+      [
+        "Связи / заметки",
+        "Links / notes",
+        "Связей нет · внутренних заметок нет",
+        "No links · no internal notes",
+        "Отзыв не стал автоматически тикетом",
+        "Feedback did not automatically become a ticket"
+      ]
+    ],
+    "actions": [
+      [
+        "Классифицировать и назначить",
+        "Classify and assign",
+        "feedback-edit"
+      ],
+      [
+        "Похожие отзывы",
+        "Similar feedback",
+        "feedback-similar"
+      ],
+      [
+        "Новые и неразобранные",
+        "New and unclassified",
+        "feedback-filtered"
+      ],
+      [
+        "Все отзывы",
+        "All feedback",
+        "feedback"
+      ]
+    ]
+  },
+  {
+    "key": "feedback-edit",
+    "section": "ADM-11",
+    "actor": [
+      "Нора Азиз · операционная работа",
+      "Nora Aziz · operations"
+    ],
+    "title": [
+      "FB-DEMO-01 · обработка",
+      "FB-DEMO-01 · processing"
+    ],
+    "body": [
+      "Меняются только классификация, назначение, статус и внутренняя заметка. Исходный отзыв не редактируется. Владельца привлекать для обычной обработки не нужно.",
+      "Only classification, assignment, status and internal note change. Original feedback cannot be edited. Routine processing needs no owner approval."
+    ],
+    "rows": [
+      [
+        "Ожидаемая версия",
+        "Expected version",
+        "v3 → v4",
+        "v3 → v4",
+        "Одновременная правка проверяется при сохранении",
+        "Concurrent edits checked on save"
+      ],
+      [
+        "Видимость заметки",
+        "Note visibility",
+        "Только сотрудники с разрешением",
+        "Permitted staff only",
+        "Клиенту ничего не отправляется",
+        "Nothing is sent to client"
+      ]
+    ],
+    "actions": [
+      [
+        "Сохранить обработку · демо",
+        "Save processing · demo",
+        "feedback-updated"
+      ],
+      [
+        "Ошибка поля · пример",
+        "Field error · example",
+        "feedback-invalid"
+      ],
+      [
+        "Конфликт · пример",
+        "Conflict · example",
+        "feedback-conflict"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "feedback-detail"
+      ]
+    ],
+    "fields": [
+      {
+        "label": [
+          "Категория",
+          "Category"
+        ],
+        "value": [
+          "Вопрос о копировании",
+          "Copying question"
+        ],
+        "kind": "Select"
+      },
+      {
+        "label": [
+          "Ответственный",
+          "Assignee"
+        ],
+        "value": [
+          "Нора Азиз",
+          "Nora Aziz"
+        ],
+        "kind": "Select"
+      },
+      {
+        "label": [
+          "Статус",
+          "Status"
+        ],
+        "value": [
+          "В работе",
+          "In progress"
+        ],
+        "kind": "Select"
+      },
+      {
+        "label": [
+          "Внутренняя заметка",
+          "Internal note"
+        ],
+        "value": [
+          "Проверить объяснение пропуска в сессии",
+          "Check skip explanation in session"
+        ],
+        "kind": "Input"
+      }
+    ]
+  },
+  {
+    "key": "feedback-invalid",
+    "section": "ADM-11",
+    "actor": [
+      "Нора Азиз · операционная работа",
+      "Nora Aziz · operations"
+    ],
+    "title": [
+      "Обработка отзыва · ошибка поля",
+      "Feedback processing · field error"
+    ],
+    "body": [
+      "Категория не выбрана. Изменения не сохранены; исходный отзыв и прежняя версия остаются без изменений.",
+      "Category not selected. Changes not saved; original feedback and previous version remain unchanged."
+    ],
+    "rows": [],
+    "actions": [
+      [
+        "Исправить категорию",
+        "Choose category",
+        "feedback-edit"
+      ],
+      [
+        "Карточка отзыва",
+        "Feedback detail",
+        "feedback-detail"
+      ]
+    ],
+    "fields": [
+      {
+        "label": [
+          "Категория",
+          "Category"
+        ],
+        "value": [
+          "Вопрос о копировании",
+          "Copying question"
+        ],
+        "kind": "Select"
+      },
+      {
+        "label": [
+          "Ответственный",
+          "Assignee"
+        ],
+        "value": [
+          "Нора Азиз",
+          "Nora Aziz"
+        ],
+        "kind": "Select"
+      },
+      {
+        "label": [
+          "Статус",
+          "Status"
+        ],
+        "value": [
+          "В работе",
+          "In progress"
+        ],
+        "kind": "Select"
+      },
+      {
+        "label": [
+          "Внутренняя заметка",
+          "Internal note"
+        ],
+        "value": [
+          "Проверить объяснение пропуска в сессии",
+          "Check skip explanation in session"
+        ],
+        "kind": "Input"
+      }
+    ],
+    "notice": {
+      "field": "Категория",
+      "value": "",
+      "hint": [
+        "Выберите категорию",
+        "Choose a category"
+      ]
+    }
+  },
+  {
+    "key": "feedback-updated",
+    "section": "ADM-11",
+    "actor": [
+      "Нора Азиз · операционная работа",
+      "Nora Aziz · operations"
+    ],
+    "title": [
+      "FB-DEMO-01 · назначен в работу",
+      "FB-DEMO-01 · assigned"
+    ],
+    "body": [
+      "Исходный отзыв сохраняется отдельно от его обработки. Это не автоматически созданное обращение поддержки. Все данные учебные.",
+      "The original feedback is preserved separately from its processing. It is not an automatically created support ticket. All data is synthetic."
+    ],
+    "rows": [
+      [
+        "Отзыв / версия обработки",
+        "Feedback / processing version",
+        "FB-DEMO-01 · v4",
+        "FB-DEMO-01 · v4",
+        "Исходный текст ORIGINAL-FB-01 неизменяем",
+        "Original text ORIGINAL-FB-01 is immutable"
+      ],
+      [
+        "Исходный текст · без правок",
+        "Original text · unchanged",
+        "В демо покупка не появляется. Хочу понимать причину пропуска.",
+        "В демо покупка не появляется. Хочу понимать причину пропуска.",
+        "",
+        ""
+      ],
+      [
+        "Происхождение / время",
+        "Origin / time",
+        "Форма обратной связи · 16.10 12:00 UTC",
+        "Feedback form · 16 Oct 12:00 UTC",
+        "Язык RU; это содержание автора, не внутренний ответ",
+        "RU language; author content, not staff reply"
+      ],
+      [
+        "Пользователь / контекст",
+        "User / context",
+        "Амина Рахман · USR-1007 · Polymarket",
+        "Amina Rahman · USR-1007 · Polymarket",
+        "S-CP-041 · paper / demo · экран активности",
+        "S-CP-041 · paper / demo · activity screen"
+      ],
+      [
+        "Обработка / ответственный",
+        "Processing / assignee",
+        "Вопрос о копировании · в работе · Нора Азиз",
+        "Copying question · in progress · Nora Aziz",
+        "",
+        ""
+      ],
+      [
+        "Внутренняя заметка",
+        "Internal note",
+        "Проверить объяснение пропуска в сессии",
+        "Check skip explanation in session",
+        "Только для сотрудников; не отправлено клиенту",
+        "Staff only; not sent to client"
+      ],
+      [
+        "История изменения",
+        "Change history",
+        "Нора Азиз · 16.10 12:10 UTC · v3 → v4",
+        "Nora Aziz · 16 Oct 12:10 UTC · v3 → v4",
+        "Старое и новое значения сохраняются",
+        "Previous and new values retained"
+      ]
+    ],
+    "actions": [
+      [
+        "Связать с обращением",
+        "Link ticket",
+        "feedback-link-review"
+      ],
+      [
+        "Завершить обработку · демо",
+        "Complete processing · demo",
+        "feedback-resolved"
+      ],
+      [
+        "Все отзывы",
+        "All feedback",
+        "feedback"
+      ]
+    ]
+  },
+  {
+    "key": "feedback-conflict",
+    "section": "ADM-11",
+    "actor": [
+      "Нора Азиз · операционная работа",
+      "Nora Aziz · operations"
+    ],
+    "title": [
+      "Отзыв изменён другим сотрудником",
+      "Feedback changed by another staff member"
+    ],
+    "body": [
+      "Пока открыта форма v3, другой сотрудник сохранил v4. Перезаписывать новые данные нельзя. Собственная заметка остаётся черновиком до повторной проверки.",
+      "While v3 form was open, another staff member saved v4. Do not overwrite newer data. Own note remains a draft until reviewed again."
+    ],
+    "rows": [
+      [
+        "Ожидалась / актуальна",
+        "Expected / current",
+        "v3 / v4",
+        "v3 / v4",
+        "Конфликт не меняет исходный отзыв",
+        "Conflict does not change original feedback"
+      ],
+      [
+        "Сохранение",
+        "Save",
+        "Не выполнено",
+        "Not performed",
+        "Откройте актуальную карточку, сравните изменения",
+        "Open current detail and compare changes"
+      ]
+    ],
+    "actions": [
+      [
+        "Открыть актуальную версию",
+        "Open current version",
+        "feedback-updated"
+      ],
+      [
+        "Все отзывы",
+        "All feedback",
+        "feedback"
+      ]
+    ]
+  },
+  {
+    "key": "feedback-no-context",
+    "section": "ADM-11",
+    "actor": [
+      "Нора Азиз · операционная работа",
+      "Nora Aziz · operations"
+    ],
+    "title": [
+      "FB-DEMO-03 · контекст не передан",
+      "FB-DEMO-03 · no context"
+    ],
+    "body": [
+      "Отзыв принят без пользователя, сессии или площадки. Сотрудник не восстанавливает личность по предположению. Исходный текст и неизвестные поля сохранены.",
+      "Feedback arrived without user, session or venue. Staff must not infer identity. Original text and unknown fields are retained."
+    ],
+    "rows": [
+      [
+        "Исходный текст",
+        "Original text",
+        "I want an explanation next to the status.",
+        "I want an explanation next to the status.",
+        "",
+        ""
+      ],
+      [
+        "Источник / язык / время",
+        "Source / language / time",
+        "Форма отзыва · EN · 16.10 12:07 UTC",
+        "Feedback form · EN · 16 Oct 12:07 UTC",
+        "Показан оригинальный текст на EN; он не заменяется переводом",
+        "Original EN text; not replaced with a translation"
+      ],
+      [
+        "Пользователь / сессия / площадка",
+        "User / session / venue",
+        "Не переданы / неизвестны",
+        "Not provided / unknown",
+        "Нет ложных ссылок на чужой профиль или сессию",
+        "No misleading links to other users or sessions"
+      ],
+      [
+        "Допустимая обработка",
+        "Permitted processing",
+        "Категория: идея интерфейса; очередь разбора",
+        "Category: UI suggestion; triage queue",
+        "Не требуется автоматически создавать поддержку",
+        "No automatic support ticket required"
+      ]
+    ],
+    "actions": [
+      [
+        "Все отзывы",
+        "All feedback",
+        "feedback"
+      ]
+    ]
+  },
+  {
+    "key": "feedback-similar",
+    "section": "ADM-11",
+    "actor": [
+      "Нора Азиз · операционная работа",
+      "Nora Aziz · operations"
+    ],
+    "title": [
+      "Похожие отзывы · без объединения исходников",
+      "Similar feedback · originals preserved"
+    ],
+    "body": [
+      "Похожая тема не означает одну и ту же операцию или пользователя. FB-DEMO-01 и FB-DEMO-02 остаются отдельными записями, их тексты и история не удаляются.",
+      "A similar subject does not mean the same operation or user. FB-DEMO-01 and FB-DEMO-02 remain distinct; texts and histories are not deleted."
+    ],
+    "rows": [
+      [
+        "FB-DEMO-01",
+        "FB-DEMO-01",
+        "USR-1007 · почему нет покупки",
+        "USR-1007 · missing buy",
+        "Оригинал ORIGINAL-FB-01 · v3",
+        "Original ORIGINAL-FB-01 · v3"
+      ],
+      [
+        "FB-DEMO-02",
+        "FB-DEMO-02",
+        "Другой пользователь · похожая тема",
+        "Different user · similar topic",
+        "Отдельные контекст, ответственный и статус",
+        "Separate context, assignee and status"
+      ],
+      [
+        "Связь похожести",
+        "Similarity link",
+        "Можно связать по теме по праву обработки",
+        "Can relate by topic with manage permission",
+        "Не создаёт общего обращения или общей личности",
+        "Does not create shared ticket or identity"
+      ]
+    ],
+    "actions": [
+      [
+        "Открыть FB-DEMO-01",
+        "Open FB-DEMO-01",
+        "feedback-detail"
+      ],
+      [
+        "Все отзывы",
+        "All feedback",
+        "feedback"
+      ]
+    ]
+  },
+  {
+    "key": "feedback-link-review",
+    "section": "ADM-11",
+    "actor": [
+      "Нора Азиз · операционная работа",
+      "Nora Aziz · operations"
+    ],
+    "title": [
+      "FB-DEMO-01 · связь с поддержкой",
+      "FB-DEMO-01 · link to support"
+    ],
+    "body": [
+      "Проверьте существующее обращение и совпадение разрешённого контекста. Создаётся только связь, не второе обращение и не ответ клиенту.",
+      "Check existing ticket and permitted context match. Only a link is created, not a duplicate ticket or a client reply."
+    ],
+    "rows": [
+      [
+        "Исходный отзыв",
+        "Original feedback",
+        "FB-DEMO-01 · ORIGINAL-FB-01",
+        "FB-DEMO-01 · ORIGINAL-FB-01",
+        "",
+        ""
+      ],
+      [
+        "Найденное обращение",
+        "Existing ticket",
+        "TKT-1042 · пропускаются покупки",
+        "TKT-1042 · buys skipped",
+        "Амина Рахман · USR-1007",
+        "Amina Rahman · USR-1007"
+      ],
+      [
+        "Сверка контекста",
+        "Context check",
+        "Polymarket · S-CP-041 · paper / demo",
+        "Polymarket · S-CP-041 · paper / demo",
+        "Пользователь и сессия совпадают в учебном примере",
+        "User and session match in this example"
+      ],
+      [
+        "Права / повторная проверка",
+        "Permissions / fresh check",
+        "Просмотр обращения + обработка отзыва",
+        "Ticket view + feedback manage",
+        "Связь не расширяет доступ; повтор не создаёт дубль",
+        "Link does not expand access; retry does not duplicate"
+      ]
+    ],
+    "actions": [
+      [
+        "Сохранить связь · демо",
+        "Save link · demo",
+        "feedback-linked"
+      ],
+      [
+        "Посмотреть TKT-1042",
+        "View TKT-1042",
+        "support-ticket"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "feedback-updated"
+      ]
+    ]
+  },
+  {
+    "key": "feedback-linked",
+    "section": "ADM-11",
+    "actor": [
+      "Нора Азиз · операционная работа",
+      "Nora Aziz · operations"
+    ],
+    "title": [
+      "FB-DEMO-01 · обращение связано",
+      "FB-DEMO-01 · ticket linked"
+    ],
+    "body": [
+      "Связь FB-DEMO-01 ↔ TKT-1042 сохранена как учебный результат. Оригинал отзыва, переписка поддержки и их статусы существуют отдельно. Нового обращения не создано.",
+      "FB-DEMO-01 ↔ TKT-1042 link saved as a synthetic result. Original feedback, support conversation and statuses remain separate. No new ticket created."
+    ],
+    "rows": [
+      [
+        "Связь / основание",
+        "Link / reason",
+        "FB-DEMO-01 → TKT-1042 · совпадает контекст",
+        "FB-DEMO-01 → TKT-1042 · matching context",
+        "",
+        ""
+      ],
+      [
+        "Автор / время",
+        "Actor / time",
+        "Нора Азиз · 16.10 12:12 UTC",
+        "Nora Aziz · 16 Oct 12:12 UTC",
+        "Новая версия обработки v5; текст отзыва прежний",
+        "Processing v5; original text unchanged"
+      ],
+      [
+        "Раздельные статусы",
+        "Separate statuses",
+        "Отзыв: в работе; обращение: ожидает поддержку",
+        "Feedback: in progress; ticket: awaiting support",
+        "Завершение отзыва не закрывает обращение",
+        "Completing feedback does not close the ticket"
+      ]
+    ],
+    "actions": [
+      [
+        "Открыть TKT-1042",
+        "Open TKT-1042",
+        "support-ticket"
+      ],
+      [
+        "Завершить обработку · демо",
+        "Complete processing · demo",
+        "feedback-resolved"
+      ],
+      [
+        "Все отзывы",
+        "All feedback",
+        "feedback"
+      ]
+    ]
+  },
+  {
+    "key": "feedback-resolved",
+    "section": "ADM-11",
+    "actor": [
+      "Нора Азиз · операционная работа",
+      "Nora Aziz · operations"
+    ],
+    "title": [
+      "FB-DEMO-01 · обработка завершена",
+      "FB-DEMO-01 · processing completed"
+    ],
+    "body": [
+      "Статус означает завершение внутреннего разбора отзыва, а не устранение ошибки или закрытие поддержки. Ответ клиенту при необходимости отправляют в связанном обращении.",
+      "Status means internal feedback processing completed, not that an issue was fixed or support closed. Any needed client reply is sent in the linked ticket."
+    ],
+    "rows": [
+      [
+        "Статус / версия",
+        "Status / version",
+        "Разобрано · новая версия обработки",
+        "Reviewed · new processing version",
+        "",
+        ""
+      ],
+      [
+        "Результат / автор",
+        "Result / actor",
+        "Классифицировано и передано в поддержку · Нора Азиз",
+        "Classified and referred to support · Nora Aziz",
+        "",
+        ""
+      ],
+      [
+        "Исходный отзыв / переписка",
+        "Original feedback / conversation",
+        "Оригинал сохранён; сообщения не отправлялись",
+        "Original retained; no messages sent",
+        "Связи сохраняются, если были созданы ранее",
+        "Existing links retained if previously created"
+      ]
+    ],
+    "actions": [
+      [
+        "Все отзывы",
+        "All feedback",
+        "feedback"
+      ]
+    ]
+  },
+  {
+    "key": "feedback-readonly",
+    "section": "ADM-11",
+    "actor": [
+      "Сотрудник · только просмотр",
+      "Staff · view only"
+    ],
+    "title": [
+      "Обратная связь · только просмотр",
+      "Feedback · read only"
+    ],
+    "body": [
+      "Разрешённый текст и история доступны для просмотра. Классификация, назначение, заметки и связи требуют отдельного права обработки; кнопок изменения нет.",
+      "Permitted text and history can be viewed. Classification, assignment, notes and links need separate manage permission; no edit controls shown."
+    ],
+    "rows": [
+      [
+        "Отзыв / версия обработки",
+        "Feedback / processing version",
+        "FB-DEMO-01 · v3",
+        "FB-DEMO-01 · v3",
+        "Исходный текст ORIGINAL-FB-01 неизменяем",
+        "Original text ORIGINAL-FB-01 is immutable"
+      ],
+      [
+        "Исходный текст · без правок",
+        "Original text · unchanged",
+        "В демо покупка не появляется. Хочу понимать причину пропуска.",
+        "В демо покупка не появляется. Хочу понимать причину пропуска.",
+        "",
+        ""
+      ],
+      [
+        "Происхождение / время",
+        "Origin / time",
+        "Форма обратной связи · 16.10 12:00 UTC",
+        "Feedback form · 16 Oct 12:00 UTC",
+        "Язык RU; это содержание автора, не внутренний ответ",
+        "RU language; author content, not staff reply"
+      ],
+      [
+        "Пользователь / контекст",
+        "User / context",
+        "Амина Рахман · USR-1007 · Polymarket",
+        "Amina Rahman · USR-1007 · Polymarket",
+        "S-CP-041 · paper / demo · экран активности",
+        "S-CP-041 · paper / demo · activity screen"
+      ]
+    ],
+    "actions": [
+      [
+        "Обзор",
+        "Overview",
+        "overview"
+      ]
+    ]
+  },
+  {
+    "key": "feedback-no-access",
+    "section": "ADM-11",
+    "actor": [
+      "Сотрудник · без доступа",
+      "Staff · no access"
+    ],
+    "title": [
+      "Обратная связь · нет доступа",
+      "Feedback · access denied"
+    ],
+    "body": [
+      "Нет права просмотра отзыва. Текст, пользователь и связанные записи не раскрываются; прямая ссылка не расширяет доступ.",
+      "No permission to view feedback. Text, user and linked records are not disclosed; direct link does not grant access."
+    ],
+    "rows": [],
+    "actions": [
+      [
+        "Обзор",
+        "Overview",
+        "overview"
+      ]
+    ]
+  },
+  {
+    "key": "feedback-tech-blocked",
+    "section": "ADM-11",
+    "actor": [
+      "Нора Азиз · операционная работа",
+      "Nora Aziz · operations"
+    ],
+    "title": [
+      "Обратная связь · технический режим",
+      "Feedback · technical mode"
+    ],
+    "body": [
+      "Работает только аварийная часть админки. Продуктовая обработка отзывов недоступна; новые изменения не выполняются. Аварийные уведомления и журнал работают отдельно.",
+      "Only emergency admin is operating. Product feedback processing is unavailable; no new edits are executed. Emergency alerts and audit remain separate."
+    ],
+    "rows": [],
+    "actions": [
+      [
+        "Аварийное управление",
+        "Emergency controls",
+        "emergency"
+      ]
+    ]
+  }
+]
