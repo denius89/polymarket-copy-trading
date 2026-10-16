@@ -1,5 +1,5 @@
 {
-  "revision": "0.16",
+  "revision": "0.17",
   "updatedAt": "2026-10-16",
   "purpose": "Living design sitemap; not a production capability inventory or final design acceptance.",
   "figma": {
@@ -14,8 +14,8 @@
     "current Figma RU/EN root frame inventory"
   ],
   "counts": {
-    "ru": 490,
-    "en": 490
+    "ru": 522,
+    "en": 522
   },
   "sections": [
     {
@@ -76,7 +76,7 @@
       "id": "ADM-02",
       "title": "Пользователи",
       "group": "Операции",
-      "description": "Профили и настройки, связь с сессиями; Owner и Operations. Пересборка двух ранних карточек ждёт разрешения.",
+      "description": "Профили и настройки пользователей; срочный пользовательский VIP, окончание и прекращение одним владельцем. Полная ручная приёмка открыта.",
       "screens": [
         {
           "id": "1982:37788",
@@ -219,6 +219,83 @@
             "id": "2223:52047",
             "title": "EN · user-ops-settings · User settings · Operations",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2223-52047"
+          }
+        },
+        {
+          "id": "2936:169255",
+          "key": "vip-term-form",
+          "title": "Пользовательский VIP · срок и условия",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-169255",
+          "english": {
+            "id": "2936:175131",
+            "title": "EN · vip-term-form · User VIP · term and conditions",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-175131"
+          }
+        },
+        {
+          "id": "2936:169869",
+          "key": "vip-term-review",
+          "title": "Пользовательский VIP · проверка",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-169869",
+          "english": {
+            "id": "2936:175639",
+            "title": "EN · vip-term-review · User VIP · review",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-175639"
+          }
+        },
+        {
+          "id": "2936:170182",
+          "key": "vip-term-scheduled",
+          "title": "Пользовательский VIP · запланирован",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-170182",
+          "english": {
+            "id": "2936:175952",
+            "title": "EN · vip-term-scheduled · User VIP · scheduled",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-175952"
+          }
+        },
+        {
+          "id": "2936:170499",
+          "key": "vip-term-active",
+          "title": "Пользовательский VIP · действует",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-170499",
+          "english": {
+            "id": "2936:176269",
+            "title": "EN · vip-term-active · User VIP · effective",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-176269"
+          }
+        },
+        {
+          "id": "2936:170820",
+          "key": "vip-term-ended",
+          "title": "Пользовательский VIP · срок завершён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-170820",
+          "english": {
+            "id": "2936:176590",
+            "title": "EN · vip-term-ended · User VIP · expired",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-176590"
+          }
+        },
+        {
+          "id": "2936:171129",
+          "key": "vip-revoke-review",
+          "title": "Пользовательский VIP · прекращение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-171129",
+          "english": {
+            "id": "2936:176899",
+            "title": "EN · vip-revoke-review · User VIP · end early",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-176899"
+          }
+        },
+        {
+          "id": "2936:171438",
+          "key": "vip-revoked",
+          "title": "Пользовательский VIP · прекращён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-171438",
+          "english": {
+            "id": "2936:177208",
+            "title": "EN · vip-revoked · User VIP · ended early",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-177208"
           }
         }
       ],
@@ -1466,7 +1543,7 @@
       "id": "ADM-08",
       "title": "Тарифы и рефералы",
       "group": "Финансы",
-      "description": "Версии, симулятор, накопительная лестница, VIP партнёра. Публикация — Owner.",
+      "description": "Два независимых владельца для денежных партнёрских правил; один владелец для обычных тарифов. Сроки, откат и отдельное применение площадками показаны в учебных сценариях.",
       "screens": [
         {
           "id": "2005:803",
@@ -1515,11 +1592,11 @@
         {
           "id": "2005:993",
           "key": "tariff-preview",
-          "title": "Предпросмотр версии тарифа",
+          "title": "Тариф · проверка публикации",
           "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-993",
           "english": {
             "id": "2008:1260",
-            "title": "EN · tariff-preview · Tariff version preview",
+            "title": "EN · tariff-preview · Tariff · publication review",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1260"
           }
         },
@@ -1592,11 +1669,11 @@
         {
           "id": "2005:1296",
           "key": "referral-preview",
-          "title": "Предпросмотр лестницы",
+          "title": "Проверка денежного правила",
           "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-1296",
           "english": {
             "id": "2008:1563",
-            "title": "EN · referral-preview · Referral ladder preview",
+            "title": "EN · referral-preview · Review partner money rule",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1563"
           }
         },
@@ -1620,6 +1697,281 @@
             "id": "2008:1646",
             "title": "EN · partner-vip-preview · Review partner VIP",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1646"
+          }
+        },
+        {
+          "id": "2936:47968",
+          "key": "partner-rule-form",
+          "title": "Денежное правило партнёров · параметры",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-47968",
+          "english": {
+            "id": "2936:162266",
+            "title": "EN · partner-rule-form · Partner money rule · parameters",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-162266"
+          }
+        },
+        {
+          "id": "2936:48331",
+          "key": "partner-rule-wait",
+          "title": "Денежное правило · ожидает владельца B",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-48331",
+          "english": {
+            "id": "2936:162629",
+            "title": "EN · partner-rule-wait · Money rule · awaiting Owner B",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-162629"
+          }
+        },
+        {
+          "id": "2936:48491",
+          "key": "partner-rule-review-b",
+          "title": "Владелец B · денежное правило",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-48491",
+          "english": {
+            "id": "2936:162789",
+            "title": "EN · partner-rule-review-b · Owner B · money rule",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-162789"
+          }
+        },
+        {
+          "id": "2936:48671",
+          "key": "partner-rule-approved",
+          "title": "Два согласия · начало запланировано",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-48671",
+          "english": {
+            "id": "2936:162969",
+            "title": "EN · partner-rule-approved · Two approvals · start scheduled",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-162969"
+          }
+        },
+        {
+          "id": "2936:48827",
+          "key": "partner-rule-effective",
+          "title": "Денежное правило · применение в примере",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-48827",
+          "english": {
+            "id": "2936:163125",
+            "title": "EN · partner-rule-effective · Money rule · example effective",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-163125"
+          }
+        },
+        {
+          "id": "2936:48991",
+          "key": "partner-rule-self",
+          "title": "Второе согласие автора запрещено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-48991",
+          "english": {
+            "id": "2936:163289",
+            "title": "EN · partner-rule-self · Author cannot give second approval",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-163289"
+          }
+        },
+        {
+          "id": "2936:49139",
+          "key": "partner-rule-rejected",
+          "title": "Денежное правило · отклонено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-49139",
+          "english": {
+            "id": "2936:163437",
+            "title": "EN · partner-rule-rejected · Money rule · rejected",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-163437"
+          }
+        },
+        {
+          "id": "2936:49287",
+          "key": "partner-rule-stale",
+          "title": "Денежное правило · версия изменилась",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-49287",
+          "english": {
+            "id": "2936:163585",
+            "title": "EN · partner-rule-stale · Money rule · changed version",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-163585"
+          }
+        },
+        {
+          "id": "2936:49435",
+          "key": "partner-rule-expired",
+          "title": "Денежное правило · срок истёк",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-49435",
+          "english": {
+            "id": "2936:163733",
+            "title": "EN · partner-rule-expired · Money rule · approval expired",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-163733"
+          }
+        },
+        {
+          "id": "2936:49583",
+          "key": "partner-rule-history",
+          "title": "Денежные правила · история",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-49583",
+          "english": {
+            "id": "2936:163881",
+            "title": "EN · partner-rule-history · Money rules · history",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-163881"
+          }
+        },
+        {
+          "id": "2936:49735",
+          "key": "partner-vip-form",
+          "title": "Партнёрский VIP · денежное исключение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-49735",
+          "english": {
+            "id": "2936:164033",
+            "title": "EN · partner-vip-form · Partner VIP · monetary override",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-164033"
+          }
+        },
+        {
+          "id": "2936:50021",
+          "key": "partner-vip-wait",
+          "title": "Партнёрский VIP · ожидает B",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-50021",
+          "english": {
+            "id": "2936:164319",
+            "title": "EN · partner-vip-wait · Partner VIP · awaiting B",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-164319"
+          }
+        },
+        {
+          "id": "2936:50177",
+          "key": "partner-vip-review-b",
+          "title": "Владелец B · партнёрский VIP",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-50177",
+          "english": {
+            "id": "2936:164475",
+            "title": "EN · partner-vip-review-b · Owner B · partner VIP",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-164475"
+          }
+        },
+        {
+          "id": "2936:50337",
+          "key": "partner-vip-approved",
+          "title": "Партнёрский VIP · два согласия",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-50337",
+          "english": {
+            "id": "2936:164635",
+            "title": "EN · partner-vip-approved · Partner VIP · two approvals",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-164635"
+          }
+        },
+        {
+          "id": "2936:50497",
+          "key": "partner-vip-rejected",
+          "title": "Партнёрский VIP · отклонён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-50497",
+          "english": {
+            "id": "2936:164795",
+            "title": "EN · partner-vip-rejected · Partner VIP · rejected",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-164795"
+          }
+        },
+        {
+          "id": "2936:167711",
+          "key": "tariff-scheduled-v2",
+          "title": "Тариф · новая версия запланирована",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-167711",
+          "english": {
+            "id": "2936:173587",
+            "title": "EN · tariff-scheduled-v2 · Tariff · new version scheduled",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-173587"
+          }
+        },
+        {
+          "id": "2936:167867",
+          "key": "tariff-effective-v2",
+          "title": "Тариф · действует в расчётном примере",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-167867",
+          "english": {
+            "id": "2936:173743",
+            "title": "EN · tariff-effective-v2 · Tariff · effective in scenario",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-173743"
+          }
+        },
+        {
+          "id": "2936:168027",
+          "key": "tariff-ended-v2",
+          "title": "Тариф · срок завершён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168027",
+          "english": {
+            "id": "2936:173903",
+            "title": "EN · tariff-ended-v2 · Tariff · expired",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-173903"
+          }
+        },
+        {
+          "id": "2936:168175",
+          "key": "tariff-rollback-review",
+          "title": "Тариф · проверка отката",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168175",
+          "english": {
+            "id": "2936:174051",
+            "title": "EN · tariff-rollback-review · Tariff · rollback review",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174051"
+          }
+        },
+        {
+          "id": "2936:168327",
+          "key": "tariff-rollback-done",
+          "title": "Тариф · откат новой версией",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168327",
+          "english": {
+            "id": "2936:174203",
+            "title": "EN · tariff-rollback-done · Tariff · rolled back as new version",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174203"
+          }
+        },
+        {
+          "id": "2936:168475",
+          "key": "tariff-venue-pending",
+          "title": "Применение тарифа · ожидается",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168475",
+          "english": {
+            "id": "2936:174351",
+            "title": "EN · tariff-venue-pending · Tariff application · pending",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174351"
+          }
+        },
+        {
+          "id": "2936:168631",
+          "key": "tariff-venue-applied",
+          "title": "Применение тарифа · подтверждено в примере",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168631",
+          "english": {
+            "id": "2936:174507",
+            "title": "EN · tariff-venue-applied · Tariff application · confirmed in example",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174507"
+          }
+        },
+        {
+          "id": "2936:168787",
+          "key": "tariff-venue-failed",
+          "title": "Применение тарифа · отказ площадки",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168787",
+          "english": {
+            "id": "2936:174663",
+            "title": "EN · tariff-venue-failed · Tariff application · venue rejected",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174663"
+          }
+        },
+        {
+          "id": "2936:168943",
+          "key": "tariff-venue-unknown",
+          "title": "Применение тарифа · результат неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168943",
+          "english": {
+            "id": "2936:174819",
+            "title": "EN · tariff-venue-unknown · Tariff application · result unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174819"
+          }
+        },
+        {
+          "id": "2936:169099",
+          "key": "tariff-venue-unsupported",
+          "title": "Применение тарифа · маршрут не поддержан",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-169099",
+          "english": {
+            "id": "2936:174975",
+            "title": "EN · tariff-venue-unsupported · Tariff application · route unsupported",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174975"
           }
         }
       ],

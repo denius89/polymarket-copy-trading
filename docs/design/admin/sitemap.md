@@ -1,6 +1,6 @@
 # Живая карта админки
 
-Текущий срез 16.10.2026: **490 RU + 490 EN корневых макетов**, из них 485 основных состояний и 5 технических оболочек на язык. Карта 0.16, набор компонентов админки 0.4.20 (28 наборов / 168 вариантов). [Последние решения и передача](money-exceptions-2026-10-16/README.md). Ниже сохранён исторический журнал; его промежуточные числа и версии не заменяют текущий реестр.
+Текущий срез 16.10.2026: **522 RU +522 EN корневых макета**, из них 517 основных состояний и 5 технических оболочек на язык. Карта 0.17, набор компонентов 0.4.20 (28 наборов /168 вариантов). [Партнёрские правила, тарифы и VIP](partner-rules-tariffs-vip-2026-10-16/README.md). Ниже — исторический журнал; он не заменяет текущий реестр.
 
 13.10.2026 · ревизия 0.7: 295 RU + 295 EN, включая по три меню аватара для viewport прототипа. Личный аккаунт пересобран как обзор и отдельные страницы. [Паттерн, узлы и QA](account-hub-2026-10-13/README.md).
 
@@ -436,3 +436,39 @@ Revision 0.11: 425 RU +425 EN root frames. [Пакет 10](package-10/README.md)
 
 
 16.10.2026: [источники, пополнения, сверка и задержка адреса 24 часа](treasury-review-2026-10-16/README.md). Карта 0.14, 437 RU +437 EN. Новых страниц Figma и компонентных наборов нет.
+
+
+## Дополнение 16.10 · тарифы, VIP и партнёрские правила
+
+- 08.15 · [Денежное правило партнёров · параметры](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-47968) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-162266)
+- 08.16 · [Денежное правило · ожидает владельца B](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-48331) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-162629)
+- 08.17 · [Владелец B · денежное правило](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-48491) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-162789)
+- 08.18 · [Два согласия · начало запланировано](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-48671) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-162969)
+- 08.19 · [Денежное правило · применение в примере](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-48827) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-163125)
+- 08.20 · [Второе согласие автора запрещено](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-48991) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-163289)
+- 08.21 · [Денежное правило · отклонено](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-49139) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-163437)
+- 08.22 · [Денежное правило · версия изменилась](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-49287) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-163585)
+- 08.23 · [Денежное правило · срок истёк](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-49435) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-163733)
+- 08.24 · [Денежные правила · история](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-49583) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-163881)
+- 08.25 · [Партнёрский VIP · денежное исключение](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-49735) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-164033)
+- 08.26 · [Партнёрский VIP · ожидает B](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-50021) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-164319)
+- 08.27 · [Владелец B · партнёрский VIP](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-50177) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-164475)
+- 08.28 · [Партнёрский VIP · два согласия](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-50337) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-164635)
+- 08.29 · [Партнёрский VIP · отклонён](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-50497) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-164795)
+- 08.30 · [Тариф · новая версия запланирована](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-167711) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-173587)
+- 08.31 · [Тариф · действует в расчётном примере](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-167867) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-173743)
+- 08.32 · [Тариф · срок завершён](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168027) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-173903)
+- 08.33 · [Тариф · проверка отката](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168175) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174051)
+- 08.34 · [Тариф · откат новой версией](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168327) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174203)
+- 08.35 · [Применение тарифа · ожидается](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168475) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174351)
+- 08.36 · [Применение тарифа · подтверждено в примере](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168631) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174507)
+- 08.37 · [Применение тарифа · отказ площадки](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168787) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174663)
+- 08.38 · [Применение тарифа · результат неизвестен](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168943) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174819)
+- 08.39 · [Применение тарифа · маршрут не поддержан](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-169099) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174975)
+- 02.14 · [Пользовательский VIP · срок и условия](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-169255) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-175131)
+- 02.15 · [Пользовательский VIP · проверка](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-169869) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-175639)
+- 02.16 · [Пользовательский VIP · запланирован](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-170182) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-175952)
+- 02.17 · [Пользовательский VIP · действует](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-170499) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-176269)
+- 02.18 · [Пользовательский VIP · срок завершён](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-170820) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-176590)
+- 02.19 · [Пользовательский VIP · прекращение](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-171129) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-176899)
+- 02.20 · [Пользовательский VIP · прекращён](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-171438) · [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-177208)

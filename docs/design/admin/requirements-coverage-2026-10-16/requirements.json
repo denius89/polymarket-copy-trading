@@ -510,32 +510,80 @@
     "id": "U04",
     "area": "ADM-02",
     "requirement": "Будущий, срочный и завершённый VIP, прекращение без пересчёта прошлого",
-    "status": "частично",
+    "status": "готово",
     "keys": [
-      "vip-form",
-      "vip-done"
+      "vip-term-form",
+      "vip-term-review",
+      "vip-term-scheduled",
+      "vip-term-active",
+      "vip-term-ended",
+      "vip-revoke-review",
+      "vip-revoked"
     ],
-    "gap": "Показан бессрочный пример и поля; нет завершённого сквозного сценария запланированного VIP и его окончания.",
-    "priority": "P1",
+    "gap": "",
+    "priority": "—",
     "source": "118",
     "evidence": [
       {
-        "key": "vip-form",
+        "key": "vip-term-form",
         "section": "ADM-02",
-        "ru": "1982:37913",
-        "en": "1982:38736",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37913",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38736"
+        "ru": "2936:169255",
+        "en": "2936:175131",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-169255",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-175131"
       },
       {
-        "key": "vip-done",
+        "key": "vip-term-review",
         "section": "ADM-02",
-        "ru": "1982:38026",
-        "en": "1982:38849",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38026",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38849"
+        "ru": "2936:169869",
+        "en": "2936:175639",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-169869",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-175639"
+      },
+      {
+        "key": "vip-term-scheduled",
+        "section": "ADM-02",
+        "ru": "2936:170182",
+        "en": "2936:175952",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-170182",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-175952"
+      },
+      {
+        "key": "vip-term-active",
+        "section": "ADM-02",
+        "ru": "2936:170499",
+        "en": "2936:176269",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-170499",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-176269"
+      },
+      {
+        "key": "vip-term-ended",
+        "section": "ADM-02",
+        "ru": "2936:170820",
+        "en": "2936:176590",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-170820",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-176590"
+      },
+      {
+        "key": "vip-revoke-review",
+        "section": "ADM-02",
+        "ru": "2936:171129",
+        "en": "2936:176899",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-171129",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-176899"
+      },
+      {
+        "key": "vip-revoked",
+        "section": "ADM-02",
+        "ru": "2936:171438",
+        "en": "2936:177208",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-171438",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-177208"
       }
-    ]
+    ],
+    "previousStatus": "частично",
+    "closedIn": "partner-rules-tariffs-vip-2026-10-16",
+    "validationNote": "Покрытие макетами и документацией. Полный ручной проход, серверное согласование и реальные интеграции не проверены."
   },
   {
     "id": "S01",
@@ -1390,14 +1438,17 @@
     "id": "P03",
     "area": "ADM-08",
     "requirement": "Полный процесс публикации, применения, окончания и отката тарифов",
-    "status": "частично",
+    "status": "готово",
     "keys": [
       "tariff-preview",
-      "tariff-scheduled",
-      "pricing-history"
+      "tariff-scheduled-v2",
+      "tariff-effective-v2",
+      "tariff-ended-v2",
+      "tariff-rollback-review",
+      "tariff-rollback-done"
     ],
-    "gap": "Есть планирование/история, но нет законченных ветвей применения, окончания и отката с исходами.",
-    "priority": "P1",
+    "gap": "",
+    "priority": "—",
     "source": "118",
     "evidence": [
       {
@@ -1409,36 +1460,80 @@
         "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1260"
       },
       {
-        "key": "tariff-scheduled",
+        "key": "tariff-scheduled-v2",
         "section": "ADM-08",
-        "ru": "2005:1033",
-        "en": "2008:1300",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-1033",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1300"
+        "ru": "2936:167711",
+        "en": "2936:173587",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-167711",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-173587"
       },
       {
-        "key": "pricing-history",
+        "key": "tariff-effective-v2",
         "section": "ADM-08",
-        "ru": "2005:1101",
-        "en": "2008:1368",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-1101",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1368"
+        "ru": "2936:167867",
+        "en": "2936:173743",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-167867",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-173743"
+      },
+      {
+        "key": "tariff-ended-v2",
+        "section": "ADM-08",
+        "ru": "2936:168027",
+        "en": "2936:173903",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168027",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-173903"
+      },
+      {
+        "key": "tariff-rollback-review",
+        "section": "ADM-08",
+        "ru": "2936:168175",
+        "en": "2936:174051",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168175",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174051"
+      },
+      {
+        "key": "tariff-rollback-done",
+        "section": "ADM-08",
+        "ru": "2936:168327",
+        "en": "2936:174203",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168327",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174203"
       }
-    ]
+    ],
+    "previousStatus": "частично",
+    "closedIn": "partner-rules-tariffs-vip-2026-10-16",
+    "validationNote": "Покрытие макетами и документацией. Полный ручной проход, серверное согласование и реальные интеграции не проверены."
   },
   {
     "id": "P04",
     "area": "ADM-08",
     "requirement": "Два владельца для денежных партнёрских правил",
-    "status": "отсутствует",
+    "status": "готово",
     "keys": [
+      "partner-rule-form",
       "referral-preview",
-      "partner-vip-preview"
+      "partner-rule-wait",
+      "partner-rule-review-b",
+      "partner-rule-approved",
+      "partner-rule-self",
+      "partner-rule-rejected",
+      "partner-rule-stale",
+      "partner-rule-expired",
+      "partner-vip-review-b",
+      "partner-vip-approved"
     ],
-    "gap": "Экраны остановлены на незаполненном примере; нет передачи точной версии второму владельцу и результата его подтверждения.",
-    "priority": "P1",
+    "gap": "",
+    "priority": "—",
     "source": "ADR-0047 §2",
     "evidence": [
+      {
+        "key": "partner-rule-form",
+        "section": "ADM-08",
+        "ru": "2936:47968",
+        "en": "2936:162266",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-47968",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-162266"
+      },
       {
         "key": "referral-preview",
         "section": "ADM-08",
@@ -1448,45 +1543,142 @@
         "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1563"
       },
       {
-        "key": "partner-vip-preview",
+        "key": "partner-rule-wait",
         "section": "ADM-08",
-        "ru": "2005:1379",
-        "en": "2008:1646",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-1379",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1646"
+        "ru": "2936:48331",
+        "en": "2936:162629",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-48331",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-162629"
+      },
+      {
+        "key": "partner-rule-review-b",
+        "section": "ADM-08",
+        "ru": "2936:48491",
+        "en": "2936:162789",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-48491",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-162789"
+      },
+      {
+        "key": "partner-rule-approved",
+        "section": "ADM-08",
+        "ru": "2936:48671",
+        "en": "2936:162969",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-48671",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-162969"
+      },
+      {
+        "key": "partner-rule-self",
+        "section": "ADM-08",
+        "ru": "2936:48991",
+        "en": "2936:163289",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-48991",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-163289"
+      },
+      {
+        "key": "partner-rule-rejected",
+        "section": "ADM-08",
+        "ru": "2936:49139",
+        "en": "2936:163437",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-49139",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-163437"
+      },
+      {
+        "key": "partner-rule-stale",
+        "section": "ADM-08",
+        "ru": "2936:49287",
+        "en": "2936:163585",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-49287",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-163585"
+      },
+      {
+        "key": "partner-rule-expired",
+        "section": "ADM-08",
+        "ru": "2936:49435",
+        "en": "2936:163733",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-49435",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-163733"
+      },
+      {
+        "key": "partner-vip-review-b",
+        "section": "ADM-08",
+        "ru": "2936:50177",
+        "en": "2936:164475",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-50177",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-164475"
+      },
+      {
+        "key": "partner-vip-approved",
+        "section": "ADM-08",
+        "ru": "2936:50337",
+        "en": "2936:164635",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-50337",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-164635"
       }
-    ]
+    ],
+    "previousStatus": "отсутствует",
+    "closedIn": "partner-rules-tariffs-vip-2026-10-16",
+    "validationNote": "Покрытие макетами и документацией. Полный ручной проход, серверное согласование и реальные интеграции не проверены."
   },
   {
     "id": "P05",
     "area": "ADM-08",
     "requirement": "Внутренняя публикация отдельно от применения площадкой",
-    "status": "частично",
+    "status": "готово",
     "keys": [
-      "tariff-form",
-      "tariff-preview"
+      "tariff-venue-pending",
+      "tariff-venue-applied",
+      "tariff-venue-failed",
+      "tariff-venue-unknown",
+      "tariff-venue-unsupported"
     ],
-    "gap": "Различие написано в пояснении, но статусы применения по каждой площадке не разложены на самостоятельные состояния.",
-    "priority": "P2",
+    "gap": "",
+    "priority": "—",
     "source": "118",
     "evidence": [
       {
-        "key": "tariff-form",
+        "key": "tariff-venue-pending",
         "section": "ADM-08",
-        "ru": "2005:859",
-        "en": "2008:1126",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-859",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1126"
+        "ru": "2936:168475",
+        "en": "2936:174351",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168475",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174351"
       },
       {
-        "key": "tariff-preview",
+        "key": "tariff-venue-applied",
         "section": "ADM-08",
-        "ru": "2005:993",
-        "en": "2008:1260",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-993",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1260"
+        "ru": "2936:168631",
+        "en": "2936:174507",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168631",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174507"
+      },
+      {
+        "key": "tariff-venue-failed",
+        "section": "ADM-08",
+        "ru": "2936:168787",
+        "en": "2936:174663",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168787",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174663"
+      },
+      {
+        "key": "tariff-venue-unknown",
+        "section": "ADM-08",
+        "ru": "2936:168943",
+        "en": "2936:174819",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-168943",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174819"
+      },
+      {
+        "key": "tariff-venue-unsupported",
+        "section": "ADM-08",
+        "ru": "2936:169099",
+        "en": "2936:174975",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-169099",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-174975"
       }
-    ]
+    ],
+    "previousStatus": "частично",
+    "closedIn": "partner-rules-tariffs-vip-2026-10-16",
+    "validationNote": "Покрытие макетами и документацией. Полный ручной проход, серверное согласование и реальные интеграции не проверены."
   },
   {
     "id": "H01",

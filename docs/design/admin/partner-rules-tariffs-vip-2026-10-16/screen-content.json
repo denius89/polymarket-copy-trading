@@ -1,0 +1,2174 @@
+[
+  {
+    "key": "partner-rule-form",
+    "title": [
+      "Денежное правило партнёров · параметры",
+      "Partner money rule · parameters"
+    ],
+    "body": [
+      "Это изолированный расчёт будущего платного режима. В Paper Alpha комиссия Shadow 0%, денежных начислений по примеру нет. Числа демонстрационные, не стартовые настройки.",
+      "This is an isolated future paid-mode scenario. Shadow fee in Paper Alpha is 0%; this example creates no monetary accruals. Values are illustrative, not launch defaults."
+    ],
+    "rows": [
+      [
+        "Версия / область",
+        "Version / scope",
+        "REF-DEMO v2 · обе площадки",
+        "REF-DEMO v2 · both venues",
+        "Изолированный пример будущего режима",
+        "Isolated future-mode example"
+      ],
+      [
+        "База / признание",
+        "Base / recognition",
+        "Комиссия Shadow; подтверждённое начисление",
+        "Shadow fee; confirmed accrual",
+        "Выбор только для расчёта примера; до платного запуска согласовать",
+        "Scenario choice only; settle before paid launch"
+      ],
+      [
+        "Период / округление",
+        "Period / rounding",
+        "Накопительно за всё время · DEMO-RND-01",
+        "Lifetime cumulative · DEMO-RND-01",
+        "USDT · 2 знака · вниз · учебный профиль",
+        "USDT · 2 decimals · down · example profile"
+      ],
+      [
+        "Лестница · клиенты",
+        "Ladder · clients",
+        "0–9: 25% · 10–49: 30% · 50+: 35%",
+        "0–9: 25% · 10–49: 30% · 50+: 35%",
+        "От комиссии, не от оборота или прибыли",
+        "Of service fee, not volume or profit"
+      ],
+      [
+        "Начало / окончание",
+        "Start / end",
+        "17.10 12:00 → бессрочно · UTC",
+        "17 Oct 12:00 → no end · UTC",
+        "Только новые начисления; прошлый долг сохранён",
+        "New accruals only; past debt unchanged"
+      ],
+      [
+        "Комиссия перевода",
+        "Transfer fee",
+        "За счёт сервиса · пример",
+        "Service pays · example",
+        "Не меняет сумму полного партнёрского долга",
+        "Does not alter the full partner debt"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить версию",
+        "Review version",
+        "referral-preview"
+      ],
+      [
+        "К реферальным правилам",
+        "Referral rules",
+        "referrals"
+      ]
+    ],
+    "fields": [
+      {
+        "label": [
+          "Метрика уровня",
+          "Tier metric"
+        ],
+        "value": [
+          "Подтверждённые клиенты",
+          "Confirmed clients"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "База признания",
+          "Recognition basis"
+        ],
+        "value": [
+          "Подтверждённое начисление · демо",
+          "Confirmed accrual · demo"
+        ],
+        "kind": "Select",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Начало · UTC",
+          "Start · UTC"
+        ],
+        "value": [
+          "17.10.2026 12:00",
+          "17 Oct 2026 12:00"
+        ],
+        "kind": "Input",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Порог / доля · уровень 1",
+          "Threshold / share · tier 1"
+        ],
+        "value": [
+          "0 / 25%",
+          "0 / 25%"
+        ],
+        "kind": "Input",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Порог / доля · уровень 2",
+          "Threshold / share · tier 2"
+        ],
+        "value": [
+          "10 / 30%",
+          "10 / 30%"
+        ],
+        "kind": "Input",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Порог / доля · уровень 3",
+          "Threshold / share · tier 3"
+        ],
+        "value": [
+          "50 / 35%",
+          "50 / 35%"
+        ],
+        "kind": "Input",
+        "hint": [
+          "",
+          ""
+        ]
+      }
+    ]
+  },
+  {
+    "key": "referral-preview",
+    "title": [
+      "Проверка денежного правила",
+      "Review partner money rule"
+    ],
+    "body": [
+      "Это изолированный расчёт будущего платного режима. В Paper Alpha комиссия Shadow 0%, денежных начислений по примеру нет. Числа демонстрационные, не стартовые настройки.",
+      "This is an isolated future paid-mode scenario. Shadow fee in Paper Alpha is 0%; this example creates no monetary accruals. Values are illustrative, not launch defaults."
+    ],
+    "rows": [
+      [
+        "Версия / область",
+        "Version / scope",
+        "REF-DEMO v2 · обе площадки",
+        "REF-DEMO v2 · both venues",
+        "Изолированный пример будущего режима",
+        "Isolated future-mode example"
+      ],
+      [
+        "База / признание",
+        "Base / recognition",
+        "Комиссия Shadow; подтверждённое начисление",
+        "Shadow fee; confirmed accrual",
+        "Выбор только для расчёта примера; до платного запуска согласовать",
+        "Scenario choice only; settle before paid launch"
+      ],
+      [
+        "Период / округление",
+        "Period / rounding",
+        "Накопительно за всё время · DEMO-RND-01",
+        "Lifetime cumulative · DEMO-RND-01",
+        "USDT · 2 знака · вниз · учебный профиль",
+        "USDT · 2 decimals · down · example profile"
+      ],
+      [
+        "Лестница · клиенты",
+        "Ladder · clients",
+        "0–9: 25% · 10–49: 30% · 50+: 35%",
+        "0–9: 25% · 10–49: 30% · 50+: 35%",
+        "От комиссии, не от оборота или прибыли",
+        "Of service fee, not volume or profit"
+      ],
+      [
+        "Начало / окончание",
+        "Start / end",
+        "17.10 12:00 → бессрочно · UTC",
+        "17 Oct 12:00 → no end · UTC",
+        "Только новые начисления; прошлый долг сохранён",
+        "New accruals only; past debt unchanged"
+      ],
+      [
+        "Комиссия перевода",
+        "Transfer fee",
+        "За счёт сервиса · пример",
+        "Service pays · example",
+        "Не меняет сумму полного партнёрского долга",
+        "Does not alter the full partner debt"
+      ],
+      [
+        "Изменение / расчёт",
+        "Change / calculation",
+        "v1: 25% → v2: 30% при 12 клиентах",
+        "v1: 25% → v2: 30% at 12 clients",
+        "Комиссия $10 → доля $3; в Alpha $0 → $0",
+        "$10 fee → $3 share; Alpha $0 → $0"
+      ],
+      [
+        "Подтверждение",
+        "Approval",
+        "Владелец A → требуется независимый B",
+        "Owner A → independent B required",
+        "Согласие относится ко всей точной версии",
+        "Approval binds the complete exact version"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить A · демо",
+        "Approve as A · demo",
+        "partner-rule-wait"
+      ],
+      [
+        "Изменить параметры",
+        "Edit parameters",
+        "partner-rule-form"
+      ]
+    ],
+    "existing": [
+      "2005:1296",
+      "2008:1563"
+    ]
+  },
+  {
+    "key": "partner-rule-wait",
+    "title": [
+      "Денежное правило · ожидает владельца B",
+      "Money rule · awaiting Owner B"
+    ],
+    "body": [
+      "Это изолированный расчёт будущего платного режима. В Paper Alpha комиссия Shadow 0%, денежных начислений по примеру нет. Числа демонстрационные, не стартовые настройки.",
+      "This is an isolated future paid-mode scenario. Shadow fee in Paper Alpha is 0%; this example creates no monetary accruals. Values are illustrative, not launch defaults."
+    ],
+    "rows": [
+      [
+        "Версия / область",
+        "Version / scope",
+        "REF-DEMO v2 · обе площадки",
+        "REF-DEMO v2 · both venues",
+        "Изолированный пример будущего режима",
+        "Isolated future-mode example"
+      ],
+      [
+        "База / признание",
+        "Base / recognition",
+        "Комиссия Shadow; подтверждённое начисление",
+        "Shadow fee; confirmed accrual",
+        "Выбор только для расчёта примера; до платного запуска согласовать",
+        "Scenario choice only; settle before paid launch"
+      ],
+      [
+        "Подтверждено / срок",
+        "Approved / expires",
+        "A · 16.10 12:00; до 12:05 UTC",
+        "A · 16 Oct 12:00; until 12:05 UTC",
+        "5 минут — только учебный срок",
+        "5 minutes is an example expiry"
+      ],
+      [
+        "Правило пока не действует",
+        "Rule not effective",
+        "Нужно согласие другого владельца",
+        "Another owner must approve",
+        "Владелец A не может дать второе согласие",
+        "Owner A cannot provide the second approval"
+      ]
+    ],
+    "actions": [
+      [
+        "Открыть как владелец B · демо",
+        "Open as Owner B · demo",
+        "partner-rule-review-b"
+      ],
+      [
+        "Проверить запрет автора · пример",
+        "Author restriction · example",
+        "partner-rule-self"
+      ],
+      [
+        "К правилам",
+        "Rules",
+        "referrals"
+      ]
+    ]
+  },
+  {
+    "key": "partner-rule-review-b",
+    "title": [
+      "Владелец B · денежное правило",
+      "Owner B · money rule"
+    ],
+    "body": [
+      "Это изолированный расчёт будущего платного режима. В Paper Alpha комиссия Shadow 0%, денежных начислений по примеру нет. Числа демонстрационные, не стартовые настройки.",
+      "This is an isolated future paid-mode scenario. Shadow fee in Paper Alpha is 0%; this example creates no monetary accruals. Values are illustrative, not launch defaults."
+    ],
+    "rows": [
+      [
+        "Версия / область",
+        "Version / scope",
+        "REF-DEMO v2 · обе площадки",
+        "REF-DEMO v2 · both venues",
+        "Изолированный пример будущего режима",
+        "Isolated future-mode example"
+      ],
+      [
+        "База / признание",
+        "Base / recognition",
+        "Комиссия Shadow; подтверждённое начисление",
+        "Shadow fee; confirmed accrual",
+        "Выбор только для расчёта примера; до платного запуска согласовать",
+        "Scenario choice only; settle before paid launch"
+      ],
+      [
+        "Период / округление",
+        "Period / rounding",
+        "Накопительно за всё время · DEMO-RND-01",
+        "Lifetime cumulative · DEMO-RND-01",
+        "USDT · 2 знака · вниз · учебный профиль",
+        "USDT · 2 decimals · down · example profile"
+      ],
+      [
+        "Лестница · клиенты",
+        "Ladder · clients",
+        "0–9: 25% · 10–49: 30% · 50+: 35%",
+        "0–9: 25% · 10–49: 30% · 50+: 35%",
+        "От комиссии, не от оборота или прибыли",
+        "Of service fee, not volume or profit"
+      ],
+      [
+        "Начало / окончание",
+        "Start / end",
+        "17.10 12:00 → бессрочно · UTC",
+        "17 Oct 12:00 → no end · UTC",
+        "Только новые начисления; прошлый долг сохранён",
+        "New accruals only; past debt unchanged"
+      ],
+      [
+        "Комиссия перевода",
+        "Transfer fee",
+        "За счёт сервиса · пример",
+        "Service pays · example",
+        "Не меняет сумму полного партнёрского долга",
+        "Does not alter the full partner debt"
+      ],
+      [
+        "Автор / проверяющий",
+        "Author / reviewer",
+        "Владелец A / Владелец B",
+        "Owner A / Owner B",
+        "A: 12:00; общий срок до 12:05 UTC",
+        "A: 12:00; shared expiry 12:05 UTC"
+      ],
+      [
+        "Повторная проверка",
+        "Fresh verification",
+        "Личный физический ключ B",
+        "Owner B's physical key",
+        "Права, версия и срок проверяются заново",
+        "Recheck permissions, version and expiry"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить B · демо",
+        "Approve as B · demo",
+        "partner-rule-approved"
+      ],
+      [
+        "Отклонить · пример",
+        "Reject · example",
+        "partner-rule-rejected"
+      ],
+      [
+        "Версия изменилась · пример",
+        "Changed version · example",
+        "partner-rule-stale"
+      ],
+      [
+        "Срок истёк · пример",
+        "Expired · example",
+        "partner-rule-expired"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "partner-rule-approved",
+    "title": [
+      "Два согласия · начало запланировано",
+      "Two approvals · start scheduled"
+    ],
+    "body": [
+      "Это изолированный расчёт будущего платного режима. В Paper Alpha комиссия Shadow 0%, денежных начислений по примеру нет. Числа демонстрационные, не стартовые настройки.",
+      "This is an isolated future paid-mode scenario. Shadow fee in Paper Alpha is 0%; this example creates no monetary accruals. Values are illustrative, not launch defaults."
+    ],
+    "rows": [
+      [
+        "Точная версия",
+        "Exact version",
+        "REF-DEMO v2 · 2 / 2",
+        "REF-DEMO v2 · 2 / 2",
+        "A 12:00 · B 12:01 UTC",
+        "A 12:00 · B 12:01 UTC"
+      ],
+      [
+        "Лестница · клиенты",
+        "Ladder · clients",
+        "0–9: 25% · 10–49: 30% · 50+: 35%",
+        "0–9: 25% · 10–49: 30% · 50+: 35%",
+        "От комиссии, не от оборота или прибыли",
+        "Of service fee, not volume or profit"
+      ],
+      [
+        "Начало / окончание",
+        "Start / end",
+        "17.10 12:00 → бессрочно · UTC",
+        "17 Oct 12:00 → no end · UTC",
+        "Только новые начисления; прошлый долг сохранён",
+        "New accruals only; past debt unchanged"
+      ],
+      [
+        "Фактический режим",
+        "Actual environment",
+        "Paper Alpha · 0%",
+        "Paper Alpha · 0%",
+        "Согласованный пример не включает реальные начисления",
+        "Approved example does not enable real accruals"
+      ]
+    ],
+    "actions": [
+      [
+        "Пример наступления срока",
+        "Example at start time",
+        "partner-rule-effective"
+      ],
+      [
+        "История согласований",
+        "Approval history",
+        "partner-rule-history"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "partner-rule-effective",
+    "title": [
+      "Денежное правило · применение в примере",
+      "Money rule · example effective"
+    ],
+    "body": [
+      "Это изолированный расчёт будущего платного режима. В Paper Alpha комиссия Shadow 0%, денежных начислений по примеру нет. Числа демонстрационные, не стартовые настройки.",
+      "This is an isolated future paid-mode scenario. Shadow fee in Paper Alpha is 0%; this example creates no monetary accruals. Values are illustrative, not launch defaults."
+    ],
+    "rows": [
+      [
+        "Версия / область",
+        "Version / scope",
+        "REF-DEMO v2 · обе площадки",
+        "REF-DEMO v2 · both venues",
+        "Изолированный пример будущего режима",
+        "Isolated future-mode example"
+      ],
+      [
+        "База / признание",
+        "Base / recognition",
+        "Комиссия Shadow; подтверждённое начисление",
+        "Shadow fee; confirmed accrual",
+        "Выбор только для расчёта примера; до платного запуска согласовать",
+        "Scenario choice only; settle before paid launch"
+      ],
+      [
+        "Период / округление",
+        "Period / rounding",
+        "Накопительно за всё время · DEMO-RND-01",
+        "Lifetime cumulative · DEMO-RND-01",
+        "USDT · 2 знака · вниз · учебный профиль",
+        "USDT · 2 decimals · down · example profile"
+      ],
+      [
+        "Лестница · клиенты",
+        "Ladder · clients",
+        "0–9: 25% · 10–49: 30% · 50+: 35%",
+        "0–9: 25% · 10–49: 30% · 50+: 35%",
+        "От комиссии, не от оборота или прибыли",
+        "Of service fee, not volume or profit"
+      ],
+      [
+        "Начало / окончание",
+        "Start / end",
+        "17.10 12:00 → бессрочно · UTC",
+        "17 Oct 12:00 → no end · UTC",
+        "Только новые начисления; прошлый долг сохранён",
+        "New accruals only; past debt unchanged"
+      ],
+      [
+        "Итог в примере / в Alpha",
+        "Scenario result / Alpha",
+        "$10 × 30% = $3 / $0",
+        "$10 × 30% = $3 / $0",
+        "Старый долг $120 остаётся $120",
+        "Previous $120 debt remains $120"
+      ]
+    ],
+    "actions": [
+      [
+        "История",
+        "History",
+        "partner-rule-history"
+      ],
+      [
+        "Партнёрский VIP",
+        "Partner VIP",
+        "partner-vip-form"
+      ]
+    ]
+  },
+  {
+    "key": "partner-rule-self",
+    "title": [
+      "Второе согласие автора запрещено",
+      "Author cannot give second approval"
+    ],
+    "body": [
+      "Владелец A уже подтвердил эту версию. Нужен другой владелец.",
+      "Owner A already approved this version. Another owner is required."
+    ],
+    "rows": [
+      [
+        "Версия / состояние",
+        "Version / state",
+        "REF-DEMO v2 · не применяется",
+        "REF-DEMO v2 · not effective",
+        "",
+        ""
+      ],
+      [
+        "Результат",
+        "Result",
+        "Новые начисления по v2 запрещены",
+        "New v2 accruals prohibited",
+        "Прошлые начисления и Alpha 0% сохранены",
+        "Past accruals and Alpha 0% preserved"
+      ]
+    ],
+    "actions": [
+      [
+        "Вернуться к параметрам",
+        "Return to parameters",
+        "partner-rule-form"
+      ],
+      [
+        "История",
+        "History",
+        "partner-rule-history"
+      ]
+    ],
+    "role": "A"
+  },
+  {
+    "key": "partner-rule-rejected",
+    "title": [
+      "Денежное правило · отклонено",
+      "Money rule · rejected"
+    ],
+    "body": [
+      "Владелец B отклонил: требуется уточнить базу признания. Версия не действует.",
+      "Owner B rejected: clarify recognition basis. Version is not effective."
+    ],
+    "rows": [
+      [
+        "Версия / состояние",
+        "Version / state",
+        "REF-DEMO v2 · не применяется",
+        "REF-DEMO v2 · not effective",
+        "",
+        ""
+      ],
+      [
+        "Результат",
+        "Result",
+        "Новые начисления по v2 запрещены",
+        "New v2 accruals prohibited",
+        "Прошлые начисления и Alpha 0% сохранены",
+        "Past accruals and Alpha 0% preserved"
+      ]
+    ],
+    "actions": [
+      [
+        "Вернуться к параметрам",
+        "Return to parameters",
+        "partner-rule-form"
+      ],
+      [
+        "История",
+        "History",
+        "partner-rule-history"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "partner-rule-stale",
+    "title": [
+      "Денежное правило · версия изменилась",
+      "Money rule · changed version"
+    ],
+    "body": [
+      "Черновик v3 заменил v2. Все прежние согласия недействительны; новое рассмотрение с A.",
+      "Draft v3 replaced v2. Earlier approvals are invalid; restart with A."
+    ],
+    "rows": [
+      [
+        "Версия / состояние",
+        "Version / state",
+        "REF-DEMO v2 · не применяется",
+        "REF-DEMO v2 · not effective",
+        "",
+        ""
+      ],
+      [
+        "Результат",
+        "Result",
+        "Новые начисления по v2 запрещены",
+        "New v2 accruals prohibited",
+        "Прошлые начисления и Alpha 0% сохранены",
+        "Past accruals and Alpha 0% preserved"
+      ]
+    ],
+    "actions": [
+      [
+        "Вернуться к параметрам",
+        "Return to parameters",
+        "partner-rule-form"
+      ],
+      [
+        "История",
+        "History",
+        "partner-rule-history"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "partner-rule-expired",
+    "title": [
+      "Денежное правило · срок истёк",
+      "Money rule · approval expired"
+    ],
+    "body": [
+      "Согласие A истекло в 12:05 UTC. B не может завершить публикацию; нужны новые согласия.",
+      "A's approval expired at 12:05 UTC. B cannot complete publication; fresh approvals are required."
+    ],
+    "rows": [
+      [
+        "Версия / состояние",
+        "Version / state",
+        "REF-DEMO v2 · не применяется",
+        "REF-DEMO v2 · not effective",
+        "",
+        ""
+      ],
+      [
+        "Результат",
+        "Result",
+        "Новые начисления по v2 запрещены",
+        "New v2 accruals prohibited",
+        "Прошлые начисления и Alpha 0% сохранены",
+        "Past accruals and Alpha 0% preserved"
+      ]
+    ],
+    "actions": [
+      [
+        "Вернуться к параметрам",
+        "Return to parameters",
+        "partner-rule-form"
+      ],
+      [
+        "История",
+        "History",
+        "partner-rule-history"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "partner-rule-history",
+    "title": [
+      "Денежные правила · история",
+      "Money rules · history"
+    ],
+    "body": [
+      "Это изолированный расчёт будущего платного режима. В Paper Alpha комиссия Shadow 0%, денежных начислений по примеру нет. Числа демонстрационные, не стартовые настройки.",
+      "This is an isolated future paid-mode scenario. Shadow fee in Paper Alpha is 0%; this example creates no monetary accruals. Values are illustrative, not launch defaults."
+    ],
+    "rows": [
+      [
+        "16.10 12:00 UTC",
+        "16 Oct 12:00 UTC",
+        "A · REF-DEMO v2 · первое согласие",
+        "A · REF-DEMO v2 · first approval",
+        "Не является публикацией в одиночку",
+        "Not publication by one owner"
+      ],
+      [
+        "16.10 12:01 UTC",
+        "16 Oct 12:01 UTC",
+        "B · REF-DEMO v2 · второе согласие",
+        "B · REF-DEMO v2 · second approval",
+        "Одна и та же точная версия",
+        "Same exact version"
+      ],
+      [
+        "17.10 12:00 UTC",
+        "17 Oct 12:00 UTC",
+        "Начало в изолированном примере",
+        "Effective in isolated example",
+        "Старые начисления остаются на своих версиях",
+        "Past accruals retain their versions"
+      ]
+    ],
+    "actions": [
+      [
+        "Посмотреть правило",
+        "View rule",
+        "partner-rule-effective"
+      ],
+      [
+        "К правилам",
+        "Rules",
+        "referrals"
+      ]
+    ]
+  },
+  {
+    "key": "partner-vip-form",
+    "title": [
+      "Партнёрский VIP · денежное исключение",
+      "Partner VIP · monetary override"
+    ],
+    "body": [
+      "Это изолированный расчёт будущего платного режима. В Paper Alpha комиссия Shadow 0%, денежных начислений по примеру нет. Числа демонстрационные, не стартовые настройки.",
+      "This is an isolated future paid-mode scenario. Shadow fee in Paper Alpha is 0%; this example creates no monetary accruals. Values are illustrative, not launch defaults."
+    ],
+    "rows": [
+      [
+        "Партнёр / версия",
+        "Partner / version",
+        "PART-024 · P-VIP-DEMO v2",
+        "PART-024 · P-VIP-DEMO v2",
+        "",
+        ""
+      ],
+      [
+        "Доля / приоритет",
+        "Share / priority",
+        "35% комиссии Shadow вместо уровня 30%",
+        "35% of Shadow fee instead of 30% tier",
+        "Пример индивидуального исключения; не суммируется с лестницей",
+        "Individual override example; not added to tier"
+      ],
+      [
+        "Срок / комиссия перевода",
+        "Term / transfer fee",
+        "17.10 12:00 → 31.10 12:00 UTC; сервис",
+        "17 Oct 12:00 → 31 Oct 12:00 UTC; service",
+        "",
+        ""
+      ],
+      [
+        "Причина / расчёт",
+        "Reason / calculation",
+        "Партнёрский тест; $10 × 35% = $3.50",
+        "Partner test; $10 × 35% = $3.50",
+        "В Alpha $0; прежний долг $120 не меняется",
+        "Alpha $0; previous $120 debt unchanged"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить условия",
+        "Review conditions",
+        "partner-vip-preview"
+      ]
+    ],
+    "fields": [
+      {
+        "label": [
+          "Доля партнёра",
+          "Partner share"
+        ],
+        "value": [
+          "35%",
+          "35%"
+        ],
+        "kind": "Amount",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Начало · UTC",
+          "Start · UTC"
+        ],
+        "value": [
+          "17.10.2026 12:00",
+          "17 Oct 2026 12:00"
+        ],
+        "kind": "Input",
+        "hint": [
+          "",
+          ""
+        ]
+      },
+      {
+        "label": [
+          "Окончание · UTC",
+          "End · UTC"
+        ],
+        "value": [
+          "31.10.2026 12:00",
+          "31 Oct 2026 12:00"
+        ],
+        "kind": "Input",
+        "hint": [
+          "",
+          ""
+        ]
+      }
+    ]
+  },
+  {
+    "key": "partner-vip-preview",
+    "title": [
+      "Проверка партнёрского VIP",
+      "Review partner VIP"
+    ],
+    "body": [
+      "Это изолированный расчёт будущего платного режима. В Paper Alpha комиссия Shadow 0%, денежных начислений по примеру нет. Числа демонстрационные, не стартовые настройки.",
+      "This is an isolated future paid-mode scenario. Shadow fee in Paper Alpha is 0%; this example creates no monetary accruals. Values are illustrative, not launch defaults."
+    ],
+    "rows": [
+      [
+        "Партнёр / версия",
+        "Partner / version",
+        "PART-024 · P-VIP-DEMO v2",
+        "PART-024 · P-VIP-DEMO v2",
+        "",
+        ""
+      ],
+      [
+        "Доля / приоритет",
+        "Share / priority",
+        "35% комиссии Shadow вместо уровня 30%",
+        "35% of Shadow fee instead of 30% tier",
+        "Пример индивидуального исключения; не суммируется с лестницей",
+        "Individual override example; not added to tier"
+      ],
+      [
+        "Срок / комиссия перевода",
+        "Term / transfer fee",
+        "17.10 12:00 → 31.10 12:00 UTC; сервис",
+        "17 Oct 12:00 → 31 Oct 12:00 UTC; service",
+        "",
+        ""
+      ],
+      [
+        "Причина / расчёт",
+        "Reason / calculation",
+        "Партнёрский тест; $10 × 35% = $3.50",
+        "Partner test; $10 × 35% = $3.50",
+        "В Alpha $0; прежний долг $120 не меняется",
+        "Alpha $0; previous $120 debt unchanged"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить A · демо",
+        "Approve as A · demo",
+        "partner-vip-wait"
+      ],
+      [
+        "К форме",
+        "Edit form",
+        "partner-vip-form"
+      ]
+    ],
+    "existing": [
+      "2005:1379",
+      "2008:1646"
+    ]
+  },
+  {
+    "key": "partner-vip-wait",
+    "title": [
+      "Партнёрский VIP · ожидает B",
+      "Partner VIP · awaiting B"
+    ],
+    "body": [
+      "Это изолированный расчёт будущего платного режима. В Paper Alpha комиссия Shadow 0%, денежных начислений по примеру нет. Числа демонстрационные, не стартовые настройки.",
+      "This is an isolated future paid-mode scenario. Shadow fee in Paper Alpha is 0%; this example creates no monetary accruals. Values are illustrative, not launch defaults."
+    ],
+    "rows": [
+      [
+        "Партнёр / версия",
+        "Partner / version",
+        "PART-024 · P-VIP-DEMO v2",
+        "PART-024 · P-VIP-DEMO v2",
+        "",
+        ""
+      ],
+      [
+        "Доля / приоритет",
+        "Share / priority",
+        "35% комиссии Shadow вместо уровня 30%",
+        "35% of Shadow fee instead of 30% tier",
+        "Пример индивидуального исключения; не суммируется с лестницей",
+        "Individual override example; not added to tier"
+      ],
+      [
+        "Срок / комиссия перевода",
+        "Term / transfer fee",
+        "17.10 12:00 → 31.10 12:00 UTC; сервис",
+        "17 Oct 12:00 → 31 Oct 12:00 UTC; service",
+        "",
+        ""
+      ],
+      [
+        "Причина / расчёт",
+        "Reason / calculation",
+        "Партнёрский тест; $10 × 35% = $3.50",
+        "Partner test; $10 × 35% = $3.50",
+        "В Alpha $0; прежний долг $120 не меняется",
+        "Alpha $0; previous $120 debt unchanged"
+      ],
+      [
+        "Согласие A / срок",
+        "A approval / expires",
+        "16.10 12:00 → 12:05 UTC",
+        "16 Oct 12:00 → 12:05 UTC",
+        "Автор не даёт второе согласие",
+        "Author cannot give second approval"
+      ]
+    ],
+    "actions": [
+      [
+        "Открыть как владелец B · демо",
+        "Open as Owner B · demo",
+        "partner-vip-review-b"
+      ]
+    ]
+  },
+  {
+    "key": "partner-vip-review-b",
+    "title": [
+      "Владелец B · партнёрский VIP",
+      "Owner B · partner VIP"
+    ],
+    "body": [
+      "Это изолированный расчёт будущего платного режима. В Paper Alpha комиссия Shadow 0%, денежных начислений по примеру нет. Числа демонстрационные, не стартовые настройки.",
+      "This is an isolated future paid-mode scenario. Shadow fee in Paper Alpha is 0%; this example creates no monetary accruals. Values are illustrative, not launch defaults."
+    ],
+    "rows": [
+      [
+        "Партнёр / версия",
+        "Partner / version",
+        "PART-024 · P-VIP-DEMO v2",
+        "PART-024 · P-VIP-DEMO v2",
+        "",
+        ""
+      ],
+      [
+        "Доля / приоритет",
+        "Share / priority",
+        "35% комиссии Shadow вместо уровня 30%",
+        "35% of Shadow fee instead of 30% tier",
+        "Пример индивидуального исключения; не суммируется с лестницей",
+        "Individual override example; not added to tier"
+      ],
+      [
+        "Срок / комиссия перевода",
+        "Term / transfer fee",
+        "17.10 12:00 → 31.10 12:00 UTC; сервис",
+        "17 Oct 12:00 → 31 Oct 12:00 UTC; service",
+        "",
+        ""
+      ],
+      [
+        "Причина / расчёт",
+        "Reason / calculation",
+        "Партнёрский тест; $10 × 35% = $3.50",
+        "Partner test; $10 × 35% = $3.50",
+        "В Alpha $0; прежний долг $120 не меняется",
+        "Alpha $0; previous $120 debt unchanged"
+      ],
+      [
+        "Проверка",
+        "Verification",
+        "A: 12:00; B: личный физический ключ",
+        "A: 12:00; B: own physical key",
+        "Точная версия и действующий срок; иначе отказ",
+        "Exact version and valid expiry; otherwise reject"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить B · демо",
+        "Approve as B · demo",
+        "partner-vip-approved"
+      ],
+      [
+        "Отклонить · пример",
+        "Reject · example",
+        "partner-vip-rejected"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "partner-vip-approved",
+    "title": [
+      "Партнёрский VIP · два согласия",
+      "Partner VIP · two approvals"
+    ],
+    "body": [
+      "Это изолированный расчёт будущего платного режима. В Paper Alpha комиссия Shadow 0%, денежных начислений по примеру нет. Числа демонстрационные, не стартовые настройки.",
+      "This is an isolated future paid-mode scenario. Shadow fee in Paper Alpha is 0%; this example creates no monetary accruals. Values are illustrative, not launch defaults."
+    ],
+    "rows": [
+      [
+        "Партнёр / версия",
+        "Partner / version",
+        "PART-024 · P-VIP-DEMO v2",
+        "PART-024 · P-VIP-DEMO v2",
+        "",
+        ""
+      ],
+      [
+        "Доля / приоритет",
+        "Share / priority",
+        "35% комиссии Shadow вместо уровня 30%",
+        "35% of Shadow fee instead of 30% tier",
+        "Пример индивидуального исключения; не суммируется с лестницей",
+        "Individual override example; not added to tier"
+      ],
+      [
+        "Срок / комиссия перевода",
+        "Term / transfer fee",
+        "17.10 12:00 → 31.10 12:00 UTC; сервис",
+        "17 Oct 12:00 → 31 Oct 12:00 UTC; service",
+        "",
+        ""
+      ],
+      [
+        "Причина / расчёт",
+        "Reason / calculation",
+        "Партнёрский тест; $10 × 35% = $3.50",
+        "Partner test; $10 × 35% = $3.50",
+        "В Alpha $0; прежний долг $120 не меняется",
+        "Alpha $0; previous $120 debt unchanged"
+      ],
+      [
+        "Состояние",
+        "State",
+        "2 / 2 · запланировано в примере",
+        "2 / 2 · scheduled in example",
+        "После окончания возвращается действующий уровень; без пересчёта прошлого",
+        "On expiry use effective tier; no historical recalculation"
+      ]
+    ],
+    "actions": [
+      [
+        "К партнёру",
+        "Partner",
+        "partner-vip"
+      ],
+      [
+        "К денежному правилу",
+        "Money rule",
+        "partner-rule-effective"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "partner-vip-rejected",
+    "title": [
+      "Партнёрский VIP · отклонён",
+      "Partner VIP · rejected"
+    ],
+    "body": [
+      "B отклонил P-VIP-DEMO v2: не согласован период. Подтверждение A не позволяет применить исключение.",
+      "B rejected P-VIP-DEMO v2: term not agreed. A's approval cannot activate the override."
+    ],
+    "rows": [
+      [
+        "Состояние",
+        "State",
+        "Не применяется · причина в журнале",
+        "Not effective · reason logged",
+        "",
+        ""
+      ],
+      [
+        "Действующие условия",
+        "Effective conditions",
+        "Прежняя версия сохранена; Alpha 0%",
+        "Previous version preserved; Alpha 0%",
+        "",
+        ""
+      ]
+    ],
+    "actions": [
+      [
+        "Изменить условия",
+        "Edit conditions",
+        "partner-vip-form"
+      ]
+    ],
+    "role": "B"
+  },
+  {
+    "key": "tariff-preview",
+    "title": [
+      "Тариф · проверка публикации",
+      "Tariff · publication review"
+    ],
+    "body": [
+      "Изолированный сценарий будущего тарифа. Paper Alpha остаётся на 0%; пример 1% не включён в продукте. Публикует один владелец.",
+      "Isolated future-tariff scenario. Paper Alpha stays at 0%; the 1% example is not enabled in the product. One owner publishes."
+    ],
+    "rows": [
+      [
+        "Тариф / версия",
+        "Tariff / version",
+        "TAR-DEMO v2 · 1% · будущий пример",
+        "TAR-DEMO v2 · 1% · future example",
+        "Alpha-ZERO v1 · реально в прототипе 0%",
+        "Alpha-ZERO v1 · actual prototype fee 0%"
+      ],
+      [
+        "Период · UTC",
+        "Term · UTC",
+        "17.10 12:00 → 31.10 12:00",
+        "17 Oct 12:00 → 31 Oct 12:00",
+        "Окончание: возврат к Alpha-ZERO v1 в примере",
+        "On expiry: Alpha-ZERO v1 in scenario"
+      ],
+      [
+        "Автор / основание",
+        "Author / reason",
+        "Владелец A · проверка жизненного цикла",
+        "Owner A · lifecycle test",
+        "Симуляция $100 × 1% = $1; Alpha $0",
+        "Simulation $100 × 1% = $1; Alpha $0"
+      ]
+    ],
+    "actions": [
+      [
+        "Запланировать · демо",
+        "Schedule · demo",
+        "tariff-scheduled-v2"
+      ],
+      [
+        "Вернуться к тарифам",
+        "Return to tariffs",
+        "pricing"
+      ]
+    ],
+    "existing": [
+      "2005:993",
+      "2008:1260"
+    ]
+  },
+  {
+    "key": "tariff-scheduled-v2",
+    "title": [
+      "Тариф · новая версия запланирована",
+      "Tariff · new version scheduled"
+    ],
+    "body": [
+      "Изолированный сценарий будущего тарифа. Paper Alpha остаётся на 0%; пример 1% не включён в продукте. Публикует один владелец.",
+      "Isolated future-tariff scenario. Paper Alpha stays at 0%; the 1% example is not enabled in the product. One owner publishes."
+    ],
+    "rows": [
+      [
+        "Тариф / версия",
+        "Tariff / version",
+        "TAR-DEMO v2 · 1% · будущий пример",
+        "TAR-DEMO v2 · 1% · future example",
+        "Alpha-ZERO v1 · реально в прототипе 0%",
+        "Alpha-ZERO v1 · actual prototype fee 0%"
+      ],
+      [
+        "Период · UTC",
+        "Term · UTC",
+        "17.10 12:00 → 31.10 12:00",
+        "17 Oct 12:00 → 31 Oct 12:00",
+        "Окончание: возврат к Alpha-ZERO v1 в примере",
+        "On expiry: Alpha-ZERO v1 in scenario"
+      ],
+      [
+        "Автор / основание",
+        "Author / reason",
+        "Владелец A · проверка жизненного цикла",
+        "Owner A · lifecycle test",
+        "Симуляция $100 × 1% = $1; Alpha $0",
+        "Simulation $100 × 1% = $1; Alpha $0"
+      ],
+      [
+        "Публикация / применение",
+        "Publication / application",
+        "A · 16.10 12:00 UTC / ожидает начала",
+        "A · 16 Oct 12:00 UTC / waiting for start",
+        "Второе согласие не требуется",
+        "No second approval required"
+      ]
+    ],
+    "actions": [
+      [
+        "Пример наступления срока",
+        "Example at start time",
+        "tariff-effective-v2"
+      ],
+      [
+        "История тарифов",
+        "Tariff history",
+        "pricing-history"
+      ]
+    ]
+  },
+  {
+    "key": "tariff-effective-v2",
+    "title": [
+      "Тариф · действует в расчётном примере",
+      "Tariff · effective in scenario"
+    ],
+    "body": [
+      "Изолированный сценарий будущего тарифа. Paper Alpha остаётся на 0%; пример 1% не включён в продукте. Публикует один владелец.",
+      "Isolated future-tariff scenario. Paper Alpha stays at 0%; the 1% example is not enabled in the product. One owner publishes."
+    ],
+    "rows": [
+      [
+        "Тариф / версия",
+        "Tariff / version",
+        "TAR-DEMO v2 · 1% · будущий пример",
+        "TAR-DEMO v2 · 1% · future example",
+        "Alpha-ZERO v1 · реально в прототипе 0%",
+        "Alpha-ZERO v1 · actual prototype fee 0%"
+      ],
+      [
+        "Период · UTC",
+        "Term · UTC",
+        "17.10 12:00 → 31.10 12:00",
+        "17 Oct 12:00 → 31 Oct 12:00",
+        "Окончание: возврат к Alpha-ZERO v1 в примере",
+        "On expiry: Alpha-ZERO v1 in scenario"
+      ],
+      [
+        "Автор / основание",
+        "Author / reason",
+        "Владелец A · проверка жизненного цикла",
+        "Owner A · lifecycle test",
+        "Симуляция $100 × 1% = $1; Alpha $0",
+        "Simulation $100 × 1% = $1; Alpha $0"
+      ],
+      [
+        "Внутри Shadow / площадки",
+        "Inside Shadow / venues",
+        "Версия выбрана / проверяются отдельно",
+        "Version selected / checked separately",
+        "Не означает приём площадкой или получение дохода",
+        "Does not mean venue acceptance or income received"
+      ]
+    ],
+    "actions": [
+      [
+        "Применение по площадкам",
+        "Venue application",
+        "tariff-venue-pending"
+      ],
+      [
+        "Пример окончания срока",
+        "Example at expiry",
+        "tariff-ended-v2"
+      ],
+      [
+        "Подготовить откат",
+        "Prepare rollback",
+        "tariff-rollback-review"
+      ]
+    ]
+  },
+  {
+    "key": "tariff-ended-v2",
+    "title": [
+      "Тариф · срок завершён",
+      "Tariff · expired"
+    ],
+    "body": [
+      "Изолированный сценарий будущего тарифа. Paper Alpha остаётся на 0%; пример 1% не включён в продукте. Публикует один владелец.",
+      "Isolated future-tariff scenario. Paper Alpha stays at 0%; the 1% example is not enabled in the product. One owner publishes."
+    ],
+    "rows": [
+      [
+        "Завершена",
+        "Expired",
+        "TAR-DEMO v2 · 31.10 12:00 UTC",
+        "TAR-DEMO v2 · 31 Oct 12:00 UTC",
+        "",
+        ""
+      ],
+      [
+        "Новые действия / история",
+        "New actions / history",
+        "Alpha-ZERO v1 · 0% / прежние версии",
+        "Alpha-ZERO v1 · 0% / original versions",
+        "Старые комиссии и обязательства не пересчитываются",
+        "Past fees and liabilities not recalculated"
+      ]
+    ],
+    "actions": [
+      [
+        "История тарифов",
+        "Tariff history",
+        "pricing-history"
+      ],
+      [
+        "Действующий тариф",
+        "Effective tariff",
+        "pricing"
+      ]
+    ]
+  },
+  {
+    "key": "tariff-rollback-review",
+    "title": [
+      "Тариф · проверка отката",
+      "Tariff · rollback review"
+    ],
+    "body": [
+      "Изолированный сценарий будущего тарифа. Paper Alpha остаётся на 0%; пример 1% не включён в продукте. Публикует один владелец.",
+      "Isolated future-tariff scenario. Paper Alpha stays at 0%; the 1% example is not enabled in the product. One owner publishes."
+    ],
+    "rows": [
+      [
+        "Новая версия / источник",
+        "New version / copied from",
+        "TAR-DEMO v3 ← Alpha-ZERO v1 · 0%",
+        "TAR-DEMO v3 ← Alpha-ZERO v1 · 0%",
+        "v2 сохраняется в истории",
+        "v2 retained in history"
+      ],
+      [
+        "Применить / причина",
+        "Effective / reason",
+        "17.10 13:00 UTC · завершить тест 1%",
+        "17 Oct 13:00 UTC · end 1% test",
+        "Один владелец; проверка актуальной версии перед публикацией",
+        "One owner; recheck current version before publish"
+      ]
+    ],
+    "actions": [
+      [
+        "Опубликовать v3 · демо",
+        "Publish v3 · demo",
+        "tariff-rollback-done"
+      ],
+      [
+        "Конфликт версии · пример",
+        "Version conflict · example",
+        "tariff-conflict"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "tariff-effective-v2"
+      ]
+    ]
+  },
+  {
+    "key": "tariff-rollback-done",
+    "title": [
+      "Тариф · откат новой версией",
+      "Tariff · rolled back as new version"
+    ],
+    "body": [
+      "Изолированный сценарий будущего тарифа. Paper Alpha остаётся на 0%; пример 1% не включён в продукте. Публикует один владелец.",
+      "Isolated future-tariff scenario. Paper Alpha stays at 0%; the 1% example is not enabled in the product. One owner publishes."
+    ],
+    "rows": [
+      [
+        "Результат",
+        "Result",
+        "TAR-DEMO v3 · 0% · A 17.10 13:00 UTC",
+        "TAR-DEMO v3 · 0% · A 17 Oct 13:00 UTC",
+        "",
+        ""
+      ],
+      [
+        "История / применение",
+        "History / application",
+        "v1 / v2 / v3 сохранены; площадки отдельно",
+        "v1 / v2 / v3 retained; venues separate",
+        "Откат не отменяет уже подтверждённые начисления",
+        "Rollback does not undo confirmed accruals"
+      ]
+    ],
+    "actions": [
+      [
+        "История тарифов",
+        "Tariff history",
+        "pricing-history"
+      ],
+      [
+        "К тарифам",
+        "Tariffs",
+        "pricing"
+      ]
+    ]
+  },
+  {
+    "key": "tariff-venue-pending",
+    "title": [
+      "Применение тарифа · ожидается",
+      "Tariff application · pending"
+    ],
+    "body": [
+      "Обе площадки: платный маршрут недоступен до подтверждения. Изолированный сценарий будущего тарифа. Paper Alpha остаётся на 0%; пример 1% не включён в продукте. Публикует один владелец.",
+      "Both venues: paid route unavailable until verified. Isolated future-tariff scenario. Paper Alpha stays at 0%; the 1% example is not enabled in the product. One owner publishes."
+    ],
+    "rows": [
+      [
+        "Внутренняя версия",
+        "Internal version",
+        "TAR-DEMO v2 · опубликован расчётный пример",
+        "TAR-DEMO v2 · scenario published",
+        "",
+        ""
+      ],
+      [
+        "Polymarket",
+        "Polymarket",
+        "Ожидается проверка",
+        "Awaiting verification",
+        "17.10 12:02 UTC · учебные данные",
+        "17 Oct 12:02 UTC · synthetic"
+      ],
+      [
+        "Limitless",
+        "Limitless",
+        "Ожидается проверка",
+        "Awaiting verification",
+        "17.10 12:02 UTC · учебные данные",
+        "17 Oct 12:02 UTC · synthetic"
+      ],
+      [
+        "Получение дохода",
+        "Income received",
+        "Не подтверждено · отдельный учёт",
+        "Not confirmed · separate ledger",
+        "Применение тарифа не равно поступлению средств",
+        "Tariff application is not receipt of funds"
+      ]
+    ],
+    "actions": [
+      [
+        "Другой исход · пример",
+        "Other outcome · example",
+        "tariff-venue-applied"
+      ],
+      [
+        "Внутренняя версия",
+        "Internal version",
+        "tariff-effective-v2"
+      ]
+    ]
+  },
+  {
+    "key": "tariff-venue-applied",
+    "title": [
+      "Применение тарифа · подтверждено в примере",
+      "Tariff application · confirmed in example"
+    ],
+    "body": [
+      "Подтверждающие данные синтетические; реальные возможности API ещё не проверены. Изолированный сценарий будущего тарифа. Paper Alpha остаётся на 0%; пример 1% не включён в продукте. Публикует один владелец.",
+      "Evidence is synthetic; actual API capabilities are not yet verified. Isolated future-tariff scenario. Paper Alpha stays at 0%; the 1% example is not enabled in the product. One owner publishes."
+    ],
+    "rows": [
+      [
+        "Внутренняя версия",
+        "Internal version",
+        "TAR-DEMO v2 · опубликован расчётный пример",
+        "TAR-DEMO v2 · scenario published",
+        "",
+        ""
+      ],
+      [
+        "Polymarket",
+        "Polymarket",
+        "Подтверждено · EVID-DEMO-PM",
+        "Confirmed · EVID-DEMO-PM",
+        "17.10 12:02 UTC · учебные данные",
+        "17 Oct 12:02 UTC · synthetic"
+      ],
+      [
+        "Limitless",
+        "Limitless",
+        "Подтверждено · EVID-DEMO-LL",
+        "Confirmed · EVID-DEMO-LL",
+        "17.10 12:02 UTC · учебные данные",
+        "17 Oct 12:02 UTC · synthetic"
+      ],
+      [
+        "Получение дохода",
+        "Income received",
+        "Не подтверждено · отдельный учёт",
+        "Not confirmed · separate ledger",
+        "Применение тарифа не равно поступлению средств",
+        "Tariff application is not receipt of funds"
+      ]
+    ],
+    "actions": [
+      [
+        "Другой исход · пример",
+        "Other outcome · example",
+        "tariff-venue-failed"
+      ],
+      [
+        "Внутренняя версия",
+        "Internal version",
+        "tariff-effective-v2"
+      ]
+    ]
+  },
+  {
+    "key": "tariff-venue-failed",
+    "title": [
+      "Применение тарифа · отказ площадки",
+      "Tariff application · venue rejected"
+    ],
+    "body": [
+      "Затронутый платный маршрут Limitless закрыт. Повтор — после устранения причины и новой проверки. Изолированный сценарий будущего тарифа. Paper Alpha остаётся на 0%; пример 1% не включён в продукте. Публикует один владелец.",
+      "Affected Limitless paid route blocked. Retry only after correction and fresh checks. Isolated future-tariff scenario. Paper Alpha stays at 0%; the 1% example is not enabled in the product. One owner publishes."
+    ],
+    "rows": [
+      [
+        "Внутренняя версия",
+        "Internal version",
+        "TAR-DEMO v2 · опубликован расчётный пример",
+        "TAR-DEMO v2 · scenario published",
+        "",
+        ""
+      ],
+      [
+        "Polymarket",
+        "Polymarket",
+        "Подтверждено · EVID-DEMO-PM",
+        "Confirmed · EVID-DEMO-PM",
+        "17.10 12:02 UTC · учебные данные",
+        "17 Oct 12:02 UTC · synthetic"
+      ],
+      [
+        "Limitless",
+        "Limitless",
+        "Отказ · ERR-DEMO-LL",
+        "Rejected · ERR-DEMO-LL",
+        "17.10 12:02 UTC · учебные данные",
+        "17 Oct 12:02 UTC · synthetic"
+      ],
+      [
+        "Получение дохода",
+        "Income received",
+        "Не подтверждено · отдельный учёт",
+        "Not confirmed · separate ledger",
+        "Применение тарифа не равно поступлению средств",
+        "Tariff application is not receipt of funds"
+      ]
+    ],
+    "actions": [
+      [
+        "Другой исход · пример",
+        "Other outcome · example",
+        "tariff-venue-unknown"
+      ],
+      [
+        "Внутренняя версия",
+        "Internal version",
+        "tariff-effective-v2"
+      ]
+    ]
+  },
+  {
+    "key": "tariff-venue-unknown",
+    "title": [
+      "Применение тарифа · результат неизвестен",
+      "Tariff application · result unknown"
+    ],
+    "body": [
+      "Нельзя объявлять успех, подставлять 0% или автоматически повторять запрос. Только проверка результата. Изолированный сценарий будущего тарифа. Paper Alpha остаётся на 0%; пример 1% не включён в продукте. Публикует один владелец.",
+      "Do not claim success, substitute 0% or automatically resend. Verify outcome first. Isolated future-tariff scenario. Paper Alpha stays at 0%; the 1% example is not enabled in the product. One owner publishes."
+    ],
+    "rows": [
+      [
+        "Внутренняя версия",
+        "Internal version",
+        "TAR-DEMO v2 · опубликован расчётный пример",
+        "TAR-DEMO v2 · scenario published",
+        "",
+        ""
+      ],
+      [
+        "Polymarket",
+        "Polymarket",
+        "Результат неизвестен",
+        "Result unknown",
+        "17.10 12:02 UTC · учебные данные",
+        "17 Oct 12:02 UTC · synthetic"
+      ],
+      [
+        "Limitless",
+        "Limitless",
+        "Ожидается проверка",
+        "Awaiting verification",
+        "17.10 12:02 UTC · учебные данные",
+        "17 Oct 12:02 UTC · synthetic"
+      ],
+      [
+        "Получение дохода",
+        "Income received",
+        "Не подтверждено · отдельный учёт",
+        "Not confirmed · separate ledger",
+        "Применение тарифа не равно поступлению средств",
+        "Tariff application is not receipt of funds"
+      ]
+    ],
+    "actions": [
+      [
+        "Другой исход · пример",
+        "Other outcome · example",
+        "tariff-venue-unsupported"
+      ],
+      [
+        "Внутренняя версия",
+        "Internal version",
+        "tariff-effective-v2"
+      ]
+    ]
+  },
+  {
+    "key": "tariff-venue-unsupported",
+    "title": [
+      "Применение тарифа · маршрут не поддержан",
+      "Tariff application · route unsupported"
+    ],
+    "body": [
+      "Не повторять неподдержанный запрос. Не заменять маршрут скрытым списанием; нужна проверка интеграции. Изолированный сценарий будущего тарифа. Paper Alpha остаётся на 0%; пример 1% не включён в продукте. Публикует один владелец.",
+      "Do not retry unsupported request or replace with hidden charges; integration review required. Isolated future-tariff scenario. Paper Alpha stays at 0%; the 1% example is not enabled in the product. One owner publishes."
+    ],
+    "rows": [
+      [
+        "Внутренняя версия",
+        "Internal version",
+        "TAR-DEMO v2 · опубликован расчётный пример",
+        "TAR-DEMO v2 · scenario published",
+        "",
+        ""
+      ],
+      [
+        "Polymarket",
+        "Polymarket",
+        "Подтверждено · EVID-DEMO-PM",
+        "Confirmed · EVID-DEMO-PM",
+        "17.10 12:02 UTC · учебные данные",
+        "17 Oct 12:02 UTC · synthetic"
+      ],
+      [
+        "Limitless",
+        "Limitless",
+        "Не поддержано · DEMO-CAP-LL",
+        "Unsupported · DEMO-CAP-LL",
+        "17.10 12:02 UTC · учебные данные",
+        "17 Oct 12:02 UTC · synthetic"
+      ],
+      [
+        "Получение дохода",
+        "Income received",
+        "Не подтверждено · отдельный учёт",
+        "Not confirmed · separate ledger",
+        "Применение тарифа не равно поступлению средств",
+        "Tariff application is not receipt of funds"
+      ]
+    ],
+    "actions": [
+      [
+        "Другой исход · пример",
+        "Other outcome · example",
+        "tariff-venue-pending"
+      ],
+      [
+        "Внутренняя версия",
+        "Internal version",
+        "tariff-effective-v2"
+      ]
+    ]
+  },
+  {
+    "key": "vip-term-form",
+    "title": [
+      "Пользовательский VIP · срок и условия",
+      "User VIP · term and conditions"
+    ],
+    "body": [
+      "VIP пользователя изменяет его тарифные условия и требует одного владельца. Это не денежное правило партнёра. В Paper Alpha комиссия остаётся 0%.",
+      "User VIP changes their tariff conditions and needs one owner. This is not a partner money rule. Paper Alpha fee remains 0%."
+    ],
+    "rows": [
+      [
+        "Пользователь / версия",
+        "User / version",
+        "Demo Atlas · U-DEMO-001 · U-VIP v2",
+        "Demo Atlas · U-DEMO-001 · U-VIP v2",
+        "",
+        ""
+      ],
+      [
+        "Условия",
+        "Conditions",
+        "Учебный будущий тариф 0.5% вместо 1%",
+        "Illustrative future fee 0.5% instead of 1%",
+        "В Alpha эффективно 0%; пример не активирует платный режим",
+        "Effective Alpha fee 0%; example does not enable paid mode"
+      ],
+      [
+        "Срок · UTC",
+        "Term · UTC",
+        "17.10 12:00 → 31.10 12:00",
+        "17 Oct 12:00 → 31 Oct 12:00",
+        "",
+        ""
+      ],
+      [
+        "Причина / после окончания",
+        "Reason / after expiry",
+        "Индивидуальный тест / действующий базовый тариф",
+        "Individual test / effective base tariff",
+        "Прошлые комиссии сохраняют исходную версию",
+        "Past fees retain original version"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить назначение",
+        "Review assignment",
+        "vip-term-review"
+      ],
+      [
+        "Карточка пользователя",
+        "User profile",
+        "user"
+      ]
+    ],
+    "section": "ADM-02",
+    "fields": [
+      {
+        "label": [
+          "Начало · UTC",
+          "Start · UTC"
+        ],
+        "value": [
+          "17.10.2026 12:00",
+          "17 Oct 2026 12:00"
+        ],
+        "kind": "Input"
+      },
+      {
+        "label": [
+          "Окончание · UTC",
+          "End · UTC"
+        ],
+        "value": [
+          "31.10.2026 12:00",
+          "31 Oct 2026 12:00"
+        ],
+        "kind": "Input"
+      },
+      {
+        "label": [
+          "Причина",
+          "Reason"
+        ],
+        "value": [
+          "Индивидуальный тест",
+          "Individual test"
+        ],
+        "kind": "Input"
+      }
+    ]
+  },
+  {
+    "key": "vip-term-review",
+    "title": [
+      "Пользовательский VIP · проверка",
+      "User VIP · review"
+    ],
+    "body": [
+      "VIP пользователя изменяет его тарифные условия и требует одного владельца. Это не денежное правило партнёра. В Paper Alpha комиссия остаётся 0%.",
+      "User VIP changes their tariff conditions and needs one owner. This is not a partner money rule. Paper Alpha fee remains 0%."
+    ],
+    "rows": [
+      [
+        "Пользователь / версия",
+        "User / version",
+        "Demo Atlas · U-DEMO-001 · U-VIP v2",
+        "Demo Atlas · U-DEMO-001 · U-VIP v2",
+        "",
+        ""
+      ],
+      [
+        "Условия",
+        "Conditions",
+        "Учебный будущий тариф 0.5% вместо 1%",
+        "Illustrative future fee 0.5% instead of 1%",
+        "В Alpha эффективно 0%; пример не активирует платный режим",
+        "Effective Alpha fee 0%; example does not enable paid mode"
+      ],
+      [
+        "Срок · UTC",
+        "Term · UTC",
+        "17.10 12:00 → 31.10 12:00",
+        "17 Oct 12:00 → 31 Oct 12:00",
+        "",
+        ""
+      ],
+      [
+        "Причина / после окончания",
+        "Reason / after expiry",
+        "Индивидуальный тест / действующий базовый тариф",
+        "Individual test / effective base tariff",
+        "Прошлые комиссии сохраняют исходную версию",
+        "Past fees retain original version"
+      ]
+    ],
+    "actions": [
+      [
+        "Назначить · демо",
+        "Assign · demo",
+        "vip-term-scheduled"
+      ],
+      [
+        "Изменить условия",
+        "Edit conditions",
+        "vip-term-form"
+      ]
+    ],
+    "section": "ADM-02"
+  },
+  {
+    "key": "vip-term-scheduled",
+    "title": [
+      "Пользовательский VIP · запланирован",
+      "User VIP · scheduled"
+    ],
+    "body": [
+      "VIP пользователя изменяет его тарифные условия и требует одного владельца. Это не денежное правило партнёра. В Paper Alpha комиссия остаётся 0%.",
+      "User VIP changes their tariff conditions and needs one owner. This is not a partner money rule. Paper Alpha fee remains 0%."
+    ],
+    "rows": [
+      [
+        "Пользователь / версия",
+        "User / version",
+        "Demo Atlas · U-DEMO-001 · U-VIP v2",
+        "Demo Atlas · U-DEMO-001 · U-VIP v2",
+        "",
+        ""
+      ],
+      [
+        "Условия",
+        "Conditions",
+        "Учебный будущий тариф 0.5% вместо 1%",
+        "Illustrative future fee 0.5% instead of 1%",
+        "В Alpha эффективно 0%; пример не активирует платный режим",
+        "Effective Alpha fee 0%; example does not enable paid mode"
+      ],
+      [
+        "Срок · UTC",
+        "Term · UTC",
+        "17.10 12:00 → 31.10 12:00",
+        "17 Oct 12:00 → 31 Oct 12:00",
+        "",
+        ""
+      ],
+      [
+        "Причина / после окончания",
+        "Reason / after expiry",
+        "Индивидуальный тест / действующий базовый тариф",
+        "Individual test / effective base tariff",
+        "Прошлые комиссии сохраняют исходную версию",
+        "Past fees retain original version"
+      ],
+      [
+        "Подтвердил / состояние",
+        "Approved by / state",
+        "Владелец A · ожидает начала",
+        "Owner A · waiting for start",
+        "Второй владелец не требуется",
+        "Second owner not required"
+      ]
+    ],
+    "actions": [
+      [
+        "Пример начала срока",
+        "Example at start time",
+        "vip-term-active"
+      ],
+      [
+        "Карточка пользователя",
+        "User profile",
+        "user"
+      ]
+    ],
+    "section": "ADM-02"
+  },
+  {
+    "key": "vip-term-active",
+    "title": [
+      "Пользовательский VIP · действует",
+      "User VIP · effective"
+    ],
+    "body": [
+      "VIP пользователя изменяет его тарифные условия и требует одного владельца. Это не денежное правило партнёра. В Paper Alpha комиссия остаётся 0%.",
+      "User VIP changes their tariff conditions and needs one owner. This is not a partner money rule. Paper Alpha fee remains 0%."
+    ],
+    "rows": [
+      [
+        "Пользователь / версия",
+        "User / version",
+        "Demo Atlas · U-DEMO-001 · U-VIP v2",
+        "Demo Atlas · U-DEMO-001 · U-VIP v2",
+        "",
+        ""
+      ],
+      [
+        "Условия",
+        "Conditions",
+        "Учебный будущий тариф 0.5% вместо 1%",
+        "Illustrative future fee 0.5% instead of 1%",
+        "В Alpha эффективно 0%; пример не активирует платный режим",
+        "Effective Alpha fee 0%; example does not enable paid mode"
+      ],
+      [
+        "Срок · UTC",
+        "Term · UTC",
+        "17.10 12:00 → 31.10 12:00",
+        "17 Oct 12:00 → 31 Oct 12:00",
+        "",
+        ""
+      ],
+      [
+        "Причина / после окончания",
+        "Reason / after expiry",
+        "Индивидуальный тест / действующий базовый тариф",
+        "Individual test / effective base tariff",
+        "Прошлые комиссии сохраняют исходную версию",
+        "Past fees retain original version"
+      ],
+      [
+        "Действующая комиссия",
+        "Effective fee",
+        "0% · Paper Alpha",
+        "0% · Paper Alpha",
+        "Учебные 0.5% не применяются в Alpha",
+        "Illustrative 0.5% not applied in Alpha"
+      ]
+    ],
+    "actions": [
+      [
+        "Пример окончания срока",
+        "Example at expiry",
+        "vip-term-ended"
+      ],
+      [
+        "Прекратить досрочно",
+        "End early",
+        "vip-revoke-review"
+      ],
+      [
+        "Карточка пользователя",
+        "User profile",
+        "user"
+      ]
+    ],
+    "section": "ADM-02"
+  },
+  {
+    "key": "vip-term-ended",
+    "title": [
+      "Пользовательский VIP · срок завершён",
+      "User VIP · expired"
+    ],
+    "body": [
+      "VIP пользователя изменяет его тарифные условия и требует одного владельца. Это не денежное правило партнёра. В Paper Alpha комиссия остаётся 0%.",
+      "User VIP changes their tariff conditions and needs one owner. This is not a partner money rule. Paper Alpha fee remains 0%."
+    ],
+    "rows": [
+      [
+        "Пользователь / окончание",
+        "User / expiry",
+        "U-DEMO-001 · 31.10 12:00 UTC",
+        "U-DEMO-001 · 31 Oct 12:00 UTC",
+        "",
+        ""
+      ],
+      [
+        "Новые действия",
+        "New actions",
+        "Действующий базовый тариф · Alpha 0%",
+        "Effective base tariff · Alpha 0%",
+        "",
+        ""
+      ],
+      [
+        "История",
+        "History",
+        "U-VIP v2 сохранена; прошлое не пересчитано",
+        "U-VIP v2 retained; past not recalculated",
+        "",
+        ""
+      ]
+    ],
+    "actions": [
+      [
+        "Карточка пользователя",
+        "User profile",
+        "user"
+      ],
+      [
+        "Назначить новый VIP",
+        "Assign new VIP",
+        "vip-term-form"
+      ]
+    ],
+    "section": "ADM-02"
+  },
+  {
+    "key": "vip-revoke-review",
+    "title": [
+      "Пользовательский VIP · прекращение",
+      "User VIP · end early"
+    ],
+    "body": [
+      "VIP пользователя изменяет его тарифные условия и требует одного владельца. Это не денежное правило партнёра. В Paper Alpha комиссия остаётся 0%.",
+      "User VIP changes their tariff conditions and needs one owner. This is not a partner money rule. Paper Alpha fee remains 0%."
+    ],
+    "rows": [
+      [
+        "Пользователь / версия",
+        "User / version",
+        "U-DEMO-001 · U-VIP v2 → v3",
+        "U-DEMO-001 · U-VIP v2 → v3",
+        "",
+        ""
+      ],
+      [
+        "Время / причина",
+        "Time / reason",
+        "17.10 13:00 UTC · завершить тест",
+        "17 Oct 13:00 UTC · end test",
+        "",
+        ""
+      ],
+      [
+        "Последствие",
+        "Effect",
+        "Далее базовый тариф; прошлое не меняется",
+        "Use base tariff going forward; past unchanged",
+        "",
+        ""
+      ]
+    ],
+    "actions": [
+      [
+        "Прекратить VIP · демо",
+        "End VIP · demo",
+        "vip-revoked"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "vip-term-active"
+      ]
+    ],
+    "section": "ADM-02"
+  },
+  {
+    "key": "vip-revoked",
+    "title": [
+      "Пользовательский VIP · прекращён",
+      "User VIP · ended early"
+    ],
+    "body": [
+      "VIP пользователя изменяет его тарифные условия и требует одного владельца. Это не денежное правило партнёра. В Paper Alpha комиссия остаётся 0%.",
+      "User VIP changes their tariff conditions and needs one owner. This is not a partner money rule. Paper Alpha fee remains 0%."
+    ],
+    "rows": [
+      [
+        "Результат",
+        "Result",
+        "U-VIP v3 · владелец A · 17.10 13:00 UTC",
+        "U-VIP v3 · Owner A · 17 Oct 13:00 UTC",
+        "",
+        ""
+      ],
+      [
+        "Текущие условия / история",
+        "Current conditions / history",
+        "Базовый тариф · Alpha 0% / v2 сохранена",
+        "Base tariff · Alpha 0% / v2 retained",
+        "Назначение и прекращение видны в журнале",
+        "Assignment and termination logged"
+      ]
+    ],
+    "actions": [
+      [
+        "Карточка пользователя",
+        "User profile",
+        "user"
+      ],
+      [
+        "Новый VIP",
+        "New VIP",
+        "vip-term-form"
+      ]
+    ],
+    "section": "ADM-02"
+  }
+]
