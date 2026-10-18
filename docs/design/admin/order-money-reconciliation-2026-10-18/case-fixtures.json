@@ -1,0 +1,172 @@
+{
+  "trade": {
+    "budget": 200,
+    "otherExecutedCost": 20,
+    "desiredShares": 40,
+    "price": 0.5,
+    "partial": {
+      "filledCost": 12,
+      "filledShares": 24,
+      "reserve": 8,
+      "available": 160
+    },
+    "cancelled": {
+      "filledCost": 12,
+      "filledShares": 24,
+      "reserve": 0,
+      "available": 168
+    },
+    "late": {
+      "filledCost": 15,
+      "filledShares": 30,
+      "reserve": 5,
+      "available": 160
+    },
+    "lateCancelled": {
+      "filledCost": 15,
+      "filledShares": 30,
+      "reserve": 0,
+      "available": 165
+    },
+    "full": {
+      "filledCost": 20,
+      "filledShares": 40,
+      "reserve": 0,
+      "available": 160
+    }
+  },
+  "money": [
+    {
+      "key": "payout",
+      "name": [
+        "Выплата партнёру",
+        "Partner payout"
+      ],
+      "id": "PAY-RC-01",
+      "venue": "Polymarket",
+      "context": [
+        "PART-RC-01 · SRC-PM-RC-01 · DEMO-NET-PM / USDT",
+        "PART-RC-01 · SRC-PM-RC-01 · DEMO-NET-PM / USDT"
+      ],
+      "amount": [
+        "120.00 USDT — полный подтверждённый долг",
+        "120.00 USDT — full confirmed debt"
+      ],
+      "before": [
+        "Средства 200; резерв PAY 121.20; другие 50; опер. 20; свободно 8.80",
+        "Funds 200; PAY reserve 121.20; other 50; operational 20; free 8.80"
+      ],
+      "after": [
+        "Средства 79.70; резерв PAY 0; другие 50; опер. 20; свободно 9.70",
+        "Funds 79.70; PAY reserve 0; other 50; operational 20; free 9.70"
+      ],
+      "result": [
+        "Получено партнёром 120.00; расход 0.30; долг 0.00. Остаток резерва расходов 0.90 освобождён один раз.",
+        "Partner received 120.00; actual expense 0.30; debt 0.00. Unused expense reserve 0.90 released exactly once."
+      ],
+      "effect": [
+        "До подтверждения долг и занятый резерв сохраняются. Отметить «оплачено» вручную или отправить снова нельзя.",
+        "Until confirmed, keep debt and the occupied reserve. No manual paid mark or resend."
+      ]
+    },
+    {
+      "key": "receipt",
+      "name": [
+        "Поступление своих средств",
+        "Receipt of service-owned funds"
+      ],
+      "id": "REC-RC-01",
+      "venue": "Polymarket",
+      "context": [
+        "SRC-PM-RC-01 · собственное пополнение · не доход от комиссии",
+        "SRC-PM-RC-01 · owner funding · not commission revenue"
+      ],
+      "amount": [
+        "10.00 USDT · до подтверждения недоступно",
+        "10.00 USDT · unavailable until confirmed"
+      ],
+      "before": [
+        "Подтверждено 200; ожидается 10 отдельно; другие резервы 50; опер. 20; свободно 130",
+        "Confirmed 200; pending 10 separate; other reserves 50; operational 20; free 130"
+      ],
+      "after": [
+        "Подтверждено 210; ожидается 0; другие резервы 50; опер. 20; свободно 140",
+        "Confirmed 210; pending 0; other reserves 50; operational 20; free 140"
+      ],
+      "result": [
+        "Одно сопоставленное поступление 10.00 учтено один раз. Это не новая прибыль и не автоматическое начисление партнёру.",
+        "One matched 10.00 receipt counted once. It is not new profit or automatic partner accrual."
+      ],
+      "effect": [
+        "Ожидаемые 10 не входят в доступный остаток. Нельзя вручную зачислить их или подменить другой транзакцией.",
+        "Pending 10 is excluded from availability. No manual credit or substitution of another transaction."
+      ]
+    },
+    {
+      "key": "user-deposit",
+      "name": [
+        "Пополнение клиента",
+        "Client funding"
+      ],
+      "id": "UF-025",
+      "venue": "Limitless",
+      "context": [
+        "U-DEMO-002 · внешний счёт ACC-LL-DEMO · отдельный клиентский маршрут",
+        "U-DEMO-002 · external ACC-LL-DEMO · separate client route"
+      ],
+      "amount": [
+        "25.00 USDT · внешний клиентский маршрут",
+        "25.00 USDT · external client route"
+      ],
+      "before": [
+        "На счёте клиента доступно 75; ожидаемые 25 не доступны",
+        "Client venue availability 75; pending 25 excluded"
+      ],
+      "after": [
+        "На внешнем счёте доступно 100; ожидается 0",
+        "External account availability 100; pending 0"
+      ],
+      "result": [
+        "Источник подтверждает доступность 25 на привязанном внешнем счёте. Средства сервиса и партнёрский долг не меняются.",
+        "Source confirms 25 available on the linked external account. Service funds and partner debt do not change."
+      ],
+      "effect": [
+        "Подтверждение входящего перевода не равно доступности для торговли. Нужно сопоставление со счётом клиента и условиями маршрута.",
+        "Incoming transfer confirmation is not trading availability. Match the client account and route requirements."
+      ]
+    },
+    {
+      "key": "user-withdrawal",
+      "name": [
+        "Вывод клиента",
+        "Client withdrawal"
+      ],
+      "id": "UW-025",
+      "venue": "Limitless",
+      "context": [
+        "U-DEMO-002 · ACC-LL-DEMO · исходный запрос клиента",
+        "U-DEMO-002 · ACC-LL-DEMO · original client request"
+      ],
+      "amount": [
+        "25.00 USDT · уже отправленный запрос",
+        "25.00 USDT · already submitted request"
+      ],
+      "before": [
+        "Клиентский доступный остаток 75; под запросом удержано 25",
+        "Client availability 75; 25 held for this request"
+      ],
+      "after": [
+        "Доступно 75; удержание 0; наружу подтверждено 25",
+        "Available 75; hold 0; confirmed outflow 25"
+      ],
+      "result": [
+        "Вывод 25 подтверждён исходным источником. Удержание закрыто расходом, а не возвратом 25 в доступный остаток.",
+        "The source confirms the 25 withdrawal. The hold is consumed by the outflow, not returned to availability."
+      ],
+      "effect": [
+        "Сотрудник не создаёт новый вывод за клиента. Пока исход неизвестен, 25 остаются удержанными. Сервисный источник не используется.",
+        "Staff do not create another client withdrawal. Keep the 25 hold while unknown. No service-owned source is used."
+      ]
+    }
+  ]
+}

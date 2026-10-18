@@ -1,5 +1,5 @@
 {
-  "revision": "0.19",
+  "revision": "0.20",
   "updatedAt": "2026-10-18",
   "purpose": "Living design sitemap; not a production capability inventory or final design acceptance.",
   "figma": {
@@ -14,8 +14,8 @@
     "current Figma RU/EN root frame inventory"
   ],
   "counts": {
-    "ru": 566,
-    "en": 566
+    "ru": 601,
+    "en": 601
   },
   "sections": [
     {
@@ -306,7 +306,7 @@
       "id": "ADM-03",
       "title": "Сессии",
       "group": "Операции",
-      "description": "Список и карточка, пауза, возобновление, отключение demo; Operations.",
+      "description": "Сессии, частичное исполнение, отмена остатка, поздние исполнения и безопасное чтение результата. Полная ручная и ролевая приёмка открыта.",
       "screens": [
         {
           "id": "1982:38062",
@@ -549,9 +549,163 @@
             "title": "EN · ops-disconnected · Demo disconnected",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-39069"
           }
+        },
+        {
+          "id": "3014:58072",
+          "key": "order-partial",
+          "title": "Заявка исполнена частично",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58072",
+          "english": {
+            "id": "3016:58059",
+            "title": "EN · order-partial · Order partially filled",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58059"
+          }
+        },
+        {
+          "id": "3014:58095",
+          "key": "order-cancel-requested",
+          "title": "Отмена остатка запрошена",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58095",
+          "english": {
+            "id": "3016:58082",
+            "title": "EN · order-cancel-requested · Remainder cancellation requested",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58082"
+          }
+        },
+        {
+          "id": "3014:58118",
+          "key": "order-cancel-checking",
+          "title": "Проверяем исходную заявку",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58118",
+          "english": {
+            "id": "3016:58105",
+            "title": "EN · order-cancel-checking · Checking the original order",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58105"
+          }
+        },
+        {
+          "id": "3014:58141",
+          "key": "order-cancel-ack",
+          "title": "Отмена принята, исполнения проверяются",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58141",
+          "english": {
+            "id": "3016:58128",
+            "title": "EN · order-cancel-ack · Cancellation acknowledged; fills being checked",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58128"
+          }
+        },
+        {
+          "id": "3014:58164",
+          "key": "order-cancel-unknown",
+          "title": "Результат отмены неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58164",
+          "english": {
+            "id": "3016:58151",
+            "title": "EN · order-cancel-unknown · Cancellation result unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58151"
+          }
+        },
+        {
+          "id": "3014:58187",
+          "key": "order-cancel-final",
+          "title": "Остаток отменён и сверён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58187",
+          "english": {
+            "id": "3016:58174",
+            "title": "EN · order-cancel-final · Remainder cancelled and reconciled",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58174"
+          }
+        },
+        {
+          "id": "3014:58210",
+          "key": "order-late-fill",
+          "title": "Получено позднее исполнение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58210",
+          "english": {
+            "id": "3016:58197",
+            "title": "EN · order-late-fill · Late fill received",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58197"
+          }
+        },
+        {
+          "id": "3014:58233",
+          "key": "order-late-checking",
+          "title": "Проверяем остаток после позднего исполнения",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58233",
+          "english": {
+            "id": "3016:58220",
+            "title": "EN · order-late-checking · Checking remainder after late fill",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58220"
+          }
+        },
+        {
+          "id": "3014:58256",
+          "key": "order-late-final",
+          "title": "Позднее исполнение учтено, остаток отменён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58256",
+          "english": {
+            "id": "3016:58243",
+            "title": "EN · order-late-final · Late fill included; remainder cancelled",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58243"
+          }
+        },
+        {
+          "id": "3014:58279",
+          "key": "order-late-complete",
+          "title": "Заявка исполнена полностью",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58279",
+          "english": {
+            "id": "3016:58266",
+            "title": "EN · order-late-complete · Order fully filled",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58266"
+          }
+        },
+        {
+          "id": "3014:58302",
+          "key": "order-check-error",
+          "title": "Не удалось проверить заявку",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58302",
+          "english": {
+            "id": "3016:58289",
+            "title": "EN · order-check-error · Order readback failed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58289"
+          }
+        },
+        {
+          "id": "3014:58325",
+          "key": "order-evidence",
+          "title": "Данных по заявке недостаточно",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58325",
+          "english": {
+            "id": "3016:58312",
+            "title": "EN · order-evidence · Insufficient order evidence",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58312"
+          }
+        },
+        {
+          "id": "3014:58348",
+          "key": "order-late-check-error",
+          "title": "Не удалось проверить заявку после исполнения",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58348",
+          "english": {
+            "id": "3016:58335",
+            "title": "EN · order-late-check-error · Order readback failed after late fill",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58335"
+          }
+        },
+        {
+          "id": "3014:58371",
+          "key": "order-late-evidence",
+          "title": "Данных по заявке недостаточно · позднее исполнение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58371",
+          "english": {
+            "id": "3016:58358",
+            "title": "EN · order-late-evidence · Insufficient order evidence · late fill",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58358"
+          }
         }
       ],
-      "status": "Макеты есть",
+      "status": "Макеты есть · на вычитке",
       "mapNodeId": "2105:5788"
     },
     {
@@ -735,7 +889,7 @@
       "id": "ADM-05",
       "title": "Сверка",
       "group": "Управление",
-      "description": "Очередь и проверка заявки: pending/unknown/discrepancy/confirmed, без повторной отправки. Другие типы случаев далее.",
+      "description": "Сверка исходной заявки и четырёх типов денежных операций: полная выплата, собственное поступление, клиентские пополнение/вывод. Подтверждение, ошибка и недостаток данных без повторной отправки; интеграция не выполнена.",
       "screens": [
         {
           "id": "2004:481",
@@ -836,9 +990,240 @@
             "height": 1200,
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-123092"
           }
+        },
+        {
+          "id": "3014:58394",
+          "key": "money-reconciliation",
+          "title": "Денежная сверка",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58394",
+          "english": {
+            "id": "3016:58381",
+            "title": "EN · money-reconciliation · Money reconciliation",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58381"
+          }
+        },
+        {
+          "id": "3014:58417",
+          "key": "reconcile-payout",
+          "title": "Выплата партнёру · результат неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58417",
+          "english": {
+            "id": "3016:58404",
+            "title": "EN · reconcile-payout · Partner payout · outcome unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58404"
+          }
+        },
+        {
+          "id": "3014:58440",
+          "key": "reconcile-payout-checking",
+          "title": "Выплата партнёру · проверка выполняется",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58440",
+          "english": {
+            "id": "3016:58427",
+            "title": "EN · reconcile-payout-checking · Partner payout · readback running",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58427"
+          }
+        },
+        {
+          "id": "3014:58463",
+          "key": "reconcile-payout-confirmed",
+          "title": "Выплата партнёру · результат подтверждён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58463",
+          "english": {
+            "id": "3016:58450",
+            "title": "EN · reconcile-payout-confirmed · Partner payout · outcome confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58450"
+          }
+        },
+        {
+          "id": "3014:58486",
+          "key": "reconcile-payout-error",
+          "title": "Выплата партнёру · источник недоступен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58486",
+          "english": {
+            "id": "3016:58473",
+            "title": "EN · reconcile-payout-error · Partner payout · source unavailable",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58473"
+          }
+        },
+        {
+          "id": "3014:58509",
+          "key": "reconcile-payout-insufficient",
+          "title": "Выплата партнёру · данных недостаточно",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58509",
+          "english": {
+            "id": "3016:58496",
+            "title": "EN · reconcile-payout-insufficient · Partner payout · insufficient evidence",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58496"
+          }
+        },
+        {
+          "id": "3014:58532",
+          "key": "reconcile-receipt",
+          "title": "Поступление своих средств · результат неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58532",
+          "english": {
+            "id": "3016:58519",
+            "title": "EN · reconcile-receipt · Receipt of service-owned funds · outcome unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58519"
+          }
+        },
+        {
+          "id": "3014:58555",
+          "key": "reconcile-receipt-checking",
+          "title": "Поступление своих средств · проверка выполняется",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58555",
+          "english": {
+            "id": "3016:58542",
+            "title": "EN · reconcile-receipt-checking · Receipt of service-owned funds · readback running",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58542"
+          }
+        },
+        {
+          "id": "3014:58578",
+          "key": "reconcile-receipt-confirmed",
+          "title": "Поступление своих средств · результат подтверждён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58578",
+          "english": {
+            "id": "3016:58565",
+            "title": "EN · reconcile-receipt-confirmed · Receipt of service-owned funds · outcome confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58565"
+          }
+        },
+        {
+          "id": "3014:58601",
+          "key": "reconcile-receipt-error",
+          "title": "Поступление своих средств · источник недоступен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58601",
+          "english": {
+            "id": "3016:58588",
+            "title": "EN · reconcile-receipt-error · Receipt of service-owned funds · source unavailable",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58588"
+          }
+        },
+        {
+          "id": "3014:58624",
+          "key": "reconcile-receipt-insufficient",
+          "title": "Поступление своих средств · данных недостаточно",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58624",
+          "english": {
+            "id": "3016:58611",
+            "title": "EN · reconcile-receipt-insufficient · Receipt of service-owned funds · insufficient evidence",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58611"
+          }
+        },
+        {
+          "id": "3014:58647",
+          "key": "reconcile-user-deposit",
+          "title": "Пополнение клиента · результат неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58647",
+          "english": {
+            "id": "3016:58634",
+            "title": "EN · reconcile-user-deposit · Client funding · outcome unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58634"
+          }
+        },
+        {
+          "id": "3014:58670",
+          "key": "reconcile-user-deposit-checking",
+          "title": "Пополнение клиента · проверка выполняется",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58670",
+          "english": {
+            "id": "3016:58657",
+            "title": "EN · reconcile-user-deposit-checking · Client funding · readback running",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58657"
+          }
+        },
+        {
+          "id": "3014:58693",
+          "key": "reconcile-user-deposit-confirmed",
+          "title": "Пополнение клиента · результат подтверждён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58693",
+          "english": {
+            "id": "3016:58680",
+            "title": "EN · reconcile-user-deposit-confirmed · Client funding · outcome confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58680"
+          }
+        },
+        {
+          "id": "3014:58716",
+          "key": "reconcile-user-deposit-error",
+          "title": "Пополнение клиента · источник недоступен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58716",
+          "english": {
+            "id": "3016:58703",
+            "title": "EN · reconcile-user-deposit-error · Client funding · source unavailable",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58703"
+          }
+        },
+        {
+          "id": "3014:58739",
+          "key": "reconcile-user-deposit-insufficient",
+          "title": "Пополнение клиента · данных недостаточно",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58739",
+          "english": {
+            "id": "3016:58726",
+            "title": "EN · reconcile-user-deposit-insufficient · Client funding · insufficient evidence",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58726"
+          }
+        },
+        {
+          "id": "3014:58762",
+          "key": "reconcile-user-withdrawal",
+          "title": "Вывод клиента · результат неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58762",
+          "english": {
+            "id": "3016:58749",
+            "title": "EN · reconcile-user-withdrawal · Client withdrawal · outcome unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58749"
+          }
+        },
+        {
+          "id": "3014:58785",
+          "key": "reconcile-user-withdrawal-checking",
+          "title": "Вывод клиента · проверка выполняется",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58785",
+          "english": {
+            "id": "3016:58772",
+            "title": "EN · reconcile-user-withdrawal-checking · Client withdrawal · readback running",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58772"
+          }
+        },
+        {
+          "id": "3014:58808",
+          "key": "reconcile-user-withdrawal-confirmed",
+          "title": "Вывод клиента · результат подтверждён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58808",
+          "english": {
+            "id": "3016:58795",
+            "title": "EN · reconcile-user-withdrawal-confirmed · Client withdrawal · outcome confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58795"
+          }
+        },
+        {
+          "id": "3014:58831",
+          "key": "reconcile-user-withdrawal-error",
+          "title": "Вывод клиента · источник недоступен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58831",
+          "english": {
+            "id": "3016:58818",
+            "title": "EN · reconcile-user-withdrawal-error · Client withdrawal · source unavailable",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58818"
+          }
+        },
+        {
+          "id": "3014:58854",
+          "key": "reconcile-user-withdrawal-insufficient",
+          "title": "Вывод клиента · данных недостаточно",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58854",
+          "english": {
+            "id": "3016:58841",
+            "title": "EN · reconcile-user-withdrawal-insufficient · Client withdrawal · insufficient evidence",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58841"
+          }
         }
       ],
-      "status": "На вычитке · пакет 10",
+      "status": "Макеты есть · на вычитке",
       "mapNodeId": "2105:5799"
     },
     {

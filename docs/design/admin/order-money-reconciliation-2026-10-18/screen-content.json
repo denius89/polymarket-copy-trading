@@ -1,0 +1,2710 @@
+[
+  {
+    "key": "order-partial",
+    "section": "ADM-03",
+    "title": [
+      "Заявка исполнена частично",
+      "Order partially filled"
+    ],
+    "body": [
+      "Отдельный пример ORD-DEMO-03. Админка наблюдает уже допущенную заявку и запрос отмены от процесса отключения сессии; не открывает сделку и не отменяет её вручную за клиента. Комиссия сервиса 0%.",
+      "Isolated ORD-DEMO-03 example. Admin observes an admitted order and the cancellation requested by the session-disconnect workflow; it does not open or cancel trades manually for the client. Service fee 0%."
+    ],
+    "rows": [
+      [
+        "Заявка / контекст",
+        "Order / context",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "Polymarket · Paper Alpha · отдельный учебный снимок",
+        "Polymarket · Paper Alpha · isolated demonstration snapshot"
+      ],
+      [
+        "Исходная покупка",
+        "Original buy",
+        "40 долей × $0.50 = $20",
+        "40 shares × $0.50 = $20",
+        "Полная сумма допущена ранее; это исполнение, а не урезание сигнала",
+        "Full amount admitted earlier; execution, not reducing the signal"
+      ],
+      [
+        "Подтверждено / остаток",
+        "Confirmed / remaining",
+        "24 / 16 долей · $12 исполнено",
+        "24 / 16 shares · $12 filled",
+        "Исполнение сохраняется; оставшиеся доли не считаются исполненными",
+        "Fills persist; remaining shares are not counted as filled"
+      ],
+      [
+        "Бюджет и резерв",
+        "Budget and reserve",
+        "$200 · доступно $160 · резерв $8",
+        "$200 · available $160 · reserved $8",
+        "Другой исполненный расход $20; текущая заявка $12",
+        "Other executed cost $20; this order $12"
+      ],
+      [
+        "Подтверждающие данные",
+        "Evidence",
+        "FILL-DEMO-031 · 24 доли · $12 · 12:00:01 UTC",
+        "FILL-DEMO-031 · 24 shares · $12 · 12:00:01 UTC",
+        "Уникальные исполнения; внешнее время отдельно от времени получения",
+        "Unique fills; venue time separate from receipt time"
+      ]
+    ],
+    "actions": [
+      [
+        "Ход отмены остатка",
+        "Cancellation progress",
+        "order-cancel-requested"
+      ],
+      [
+        "Клиент U-DEMO-002",
+        "Client U-DEMO-002",
+        "user-noor"
+      ]
+    ]
+  },
+  {
+    "key": "order-cancel-requested",
+    "section": "ADM-03",
+    "title": [
+      "Отмена остатка запрошена",
+      "Remainder cancellation requested"
+    ],
+    "body": [
+      "CANCEL-DEMO-03 уже запрошен процессом отключения; это не подтверждённая отмена. Новых покупок нет. 16 долей ещё могут исполниться; резерв $8 удержан. Здесь доступно только чтение результата.",
+      "CANCEL-DEMO-03 was requested by disconnect workflow; this is not confirmed cancellation. New buys are stopped. The remaining 16 shares may still fill; $8 stays reserved. Only result readback is available here."
+    ],
+    "rows": [
+      [
+        "Заявка / контекст",
+        "Order / context",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "Polymarket · Paper Alpha · отдельный учебный снимок",
+        "Polymarket · Paper Alpha · isolated demonstration snapshot"
+      ],
+      [
+        "Исходная покупка",
+        "Original buy",
+        "40 долей × $0.50 = $20",
+        "40 shares × $0.50 = $20",
+        "Полная сумма допущена ранее; это исполнение, а не урезание сигнала",
+        "Full amount admitted earlier; execution, not reducing the signal"
+      ],
+      [
+        "Подтверждено / остаток",
+        "Confirmed / remaining",
+        "24 / 16 долей · $12 исполнено",
+        "24 / 16 shares · $12 filled",
+        "Исполнение сохраняется; оставшиеся доли не считаются исполненными",
+        "Fills persist; remaining shares are not counted as filled"
+      ],
+      [
+        "Бюджет и резерв",
+        "Budget and reserve",
+        "$200 · доступно $160 · резерв $8",
+        "$200 · available $160 · reserved $8",
+        "Другой исполненный расход $20; текущая заявка $12",
+        "Other executed cost $20; this order $12"
+      ],
+      [
+        "Подтверждающие данные",
+        "Evidence",
+        "FILL-DEMO-031 · 24 доли · $12 · 12:00:01 UTC",
+        "FILL-DEMO-031 · 24 shares · $12 · 12:00:01 UTC",
+        "Уникальные исполнения; внешнее время отдельно от времени получения",
+        "Unique fills; venue time separate from receipt time"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить результат",
+        "Read back result",
+        "order-cancel-checking"
+      ],
+      [
+        "К заявке",
+        "Back to order",
+        "order-partial"
+      ]
+    ]
+  },
+  {
+    "key": "order-cancel-checking",
+    "section": "ADM-03",
+    "title": [
+      "Проверяем исходную заявку",
+      "Checking the original order"
+    ],
+    "body": [
+      "Читаем ORD-DEMO-03 и CANCEL-DEMO-03, а не отправляем их снова. Одна активная проверка; новый запуск присоединяется к ней. Пока ответа нет, 24 доли и резерв $8 сохраняются. Внешние исходы прототипа — ниже.",
+      "Read ORD-DEMO-03 and CANCEL-DEMO-03 without resubmitting them. One active check; another request joins it. Until evidence arrives, 24 filled shares and $8 reserve remain. Prototype outcomes are below."
+    ],
+    "rows": [
+      [
+        "Заявка / контекст",
+        "Order / context",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "Polymarket · Paper Alpha · отдельный учебный снимок",
+        "Polymarket · Paper Alpha · isolated demonstration snapshot"
+      ],
+      [
+        "Исходная покупка",
+        "Original buy",
+        "40 долей × $0.50 = $20",
+        "40 shares × $0.50 = $20",
+        "Полная сумма допущена ранее; это исполнение, а не урезание сигнала",
+        "Full amount admitted earlier; execution, not reducing the signal"
+      ],
+      [
+        "Подтверждено / остаток",
+        "Confirmed / remaining",
+        "24 / 16 долей · $12 исполнено",
+        "24 / 16 shares · $12 filled",
+        "Исполнение сохраняется; оставшиеся доли не считаются исполненными",
+        "Fills persist; remaining shares are not counted as filled"
+      ],
+      [
+        "Бюджет и резерв",
+        "Budget and reserve",
+        "$200 · доступно $160 · резерв $8",
+        "$200 · available $160 · reserved $8",
+        "Другой исполненный расход $20; текущая заявка $12",
+        "Other executed cost $20; this order $12"
+      ],
+      [
+        "Подтверждающие данные",
+        "Evidence",
+        "FILL-DEMO-031 · 24 доли · $12 · 12:00:01 UTC",
+        "FILL-DEMO-031 · 24 shares · $12 · 12:00:01 UTC",
+        "Уникальные исполнения; внешнее время отдельно от времени получения",
+        "Unique fills; venue time separate from receipt time"
+      ]
+    ],
+    "actions": [
+      [
+        "К заявке",
+        "Back to order",
+        "order-partial"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Отмена принята",
+        "Cancellation acknowledged",
+        "order-cancel-ack"
+      ],
+      [
+        "Отмена сверена",
+        "Cancellation reconciled",
+        "order-cancel-final"
+      ],
+      [
+        "Позднее исполнение",
+        "Late fill observed",
+        "order-late-fill"
+      ],
+      [
+        "Исполнено полностью",
+        "Fully filled",
+        "order-late-complete"
+      ],
+      [
+        "Результат неизвестен",
+        "Result unknown",
+        "order-cancel-unknown"
+      ],
+      [
+        "Ошибка чтения",
+        "Read error",
+        "order-check-error"
+      ],
+      [
+        "Данных недостаточно",
+        "Insufficient evidence",
+        "order-evidence"
+      ]
+    ]
+  },
+  {
+    "key": "order-cancel-ack",
+    "section": "ADM-03",
+    "title": [
+      "Отмена принята, исполнения проверяются",
+      "Cancellation acknowledged; fills being checked"
+    ],
+    "body": [
+      "Получено подтверждение отмены остатка, но история исполнений ещё не сверена. Это не основание сразу освободить $8: возможны исполнения, произошедшие раньше отмены, но пришедшие позже.",
+      "Cancellation was acknowledged, but fills have not been reconciled. Do not release $8 yet: executions may have occurred before cancellation and arrived later."
+    ],
+    "rows": [
+      [
+        "Заявка / контекст",
+        "Order / context",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "Polymarket · Paper Alpha · отдельный учебный снимок",
+        "Polymarket · Paper Alpha · isolated demonstration snapshot"
+      ],
+      [
+        "Исходная покупка",
+        "Original buy",
+        "40 долей × $0.50 = $20",
+        "40 shares × $0.50 = $20",
+        "Полная сумма допущена ранее; это исполнение, а не урезание сигнала",
+        "Full amount admitted earlier; execution, not reducing the signal"
+      ],
+      [
+        "Подтверждено / остаток",
+        "Confirmed / remaining",
+        "24 / 16 долей · $12 исполнено",
+        "24 / 16 shares · $12 filled",
+        "Исполнение сохраняется; оставшиеся доли не считаются исполненными",
+        "Fills persist; remaining shares are not counted as filled"
+      ],
+      [
+        "Бюджет и резерв",
+        "Budget and reserve",
+        "$200 · доступно $160 · резерв $8",
+        "$200 · available $160 · reserved $8",
+        "Другой исполненный расход $20; текущая заявка $12",
+        "Other executed cost $20; this order $12"
+      ],
+      [
+        "Подтверждающие данные",
+        "Evidence",
+        "ACK-CANCEL-03 · 12:00:04 UTC; полнота истории не подтверждена",
+        "ACK-CANCEL-03 · 12:00:04 UTC; history completeness unconfirmed",
+        "Уникальные исполнения; внешнее время отдельно от времени получения",
+        "Unique fills; venue time separate from receipt time"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить исполнения",
+        "Check fills",
+        "order-cancel-checking"
+      ],
+      [
+        "Клиент U-DEMO-002",
+        "Client U-DEMO-002",
+        "user-noor"
+      ]
+    ]
+  },
+  {
+    "key": "order-cancel-unknown",
+    "section": "ADM-03",
+    "title": [
+      "Результат отмены неизвестен",
+      "Cancellation result unknown"
+    ],
+    "body": [
+      "Нет достаточного подтверждения исхода CANCEL-DEMO-03. Исполненные 24 доли сохранены, резерв $8 удержан. Повтор отмены или покупки отсюда запрещён; можно повторить только чтение источников.",
+      "CANCEL-DEMO-03 outcome is not sufficiently confirmed. Keep 24 filled shares and the $8 reserve. Do not resubmit cancellation or buy here; only source readback may be repeated."
+    ],
+    "rows": [
+      [
+        "Заявка / контекст",
+        "Order / context",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "Polymarket · Paper Alpha · отдельный учебный снимок",
+        "Polymarket · Paper Alpha · isolated demonstration snapshot"
+      ],
+      [
+        "Исходная покупка",
+        "Original buy",
+        "40 долей × $0.50 = $20",
+        "40 shares × $0.50 = $20",
+        "Полная сумма допущена ранее; это исполнение, а не урезание сигнала",
+        "Full amount admitted earlier; execution, not reducing the signal"
+      ],
+      [
+        "Подтверждено / остаток",
+        "Confirmed / remaining",
+        "24 / 16 долей · $12 исполнено",
+        "24 / 16 shares · $12 filled",
+        "Исполнение сохраняется; оставшиеся доли не считаются исполненными",
+        "Fills persist; remaining shares are not counted as filled"
+      ],
+      [
+        "Бюджет и резерв",
+        "Budget and reserve",
+        "$200 · доступно $160 · резерв $8",
+        "$200 · available $160 · reserved $8",
+        "Другой исполненный расход $20; текущая заявка $12",
+        "Other executed cost $20; this order $12"
+      ],
+      [
+        "Подтверждающие данные",
+        "Evidence",
+        "FILL-DEMO-031 · 24 доли · $12 · 12:00:01 UTC",
+        "FILL-DEMO-031 · 24 shares · $12 · 12:00:01 UTC",
+        "Уникальные исполнения; внешнее время отдельно от времени получения",
+        "Unique fills; venue time separate from receipt time"
+      ]
+    ],
+    "actions": [
+      [
+        "Повторить проверку источников",
+        "Repeat source readback",
+        "order-cancel-checking"
+      ],
+      [
+        "Клиент U-DEMO-002",
+        "Client U-DEMO-002",
+        "user-noor"
+      ]
+    ]
+  },
+  {
+    "key": "order-cancel-final",
+    "section": "ADM-03",
+    "title": [
+      "Остаток отменён и сверён",
+      "Remainder cancelled and reconciled"
+    ],
+    "body": [
+      "Авторитетный снимок подтверждает 24 исполненные доли и отменённые 16. Неисполненные $8 освобождены один раз доменным процессом; сотрудник не меняет баланс. Уже купленные доли остаются; торговля автоматически не возобновляется.",
+      "Authoritative evidence confirms 24 filled and 16 cancelled shares. The domain process releases the unused $8 exactly once; staff do not edit balances. Filled shares remain; trading does not resume automatically."
+    ],
+    "rows": [
+      [
+        "Заявка / контекст",
+        "Order / context",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "Polymarket · Paper Alpha · отдельный учебный снимок",
+        "Polymarket · Paper Alpha · isolated demonstration snapshot"
+      ],
+      [
+        "Исходная покупка",
+        "Original buy",
+        "40 долей × $0.50 = $20",
+        "40 shares × $0.50 = $20",
+        "Полная сумма допущена ранее; это исполнение, а не урезание сигнала",
+        "Full amount admitted earlier; execution, not reducing the signal"
+      ],
+      [
+        "Исполнено / отменено",
+        "Filled / cancelled",
+        "24 / 16 долей · $12 исполнено",
+        "24 / 16 shares · $12 filled",
+        "Неисполненный остаток отменён; открытого остатка нет",
+        "Unfilled remainder cancelled; no open quantity remains"
+      ],
+      [
+        "Бюджет и резерв",
+        "Budget and reserve",
+        "$200 · доступно $168 · резерв $0",
+        "$200 · available $168 · reserved $0",
+        "Другой исполненный расход $20; текущая заявка $12",
+        "Other executed cost $20; this order $12"
+      ],
+      [
+        "Подтверждающие данные",
+        "Evidence",
+        "EVID-ORD-03-FINAL · F031 + окончательная отмена 16 долей",
+        "EVID-ORD-03-FINAL · F031 + final cancellation of 16 shares",
+        "Уникальные исполнения; внешнее время отдельно от времени получения",
+        "Unique fills; venue time separate from receipt time"
+      ]
+    ],
+    "actions": [
+      [
+        "Клиент U-DEMO-002",
+        "Client U-DEMO-002",
+        "user-noor"
+      ]
+    ]
+  },
+  {
+    "key": "order-late-fill",
+    "section": "ADM-03",
+    "title": [
+      "Получено позднее исполнение",
+      "Late fill received"
+    ],
+    "body": [
+      "F032: ещё 6 долей за $3 исполнены в 12:00:03, до подтверждения отмены в 12:00:04; получены в 12:00:06 UTC. Позднее получение не означает исполнение после окончательной отмены. Итог 30 долей/$15, ещё возможны 10 долей; резерв $5.",
+      "F032: another 6 shares/$3 executed at 12:00:03, before cancellation acknowledgement at 12:00:04; received at 12:00:06 UTC. Late arrival does not mean execution after final cancellation. Total 30 shares/$15; 10 shares remain possible and $5 stays reserved."
+    ],
+    "rows": [
+      [
+        "Заявка / контекст",
+        "Order / context",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "Polymarket · Paper Alpha · отдельный учебный снимок",
+        "Polymarket · Paper Alpha · isolated demonstration snapshot"
+      ],
+      [
+        "Исходная покупка",
+        "Original buy",
+        "40 долей × $0.50 = $20",
+        "40 shares × $0.50 = $20",
+        "Полная сумма допущена ранее; это исполнение, а не урезание сигнала",
+        "Full amount admitted earlier; execution, not reducing the signal"
+      ],
+      [
+        "Подтверждено / остаток",
+        "Confirmed / remaining",
+        "30 / 10 долей · $15 исполнено",
+        "30 / 10 shares · $15 filled",
+        "Исполнение сохраняется; оставшиеся доли не считаются исполненными",
+        "Fills persist; remaining shares are not counted as filled"
+      ],
+      [
+        "Бюджет и резерв",
+        "Budget and reserve",
+        "$200 · доступно $160 · резерв $5",
+        "$200 · available $160 · reserved $5",
+        "Другой исполненный расход $20; текущая заявка $15",
+        "Other executed cost $20; this order $15"
+      ],
+      [
+        "Подтверждающие данные",
+        "Evidence",
+        "F031 + F032 · 30 долей · $15; F032 получено позднее",
+        "F031 + F032 · 30 shares · $15; F032 arrived later",
+        "Уникальные исполнения; внешнее время отдельно от времени получения",
+        "Unique fills; venue time separate from receipt time"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить остаток",
+        "Check remaining quantity",
+        "order-late-checking"
+      ],
+      [
+        "Клиент U-DEMO-002",
+        "Client U-DEMO-002",
+        "user-noor"
+      ]
+    ]
+  },
+  {
+    "key": "order-late-checking",
+    "section": "ADM-03",
+    "title": [
+      "Проверяем остаток после позднего исполнения",
+      "Checking remainder after late fill"
+    ],
+    "body": [
+      "Проверка привязана к версии с F031 + F032: 30 долей/$15 уже подтверждены. Они не откатываются к $12 при повторном чтении. Резерв $5 сохраняется до доказанного результата.",
+      "This check uses the version containing F031 + F032: 30 shares/$15 are already confirmed. Readback cannot revert them to $12. Keep the $5 reserve until the outcome is established."
+    ],
+    "rows": [
+      [
+        "Заявка / контекст",
+        "Order / context",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "Polymarket · Paper Alpha · отдельный учебный снимок",
+        "Polymarket · Paper Alpha · isolated demonstration snapshot"
+      ],
+      [
+        "Исходная покупка",
+        "Original buy",
+        "40 долей × $0.50 = $20",
+        "40 shares × $0.50 = $20",
+        "Полная сумма допущена ранее; это исполнение, а не урезание сигнала",
+        "Full amount admitted earlier; execution, not reducing the signal"
+      ],
+      [
+        "Подтверждено / остаток",
+        "Confirmed / remaining",
+        "30 / 10 долей · $15 исполнено",
+        "30 / 10 shares · $15 filled",
+        "Исполнение сохраняется; оставшиеся доли не считаются исполненными",
+        "Fills persist; remaining shares are not counted as filled"
+      ],
+      [
+        "Бюджет и резерв",
+        "Budget and reserve",
+        "$200 · доступно $160 · резерв $5",
+        "$200 · available $160 · reserved $5",
+        "Другой исполненный расход $20; текущая заявка $15",
+        "Other executed cost $20; this order $15"
+      ],
+      [
+        "Подтверждающие данные",
+        "Evidence",
+        "F031 + F032 · 30 долей · $15; F032 получено позднее",
+        "F031 + F032 · 30 shares · $15; F032 arrived later",
+        "Уникальные исполнения; внешнее время отдельно от времени получения",
+        "Unique fills; venue time separate from receipt time"
+      ]
+    ],
+    "actions": [
+      [
+        "К позднему исполнению",
+        "Back to late fill",
+        "order-late-fill"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Остаток отменён",
+        "Remainder cancelled",
+        "order-late-final"
+      ],
+      [
+        "Исполнено полностью",
+        "Fully filled",
+        "order-late-complete"
+      ],
+      [
+        "Ошибка чтения",
+        "Read error",
+        "order-late-check-error"
+      ],
+      [
+        "Данных недостаточно",
+        "Insufficient evidence",
+        "order-late-evidence"
+      ]
+    ]
+  },
+  {
+    "key": "order-late-final",
+    "section": "ADM-03",
+    "title": [
+      "Позднее исполнение учтено, остаток отменён",
+      "Late fill included; remainder cancelled"
+    ],
+    "body": [
+      "Подтверждены 30 исполненных и 10 отменённых долей. $15 исполненного расхода сохранены, неисполненные $5 освобождены один раз. Повторное получение F032 не создаёт ещё 6 долей и не списывает ещё $3.",
+      "Evidence confirms 30 filled and 10 cancelled shares. Keep the $15 executed cost; release the unused $5 exactly once. Receiving F032 again creates neither another 6 shares nor another $3 debit."
+    ],
+    "rows": [
+      [
+        "Заявка / контекст",
+        "Order / context",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "Polymarket · Paper Alpha · отдельный учебный снимок",
+        "Polymarket · Paper Alpha · isolated demonstration snapshot"
+      ],
+      [
+        "Исходная покупка",
+        "Original buy",
+        "40 долей × $0.50 = $20",
+        "40 shares × $0.50 = $20",
+        "Полная сумма допущена ранее; это исполнение, а не урезание сигнала",
+        "Full amount admitted earlier; execution, not reducing the signal"
+      ],
+      [
+        "Исполнено / отменено",
+        "Filled / cancelled",
+        "30 / 10 долей · $15 исполнено",
+        "30 / 10 shares · $15 filled",
+        "Неисполненный остаток отменён; открытого остатка нет",
+        "Unfilled remainder cancelled; no open quantity remains"
+      ],
+      [
+        "Бюджет и резерв",
+        "Budget and reserve",
+        "$200 · доступно $165 · резерв $0",
+        "$200 · available $165 · reserved $0",
+        "Другой исполненный расход $20; текущая заявка $15",
+        "Other executed cost $20; this order $15"
+      ],
+      [
+        "Подтверждающие данные",
+        "Evidence",
+        "EVID-ORD-03-LATE-FINAL · F031 + F032 + отмена 10 долей",
+        "EVID-ORD-03-LATE-FINAL · F031 + F032 + 10 cancelled shares",
+        "Уникальные исполнения; внешнее время отдельно от времени получения",
+        "Unique fills; venue time separate from receipt time"
+      ]
+    ],
+    "actions": [
+      [
+        "Клиент U-DEMO-002",
+        "Client U-DEMO-002",
+        "user-noor"
+      ]
+    ]
+  },
+  {
+    "key": "order-late-complete",
+    "section": "ADM-03",
+    "title": [
+      "Заявка исполнена полностью",
+      "Order fully filled"
+    ],
+    "body": [
+      "Итоговый набор F031/F032/F033 подтверждает 40 долей/$20. Запрос отмены не отменил эти исполнения; неисполненного остатка и резерва нет. Это альтернативный подтверждённый исход той же заявки, не новая покупка и не частичная партнёрская выплата.",
+      "Final F031/F032/F033 evidence confirms 40 shares/$20. The cancellation request did not undo these fills. No unfilled quantity or reserve remains. This is an alternative established outcome of the same order, not a new buy or partial partner payment."
+    ],
+    "rows": [
+      [
+        "Заявка / контекст",
+        "Order / context",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "Polymarket · Paper Alpha · отдельный учебный снимок",
+        "Polymarket · Paper Alpha · isolated demonstration snapshot"
+      ],
+      [
+        "Исходная покупка",
+        "Original buy",
+        "40 долей × $0.50 = $20",
+        "40 shares × $0.50 = $20",
+        "Полная сумма допущена ранее; это исполнение, а не урезание сигнала",
+        "Full amount admitted earlier; execution, not reducing the signal"
+      ],
+      [
+        "Подтверждено / остаток",
+        "Confirmed / remaining",
+        "40 / 0 долей · $20 исполнено",
+        "40 / 0 shares · $20 filled",
+        "Исполнение сохраняется; оставшиеся доли не считаются исполненными",
+        "Fills persist; remaining shares are not counted as filled"
+      ],
+      [
+        "Бюджет и резерв",
+        "Budget and reserve",
+        "$200 · доступно $160 · резерв $0",
+        "$200 · available $160 · reserved $0",
+        "Другой исполненный расход $20; текущая заявка $20",
+        "Other executed cost $20; this order $20"
+      ],
+      [
+        "Подтверждающие данные",
+        "Evidence",
+        "F031 24 + F032 6 + F033 10 долей; уникальные ID",
+        "F031 24 + F032 6 + F033 10 shares; unique IDs",
+        "Уникальные исполнения; внешнее время отдельно от времени получения",
+        "Unique fills; venue time separate from receipt time"
+      ]
+    ],
+    "actions": [
+      [
+        "Клиент U-DEMO-002",
+        "Client U-DEMO-002",
+        "user-noor"
+      ]
+    ]
+  },
+  {
+    "key": "order-check-error",
+    "section": "ADM-03",
+    "title": [
+      "Не удалось проверить заявку",
+      "Order readback failed"
+    ],
+    "body": [
+      "Источник проверки недоступен. Это ошибка чтения, а не отказ сделки или отмены. Подтверждённое исполнение и резерв не меняются. Повторяется только чтение того же объекта; скомпрометированный источник не используется.",
+      "The read source is unavailable. This is a check failure, not a failed trade or cancellation. Confirmed fills and reserve stay unchanged. Retry only readback of the same object; do not use a compromised source."
+    ],
+    "rows": [
+      [
+        "Заявка / контекст",
+        "Order / context",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "Polymarket · Paper Alpha · отдельный учебный снимок",
+        "Polymarket · Paper Alpha · isolated demonstration snapshot"
+      ],
+      [
+        "Исходная покупка",
+        "Original buy",
+        "40 долей × $0.50 = $20",
+        "40 shares × $0.50 = $20",
+        "Полная сумма допущена ранее; это исполнение, а не урезание сигнала",
+        "Full amount admitted earlier; execution, not reducing the signal"
+      ],
+      [
+        "Подтверждено / остаток",
+        "Confirmed / remaining",
+        "24 / 16 долей · $12 исполнено",
+        "24 / 16 shares · $12 filled",
+        "Исполнение сохраняется; оставшиеся доли не считаются исполненными",
+        "Fills persist; remaining shares are not counted as filled"
+      ],
+      [
+        "Бюджет и резерв",
+        "Budget and reserve",
+        "$200 · доступно $160 · резерв $8",
+        "$200 · available $160 · reserved $8",
+        "Другой исполненный расход $20; текущая заявка $12",
+        "Other executed cost $20; this order $12"
+      ],
+      [
+        "Подтверждающие данные",
+        "Evidence",
+        "FILL-DEMO-031 · 24 доли · $12 · 12:00:01 UTC",
+        "FILL-DEMO-031 · 24 shares · $12 · 12:00:01 UTC",
+        "Уникальные исполнения; внешнее время отдельно от времени получения",
+        "Unique fills; venue time separate from receipt time"
+      ]
+    ],
+    "actions": [
+      [
+        "Повторить чтение",
+        "Retry readback",
+        "order-cancel-checking"
+      ],
+      [
+        "Клиент U-DEMO-002",
+        "Client U-DEMO-002",
+        "user-noor"
+      ]
+    ]
+  },
+  {
+    "key": "order-evidence",
+    "section": "ADM-03",
+    "title": [
+      "Данных по заявке недостаточно",
+      "Insufficient order evidence"
+    ],
+    "body": [
+      "Ответ получен, но не подтверждает полноту исполнений/окончательность отмены либо содержит расхождение версии. Результат остаётся неизвестным; резерв не освобождается, операция не повторяется. Дубликат наблюдения не считается новым исполнением.",
+      "A response arrived but does not prove complete fills/final cancellation, or its version conflicts. The outcome remains unknown; keep the reserve and do not resubmit. A duplicate observation is not another fill."
+    ],
+    "rows": [
+      [
+        "Заявка / контекст",
+        "Order / context",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "Polymarket · Paper Alpha · отдельный учебный снимок",
+        "Polymarket · Paper Alpha · isolated demonstration snapshot"
+      ],
+      [
+        "Исходная покупка",
+        "Original buy",
+        "40 долей × $0.50 = $20",
+        "40 shares × $0.50 = $20",
+        "Полная сумма допущена ранее; это исполнение, а не урезание сигнала",
+        "Full amount admitted earlier; execution, not reducing the signal"
+      ],
+      [
+        "Подтверждено / остаток",
+        "Confirmed / remaining",
+        "24 / 16 долей · $12 исполнено",
+        "24 / 16 shares · $12 filled",
+        "Исполнение сохраняется; оставшиеся доли не считаются исполненными",
+        "Fills persist; remaining shares are not counted as filled"
+      ],
+      [
+        "Бюджет и резерв",
+        "Budget and reserve",
+        "$200 · доступно $160 · резерв $8",
+        "$200 · available $160 · reserved $8",
+        "Другой исполненный расход $20; текущая заявка $12",
+        "Other executed cost $20; this order $12"
+      ],
+      [
+        "Подтверждающие данные",
+        "Evidence",
+        "FILL-DEMO-031 · 24 доли · $12 · 12:00:01 UTC",
+        "FILL-DEMO-031 · 24 shares · $12 · 12:00:01 UTC",
+        "Уникальные исполнения; внешнее время отдельно от времени получения",
+        "Unique fills; venue time separate from receipt time"
+      ]
+    ],
+    "actions": [
+      [
+        "Повторить чтение",
+        "Retry readback",
+        "order-cancel-checking"
+      ],
+      [
+        "Клиент U-DEMO-002",
+        "Client U-DEMO-002",
+        "user-noor"
+      ]
+    ]
+  },
+  {
+    "key": "order-late-check-error",
+    "section": "ADM-03",
+    "title": [
+      "Не удалось проверить заявку после исполнения",
+      "Order readback failed after late fill"
+    ],
+    "body": [
+      "Источник проверки недоступен. Это ошибка чтения, а не отказ сделки или отмены. Подтверждённое исполнение и резерв не меняются. Повторяется только чтение того же объекта; скомпрометированный источник не используется.",
+      "The read source is unavailable. This is a check failure, not a failed trade or cancellation. Confirmed fills and reserve stay unchanged. Retry only readback of the same object; do not use a compromised source."
+    ],
+    "rows": [
+      [
+        "Заявка / контекст",
+        "Order / context",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "Polymarket · Paper Alpha · отдельный учебный снимок",
+        "Polymarket · Paper Alpha · isolated demonstration snapshot"
+      ],
+      [
+        "Исходная покупка",
+        "Original buy",
+        "40 долей × $0.50 = $20",
+        "40 shares × $0.50 = $20",
+        "Полная сумма допущена ранее; это исполнение, а не урезание сигнала",
+        "Full amount admitted earlier; execution, not reducing the signal"
+      ],
+      [
+        "Подтверждено / остаток",
+        "Confirmed / remaining",
+        "30 / 10 долей · $15 исполнено",
+        "30 / 10 shares · $15 filled",
+        "Исполнение сохраняется; оставшиеся доли не считаются исполненными",
+        "Fills persist; remaining shares are not counted as filled"
+      ],
+      [
+        "Бюджет и резерв",
+        "Budget and reserve",
+        "$200 · доступно $160 · резерв $5",
+        "$200 · available $160 · reserved $5",
+        "Другой исполненный расход $20; текущая заявка $15",
+        "Other executed cost $20; this order $15"
+      ],
+      [
+        "Подтверждающие данные",
+        "Evidence",
+        "F031 + F032 · 30 долей · $15; F032 получено позднее",
+        "F031 + F032 · 30 shares · $15; F032 arrived later",
+        "Уникальные исполнения; внешнее время отдельно от времени получения",
+        "Unique fills; venue time separate from receipt time"
+      ]
+    ],
+    "actions": [
+      [
+        "Повторить чтение",
+        "Retry readback",
+        "order-late-checking"
+      ],
+      [
+        "Клиент U-DEMO-002",
+        "Client U-DEMO-002",
+        "user-noor"
+      ]
+    ]
+  },
+  {
+    "key": "order-late-evidence",
+    "section": "ADM-03",
+    "title": [
+      "Данных по заявке недостаточно · позднее исполнение",
+      "Insufficient order evidence · late fill"
+    ],
+    "body": [
+      "Ответ получен, но не подтверждает полноту исполнений/окончательность отмены либо содержит расхождение версии. Результат остаётся неизвестным; резерв не освобождается, операция не повторяется. Дубликат наблюдения не считается новым исполнением.",
+      "A response arrived but does not prove complete fills/final cancellation, or its version conflicts. The outcome remains unknown; keep the reserve and do not resubmit. A duplicate observation is not another fill."
+    ],
+    "rows": [
+      [
+        "Заявка / контекст",
+        "Order / context",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002",
+        "Polymarket · Paper Alpha · отдельный учебный снимок",
+        "Polymarket · Paper Alpha · isolated demonstration snapshot"
+      ],
+      [
+        "Исходная покупка",
+        "Original buy",
+        "40 долей × $0.50 = $20",
+        "40 shares × $0.50 = $20",
+        "Полная сумма допущена ранее; это исполнение, а не урезание сигнала",
+        "Full amount admitted earlier; execution, not reducing the signal"
+      ],
+      [
+        "Подтверждено / остаток",
+        "Confirmed / remaining",
+        "30 / 10 долей · $15 исполнено",
+        "30 / 10 shares · $15 filled",
+        "Исполнение сохраняется; оставшиеся доли не считаются исполненными",
+        "Fills persist; remaining shares are not counted as filled"
+      ],
+      [
+        "Бюджет и резерв",
+        "Budget and reserve",
+        "$200 · доступно $160 · резерв $5",
+        "$200 · available $160 · reserved $5",
+        "Другой исполненный расход $20; текущая заявка $15",
+        "Other executed cost $20; this order $15"
+      ],
+      [
+        "Подтверждающие данные",
+        "Evidence",
+        "F031 + F032 · 30 долей · $15; F032 получено позднее",
+        "F031 + F032 · 30 shares · $15; F032 arrived later",
+        "Уникальные исполнения; внешнее время отдельно от времени получения",
+        "Unique fills; venue time separate from receipt time"
+      ]
+    ],
+    "actions": [
+      [
+        "Повторить чтение",
+        "Retry readback",
+        "order-late-checking"
+      ],
+      [
+        "Клиент U-DEMO-002",
+        "Client U-DEMO-002",
+        "user-noor"
+      ]
+    ]
+  },
+  {
+    "key": "money-reconciliation",
+    "section": "ADM-05",
+    "title": [
+      "Денежная сверка",
+      "Money reconciliation"
+    ],
+    "body": [
+      "Разные типы операций сверяются по исходной идентичности. Четыре строки — независимые учебные снимки будущих маршрутов; они не складываются в один баланс. Текущий результат читается в карточке. Реальные маршруты не подключены; комиссия Paper Alpha 0%.",
+      "Read back each operation using its original identity. These four rows are independent future-route fixtures, not one combined balance. Read current outcome in detail. Real routes are disconnected; Paper Alpha fee 0%."
+    ],
+    "rows": [
+      [
+        "Выплата партнёру",
+        "Partner payout",
+        "PAY-RC-01 · Polymarket",
+        "PAY-RC-01 · Polymarket",
+        "Результат и подтверждения — в карточке",
+        "Outcome and evidence — in detail"
+      ],
+      [
+        "Поступление своих средств",
+        "Receipt of service-owned funds",
+        "REC-RC-01 · Polymarket",
+        "REC-RC-01 · Polymarket",
+        "Результат и подтверждения — в карточке",
+        "Outcome and evidence — in detail"
+      ],
+      [
+        "Пополнение клиента",
+        "Client funding",
+        "UF-025 · Limitless",
+        "UF-025 · Limitless",
+        "Результат и подтверждения — в карточке",
+        "Outcome and evidence — in detail"
+      ],
+      [
+        "Вывод клиента",
+        "Client withdrawal",
+        "UW-025 · Limitless",
+        "UW-025 · Limitless",
+        "Результат и подтверждения — в карточке",
+        "Outcome and evidence — in detail"
+      ]
+    ],
+    "actions": [
+      [
+        "Выплата",
+        "Payout",
+        "reconcile-payout"
+      ],
+      [
+        "Поступление",
+        "Service receipt",
+        "reconcile-receipt"
+      ],
+      [
+        "Пополнение клиента",
+        "Client funding",
+        "reconcile-user-deposit"
+      ],
+      [
+        "Вывод клиента",
+        "Client withdrawal",
+        "reconcile-user-withdrawal"
+      ]
+    ],
+    "headers": [
+      [
+        "Тип операции",
+        "Operation type"
+      ],
+      [
+        "Объект / площадка",
+        "Object / venue"
+      ],
+      [
+        "Результат",
+        "Outcome"
+      ]
+    ]
+  },
+  {
+    "key": "reconcile-payout",
+    "section": "ADM-05",
+    "title": [
+      "Выплата партнёру · результат неизвестен",
+      "Partner payout · outcome unknown"
+    ],
+    "body": [
+      "Только чтение исходной операции. До подтверждения долг и занятый резерв сохраняются. Отметить «оплачено» вручную или отправить снова нельзя. Сеть, актив, подпись и окончательность — демонстрационные; подтверждаются при интеграции.",
+      "Read the original operation only. Until confirmed, keep debt and the occupied reserve. No manual paid mark or resend. Network, asset, signing and finality are illustrative, to be verified during integration."
+    ],
+    "rows": [
+      [
+        "Операция / площадка",
+        "Operation / venue",
+        "PAY-RC-01 · Polymarket · учебный маршрут",
+        "PAY-RC-01 · Polymarket · synthetic route",
+        "PART-RC-01 · SRC-PM-RC-01 · DEMO-NET-PM / USDT",
+        "PART-RC-01 · SRC-PM-RC-01 · DEMO-NET-PM / USDT"
+      ],
+      [
+        "Сумма и принадлежность",
+        "Amount and ownership",
+        "120.00 USDT — полный подтверждённый долг",
+        "120.00 USDT — full confirmed debt",
+        "1 USDT = $1 · отдельный учёт по площадке/счёту",
+        "1 USDT = $1 · separate venue/account ledger"
+      ],
+      [
+        "Полный адрес получателя",
+        "Full recipient address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный адрес именно этого снимка; не заменять при сверке",
+        "Synthetic address for this snapshot; do not substitute during readback"
+      ],
+      [
+        "Сеть / актив / контракт",
+        "Network / asset / contract",
+        "DEMO-NET-PM · USDT · учебный профиль",
+        "DEMO-NET-PM · USDT · synthetic profile",
+        "0x3333333333333333333333333333333333333333",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние средств",
+        "Funds state",
+        "Средства 200; резерв PAY 121.20; другие 50; опер. 20; свободно 8.80",
+        "Funds 200; PAY reserve 121.20; other 50; operational 20; free 8.80",
+        "До подтверждения долг и занятый резерв сохраняются. Отметить «оплачено» вручную или отправить снова нельзя.",
+        "Until confirmed, keep debt and the occupied reserve. No manual paid mark or resend."
+      ],
+      [
+        "Исходная идентичность",
+        "Original identity",
+        "PAY-RC-01 / версия запроса 3 / EXT-DEMO-PAY-RC-01",
+        "PAY-RC-01 / request version 3 / EXT-DEMO-PAY-RC-01",
+        "Совпадают счёт, сеть, актив, контракт, получатель и сумма; без произвольного URL",
+        "Match account, network, asset, contract, recipient and amount; no arbitrary URL"
+      ],
+      [
+        "Основание и следующий шаг",
+        "Evidence and next step",
+        "Последнего достаточного подтверждения нет",
+        "No sufficient final evidence yet",
+        "При изменении версии повторно читать; автоматической отправки нет",
+        "Re-read on version change; never auto-send"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить по источникам",
+        "Read back from sources",
+        "reconcile-payout-checking"
+      ],
+      [
+        "К типам операций",
+        "Back to operation types",
+        "money-reconciliation"
+      ]
+    ]
+  },
+  {
+    "key": "reconcile-payout-checking",
+    "section": "ADM-05",
+    "title": [
+      "Выплата партнёру · проверка выполняется",
+      "Partner payout · readback running"
+    ],
+    "body": [
+      "Одна проверка исходного объекта; параллельные запросы не создают новых отправок. Средства до ответа не меняются. При техническом режиме разрешено лишь безопасное чтение аварийного контура. Исходы ниже — переключатели прототипа.",
+      "One check of the original object; concurrent requests do not create submissions. Keep funds unchanged while waiting. Technical mode permits only safe emergency readback. Outcomes below are prototype controls."
+    ],
+    "rows": [
+      [
+        "Операция / площадка",
+        "Operation / venue",
+        "PAY-RC-01 · Polymarket · учебный маршрут",
+        "PAY-RC-01 · Polymarket · synthetic route",
+        "PART-RC-01 · SRC-PM-RC-01 · DEMO-NET-PM / USDT",
+        "PART-RC-01 · SRC-PM-RC-01 · DEMO-NET-PM / USDT"
+      ],
+      [
+        "Сумма и принадлежность",
+        "Amount and ownership",
+        "120.00 USDT — полный подтверждённый долг",
+        "120.00 USDT — full confirmed debt",
+        "1 USDT = $1 · отдельный учёт по площадке/счёту",
+        "1 USDT = $1 · separate venue/account ledger"
+      ],
+      [
+        "Полный адрес получателя",
+        "Full recipient address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный адрес именно этого снимка; не заменять при сверке",
+        "Synthetic address for this snapshot; do not substitute during readback"
+      ],
+      [
+        "Сеть / актив / контракт",
+        "Network / asset / contract",
+        "DEMO-NET-PM · USDT · учебный профиль",
+        "DEMO-NET-PM · USDT · synthetic profile",
+        "0x3333333333333333333333333333333333333333",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние средств",
+        "Funds state",
+        "Средства 200; резерв PAY 121.20; другие 50; опер. 20; свободно 8.80",
+        "Funds 200; PAY reserve 121.20; other 50; operational 20; free 8.80",
+        "До подтверждения долг и занятый резерв сохраняются. Отметить «оплачено» вручную или отправить снова нельзя.",
+        "Until confirmed, keep debt and the occupied reserve. No manual paid mark or resend."
+      ],
+      [
+        "Исходная идентичность",
+        "Original identity",
+        "PAY-RC-01 / версия запроса 3 / EXT-DEMO-PAY-RC-01",
+        "PAY-RC-01 / request version 3 / EXT-DEMO-PAY-RC-01",
+        "Совпадают счёт, сеть, актив, контракт, получатель и сумма; без произвольного URL",
+        "Match account, network, asset, contract, recipient and amount; no arbitrary URL"
+      ],
+      [
+        "Основание и следующий шаг",
+        "Evidence and next step",
+        "Последнего достаточного подтверждения нет",
+        "No sufficient final evidence yet",
+        "При изменении версии повторно читать; автоматической отправки нет",
+        "Re-read on version change; never auto-send"
+      ]
+    ],
+    "actions": [
+      [
+        "К карточке",
+        "Back to detail",
+        "reconcile-payout"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Результат подтверждён",
+        "Outcome confirmed",
+        "reconcile-payout-confirmed"
+      ],
+      [
+        "Ошибка проверки",
+        "Readback error",
+        "reconcile-payout-error"
+      ],
+      [
+        "Данных недостаточно",
+        "Insufficient evidence",
+        "reconcile-payout-insufficient"
+      ]
+    ]
+  },
+  {
+    "key": "reconcile-payout-confirmed",
+    "section": "ADM-05",
+    "title": [
+      "Выплата партнёру · результат подтверждён",
+      "Partner payout · outcome confirmed"
+    ],
+    "body": [
+      "Получено партнёром 120.00; расход 0.30; долг 0.00. Остаток резерва расходов 0.90 освобождён один раз. Это результат сопоставленных фактов, а не кнопка ручного исправления баланса. Повтор того же подтверждения не меняет учёт ещё раз. Ограничения и открытый инцидент не снимаются автоматически.",
+      "Partner received 120.00; actual expense 0.30; debt 0.00. Unused expense reserve 0.90 released exactly once. This follows matched evidence, not a manual balance-edit command. Duplicate evidence cannot change the ledger again. Controls and an open incident are not cleared automatically."
+    ],
+    "rows": [
+      [
+        "Операция / площадка",
+        "Operation / venue",
+        "PAY-RC-01 · Polymarket · учебный маршрут",
+        "PAY-RC-01 · Polymarket · synthetic route",
+        "PART-RC-01 · SRC-PM-RC-01 · DEMO-NET-PM / USDT",
+        "PART-RC-01 · SRC-PM-RC-01 · DEMO-NET-PM / USDT"
+      ],
+      [
+        "Сумма и принадлежность",
+        "Amount and ownership",
+        "120.00 USDT — полный подтверждённый долг",
+        "120.00 USDT — full confirmed debt",
+        "1 USDT = $1 · отдельный учёт по площадке/счёту",
+        "1 USDT = $1 · separate venue/account ledger"
+      ],
+      [
+        "Полный адрес получателя",
+        "Full recipient address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный адрес именно этого снимка; не заменять при сверке",
+        "Synthetic address for this snapshot; do not substitute during readback"
+      ],
+      [
+        "Сеть / актив / контракт",
+        "Network / asset / contract",
+        "DEMO-NET-PM · USDT · учебный профиль",
+        "DEMO-NET-PM · USDT · synthetic profile",
+        "0x3333333333333333333333333333333333333333",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние средств",
+        "Funds state",
+        "Средства 79.70; резерв PAY 0; другие 50; опер. 20; свободно 9.70",
+        "Funds 79.70; PAY reserve 0; other 50; operational 20; free 9.70",
+        "Получено партнёром 120.00; расход 0.30; долг 0.00. Остаток резерва расходов 0.90 освобождён один раз.",
+        "Partner received 120.00; actual expense 0.30; debt 0.00. Unused expense reserve 0.90 released exactly once."
+      ],
+      [
+        "Исходная идентичность",
+        "Original identity",
+        "PAY-RC-01 / версия запроса 3 / EXT-DEMO-PAY-RC-01",
+        "PAY-RC-01 / request version 3 / EXT-DEMO-PAY-RC-01",
+        "Совпадают счёт, сеть, актив, контракт, получатель и сумма; без произвольного URL",
+        "Match account, network, asset, contract, recipient and amount; no arbitrary URL"
+      ],
+      [
+        "Основание и следующий шаг",
+        "Evidence and next step",
+        "EVID-PAY-RC-01 · окончательный учебный набор",
+        "EVID-PAY-RC-01 · final synthetic evidence set",
+        "При изменении версии повторно читать; автоматической отправки нет",
+        "Re-read on version change; never auto-send"
+      ]
+    ],
+    "actions": [
+      [
+        "К типам операций",
+        "Back to operation types",
+        "money-reconciliation"
+      ]
+    ]
+  },
+  {
+    "key": "reconcile-payout-error",
+    "section": "ADM-05",
+    "title": [
+      "Выплата партнёру · источник недоступен",
+      "Partner payout · source unavailable"
+    ],
+    "body": [
+      "Ошибка чтения не доказывает отказ перевода. До подтверждения долг и занятый резерв сохраняются. Отметить «оплачено» вручную или отправить снова нельзя. Исходная идентичность и прежний снимок сохраняются. Можно повторить только безопасную проверку; отправки и ручного успеха нет.",
+      "A read failure does not prove a failed transfer. Until confirmed, keep debt and the occupied reserve. No manual paid mark or resend. Keep original identity and previous snapshot. Retry only safe readback; no submission or manual success."
+    ],
+    "rows": [
+      [
+        "Операция / площадка",
+        "Operation / venue",
+        "PAY-RC-01 · Polymarket · учебный маршрут",
+        "PAY-RC-01 · Polymarket · synthetic route",
+        "PART-RC-01 · SRC-PM-RC-01 · DEMO-NET-PM / USDT",
+        "PART-RC-01 · SRC-PM-RC-01 · DEMO-NET-PM / USDT"
+      ],
+      [
+        "Сумма и принадлежность",
+        "Amount and ownership",
+        "120.00 USDT — полный подтверждённый долг",
+        "120.00 USDT — full confirmed debt",
+        "1 USDT = $1 · отдельный учёт по площадке/счёту",
+        "1 USDT = $1 · separate venue/account ledger"
+      ],
+      [
+        "Полный адрес получателя",
+        "Full recipient address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный адрес именно этого снимка; не заменять при сверке",
+        "Synthetic address for this snapshot; do not substitute during readback"
+      ],
+      [
+        "Сеть / актив / контракт",
+        "Network / asset / contract",
+        "DEMO-NET-PM · USDT · учебный профиль",
+        "DEMO-NET-PM · USDT · synthetic profile",
+        "0x3333333333333333333333333333333333333333",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние средств",
+        "Funds state",
+        "Средства 200; резерв PAY 121.20; другие 50; опер. 20; свободно 8.80",
+        "Funds 200; PAY reserve 121.20; other 50; operational 20; free 8.80",
+        "До подтверждения долг и занятый резерв сохраняются. Отметить «оплачено» вручную или отправить снова нельзя.",
+        "Until confirmed, keep debt and the occupied reserve. No manual paid mark or resend."
+      ],
+      [
+        "Исходная идентичность",
+        "Original identity",
+        "PAY-RC-01 / версия запроса 3 / EXT-DEMO-PAY-RC-01",
+        "PAY-RC-01 / request version 3 / EXT-DEMO-PAY-RC-01",
+        "Совпадают счёт, сеть, актив, контракт, получатель и сумма; без произвольного URL",
+        "Match account, network, asset, contract, recipient and amount; no arbitrary URL"
+      ],
+      [
+        "Основание и следующий шаг",
+        "Evidence and next step",
+        "Последнего достаточного подтверждения нет",
+        "No sufficient final evidence yet",
+        "При изменении версии повторно читать; автоматической отправки нет",
+        "Re-read on version change; never auto-send"
+      ]
+    ],
+    "actions": [
+      [
+        "Повторить проверку",
+        "Retry readback",
+        "reconcile-payout-checking"
+      ],
+      [
+        "К карточке",
+        "Back to detail",
+        "reconcile-payout"
+      ]
+    ]
+  },
+  {
+    "key": "reconcile-payout-insufficient",
+    "section": "ADM-05",
+    "title": [
+      "Выплата партнёру · данных недостаточно",
+      "Partner payout · insufficient evidence"
+    ],
+    "body": [
+      "Ответ есть, но отсутствует требуемая окончательность, совпадение идентичности/суммы либо источники противоречат друг другу. При неподдержанном маршруте результата также нет. До подтверждения долг и занятый резерв сохраняются. Отметить «оплачено» вручную или отправить снова нельзя. Новой подтверждённой версии нет — учёт не обновляется.",
+      "A response lacks required finality or identity/amount matching, or sources disagree. An unsupported route also provides no result. Until confirmed, keep debt and the occupied reserve. No manual paid mark or resend. Without a new confirmed version the ledger stays unchanged."
+    ],
+    "rows": [
+      [
+        "Операция / площадка",
+        "Operation / venue",
+        "PAY-RC-01 · Polymarket · учебный маршрут",
+        "PAY-RC-01 · Polymarket · synthetic route",
+        "PART-RC-01 · SRC-PM-RC-01 · DEMO-NET-PM / USDT",
+        "PART-RC-01 · SRC-PM-RC-01 · DEMO-NET-PM / USDT"
+      ],
+      [
+        "Сумма и принадлежность",
+        "Amount and ownership",
+        "120.00 USDT — полный подтверждённый долг",
+        "120.00 USDT — full confirmed debt",
+        "1 USDT = $1 · отдельный учёт по площадке/счёту",
+        "1 USDT = $1 · separate venue/account ledger"
+      ],
+      [
+        "Полный адрес получателя",
+        "Full recipient address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный адрес именно этого снимка; не заменять при сверке",
+        "Synthetic address for this snapshot; do not substitute during readback"
+      ],
+      [
+        "Сеть / актив / контракт",
+        "Network / asset / contract",
+        "DEMO-NET-PM · USDT · учебный профиль",
+        "DEMO-NET-PM · USDT · synthetic profile",
+        "0x3333333333333333333333333333333333333333",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние средств",
+        "Funds state",
+        "Средства 200; резерв PAY 121.20; другие 50; опер. 20; свободно 8.80",
+        "Funds 200; PAY reserve 121.20; other 50; operational 20; free 8.80",
+        "До подтверждения долг и занятый резерв сохраняются. Отметить «оплачено» вручную или отправить снова нельзя.",
+        "Until confirmed, keep debt and the occupied reserve. No manual paid mark or resend."
+      ],
+      [
+        "Исходная идентичность",
+        "Original identity",
+        "PAY-RC-01 / версия запроса 3 / EXT-DEMO-PAY-RC-01",
+        "PAY-RC-01 / request version 3 / EXT-DEMO-PAY-RC-01",
+        "Совпадают счёт, сеть, актив, контракт, получатель и сумма; без произвольного URL",
+        "Match account, network, asset, contract, recipient and amount; no arbitrary URL"
+      ],
+      [
+        "Основание и следующий шаг",
+        "Evidence and next step",
+        "Последнего достаточного подтверждения нет",
+        "No sufficient final evidence yet",
+        "При изменении версии повторно читать; автоматической отправки нет",
+        "Re-read on version change; never auto-send"
+      ]
+    ],
+    "actions": [
+      [
+        "Повторить проверку",
+        "Retry readback",
+        "reconcile-payout-checking"
+      ],
+      [
+        "К карточке",
+        "Back to detail",
+        "reconcile-payout"
+      ]
+    ]
+  },
+  {
+    "key": "reconcile-receipt",
+    "section": "ADM-05",
+    "title": [
+      "Поступление своих средств · результат неизвестен",
+      "Receipt of service-owned funds · outcome unknown"
+    ],
+    "body": [
+      "Только чтение исходной операции. Ожидаемые 10 не входят в доступный остаток. Нельзя вручную зачислить их или подменить другой транзакцией. Сеть, актив, подпись и окончательность — демонстрационные; подтверждаются при интеграции.",
+      "Read the original operation only. Pending 10 is excluded from availability. No manual credit or substitution of another transaction. Network, asset, signing and finality are illustrative, to be verified during integration."
+    ],
+    "rows": [
+      [
+        "Операция / площадка",
+        "Operation / venue",
+        "REC-RC-01 · Polymarket · учебный маршрут",
+        "REC-RC-01 · Polymarket · synthetic route",
+        "SRC-PM-RC-01 · собственное пополнение · не доход от комиссии",
+        "SRC-PM-RC-01 · owner funding · not commission revenue"
+      ],
+      [
+        "Сумма и принадлежность",
+        "Amount and ownership",
+        "10.00 USDT · до подтверждения недоступно",
+        "10.00 USDT · unavailable until confirmed",
+        "1 USDT = $1 · отдельный учёт по площадке/счёту",
+        "1 USDT = $1 · separate venue/account ledger"
+      ],
+      [
+        "Полный адрес получателя",
+        "Full recipient address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный адрес именно этого снимка; не заменять при сверке",
+        "Synthetic address for this snapshot; do not substitute during readback"
+      ],
+      [
+        "Сеть / актив / контракт",
+        "Network / asset / contract",
+        "DEMO-NET-PM · USDT · учебный профиль",
+        "DEMO-NET-PM · USDT · synthetic profile",
+        "0x3333333333333333333333333333333333333333",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние средств",
+        "Funds state",
+        "Подтверждено 200; ожидается 10 отдельно; другие резервы 50; опер. 20; свободно 130",
+        "Confirmed 200; pending 10 separate; other reserves 50; operational 20; free 130",
+        "Ожидаемые 10 не входят в доступный остаток. Нельзя вручную зачислить их или подменить другой транзакцией.",
+        "Pending 10 is excluded from availability. No manual credit or substitution of another transaction."
+      ],
+      [
+        "Исходная идентичность",
+        "Original identity",
+        "REC-RC-01 / версия запроса 3 / EXT-DEMO-REC-RC-01",
+        "REC-RC-01 / request version 3 / EXT-DEMO-REC-RC-01",
+        "Совпадают счёт, сеть, актив, контракт, получатель и сумма; без произвольного URL",
+        "Match account, network, asset, contract, recipient and amount; no arbitrary URL"
+      ],
+      [
+        "Основание и следующий шаг",
+        "Evidence and next step",
+        "Последнего достаточного подтверждения нет",
+        "No sufficient final evidence yet",
+        "При изменении версии повторно читать; автоматической отправки нет",
+        "Re-read on version change; never auto-send"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить по источникам",
+        "Read back from sources",
+        "reconcile-receipt-checking"
+      ],
+      [
+        "К типам операций",
+        "Back to operation types",
+        "money-reconciliation"
+      ]
+    ]
+  },
+  {
+    "key": "reconcile-receipt-checking",
+    "section": "ADM-05",
+    "title": [
+      "Поступление своих средств · проверка выполняется",
+      "Receipt of service-owned funds · readback running"
+    ],
+    "body": [
+      "Одна проверка исходного объекта; параллельные запросы не создают новых отправок. Средства до ответа не меняются. При техническом режиме разрешено лишь безопасное чтение аварийного контура. Исходы ниже — переключатели прототипа.",
+      "One check of the original object; concurrent requests do not create submissions. Keep funds unchanged while waiting. Technical mode permits only safe emergency readback. Outcomes below are prototype controls."
+    ],
+    "rows": [
+      [
+        "Операция / площадка",
+        "Operation / venue",
+        "REC-RC-01 · Polymarket · учебный маршрут",
+        "REC-RC-01 · Polymarket · synthetic route",
+        "SRC-PM-RC-01 · собственное пополнение · не доход от комиссии",
+        "SRC-PM-RC-01 · owner funding · not commission revenue"
+      ],
+      [
+        "Сумма и принадлежность",
+        "Amount and ownership",
+        "10.00 USDT · до подтверждения недоступно",
+        "10.00 USDT · unavailable until confirmed",
+        "1 USDT = $1 · отдельный учёт по площадке/счёту",
+        "1 USDT = $1 · separate venue/account ledger"
+      ],
+      [
+        "Полный адрес получателя",
+        "Full recipient address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный адрес именно этого снимка; не заменять при сверке",
+        "Synthetic address for this snapshot; do not substitute during readback"
+      ],
+      [
+        "Сеть / актив / контракт",
+        "Network / asset / contract",
+        "DEMO-NET-PM · USDT · учебный профиль",
+        "DEMO-NET-PM · USDT · synthetic profile",
+        "0x3333333333333333333333333333333333333333",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние средств",
+        "Funds state",
+        "Подтверждено 200; ожидается 10 отдельно; другие резервы 50; опер. 20; свободно 130",
+        "Confirmed 200; pending 10 separate; other reserves 50; operational 20; free 130",
+        "Ожидаемые 10 не входят в доступный остаток. Нельзя вручную зачислить их или подменить другой транзакцией.",
+        "Pending 10 is excluded from availability. No manual credit or substitution of another transaction."
+      ],
+      [
+        "Исходная идентичность",
+        "Original identity",
+        "REC-RC-01 / версия запроса 3 / EXT-DEMO-REC-RC-01",
+        "REC-RC-01 / request version 3 / EXT-DEMO-REC-RC-01",
+        "Совпадают счёт, сеть, актив, контракт, получатель и сумма; без произвольного URL",
+        "Match account, network, asset, contract, recipient and amount; no arbitrary URL"
+      ],
+      [
+        "Основание и следующий шаг",
+        "Evidence and next step",
+        "Последнего достаточного подтверждения нет",
+        "No sufficient final evidence yet",
+        "При изменении версии повторно читать; автоматической отправки нет",
+        "Re-read on version change; never auto-send"
+      ]
+    ],
+    "actions": [
+      [
+        "К карточке",
+        "Back to detail",
+        "reconcile-receipt"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Результат подтверждён",
+        "Outcome confirmed",
+        "reconcile-receipt-confirmed"
+      ],
+      [
+        "Ошибка проверки",
+        "Readback error",
+        "reconcile-receipt-error"
+      ],
+      [
+        "Данных недостаточно",
+        "Insufficient evidence",
+        "reconcile-receipt-insufficient"
+      ]
+    ]
+  },
+  {
+    "key": "reconcile-receipt-confirmed",
+    "section": "ADM-05",
+    "title": [
+      "Поступление своих средств · результат подтверждён",
+      "Receipt of service-owned funds · outcome confirmed"
+    ],
+    "body": [
+      "Одно сопоставленное поступление 10.00 учтено один раз. Это не новая прибыль и не автоматическое начисление партнёру. Это результат сопоставленных фактов, а не кнопка ручного исправления баланса. Повтор того же подтверждения не меняет учёт ещё раз. Ограничения и открытый инцидент не снимаются автоматически.",
+      "One matched 10.00 receipt counted once. It is not new profit or automatic partner accrual. This follows matched evidence, not a manual balance-edit command. Duplicate evidence cannot change the ledger again. Controls and an open incident are not cleared automatically."
+    ],
+    "rows": [
+      [
+        "Операция / площадка",
+        "Operation / venue",
+        "REC-RC-01 · Polymarket · учебный маршрут",
+        "REC-RC-01 · Polymarket · synthetic route",
+        "SRC-PM-RC-01 · собственное пополнение · не доход от комиссии",
+        "SRC-PM-RC-01 · owner funding · not commission revenue"
+      ],
+      [
+        "Сумма и принадлежность",
+        "Amount and ownership",
+        "10.00 USDT · до подтверждения недоступно",
+        "10.00 USDT · unavailable until confirmed",
+        "1 USDT = $1 · отдельный учёт по площадке/счёту",
+        "1 USDT = $1 · separate venue/account ledger"
+      ],
+      [
+        "Полный адрес получателя",
+        "Full recipient address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный адрес именно этого снимка; не заменять при сверке",
+        "Synthetic address for this snapshot; do not substitute during readback"
+      ],
+      [
+        "Сеть / актив / контракт",
+        "Network / asset / contract",
+        "DEMO-NET-PM · USDT · учебный профиль",
+        "DEMO-NET-PM · USDT · synthetic profile",
+        "0x3333333333333333333333333333333333333333",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние средств",
+        "Funds state",
+        "Подтверждено 210; ожидается 0; другие резервы 50; опер. 20; свободно 140",
+        "Confirmed 210; pending 0; other reserves 50; operational 20; free 140",
+        "Одно сопоставленное поступление 10.00 учтено один раз. Это не новая прибыль и не автоматическое начисление партнёру.",
+        "One matched 10.00 receipt counted once. It is not new profit or automatic partner accrual."
+      ],
+      [
+        "Исходная идентичность",
+        "Original identity",
+        "REC-RC-01 / версия запроса 3 / EXT-DEMO-REC-RC-01",
+        "REC-RC-01 / request version 3 / EXT-DEMO-REC-RC-01",
+        "Совпадают счёт, сеть, актив, контракт, получатель и сумма; без произвольного URL",
+        "Match account, network, asset, contract, recipient and amount; no arbitrary URL"
+      ],
+      [
+        "Основание и следующий шаг",
+        "Evidence and next step",
+        "EVID-REC-RC-01 · окончательный учебный набор",
+        "EVID-REC-RC-01 · final synthetic evidence set",
+        "При изменении версии повторно читать; автоматической отправки нет",
+        "Re-read on version change; never auto-send"
+      ]
+    ],
+    "actions": [
+      [
+        "К типам операций",
+        "Back to operation types",
+        "money-reconciliation"
+      ]
+    ]
+  },
+  {
+    "key": "reconcile-receipt-error",
+    "section": "ADM-05",
+    "title": [
+      "Поступление своих средств · источник недоступен",
+      "Receipt of service-owned funds · source unavailable"
+    ],
+    "body": [
+      "Ошибка чтения не доказывает отказ перевода. Ожидаемые 10 не входят в доступный остаток. Нельзя вручную зачислить их или подменить другой транзакцией. Исходная идентичность и прежний снимок сохраняются. Можно повторить только безопасную проверку; отправки и ручного успеха нет.",
+      "A read failure does not prove a failed transfer. Pending 10 is excluded from availability. No manual credit or substitution of another transaction. Keep original identity and previous snapshot. Retry only safe readback; no submission or manual success."
+    ],
+    "rows": [
+      [
+        "Операция / площадка",
+        "Operation / venue",
+        "REC-RC-01 · Polymarket · учебный маршрут",
+        "REC-RC-01 · Polymarket · synthetic route",
+        "SRC-PM-RC-01 · собственное пополнение · не доход от комиссии",
+        "SRC-PM-RC-01 · owner funding · not commission revenue"
+      ],
+      [
+        "Сумма и принадлежность",
+        "Amount and ownership",
+        "10.00 USDT · до подтверждения недоступно",
+        "10.00 USDT · unavailable until confirmed",
+        "1 USDT = $1 · отдельный учёт по площадке/счёту",
+        "1 USDT = $1 · separate venue/account ledger"
+      ],
+      [
+        "Полный адрес получателя",
+        "Full recipient address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный адрес именно этого снимка; не заменять при сверке",
+        "Synthetic address for this snapshot; do not substitute during readback"
+      ],
+      [
+        "Сеть / актив / контракт",
+        "Network / asset / contract",
+        "DEMO-NET-PM · USDT · учебный профиль",
+        "DEMO-NET-PM · USDT · synthetic profile",
+        "0x3333333333333333333333333333333333333333",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние средств",
+        "Funds state",
+        "Подтверждено 200; ожидается 10 отдельно; другие резервы 50; опер. 20; свободно 130",
+        "Confirmed 200; pending 10 separate; other reserves 50; operational 20; free 130",
+        "Ожидаемые 10 не входят в доступный остаток. Нельзя вручную зачислить их или подменить другой транзакцией.",
+        "Pending 10 is excluded from availability. No manual credit or substitution of another transaction."
+      ],
+      [
+        "Исходная идентичность",
+        "Original identity",
+        "REC-RC-01 / версия запроса 3 / EXT-DEMO-REC-RC-01",
+        "REC-RC-01 / request version 3 / EXT-DEMO-REC-RC-01",
+        "Совпадают счёт, сеть, актив, контракт, получатель и сумма; без произвольного URL",
+        "Match account, network, asset, contract, recipient and amount; no arbitrary URL"
+      ],
+      [
+        "Основание и следующий шаг",
+        "Evidence and next step",
+        "Последнего достаточного подтверждения нет",
+        "No sufficient final evidence yet",
+        "При изменении версии повторно читать; автоматической отправки нет",
+        "Re-read on version change; never auto-send"
+      ]
+    ],
+    "actions": [
+      [
+        "Повторить проверку",
+        "Retry readback",
+        "reconcile-receipt-checking"
+      ],
+      [
+        "К карточке",
+        "Back to detail",
+        "reconcile-receipt"
+      ]
+    ]
+  },
+  {
+    "key": "reconcile-receipt-insufficient",
+    "section": "ADM-05",
+    "title": [
+      "Поступление своих средств · данных недостаточно",
+      "Receipt of service-owned funds · insufficient evidence"
+    ],
+    "body": [
+      "Ответ есть, но отсутствует требуемая окончательность, совпадение идентичности/суммы либо источники противоречат друг другу. При неподдержанном маршруте результата также нет. Ожидаемые 10 не входят в доступный остаток. Нельзя вручную зачислить их или подменить другой транзакцией. Новой подтверждённой версии нет — учёт не обновляется.",
+      "A response lacks required finality or identity/amount matching, or sources disagree. An unsupported route also provides no result. Pending 10 is excluded from availability. No manual credit or substitution of another transaction. Without a new confirmed version the ledger stays unchanged."
+    ],
+    "rows": [
+      [
+        "Операция / площадка",
+        "Operation / venue",
+        "REC-RC-01 · Polymarket · учебный маршрут",
+        "REC-RC-01 · Polymarket · synthetic route",
+        "SRC-PM-RC-01 · собственное пополнение · не доход от комиссии",
+        "SRC-PM-RC-01 · owner funding · not commission revenue"
+      ],
+      [
+        "Сумма и принадлежность",
+        "Amount and ownership",
+        "10.00 USDT · до подтверждения недоступно",
+        "10.00 USDT · unavailable until confirmed",
+        "1 USDT = $1 · отдельный учёт по площадке/счёту",
+        "1 USDT = $1 · separate venue/account ledger"
+      ],
+      [
+        "Полный адрес получателя",
+        "Full recipient address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный адрес именно этого снимка; не заменять при сверке",
+        "Synthetic address for this snapshot; do not substitute during readback"
+      ],
+      [
+        "Сеть / актив / контракт",
+        "Network / asset / contract",
+        "DEMO-NET-PM · USDT · учебный профиль",
+        "DEMO-NET-PM · USDT · synthetic profile",
+        "0x3333333333333333333333333333333333333333",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние средств",
+        "Funds state",
+        "Подтверждено 200; ожидается 10 отдельно; другие резервы 50; опер. 20; свободно 130",
+        "Confirmed 200; pending 10 separate; other reserves 50; operational 20; free 130",
+        "Ожидаемые 10 не входят в доступный остаток. Нельзя вручную зачислить их или подменить другой транзакцией.",
+        "Pending 10 is excluded from availability. No manual credit or substitution of another transaction."
+      ],
+      [
+        "Исходная идентичность",
+        "Original identity",
+        "REC-RC-01 / версия запроса 3 / EXT-DEMO-REC-RC-01",
+        "REC-RC-01 / request version 3 / EXT-DEMO-REC-RC-01",
+        "Совпадают счёт, сеть, актив, контракт, получатель и сумма; без произвольного URL",
+        "Match account, network, asset, contract, recipient and amount; no arbitrary URL"
+      ],
+      [
+        "Основание и следующий шаг",
+        "Evidence and next step",
+        "Последнего достаточного подтверждения нет",
+        "No sufficient final evidence yet",
+        "При изменении версии повторно читать; автоматической отправки нет",
+        "Re-read on version change; never auto-send"
+      ]
+    ],
+    "actions": [
+      [
+        "Повторить проверку",
+        "Retry readback",
+        "reconcile-receipt-checking"
+      ],
+      [
+        "К карточке",
+        "Back to detail",
+        "reconcile-receipt"
+      ]
+    ]
+  },
+  {
+    "key": "reconcile-user-deposit",
+    "section": "ADM-05",
+    "title": [
+      "Пополнение клиента · результат неизвестен",
+      "Client funding · outcome unknown"
+    ],
+    "body": [
+      "Только чтение исходной операции. Подтверждение входящего перевода не равно доступности для торговли. Нужно сопоставление со счётом клиента и условиями маршрута. Сеть, актив, подпись и окончательность — демонстрационные; подтверждаются при интеграции.",
+      "Read the original operation only. Incoming transfer confirmation is not trading availability. Match the client account and route requirements. Network, asset, signing and finality are illustrative, to be verified during integration."
+    ],
+    "rows": [
+      [
+        "Операция / площадка",
+        "Operation / venue",
+        "UF-025 · Limitless · учебный маршрут",
+        "UF-025 · Limitless · synthetic route",
+        "U-DEMO-002 · внешний счёт ACC-LL-DEMO · отдельный клиентский маршрут",
+        "U-DEMO-002 · external ACC-LL-DEMO · separate client route"
+      ],
+      [
+        "Сумма и принадлежность",
+        "Amount and ownership",
+        "25.00 USDT · внешний клиентский маршрут",
+        "25.00 USDT · external client route",
+        "1 USDT = $1 · отдельный учёт по площадке/счёту",
+        "1 USDT = $1 · separate venue/account ledger"
+      ],
+      [
+        "Полный адрес получателя",
+        "Full recipient address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный адрес именно этого снимка; не заменять при сверке",
+        "Synthetic address for this snapshot; do not substitute during readback"
+      ],
+      [
+        "Сеть / актив / контракт",
+        "Network / asset / contract",
+        "DEMO-NET-LL · USDT · учебный профиль",
+        "DEMO-NET-LL · USDT · synthetic profile",
+        "0x3333333333333333333333333333333333333333",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние средств",
+        "Funds state",
+        "На счёте клиента доступно 75; ожидаемые 25 не доступны",
+        "Client venue availability 75; pending 25 excluded",
+        "Подтверждение входящего перевода не равно доступности для торговли. Нужно сопоставление со счётом клиента и условиями маршрута.",
+        "Incoming transfer confirmation is not trading availability. Match the client account and route requirements."
+      ],
+      [
+        "Исходная идентичность",
+        "Original identity",
+        "UF-025 / версия запроса 3 / EXT-DEMO-UF-025",
+        "UF-025 / request version 3 / EXT-DEMO-UF-025",
+        "Совпадают счёт, сеть, актив, контракт, получатель и сумма; без произвольного URL",
+        "Match account, network, asset, contract, recipient and amount; no arbitrary URL"
+      ],
+      [
+        "Основание и следующий шаг",
+        "Evidence and next step",
+        "Последнего достаточного подтверждения нет",
+        "No sufficient final evidence yet",
+        "При изменении версии повторно читать; автоматической отправки нет",
+        "Re-read on version change; never auto-send"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить по источникам",
+        "Read back from sources",
+        "reconcile-user-deposit-checking"
+      ],
+      [
+        "К типам операций",
+        "Back to operation types",
+        "money-reconciliation"
+      ]
+    ]
+  },
+  {
+    "key": "reconcile-user-deposit-checking",
+    "section": "ADM-05",
+    "title": [
+      "Пополнение клиента · проверка выполняется",
+      "Client funding · readback running"
+    ],
+    "body": [
+      "Одна проверка исходного объекта; параллельные запросы не создают новых отправок. Средства до ответа не меняются. При техническом режиме разрешено лишь безопасное чтение аварийного контура. Исходы ниже — переключатели прототипа.",
+      "One check of the original object; concurrent requests do not create submissions. Keep funds unchanged while waiting. Technical mode permits only safe emergency readback. Outcomes below are prototype controls."
+    ],
+    "rows": [
+      [
+        "Операция / площадка",
+        "Operation / venue",
+        "UF-025 · Limitless · учебный маршрут",
+        "UF-025 · Limitless · synthetic route",
+        "U-DEMO-002 · внешний счёт ACC-LL-DEMO · отдельный клиентский маршрут",
+        "U-DEMO-002 · external ACC-LL-DEMO · separate client route"
+      ],
+      [
+        "Сумма и принадлежность",
+        "Amount and ownership",
+        "25.00 USDT · внешний клиентский маршрут",
+        "25.00 USDT · external client route",
+        "1 USDT = $1 · отдельный учёт по площадке/счёту",
+        "1 USDT = $1 · separate venue/account ledger"
+      ],
+      [
+        "Полный адрес получателя",
+        "Full recipient address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный адрес именно этого снимка; не заменять при сверке",
+        "Synthetic address for this snapshot; do not substitute during readback"
+      ],
+      [
+        "Сеть / актив / контракт",
+        "Network / asset / contract",
+        "DEMO-NET-LL · USDT · учебный профиль",
+        "DEMO-NET-LL · USDT · synthetic profile",
+        "0x3333333333333333333333333333333333333333",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние средств",
+        "Funds state",
+        "На счёте клиента доступно 75; ожидаемые 25 не доступны",
+        "Client venue availability 75; pending 25 excluded",
+        "Подтверждение входящего перевода не равно доступности для торговли. Нужно сопоставление со счётом клиента и условиями маршрута.",
+        "Incoming transfer confirmation is not trading availability. Match the client account and route requirements."
+      ],
+      [
+        "Исходная идентичность",
+        "Original identity",
+        "UF-025 / версия запроса 3 / EXT-DEMO-UF-025",
+        "UF-025 / request version 3 / EXT-DEMO-UF-025",
+        "Совпадают счёт, сеть, актив, контракт, получатель и сумма; без произвольного URL",
+        "Match account, network, asset, contract, recipient and amount; no arbitrary URL"
+      ],
+      [
+        "Основание и следующий шаг",
+        "Evidence and next step",
+        "Последнего достаточного подтверждения нет",
+        "No sufficient final evidence yet",
+        "При изменении версии повторно читать; автоматической отправки нет",
+        "Re-read on version change; never auto-send"
+      ]
+    ],
+    "actions": [
+      [
+        "К карточке",
+        "Back to detail",
+        "reconcile-user-deposit"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Результат подтверждён",
+        "Outcome confirmed",
+        "reconcile-user-deposit-confirmed"
+      ],
+      [
+        "Ошибка проверки",
+        "Readback error",
+        "reconcile-user-deposit-error"
+      ],
+      [
+        "Данных недостаточно",
+        "Insufficient evidence",
+        "reconcile-user-deposit-insufficient"
+      ]
+    ]
+  },
+  {
+    "key": "reconcile-user-deposit-confirmed",
+    "section": "ADM-05",
+    "title": [
+      "Пополнение клиента · результат подтверждён",
+      "Client funding · outcome confirmed"
+    ],
+    "body": [
+      "Источник подтверждает доступность 25 на привязанном внешнем счёте. Средства сервиса и партнёрский долг не меняются. Это результат сопоставленных фактов, а не кнопка ручного исправления баланса. Повтор того же подтверждения не меняет учёт ещё раз. Ограничения и открытый инцидент не снимаются автоматически.",
+      "Source confirms 25 available on the linked external account. Service funds and partner debt do not change. This follows matched evidence, not a manual balance-edit command. Duplicate evidence cannot change the ledger again. Controls and an open incident are not cleared automatically."
+    ],
+    "rows": [
+      [
+        "Операция / площадка",
+        "Operation / venue",
+        "UF-025 · Limitless · учебный маршрут",
+        "UF-025 · Limitless · synthetic route",
+        "U-DEMO-002 · внешний счёт ACC-LL-DEMO · отдельный клиентский маршрут",
+        "U-DEMO-002 · external ACC-LL-DEMO · separate client route"
+      ],
+      [
+        "Сумма и принадлежность",
+        "Amount and ownership",
+        "25.00 USDT · внешний клиентский маршрут",
+        "25.00 USDT · external client route",
+        "1 USDT = $1 · отдельный учёт по площадке/счёту",
+        "1 USDT = $1 · separate venue/account ledger"
+      ],
+      [
+        "Полный адрес получателя",
+        "Full recipient address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный адрес именно этого снимка; не заменять при сверке",
+        "Synthetic address for this snapshot; do not substitute during readback"
+      ],
+      [
+        "Сеть / актив / контракт",
+        "Network / asset / contract",
+        "DEMO-NET-LL · USDT · учебный профиль",
+        "DEMO-NET-LL · USDT · synthetic profile",
+        "0x3333333333333333333333333333333333333333",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние средств",
+        "Funds state",
+        "На внешнем счёте доступно 100; ожидается 0",
+        "External account availability 100; pending 0",
+        "Источник подтверждает доступность 25 на привязанном внешнем счёте. Средства сервиса и партнёрский долг не меняются.",
+        "Source confirms 25 available on the linked external account. Service funds and partner debt do not change."
+      ],
+      [
+        "Исходная идентичность",
+        "Original identity",
+        "UF-025 / версия запроса 3 / EXT-DEMO-UF-025",
+        "UF-025 / request version 3 / EXT-DEMO-UF-025",
+        "Совпадают счёт, сеть, актив, контракт, получатель и сумма; без произвольного URL",
+        "Match account, network, asset, contract, recipient and amount; no arbitrary URL"
+      ],
+      [
+        "Основание и следующий шаг",
+        "Evidence and next step",
+        "EVID-UF-025 · окончательный учебный набор",
+        "EVID-UF-025 · final synthetic evidence set",
+        "При изменении версии повторно читать; автоматической отправки нет",
+        "Re-read on version change; never auto-send"
+      ]
+    ],
+    "actions": [
+      [
+        "К типам операций",
+        "Back to operation types",
+        "money-reconciliation"
+      ]
+    ]
+  },
+  {
+    "key": "reconcile-user-deposit-error",
+    "section": "ADM-05",
+    "title": [
+      "Пополнение клиента · источник недоступен",
+      "Client funding · source unavailable"
+    ],
+    "body": [
+      "Ошибка чтения не доказывает отказ перевода. Подтверждение входящего перевода не равно доступности для торговли. Нужно сопоставление со счётом клиента и условиями маршрута. Исходная идентичность и прежний снимок сохраняются. Можно повторить только безопасную проверку; отправки и ручного успеха нет.",
+      "A read failure does not prove a failed transfer. Incoming transfer confirmation is not trading availability. Match the client account and route requirements. Keep original identity and previous snapshot. Retry only safe readback; no submission or manual success."
+    ],
+    "rows": [
+      [
+        "Операция / площадка",
+        "Operation / venue",
+        "UF-025 · Limitless · учебный маршрут",
+        "UF-025 · Limitless · synthetic route",
+        "U-DEMO-002 · внешний счёт ACC-LL-DEMO · отдельный клиентский маршрут",
+        "U-DEMO-002 · external ACC-LL-DEMO · separate client route"
+      ],
+      [
+        "Сумма и принадлежность",
+        "Amount and ownership",
+        "25.00 USDT · внешний клиентский маршрут",
+        "25.00 USDT · external client route",
+        "1 USDT = $1 · отдельный учёт по площадке/счёту",
+        "1 USDT = $1 · separate venue/account ledger"
+      ],
+      [
+        "Полный адрес получателя",
+        "Full recipient address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный адрес именно этого снимка; не заменять при сверке",
+        "Synthetic address for this snapshot; do not substitute during readback"
+      ],
+      [
+        "Сеть / актив / контракт",
+        "Network / asset / contract",
+        "DEMO-NET-LL · USDT · учебный профиль",
+        "DEMO-NET-LL · USDT · synthetic profile",
+        "0x3333333333333333333333333333333333333333",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние средств",
+        "Funds state",
+        "На счёте клиента доступно 75; ожидаемые 25 не доступны",
+        "Client venue availability 75; pending 25 excluded",
+        "Подтверждение входящего перевода не равно доступности для торговли. Нужно сопоставление со счётом клиента и условиями маршрута.",
+        "Incoming transfer confirmation is not trading availability. Match the client account and route requirements."
+      ],
+      [
+        "Исходная идентичность",
+        "Original identity",
+        "UF-025 / версия запроса 3 / EXT-DEMO-UF-025",
+        "UF-025 / request version 3 / EXT-DEMO-UF-025",
+        "Совпадают счёт, сеть, актив, контракт, получатель и сумма; без произвольного URL",
+        "Match account, network, asset, contract, recipient and amount; no arbitrary URL"
+      ],
+      [
+        "Основание и следующий шаг",
+        "Evidence and next step",
+        "Последнего достаточного подтверждения нет",
+        "No sufficient final evidence yet",
+        "При изменении версии повторно читать; автоматической отправки нет",
+        "Re-read on version change; never auto-send"
+      ]
+    ],
+    "actions": [
+      [
+        "Повторить проверку",
+        "Retry readback",
+        "reconcile-user-deposit-checking"
+      ],
+      [
+        "К карточке",
+        "Back to detail",
+        "reconcile-user-deposit"
+      ]
+    ]
+  },
+  {
+    "key": "reconcile-user-deposit-insufficient",
+    "section": "ADM-05",
+    "title": [
+      "Пополнение клиента · данных недостаточно",
+      "Client funding · insufficient evidence"
+    ],
+    "body": [
+      "Ответ есть, но отсутствует требуемая окончательность, совпадение идентичности/суммы либо источники противоречат друг другу. При неподдержанном маршруте результата также нет. Подтверждение входящего перевода не равно доступности для торговли. Нужно сопоставление со счётом клиента и условиями маршрута. Новой подтверждённой версии нет — учёт не обновляется.",
+      "A response lacks required finality or identity/amount matching, or sources disagree. An unsupported route also provides no result. Incoming transfer confirmation is not trading availability. Match the client account and route requirements. Without a new confirmed version the ledger stays unchanged."
+    ],
+    "rows": [
+      [
+        "Операция / площадка",
+        "Operation / venue",
+        "UF-025 · Limitless · учебный маршрут",
+        "UF-025 · Limitless · synthetic route",
+        "U-DEMO-002 · внешний счёт ACC-LL-DEMO · отдельный клиентский маршрут",
+        "U-DEMO-002 · external ACC-LL-DEMO · separate client route"
+      ],
+      [
+        "Сумма и принадлежность",
+        "Amount and ownership",
+        "25.00 USDT · внешний клиентский маршрут",
+        "25.00 USDT · external client route",
+        "1 USDT = $1 · отдельный учёт по площадке/счёту",
+        "1 USDT = $1 · separate venue/account ledger"
+      ],
+      [
+        "Полный адрес получателя",
+        "Full recipient address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный адрес именно этого снимка; не заменять при сверке",
+        "Synthetic address for this snapshot; do not substitute during readback"
+      ],
+      [
+        "Сеть / актив / контракт",
+        "Network / asset / contract",
+        "DEMO-NET-LL · USDT · учебный профиль",
+        "DEMO-NET-LL · USDT · synthetic profile",
+        "0x3333333333333333333333333333333333333333",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние средств",
+        "Funds state",
+        "На счёте клиента доступно 75; ожидаемые 25 не доступны",
+        "Client venue availability 75; pending 25 excluded",
+        "Подтверждение входящего перевода не равно доступности для торговли. Нужно сопоставление со счётом клиента и условиями маршрута.",
+        "Incoming transfer confirmation is not trading availability. Match the client account and route requirements."
+      ],
+      [
+        "Исходная идентичность",
+        "Original identity",
+        "UF-025 / версия запроса 3 / EXT-DEMO-UF-025",
+        "UF-025 / request version 3 / EXT-DEMO-UF-025",
+        "Совпадают счёт, сеть, актив, контракт, получатель и сумма; без произвольного URL",
+        "Match account, network, asset, contract, recipient and amount; no arbitrary URL"
+      ],
+      [
+        "Основание и следующий шаг",
+        "Evidence and next step",
+        "Последнего достаточного подтверждения нет",
+        "No sufficient final evidence yet",
+        "При изменении версии повторно читать; автоматической отправки нет",
+        "Re-read on version change; never auto-send"
+      ]
+    ],
+    "actions": [
+      [
+        "Повторить проверку",
+        "Retry readback",
+        "reconcile-user-deposit-checking"
+      ],
+      [
+        "К карточке",
+        "Back to detail",
+        "reconcile-user-deposit"
+      ]
+    ]
+  },
+  {
+    "key": "reconcile-user-withdrawal",
+    "section": "ADM-05",
+    "title": [
+      "Вывод клиента · результат неизвестен",
+      "Client withdrawal · outcome unknown"
+    ],
+    "body": [
+      "Только чтение исходной операции. Сотрудник не создаёт новый вывод за клиента. Пока исход неизвестен, 25 остаются удержанными. Сервисный источник не используется. Сеть, актив, подпись и окончательность — демонстрационные; подтверждаются при интеграции.",
+      "Read the original operation only. Staff do not create another client withdrawal. Keep the 25 hold while unknown. No service-owned source is used. Network, asset, signing and finality are illustrative, to be verified during integration."
+    ],
+    "rows": [
+      [
+        "Операция / площадка",
+        "Operation / venue",
+        "UW-025 · Limitless · учебный маршрут",
+        "UW-025 · Limitless · synthetic route",
+        "U-DEMO-002 · ACC-LL-DEMO · исходный запрос клиента",
+        "U-DEMO-002 · ACC-LL-DEMO · original client request"
+      ],
+      [
+        "Сумма и принадлежность",
+        "Amount and ownership",
+        "25.00 USDT · уже отправленный запрос",
+        "25.00 USDT · already submitted request",
+        "1 USDT = $1 · отдельный учёт по площадке/счёту",
+        "1 USDT = $1 · separate venue/account ledger"
+      ],
+      [
+        "Полный адрес получателя",
+        "Full recipient address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный адрес именно этого снимка; не заменять при сверке",
+        "Synthetic address for this snapshot; do not substitute during readback"
+      ],
+      [
+        "Сеть / актив / контракт",
+        "Network / asset / contract",
+        "DEMO-NET-LL · USDT · учебный профиль",
+        "DEMO-NET-LL · USDT · synthetic profile",
+        "0x3333333333333333333333333333333333333333",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние средств",
+        "Funds state",
+        "Клиентский доступный остаток 75; под запросом удержано 25",
+        "Client availability 75; 25 held for this request",
+        "Сотрудник не создаёт новый вывод за клиента. Пока исход неизвестен, 25 остаются удержанными. Сервисный источник не используется.",
+        "Staff do not create another client withdrawal. Keep the 25 hold while unknown. No service-owned source is used."
+      ],
+      [
+        "Исходная идентичность",
+        "Original identity",
+        "UW-025 / версия запроса 3 / EXT-DEMO-UW-025",
+        "UW-025 / request version 3 / EXT-DEMO-UW-025",
+        "Совпадают счёт, сеть, актив, контракт, получатель и сумма; без произвольного URL",
+        "Match account, network, asset, contract, recipient and amount; no arbitrary URL"
+      ],
+      [
+        "Основание и следующий шаг",
+        "Evidence and next step",
+        "Последнего достаточного подтверждения нет",
+        "No sufficient final evidence yet",
+        "При изменении версии повторно читать; автоматической отправки нет",
+        "Re-read on version change; never auto-send"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить по источникам",
+        "Read back from sources",
+        "reconcile-user-withdrawal-checking"
+      ],
+      [
+        "К типам операций",
+        "Back to operation types",
+        "money-reconciliation"
+      ]
+    ]
+  },
+  {
+    "key": "reconcile-user-withdrawal-checking",
+    "section": "ADM-05",
+    "title": [
+      "Вывод клиента · проверка выполняется",
+      "Client withdrawal · readback running"
+    ],
+    "body": [
+      "Одна проверка исходного объекта; параллельные запросы не создают новых отправок. Средства до ответа не меняются. При техническом режиме разрешено лишь безопасное чтение аварийного контура. Исходы ниже — переключатели прототипа.",
+      "One check of the original object; concurrent requests do not create submissions. Keep funds unchanged while waiting. Technical mode permits only safe emergency readback. Outcomes below are prototype controls."
+    ],
+    "rows": [
+      [
+        "Операция / площадка",
+        "Operation / venue",
+        "UW-025 · Limitless · учебный маршрут",
+        "UW-025 · Limitless · synthetic route",
+        "U-DEMO-002 · ACC-LL-DEMO · исходный запрос клиента",
+        "U-DEMO-002 · ACC-LL-DEMO · original client request"
+      ],
+      [
+        "Сумма и принадлежность",
+        "Amount and ownership",
+        "25.00 USDT · уже отправленный запрос",
+        "25.00 USDT · already submitted request",
+        "1 USDT = $1 · отдельный учёт по площадке/счёту",
+        "1 USDT = $1 · separate venue/account ledger"
+      ],
+      [
+        "Полный адрес получателя",
+        "Full recipient address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный адрес именно этого снимка; не заменять при сверке",
+        "Synthetic address for this snapshot; do not substitute during readback"
+      ],
+      [
+        "Сеть / актив / контракт",
+        "Network / asset / contract",
+        "DEMO-NET-LL · USDT · учебный профиль",
+        "DEMO-NET-LL · USDT · synthetic profile",
+        "0x3333333333333333333333333333333333333333",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние средств",
+        "Funds state",
+        "Клиентский доступный остаток 75; под запросом удержано 25",
+        "Client availability 75; 25 held for this request",
+        "Сотрудник не создаёт новый вывод за клиента. Пока исход неизвестен, 25 остаются удержанными. Сервисный источник не используется.",
+        "Staff do not create another client withdrawal. Keep the 25 hold while unknown. No service-owned source is used."
+      ],
+      [
+        "Исходная идентичность",
+        "Original identity",
+        "UW-025 / версия запроса 3 / EXT-DEMO-UW-025",
+        "UW-025 / request version 3 / EXT-DEMO-UW-025",
+        "Совпадают счёт, сеть, актив, контракт, получатель и сумма; без произвольного URL",
+        "Match account, network, asset, contract, recipient and amount; no arbitrary URL"
+      ],
+      [
+        "Основание и следующий шаг",
+        "Evidence and next step",
+        "Последнего достаточного подтверждения нет",
+        "No sufficient final evidence yet",
+        "При изменении версии повторно читать; автоматической отправки нет",
+        "Re-read on version change; never auto-send"
+      ]
+    ],
+    "actions": [
+      [
+        "К карточке",
+        "Back to detail",
+        "reconcile-user-withdrawal"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Результат подтверждён",
+        "Outcome confirmed",
+        "reconcile-user-withdrawal-confirmed"
+      ],
+      [
+        "Ошибка проверки",
+        "Readback error",
+        "reconcile-user-withdrawal-error"
+      ],
+      [
+        "Данных недостаточно",
+        "Insufficient evidence",
+        "reconcile-user-withdrawal-insufficient"
+      ]
+    ]
+  },
+  {
+    "key": "reconcile-user-withdrawal-confirmed",
+    "section": "ADM-05",
+    "title": [
+      "Вывод клиента · результат подтверждён",
+      "Client withdrawal · outcome confirmed"
+    ],
+    "body": [
+      "Вывод 25 подтверждён исходным источником. Удержание закрыто расходом, а не возвратом 25 в доступный остаток. Это результат сопоставленных фактов, а не кнопка ручного исправления баланса. Повтор того же подтверждения не меняет учёт ещё раз. Ограничения и открытый инцидент не снимаются автоматически.",
+      "The source confirms the 25 withdrawal. The hold is consumed by the outflow, not returned to availability. This follows matched evidence, not a manual balance-edit command. Duplicate evidence cannot change the ledger again. Controls and an open incident are not cleared automatically."
+    ],
+    "rows": [
+      [
+        "Операция / площадка",
+        "Operation / venue",
+        "UW-025 · Limitless · учебный маршрут",
+        "UW-025 · Limitless · synthetic route",
+        "U-DEMO-002 · ACC-LL-DEMO · исходный запрос клиента",
+        "U-DEMO-002 · ACC-LL-DEMO · original client request"
+      ],
+      [
+        "Сумма и принадлежность",
+        "Amount and ownership",
+        "25.00 USDT · уже отправленный запрос",
+        "25.00 USDT · already submitted request",
+        "1 USDT = $1 · отдельный учёт по площадке/счёту",
+        "1 USDT = $1 · separate venue/account ledger"
+      ],
+      [
+        "Полный адрес получателя",
+        "Full recipient address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный адрес именно этого снимка; не заменять при сверке",
+        "Synthetic address for this snapshot; do not substitute during readback"
+      ],
+      [
+        "Сеть / актив / контракт",
+        "Network / asset / contract",
+        "DEMO-NET-LL · USDT · учебный профиль",
+        "DEMO-NET-LL · USDT · synthetic profile",
+        "0x3333333333333333333333333333333333333333",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние средств",
+        "Funds state",
+        "Доступно 75; удержание 0; наружу подтверждено 25",
+        "Available 75; hold 0; confirmed outflow 25",
+        "Вывод 25 подтверждён исходным источником. Удержание закрыто расходом, а не возвратом 25 в доступный остаток.",
+        "The source confirms the 25 withdrawal. The hold is consumed by the outflow, not returned to availability."
+      ],
+      [
+        "Исходная идентичность",
+        "Original identity",
+        "UW-025 / версия запроса 3 / EXT-DEMO-UW-025",
+        "UW-025 / request version 3 / EXT-DEMO-UW-025",
+        "Совпадают счёт, сеть, актив, контракт, получатель и сумма; без произвольного URL",
+        "Match account, network, asset, contract, recipient and amount; no arbitrary URL"
+      ],
+      [
+        "Основание и следующий шаг",
+        "Evidence and next step",
+        "EVID-UW-025 · окончательный учебный набор",
+        "EVID-UW-025 · final synthetic evidence set",
+        "При изменении версии повторно читать; автоматической отправки нет",
+        "Re-read on version change; never auto-send"
+      ]
+    ],
+    "actions": [
+      [
+        "К типам операций",
+        "Back to operation types",
+        "money-reconciliation"
+      ]
+    ]
+  },
+  {
+    "key": "reconcile-user-withdrawal-error",
+    "section": "ADM-05",
+    "title": [
+      "Вывод клиента · источник недоступен",
+      "Client withdrawal · source unavailable"
+    ],
+    "body": [
+      "Ошибка чтения не доказывает отказ перевода. Сотрудник не создаёт новый вывод за клиента. Пока исход неизвестен, 25 остаются удержанными. Сервисный источник не используется. Исходная идентичность и прежний снимок сохраняются. Можно повторить только безопасную проверку; отправки и ручного успеха нет.",
+      "A read failure does not prove a failed transfer. Staff do not create another client withdrawal. Keep the 25 hold while unknown. No service-owned source is used. Keep original identity and previous snapshot. Retry only safe readback; no submission or manual success."
+    ],
+    "rows": [
+      [
+        "Операция / площадка",
+        "Operation / venue",
+        "UW-025 · Limitless · учебный маршрут",
+        "UW-025 · Limitless · synthetic route",
+        "U-DEMO-002 · ACC-LL-DEMO · исходный запрос клиента",
+        "U-DEMO-002 · ACC-LL-DEMO · original client request"
+      ],
+      [
+        "Сумма и принадлежность",
+        "Amount and ownership",
+        "25.00 USDT · уже отправленный запрос",
+        "25.00 USDT · already submitted request",
+        "1 USDT = $1 · отдельный учёт по площадке/счёту",
+        "1 USDT = $1 · separate venue/account ledger"
+      ],
+      [
+        "Полный адрес получателя",
+        "Full recipient address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный адрес именно этого снимка; не заменять при сверке",
+        "Synthetic address for this snapshot; do not substitute during readback"
+      ],
+      [
+        "Сеть / актив / контракт",
+        "Network / asset / contract",
+        "DEMO-NET-LL · USDT · учебный профиль",
+        "DEMO-NET-LL · USDT · synthetic profile",
+        "0x3333333333333333333333333333333333333333",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние средств",
+        "Funds state",
+        "Клиентский доступный остаток 75; под запросом удержано 25",
+        "Client availability 75; 25 held for this request",
+        "Сотрудник не создаёт новый вывод за клиента. Пока исход неизвестен, 25 остаются удержанными. Сервисный источник не используется.",
+        "Staff do not create another client withdrawal. Keep the 25 hold while unknown. No service-owned source is used."
+      ],
+      [
+        "Исходная идентичность",
+        "Original identity",
+        "UW-025 / версия запроса 3 / EXT-DEMO-UW-025",
+        "UW-025 / request version 3 / EXT-DEMO-UW-025",
+        "Совпадают счёт, сеть, актив, контракт, получатель и сумма; без произвольного URL",
+        "Match account, network, asset, contract, recipient and amount; no arbitrary URL"
+      ],
+      [
+        "Основание и следующий шаг",
+        "Evidence and next step",
+        "Последнего достаточного подтверждения нет",
+        "No sufficient final evidence yet",
+        "При изменении версии повторно читать; автоматической отправки нет",
+        "Re-read on version change; never auto-send"
+      ]
+    ],
+    "actions": [
+      [
+        "Повторить проверку",
+        "Retry readback",
+        "reconcile-user-withdrawal-checking"
+      ],
+      [
+        "К карточке",
+        "Back to detail",
+        "reconcile-user-withdrawal"
+      ]
+    ]
+  },
+  {
+    "key": "reconcile-user-withdrawal-insufficient",
+    "section": "ADM-05",
+    "title": [
+      "Вывод клиента · данных недостаточно",
+      "Client withdrawal · insufficient evidence"
+    ],
+    "body": [
+      "Ответ есть, но отсутствует требуемая окончательность, совпадение идентичности/суммы либо источники противоречат друг другу. При неподдержанном маршруте результата также нет. Сотрудник не создаёт новый вывод за клиента. Пока исход неизвестен, 25 остаются удержанными. Сервисный источник не используется. Новой подтверждённой версии нет — учёт не обновляется.",
+      "A response lacks required finality or identity/amount matching, or sources disagree. An unsupported route also provides no result. Staff do not create another client withdrawal. Keep the 25 hold while unknown. No service-owned source is used. Without a new confirmed version the ledger stays unchanged."
+    ],
+    "rows": [
+      [
+        "Операция / площадка",
+        "Operation / venue",
+        "UW-025 · Limitless · учебный маршрут",
+        "UW-025 · Limitless · synthetic route",
+        "U-DEMO-002 · ACC-LL-DEMO · исходный запрос клиента",
+        "U-DEMO-002 · ACC-LL-DEMO · original client request"
+      ],
+      [
+        "Сумма и принадлежность",
+        "Amount and ownership",
+        "25.00 USDT · уже отправленный запрос",
+        "25.00 USDT · already submitted request",
+        "1 USDT = $1 · отдельный учёт по площадке/счёту",
+        "1 USDT = $1 · separate venue/account ledger"
+      ],
+      [
+        "Полный адрес получателя",
+        "Full recipient address",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "0x1234567890abcdef1234567890abcdef12345678",
+        "Вымышленный адрес именно этого снимка; не заменять при сверке",
+        "Synthetic address for this snapshot; do not substitute during readback"
+      ],
+      [
+        "Сеть / актив / контракт",
+        "Network / asset / contract",
+        "DEMO-NET-LL · USDT · учебный профиль",
+        "DEMO-NET-LL · USDT · synthetic profile",
+        "0x3333333333333333333333333333333333333333",
+        "0x3333333333333333333333333333333333333333"
+      ],
+      [
+        "Состояние средств",
+        "Funds state",
+        "Клиентский доступный остаток 75; под запросом удержано 25",
+        "Client availability 75; 25 held for this request",
+        "Сотрудник не создаёт новый вывод за клиента. Пока исход неизвестен, 25 остаются удержанными. Сервисный источник не используется.",
+        "Staff do not create another client withdrawal. Keep the 25 hold while unknown. No service-owned source is used."
+      ],
+      [
+        "Исходная идентичность",
+        "Original identity",
+        "UW-025 / версия запроса 3 / EXT-DEMO-UW-025",
+        "UW-025 / request version 3 / EXT-DEMO-UW-025",
+        "Совпадают счёт, сеть, актив, контракт, получатель и сумма; без произвольного URL",
+        "Match account, network, asset, contract, recipient and amount; no arbitrary URL"
+      ],
+      [
+        "Основание и следующий шаг",
+        "Evidence and next step",
+        "Последнего достаточного подтверждения нет",
+        "No sufficient final evidence yet",
+        "При изменении версии повторно читать; автоматической отправки нет",
+        "Re-read on version change; never auto-send"
+      ]
+    ],
+    "actions": [
+      [
+        "Повторить проверку",
+        "Retry readback",
+        "reconcile-user-withdrawal-checking"
+      ],
+      [
+        "К карточке",
+        "Back to detail",
+        "reconcile-user-withdrawal"
+      ]
+    ]
+  }
+]

@@ -1,10 +1,10 @@
 # Живая карта админки
 
-Текущий срез 18.10.2026: **566 RU +566 EN корневых макетов**, из них 561 основное состояние и 5 служебных оболочек на язык. Карта 0.19, набор компонентов 0.4.21 (28 наборов /168 вариантов).
+Текущий срез 18.10.2026: **601 RU +601 EN корневых макетов**, из них 596 основных состояний и 5 служебных оболочек на язык. Карта 0.20, набор компонентов 0.4.21 (28 наборов /168 вариантов).
 
-Полный читаемый индекс сформирован из [sitemap.json](sitemap.json). Статус раздела относится к покрытию дизайном, не к реализации или окончательной приёмке. Исторические срезы доступны в истории Git; ниже только текущие разделы.
+Полный читаемый индекс сформирован из [sitemap.json](sitemap.json). Статус раздела относится к покрытию дизайном, не реализации или полной приёмке. Исторические срезы доступны в Git.
 
-[Карта в Figma](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2105-5766) · [Последние изменения](two-keys-documentation-2026-10-18/README.md)
+[Карта в Figma](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2105-5766) · [Последние изменения](order-money-reconciliation-2026-10-18/README.md)
 
 ## ADM-01 · Обзор
 
@@ -50,9 +50,9 @@
 
 ## ADM-03 · Сессии
 
-Макеты есть. Список и карточка, пауза, возобновление, отключение demo; Operations.
+Макеты есть · на вычитке. Сессии, частичное исполнение, отмена остатка, поздние исполнения и безопасное чтение результата. Полная ручная и ролевая приёмка открыта.
 
-Состояний: 22.
+Состояний: 36.
 
 | Состояние | RU | EN |
 | --- | --- | --- |
@@ -78,6 +78,20 @@
 | Подтверждение отключения demo | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-613) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-39017) |
 | Отключение в обработке | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-640) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-39044) |
 | Demo отключена | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-665) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1984-39069) |
+| Заявка исполнена частично | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58072) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58059) |
+| Отмена остатка запрошена | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58095) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58082) |
+| Проверяем исходную заявку | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58118) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58105) |
+| Отмена принята, исполнения проверяются | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58141) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58128) |
+| Результат отмены неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58164) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58151) |
+| Остаток отменён и сверён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58187) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58174) |
+| Получено позднее исполнение | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58210) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58197) |
+| Проверяем остаток после позднего исполнения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58233) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58220) |
+| Позднее исполнение учтено, остаток отменён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58256) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58243) |
+| Заявка исполнена полностью | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58279) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58266) |
+| Не удалось проверить заявку | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58302) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58289) |
+| Данных по заявке недостаточно | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58325) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58312) |
+| Не удалось проверить заявку после исполнения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58348) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58335) |
+| Данных по заявке недостаточно · позднее исполнение | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58371) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58358) |
 
 ## ADM-04 · Инциденты
 
@@ -103,9 +117,9 @@
 
 ## ADM-05 · Сверка
 
-На вычитке · пакет 10. Очередь и проверка заявки: pending/unknown/discrepancy/confirmed, без повторной отправки. Другие типы случаев далее.
+Макеты есть · на вычитке. Сверка исходной заявки и четырёх типов денежных операций: полная выплата, собственное поступление, клиентские пополнение/вывод. Подтверждение, ошибка и недостаток данных без повторной отправки; интеграция не выполнена.
 
-Состояний: 8.
+Состояний: 29.
 
 | Состояние | RU | EN |
 | --- | --- | --- |
@@ -117,6 +131,27 @@
 | Результат пока неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-119294) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-122714) |
 | Обнаружено расхождение | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-119483) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-122903) |
 | Результат подтверждён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-119672) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-123092) |
+| Денежная сверка | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58394) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58381) |
+| Выплата партнёру · результат неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58417) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58404) |
+| Выплата партнёру · проверка выполняется | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58440) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58427) |
+| Выплата партнёру · результат подтверждён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58463) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58450) |
+| Выплата партнёру · источник недоступен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58486) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58473) |
+| Выплата партнёру · данных недостаточно | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58509) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58496) |
+| Поступление своих средств · результат неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58532) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58519) |
+| Поступление своих средств · проверка выполняется | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58555) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58542) |
+| Поступление своих средств · результат подтверждён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58578) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58565) |
+| Поступление своих средств · источник недоступен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58601) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58588) |
+| Поступление своих средств · данных недостаточно | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58624) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58611) |
+| Пополнение клиента · результат неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58647) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58634) |
+| Пополнение клиента · проверка выполняется | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58670) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58657) |
+| Пополнение клиента · результат подтверждён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58693) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58680) |
+| Пополнение клиента · источник недоступен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58716) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58703) |
+| Пополнение клиента · данных недостаточно | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58739) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58726) |
+| Вывод клиента · результат неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58762) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58749) |
+| Вывод клиента · проверка выполняется | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58785) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58772) |
+| Вывод клиента · результат подтверждён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58808) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58795) |
+| Вывод клиента · источник недоступен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58831) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58818) |
+| Вывод клиента · данных недостаточно | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58854) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58841) |
 
 ## ADM-06 · Площадки и данные
 

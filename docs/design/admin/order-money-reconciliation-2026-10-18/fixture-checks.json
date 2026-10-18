@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-18",
+  "pass": true,
+  "scope": "Static synthetic fixture arithmetic and selected graph invariants only",
+  "checks": [
+    "trade budget/share consistency: partial",
+    "trade budget/share consistency: cancelled",
+    "trade budget/share consistency: late",
+    "trade budget/share consistency: lateCancelled",
+    "trade budget/share consistency: full",
+    "late fill consumes reserve, not new available funds",
+    "verified cancellation releases only unused remainder",
+    "payout reserves and actual fee are counted once",
+    "confirmed client withdrawal does not increase availability",
+    "all declared graph destinations exist",
+    "late-evidence retries do not return to the pre-late snapshot",
+    "readback failures retry readback only"
+  ],
+  "notChecked": [
+    "server ledger",
+    "actual duplicate evidence handling",
+    "permission enforcement",
+    "venue finality",
+    "real asset support",
+    "browser execution"
+  ]
+}

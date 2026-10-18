@@ -758,21 +758,125 @@
     "id": "S05",
     "area": "ADM-03",
     "requirement": "Частичное торговое исполнение, отмена остатка и позднее исполнение",
-    "status": "отсутствует",
+    "status": "готово",
     "keys": [
       "session"
     ],
-    "gap": "В реестре админки нет самостоятельных деталей заявки для этих состояний; клиентские макеты не засчитываются как админские.",
-    "priority": "P1",
+    "gap": "Покрыто отдельными RU/EN макетами: исходный объект, исполнение/удержания, подтверждение, ошибка проверки и нехватка данных. Это дизайн; фактические источники, права, окончательность и серверная сверка не проверены.",
+    "priority": "—",
     "source": "115 §6.2; 118 ADM-03",
     "evidence": [
       {
-        "key": "session",
+        "key": "order-partial",
         "section": "ADM-03",
-        "ru": "1982:38090",
-        "en": "1982:38913",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38090",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38913"
+        "ru": "3014:58072",
+        "en": "3016:58059",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58072",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58059"
+      },
+      {
+        "key": "order-cancel-requested",
+        "section": "ADM-03",
+        "ru": "3014:58095",
+        "en": "3016:58082",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58095",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58082"
+      },
+      {
+        "key": "order-cancel-checking",
+        "section": "ADM-03",
+        "ru": "3014:58118",
+        "en": "3016:58105",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58118",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58105"
+      },
+      {
+        "key": "order-cancel-ack",
+        "section": "ADM-03",
+        "ru": "3014:58141",
+        "en": "3016:58128",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58141",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58128"
+      },
+      {
+        "key": "order-cancel-unknown",
+        "section": "ADM-03",
+        "ru": "3014:58164",
+        "en": "3016:58151",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58164",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58151"
+      },
+      {
+        "key": "order-cancel-final",
+        "section": "ADM-03",
+        "ru": "3014:58187",
+        "en": "3016:58174",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58187",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58174"
+      },
+      {
+        "key": "order-late-fill",
+        "section": "ADM-03",
+        "ru": "3014:58210",
+        "en": "3016:58197",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58210",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58197"
+      },
+      {
+        "key": "order-late-checking",
+        "section": "ADM-03",
+        "ru": "3014:58233",
+        "en": "3016:58220",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58233",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58220"
+      },
+      {
+        "key": "order-late-final",
+        "section": "ADM-03",
+        "ru": "3014:58256",
+        "en": "3016:58243",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58256",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58243"
+      },
+      {
+        "key": "order-late-complete",
+        "section": "ADM-03",
+        "ru": "3014:58279",
+        "en": "3016:58266",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58279",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58266"
+      },
+      {
+        "key": "order-check-error",
+        "section": "ADM-03",
+        "ru": "3014:58302",
+        "en": "3016:58289",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58302",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58289"
+      },
+      {
+        "key": "order-evidence",
+        "section": "ADM-03",
+        "ru": "3014:58325",
+        "en": "3016:58312",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58325",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58312"
+      },
+      {
+        "key": "order-late-check-error",
+        "section": "ADM-03",
+        "ru": "3014:58348",
+        "en": "3016:58335",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58348",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58335"
+      },
+      {
+        "key": "order-late-evidence",
+        "section": "ADM-03",
+        "ru": "3014:58371",
+        "en": "3016:58358",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58371",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58358"
       }
     ]
   },
@@ -940,30 +1044,182 @@
     "id": "R02",
     "area": "ADM-05",
     "requirement": "Сверка выплат, поступлений и пользовательских денежных операций",
-    "status": "частично",
+    "status": "готово",
     "keys": [
       "rechecking",
       "ADM-13/treasury-reconcile"
     ],
-    "gap": "Есть отдельные примеры, но нет единой типизированной очереди/деталей всех денежных случаев с подтверждающими данными.",
-    "priority": "P1",
+    "gap": "Покрыто отдельными RU/EN макетами: исходный объект, исполнение/удержания, подтверждение, ошибка проверки и нехватка данных. Это дизайн; фактические источники, права, окончательность и серверная сверка не проверены.",
+    "priority": "—",
     "source": "118",
     "evidence": [
       {
-        "key": "rechecking",
+        "key": "money-reconciliation",
         "section": "ADM-05",
-        "ru": "2004:481",
-        "en": "2007:1014",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-481",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-1014"
+        "ru": "3014:58394",
+        "en": "3016:58381",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58394",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58381"
       },
       {
-        "key": "treasury-reconcile",
-        "section": "ADM-13",
-        "ru": "2827:90061",
-        "en": "2827:44257",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-90061",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2827-44257"
+        "key": "reconcile-payout",
+        "section": "ADM-05",
+        "ru": "3014:58417",
+        "en": "3016:58404",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58417",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58404"
+      },
+      {
+        "key": "reconcile-payout-checking",
+        "section": "ADM-05",
+        "ru": "3014:58440",
+        "en": "3016:58427",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58440",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58427"
+      },
+      {
+        "key": "reconcile-payout-confirmed",
+        "section": "ADM-05",
+        "ru": "3014:58463",
+        "en": "3016:58450",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58463",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58450"
+      },
+      {
+        "key": "reconcile-payout-error",
+        "section": "ADM-05",
+        "ru": "3014:58486",
+        "en": "3016:58473",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58486",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58473"
+      },
+      {
+        "key": "reconcile-payout-insufficient",
+        "section": "ADM-05",
+        "ru": "3014:58509",
+        "en": "3016:58496",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58509",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58496"
+      },
+      {
+        "key": "reconcile-receipt",
+        "section": "ADM-05",
+        "ru": "3014:58532",
+        "en": "3016:58519",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58532",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58519"
+      },
+      {
+        "key": "reconcile-receipt-checking",
+        "section": "ADM-05",
+        "ru": "3014:58555",
+        "en": "3016:58542",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58555",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58542"
+      },
+      {
+        "key": "reconcile-receipt-confirmed",
+        "section": "ADM-05",
+        "ru": "3014:58578",
+        "en": "3016:58565",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58578",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58565"
+      },
+      {
+        "key": "reconcile-receipt-error",
+        "section": "ADM-05",
+        "ru": "3014:58601",
+        "en": "3016:58588",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58601",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58588"
+      },
+      {
+        "key": "reconcile-receipt-insufficient",
+        "section": "ADM-05",
+        "ru": "3014:58624",
+        "en": "3016:58611",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58624",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58611"
+      },
+      {
+        "key": "reconcile-user-deposit",
+        "section": "ADM-05",
+        "ru": "3014:58647",
+        "en": "3016:58634",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58647",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58634"
+      },
+      {
+        "key": "reconcile-user-deposit-checking",
+        "section": "ADM-05",
+        "ru": "3014:58670",
+        "en": "3016:58657",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58670",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58657"
+      },
+      {
+        "key": "reconcile-user-deposit-confirmed",
+        "section": "ADM-05",
+        "ru": "3014:58693",
+        "en": "3016:58680",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58693",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58680"
+      },
+      {
+        "key": "reconcile-user-deposit-error",
+        "section": "ADM-05",
+        "ru": "3014:58716",
+        "en": "3016:58703",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58716",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58703"
+      },
+      {
+        "key": "reconcile-user-deposit-insufficient",
+        "section": "ADM-05",
+        "ru": "3014:58739",
+        "en": "3016:58726",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58739",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58726"
+      },
+      {
+        "key": "reconcile-user-withdrawal",
+        "section": "ADM-05",
+        "ru": "3014:58762",
+        "en": "3016:58749",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58762",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58749"
+      },
+      {
+        "key": "reconcile-user-withdrawal-checking",
+        "section": "ADM-05",
+        "ru": "3014:58785",
+        "en": "3016:58772",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58785",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58772"
+      },
+      {
+        "key": "reconcile-user-withdrawal-confirmed",
+        "section": "ADM-05",
+        "ru": "3014:58808",
+        "en": "3016:58795",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58808",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58795"
+      },
+      {
+        "key": "reconcile-user-withdrawal-error",
+        "section": "ADM-05",
+        "ru": "3014:58831",
+        "en": "3016:58818",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58831",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58818"
+      },
+      {
+        "key": "reconcile-user-withdrawal-insufficient",
+        "section": "ADM-05",
+        "ru": "3014:58854",
+        "en": "3016:58841",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58854",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58841"
       }
     ]
   },
@@ -971,30 +1227,118 @@
     "id": "R03",
     "area": "ADM-05",
     "requirement": "Ошибка проверки и недостаток доказательств без опасного повтора",
-    "status": "частично",
+    "status": "готово",
     "keys": [
       "ops-unknown",
       "ADM-04/ops-error"
     ],
-    "gap": "Неизвестный результат показан; отдельный отказ самой проверки и безопасное продолжение для каждого типа не завершены.",
-    "priority": "P2",
+    "gap": "Покрыто отдельными RU/EN макетами: исходный объект, исполнение/удержания, подтверждение, ошибка проверки и нехватка данных. Это дизайн; фактические источники, права, окончательность и серверная сверка не проверены.",
+    "priority": "—",
     "source": "118",
     "evidence": [
       {
-        "key": "ops-unknown",
-        "section": "ADM-05",
-        "ru": "2414:119294",
-        "en": "2414:122714",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-119294",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-122714"
+        "key": "order-cancel-unknown",
+        "section": "ADM-03",
+        "ru": "3014:58164",
+        "en": "3016:58151",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58164",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58151"
       },
       {
-        "section": "ADM-04",
-        "key": "ops-error",
-        "ru": "2414:117789",
-        "en": "2414:121209",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-117789",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-121209"
+        "key": "order-check-error",
+        "section": "ADM-03",
+        "ru": "3014:58302",
+        "en": "3016:58289",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58302",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58289"
+      },
+      {
+        "key": "order-evidence",
+        "section": "ADM-03",
+        "ru": "3014:58325",
+        "en": "3016:58312",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58325",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58312"
+      },
+      {
+        "key": "order-late-check-error",
+        "section": "ADM-03",
+        "ru": "3014:58348",
+        "en": "3016:58335",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58348",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58335"
+      },
+      {
+        "key": "order-late-evidence",
+        "section": "ADM-03",
+        "ru": "3014:58371",
+        "en": "3016:58358",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58371",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58358"
+      },
+      {
+        "key": "reconcile-payout-error",
+        "section": "ADM-05",
+        "ru": "3014:58486",
+        "en": "3016:58473",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58486",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58473"
+      },
+      {
+        "key": "reconcile-payout-insufficient",
+        "section": "ADM-05",
+        "ru": "3014:58509",
+        "en": "3016:58496",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58509",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58496"
+      },
+      {
+        "key": "reconcile-receipt-error",
+        "section": "ADM-05",
+        "ru": "3014:58601",
+        "en": "3016:58588",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58601",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58588"
+      },
+      {
+        "key": "reconcile-receipt-insufficient",
+        "section": "ADM-05",
+        "ru": "3014:58624",
+        "en": "3016:58611",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58624",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58611"
+      },
+      {
+        "key": "reconcile-user-deposit-error",
+        "section": "ADM-05",
+        "ru": "3014:58716",
+        "en": "3016:58703",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58716",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58703"
+      },
+      {
+        "key": "reconcile-user-deposit-insufficient",
+        "section": "ADM-05",
+        "ru": "3014:58739",
+        "en": "3016:58726",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58739",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58726"
+      },
+      {
+        "key": "reconcile-user-withdrawal-error",
+        "section": "ADM-05",
+        "ru": "3014:58831",
+        "en": "3016:58818",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58831",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58818"
+      },
+      {
+        "key": "reconcile-user-withdrawal-insufficient",
+        "section": "ADM-05",
+        "ru": "3014:58854",
+        "en": "3016:58841",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58854",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58841"
       }
     ]
   },
