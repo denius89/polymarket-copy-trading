@@ -1,0 +1,71 @@
+{
+  "session": "S-DEMO-002",
+  "user": "U-DEMO-002",
+  "snapshot": 42,
+  "budget": 200,
+  "available": 165,
+  "reserved": 0,
+  "spent": 35,
+  "lots": [
+    {
+      "id": "LOT-DEMO-020",
+      "order": "ORD-DEMO-01",
+      "quantity": 40,
+      "cost": 20,
+      "tracked": false
+    },
+    {
+      "id": "LOT-DEMO-030",
+      "order": "ORD-DEMO-03",
+      "quantity": 30,
+      "cost": 15,
+      "tracked": false
+    }
+  ],
+  "fills": [
+    {
+      "id": "FILL-DEMO-031",
+      "quantity": 24,
+      "cost": 12
+    },
+    {
+      "id": "FILL-DEMO-032",
+      "quantity": 6,
+      "cost": 3
+    }
+  ],
+  "decisions": [
+    {
+      "id": "SIG-DEMO-031",
+      "state": "admitted",
+      "version": 12,
+      "desired": 20,
+      "availableAtDecision": 180,
+      "order": "ORD-DEMO-03"
+    },
+    {
+      "id": "SIG-DEMO-032",
+      "state": "skipped",
+      "reason": "PAUSE_NEW_BUYS",
+      "version": 12,
+      "desired": 20,
+      "order": null
+    },
+    {
+      "id": "SIG-DEMO-029",
+      "state": "skipped",
+      "reason": "FULL_BUDGET_INSUFFICIENT",
+      "version": 11,
+      "desired": 200,
+      "availableAtDecision": 180,
+      "order": null
+    },
+    {
+      "id": "SIG-DEMO-033",
+      "state": "skipped",
+      "reason": "NO_COPY_OWNED_LOT",
+      "order": null
+    }
+  ],
+  "sourcesAreSynthetic": true
+}

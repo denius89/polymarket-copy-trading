@@ -727,30 +727,165 @@
     "id": "S04",
     "area": "ADM-03",
     "requirement": "Позиции, заявки, действия трейдера, принятые/пропущенные сигналы и причины",
-    "status": "частично",
+    "status": "готово",
     "keys": [
-      "session",
-      "unknown"
+      "ADM-03/session-inspection",
+      "ADM-03/session-positions",
+      "ADM-03/session-position",
+      "ADM-03/session-orders",
+      "ADM-03/session-order",
+      "ADM-03/session-trader-actions",
+      "ADM-03/session-trader-action",
+      "ADM-03/session-decisions",
+      "ADM-03/session-decision-accepted",
+      "ADM-03/session-decision-paused",
+      "ADM-03/session-decision-budget",
+      "ADM-03/session-decision-unowned",
+      "ADM-03/session-decisions-skipped",
+      "ADM-03/session-decisions-empty",
+      "ADM-03/session-data-loading",
+      "ADM-03/session-data-error",
+      "ADM-03/session-source-unavailable"
     ],
-    "gap": "Основной пример пустой; нет набора админских списков/деталей с реальными учебными записями по каждому типу.",
-    "priority": "P1",
+    "gap": "Заполненные RU/EN списки и связанный путь по позиции, заявке, событию трейдера и принятым/пропущенным решениям с конкретными причинами. Период и историческая версия отделены от текущего снимка. Покрытие дизайном; полный ролевой, языковой и серверный проход не закрыт.",
+    "priority": "—",
     "source": "115 §6; 118 ADM-03",
     "evidence": [
       {
-        "key": "session",
+        "key": "session-inspection",
         "section": "ADM-03",
-        "ru": "1982:38090",
-        "en": "1982:38913",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38090",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38913"
+        "ru": "3050:62186",
+        "en": "3050:187312",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62186",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187312"
       },
       {
-        "key": "unknown",
+        "key": "session-positions",
         "section": "ADM-03",
-        "ru": "1982:38392",
-        "en": "1982:39215",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38392",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-39215"
+        "ru": "3050:62207",
+        "en": "3050:187333",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62207",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187333"
+      },
+      {
+        "key": "session-position",
+        "section": "ADM-03",
+        "ru": "3050:62228",
+        "en": "3050:187354",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62228",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187354"
+      },
+      {
+        "key": "session-orders",
+        "section": "ADM-03",
+        "ru": "3050:62249",
+        "en": "3050:187375",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62249",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187375"
+      },
+      {
+        "key": "session-order",
+        "section": "ADM-03",
+        "ru": "3050:62270",
+        "en": "3050:187396",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62270",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187396"
+      },
+      {
+        "key": "session-trader-actions",
+        "section": "ADM-03",
+        "ru": "3050:62291",
+        "en": "3050:187417",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62291",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187417"
+      },
+      {
+        "key": "session-trader-action",
+        "section": "ADM-03",
+        "ru": "3050:62312",
+        "en": "3050:187438",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62312",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187438"
+      },
+      {
+        "key": "session-decisions",
+        "section": "ADM-03",
+        "ru": "3050:62333",
+        "en": "3050:187459",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62333",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187459"
+      },
+      {
+        "key": "session-decision-accepted",
+        "section": "ADM-03",
+        "ru": "3050:62354",
+        "en": "3050:187480",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62354",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187480"
+      },
+      {
+        "key": "session-decision-paused",
+        "section": "ADM-03",
+        "ru": "3050:62375",
+        "en": "3050:187501",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62375",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187501"
+      },
+      {
+        "key": "session-decision-budget",
+        "section": "ADM-03",
+        "ru": "3050:62396",
+        "en": "3050:187522",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62396",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187522"
+      },
+      {
+        "key": "session-decision-unowned",
+        "section": "ADM-03",
+        "ru": "3050:62417",
+        "en": "3050:187543",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62417",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187543"
+      },
+      {
+        "key": "session-decisions-skipped",
+        "section": "ADM-03",
+        "ru": "3050:62438",
+        "en": "3050:187564",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62438",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187564"
+      },
+      {
+        "key": "session-decisions-empty",
+        "section": "ADM-03",
+        "ru": "3050:62459",
+        "en": "3050:187585",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62459",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187585"
+      },
+      {
+        "key": "session-data-loading",
+        "section": "ADM-03",
+        "ru": "3050:62480",
+        "en": "3050:187606",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62480",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187606"
+      },
+      {
+        "key": "session-data-error",
+        "section": "ADM-03",
+        "ru": "3050:62501",
+        "en": "3050:187627",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62501",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187627"
+      },
+      {
+        "key": "session-source-unavailable",
+        "section": "ADM-03",
+        "ru": "3050:62522",
+        "en": "3050:187648",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62522",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187648"
       }
     ]
   },

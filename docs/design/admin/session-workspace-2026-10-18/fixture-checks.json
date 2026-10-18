@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-18",
+  "pass": true,
+  "checks": [
+    "budget allocation equals 200 without treating cost as market value",
+    "both retained lots are no longer tracking trader exits",
+    "lot30 equals the 24+6 unique confirmed fills",
+    "session projection agrees with prior late-cancelled terminal snapshot",
+    "three skips have no order IDs",
+    "historical budget skip is not recomputed using later settings12",
+    "all declared local and historical destinations exist",
+    "empty filtered and loading states do not invent rows",
+    "read error retains the two known lots",
+    "skip detail returns to the skipped selection"
+  ],
+  "scope": "Static fixture consistency and declared graph only",
+  "notChecked": [
+    "actual event duplication handling",
+    "server or venue ledger",
+    "permissions",
+    "API support or freshness",
+    "browser behavior"
+  ]
+}

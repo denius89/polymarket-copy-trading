@@ -1,0 +1,1239 @@
+[
+  {
+    "key": "session-inspection",
+    "section": "ADM-03",
+    "title": [
+      "Сессия S-DEMO-002",
+      "Session S-DEMO-002"
+    ],
+    "body": [
+      "S-DEMO-002 · U-DEMO-002 · Polymarket · снимок 42 на 12:01 UTC. Сессия отключена, позиции сохранены. Бюджет $200: доступно $165, расход $35, резерв $0. Это виртуальный бюджет, не стоимость портфеля.",
+      "S-DEMO-002 · U-DEMO-002 · Polymarket · snapshot 42 at 12:01 UTC. Disconnected; positions retained. $200 budget: $165 available, $35 spent, $0 reserved. Virtual budget, not portfolio value."
+    ],
+    "rows": [
+      [
+        "Подтверждённый снимок",
+        "Confirmed snapshot",
+        "Версия 42 · 18.10.2026 · 12:01 UTC",
+        "Version 42 · 2026-10-18 · 12:01 UTC",
+        "Отдельный учебный пример; не складывать со старыми альтернативами",
+        "Isolated synthetic case; do not sum with older alternatives"
+      ],
+      [
+        "Состояние сессии",
+        "Session state",
+        "Отключена · позиции сохранены",
+        "Disconnected · positions retained",
+        "Нет новых покупок и повторения выходов трейдера; остатки уже сверены",
+        "No new buys or copied trader exits; remaining orders reconciled"
+      ],
+      [
+        "Распределение бюджета",
+        "Budget allocation",
+        "$200 = $165 доступно + $35 исполнено + $0 резерв",
+        " $200 = $165 available + $35 spent + $0 reserved",
+        "Комиссия Shadow 0%; прочие расходы 0 только в этом учебном снимке",
+        "Shadow fee 0%; other costs assumed 0 only in this synthetic snapshot"
+      ],
+      [
+        "Позиции и заявки",
+        "Positions and orders",
+        "2 лота · 2 заявки · расход $20 + $15",
+        "2 lots · 2 orders · cost $20 + $15",
+        "Текущая рыночная стоимость и прибыль не рассчитаны: свежей цены нет",
+        "Current market value and profit not calculated: no fresh price"
+      ],
+      [
+        "Настройки на момент решений",
+        "Settings at decision time",
+        "Версия 10: $20; версия 11: $200; версия 12: $20",
+        "Version 10: $20; version 11: $200; version 12: $20",
+        "Фиксированная сумма за покупку. Учебные версии, не значения по умолчанию; прошлые решения не пересчитываются",
+        "Fixed amount per buy. Synthetic versions, not defaults; past decisions are not recalculated"
+      ]
+    ],
+    "tab": "overview",
+    "actions": [],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Parameter / object"
+      ],
+      [
+        "Данные / состояние",
+        "Data / state"
+      ],
+      [
+        "Связь / пояснение",
+        "Relation / explanation"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Пример Limitless без источника",
+        "Limitless example without a source",
+        "session-source-unavailable"
+      ]
+    ]
+  },
+  {
+    "key": "session-positions",
+    "section": "ADM-03",
+    "title": [
+      "Позиции сессии",
+      "Session positions"
+    ],
+    "body": [
+      "S-DEMO-002 · U-DEMO-002 · Polymarket · снимок 42 на 12:01 UTC. Сессия отключена, позиции сохранены. Бюджет $200: доступно $165, расход $35, резерв $0. Это виртуальный бюджет, не стоимость портфеля.",
+      "S-DEMO-002 · U-DEMO-002 · Polymarket · snapshot 42 at 12:01 UTC. Disconnected; positions retained. $200 budget: $165 available, $35 spent, $0 reserved. Virtual budget, not portfolio value."
+    ],
+    "rows": [
+      [
+        "LOT-DEMO-020 · MKT-DEMO-02 · НЕТ",
+        "LOT-DEMO-020 · MKT-DEMO-02 · NO",
+        "40 долей · цена входа $0.50 · расход $20",
+        "40 shares · entry $0.50 · cost $20",
+        "ORD-DEMO-01 · источник: копирование · сохранён после отключения",
+        "ORD-DEMO-01 · origin: copy · retained after disconnect"
+      ],
+      [
+        "LOT-DEMO-030 · MKT-DEMO-01 · ДА",
+        "LOT-DEMO-030 · MKT-DEMO-01 · YES",
+        "30 долей · средняя цена входа $0.50 · расход $15",
+        "30 shares · average entry $0.50 · cost $15",
+        "ORD-DEMO-03 · FILL-DEMO-031 + FILL-DEMO-032 · сохранён после отключения",
+        "ORD-DEMO-03 · FILL-DEMO-031 + FILL-DEMO-032 · retained after disconnect"
+      ]
+    ],
+    "tab": "positions",
+    "actions": [
+      [
+        "Лот LOT-DEMO-030",
+        "Lot LOT-DEMO-030",
+        "session-position"
+      ]
+    ],
+    "headers": [
+      [
+        "Лот / рынок / исход",
+        "Lot / market / outcome"
+      ],
+      [
+        "Количество / цена входа / расход",
+        "Quantity / entry price / cost"
+      ],
+      [
+        "Происхождение / связь",
+        "Origin / relation"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Ошибка чтения позиций",
+        "Position read error",
+        "session-data-error"
+      ]
+    ],
+    "rowLinks": {
+      "LOT-DEMO-030": "session-position"
+    }
+  },
+  {
+    "key": "session-position",
+    "section": "ADM-03",
+    "title": [
+      "Позиция LOT-DEMO-030",
+      "Position LOT-DEMO-030"
+    ],
+    "body": [
+      "Лот создан копированием SIG-DEMO-031. После отключения сохранён отдельно: админка показывает его историю, не продаёт и не меняет принадлежность.",
+      "The lot came from copying SIG-DEMO-031. Retained after disconnect: admin reads its history without selling it or changing its ownership."
+    ],
+    "rows": [
+      [
+        "Рынок и сторона",
+        "Market and side",
+        "MKT-DEMO-01 · ДА · покупка",
+        "MKT-DEMO-01 · YES · buy",
+        "Учебный рынок; идентификатор исхода OUT-DEMO-01-YES",
+        "Synthetic market; outcome ID OUT-DEMO-01-YES"
+      ],
+      [
+        "Остаток и происхождение",
+        "Quantity and origin",
+        "30 долей · источник: копирование",
+        "30 shares · origin: copy",
+        "Копирование отключено; сохранённый лот не продаётся вслед за трейдером",
+        "Copying disconnected; the retained lot no longer follows trader exits"
+      ],
+      [
+        "Исполнения",
+        "Fills",
+        "FILL-DEMO-031: 24 + FILL-DEMO-032: 6 = 30",
+        "FILL-DEMO-031: 24 + FILL-DEMO-032: 6 = 30",
+        "Уникальные исполнения одного ORD-DEMO-03; повтор не добавляет доли",
+        "Unique fills of ORD-DEMO-03; duplicates do not add shares"
+      ],
+      [
+        "Исторический расход",
+        "Historical cost",
+        "$12 + $3 = $15; средняя цена входа $0.50",
+        "$12 + $3 = $15; average entry $0.50",
+        "Расход не равен текущей оценке позиции",
+        "Cost is not the current position value"
+      ],
+      [
+        "Рыночная оценка / прибыль",
+        "Market value / profit",
+        "Не рассчитываются: актуальная цена не получена",
+        "Not calculated: current price unavailable",
+        "Нет подстановки старой цены, нулевой прибыли или гарантии выхода",
+        "No stale-price substitution, zero-profit placeholder or exit guarantee"
+      ]
+    ],
+    "tab": "positions",
+    "actions": [
+      [
+        "К заявке ORD-DEMO-03",
+        "Order ORD-DEMO-03",
+        "session-order"
+      ],
+      [
+        "К решению SIG-DEMO-031",
+        "Decision SIG-DEMO-031",
+        "session-decision-accepted"
+      ],
+      [
+        "К позициям",
+        "Back to positions",
+        "session-positions"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Parameter / object"
+      ],
+      [
+        "Данные / состояние",
+        "Data / state"
+      ],
+      [
+        "Связь / пояснение",
+        "Relation / explanation"
+      ]
+    ]
+  },
+  {
+    "key": "session-orders",
+    "section": "ADM-03",
+    "title": [
+      "Заявки сессии",
+      "Session orders"
+    ],
+    "body": [
+      "S-DEMO-002 · U-DEMO-002 · Polymarket · снимок 42 на 12:01 UTC. Сессия отключена, позиции сохранены. Бюджет $200: доступно $165, расход $35, резерв $0. Это виртуальный бюджет, не стоимость портфеля.",
+      "S-DEMO-002 · U-DEMO-002 · Polymarket · snapshot 42 at 12:01 UTC. Disconnected; positions retained. $200 budget: $165 available, $35 spent, $0 reserved. Virtual budget, not portfolio value."
+    ],
+    "rows": [
+      [
+        "ORD-DEMO-01 · MKT-DEMO-02 · НЕТ",
+        "ORD-DEMO-01 · MKT-DEMO-02 · NO",
+        "Исполнено 40 /40 долей · $20 · резерв $0",
+        "Filled 40 /40 shares · $20 · reserve $0",
+        "LOT-DEMO-020 · SIG-DEMO-020 · настройки 10",
+        "LOT-DEMO-020 · SIG-DEMO-020 · settings 10"
+      ],
+      [
+        "ORD-DEMO-03 · MKT-DEMO-01 · ДА",
+        "ORD-DEMO-03 · MKT-DEMO-01 · YES",
+        "Исполнено 30 · отменено 10 · $15 · резерв $0",
+        "Filled 30 · cancelled 10 · $15 · reserve $0",
+        "LOT-DEMO-030 · SIG-DEMO-031 · настройки 12",
+        "LOT-DEMO-030 · SIG-DEMO-031 · settings 12"
+      ]
+    ],
+    "tab": "orders",
+    "actions": [
+      [
+        "Заявка ORD-DEMO-03",
+        "Order ORD-DEMO-03",
+        "session-order"
+      ]
+    ],
+    "headers": [
+      [
+        "Заявка / рынок / исход",
+        "Order / market / outcome"
+      ],
+      [
+        "Исполнение / остаток / резерв",
+        "Fills / remainder / reserve"
+      ],
+      [
+        "Связанные объекты",
+        "Related objects"
+      ]
+    ],
+    "rowLinks": {
+      "ORD-DEMO-03": "session-order"
+    }
+  },
+  {
+    "key": "session-order",
+    "section": "ADM-03",
+    "title": [
+      "Заявка ORD-DEMO-03",
+      "Order ORD-DEMO-03"
+    ],
+    "body": [
+      "Последний подтверждённый исход после позднего исполнения: 30 долей исполнены, 10 отменены, резерв $0. Сверка не создаёт новый ордер.",
+      "Latest confirmed outcome after a late fill: 30 shares filled, 10 cancelled, $0 reserved. Reconciliation creates no new order."
+    ],
+    "rows": [
+      [
+        "Исходный допуск",
+        "Original admission",
+        "SIG-DEMO-031 · настройки 12 · полные $20 /40 долей",
+        "SIG-DEMO-031 · settings 12 · full $20 /40 shares",
+        "Допуск 12:00:00.500 UTC; фиксированная сумма $20",
+        "Admitted 12:00:00.500 UTC; fixed $20 amount"
+      ],
+      [
+        "Первое исполнение",
+        "First fill",
+        "FILL-DEMO-031 · 24 доли · $12",
+        "FILL-DEMO-031 · 24 shares · $12",
+        "Исполнено 12:00:01 UTC",
+        "Executed 12:00:01 UTC"
+      ],
+      [
+        "Позднее подтверждение",
+        "Late observation",
+        "FILL-DEMO-032 · 6 долей · $3",
+        "FILL-DEMO-032 · 6 shares · $3",
+        "Исполнено 12:00:03; отмена принята 12:00:04; получено 12:00:06 UTC",
+        "Executed 12:00:03; cancellation acknowledged 12:00:04; received 12:00:06 UTC"
+      ],
+      [
+        "Окончательный остаток",
+        "Final remainder",
+        "30 исполнено · 10 отменено · резерв $0",
+        "30 filled · 10 cancelled · reserve $0",
+        "Расход $15; освобождены только оставшиеся $5",
+        "Cost $15; only the unused $5 released"
+      ],
+      [
+        "Связанные данные",
+        "Related data",
+        "LOT-DEMO-030 · ACT-DEMO-031 · SIG-DEMO-031",
+        "LOT-DEMO-030 · ACT-DEMO-031 · SIG-DEMO-031",
+        "Бюджет сессии: доступно $165. Нет ручной отмены, торговли или правки баланса",
+        "Session budget: $165 available. No manual cancellation, trading or balance editing"
+      ]
+    ],
+    "tab": "orders",
+    "actions": [
+      [
+        "К позиции",
+        "Position detail",
+        "session-position"
+      ],
+      [
+        "К решению",
+        "Decision detail",
+        "session-decision-accepted"
+      ],
+      [
+        "К заявкам",
+        "Back to orders",
+        "session-orders"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Parameter / object"
+      ],
+      [
+        "Данные / состояние",
+        "Data / state"
+      ],
+      [
+        "Связь / пояснение",
+        "Relation / explanation"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Исторический пример исполнения и отмены",
+        "Historical fill and cancellation example",
+        "order-history"
+      ]
+    ]
+  },
+  {
+    "key": "session-trader-actions",
+    "section": "ADM-03",
+    "title": [
+      "Действия трейдера",
+      "Trader actions"
+    ],
+    "body": [
+      "Подтверждённые учебные события трейдера TR-DEMO-01 отдельно от решений, заявок и исполнений копии. Время источника и получения различается.",
+      "Confirmed synthetic TR-DEMO-01 events are separate from copy decisions, orders and fills. Source and receipt times differ."
+    ],
+    "rows": [
+      [
+        "ACT-DEMO-020 · 11:58:00 UTC",
+        "ACT-DEMO-020 · 11:58:00 UTC",
+        "Покупка MKT-DEMO-02 · НЕТ · $100",
+        "Buy MKT-DEMO-02 · NO · $100",
+        "SIG-DEMO-020 · настройки 10: $20 · ORD-DEMO-01",
+        "SIG-DEMO-020 · settings 10: $20 · ORD-DEMO-01"
+      ],
+      [
+        "ACT-DEMO-033 · 11:59:57 UTC",
+        "ACT-DEMO-033 · 11:59:57 UTC",
+        "Продажа MKT-DEMO-03 · ДА · 20 долей",
+        "Sell MKT-DEMO-03 · YES · 20 shares",
+        "SIG-DEMO-033: нет копируемого лота; внешние позиции неизвестны",
+        "SIG-DEMO-033: no copy-owned lot; external positions unknown"
+      ],
+      [
+        "ACT-DEMO-029 · 11:59:58 UTC",
+        "ACT-DEMO-029 · 11:59:58 UTC",
+        "Покупка MKT-DEMO-03 · ДА · $250",
+        "Buy MKT-DEMO-03 · YES · $250",
+        "SIG-DEMO-029: полные $200 не помещаются в $180",
+        "SIG-DEMO-029: full $200 exceeds $180 available"
+      ],
+      [
+        "ACT-DEMO-031 · 12:00:00 UTC",
+        "ACT-DEMO-031 · 12:00:00 UTC",
+        "Покупка MKT-DEMO-01 · ДА · 100 долей × $0.50 = $50",
+        "Buy MKT-DEMO-01 · YES · 100 shares × $0.50 = $50",
+        "SIG-DEMO-031 → ORD-DEMO-03; клиентская копия не равна 100 долям",
+        "SIG-DEMO-031 → ORD-DEMO-03; the client copy is not 100 shares"
+      ],
+      [
+        "ACT-DEMO-032 · 12:00:01.400 UTC",
+        "ACT-DEMO-032 · 12:00:01.400 UTC",
+        "Новая покупка MKT-DEMO-01 · ДА · $50",
+        "Another buy MKT-DEMO-01 · YES · $50",
+        "SIG-DEMO-032: на момент решения новые покупки уже на паузе",
+        "SIG-DEMO-032: new buys already paused at decision time"
+      ]
+    ],
+    "tab": "activity",
+    "actions": [
+      [
+        "Действие ACT-DEMO-031",
+        "Action ACT-DEMO-031",
+        "session-trader-action"
+      ]
+    ],
+    "headers": [
+      [
+        "Действие / время источника",
+        "Action / source time"
+      ],
+      [
+        "Рынок / сторона / известный объём",
+        "Market / side / known amount"
+      ],
+      [
+        "Связь с решением копии",
+        "Copy-decision relation"
+      ]
+    ],
+    "rowLinks": {
+      "ACT-DEMO-031": "session-trader-action"
+    }
+  },
+  {
+    "key": "session-trader-action",
+    "section": "ADM-03",
+    "title": [
+      "Действие ACT-DEMO-031",
+      "Action ACT-DEMO-031"
+    ],
+    "body": [
+      "Наблюдение действия трейдера не является сделкой клиента. Повтор того же исходного события не создаёт новую копию; новое самостоятельное действие получает другой ID.",
+      "Observing a trader action is not a client trade. A duplicate source event creates no new copy; an independent action has another ID."
+    ],
+    "rows": [
+      [
+        "Источник",
+        "Source",
+        "TR-DEMO-01 · Polymarket · EVT-DEMO-031",
+        "TR-DEMO-01 · Polymarket · EVT-DEMO-031",
+        "Вымышленный внешний ID, не доказательство пригодности API",
+        "Synthetic external ID, not evidence of API capability"
+      ],
+      [
+        "Действие трейдера",
+        "Trader action",
+        "Куплено 100 долей MKT-DEMO-01 · ДА · $50",
+        "Bought 100 shares MKT-DEMO-01 · YES · $50",
+        "Цена исходного исполнения $0.50; не гарантия цены копии",
+        "Source fill price $0.50; not a copy-price guarantee"
+      ],
+      [
+        "Время источника / получения",
+        "Source / receipt time",
+        "12:00:00 /12:00:00.100 UTC",
+        "12:00:00 /12:00:00.100 UTC",
+        "Порядок обработки хранится отдельно; повтор EVT-DEMO-031 распознаётся",
+        "Processing order stored separately; repeat EVT-DEMO-031 recognized"
+      ],
+      [
+        "Решение копии",
+        "Copy decision",
+        "SIG-DEMO-031 · принято · версия настроек 12",
+        "SIG-DEMO-031 · admitted · settings version 12",
+        "Фиксированные $20 → полные 40 долей при учебной цене $0.50",
+        "Fixed $20 → full 40 shares at synthetic $0.50 price"
+      ],
+      [
+        "Результат копии",
+        "Copy result",
+        "ORD-DEMO-03: 30 долей/$15; 10 отменено",
+        "ORD-DEMO-03: 30 shares/$15; 10 cancelled",
+        "Действие, допуск и исполнение — разные сущности",
+        "Action, admission and execution are distinct entities"
+      ]
+    ],
+    "tab": "activity",
+    "actions": [
+      [
+        "К решению",
+        "Decision detail",
+        "session-decision-accepted"
+      ],
+      [
+        "К заявке",
+        "Order detail",
+        "session-order"
+      ],
+      [
+        "К действиям",
+        "Back to actions",
+        "session-trader-actions"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Parameter / object"
+      ],
+      [
+        "Данные / состояние",
+        "Data / state"
+      ],
+      [
+        "Связь / пояснение",
+        "Relation / explanation"
+      ]
+    ]
+  },
+  {
+    "key": "session-decisions",
+    "section": "ADM-03",
+    "title": [
+      "Решения по сигналам",
+      "Signal decisions"
+    ],
+    "body": [
+      "S-DEMO-002 · U-DEMO-002 · Polymarket · снимок 42 на 12:01 UTC. Сессия отключена, позиции сохранены. Бюджет $200: доступно $165, расход $35, резерв $0. Это виртуальный бюджет, не стоимость портфеля.",
+      "S-DEMO-002 · U-DEMO-002 · Polymarket · snapshot 42 at 12:01 UTC. Disconnected; positions retained. $200 budget: $165 available, $35 spent, $0 reserved. Virtual budget, not portfolio value."
+    ],
+    "rows": [
+      [
+        "SIG-DEMO-031 · принято · 12:00:00.500",
+        "SIG-DEMO-031 · admitted · 12:00:00.500",
+        "$20 целиком допущены · настройки 12 · фактически исполнено $15",
+        "Full $20 admitted · settings 12 · $15 actually filled",
+        "ACT-DEMO-031 → ORD-DEMO-03 → LOT-DEMO-030; допуск не равен полному исполнению",
+        "ACT-DEMO-031 → ORD-DEMO-03 → LOT-DEMO-030; admission is not full execution"
+      ],
+      [
+        "SIG-DEMO-032 · пропущено · 12:00:01.500",
+        "SIG-DEMO-032 · skipped · 12:00:01.500",
+        "Новые покупки на паузе · $20 не зарезервированы",
+        "New buys paused · no $20 reservation",
+        "ACT-DEMO-032 · заявки и исполнения нет; позднее не догоняется",
+        "ACT-DEMO-032 · no order or fill; no later catch-up"
+      ],
+      [
+        "SIG-DEMO-029 · пропущено · 11:59:58",
+        "SIG-DEMO-029 · skipped · 11:59:58",
+        "Нужно $200; доступно $180 на момент решения · настройки 11",
+        "$200 required; $180 available at decision time · settings 11",
+        "Недостаточно полного бюджета; не уменьшать покупку до $180",
+        "Insufficient full budget; do not resize the buy to $180"
+      ],
+      [
+        "SIG-DEMO-033 · пропущено · 11:59:57",
+        "SIG-DEMO-033 · skipped · 11:59:57",
+        "Продажа MKT-DEMO-03 · ДА: копируемого лота нет",
+        "Sell MKT-DEMO-03 · YES: no copy-owned lot",
+        "Ручные и неизвестные внешние позиции не затрагиваются",
+        "Manual and unknown external positions are untouched"
+      ]
+    ],
+    "tab": "decisions",
+    "actions": [
+      [
+        "Принятый SIG-031",
+        "Admitted SIG-031",
+        "session-decision-accepted"
+      ],
+      [
+        "Пауза · SIG-032",
+        "Pause · SIG-032",
+        "session-decision-paused"
+      ],
+      [
+        "Бюджет · SIG-029",
+        "Budget · SIG-029",
+        "session-decision-budget"
+      ],
+      [
+        "Нет лота · SIG-033",
+        "No lot · SIG-033",
+        "session-decision-unowned"
+      ]
+    ],
+    "headers": [
+      [
+        "Сигнал / решение / время UTC",
+        "Signal / decision / time UTC"
+      ],
+      [
+        "Основание / суммы на момент решения",
+        "Reason / amounts at decision time"
+      ],
+      [
+        "Последствие / связь",
+        "Effect / relation"
+      ]
+    ],
+    "filters": [
+      [
+        "Все · 4",
+        "All · 4",
+        "session-decisions"
+      ],
+      [
+        "Пропущенные · 3",
+        "Skipped · 3",
+        "session-decisions-skipped"
+      ],
+      [
+        "Нет источника · 0",
+        "No source · 0",
+        "session-decisions-empty"
+      ]
+    ],
+    "filterSelected": "session-decisions",
+    "rowLinks": {
+      "SIG-DEMO-031": "session-decision-accepted",
+      "SIG-DEMO-032": "session-decision-paused",
+      "SIG-DEMO-029": "session-decision-budget",
+      "SIG-DEMO-033": "session-decision-unowned"
+    }
+  },
+  {
+    "key": "session-decision-accepted",
+    "section": "ADM-03",
+    "title": [
+      "SIG-DEMO-031 · принято",
+      "SIG-DEMO-031 · admitted"
+    ],
+    "body": [
+      "В 12:00:00.500 UTC допущена полная копия $20 по настройкам 12. Принято — это решение о допуске, а не обещание полного исполнения.",
+      "At 12:00:00.500 UTC the full $20 copy was admitted under settings 12. Admission does not promise full execution."
+    ],
+    "rows": [
+      [
+        "Исходное действие",
+        "Source action",
+        "ACT-DEMO-031 · EVT-DEMO-031 · покупка $50",
+        "ACT-DEMO-031 · EVT-DEMO-031 · $50 buy",
+        "MKT-DEMO-01 · ДА · TR-DEMO-01",
+        "MKT-DEMO-01 · YES · TR-DEMO-01"
+      ],
+      [
+        "Полный расчёт копии",
+        "Full copy calculation",
+        "Фиксированные $20; учебная цена $0.50 → 40 долей",
+        "Fixed $20; synthetic price $0.50 → 40 shares",
+        "Настройки 12. Полнота цены, объёма и расходов — учебное допущение",
+        "Settings 12. Price, depth and cost completeness are synthetic assumptions"
+      ],
+      [
+        "Снимок при допуске",
+        "Admission snapshot",
+        "Бюджет доступен $180; под заявку выделены полные $20",
+        "$180 budget available; full $20 allocated to the order",
+        "Не текущие $165. Правило допуска сверяется с версией на момент решения",
+        "Not the current $165. Admission uses the decision-time version"
+      ],
+      [
+        "Заявка и исполнение",
+        "Order and fills",
+        "ORD-DEMO-03 · 30 исполнено /10 отменено · $15",
+        "ORD-DEMO-03 · 30 filled /10 cancelled · $15",
+        "LOT-DEMO-030; поздний FILL-DEMO-032 уже учтён",
+        "LOT-DEMO-030; late FILL-DEMO-032 already included"
+      ]
+    ],
+    "tab": "decisions",
+    "actions": [
+      [
+        "К заявке",
+        "Order detail",
+        "session-order"
+      ],
+      [
+        "К действию трейдера",
+        "Trader action",
+        "session-trader-action"
+      ],
+      [
+        "К решениям",
+        "Back to decisions",
+        "session-decisions"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Parameter / object"
+      ],
+      [
+        "Данные / состояние",
+        "Data / state"
+      ],
+      [
+        "Связь / пояснение",
+        "Relation / explanation"
+      ]
+    ]
+  },
+  {
+    "key": "session-decision-paused",
+    "section": "ADM-03",
+    "title": [
+      "SIG-DEMO-032 · покупки на паузе",
+      "SIG-DEMO-032 · new buys paused"
+    ],
+    "body": [
+      "На момент решения 12:00:01.500 UTC пользовательская пауза уже действовала. Это причина пропуска новой покупки; ранее допущенная заявка ORD-DEMO-03 могла продолжать исполняться.",
+      "At 12:00:01.500 UTC user pause was already active. It blocked this new buy; previously admitted ORD-DEMO-03 could continue filling."
+    ],
+    "rows": [
+      [
+        "Исходное событие",
+        "Source event",
+        "ACT-DEMO-032 · новая самостоятельная покупка",
+        "ACT-DEMO-032 · another independent buy",
+        "Источник 12:00:01.400; получено 12:00:01.450 UTC",
+        "Source 12:00:01.400; received 12:00:01.450 UTC"
+      ],
+      [
+        "Причина",
+        "Reason",
+        "Новые покупки на паузе · PAUSE_NEW_BUYS",
+        "New buys paused · PAUSE_NEW_BUYS",
+        "Пауза с 12:00:01.200; отключение сессии начато позже, в 12:00:02",
+        "Pause since 12:00:01.200; disconnect started later at 12:00:02"
+      ],
+      [
+        "Последствие",
+        "Effect",
+        "Копия $20 не допущена; заявки, исполнения и резерва нет",
+        "$20 copy not admitted; no order, fill or reserve",
+        "Объём не догоняется после снятия паузы; исходная история сохраняется",
+        "No catch-up after unpause; original history retained"
+      ]
+    ],
+    "tab": "decisions",
+    "actions": [
+      [
+        "К пропущенным · 3",
+        "Back to skipped · 3",
+        "session-decisions-skipped"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Parameter / object"
+      ],
+      [
+        "Данные / состояние",
+        "Data / state"
+      ],
+      [
+        "Связь / пояснение",
+        "Relation / explanation"
+      ]
+    ]
+  },
+  {
+    "key": "session-decision-budget",
+    "section": "ADM-03",
+    "title": [
+      "SIG-DEMO-029 · недостаточно бюджета",
+      "SIG-DEMO-029 · insufficient budget"
+    ],
+    "body": [
+      "Историческое решение 11:59:58 UTC по настройкам 11: фиксированная копия $200 при доступных $180 пропущена целиком. Настройки 12 с $20 появились позже и не переписывают это решение.",
+      "Historical decision at 11:59:58 UTC under settings 11: the fixed $200 copy was skipped in full with $180 available. Later settings 12 with $20 do not rewrite this decision."
+    ],
+    "rows": [
+      [
+        "Исходное действие",
+        "Source action",
+        "ACT-DEMO-029 · покупка трейдера $250",
+        "ACT-DEMO-029 · trader buy $250",
+        "MKT-DEMO-03 · ДА. Сумма трейдера не равна фиксированной сумме копии",
+        "MKT-DEMO-03 · YES. Trader amount is not the fixed copy amount"
+      ],
+      [
+        "Настройки при решении",
+        "Decision-time settings",
+        "Версия 11 · фиксированные $200",
+        "Version 11 · fixed $200",
+        "Историческая учебная настройка; не действующий тариф или рекомендуемый размер",
+        "Historical synthetic setting; not a tariff or recommended size"
+      ],
+      [
+        "Проверка полного бюджета",
+        "Full-budget check",
+        "$200 нужно > $180 доступно · FULL_BUDGET_INSUFFICIENT",
+        "$200 required > $180 available · FULL_BUDGET_INSUFFICIENT",
+        "Расход $20 по ORD-DEMO-01 уже учтён; резервы $0",
+        "The $20 ORD-DEMO-01 cost was already included; reserves $0"
+      ],
+      [
+        "Последствие",
+        "Effect",
+        "Нет заявки, резерва и исполнения; не покупать на $180",
+        "No order, reserve or fill; do not buy $180 instead",
+        "Не пересчитывать позднее по $20 и не догонять пропущенный сигнал",
+        "Do not recalculate later using $20 or catch up the skipped signal"
+      ]
+    ],
+    "tab": "decisions",
+    "actions": [
+      [
+        "К пропущенным · 3",
+        "Back to skipped · 3",
+        "session-decisions-skipped"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Parameter / object"
+      ],
+      [
+        "Данные / состояние",
+        "Data / state"
+      ],
+      [
+        "Связь / пояснение",
+        "Relation / explanation"
+      ]
+    ]
+  },
+  {
+    "key": "session-decision-unowned",
+    "section": "ADM-03",
+    "title": [
+      "SIG-DEMO-033 · нет копируемого лота",
+      "SIG-DEMO-033 · no copy-owned lot"
+    ],
+    "body": [
+      "Продажа трейдера MKT-DEMO-03 · ДА наблюдалась в 11:59:57 UTC. У этой сессии по этому исходу нет своего копируемого лота. Это не доказательство нулевого внешнего баланса пользователя.",
+      "A trader sell of MKT-DEMO-03 · YES was observed at 11:59:57 UTC. This session has no copy-owned lot for that outcome. This does not prove a zero external user balance."
+    ],
+    "rows": [
+      [
+        "Исходное действие",
+        "Source action",
+        "ACT-DEMO-033 · продажа 20 долей MKT-DEMO-03 · ДА",
+        "ACT-DEMO-033 · sell 20 shares MKT-DEMO-03 · YES",
+        "Сторона и исход отличаются от двух сохранённых лотов этой сессии",
+        "The outcome differs from the two retained lots in this session"
+      ],
+      [
+        "Причина",
+        "Reason",
+        "Нет копируемого лота · NO_COPY_OWNED_LOT",
+        "No copy-owned lot · NO_COPY_OWNED_LOT",
+        "Продажа применяется только к допустимому отслеживаемому остатку, не к ручным активам",
+        "A sale applies only to eligible tracked quantity, not manual assets"
+      ],
+      [
+        "Последствие",
+        "Effect",
+        "Никакая продажа не создана; чужие и ручные позиции не изменены",
+        "No sale created; other and manual positions unchanged",
+        "Внешний остаток по этому исходу не получен и не подменяется нулём",
+        "External quantity for this outcome is unavailable, not replaced with zero"
+      ]
+    ],
+    "tab": "decisions",
+    "actions": [
+      [
+        "К пропущенным · 3",
+        "Back to skipped · 3",
+        "session-decisions-skipped"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Parameter / object"
+      ],
+      [
+        "Данные / состояние",
+        "Data / state"
+      ],
+      [
+        "Связь / пояснение",
+        "Relation / explanation"
+      ]
+    ]
+  },
+  {
+    "key": "session-decisions-skipped",
+    "section": "ADM-03",
+    "title": [
+      "Пропущенные сигналы",
+      "Skipped signals"
+    ],
+    "body": [
+      "Фильтр: только пропущенные. 3 из 4 решений в подтверждённом снимке 42. Возврат из карточки пропуска сохраняет эту выборку.",
+      "Filter: skipped only. 3 of 4 decisions in confirmed snapshot 42. Returning from a skipped detail preserves this selection."
+    ],
+    "rows": [
+      [
+        "SIG-DEMO-032 · пропущено · 12:00:01.500",
+        "SIG-DEMO-032 · skipped · 12:00:01.500",
+        "Новые покупки на паузе · $20 не зарезервированы",
+        "New buys paused · no $20 reservation",
+        "ACT-DEMO-032 · заявки и исполнения нет; позднее не догоняется",
+        "ACT-DEMO-032 · no order or fill; no later catch-up"
+      ],
+      [
+        "SIG-DEMO-029 · пропущено · 11:59:58",
+        "SIG-DEMO-029 · skipped · 11:59:58",
+        "Нужно $200; доступно $180 на момент решения · настройки 11",
+        "$200 required; $180 available at decision time · settings 11",
+        "Недостаточно полного бюджета; не уменьшать покупку до $180",
+        "Insufficient full budget; do not resize the buy to $180"
+      ],
+      [
+        "SIG-DEMO-033 · пропущено · 11:59:57",
+        "SIG-DEMO-033 · skipped · 11:59:57",
+        "Продажа MKT-DEMO-03 · ДА: копируемого лота нет",
+        "Sell MKT-DEMO-03 · YES: no copy-owned lot",
+        "Ручные и неизвестные внешние позиции не затрагиваются",
+        "Manual and unknown external positions are untouched"
+      ]
+    ],
+    "tab": "decisions",
+    "actions": [
+      [
+        "Пауза · SIG-032",
+        "Pause · SIG-032",
+        "session-decision-paused"
+      ],
+      [
+        "Бюджет · SIG-029",
+        "Budget · SIG-029",
+        "session-decision-budget"
+      ],
+      [
+        "Нет лота · SIG-033",
+        "No lot · SIG-033",
+        "session-decision-unowned"
+      ]
+    ],
+    "headers": [
+      [
+        "Сигнал / решение / время UTC",
+        "Signal / decision / time UTC"
+      ],
+      [
+        "Основание / суммы на момент решения",
+        "Reason / amounts at decision time"
+      ],
+      [
+        "Последствие / связь",
+        "Effect / relation"
+      ]
+    ],
+    "filters": [
+      [
+        "Все · 4",
+        "All · 4",
+        "session-decisions"
+      ],
+      [
+        "Пропущенные · 3",
+        "Skipped · 3",
+        "session-decisions-skipped"
+      ],
+      [
+        "Нет источника · 0",
+        "No source · 0",
+        "session-decisions-empty"
+      ]
+    ],
+    "filterSelected": "session-decisions-skipped",
+    "rowLinks": {
+      "SIG-DEMO-032": "session-decision-paused",
+      "SIG-DEMO-029": "session-decision-budget",
+      "SIG-DEMO-033": "session-decision-unowned"
+    }
+  },
+  {
+    "key": "session-decisions-empty",
+    "section": "ADM-03",
+    "title": [
+      "Решений по фильтру нет",
+      "No decisions match this filter"
+    ],
+    "body": [
+      "Выбрана причина «Нет источника». В успешно прочитанном снимке 42 таких решений 0 из 4. Это пустая выборка по фильтру, а не ошибка подключения и не отсутствие всей истории.",
+      "Reason filter: No source. The successfully read snapshot 42 contains 0 of 4 matching decisions. This is an empty filtered view, not a connection failure or missing history."
+    ],
+    "rows": [],
+    "tab": "decisions",
+    "actions": [
+      [
+        "Сбросить фильтр · 4 решения",
+        "Reset filter · 4 decisions",
+        "session-decisions"
+      ]
+    ],
+    "headers": [
+      [
+        "Сигнал / решение / время UTC",
+        "Signal / decision / time UTC"
+      ],
+      [
+        "Основание / суммы на момент решения",
+        "Reason / amounts at decision time"
+      ],
+      [
+        "Последствие / связь",
+        "Effect / relation"
+      ]
+    ],
+    "filters": [
+      [
+        "Все · 4",
+        "All · 4",
+        "session-decisions"
+      ],
+      [
+        "Пропущенные · 3",
+        "Skipped · 3",
+        "session-decisions-skipped"
+      ],
+      [
+        "Нет источника · 0",
+        "No source · 0",
+        "session-decisions-empty"
+      ]
+    ],
+    "filterSelected": "session-decisions-empty",
+    "empty": [
+      "Ничего не найдено. Измените причину или сбросьте фильтр.",
+      "No matches. Change the reason or reset the filter."
+    ]
+  },
+  {
+    "key": "session-data-loading",
+    "section": "ADM-03",
+    "title": [
+      "Загружаем позиции",
+      "Loading positions"
+    ],
+    "body": [
+      "Читаем список позиций этой сессии. Последний подтверждённый снимок 42 остаётся доступен в сводке; новые количество и прибыль ещё не получены. Запрос только читает данные.",
+      "Reading this session’s positions. Confirmed snapshot 42 remains available in overview; updated quantities and profit are not available yet. This request only reads data."
+    ],
+    "rows": [],
+    "tab": "positions",
+    "actions": [
+      [
+        "К последней сводке",
+        "Last confirmed overview",
+        "session-inspection"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Parameter / object"
+      ],
+      [
+        "Данные / состояние",
+        "Data / state"
+      ],
+      [
+        "Связь / пояснение",
+        "Relation / explanation"
+      ]
+    ],
+    "empty": [
+      "Данные загружаются. Пустое место не означает нулевые позиции.",
+      "Loading. The blank area does not mean zero positions."
+    ],
+    "scenarios": [
+      [
+        "Источник ответил",
+        "Source responded",
+        "session-positions"
+      ],
+      [
+        "Ошибка чтения",
+        "Read error",
+        "session-data-error"
+      ]
+    ]
+  },
+  {
+    "key": "session-data-error",
+    "section": "ADM-03",
+    "title": [
+      "Позиции · данные устарели",
+      "Positions · stale data"
+    ],
+    "body": [
+      "Не удалось обновить позиции. Ниже — последний подтверждённый снимок 42 на 12:01 UTC, не текущие данные площадки. Ошибка чтения не закрывает позиции, не освобождает резерв и не меняет баланс.",
+      "Could not refresh positions. Below is confirmed snapshot 42 at 12:01 UTC, not current venue data. A read failure does not close positions, release reserves or change balances."
+    ],
+    "rows": [
+      [
+        "LOT-DEMO-020 · MKT-DEMO-02 · НЕТ",
+        "LOT-DEMO-020 · MKT-DEMO-02 · NO",
+        "40 долей · цена входа $0.50 · расход $20",
+        "40 shares · entry $0.50 · cost $20",
+        "ORD-DEMO-01 · источник: копирование · сохранён после отключения",
+        "ORD-DEMO-01 · origin: copy · retained after disconnect"
+      ],
+      [
+        "LOT-DEMO-030 · MKT-DEMO-01 · ДА",
+        "LOT-DEMO-030 · MKT-DEMO-01 · YES",
+        "30 долей · средняя цена входа $0.50 · расход $15",
+        "30 shares · average entry $0.50 · cost $15",
+        "ORD-DEMO-03 · FILL-DEMO-031 + FILL-DEMO-032 · сохранён после отключения",
+        "ORD-DEMO-03 · FILL-DEMO-031 + FILL-DEMO-032 · retained after disconnect"
+      ]
+    ],
+    "tab": "positions",
+    "actions": [
+      [
+        "Повторить чтение",
+        "Retry readback",
+        "session-data-loading"
+      ],
+      [
+        "К последней сводке",
+        "Last confirmed overview",
+        "session-inspection"
+      ]
+    ],
+    "headers": [
+      [
+        "Лот / рынок / исход",
+        "Lot / market / outcome"
+      ],
+      [
+        "Количество / цена входа / расход",
+        "Quantity / entry price / cost"
+      ],
+      [
+        "Происхождение / связь",
+        "Origin / relation"
+      ]
+    ]
+  },
+  {
+    "key": "session-source-unavailable",
+    "section": "ADM-03",
+    "title": [
+      "Limitless · источник не подключён",
+      "Limitless · source not connected"
+    ],
+    "body": [
+      "Отдельный альтернативный учебный пример U-DEMO-002 / ACC-LL-DEMO, а не вторая активная демо-сессия. Данные сессии Limitless не получены; возможности источника не проверены. Реальных запросов нет.",
+      "Isolated alternative U-DEMO-002 / ACC-LL-DEMO example, not a second active demo session. Limitless session data is unavailable; source capabilities are unverified. No live requests."
+    ],
+    "rows": [
+      [
+        "Идентичность",
+        "Identity",
+        "U-DEMO-002 · Limitless · ACC-LL-DEMO",
+        "U-DEMO-002 · Limitless · ACC-LL-DEMO",
+        "Сессия / внешний ID: не получены",
+        "Session / external ID: unavailable"
+      ],
+      [
+        "Бюджет и позиции",
+        "Budget and positions",
+        "Нет подтверждённых данных",
+        "No confirmed data",
+        "Не показывать $0, нулевой резерв или пустой подтверждённый портфель",
+        "Do not show $0, zero reserve or an empty confirmed portfolio"
+      ],
+      [
+        "Действия и решения",
+        "Actions and decisions",
+        "Источник не подключён; исторических записей нет в этом примере",
+        "Source not connected; no history supplied in this example",
+        "Не создавать исполнений, прибыли или доступных торговых команд",
+        "Do not create fills, profit or available trading commands"
+      ]
+    ],
+    "tab": "overview",
+    "actions": [
+      [
+        "К списку сессий",
+        "Session list",
+        "sessions"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Parameter / object"
+      ],
+      [
+        "Данные / состояние",
+        "Data / state"
+      ],
+      [
+        "Связь / пояснение",
+        "Relation / explanation"
+      ]
+    ],
+    "hideTabs": true,
+    "scenarios": [
+      [
+        "К учебному примеру Polymarket",
+        "Polymarket synthetic example",
+        "session-inspection"
+      ]
+    ]
+  }
+]

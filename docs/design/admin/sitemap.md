@@ -1,10 +1,10 @@
 # Живая карта админки
 
-Текущий срез 18.10.2026: **601 RU +601 EN корневых макетов**, из них 596 основных состояний и 5 служебных оболочек на язык. Карта 0.20, набор компонентов 0.4.21 (28 наборов /168 вариантов).
+Текущий срез 18.10.2026: **618 RU +618 EN корневых макетов**, из них 613 основных состояний и 5 служебных оболочек на язык. Карта 0.21, набор компонентов 0.4.21 (28 наборов /168 вариантов).
 
 Полный читаемый индекс сформирован из [sitemap.json](sitemap.json). Статус раздела относится к покрытию дизайном, не реализации или полной приёмке. Исторические срезы доступны в Git.
 
-[Карта в Figma](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2105-5766) · [Последние изменения](order-money-reconciliation-2026-10-18/README.md)
+[Карта в Figma](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2105-5766) · [Последние изменения](session-workspace-2026-10-18/README.md)
 
 ## ADM-01 · Обзор
 
@@ -50,9 +50,9 @@
 
 ## ADM-03 · Сессии
 
-Макеты есть · на вычитке. Сессии, частичное исполнение, отмена остатка, поздние исполнения и безопасное чтение результата. Полная ручная и ролевая приёмка открыта.
+Макеты есть · на вычитке. Сессии, позиции и заявки, события трейдера, решения и причины пропуска; частичные и поздние исполнения, отмена остатка. Полная ручная и ролевая приёмка открыта.
 
-Состояний: 36.
+Состояний: 53.
 
 | Состояние | RU | EN |
 | --- | --- | --- |
@@ -92,6 +92,23 @@
 | Данных по заявке недостаточно | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58325) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58312) |
 | Не удалось проверить заявку после исполнения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58348) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58335) |
 | Данных по заявке недостаточно · позднее исполнение | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58371) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58358) |
+| Сессия S-DEMO-002 | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62186) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187312) |
+| Позиции сессии | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62207) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187333) |
+| Позиция LOT-DEMO-030 | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62228) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187354) |
+| Заявки сессии | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62249) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187375) |
+| Заявка ORD-DEMO-03 | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62270) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187396) |
+| Действия трейдера | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62291) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187417) |
+| Действие ACT-DEMO-031 | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62312) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187438) |
+| Решения по сигналам | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62333) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187459) |
+| SIG-DEMO-031 · принято | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62354) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187480) |
+| SIG-DEMO-032 · покупки на паузе | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62375) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187501) |
+| SIG-DEMO-029 · недостаточно бюджета | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62396) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187522) |
+| SIG-DEMO-033 · нет копируемого лота | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62417) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187543) |
+| Пропущенные сигналы | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62438) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187564) |
+| Решений по фильтру нет | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62459) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187585) |
+| Загружаем позиции | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62480) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187606) |
+| Позиции · данные устарели | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62501) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187627) |
+| Limitless · источник не подключён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62522) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187648) |
 
 ## ADM-04 · Инциденты
 
