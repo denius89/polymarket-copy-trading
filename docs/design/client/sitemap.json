@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-16",
+  "updatedAt": "2026-10-18",
   "figmaFileKey": "lxPP2um7FvIbt02K8eeH4T",
   "figmaPage": "0:1",
   "figmaBoard": "1664:2",
@@ -28,6 +28,12 @@
   },
   "finalManualPause": {
     "manualCatalog": {"mobileRu": "2889:143739", "mobileEn": "2892:3070", "desktopRuPaused": "2906:168747", "desktopRuResumed": "2911:171729", "desktopEnPaused": "2901:49669", "desktopEnResumed": "2906:156915"},
+    "manualProfilePeriods": {
+      "mobileRu": ["2889:144049", "2889:144215", "2889:144381", "2889:144540", "2889:144692"],
+      "mobileEn": ["2892:3356", "2892:3504", "2892:3652", "2892:3793", "2892:3927"],
+      "desktopRu": "five local periods per paused/resumed catalog; exact IDs in final-client-release-review-2026-10-16.md",
+      "desktopEn": "five local periods per paused/resumed catalog; exact IDs in final-client-release-review-2026-10-16.md"
+    },
     "pausedHome": {
       "mobileRu": "2865:2966",
       "mobileEn": "2870:186643",
@@ -40,6 +46,17 @@
       "desktopRu": "2859:4786",
       "desktopEn": "2884:143694"
     },
+    "desktopLists": {
+      "ruPaused": {"positions": "2884:49632", "activity": "2884:49688"},
+      "ruResumed": {"positions": "2883:143474", "activity": "2883:143514"},
+      "enPaused": {"positions": "2884:144007", "activity": "2884:144042"},
+      "enResumed": {"positions": "2884:143854", "activity": "2884:143889"}
+    },
+    "mobileManualLists": {
+      "ru": {"positions": "2865:3224", "activity": "2867:153346"},
+      "en": {"positions": "2870:186901", "activity": "2870:186973"}
+    },
+    "returnContract": "Home, Traders, trader profile, Positions and Activity preserve the current session and manual pause/resumed state. Help, Notifications, Account and simulation use shared prototype templates; their stateful return is an implementation requirement, not accepted Figma reaction coverage.",
     "note": "Final prototype examples; manual pause is separate from pending reconciliation. See final-client-release-review-2026-10-16.md."
   },
   "anchors": [

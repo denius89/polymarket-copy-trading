@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080c18">
+  <title>shadow · История знакомства</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    * { box-sizing: border-box; }
+    html, body { min-height: 100%; margin: 0; background: #05070e; color: #f3f3fb; }
+    body { display: grid; place-items: center; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; cursor: pointer; }
+    a { color: inherit; }
+    .preview { display: grid; justify-items: center; gap: 14px; padding: 12px; }
+    .story {
+      position: relative; width: min(390px, calc(100vw - 24px), 42dvh);
+      aspect-ratio: 390 / 844; overflow: hidden; isolation: isolate;
+      background: #080d1d; box-shadow: 0 24px 80px rgba(0, 0, 0, .52);
+    }
+    .panel { position: absolute; inset: 0; overflow: hidden; }
+    .panel[hidden] { display: none; }
+    .plate, .scene-video, .shade { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .plate, .scene-video { object-fit: cover; object-position: center; user-select: none; pointer-events: none; }
+    .scene-video { z-index: 1; }
+    .shade { z-index: 2; background: linear-gradient(180deg, rgba(4, 7, 20, .72) 0%, rgba(4, 7, 20, .20) 25%, transparent 37%, transparent 64%, rgba(4, 7, 20, .38) 77%, rgba(4, 7, 20, .82) 100%); pointer-events: none; }
+    .top, .copy, .footer { position: absolute; z-index: 5; left: 0; right: 0; }
+    .top { top: 0; padding: 22px 20px 0; }
+    .progress { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; height: 4px; }
+    .progress span { overflow: hidden; border-radius: 4px; background: rgba(226, 229, 247, .24); }
+    .progress .done { background: #f4f4ff; }
+    .progress .current::after { content: ""; display: block; width: 100%; height: 100%; background: #f4f4ff; transform: scaleX(var(--progress, 0)); transform-origin: left; }
+    .head-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 22px; min-height: 30px; }
+    .head-actions { display: flex; align-items: center; gap: 12px; }
+    .brand { font-weight: 750; font-size: 16px; letter-spacing: -.025em; }
+    .language { min-width: 44px; min-height: 44px; padding: 0 7px; border: 1px solid rgba(226, 229, 247, .35); border-radius: 10px; background: rgba(8, 12, 24, .58); color: #fff; font-size: 13px; font-weight: 650; }
+    .skip { font-size: 14px; color: #d9d9e7; text-decoration: none; text-underline-offset: 4px; padding: 9px 0 9px 12px; }
+    .skip:hover { color: #fff; text-decoration: underline; }
+    .copy { top: 15%; padding: 0 24px; pointer-events: none; }
+    .copy h1 { margin: 0; max-width: 350px; font-size: 32px; line-height: 1.16; letter-spacing: -.028em; font-weight: 740; text-wrap: balance; }
+    .copy p { margin: 40px 0 0; max-width: 340px; font-size: 16px; line-height: 1.35; color: #ced0df; }
+    .footer { bottom: 32px; padding: 0 20px; }
+    .caption-row { display: flex; align-items: center; justify-content: space-between; min-height: 44px; margin: 0 4px 22px; }
+    .scene-label { font-size: 13px; font-weight: 650; line-height: 1.35; letter-spacing: .004em; }
+    .replay { display: grid; place-items: center; width: 44px; height: 44px; margin-right: -8px; border: 0; border-radius: 12px; background: transparent; color: #dcdcf2; }
+    .replay:hover { background: rgba(255,255,255,.09); }
+    .replay svg { width: 19px; height: 19px; }
+    .safety { min-height: 34px; margin: 0 4px 22px; color: #b7bbd2; font-size: 13px; line-height: 1.35; }
+    .next { display: grid; place-items: center; width: 100%; height: 54px; border: 0; border-radius: 14px; background: #7541e5; color: #fff; font-size: 16px; font-weight: 650; text-decoration: none; transition: background .2s, transform .2s; }
+    .next:hover { background: #8552f1; }
+    .next:active { transform: scale(.985); }
+    .tap { position: absolute; z-index: 4; top: 31%; bottom: 26%; width: 43%; border: 0; padding: 0; background: transparent; }
+    .tap.prev { left: 0; }
+    .tap.next-tap { right: 0; }
+    .tap:focus-visible, .next:focus-visible, .replay:focus-visible, .skip:focus-visible, .language:focus-visible { outline: 3px solid #bda5ff; outline-offset: 3px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .hint { margin: 0; color: #989cad; font-size: 12px; text-align: center; }
+    @media (max-width: 600px) {
+      .preview { width: 100%; height: 100dvh; padding: 0; }
+      .story { width: 100%; height: 100dvh; aspect-ratio: auto; box-shadow: none; }
+      .hint { display: none; }
+      .footer { bottom: max(24px, env(safe-area-inset-bottom)); }
+    }
+    @media (max-width: 360px) { .copy h1 { font-size: 28px; } .copy p { margin-top: 24px; } .footer { padding-inline: 16px; } .top { padding-inline: 16px; } .head-actions { gap: 6px; } }
+    @media (max-height: 650px) { .copy { top: 13%; } .copy p { margin-top: 20px; } .footer { bottom: max(12px, env(safe-area-inset-bottom)); } .caption-row { margin-bottom: 8px; } .safety { margin-bottom: 8px; } }
+    @media (max-height: 720px) and (min-width: 601px) { .copy p { margin-top: 26px; } }
+    @media (prefers-reduced-motion: reduce) { .scene-video, .replay { display: none; } .next { transition: none; } .progress .current::after { transform: scaleX(1); } }
+  </style>
+</head>
+<body>
+  <main class="preview" aria-label="Интерактивный концепт знакомства">
+    <span class="sr-only" id="step-announcement" role="status" aria-live="polite"></span>
+    <div class="story" id="story">
+      <section class="panel" data-step="0" aria-label="Шаг 1 из 3: сигнал трейдера">
+        <img class="plate" src="../videos/01-signal-poster.jpg" alt="" draggable="false" fetchpriority="high">
+        <video class="scene-video" data-src="../videos/01-signal.mp4" poster="../videos/01-signal-poster.jpg" muted playsinline preload="none" aria-hidden="true"></video>
+        <div class="shade"></div>
+        <div class="top"><div class="progress" aria-label="Шаг 1 из 3"><span class="current"></span><span></span><span></span></div><div class="head-row"><span class="brand">shadow</span><div class="head-actions"><button class="language" type="button" aria-label="Switch to English">EN</button><a class="skip" href="#">Пропустить в Figma</a></div></div></div>
+        <div class="copy"><h1 tabindex="-1">Выберите трейдера</h1><p>Его новые покупки станут сигналами. Каждую проверим по вашим правилам.</p></div>
+        <button class="tap next-tap" type="button" data-go="1" aria-label="Следующая история"></button>
+        <div class="footer"><div class="caption-row"><span class="scene-label">НОВОЕ ДЕЙСТВИЕ ТРЕЙДЕРА</span><button class="replay" type="button" aria-label="Повторить видео"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 1-2.2-5.5"/><path d="M20 4v5h-5"/></svg></button></div><p class="safety">Учебный пример · сделки ещё не запускаются</p><button class="next" type="button" data-go="1">Далее</button></div>
+      </section>
+      <section class="panel" data-step="1" aria-label="Шаг 2 из 3: проверка правил" hidden>
+        <img class="plate" src="../videos/02-rules-poster.jpg" alt="" draggable="false" loading="lazy">
+        <video class="scene-video" data-src="../videos/02-rules.mp4" poster="../videos/02-rules-poster.jpg" muted playsinline preload="none" aria-hidden="true"></video>
+        <div class="shade"></div>
+        <div class="top"><div class="progress" aria-label="Шаг 2 из 3"><span class="done"></span><span class="current"></span><span></span></div><div class="head-row"><span class="brand">shadow</span><div class="head-actions"><button class="language" type="button" aria-label="Switch to English">EN</button><a class="skip" href="#">Пропустить в Figma</a></div></div></div>
+        <div class="copy"><h1 tabindex="-1">Ваши правила решают</h1><p>Покупка проходит лимит или попадает в историю с понятной причиной.</p></div>
+        <button class="tap prev" type="button" data-go="0" aria-label="Предыдущая история"></button><button class="tap next-tap" type="button" data-go="2" aria-label="Следующая история"></button>
+        <div class="footer"><div class="caption-row"><span class="scene-label">18 $ ПРОХОДИТ · 24 $ ПРОПУСК</span><button class="replay" type="button" aria-label="Повторить видео"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 1-2.2-5.5"/><path d="M20 4v5h-5"/></svg></button></div><p class="safety">Лимиты задаёте вы — до начала копирования.</p><button class="next" type="button" data-go="2">Далее</button></div>
+      </section>
+      <section class="panel" data-step="2" aria-label="Шаг 3 из 3: демо-счёт" hidden>
+        <img class="plate" src="../videos/03-demo-poster.jpg" alt="" draggable="false" loading="lazy">
+        <video class="scene-video" data-src="../videos/03-demo.mp4" poster="../videos/03-demo-poster.jpg" muted playsinline preload="none" aria-hidden="true"></video>
+        <div class="shade"></div>
+        <div class="top"><div class="progress" aria-label="Шаг 3 из 3"><span class="done"></span><span class="done"></span><span class="current"></span></div><div class="head-row"><span class="brand">shadow</span><div class="head-actions"><button class="language" type="button" aria-label="Switch to English">EN</button><a class="skip" href="#">Пропустить в Figma</a></div></div></div>
+        <div class="copy"><h1 tabindex="-1">Сначала попробуйте на демо</h1><p>200 $ виртуальных средств. Сессия начинается пустой.</p></div>
+        <button class="tap prev" type="button" data-go="1" aria-label="Предыдущая история"></button>
+        <div class="footer"><div class="caption-row"><span class="scene-label">ПРОШЕДШАЯ ПОКУПКА → ДЕМО-ПОЗИЦИЯ</span><button class="replay" type="button" aria-label="Повторить видео"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 1-2.2-5.5"/><path d="M20 4v5h-5"/></svg></button></div><p class="safety">Результаты демо не гарантируют реальный доход.</p><a class="next" href="#">Трейдеры в Figma</a></div>
+      </section>
+    </div>
+    <p class="hint">Касание справа или слева переключает истории · ↻ повторяет видео</p>
+  </main>
+  <script>
+    const panels = [...document.querySelectorAll('.panel')];
+    const destinations = {
+      ru: 'https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T/Controlled-Copy-Trading-%E2%80%94-Paper-MVP?node-id=2498-26322&page-id=2477%3A528&scaling=scale-down',
+      en: 'https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T/Controlled-Copy-Trading-%E2%80%94-Paper-MVP?node-id=2502-17367&page-id=2499%3A2&scaling=scale-down'
+    };
+    const copy = {
+      ru: { title: 'История знакомства', main: 'Интерактивный концепт знакомства', step: 'Шаг', skip: 'Пропустить в Figma', language: 'Switch to English', nextLanguage: 'EN', replay: 'Повторить видео', previous: 'Предыдущая история', following: 'Следующая история', next: 'Далее', finish: 'Трейдеры в Figma', hint: 'Касание справа или слева переключает истории · ↻ повторяет видео', panels: [
+        ['Выберите трейдера', 'Его новые покупки станут сигналами. Каждую проверим по вашим правилам.', 'НОВОЕ ДЕЙСТВИЕ ТРЕЙДЕРА', 'Учебный пример · сделки ещё не запускаются'],
+        ['Ваши правила решают', 'Покупка проходит лимит или попадает в историю с понятной причиной.', '18 $ ПРОХОДИТ · 24 $ ПРОПУСК', 'Лимиты задаёте вы — до начала копирования.'],
+        ['Сначала попробуйте на демо', '200 $ виртуальных средств. Сессия начинается пустой.', 'ПРОШЕДШАЯ ПОКУПКА → ДЕМО-ПОЗИЦИЯ', 'Результаты демо не гарантируют реальный доход.']
+      ]},
+      en: { title: 'Introduction stories', main: 'Interactive introduction concept', step: 'Step', skip: 'Skip to Figma', language: 'Переключить на русский', nextLanguage: 'RU', replay: 'Replay video', previous: 'Previous story', following: 'Next story', next: 'Next', finish: 'Traders in Figma', hint: 'Tap right or left to switch stories · ↻ replays the video', panels: [
+        ['Choose a trader', 'Their new buys become signals. We check each one against your rules.', 'NEW TRADER ACTION', 'Learning example · no orders are placed yet'],
+        ['Your rules decide', 'A buy passes your limit or appears in Activity with a clear reason.', '$18 PASSES · $24 SKIPPED', 'You set limits before copying starts.'],
+        ['Try the demo first', '$200 in virtual funds. Your session starts empty.', 'APPROVED BUY → DEMO POSITION', 'Demo results do not guarantee real returns.']
+      ]}
+    };
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    let current = 0;
+    let locale = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'ru';
+    function applyLocale() {
+      const c = copy[locale];
+      document.documentElement.lang = locale;
+      document.title = `shadow · ${c.title}`;
+      document.querySelector('main').setAttribute('aria-label', c.main);
+      document.querySelector('.hint').textContent = c.hint;
+      panels.forEach((panel, index) => {
+        const [heading, body, label, safety] = c.panels[index];
+        panel.setAttribute('aria-label', `${c.step} ${index + 1} ${locale === 'ru' ? 'из' : 'of'} 3: ${heading}`);
+        panel.querySelector('.progress').setAttribute('aria-label', `${c.step} ${index + 1} ${locale === 'ru' ? 'из' : 'of'} 3`);
+        panel.querySelector('h1').textContent = heading;
+        panel.querySelector('.copy p').textContent = body;
+        panel.querySelector('.scene-label').textContent = label;
+        panel.querySelector('.safety').textContent = safety;
+        panel.querySelector('.skip').textContent = c.skip;
+        panel.querySelector('.skip').href = destinations[locale];
+        panel.querySelector('.language').textContent = c.nextLanguage;
+        panel.querySelector('.language').setAttribute('aria-label', c.language);
+        panel.querySelector('.replay').setAttribute('aria-label', c.replay);
+        panel.querySelectorAll('.tap').forEach(tap => tap.setAttribute('aria-label', tap.classList.contains('prev') ? c.previous : c.following));
+        const action = panel.querySelector('.next');
+        action.textContent = index === panels.length - 1 ? c.finish : c.next;
+        if (index === panels.length - 1) action.href = destinations[locale];
+      });
+      document.querySelector('#step-announcement').textContent = panels[current].getAttribute('aria-label');
+    }
+
+    function videoFor(step) { return panels[step].querySelector('video'); }
+    function updateProgress(video) {
+      const indicator = video.closest('.panel').querySelector('.progress .current');
+      indicator.style.setProperty('--progress', video.duration ? Math.min(1, video.currentTime / video.duration) : 0);
+    }
+    function prepare(video, preload = 'auto') {
+      if (!video.src) {
+        video.preload = preload;
+        video.src = video.dataset.src;
+        video.load();
+      }
+    }
+    function play() {
+      const video = videoFor(current);
+      if (reducedMotion.matches || document.hidden) return;
+      prepare(video);
+      video.currentTime = 0;
+      updateProgress(video);
+      video.play().catch(() => {});
+    }
+    function show(step) {
+      if (step < 0 || step >= panels.length || step === current) return;
+      videoFor(current).pause();
+      panels[current].hidden = true;
+      current = step;
+      panels[current].hidden = false;
+      document.querySelector('#step-announcement').textContent = panels[current].getAttribute('aria-label');
+      panels[current].querySelector('h1').focus({ preventScroll: true });
+      play();
+    }
+    panels.forEach((panel, step) => {
+      const video = videoFor(step);
+      video.addEventListener('timeupdate', () => updateProgress(video));
+      video.addEventListener('ended', () => updateProgress(video));
+      video.addEventListener('error', () => { video.style.display = 'none'; });
+      video.addEventListener('timeupdate', () => {
+        if (step === current && video.currentTime > 2 && panels[step + 1] && !reducedMotion.matches) prepare(videoFor(step + 1), 'metadata');
+      });
+      panel.querySelector('.replay').addEventListener('click', play);
+    });
+    document.querySelectorAll('[data-go]').forEach((button) => button.addEventListener('click', () => show(Number(button.dataset.go))));
+    document.querySelectorAll('.language').forEach(button => button.addEventListener('click', () => {
+      locale = locale === 'ru' ? 'en' : 'ru';
+      const url = new URL(location.href);
+      if (locale === 'ru') url.searchParams.delete('lang'); else url.searchParams.set('lang', 'en');
+      history.replaceState(null, '', url);
+      applyLocale();
+      panels[current].querySelector('.language').focus();
+    }));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight') show(current + 1);
+      if (event.key === 'ArrowLeft') show(current - 1);
+    });
+    document.addEventListener('visibilitychange', () => { if (document.hidden) videoFor(current).pause(); else play(); });
+    reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) videoFor(current).pause(); else play(); });
+    applyLocale();
+    play();
+  </script>
+</body>
+</html>
