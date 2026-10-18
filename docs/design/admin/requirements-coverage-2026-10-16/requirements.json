@@ -185,30 +185,183 @@
     "id": "G06",
     "area": "Общее",
     "requirement": "Права чтения, изменения и экспорта не смешиваются",
-    "status": "частично",
+    "status": "готово",
     "keys": [
-      "ADM-14/role-escalation-denied",
-      "ADM-12/audit-export-preview"
+      "ADM-14/access-operations-home",
+      "ADM-14/access-user-limited",
+      "ADM-14/access-session-limited",
+      "ADM-14/access-venue-denied",
+      "ADM-14/access-environment-denied",
+      "ADM-14/access-action-denied",
+      "ADM-14/access-expired",
+      "ADM-14/access-revoked",
+      "ADM-12/access-audit-read",
+      "ADM-12/access-export-denied",
+      "ADM-12/access-export-preview",
+      "ADM-12/access-export-preparing",
+      "ADM-12/access-export-ready",
+      "ADM-12/access-export-error",
+      "ADM-12/access-export-revoked",
+      "ADM-14/access-critical-denied",
+      "ADM-18/access-marketing",
+      "ADM-17/access-emergency",
+      "ADM-14/access-support-limited"
     ],
-    "gap": "Есть демонстрации, но сквозная проверка скрытых разделов, вложенных данных, финансовых сумм и экспорта для всех ролей не проведена.",
-    "priority": "P1",
+    "gap": "Добавлены отдельные ролевые проекции RU/EN: скрытые разделы, финансовые данные и вложенные связи не раскрываются; прямые запросы, истечение срока, отзыв и критические действия отделены. Покрытие дизайном; полная проверка всех старых экранов и серверных границ остаётся в X01/X04.",
+    "priority": "—",
     "source": "118",
     "evidence": [
       {
-        "key": "role-escalation-denied",
+        "key": "access-operations-home",
         "section": "ADM-14",
-        "ru": "2138:58390",
-        "en": "2138:68833",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-58390",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68833"
+        "ru": "3069:64106",
+        "en": "3069:192565",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64106",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192565"
       },
       {
-        "key": "audit-export-preview",
+        "key": "access-user-limited",
+        "section": "ADM-14",
+        "ru": "3069:64134",
+        "en": "3069:192593",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64134",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192593"
+      },
+      {
+        "key": "access-session-limited",
+        "section": "ADM-14",
+        "ru": "3069:64162",
+        "en": "3069:192621",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64162",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192621"
+      },
+      {
+        "key": "access-venue-denied",
+        "section": "ADM-14",
+        "ru": "3069:64190",
+        "en": "3069:192649",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64190",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192649"
+      },
+      {
+        "key": "access-environment-denied",
+        "section": "ADM-14",
+        "ru": "3069:64218",
+        "en": "3069:192677",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64218",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192677"
+      },
+      {
+        "key": "access-action-denied",
+        "section": "ADM-14",
+        "ru": "3069:64246",
+        "en": "3069:192705",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64246",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192705"
+      },
+      {
+        "key": "access-expired",
+        "section": "ADM-14",
+        "ru": "3069:64274",
+        "en": "3069:192733",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64274",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192733"
+      },
+      {
+        "key": "access-revoked",
+        "section": "ADM-14",
+        "ru": "3069:64302",
+        "en": "3069:192761",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64302",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192761"
+      },
+      {
+        "key": "access-audit-read",
         "section": "ADM-12",
-        "ru": "2138:66730",
-        "en": "2138:76628",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66730",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76628"
+        "ru": "3069:64330",
+        "en": "3069:192789",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64330",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192789"
+      },
+      {
+        "key": "access-export-denied",
+        "section": "ADM-12",
+        "ru": "3069:64358",
+        "en": "3069:192817",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64358",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192817"
+      },
+      {
+        "key": "access-export-preview",
+        "section": "ADM-12",
+        "ru": "3069:64386",
+        "en": "3069:192845",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64386",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192845"
+      },
+      {
+        "key": "access-export-preparing",
+        "section": "ADM-12",
+        "ru": "3069:64414",
+        "en": "3069:192873",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64414",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192873"
+      },
+      {
+        "key": "access-export-ready",
+        "section": "ADM-12",
+        "ru": "3069:64442",
+        "en": "3069:192901",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64442",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192901"
+      },
+      {
+        "key": "access-export-error",
+        "section": "ADM-12",
+        "ru": "3069:64470",
+        "en": "3069:192929",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64470",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192929"
+      },
+      {
+        "key": "access-export-revoked",
+        "section": "ADM-12",
+        "ru": "3069:64498",
+        "en": "3069:192957",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64498",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192957"
+      },
+      {
+        "key": "access-critical-denied",
+        "section": "ADM-14",
+        "ru": "3069:64554",
+        "en": "3069:193013",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64554",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-193013"
+      },
+      {
+        "key": "access-marketing",
+        "section": "ADM-18",
+        "ru": "3069:64582",
+        "en": "3069:193041",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64582",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-193041"
+      },
+      {
+        "key": "access-emergency",
+        "section": "ADM-17",
+        "ru": "3069:64610",
+        "en": "3069:193069",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64610",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-193069"
+      },
+      {
+        "key": "access-support-limited",
+        "section": "ADM-14",
+        "ru": "3070:66746",
+        "en": "3070:194713",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3070-66746",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3070-194713"
       }
     ]
   },
@@ -2774,39 +2927,75 @@
     "id": "A02",
     "area": "ADM-12",
     "requirement": "Экспорт: подготовка, результат, ошибка, отдельное право",
-    "status": "частично",
+    "status": "готово",
     "keys": [
-      "audit-export-preview",
-      "audit-export-ready",
-      "audit-export-failed"
+      "ADM-12/access-audit-read",
+      "ADM-12/access-export-denied",
+      "ADM-12/access-export-preview",
+      "ADM-12/access-export-preparing",
+      "ADM-12/access-export-ready",
+      "ADM-12/access-export-error",
+      "ADM-12/access-export-revoked"
     ],
-    "gap": "Экспорт нарисован; запрет для роли с одним просмотром и весь возврат в разрешённую область не прошли полную проверку.",
-    "priority": "P2",
+    "gap": "Ограниченный просмотр и отдельный экспорт: запрет, параметры, подготовка, готовность, ошибка и отзыв до скачивания. Синтетический CSV не является публичной ссылкой на рабочие данные; серверная выдача ещё не реализована.",
+    "priority": "—",
     "source": "118",
     "evidence": [
       {
-        "key": "audit-export-preview",
+        "key": "access-audit-read",
         "section": "ADM-12",
-        "ru": "2138:66730",
-        "en": "2138:76628",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66730",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76628"
+        "ru": "3069:64330",
+        "en": "3069:192789",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64330",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192789"
       },
       {
-        "key": "audit-export-ready",
+        "key": "access-export-denied",
         "section": "ADM-12",
-        "ru": "2138:66849",
-        "en": "2138:76747",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66849",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76747"
+        "ru": "3069:64358",
+        "en": "3069:192817",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64358",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192817"
       },
       {
-        "key": "audit-export-failed",
+        "key": "access-export-preview",
         "section": "ADM-12",
-        "ru": "2138:66955",
-        "en": "2138:76853",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-66955",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76853"
+        "ru": "3069:64386",
+        "en": "3069:192845",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64386",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192845"
+      },
+      {
+        "key": "access-export-preparing",
+        "section": "ADM-12",
+        "ru": "3069:64414",
+        "en": "3069:192873",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64414",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192873"
+      },
+      {
+        "key": "access-export-ready",
+        "section": "ADM-12",
+        "ru": "3069:64442",
+        "en": "3069:192901",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64442",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192901"
+      },
+      {
+        "key": "access-export-error",
+        "section": "ADM-12",
+        "ru": "3069:64470",
+        "en": "3069:192929",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64470",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192929"
+      },
+      {
+        "key": "access-export-revoked",
+        "section": "ADM-12",
+        "ru": "3069:64498",
+        "en": "3069:192957",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64498",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192957"
       }
     ]
   },
@@ -4165,39 +4354,75 @@
     "id": "B02",
     "area": "ADM-14",
     "requirement": "Кастомные роли с просмотром/изменением/экспортом и областями действия",
-    "status": "частично",
+    "status": "готово",
     "keys": [
-      "role-form",
-      "role-edit",
-      "role-preview"
+      "ADM-14/access-role-editor",
+      "ADM-14/access-role-scope",
+      "ADM-14/access-role-preview",
+      "ADM-14/access-role-saved",
+      "ADM-14/access-role-conflict",
+      "ADM-14/access-self-denied",
+      "ADM-14/access-role-actions"
     ],
-    "gap": "Базовые формы и шаблоны есть; полная матрица разделов, площадок, сред, сроков и итоговых прав не доведена.",
-    "priority": "P2",
+    "gap": "Показаны 18 разделов, 7 независимых типов действий, площадка, среда, тип данных, срок, получатель, версии и итоговое назначение; отказ самоэскалации и конфликт. Учебные значения не утверждают пресеты или поставщика приглашений.",
+    "priority": "—",
     "source": "118",
     "evidence": [
       {
-        "key": "role-form",
+        "key": "access-role-editor",
         "section": "ADM-14",
-        "ru": "2110:7106",
-        "en": "2110:56043",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-7106",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-56043"
+        "ru": "3069:63938",
+        "en": "3069:192397",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-63938",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192397"
       },
       {
-        "key": "role-edit",
+        "key": "access-role-scope",
         "section": "ADM-14",
-        "ru": "2138:57816",
-        "en": "2138:68259",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-57816",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68259"
+        "ru": "3069:63966",
+        "en": "3069:192425",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-63966",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192425"
       },
       {
-        "key": "role-preview",
+        "key": "access-role-preview",
         "section": "ADM-14",
-        "ru": "2110:7243",
-        "en": "2110:56179",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-7243",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-56179"
+        "ru": "3069:63994",
+        "en": "3069:192453",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-63994",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192453"
+      },
+      {
+        "key": "access-role-saved",
+        "section": "ADM-14",
+        "ru": "3069:64022",
+        "en": "3069:192481",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64022",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192481"
+      },
+      {
+        "key": "access-role-conflict",
+        "section": "ADM-14",
+        "ru": "3069:64050",
+        "en": "3069:192509",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64050",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192509"
+      },
+      {
+        "key": "access-self-denied",
+        "section": "ADM-14",
+        "ru": "3069:64078",
+        "en": "3069:192537",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64078",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192537"
+      },
+      {
+        "key": "access-role-actions",
+        "section": "ADM-14",
+        "ru": "3070:66718",
+        "en": "3070:194685",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3070-66718",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3070-194685"
       }
     ]
   },

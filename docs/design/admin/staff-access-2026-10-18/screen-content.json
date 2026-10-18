@@ -1,0 +1,2127 @@
+[
+  {
+    "key": "access-hub",
+    "section": "ADM-14",
+    "title": [
+      "Проверка прав сотрудников",
+      "Staff access review"
+    ],
+    "body": [
+      "Владелец A · STAFF-201. Три независимых учебных назначения: операционный сотрудник, аудитор и маркетолог. Это примеры настройки, не обязательные пресеты.",
+      "Owner A · STAFF-201. Three separate synthetic assignments: operations, auditor and marketer. These are configuration examples, not mandatory presets."
+    ],
+    "rows": [
+      [
+        "Владелец A / B",
+        "Owner A / B",
+        "Два отдельных системных аккаунта",
+        "Two distinct system accounts",
+        "Не создаются редактором кастомной роли",
+        "Not created by the custom-role editor"
+      ],
+      [
+        "Операционный сотрудник",
+        "Operations staff",
+        "Поддержка + минимальный контекст клиентов",
+        "Support + minimal user context",
+        "Назначение ASG-DEMO-41 · Polymarket / демонстрация",
+        "Assignment ASG-DEMO-41 · Polymarket / demo"
+      ],
+      [
+        "Аудитор",
+        "Auditor",
+        "Журнал без денежных данных",
+        "Audit log without financial data",
+        "Просмотр и экспорт выдаются раздельно",
+        "Read and export are separate grants"
+      ],
+      [
+        "Маркетолог",
+        "Marketer",
+        "Контент и объявления внутри приложения",
+        "Content and in-app announcements",
+        "Публикация по правам, без согласования владельцем",
+        "Publish with permission; no owner approval"
+      ]
+    ],
+    "actions": [
+      [
+        "Настроить роль",
+        "Configure role",
+        "access-role-editor"
+      ],
+      [
+        "Итог прав",
+        "Effective permissions",
+        "access-role-preview"
+      ],
+      [
+        "Критические действия",
+        "Critical actions",
+        "access-critical-rules"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Операционный сотрудник",
+        "Operations staff",
+        "access-operations-home"
+      ],
+      [
+        "Аудитор",
+        "Auditor",
+        "access-audit-read"
+      ],
+      [
+        "Маркетолог",
+        "Marketer",
+        "access-marketing"
+      ],
+      [
+        "Аварийные права",
+        "Emergency access",
+        "access-emergency"
+      ]
+    ],
+    "actor": "owner",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-role-editor",
+    "section": "ADM-14",
+    "title": [
+      "Права роли «Поддержка Polymarket»",
+      "Permissions: Polymarket support"
+    ],
+    "body": [
+      "Черновик роли ROLE-DEMO-41, версия 7. Полный список разделов ниже; изменение черновика ещё никому не выдаёт доступ. Чтение, создание, изменение, публикация, запуск, остановка и экспорт независимы.",
+      "Draft ROLE-DEMO-41, version 7. All sections are listed below; editing the draft does not grant access. Read, create, edit, publish, run, stop and export are independent."
+    ],
+    "rows": [
+      [
+        "ADM-01 · Обзор",
+        "ADM-01 · Overview",
+        "Просмотр минимальных данных",
+        "Read minimal data",
+        "Демонстрация · Polymarket · до 19.10, 18:00 UTC",
+        "Demo · Polymarket · until 19 Oct, 18:00 UTC"
+      ],
+      [
+        "ADM-02 · Пользователи",
+        "ADM-02 · Users",
+        "Просмотр минимальных данных",
+        "Read minimal data",
+        "Демонстрация · Polymarket · до 19.10, 18:00 UTC",
+        "Demo · Polymarket · until 19 Oct, 18:00 UTC"
+      ],
+      [
+        "ADM-03 · Сессии",
+        "ADM-03 · Sessions",
+        "Просмотр минимальных данных",
+        "Read minimal data",
+        "Демонстрация · Polymarket · до 19.10, 18:00 UTC",
+        "Demo · Polymarket · until 19 Oct, 18:00 UTC"
+      ],
+      [
+        "ADM-04 · Инциденты",
+        "ADM-04 · Incidents",
+        "Не предоставлено",
+        "Not granted",
+        "Нет записей, сумм, действий или экспорта",
+        "No records, amounts, actions or export"
+      ],
+      [
+        "ADM-05 · Сверка",
+        "ADM-05 · Reconciliation",
+        "Не предоставлено",
+        "Not granted",
+        "Нет записей, сумм, действий или экспорта",
+        "No records, amounts, actions or export"
+      ],
+      [
+        "ADM-06 · Площадки и данные",
+        "ADM-06 · Venues and data",
+        "Не предоставлено",
+        "Not granted",
+        "Нет записей, сумм, действий или экспорта",
+        "No records, amounts, actions or export"
+      ],
+      [
+        "ADM-07 · Данные и рейтинг",
+        "ADM-07 · Data and rating",
+        "Не предоставлено",
+        "Not granted",
+        "Нет записей, сумм, действий или экспорта",
+        "No records, amounts, actions or export"
+      ],
+      [
+        "ADM-08 · Тарифы и рефералы",
+        "ADM-08 · Pricing and referrals",
+        "Не предоставлено",
+        "Not granted",
+        "Нет записей, сумм, действий или экспорта",
+        "No records, amounts, actions or export"
+      ],
+      [
+        "ADM-09 · Поддержка",
+        "ADM-09 · Support",
+        "Просмотр, ответ, назначение",
+        "Read, reply, assign",
+        "Демонстрация · Polymarket · до 19.10, 18:00 UTC",
+        "Demo · Polymarket · until 19 Oct, 18:00 UTC"
+      ],
+      [
+        "ADM-10 · Уведомления",
+        "ADM-10 · Notifications",
+        "Просмотр минимальных данных",
+        "Read minimal data",
+        "Демонстрация · Polymarket · до 19.10, 18:00 UTC",
+        "Demo · Polymarket · until 19 Oct, 18:00 UTC"
+      ],
+      [
+        "ADM-11 · Обратная связь",
+        "ADM-11 · Feedback",
+        "Не предоставлено",
+        "Not granted",
+        "Нет записей, сумм, действий или экспорта",
+        "No records, amounts, actions or export"
+      ],
+      [
+        "ADM-12 · Журнал действий",
+        "ADM-12 · Audit log",
+        "Не предоставлено",
+        "Not granted",
+        "Нет записей, сумм, действий или экспорта",
+        "No records, amounts, actions or export"
+      ],
+      [
+        "ADM-13 · Финансы и выплаты",
+        "ADM-13 · Finance and payouts",
+        "Не предоставлено",
+        "Not granted",
+        "Нет записей, сумм, действий или экспорта",
+        "No records, amounts, actions or export"
+      ],
+      [
+        "ADM-14 · Сотрудники и доступ",
+        "ADM-14 · Staff and access",
+        "Не предоставлено",
+        "Not granted",
+        "Нет записей, сумм, действий или экспорта",
+        "No records, amounts, actions or export"
+      ],
+      [
+        "ADM-15 · Подключения и безопасность",
+        "ADM-15 · Connections and security",
+        "Не предоставлено",
+        "Not granted",
+        "Нет записей, сумм, действий или экспорта",
+        "No records, amounts, actions or export"
+      ],
+      [
+        "ADM-16 · Тексты и языки",
+        "ADM-16 · Content and languages",
+        "Не предоставлено",
+        "Not granted",
+        "Нет записей, сумм, действий или экспорта",
+        "No records, amounts, actions or export"
+      ],
+      [
+        "ADM-17 · Аварийное управление",
+        "ADM-17 · Emergency controls",
+        "Не предоставлено",
+        "Not granted",
+        "Нет записей, сумм, действий или экспорта",
+        "No records, amounts, actions or export"
+      ],
+      [
+        "ADM-18 · Маркетинг",
+        "ADM-18 · Marketing",
+        "Не предоставлено",
+        "Not granted",
+        "Нет записей, сумм, действий или экспорта",
+        "No records, amounts, actions or export"
+      ]
+    ],
+    "actions": [
+      [
+        "Область и срок",
+        "Scope and duration",
+        "access-role-scope"
+      ],
+      [
+        "Проверить итог",
+        "Review effective access",
+        "access-role-preview"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "access-hub"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Самостоятельное расширение",
+        "Self-escalation",
+        "access-self-denied"
+      ]
+    ],
+    "actor": "owner",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ],
+    "rowLinks": {
+      "ADM-09": "access-role-actions"
+    }
+  },
+  {
+    "key": "access-role-scope",
+    "section": "ADM-14",
+    "title": [
+      "Область и срок назначения",
+      "Assignment scope and duration"
+    ],
+    "body": [
+      "Те же ROLE-DEMO-41 v7 и ASG-DEMO-41. Ограничения применяются вместе: совпадение одного параметра не открывает остальные. Значения ниже — заполненный учебный пример.",
+      "Same ROLE-DEMO-41 v7 and ASG-DEMO-41. All restrictions apply together; matching one does not bypass the others. Values below are a filled synthetic example."
+    ],
+    "rows": [
+      [
+        "Среда",
+        "Environment",
+        "Демонстрационная",
+        "Demo",
+        "Реальный режим не предоставлен",
+        "Real mode is not granted"
+      ],
+      [
+        "Площадка",
+        "Venue",
+        "Polymarket",
+        "Polymarket",
+        "Limitless не предоставлен",
+        "Limitless is not granted"
+      ],
+      [
+        "Данные",
+        "Data",
+        "Минимальная карточка, состояние сессии, назначенные обращения",
+        "Minimal profile, session status, assigned tickets",
+        "Без адресов, сумм, торговых деталей и вложенных финансов",
+        "No addresses, amounts, trade details or nested finance"
+      ],
+      [
+        "Начало / окончание",
+        "Starts / ends",
+        "18.10, 18:00 → 19.10, 18:00 UTC",
+        "18 Oct, 18:00 → 19 Oct, 18:00 UTC",
+        "После окончания операции от имени назначения запрещены",
+        "Assignment actions denied after expiry"
+      ],
+      [
+        "Доступ вне разделов",
+        "Access outside sections",
+        "Личный профиль и собственная безопасность",
+        "Personal profile and own security",
+        "Не расширяет служебные права; назначение не даёт управление ролями",
+        "Does not broaden staff access; role management is not granted"
+      ]
+    ],
+    "actions": [
+      [
+        "К правам роли",
+        "Role permissions",
+        "access-role-editor"
+      ],
+      [
+        "Проверить итог",
+        "Review effective access",
+        "access-role-preview"
+      ],
+      [
+        "Действия поддержки",
+        "Support permissions",
+        "access-role-actions"
+      ]
+    ],
+    "scenarios": [],
+    "actor": "owner",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-role-preview",
+    "section": "ADM-14",
+    "title": [
+      "Итог перед сохранением",
+      "Review before saving"
+    ],
+    "body": [
+      "STAFF-203 · одно учебное назначение ASG-DEMO-41; других назначений нет. Показан итог всех разрешений, а не название роли. Сохраняет владелец A, не получатель роли.",
+      "STAFF-203 · one synthetic assignment ASG-DEMO-41; no other assignments. This shows effective permissions, not just a role name. Owner A saves it, not the recipient."
+    ],
+    "rows": [
+      [
+        "Чтение",
+        "Read",
+        "Обзор, пользователи, сессии, свои уведомления, поддержка",
+        "Overview, users, sessions, own notifications, support",
+        "Только минимальные данные · Polymarket / демонстрация",
+        "Minimal data only · Polymarket / demo"
+      ],
+      [
+        "Создание / изменение",
+        "Create / edit",
+        "Ответ и назначение обращения",
+        "Reply to and assign a ticket",
+        "Нет изменения клиента, торговых настроек или финансов",
+        "No user, trading-setting or finance changes"
+      ],
+      [
+        "Публикация / запуск / остановка",
+        "Publish / run / stop",
+        "Не предоставлены",
+        "Not granted",
+        "Нет новых заявок, переводов или снятия ограничений",
+        "No new orders, transfers or removal of restrictions"
+      ],
+      [
+        "Экспорт",
+        "Export",
+        "Не предоставлен ни в одном разделе",
+        "Not granted in any section",
+        "Просмотр не включает файл, выгрузку или скрытые связи",
+        "Read does not include files, exports or hidden joins"
+      ],
+      [
+        "Защищённые действия",
+        "Protected actions",
+        "Владелец, выплаты, реквизиты, тарифы и VIP исключены",
+        "Owner status, payouts, recipients, pricing and VIP excluded",
+        "Денежные права не появляются из названия роли",
+        "Role names do not grant money permissions"
+      ],
+      [
+        "Сохранение",
+        "Save",
+        "Версия роли 7 · версия назначения 3",
+        "Role version 7 · assignment version 3",
+        "Проверка актуальности и журнал; назначение не меняет владельцев",
+        "Freshness check and audit; owners remain unchanged"
+      ]
+    ],
+    "actions": [
+      [
+        "Сохранить роль",
+        "Save role",
+        "access-role-saved"
+      ],
+      [
+        "Изменить",
+        "Edit",
+        "access-role-editor"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Конфликт версии",
+        "Version conflict",
+        "access-role-conflict"
+      ]
+    ],
+    "actor": "owner",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-role-saved",
+    "section": "ADM-14",
+    "title": [
+      "Роль сохранена",
+      "Role saved"
+    ],
+    "body": [
+      "ROLE-DEMO-41 v7 и ASG-DEMO-41 v3 сохранены в учебном сценарии. Это не реальное назначение; в продукте итог пересчитывается сервером и фиксируется в журнале.",
+      "ROLE-DEMO-41 v7 and ASG-DEMO-41 v3 saved in this synthetic scenario. No real access was granted; the product must recompute effective access on the server and record it."
+    ],
+    "rows": [
+      [
+        "Получатель",
+        "Recipient",
+        "STAFF-203 · операционный сотрудник",
+        "STAFF-203 · operations staff",
+        "Полномочия владельца не выданы",
+        "No owner privileges"
+      ],
+      [
+        "Итог",
+        "Result",
+        "Polymarket · демонстрация · минимальные данные",
+        "Polymarket · demo · minimal data",
+        "Экспорт, деньги, реальные торговые действия недоступны",
+        "No export, money or real trade actions"
+      ],
+      [
+        "Запись журнала",
+        "Audit entry",
+        "AUD-ACCESS-041 · 18.10, 18:05 UTC",
+        "AUD-ACCESS-041 · 18 Oct, 18:05 UTC",
+        "Кто, что, до/после, область и версии",
+        "Actor, action, before/after, scope and versions"
+      ]
+    ],
+    "actions": [
+      [
+        "К сотрудникам",
+        "Staff review",
+        "access-hub"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Посмотреть как сотрудник",
+        "View staff example",
+        "access-operations-home"
+      ]
+    ],
+    "actor": "owner",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-role-conflict",
+    "section": "ADM-14",
+    "title": [
+      "Роль изменилась",
+      "Role has changed"
+    ],
+    "body": [
+      "Черновик не сохранён: пока вы проверяли версию 7, другой уполномоченный сотрудник сохранил версию 8. Старый итог нельзя применить поверх нового.",
+      "Draft not saved: another authorized staff member saved version 8 while you reviewed version 7. The stale preview cannot overwrite it."
+    ],
+    "rows": [
+      [
+        "Было проверено",
+        "Reviewed",
+        "ROLE-DEMO-41 v7",
+        "ROLE-DEMO-41 v7",
+        "Подтверждение больше не подходит",
+        "Confirmation is no longer applicable"
+      ],
+      [
+        "Актуальная версия",
+        "Current version",
+        "8 · назначение не изменено этим действием",
+        "8 · this action did not alter the assignment",
+        "Получить свежие данные и сравнить изменения заново",
+        "Read fresh data and compare again"
+      ]
+    ],
+    "actions": [
+      [
+        "Перечитать роль",
+        "Read current role",
+        "access-role-editor"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "access-hub"
+      ]
+    ],
+    "scenarios": [],
+    "actor": "owner",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-self-denied",
+    "section": "ADM-14",
+    "title": [
+      "Расширение своих прав запрещено",
+      "Self-escalation denied"
+    ],
+    "body": [
+      "Сотрудник не может самостоятельно расширить свой доступ или выдать права шире разрешённых ему. Даже роль с названием «Владелец» остаётся кастомной.",
+      "Staff cannot elevate their own access or grant beyond their authority. Even a custom role named “Owner” remains a custom role."
+    ],
+    "rows": [
+      [
+        "Запрос",
+        "Request",
+        "Собственные права / полномочия владельца",
+        "Own access / owner privileges",
+        "Отклонён до применения",
+        "Rejected before applying"
+      ],
+      [
+        "Результат",
+        "Result",
+        "Назначение и версия не изменены",
+        "Assignment and version unchanged",
+        "Отказ записан; нет кнопки обхода или повторной выдачи",
+        "Denial logged; no bypass or retry grant"
+      ]
+    ],
+    "actions": [
+      [
+        "К настройке роли",
+        "Role settings",
+        "access-role-editor"
+      ],
+      [
+        "К обзору прав",
+        "Access review",
+        "access-hub"
+      ]
+    ],
+    "scenarios": [],
+    "actor": "owner",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-operations-home",
+    "section": "ADM-14",
+    "title": [
+      "Рабочая область сотрудника",
+      "Staff workspace"
+    ],
+    "body": [
+      "STAFF-203 · ASG-DEMO-41 v3 · Polymarket / демонстрация. В меню только разрешённые разделы. Данные другой площадки, финансовые суммы и общие скрытые счётчики не загружаются.",
+      "STAFF-203 · ASG-DEMO-41 v3 · Polymarket / demo. Navigation contains permitted sections only. Other venue data, financial amounts and hidden global counts are not loaded."
+    ],
+    "rows": [
+      [
+        "Клиент U-DEMO-002",
+        "User U-DEMO-002",
+        "Минимальная карточка",
+        "Minimal profile",
+        "Псевдоним, идентификатор и связь с назначенным обращением",
+        "Alias, ID and assigned support context"
+      ],
+      [
+        "Сессия S-DEMO-002",
+        "Session S-DEMO-002",
+        "Только состояние подключения и доступность",
+        "Connection status and availability only",
+        "Без бюджета, стоимости, заявок и рыночной прибыли",
+        "No budget, cost, orders or market profit"
+      ],
+      [
+        "Обращение T-DEMO-041",
+        "Ticket T-DEMO-041",
+        "Назначено STAFF-203",
+        "Assigned to STAFF-203",
+        "Можно отвечать и назначать в разрешённой области",
+        "Reply and assign within permitted scope"
+      ]
+    ],
+    "actions": [
+      [
+        "Открыть клиента",
+        "Open user",
+        "access-user-limited"
+      ],
+      [
+        "Открыть сессию",
+        "Open session",
+        "access-session-limited"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Чужая площадка",
+        "Other venue",
+        "access-venue-denied"
+      ],
+      [
+        "Реальный режим",
+        "Real mode",
+        "access-environment-denied"
+      ],
+      [
+        "Истёк срок",
+        "Expired grant",
+        "access-expired"
+      ],
+      [
+        "Доступ отозван",
+        "Access revoked",
+        "access-revoked"
+      ]
+    ],
+    "actor": "ops",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ],
+    "rowLinks": {
+      "T-DEMO-041": "access-support-limited"
+    }
+  },
+  {
+    "key": "access-user-limited",
+    "section": "ADM-14",
+    "title": [
+      "Клиент U-DEMO-002",
+      "User U-DEMO-002"
+    ],
+    "body": [
+      "Просмотр минимального контекста по назначению ASG-DEMO-41. Отсутствие разрешённых финансовых данных не означает нулевой баланс или отсутствие операций.",
+      "Minimal context under assignment ASG-DEMO-41. Lack of permission for financial data does not mean a zero balance or no transactions."
+    ],
+    "rows": [
+      [
+        "Идентификатор / псевдоним",
+        "ID / alias",
+        "U-DEMO-002 · Demo Noor",
+        "U-DEMO-002 · Demo Noor",
+        "Демонстрационные данные",
+        "Synthetic data"
+      ],
+      [
+        "Назначенное обращение",
+        "Assigned ticket",
+        "T-DEMO-041",
+        "T-DEMO-041",
+        "Только разрешённая переписка; другие обращения не раскрываются",
+        "Permitted messages only; other tickets are not disclosed"
+      ],
+      [
+        "Финансовые данные",
+        "Financial data",
+        "Нет доступа",
+        "No access",
+        "Баланс, адреса, выплаты и VIP не возвращаются в этой проекции",
+        "Balance, addresses, payouts and VIP are excluded from this projection"
+      ]
+    ],
+    "actions": [
+      [
+        "К рабочей области",
+        "Staff workspace",
+        "access-operations-home"
+      ],
+      [
+        "Состояние сессии",
+        "Session status",
+        "access-session-limited"
+      ],
+      [
+        "Назначенное обращение",
+        "Assigned ticket",
+        "access-support-limited"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Попытка изменения",
+        "Attempt edit",
+        "access-action-denied"
+      ]
+    ],
+    "actor": "ops",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-session-limited",
+    "section": "ADM-14",
+    "title": [
+      "Сессия S-DEMO-002 · просмотр",
+      "Session S-DEMO-002 · read only"
+    ],
+    "body": [
+      "Тот же клиент и сессия, что в рабочем месте владельца. Разрешение на просмотр состояния сессии не подразумевает чтение денежных сумм, торговых деталей или изменения.",
+      "Same user and session as in the owner workspace. operations.view does not imply access to amounts, trade details or editing."
+    ],
+    "rows": [
+      [
+        "Клиент / площадка",
+        "User / venue",
+        "U-DEMO-002 · Polymarket",
+        "U-DEMO-002 · Polymarket",
+        "Только демонстрационная среда",
+        "Demo environment only"
+      ],
+      [
+        "Состояние",
+        "Status",
+        "Отключена · сохранены позиции",
+        "Disconnected · positions retained",
+        "Повторение новых действий трейдера остановлено",
+        "No new trader actions are copied"
+      ],
+      [
+        "Денежные и торговые детали",
+        "Financial and trade details",
+        "Нет доступа",
+        "No access",
+        "Не показывать нули, суммы, лоты, заявки или закрытые ссылки",
+        "Do not expose zeros, amounts, lots, orders or hidden links"
+      ]
+    ],
+    "actions": [
+      [
+        "К клиенту",
+        "User profile",
+        "access-user-limited"
+      ],
+      [
+        "К рабочей области",
+        "Staff workspace",
+        "access-operations-home"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Попытка изменить настройки",
+        "Attempt setting change",
+        "access-action-denied"
+      ]
+    ],
+    "actor": "ops",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-venue-denied",
+    "section": "ADM-14",
+    "title": [
+      "Площадка недоступна",
+      "Venue unavailable"
+    ],
+    "body": [
+      "Назначение действует только для Polymarket; запрос Limitless отклонён.",
+      "Assignment is limited to Polymarket; Limitless request denied."
+    ],
+    "rows": [
+      [
+        "Ответ",
+        "Response",
+        "Доступ запрещён",
+        "Access denied",
+        "Без названия, сумм, существования или количества закрытых объектов",
+        "No hidden object names, amounts, existence or counts"
+      ],
+      [
+        "Изменения",
+        "Changes",
+        "Не выполнены",
+        "Not applied",
+        "Отказ в журнале; повторная авторизация не расширяет права",
+        "Denial audited; reauthentication does not grant permissions"
+      ]
+    ],
+    "actions": [
+      [
+        "В разрешённую область",
+        "Permitted workspace",
+        "access-operations-home"
+      ]
+    ],
+    "scenarios": [],
+    "actor": "ops",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-environment-denied",
+    "section": "ADM-14",
+    "title": [
+      "Среда недоступна",
+      "Environment unavailable"
+    ],
+    "body": [
+      "Назначение действует только в демонстрационной среде; реальный режим не предоставлен.",
+      "Assignment is limited to demo; real mode is not granted."
+    ],
+    "rows": [
+      [
+        "Ответ",
+        "Response",
+        "Доступ запрещён",
+        "Access denied",
+        "Без названия, сумм, существования или количества закрытых объектов",
+        "No hidden object names, amounts, existence or counts"
+      ],
+      [
+        "Изменения",
+        "Changes",
+        "Не выполнены",
+        "Not applied",
+        "Отказ в журнале; повторная авторизация не расширяет права",
+        "Denial audited; reauthentication does not grant permissions"
+      ]
+    ],
+    "actions": [
+      [
+        "В разрешённую область",
+        "Permitted workspace",
+        "access-operations-home"
+      ]
+    ],
+    "scenarios": [],
+    "actor": "ops",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-action-denied",
+    "section": "ADM-14",
+    "title": [
+      "Действие недоступно",
+      "Action unavailable"
+    ],
+    "body": [
+      "Просмотр не разрешает изменение, экспорт, отправку заявки или перевод. Результат проверки прав изменился или получена прямая ссылка.",
+      "Read does not allow edits, exports, orders or transfers. Permission changed or a direct link was used."
+    ],
+    "rows": [
+      [
+        "Ответ",
+        "Response",
+        "Доступ запрещён",
+        "Access denied",
+        "Без названия, сумм, существования или количества закрытых объектов",
+        "No hidden object names, amounts, existence or counts"
+      ],
+      [
+        "Изменения",
+        "Changes",
+        "Не выполнены",
+        "Not applied",
+        "Отказ в журнале; повторная авторизация не расширяет права",
+        "Denial audited; reauthentication does not grant permissions"
+      ]
+    ],
+    "actions": [
+      [
+        "В разрешённую область",
+        "Permitted workspace",
+        "access-operations-home"
+      ]
+    ],
+    "scenarios": [],
+    "actor": "ops",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-expired",
+    "section": "ADM-14",
+    "title": [
+      "Срок назначения истёк",
+      "Assignment expired"
+    ],
+    "body": [
+      "ASG-DEMO-41 завершилось 19.10 в 18:00 UTC. Открытая вкладка не сохраняет старые права. Учётная запись активна, но служебная область закрыта.",
+      "ASG-DEMO-41 expired on 19 Oct at 18:00 UTC. An open tab does not retain old rights. The account is active, but staff access is closed."
+    ],
+    "rows": [
+      [
+        "Служебные данные и действия",
+        "Staff data and actions",
+        "Недоступны по завершённому назначению",
+        "Unavailable under expired assignment",
+        "Обновления и экспорт также остановлены; локальные закрытые данные очищаются",
+        "Updates and exports stop too; restricted local data must be cleared"
+      ],
+      [
+        "Личный аккаунт",
+        "Personal account",
+        "Профиль, защита, свои сеансы и выход",
+        "Profile, security, own sessions and sign out",
+        "Новое назначение выдаёт уполномоченный сотрудник",
+        "A permitted administrator must issue a new assignment"
+      ]
+    ],
+    "actions": [],
+    "scenarios": [],
+    "actor": "expired",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-revoked",
+    "section": "ADM-14",
+    "title": [
+      "Служебный доступ отозван",
+      "Staff access revoked"
+    ],
+    "body": [
+      "Аккаунт STAFF-203 заблокирован в учебной ветви. Его сеансы и неиспользованные подтверждения отозваны. Старые вкладки, файлы и повторный вход не возвращают полномочия.",
+      "STAFF-203 is suspended in this example branch. Sessions and unused approvals are revoked. Old tabs, files or a fresh sign-in do not restore permissions."
+    ],
+    "rows": [
+      [
+        "Новые действия",
+        "New actions",
+        "Запрещены",
+        "Denied",
+        "Закрытые данные не показываются; только выход к входу",
+        "No restricted data; sign out to sign-in only"
+      ],
+      [
+        "Уже отправленные операции",
+        "Already submitted operations",
+        "Отзыв доступа не отменяет отправленное",
+        "Access revocation does not cancel submissions",
+        "Сверку продолжает уполномоченный сотрудник; резервы не освобождаются автоматически",
+        "Authorized staff continue reconciliation; reserves are not released automatically"
+      ]
+    ],
+    "actions": [],
+    "scenarios": [],
+    "actor": "revoked",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-audit-read",
+    "section": "ADM-12",
+    "title": [
+      "Журнал · ограниченный просмотр",
+      "Audit log · restricted view"
+    ],
+    "body": [
+      "Аудитор STAFF-205 · ASG-DEMO-51 · Polymarket / демонстрация. Только события доступа без денежных данных. Право на просмотр не включает экспорт.",
+      "Auditor STAFF-205 · ASG-DEMO-51 · Polymarket / demo. Access events only, without financial data. audit.view does not include export."
+    ],
+    "rows": [
+      [
+        "AUD-ACCESS-041",
+        "AUD-ACCESS-041",
+        "Роль сохранена · ROLE-DEMO-41 v7",
+        "Role saved · ROLE-DEMO-41 v7",
+        "18.10, 18:05 UTC · учебная запись",
+        "18 Oct, 18:05 UTC · synthetic entry"
+      ],
+      [
+        "AUD-ACCESS-042",
+        "AUD-ACCESS-042",
+        "Запрещённое действие отклонено",
+        "Unauthorized action denied",
+        "18.10, 18:06 UTC · без скрытых параметров",
+        "18 Oct, 18:06 UTC · no hidden parameters"
+      ],
+      [
+        "Область результата",
+        "Result scope",
+        "2 разрешённых события",
+        "2 permitted events",
+        "Нет общего количества закрытых событий, адресов или денежных связей",
+        "No hidden total, addresses or financial joins"
+      ]
+    ],
+    "actions": [],
+    "scenarios": [
+      [
+        "Прямой запрос экспорта без права",
+        "Direct export without permission",
+        "access-export-denied"
+      ],
+      [
+        "Отдельно выдано право экспорта",
+        "Separate export grant",
+        "access-export-preview"
+      ]
+    ],
+    "actor": "auditor",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-export-denied",
+    "section": "ADM-12",
+    "title": [
+      "Экспорт недоступен",
+      "Export unavailable"
+    ],
+    "body": [
+      "Доступ на чтение журнала сохранён, но отдельного права на экспорт нет. Файл не создаётся и ссылка не выдаётся.",
+      "Audit reading remains available, but audit.export is not granted. No file is created and no link is issued."
+    ],
+    "rows": [
+      [
+        "Проверка",
+        "Check",
+        "Разрешён только просмотр",
+        "Read only",
+        "Экспорт не включается названием роли «Аудитор»",
+        "The name “Auditor” does not enable export"
+      ],
+      [
+        "Возврат",
+        "Return",
+        "Журнал в прежней разрешённой области",
+        "Same permitted audit scope",
+        "Не возвращаться к общему журналу владельца",
+        "Do not return to the owner’s unrestricted log"
+      ]
+    ],
+    "actions": [
+      [
+        "Вернуться в журнал",
+        "Return to audit log",
+        "access-audit-read"
+      ]
+    ],
+    "scenarios": [],
+    "actor": "auditor",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-export-preview",
+    "section": "ADM-12",
+    "title": [
+      "Параметры экспорта журнала",
+      "Audit export parameters"
+    ],
+    "body": [
+      "Отдельная учебная ветвь ASG-DEMO-52: аудитору выданы отдельные права просмотра и экспорта только для событий доступа Polymarket в демонстрационной среде. Нет расширения до финансов.",
+      "Separate example branch ASG-DEMO-52: the auditor has audit.view and audit.export for Polymarket access events in demo only. Finance remains excluded."
+    ],
+    "rows": [
+      [
+        "Фильтр и период",
+        "Filter and period",
+        "События доступа · 18.10, 18:05–18:06 UTC",
+        "Access events · 18 Oct, 18:05–18:06 UTC",
+        "2 разрешённые записи, без общего скрытого количества",
+        "2 permitted entries; no hidden global count"
+      ],
+      [
+        "Колонки CSV",
+        "CSV columns",
+        "ID, время UTC, действие, роль, площадка, среда",
+        "ID, UTC time, action, role, venue, environment",
+        "Без адресов, сумм, ключей, параметров закрытых операций",
+        "No addresses, amounts, keys or restricted operation parameters"
+      ],
+      [
+        "Проверка выдачи файла",
+        "File access check",
+        "Повторная проверка перед получением",
+        "Check permissions again before download",
+        "Срок/версия/область фиксируются; снятое право блокирует выдачу",
+        "Expiry/version/scope bound; revocation denies delivery"
+      ]
+    ],
+    "actions": [
+      [
+        "Подготовить CSV",
+        "Prepare CSV",
+        "access-export-preparing"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "access-audit-read"
+      ]
+    ],
+    "scenarios": [],
+    "actor": "auditor-export",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-export-preparing",
+    "section": "ADM-12",
+    "title": [
+      "Файл готовится",
+      "Preparing file"
+    ],
+    "body": [
+      "EXP-DEMO-41 · 2 события разрешённой выборки. Подготовка файла не даёт новых прав и не означает, что файл уже получен.",
+      "EXP-DEMO-41 · 2 permitted events. Preparing the file does not grant new rights or mean that it has been downloaded."
+    ],
+    "rows": [
+      [
+        "Состояние",
+        "Status",
+        "Подготовка",
+        "Preparing",
+        "Сохранены фильтр, столбцы и область задания",
+        "Job filter, columns and scope are fixed"
+      ],
+      [
+        "Повторное обращение",
+        "Repeated request",
+        "То же задание EXP-DEMO-41",
+        "Same job EXP-DEMO-41",
+        "Не запускать неограниченные дубли",
+        "Do not create unlimited duplicate jobs"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить готовность",
+        "Check status",
+        "access-export-ready"
+      ],
+      [
+        "Вернуться в журнал",
+        "Return to log",
+        "access-audit-read"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Ошибка подготовки",
+        "Preparation error",
+        "access-export-error"
+      ],
+      [
+        "Право отозвано",
+        "Permission revoked",
+        "access-export-revoked"
+      ]
+    ],
+    "actor": "auditor-export",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-export-ready",
+    "section": "ADM-12",
+    "title": [
+      "Файл готов",
+      "File ready"
+    ],
+    "body": [
+      "EXP-DEMO-41 · синтетический CSV из двух разрешённых событий. В продукте выдача доступна только после актуальной проверки пользователя и области; постоянной публичной ссылки на рабочие данные нет.",
+      "EXP-DEMO-41 · synthetic CSV with two permitted events. Product delivery requires a fresh identity and scope check; real data must not use permanent public links."
+    ],
+    "rows": [
+      [
+        "Содержимое",
+        "Contents",
+        "2 строки · 6 колонок",
+        "2 rows · 6 columns",
+        "Только Polymarket / демонстрация / события доступа",
+        "Polymarket / demo / access events only"
+      ],
+      [
+        "Учебный файл",
+        "Synthetic file",
+        "sample-access-export.csv",
+        "sample-access-export.csv",
+        "Открытый образец вымышленных данных для вычитки",
+        "Public synthetic sample for design review"
+      ],
+      [
+        "Перед скачиванием",
+        "Before download",
+        "Право экспорта действует",
+        "audit.export is active",
+        "В другой ветви отзыв блокирует выдачу готового файла",
+        "In the alternative branch revocation blocks the ready file"
+      ]
+    ],
+    "actions": [
+      [
+        "Вернуться в журнал",
+        "Return to log",
+        "access-audit-read"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Отзыв перед скачиванием",
+        "Revoked before download",
+        "access-export-revoked"
+      ]
+    ],
+    "actor": "auditor-export",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ],
+    "sampleDownload": true
+  },
+  {
+    "key": "access-export-error",
+    "section": "ADM-12",
+    "title": [
+      "Не удалось подготовить файл",
+      "Could not prepare file"
+    ],
+    "body": [
+      "Ошибка чтения разрешённой выборки. Готового файла нет; фильтр и область сохранены. Повторяется подготовка, не торговая или денежная операция.",
+      "Could not read the permitted selection. No file is ready; filter and scope are retained. Retry prepares an export, not a trade or transfer."
+    ],
+    "rows": [
+      [
+        "Задание",
+        "Job",
+        "EXP-DEMO-41 · ошибка",
+        "EXP-DEMO-41 · failed",
+        "Не показывать ошибку как пустой результат",
+        "Do not show an error as an empty result"
+      ],
+      [
+        "Повтор",
+        "Retry",
+        "Только после проверки актуальных прав",
+        "Only after current permission check",
+        "Исходная область не расширяется",
+        "Original scope is not broadened"
+      ]
+    ],
+    "actions": [
+      [
+        "Повторить подготовку",
+        "Retry preparation",
+        "access-export-preparing"
+      ],
+      [
+        "Вернуться в журнал",
+        "Return to log",
+        "access-audit-read"
+      ]
+    ],
+    "scenarios": [],
+    "actor": "auditor-export",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-export-revoked",
+    "section": "ADM-12",
+    "title": [
+      "Файл больше недоступен",
+      "File no longer available"
+    ],
+    "body": [
+      "Право экспорта отозвано после подготовки. Готовность файла не сохраняет доступ. Закрытую ссылку нельзя повторно использовать; чтение журнала остаётся разрешённым в этой ветви.",
+      "audit.export was revoked after preparation. A ready file does not preserve access. A restricted link cannot be reused; audit reading remains permitted in this branch."
+    ],
+    "rows": [
+      [
+        "Выдача файла",
+        "File delivery",
+        "Запрещена",
+        "Denied",
+        "Нет кнопки скачивания или повторной подготовки",
+        "No download or preparation retry"
+      ],
+      [
+        "Журнал",
+        "Audit log",
+        "Разрешённое чтение сохранено",
+        "Permitted reading retained",
+        "Отзыв только экспорта не блокирует весь аккаунт",
+        "Revoking export alone does not suspend the account"
+      ]
+    ],
+    "actions": [
+      [
+        "Вернуться в журнал",
+        "Return to log",
+        "access-audit-read"
+      ]
+    ],
+    "scenarios": [],
+    "actor": "auditor",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-critical-rules",
+    "section": "ADM-14",
+    "title": [
+      "Кто выполняет критические действия",
+      "Critical action authority"
+    ],
+    "body": [
+      "Два владельца работают из отдельных аккаунтов. Повторная проверка личности не выдаёт недостающие права и не заменяет независимое подтверждение. Все реальные действия в Paper Alpha выключены.",
+      "Two owners use distinct accounts. Reauthentication does not grant missing rights or replace independent approval. All real actions are disabled in Paper Alpha."
+    ],
+    "rows": [
+      [
+        "Обычная полная выплата",
+        "Ordinary full payout",
+        "Один действующий владелец + физический ключ",
+        "One active owner + physical key",
+        "Только допустимый маршрут и вся подтверждённая сумма; ограничения сохраняются",
+        "Allowed route and full confirmed amount; guards remain"
+      ],
+      [
+        "Тариф / пользовательский VIP",
+        "Pricing / user VIP",
+        "Один действующий владелец",
+        "One active owner",
+        "Публикация и назначение не передаются кастомной роли",
+        "Publication and assignment cannot be delegated to a custom role"
+      ],
+      [
+        "Реквизиты партнёра",
+        "Partner recipient",
+        "Предлагает A, подтверждает B; затем 24 часа",
+        "A proposes, B confirms; then 24 hours",
+        "Действующий адрес до окончания задержки не подменяется новым",
+        "Existing recipient is not silently replaced during delay"
+      ],
+      [
+        "Денежное правило / партнёрский VIP",
+        "Money rule / partner VIP",
+        "Два разных владельца · одна версия",
+        "Two distinct owners · one version",
+        "Автор не подтверждает себя; изменение версии обнуляет старое согласие",
+        "No self-approval; version changes invalidate old approval"
+      ],
+      [
+        "Пороги и выплата выше порога",
+        "Thresholds and above-threshold payout",
+        "Выплата выше порога — два владельца; изменение порога утверждает другой",
+        "Above-threshold payout: two owners; another owner activates threshold changes",
+        "Дробление запрещено; жёсткий запрет не обходится вторым согласием",
+        "No splitting; a hard block is not bypassed by second approval"
+      ],
+      [
+        "Аварийное восстановление",
+        "Emergency recovery",
+        "Владелец + независимый уполномоченный сотрудник",
+        "Owner + independent authorized staff member",
+        "Денежный маршрут восстановления: отдельно A+B, затем перевод A+B",
+        "Money recovery route: separate A+B, then transfer A+B"
+      ],
+      [
+        "Полный технический режим",
+        "Full technical shutdown",
+        "Новые отправки закрыты",
+        "New submissions denied",
+        "Сверка только читает; уже отправленное может завершиться",
+        "Reconciliation reads only; submitted actions may complete"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверка личности владельца",
+        "Owner identity check",
+        "access-owner-check"
+      ],
+      [
+        "К обзору прав",
+        "Access review",
+        "access-hub"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Кастомная роль",
+        "Custom role",
+        "access-critical-denied"
+      ]
+    ],
+    "actor": "owner",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ],
+    "rowTargets": [
+      "payout-route",
+      "pricing",
+      "recipient-form",
+      "partner-rule-form",
+      null,
+      "control-tech-recovery-check",
+      "treasury-recovery-blocked"
+    ]
+  },
+  {
+    "key": "access-critical-denied",
+    "section": "ADM-14",
+    "title": [
+      "Требуется владелец",
+      "Owner required"
+    ],
+    "body": [
+      "Кастомная роль не может подтверждать выплаты, менять получателя, публиковать тарифы или назначать денежные исключения. Наличие похожего названия разрешения не обходит системную границу.",
+      "A custom role cannot confirm payouts, change recipients, publish pricing or assign financial exceptions. A similar permission name does not bypass the system boundary."
+    ],
+    "rows": [
+      [
+        "Результат",
+        "Result",
+        "Действие отклонено до исполнения",
+        "Action denied before execution",
+        "Данные и денежное состояние не меняются",
+        "Data and financial state unchanged"
+      ],
+      [
+        "Проверка личности",
+        "Identity check",
+        "Не является способом повышения прав",
+        "Does not elevate privileges",
+        "Не предлагать ключ владельца внутри чужой сессии",
+        "Do not prompt for an owner key inside another staff session"
+      ]
+    ],
+    "actions": [
+      [
+        "В разрешённую область",
+        "Permitted workspace",
+        "access-operations-home"
+      ]
+    ],
+    "scenarios": [],
+    "actor": "ops",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-marketing",
+    "section": "ADM-18",
+    "title": [
+      "Маркетинг и тексты по правам",
+      "Marketing and content permissions"
+    ],
+    "body": [
+      "STAFF-204 · ASG-DEMO-61 · обе площадки / демонстрация. Самостоятельная публикация текстов и объявлений внутри приложения по выданным правам; нового согласования владельцем нет.",
+      "STAFF-204 · ASG-DEMO-61 · both venues / demo. Publish content and in-app announcements independently with the relevant permissions; no added owner approval."
+    ],
+    "rows": [
+      [
+        "Тексты и переводы",
+        "Content and translations",
+        "Просмотр, изменение, публикация",
+        "Read, edit, publish",
+        "Новая неизменяемая версия и автор в журнале; откат новой версией",
+        "New immutable version and actor in audit; rollback as a new version"
+      ],
+      [
+        "Объявления в приложении",
+        "In-app announcements",
+        "Просмотр, подготовка, запуск, остановка",
+        "Read, prepare, launch, stop",
+        "Проверки аудитории, согласий, частоты и доставки сохраняются",
+        "Audience, consent, frequency and delivery checks remain"
+      ],
+      [
+        "Финансы / сотрудники",
+        "Finance / staff",
+        "Не предоставлены",
+        "Not granted",
+        "Нет денежных сумм, адресов, клиентского экспорта или выдачи прав",
+        "No amounts, addresses, user exports or access grants"
+      ],
+      [
+        "Массовые каналы",
+        "Bulk channels",
+        "Не входят в первую версию",
+        "Outside the first release",
+        "Этот пример не запускает email, Telegram или push",
+        "This example does not launch email, Telegram or push"
+      ]
+    ],
+    "actions": [],
+    "scenarios": [],
+    "actor": "marketer",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-emergency",
+    "section": "ADM-17",
+    "title": [
+      "Аварийные права сотрудника",
+      "Staff emergency permissions"
+    ],
+    "body": [
+      "Отдельное назначение ASG-DEMO-71: операционный руководитель может усиливать ограничения по отдельному праву усиления аварийных ограничений и просматривать инцидент. Это не право единоличного восстановления.",
+      "Separate assignment ASG-DEMO-71: an operations lead may strengthen restrictions with emergency.activate and view the incident. This does not allow unilateral recovery."
+    ],
+    "rows": [
+      [
+        "Усиление ограничения",
+        "Strengthen restriction",
+        "Разрешено в выданной области",
+        "Allowed within assigned scope",
+        "Причина и журнал обязательны; применение по компонентам отдельно",
+        "Reason and audit required; component application tracked separately"
+      ],
+      [
+        "Снять полный режим",
+        "Lift full shutdown",
+        "Самостоятельно запрещено",
+        "Denied alone",
+        "Нужны владелец и независимый уполномоченный подтверждающий",
+        "Requires an owner and independent authorized confirmer"
+      ],
+      [
+        "Денежное восстановление",
+        "Money recovery",
+        "Не предоставлено",
+        "Not granted",
+        "Разрешение точного маршрута A+B отдельно от перевода A+B",
+        "Exact-route A+B permission is separate from transfer A+B"
+      ],
+      [
+        "Во время полного отключения",
+        "During full shutdown",
+        "Только разрешённая аварийная область",
+        "Permitted emergency area only",
+        "Нет обычной админки, маркетинга, торговых и денежных отправок",
+        "No ordinary admin, marketing, trades or money submissions"
+      ]
+    ],
+    "actions": [],
+    "scenarios": [],
+    "actor": "emergency",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-owner-check",
+    "section": "ADM-14",
+    "title": [
+      "Проверка перед критическим действием",
+      "Check before a critical action"
+    ],
+    "body": [
+      "Владелец A · новая проверка личности физическим ключом. Экран поясняет границы; реальная проверка и отправка в прототипе не выполняются.",
+      "Owner A · fresh physical-key authentication. This screen explains the boundaries; the prototype does not authenticate or submit anything."
+    ],
+    "rows": [
+      [
+        "Личность",
+        "Identity",
+        "Действующий владелец и проверенный физический ключ",
+        "Active owner and verified physical key",
+        "Чужой ключ или резервный код не дают денежный доступ",
+        "Another person’s key or recovery code cannot grant money access"
+      ],
+      [
+        "Точная операция",
+        "Exact operation",
+        "Версия, площадка, сеть, актив, полный адрес и сумма",
+        "Version, venue, network, asset, full address and amount",
+        "Изменение данных требует новой проверки и нужных согласий",
+        "Changes require fresh authentication and applicable approvals"
+      ],
+      [
+        "Перед отправкой",
+        "Before submission",
+        "Права, срок, ограничения, доступный долг и средства",
+        "Permissions, expiry, gates, payable debt and funds",
+        "Два владельца не обходят жёсткий запрет или технический режим",
+        "Two owners do not bypass a hard block or technical shutdown"
+      ],
+      [
+        "Paper Alpha",
+        "Paper Alpha",
+        "Комиссия Shadow 0% · реальные выплаты выключены",
+        "Shadow fee 0% · real payouts disabled",
+        "1% — только неактивный пример будущей платной версии",
+        "1% is only an inactive example of a future paid version"
+      ]
+    ],
+    "actions": [
+      [
+        "К правилам действий",
+        "Action rules",
+        "access-critical-rules"
+      ]
+    ],
+    "scenarios": [],
+    "actor": "owner",
+    "headers": [
+      [
+        "Раздел / действие",
+        "Section / action"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  },
+  {
+    "key": "access-role-actions",
+    "section": "ADM-14",
+    "title": [
+      "Действия в разделе «Поддержка»",
+      "Support section actions"
+    ],
+    "body": [
+      "ROLE-DEMO-41 v7 · отдельные разрешения для выбранного раздела. Изменение черновика не затрагивает действующее назначение до проверки и сохранения.",
+      "ROLE-DEMO-41 v7 · independent permissions for this section. Draft changes do not affect the assignment until reviewed and saved."
+    ],
+    "rows": [
+      [
+        "Чтение",
+        "Read",
+        "Включено",
+        "Enabled",
+        "Назначенные обращения",
+        "Assigned tickets"
+      ],
+      [
+        "Создание",
+        "Create",
+        "Включено",
+        "Enabled",
+        "Ответ в разрешённом обращении",
+        "Reply in a permitted ticket"
+      ],
+      [
+        "Изменение",
+        "Edit",
+        "Включено",
+        "Enabled",
+        "Назначение обращения",
+        "Ticket assignment"
+      ],
+      [
+        "Публикация",
+        "Publish",
+        "Не предоставлено",
+        "Not granted",
+        "Не наследуется от изменения",
+        "Not inherited from edit"
+      ],
+      [
+        "Запуск",
+        "Run",
+        "Не предоставлено",
+        "Not granted",
+        "Не включает торговые и денежные действия",
+        "Does not include trades or transfers"
+      ],
+      [
+        "Остановка",
+        "Stop",
+        "Не предоставлено",
+        "Not granted",
+        "Не включает аварийное снятие ограничений",
+        "Does not include emergency recovery"
+      ],
+      [
+        "Экспорт",
+        "Export",
+        "Не предоставлено",
+        "Not granted",
+        "Чтение переписки не даёт выгрузку",
+        "Reading messages does not allow export"
+      ]
+    ],
+    "actions": [
+      [
+        "К матрице разделов",
+        "Section matrix",
+        "access-role-editor"
+      ],
+      [
+        "Проверить итог",
+        "Review effective access",
+        "access-role-preview"
+      ]
+    ],
+    "scenarios": [],
+    "actor": "owner",
+    "headers": [
+      [
+        "Действие / данные",
+        "Action / data"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ],
+    "permissionControls": true
+  },
+  {
+    "key": "access-support-limited",
+    "section": "ADM-14",
+    "title": [
+      "Назначенное обращение T-DEMO-041",
+      "Assigned ticket T-DEMO-041"
+    ],
+    "body": [
+      "STAFF-203 · U-DEMO-002 · Polymarket / демонстрация. Ограниченная проекция поддержки; закрытые денежные связи не раскрываются. Полный рабочий сценарий ответа остаётся в существующем разделе поддержки и не переопределяется этим примером доступа.",
+      "STAFF-203 · U-DEMO-002 · Polymarket / demo. Restricted support projection; financial joins are excluded. The full reply workflow remains in the existing Support section and is not redefined by this access example."
+    ],
+    "rows": [
+      [
+        "Клиент",
+        "User",
+        "Demo Noor · U-DEMO-002",
+        "Demo Noor · U-DEMO-002",
+        "Минимальный контекст",
+        "Minimal context"
+      ],
+      [
+        "Исходное сообщение",
+        "Original message",
+        "«Сессия отключена. Что происходит с позициями?»",
+        "“The session is disconnected. What happens to positions?”",
+        "Учебное сообщение, без реальной переписки",
+        "Synthetic message; no real correspondence"
+      ],
+      [
+        "Разрешённый контекст",
+        "Permitted context",
+        "S-DEMO-002 · отключена, позиции сохранены",
+        "S-DEMO-002 · disconnected, positions retained",
+        "Без сумм, адресов, торговых деталей или скрытых обращений",
+        "No amounts, addresses, trade details or hidden tickets"
+      ],
+      [
+        "Права обработки",
+        "Handling permissions",
+        "Ответ и назначение разрешены",
+        "Reply and assignment permitted",
+        "Только это назначенное обращение; новые рабочие команды не добавлены",
+        "This assigned ticket only; no new product commands added"
+      ]
+    ],
+    "actions": [
+      [
+        "К клиенту",
+        "User profile",
+        "access-user-limited"
+      ],
+      [
+        "К рабочей области",
+        "Staff workspace",
+        "access-operations-home"
+      ]
+    ],
+    "scenarios": [],
+    "actor": "ops",
+    "headers": [
+      [
+        "Действие / данные",
+        "Action / data"
+      ],
+      [
+        "Доступ / результат",
+        "Access / result"
+      ],
+      [
+        "Область и ограничения",
+        "Scope and restrictions"
+      ]
+    ]
+  }
+]

@@ -1,0 +1,133 @@
+{
+  "date": "2026-10-18",
+  "scope": "Selected prototype paths, not full P-01–P-18, role or server acceptance",
+  "count": 18,
+  "checks": [
+    {
+      "locale": "ru",
+      "from": "access-hub",
+      "to": "access-operations-home",
+      "result": "pass",
+      "evidence": "Present click; destination node observed in browser URL; composition inspected"
+    },
+    {
+      "locale": "ru",
+      "from": "access-operations-home",
+      "to": "access-user-limited",
+      "result": "pass",
+      "evidence": "Present click; destination node observed in browser URL; composition inspected"
+    },
+    {
+      "locale": "ru",
+      "from": "access-user-limited",
+      "to": "access-session-limited",
+      "result": "pass",
+      "evidence": "Present click; destination node observed in browser URL; composition inspected"
+    },
+    {
+      "locale": "ru",
+      "from": "access-session-limited",
+      "to": "access-action-denied",
+      "result": "pass",
+      "evidence": "Present click; destination node observed in browser URL; composition inspected"
+    },
+    {
+      "locale": "ru",
+      "from": "access-action-denied",
+      "to": "access-operations-home",
+      "result": "pass",
+      "evidence": "Present click; destination node observed in browser URL; composition inspected"
+    },
+    {
+      "locale": "ru",
+      "from": "access-operations-home",
+      "to": "access-venue-denied",
+      "result": "pass",
+      "evidence": "Present click; destination node observed in browser URL; composition inspected"
+    },
+    {
+      "locale": "ru",
+      "from": "access-venue-denied",
+      "to": "access-operations-home",
+      "result": "pass",
+      "evidence": "Present click; destination node observed in browser URL; composition inspected"
+    },
+    {
+      "locale": "ru",
+      "from": "access-operations-home",
+      "to": "access-expired",
+      "result": "pass",
+      "evidence": "Present click; destination node observed in browser URL; composition inspected"
+    },
+    {
+      "locale": "en",
+      "from": "access-audit-read",
+      "to": "access-export-denied",
+      "result": "pass",
+      "evidence": "Present click; destination node observed in browser URL; composition inspected"
+    },
+    {
+      "locale": "en",
+      "from": "access-export-denied",
+      "to": "access-audit-read",
+      "result": "pass",
+      "evidence": "Present click; destination node observed in browser URL; composition inspected"
+    },
+    {
+      "locale": "en",
+      "from": "access-audit-read",
+      "to": "access-export-preview",
+      "result": "pass",
+      "evidence": "Present click; destination node observed in browser URL; composition inspected"
+    },
+    {
+      "locale": "en",
+      "from": "access-export-preview",
+      "to": "access-export-preparing",
+      "result": "pass",
+      "evidence": "Present click; destination node observed in browser URL; composition inspected"
+    },
+    {
+      "locale": "en",
+      "from": "access-export-preparing",
+      "to": "access-export-ready",
+      "result": "pass",
+      "evidence": "Present click; destination node observed in browser URL; composition inspected"
+    },
+    {
+      "locale": "en",
+      "from": "access-export-ready",
+      "to": "access-export-revoked",
+      "result": "pass",
+      "evidence": "Present click; destination node observed in browser URL; composition inspected"
+    },
+    {
+      "locale": "ru",
+      "from": "access-hub",
+      "to": "access-critical-rules",
+      "result": "pass",
+      "evidence": "Present click; destination node observed; restricted context and menu inspected"
+    },
+    {
+      "locale": "ru",
+      "from": "access-critical-rules",
+      "to": "access-critical-denied",
+      "result": "pass",
+      "evidence": "Present click; destination node observed; restricted context and menu inspected"
+    },
+    {
+      "locale": "ru",
+      "from": "access-critical-denied",
+      "to": "access-operations-home",
+      "result": "pass",
+      "evidence": "Present click; destination node observed; restricted context and menu inspected"
+    },
+    {
+      "locale": "ru",
+      "from": "access-operations-home",
+      "to": "access-support-limited",
+      "result": "pass",
+      "evidence": "Present click; destination node observed; restricted context and menu inspected"
+    }
+  ]
+}

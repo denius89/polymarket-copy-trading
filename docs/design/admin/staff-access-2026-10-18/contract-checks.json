@@ -1,0 +1,29 @@
+{
+  "pass": true,
+  "scope": "Static synthetic design contract only, not server authorization",
+  "checks": [
+    "29 unique paired states",
+    "18 sections explicitly included",
+    "7 independent action types",
+    "example grants no owner, export or money",
+    "Polymarket demo only",
+    "explicit time boundary",
+    "section actions shown independently",
+    "role version conflict separate from save",
+    "all control targets exist",
+    "all detail targets exist",
+    "no owner escalation from restricted working actions",
+    "expiry and full revocation remain separate",
+    "export denial returns to same auditor view",
+    "export revocation does not offer retry or download",
+    "sample download confined to ready example",
+    "export preparation and error both represented",
+    "critical denial does not prompt owner login",
+    "no unlabelled paid alpha fee",
+    "limited client has no numeric balances",
+    "limited session has no numeric positions or profit",
+    "critical rules retain delayed recipient and independent owners",
+    "marketing publication needs permission, not owner approval"
+  ],
+  "count": 22
+}

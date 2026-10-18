@@ -1,10 +1,10 @@
 # Живая карта админки
 
-Текущий срез 18.10.2026: **618 RU +618 EN корневых макетов**, из них 613 основных состояний и 5 служебных оболочек на язык. Карта 0.21, набор компонентов 0.4.21 (28 наборов /168 вариантов).
+Текущий срез 18.10.2026: **647 RU +647 EN корневых макетов**, из них 642 основных состояния и 5 служебных оболочек на язык. Карта 0.22, набор компонентов 0.4.21 (28 наборов /168 вариантов).
 
-Полный читаемый индекс сформирован из [sitemap.json](sitemap.json). Статус раздела относится к покрытию дизайном, не реализации или полной приёмке. Исторические срезы доступны в Git.
+Полный читаемый индекс сформирован из [sitemap.json](sitemap.json). Статус относится к покрытию дизайном, не реализации или полной приёмке. Исторические срезы доступны в Git.
 
-[Карта в Figma](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2105-5766) · [Последние изменения](session-workspace-2026-10-18/README.md)
+[Карта в Figma](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2105-5766) · [Последние изменения](staff-access-2026-10-18/README.md)
 
 ## ADM-01 · Обзор
 
@@ -377,9 +377,9 @@
 
 ## ADM-12 · Журнал действий
 
-Частично. Журнал, фильтры, страницы, образец CSV, отказ экспорта и целостность.
+Частично. Журнал действий и отдельное право экспорта: ограниченная выборка, подготовка, готовность, ошибка и отзыв до выдачи файла.
 
-Состояний: 12.
+Состояний: 19.
 
 | Состояние | RU | EN |
 | --- | --- | --- |
@@ -395,6 +395,13 @@
 | Целостность · учебное совпадение | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67052) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-76950) |
 | Целостность не подтверждена | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67167) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-77065) |
 | Обнаружено расхождение журнала | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67282) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-77180) |
+| Журнал · ограниченный просмотр | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64330) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192789) |
+| Экспорт недоступен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64358) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192817) |
+| Параметры экспорта журнала | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64386) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192845) |
+| Файл готовится | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64414) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192873) |
+| Файл готов | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64442) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192901) |
+| Не удалось подготовить файл | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64470) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192929) |
+| Файл больше недоступен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64498) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192957) |
 
 ## ADM-13 · Финансы и выплаты
 
@@ -509,9 +516,9 @@
 
 ## ADM-14 · Сотрудники и доступ
 
-Частично. Роли и административный отзыв доступа; собственный аккаунт: обзор → личные данные, безопасность, устройства/сессии, интерфейс и права. Меню аватара: аккаунт / выход.
+Частично. Сотрудники, роли, 18 разделов и 7 типов действий, области и сроки, итоговый доступ, запреты, отзыв и критические полномочия. Приглашения B04 и полный сквозной проход ещё открыты.
 
-Состояний: 79.
+Состояний: 99.
 
 | Состояние | RU | EN |
 | --- | --- | --- |
@@ -594,6 +601,26 @@
 | Проверка запасного отменена | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3005-57300) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3007-57292) |
 | Нужен другой физический ключ | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3005-57329) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3007-57321) |
 | Проверку нужно начать заново | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3005-57358) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3007-57350) |
+| Проверка прав сотрудников | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-63910) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192369) |
+| Права роли «Поддержка Polymarket» | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-63938) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192397) |
+| Область и срок назначения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-63966) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192425) |
+| Итог перед сохранением | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-63994) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192453) |
+| Роль сохранена | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64022) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192481) |
+| Роль изменилась | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64050) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192509) |
+| Расширение своих прав запрещено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64078) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192537) |
+| Рабочая область сотрудника | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64106) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192565) |
+| Клиент U-DEMO-002 | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64134) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192593) |
+| Сессия S-DEMO-002 · просмотр | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64162) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192621) |
+| Площадка недоступна | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64190) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192649) |
+| Среда недоступна | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64218) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192677) |
+| Действие недоступно | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64246) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192705) |
+| Срок назначения истёк | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64274) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192733) |
+| Служебный доступ отозван | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64302) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192761) |
+| Кто выполняет критические действия | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64526) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192985) |
+| Требуется владелец | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64554) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-193013) |
+| Проверка перед критическим действием | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64638) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-193097) |
+| Действия в разделе «Поддержка» | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3070-66718) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3070-194685) |
+| Назначенное обращение T-DEMO-041 | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3070-66746) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3070-194713) |
 
 ## ADM-15 · Подключения и безопасность
 
@@ -687,7 +714,7 @@
 
 Частично. GLOBAL_STOP и четыре отдельных ограничения: область, применение, независимое восстановление.
 
-Состояний: 43.
+Состояний: 44.
 
 | Состояние | RU | EN |
 | --- | --- | --- |
@@ -734,12 +761,13 @@
 | Поступления при отключённых пополнениях | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-63762) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-74205) |
 | После остановки · очередь операций | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-158785) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-48800) |
 | Старое задание требует новой проверки | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-158923) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-48938) |
+| Аварийные права сотрудника | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64610) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-193069) |
 
 ## ADM-18 · Маркетинг
 
 Макеты есть · на вычитке. 37 RU/EN: объявления, редактор, аудитория, расписание, публикация, доставка, пауза, историческая доставка, версии и права. Только in-app.
 
-Состояний: 37.
+Состояний: 38.
 
 | Состояние | RU | EN |
 | --- | --- | --- |
@@ -780,4 +808,5 @@
 | Новый черновик сохранён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-101845) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-107359) |
 | Сохранено без публикации | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-101968) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-107482) |
 | Доставка до паузы | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2385-33206) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2385-105089) |
+| Маркетинг и тексты по правам | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64582) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-193041) |
 

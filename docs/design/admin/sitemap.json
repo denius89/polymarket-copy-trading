@@ -1,5 +1,5 @@
 {
-  "revision": "0.21",
+  "revision": "0.22",
   "updatedAt": "2026-10-18",
   "purpose": "Living design sitemap; not a production capability inventory or final design acceptance.",
   "figma": {
@@ -14,8 +14,8 @@
     "current Figma RU/EN root frame inventory"
   ],
   "counts": {
-    "ru": 618,
-    "en": 618
+    "ru": 647,
+    "en": 647
   },
   "sections": [
     {
@@ -3345,7 +3345,7 @@
       "id": "ADM-12",
       "title": "Журнал действий",
       "group": "Управление",
-      "description": "Журнал, фильтры, страницы, образец CSV, отказ экспорта и целостность.",
+      "description": "Журнал действий и отдельное право экспорта: ограниченная выборка, подготовка, готовность, ошибка и отзыв до выдачи файла.",
       "screens": [
         {
           "id": "2110:52274",
@@ -3477,6 +3477,83 @@
             "id": "2138:77180",
             "title": "Audit mismatch detected",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-77180"
+          }
+        },
+        {
+          "id": "3069:64330",
+          "key": "access-audit-read",
+          "title": "Журнал · ограниченный просмотр",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64330",
+          "english": {
+            "id": "3069:192789",
+            "title": "EN · access-audit-read · Audit log · restricted view",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192789"
+          }
+        },
+        {
+          "id": "3069:64358",
+          "key": "access-export-denied",
+          "title": "Экспорт недоступен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64358",
+          "english": {
+            "id": "3069:192817",
+            "title": "EN · access-export-denied · Export unavailable",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192817"
+          }
+        },
+        {
+          "id": "3069:64386",
+          "key": "access-export-preview",
+          "title": "Параметры экспорта журнала",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64386",
+          "english": {
+            "id": "3069:192845",
+            "title": "EN · access-export-preview · Audit export parameters",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192845"
+          }
+        },
+        {
+          "id": "3069:64414",
+          "key": "access-export-preparing",
+          "title": "Файл готовится",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64414",
+          "english": {
+            "id": "3069:192873",
+            "title": "EN · access-export-preparing · Preparing file",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192873"
+          }
+        },
+        {
+          "id": "3069:64442",
+          "key": "access-export-ready",
+          "title": "Файл готов",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64442",
+          "english": {
+            "id": "3069:192901",
+            "title": "EN · access-export-ready · File ready",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192901"
+          }
+        },
+        {
+          "id": "3069:64470",
+          "key": "access-export-error",
+          "title": "Не удалось подготовить файл",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64470",
+          "english": {
+            "id": "3069:192929",
+            "title": "EN · access-export-error · Could not prepare file",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192929"
+          }
+        },
+        {
+          "id": "3069:64498",
+          "key": "access-export-revoked",
+          "title": "Файл больше недоступен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64498",
+          "english": {
+            "id": "3069:192957",
+            "title": "EN · access-export-revoked · File no longer available",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192957"
           }
         }
       ],
@@ -4619,7 +4696,7 @@
       "id": "ADM-14",
       "title": "Сотрудники и доступ",
       "group": "Управление",
-      "description": "Роли и административный отзыв доступа; собственный аккаунт: обзор → личные данные, безопасность, устройства/сессии, интерфейс и права. Меню аватара: аккаунт / выход.",
+      "description": "Сотрудники, роли, 18 разделов и 7 типов действий, области и сроки, итоговый доступ, запреты, отзыв и критические полномочия. Приглашения B04 и полный сквозной проход ещё открыты.",
       "screens": [
         {
           "id": "2110:6876",
@@ -5488,6 +5565,226 @@
             "id": "3007:57350",
             "title": "EN · key-proof-expired · Start verification again",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3007-57350"
+          }
+        },
+        {
+          "id": "3069:63910",
+          "key": "access-hub",
+          "title": "Проверка прав сотрудников",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-63910",
+          "english": {
+            "id": "3069:192369",
+            "title": "EN · access-hub · Staff access review",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192369"
+          }
+        },
+        {
+          "id": "3069:63938",
+          "key": "access-role-editor",
+          "title": "Права роли «Поддержка Polymarket»",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-63938",
+          "english": {
+            "id": "3069:192397",
+            "title": "EN · access-role-editor · Permissions: Polymarket support",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192397"
+          }
+        },
+        {
+          "id": "3069:63966",
+          "key": "access-role-scope",
+          "title": "Область и срок назначения",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-63966",
+          "english": {
+            "id": "3069:192425",
+            "title": "EN · access-role-scope · Assignment scope and duration",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192425"
+          }
+        },
+        {
+          "id": "3069:63994",
+          "key": "access-role-preview",
+          "title": "Итог перед сохранением",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-63994",
+          "english": {
+            "id": "3069:192453",
+            "title": "EN · access-role-preview · Review before saving",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192453"
+          }
+        },
+        {
+          "id": "3069:64022",
+          "key": "access-role-saved",
+          "title": "Роль сохранена",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64022",
+          "english": {
+            "id": "3069:192481",
+            "title": "EN · access-role-saved · Role saved",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192481"
+          }
+        },
+        {
+          "id": "3069:64050",
+          "key": "access-role-conflict",
+          "title": "Роль изменилась",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64050",
+          "english": {
+            "id": "3069:192509",
+            "title": "EN · access-role-conflict · Role has changed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192509"
+          }
+        },
+        {
+          "id": "3069:64078",
+          "key": "access-self-denied",
+          "title": "Расширение своих прав запрещено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64078",
+          "english": {
+            "id": "3069:192537",
+            "title": "EN · access-self-denied · Self-escalation denied",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192537"
+          }
+        },
+        {
+          "id": "3069:64106",
+          "key": "access-operations-home",
+          "title": "Рабочая область сотрудника",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64106",
+          "english": {
+            "id": "3069:192565",
+            "title": "EN · access-operations-home · Staff workspace",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192565"
+          }
+        },
+        {
+          "id": "3069:64134",
+          "key": "access-user-limited",
+          "title": "Клиент U-DEMO-002",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64134",
+          "english": {
+            "id": "3069:192593",
+            "title": "EN · access-user-limited · User U-DEMO-002",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192593"
+          }
+        },
+        {
+          "id": "3069:64162",
+          "key": "access-session-limited",
+          "title": "Сессия S-DEMO-002 · просмотр",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64162",
+          "english": {
+            "id": "3069:192621",
+            "title": "EN · access-session-limited · Session S-DEMO-002 · read only",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192621"
+          }
+        },
+        {
+          "id": "3069:64190",
+          "key": "access-venue-denied",
+          "title": "Площадка недоступна",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64190",
+          "english": {
+            "id": "3069:192649",
+            "title": "EN · access-venue-denied · Venue unavailable",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192649"
+          }
+        },
+        {
+          "id": "3069:64218",
+          "key": "access-environment-denied",
+          "title": "Среда недоступна",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64218",
+          "english": {
+            "id": "3069:192677",
+            "title": "EN · access-environment-denied · Environment unavailable",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192677"
+          }
+        },
+        {
+          "id": "3069:64246",
+          "key": "access-action-denied",
+          "title": "Действие недоступно",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64246",
+          "english": {
+            "id": "3069:192705",
+            "title": "EN · access-action-denied · Action unavailable",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192705"
+          }
+        },
+        {
+          "id": "3069:64274",
+          "key": "access-expired",
+          "title": "Срок назначения истёк",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64274",
+          "english": {
+            "id": "3069:192733",
+            "title": "EN · access-expired · Assignment expired",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192733"
+          }
+        },
+        {
+          "id": "3069:64302",
+          "key": "access-revoked",
+          "title": "Служебный доступ отозван",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64302",
+          "english": {
+            "id": "3069:192761",
+            "title": "EN · access-revoked · Staff access revoked",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192761"
+          }
+        },
+        {
+          "id": "3069:64526",
+          "key": "access-critical-rules",
+          "title": "Кто выполняет критические действия",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64526",
+          "english": {
+            "id": "3069:192985",
+            "title": "EN · access-critical-rules · Critical action authority",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-192985"
+          }
+        },
+        {
+          "id": "3069:64554",
+          "key": "access-critical-denied",
+          "title": "Требуется владелец",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64554",
+          "english": {
+            "id": "3069:193013",
+            "title": "EN · access-critical-denied · Owner required",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-193013"
+          }
+        },
+        {
+          "id": "3069:64638",
+          "key": "access-owner-check",
+          "title": "Проверка перед критическим действием",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64638",
+          "english": {
+            "id": "3069:193097",
+            "title": "EN · access-owner-check · Check before a critical action",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-193097"
+          }
+        },
+        {
+          "id": "3070:66718",
+          "key": "access-role-actions",
+          "title": "Действия в разделе «Поддержка»",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3070-66718",
+          "english": {
+            "id": "3070:194685",
+            "title": "EN · access-role-actions · Support section actions",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3070-194685"
+          }
+        },
+        {
+          "id": "3070:66746",
+          "key": "access-support-limited",
+          "title": "Назначенное обращение T-DEMO-041",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3070-66746",
+          "english": {
+            "id": "3070:194713",
+            "title": "EN · access-support-limited · Assigned ticket T-DEMO-041",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3070-194713"
           }
         }
       ],
@@ -6762,6 +7059,17 @@
             "title": "Old task needs a fresh review",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-48938"
           }
+        },
+        {
+          "id": "3069:64610",
+          "key": "access-emergency",
+          "title": "Аварийные права сотрудника",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64610",
+          "english": {
+            "id": "3069:193069",
+            "title": "EN · access-emergency · Staff emergency permissions",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-193069"
+          }
         }
       ],
       "status": "Частично",
@@ -7178,6 +7486,17 @@
             "id": "2385:105089",
             "title": "Delivery before pause",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2385-105089"
+          }
+        },
+        {
+          "id": "3069:64582",
+          "key": "access-marketing",
+          "title": "Маркетинг и тексты по правам",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64582",
+          "english": {
+            "id": "3069:193041",
+            "title": "EN · access-marketing · Marketing and content permissions",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-193041"
           }
         }
       ],
