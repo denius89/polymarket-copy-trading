@@ -1,5 +1,5 @@
 {
-  "revision": "0.22",
+  "revision": "0.23",
   "updatedAt": "2026-10-18",
   "purpose": "Living design sitemap; not a production capability inventory or final design acceptance.",
   "figma": {
@@ -14,8 +14,8 @@
     "current Figma RU/EN root frame inventory"
   ],
   "counts": {
-    "ru": 647,
-    "en": 647
+    "ru": 689,
+    "en": 689
   },
   "sections": [
     {
@@ -1417,7 +1417,7 @@
       "id": "ADM-06",
       "title": "Площадки и данные",
       "group": "Операции",
-      "description": "Health Polymarket/Limitless, данные и актуальность источников.",
+      "description": "Каталог рынков и источников, поиск, сохранённая выборка, актуальность, задержки, пропуски и история качества; состояние рынка отдельно от подключения.",
       "screens": [
         {
           "id": "2109:5830",
@@ -1439,6 +1439,182 @@
             "id": "2110:54813",
             "title": "EN · health-stale · Check incomplete",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-54813"
+          }
+        },
+        {
+          "id": "3097:65618",
+          "key": "market-catalog",
+          "title": "Каталог рынков",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-65618",
+          "english": {
+            "id": "3097:198191",
+            "title": "EN · market-catalog · Market catalog",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198191"
+          }
+        },
+        {
+          "id": "3097:65646",
+          "key": "market-filtered",
+          "title": "Рынки с задержкой",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-65646",
+          "english": {
+            "id": "3097:198219",
+            "title": "EN · market-filtered · Delayed markets",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198219"
+          }
+        },
+        {
+          "id": "3097:65674",
+          "key": "market-search",
+          "title": "Поиск по точному идентификатору",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-65674",
+          "english": {
+            "id": "3097:198247",
+            "title": "EN · market-search · Exact identifier search",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198247"
+          }
+        },
+        {
+          "id": "3097:65702",
+          "key": "market-detail",
+          "title": "Карточка рынка",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-65702",
+          "english": {
+            "id": "3097:198275",
+            "title": "EN · market-detail · Market details",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198275"
+          }
+        },
+        {
+          "id": "3097:65730",
+          "key": "market-stale",
+          "title": "Устаревшие данные рынка",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-65730",
+          "english": {
+            "id": "3097:198303",
+            "title": "EN · market-stale · Stale market data",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198303"
+          }
+        },
+        {
+          "id": "3097:65758",
+          "key": "market-limitless",
+          "title": "Рынок Limitless: данные не получены",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-65758",
+          "english": {
+            "id": "3097:198331",
+            "title": "EN · market-limitless · Limitless market: data unavailable",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198331"
+          }
+        },
+        {
+          "id": "3097:65786",
+          "key": "market-loading",
+          "title": "Загрузка каталога",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-65786",
+          "english": {
+            "id": "3097:198359",
+            "title": "EN · market-loading · Loading catalog",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198359"
+          }
+        },
+        {
+          "id": "3097:65814",
+          "key": "market-empty",
+          "title": "Ничего не найдено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-65814",
+          "english": {
+            "id": "3097:198387",
+            "title": "EN · market-empty · No results",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198387"
+          }
+        },
+        {
+          "id": "3097:65842",
+          "key": "market-error",
+          "title": "Каталог не удалось прочитать",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-65842",
+          "english": {
+            "id": "3097:198415",
+            "title": "EN · market-error · Catalog read failed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198415"
+          }
+        },
+        {
+          "id": "3097:65870",
+          "key": "market-denied",
+          "title": "Каталог недоступен по правам",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-65870",
+          "english": {
+            "id": "3097:198443",
+            "title": "EN · market-denied · Catalog access denied",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198443"
+          }
+        },
+        {
+          "id": "3097:65898",
+          "key": "source-catalog",
+          "title": "Источники рыночных данных",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-65898",
+          "english": {
+            "id": "3097:198471",
+            "title": "EN · source-catalog · Market data sources",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198471"
+          }
+        },
+        {
+          "id": "3097:65926",
+          "key": "source-detail",
+          "title": "Источник SRC-PM-CAT",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-65926",
+          "english": {
+            "id": "3097:198499",
+            "title": "EN · source-detail · Source SRC-PM-CAT",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198499"
+          }
+        },
+        {
+          "id": "3097:65954",
+          "key": "source-limitless",
+          "title": "Источник SRC-LL-CAT",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-65954",
+          "english": {
+            "id": "3097:198527",
+            "title": "EN · source-limitless · Source SRC-LL-CAT",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198527"
+          }
+        },
+        {
+          "id": "3097:65982",
+          "key": "source-quality",
+          "title": "История качества потоков",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-65982",
+          "english": {
+            "id": "3097:198555",
+            "title": "EN · source-quality · Stream quality history",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198555"
+          }
+        },
+        {
+          "id": "3097:66010",
+          "key": "source-gap",
+          "title": "Пропуск публичной истории",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66010",
+          "english": {
+            "id": "3097:198583",
+            "title": "EN · source-gap · Public-history gap",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198583"
+          }
+        },
+        {
+          "id": "3097:66038",
+          "key": "source-incident",
+          "title": "Инцидент данных INC-DATA-DEMO-01",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66038",
+          "english": {
+            "id": "3097:198611",
+            "title": "EN · source-incident · Data incident INC-DATA-DEMO-01",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198611"
           }
         }
       ],
@@ -2105,6 +2281,72 @@
             "section": "Results",
             "height": 1200,
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2395-119233"
+          }
+        },
+        {
+          "id": "3097:66066",
+          "key": "source-settings",
+          "title": "Настройки сбора данных",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66066",
+          "english": {
+            "id": "3097:198639",
+            "title": "EN · source-settings · Collection settings",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198639"
+          }
+        },
+        {
+          "id": "3097:66094",
+          "key": "source-settings-review",
+          "title": "Проверка настроек источника",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66094",
+          "english": {
+            "id": "3097:198667",
+            "title": "EN · source-settings-review · Review source settings",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198667"
+          }
+        },
+        {
+          "id": "3097:66122",
+          "key": "source-settings-applied",
+          "title": "Настройки применены: пример",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66122",
+          "english": {
+            "id": "3097:198695",
+            "title": "EN · source-settings-applied · Settings applied: example",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198695"
+          }
+        },
+        {
+          "id": "3097:66150",
+          "key": "source-settings-conflict",
+          "title": "Настройки уже изменены",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66150",
+          "english": {
+            "id": "3097:198723",
+            "title": "EN · source-settings-conflict · Settings changed concurrently",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198723"
+          }
+        },
+        {
+          "id": "3097:66178",
+          "key": "source-settings-denied",
+          "title": "Недостаточно прав для применения",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66178",
+          "english": {
+            "id": "3097:198751",
+            "title": "EN · source-settings-denied · Cannot apply settings",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198751"
+          }
+        },
+        {
+          "id": "3097:66206",
+          "key": "source-settings-failed",
+          "title": "Изменение отклонено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66206",
+          "english": {
+            "id": "3097:198779",
+            "title": "EN · source-settings-failed · Change rejected",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198779"
           }
         }
       ],
@@ -6201,7 +6443,7 @@
       "id": "ADM-16",
       "title": "Тексты и языки",
       "group": "Управление",
-      "description": "Каталог, RU/EN редактор, validation, preview, атомарная публикация, версии/откат, раздельные права и черновик языка.",
+      "description": "Тексты, версии и переводы; готовность, включение и отключение языка, резервный язык и конфликт. RU/EN — фактический стартовый набор.",
       "screens": [
         {
           "id": "2337:26585",
@@ -6575,6 +6817,94 @@
             "id": "2341:98503",
             "title": "Preview without publication",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2341-98503"
+          }
+        },
+        {
+          "id": "3097:66234",
+          "key": "locale-readiness",
+          "title": "Готовность и доступность языков",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66234",
+          "english": {
+            "id": "3097:198807",
+            "title": "EN · locale-readiness · Language readiness and availability",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198807"
+          }
+        },
+        {
+          "id": "3097:66262",
+          "key": "locale-incomplete",
+          "title": "Язык пока нельзя включить",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66262",
+          "english": {
+            "id": "3097:198835",
+            "title": "EN · locale-incomplete · Language not ready",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198835"
+          }
+        },
+        {
+          "id": "3097:66290",
+          "key": "locale-ready",
+          "title": "Проверка включения языка",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66290",
+          "english": {
+            "id": "3097:198863",
+            "title": "EN · locale-ready · Review language enabling",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198863"
+          }
+        },
+        {
+          "id": "3097:66318",
+          "key": "locale-enabled",
+          "title": "Язык включён: учебный результат",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66318",
+          "english": {
+            "id": "3097:198891",
+            "title": "EN · locale-enabled · Language enabled: synthetic result",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198891"
+          }
+        },
+        {
+          "id": "3097:66346",
+          "key": "locale-disable-review",
+          "title": "Отключение языка",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66346",
+          "english": {
+            "id": "3097:198919",
+            "title": "EN · locale-disable-review · Disable language",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198919"
+          }
+        },
+        {
+          "id": "3097:66374",
+          "key": "locale-disabled",
+          "title": "Язык отключён: учебный результат",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66374",
+          "english": {
+            "id": "3097:198947",
+            "title": "EN · locale-disabled · Language disabled: synthetic result",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198947"
+          }
+        },
+        {
+          "id": "3097:66402",
+          "key": "locale-fallback-blocked",
+          "title": "Резервный язык защищён",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66402",
+          "english": {
+            "id": "3097:198975",
+            "title": "EN · locale-fallback-blocked · Fallback language protected",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198975"
+          }
+        },
+        {
+          "id": "3097:66430",
+          "key": "locale-conflict",
+          "title": "Версия языка изменилась",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66430",
+          "english": {
+            "id": "3097:199003",
+            "title": "EN · locale-conflict · Language version changed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199003"
           }
         }
       ],
@@ -7069,6 +7399,138 @@
             "id": "3069:193069",
             "title": "EN · access-emergency · Staff emergency permissions",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-193069"
+          }
+        },
+        {
+          "id": "3097:66458",
+          "key": "restriction-scope",
+          "title": "Область ограничения",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66458",
+          "english": {
+            "id": "3097:199031",
+            "title": "EN · restriction-scope · Restriction scope",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199031"
+          }
+        },
+        {
+          "id": "3097:66486",
+          "key": "restriction-type-options",
+          "title": "Допустимые типы объектов",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66486",
+          "english": {
+            "id": "3097:199059",
+            "title": "EN · restriction-type-options · Allowed object types",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199059"
+          }
+        },
+        {
+          "id": "3097:66514",
+          "key": "restriction-preview",
+          "title": "Проверка области ограничения",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66514",
+          "english": {
+            "id": "3097:199087",
+            "title": "EN · restriction-preview · Review restriction scope",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199087"
+          }
+        },
+        {
+          "id": "3097:66542",
+          "key": "restriction-applied",
+          "title": "Ограничение применено: пример",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66542",
+          "english": {
+            "id": "3097:199115",
+            "title": "EN · restriction-applied · Restriction applied: example",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199115"
+          }
+        },
+        {
+          "id": "3097:66570",
+          "key": "restriction-invalid",
+          "title": "Объекты несовместимы",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66570",
+          "english": {
+            "id": "3097:199143",
+            "title": "EN · restriction-invalid · Incompatible objects",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199143"
+          }
+        },
+        {
+          "id": "3097:66598",
+          "key": "restriction-conflict",
+          "title": "Область устарела",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66598",
+          "english": {
+            "id": "3097:199171",
+            "title": "EN · restriction-conflict · Scope changed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199171"
+          }
+        },
+        {
+          "id": "3097:66626",
+          "key": "restriction-staff",
+          "title": "Сотрудник: проверка области",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66626",
+          "english": {
+            "id": "3097:199199",
+            "title": "EN · restriction-staff · Staff: review scope",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199199"
+          }
+        },
+        {
+          "id": "3097:66654",
+          "key": "restriction-user",
+          "title": "Пользователь: проверка области",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66654",
+          "english": {
+            "id": "3097:199227",
+            "title": "EN · restriction-user · User: review scope",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199227"
+          }
+        },
+        {
+          "id": "3097:66682",
+          "key": "restriction-signer",
+          "title": "Подписант: проверка области",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66682",
+          "english": {
+            "id": "3097:199255",
+            "title": "EN · restriction-signer · Signer: review scope",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199255"
+          }
+        },
+        {
+          "id": "3097:66710",
+          "key": "restriction-network",
+          "title": "Сеть: проверка области",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66710",
+          "english": {
+            "id": "3097:199283",
+            "title": "EN · restriction-network · Network: review scope",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199283"
+          }
+        },
+        {
+          "id": "3097:66738",
+          "key": "restriction-asset",
+          "title": "Актив: проверка области",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66738",
+          "english": {
+            "id": "3097:199311",
+            "title": "EN · restriction-asset · Asset: review scope",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199311"
+          }
+        },
+        {
+          "id": "3097:66766",
+          "key": "restriction-route",
+          "title": "Маршрут: проверка области",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66766",
+          "english": {
+            "id": "3097:199339",
+            "title": "EN · restriction-route · Route: review scope",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199339"
           }
         }
       ],

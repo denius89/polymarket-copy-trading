@@ -1,0 +1,2413 @@
+[
+  {
+    "key": "market-catalog",
+    "section": "ADM-06",
+    "title": [
+      "Каталог рынков",
+      "Market catalog"
+    ],
+    "body": [
+      "Polymarket и Limitless отдельно. Снимок каталога: 18 октября, 12:00 UTC. Состояние рынка не равно состоянию получения данных. Все записи учебные.",
+      "Separate Polymarket and Limitless records. Catalog snapshot: 18 October, 12:00 UTC. Market state differs from ingestion state. All records are synthetic."
+    ],
+    "headers": [
+      [
+        "Рынок",
+        "Market"
+      ],
+      [
+        "Площадка / состояние",
+        "Venue / state"
+      ],
+      [
+        "Источник / актуальность",
+        "Source / freshness"
+      ]
+    ],
+    "rows": [
+      [
+        "PM-MKT-DEMO-01",
+        "PM-MKT-DEMO-01",
+        "Polymarket · рынок открыт · данные актуальны",
+        "Polymarket · open market · fresh data",
+        "SRC-PM-CAT · получено 12:00 UTC",
+        "SRC-PM-CAT · received 12:00 UTC"
+      ],
+      [
+        "PM-MKT-DEMO-02",
+        "PM-MKT-DEMO-02",
+        "Polymarket · рынок открыт · данные устарели",
+        "Polymarket · open market · stale data",
+        "SRC-PM-CAT · получено 11:52 UTC",
+        "SRC-PM-CAT · received 11:52 UTC"
+      ],
+      [
+        "LL-MKT-DEMO-01",
+        "LL-MKT-DEMO-01",
+        "Limitless · состояние не подтверждено",
+        "Limitless · market state unverified",
+        "SRC-LL-CAT · профиль не подключён",
+        "SRC-LL-CAT · profile not connected"
+      ]
+    ],
+    "actions": [
+      [
+        "Источники данных",
+        "Data sources",
+        "source-catalog"
+      ],
+      [
+        "Качество потоков",
+        "Stream quality",
+        "source-quality"
+      ]
+    ],
+    "rowLinks": {
+      "PM-MKT-DEMO-01": "market-detail",
+      "PM-MKT-DEMO-02": "market-stale",
+      "LL-MKT-DEMO-01": "market-limitless"
+    },
+    "filter": true,
+    "scenarios": [
+      [
+        "Загрузка",
+        "Loading",
+        "market-loading"
+      ],
+      [
+        "Нет результатов",
+        "No results",
+        "market-empty"
+      ],
+      [
+        "Ошибка чтения",
+        "Read error",
+        "market-error"
+      ],
+      [
+        "Нет доступа",
+        "Access denied",
+        "market-denied"
+      ]
+    ]
+  },
+  {
+    "key": "market-filtered",
+    "section": "ADM-06",
+    "title": [
+      "Рынки с задержкой",
+      "Delayed markets"
+    ],
+    "body": [
+      "Сохранённая выборка: Polymarket · данные устарели · сортировка по времени получения, старые первыми · страница 1. Возврат из карточки сохраняет эту выборку.",
+      "Saved view: Polymarket · stale data · received time, oldest first · page 1. Returning from a record preserves this view."
+    ],
+    "headers": [
+      [
+        "Рынок",
+        "Market"
+      ],
+      [
+        "Площадка / состояние",
+        "Venue / state"
+      ],
+      [
+        "Источник / актуальность",
+        "Source / freshness"
+      ]
+    ],
+    "rows": [
+      [
+        "PM-MKT-DEMO-02",
+        "PM-MKT-DEMO-02",
+        "Открыт · получено 11:52 UTC",
+        "Open · received 11:52 UTC",
+        "Задержка 8 минут; порог из учебной версии P-1",
+        "8-minute delay; threshold from synthetic P-1"
+      ]
+    ],
+    "actions": [
+      [
+        "Сбросить фильтры",
+        "Reset filters",
+        "market-catalog"
+      ]
+    ],
+    "rowLinks": {
+      "PM-MKT-DEMO-02": "market-stale"
+    },
+    "filter": true,
+    "filtered": true
+  },
+  {
+    "key": "market-search",
+    "section": "ADM-06",
+    "title": [
+      "Поиск по точному идентификатору",
+      "Exact identifier search"
+    ],
+    "body": [
+      "PM-MKT-DEMO-01 найден в каталоге Polymarket. Идентификаторы площадок не смешиваются. Неполный ответ источника не позволяет утверждать, что объекта нет.",
+      "PM-MKT-DEMO-01 found in the Polymarket catalog. Venue identifiers remain separate. An incomplete source response cannot prove absence."
+    ],
+    "headers": [
+      [
+        "Рынок",
+        "Market"
+      ],
+      [
+        "Площадка / состояние",
+        "Venue / state"
+      ],
+      [
+        "Источник / актуальность",
+        "Source / freshness"
+      ]
+    ],
+    "rows": [
+      [
+        "PM-MKT-DEMO-01",
+        "PM-MKT-DEMO-01",
+        "Открыт · снимок 12:00 UTC",
+        "Open · snapshot 12:00 UTC",
+        "Точное совпадение · Polymarket",
+        "Exact match · Polymarket"
+      ]
+    ],
+    "actions": [
+      [
+        "Очистить поиск",
+        "Clear search",
+        "market-catalog"
+      ]
+    ],
+    "rowLinks": {
+      "PM-MKT-DEMO-01": "market-detail"
+    },
+    "filter": true,
+    "query": "PM-MKT-DEMO-01"
+  },
+  {
+    "key": "market-detail",
+    "section": "ADM-06",
+    "title": [
+      "Карточка рынка",
+      "Market details"
+    ],
+    "body": [
+      "PM-MKT-DEMO-01 · Polymarket · учебный вопрос «Произойдёт событие DEMO-A?» · исходы «Да / Нет». Это диагностика, торговых команд здесь нет.",
+      "PM-MKT-DEMO-01 · Polymarket · synthetic question “Will DEMO-A occur?” · outcomes “Yes / No”. Diagnostic view with no trading commands."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Состояние рынка",
+        "Market state",
+        "Открыт · сообщено источником 11:59:58 UTC",
+        "Open · source time 11:59:58 UTC",
+        "Получено 12:00 UTC · задержка 2 с",
+        "Received 12:00 UTC · 2 s delay"
+      ],
+      [
+        "Источник / версия",
+        "Source / version",
+        "SRC-PM-CAT · P-1 · снимок CAT-42",
+        "SRC-PM-CAT · P-1 · snapshot CAT-42",
+        "Полнота полей: подтверждена в учебном снимке",
+        "Field completeness: confirmed in synthetic snapshot"
+      ],
+      [
+        "Цена / ликвидность",
+        "Price / liquidity",
+        "Нет подтверждённого снимка",
+        "No verified snapshot",
+        "Не показывать ноль или торговую пригодность",
+        "Do not show zero or imply tradability"
+      ],
+      [
+        "Связанные объекты",
+        "Related records",
+        "События, заявки и сессии — по отдельным правам",
+        "Events, orders and sessions need separate permissions",
+        "Качество каталога не подтверждает торговое подключение",
+        "Catalog quality does not verify execution connectivity"
+      ]
+    ],
+    "actions": [
+      [
+        "В каталог",
+        "Back to catalog",
+        "market-catalog"
+      ],
+      [
+        "Открыть источник",
+        "Open source",
+        "source-detail"
+      ]
+    ]
+  },
+  {
+    "key": "market-stale",
+    "section": "ADM-06",
+    "title": [
+      "Устаревшие данные рынка",
+      "Stale market data"
+    ],
+    "body": [
+      "PM-MKT-DEMO-02 · снимок получен 11:52 UTC, сейчас 12:00 UTC. Прежнее состояние «Открыт» сохранено как прошлое наблюдение, текущее не подтверждено.",
+      "PM-MKT-DEMO-02 · received 11:52 UTC, now 12:00 UTC. Previous “Open” state remains a past observation; the current state is unverified."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Последнее наблюдение",
+        "Last observation",
+        "Открыт · 11:52 UTC",
+        "Open · 11:52 UTC",
+        "Возраст 8 минут · правило P-1 учебное",
+        "8 minutes old · synthetic P-1 rule"
+      ],
+      [
+        "Действие сотрудника",
+        "Staff action",
+        "Проверить источник и инцидент",
+        "Inspect source and incident",
+        "Нельзя вручную сделать данные актуальными",
+        "Cannot manually mark data fresh"
+      ]
+    ],
+    "actions": [
+      [
+        "Вернуться к выборке",
+        "Back to saved view",
+        "market-filtered"
+      ],
+      [
+        "История деградации",
+        "Degradation history",
+        "source-quality"
+      ]
+    ]
+  },
+  {
+    "key": "market-limitless",
+    "section": "ADM-06",
+    "title": [
+      "Рынок Limitless: данные не получены",
+      "Limitless market: data unavailable"
+    ],
+    "body": [
+      "LL-MKT-DEMO-01 — подготовленная запись сценария, а не реально найденный рынок. Профиль SRC-LL-CAT не подключён. Поля, состояние и поддержка API не подтверждены.",
+      "LL-MKT-DEMO-01 is a prepared scenario record, not a discovered live market. SRC-LL-CAT is not connected. Fields, state and API support are unverified."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Площадка",
+        "Venue",
+        "Limitless · Paper Alpha",
+        "Limitless · Paper Alpha",
+        "Не подменять данными Polymarket",
+        "Do not substitute Polymarket data"
+      ],
+      [
+        "Состояние / цена / исходы",
+        "State / price / outcomes",
+        "Не получены",
+        "Unavailable",
+        "Не равно «рынок закрыт» или «рынок не существует»",
+        "Does not mean closed or nonexistent"
+      ]
+    ],
+    "actions": [
+      [
+        "В каталог",
+        "Back to catalog",
+        "market-catalog"
+      ],
+      [
+        "Источник Limitless",
+        "Limitless source",
+        "source-limitless"
+      ]
+    ]
+  },
+  {
+    "key": "market-loading",
+    "section": "ADM-06",
+    "title": [
+      "Загрузка каталога",
+      "Loading catalog"
+    ],
+    "body": [
+      "Получаем снимок. До завершения чтения список не считается пустым.",
+      "Reading snapshot. The list is not empty until the read completes."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [],
+    "actions": [
+      [
+        "В каталог",
+        "Back to catalog",
+        "market-catalog"
+      ]
+    ],
+    "empty": [
+      "Загрузка…",
+      "Loading…"
+    ]
+  },
+  {
+    "key": "market-empty",
+    "section": "ADM-06",
+    "title": [
+      "Ничего не найдено",
+      "No results"
+    ],
+    "body": [
+      "Полный учебный ответ получен. В выбранной площадке и фильтрах совпадений нет.",
+      "Complete synthetic response received. No matches for the selected venue and filters."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [],
+    "actions": [
+      [
+        "В каталог",
+        "Back to catalog",
+        "market-catalog"
+      ]
+    ],
+    "empty": [
+      "Совпадений нет",
+      "No matches"
+    ]
+  },
+  {
+    "key": "market-error",
+    "section": "ADM-06",
+    "title": [
+      "Каталог не удалось прочитать",
+      "Catalog read failed"
+    ],
+    "body": [
+      "Источник не ответил. Это не нулевая выборка; предыдущий снимок не объявляется текущим. Повторить можно только чтение.",
+      "Source did not respond. This is not an empty result; a previous snapshot is not current. Only reading may be retried."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [],
+    "actions": [
+      [
+        "Повторить чтение",
+        "Retry read",
+        "market-catalog"
+      ]
+    ],
+    "empty": [
+      "Ошибка чтения",
+      "Read failed"
+    ]
+  },
+  {
+    "key": "market-denied",
+    "section": "ADM-06",
+    "title": [
+      "Каталог недоступен по правам",
+      "Catalog access denied"
+    ],
+    "body": [
+      "Право чтения не выдано для этой площадки и среды. Данные и связанные объекты не раскрываются.",
+      "Read permission is missing for this venue and environment. Records and linked objects are not disclosed."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [],
+    "actions": [
+      [
+        "Войти другим сотрудником",
+        "Sign in as another staff member",
+        "login"
+      ]
+    ],
+    "empty": [
+      "Доступ закрыт",
+      "Access denied"
+    ]
+  },
+  {
+    "key": "source-catalog",
+    "section": "ADM-06",
+    "title": [
+      "Источники рыночных данных",
+      "Market data sources"
+    ],
+    "body": [
+      "Здесь источники каталога и публичной истории. Денежные источники сервиса находятся в финансах. Секреты и произвольные адреса API не вводятся.",
+      "Catalog and public-history sources are listed here. Service treasury sources belong in Finance. No secrets or arbitrary API addresses are entered."
+    ],
+    "headers": [
+      [
+        "Источник",
+        "Source"
+      ],
+      [
+        "Площадка / назначение",
+        "Venue / purpose"
+      ],
+      [
+        "Состояние / актуальность",
+        "State / freshness"
+      ]
+    ],
+    "rows": [
+      [
+        "SRC-PM-CAT",
+        "SRC-PM-CAT",
+        "Polymarket · каталог · P-1",
+        "Polymarket · catalog · P-1",
+        "Данные получены 12:00 UTC",
+        "Received 12:00 UTC"
+      ],
+      [
+        "SRC-PM-HIST",
+        "SRC-PM-HIST",
+        "Polymarket · публичная история",
+        "Polymarket · public history",
+        "Есть пропуск 11:52–11:57 UTC",
+        "Gap 11:52–11:57 UTC"
+      ],
+      [
+        "SRC-LL-CAT",
+        "SRC-LL-CAT",
+        "Limitless · каталог",
+        "Limitless · catalog",
+        "Профиль не настроен",
+        "Profile not configured"
+      ]
+    ],
+    "actions": [
+      [
+        "Каталог рынков",
+        "Market catalog",
+        "market-catalog"
+      ],
+      [
+        "Настройки сборщика",
+        "Collector settings",
+        "source-settings"
+      ]
+    ],
+    "rowLinks": {
+      "SRC-PM-CAT": "source-detail",
+      "SRC-PM-HIST": "source-gap",
+      "SRC-LL-CAT": "source-limitless"
+    },
+    "filter": true,
+    "sourceFilter": true
+  },
+  {
+    "key": "source-detail",
+    "section": "ADM-06",
+    "title": [
+      "Источник SRC-PM-CAT",
+      "Source SRC-PM-CAT"
+    ],
+    "body": [
+      "Polymarket · каталог · Paper Alpha · профиль P-1. Состояние подключения, качество данных и готовность торгового контура — разные показатели.",
+      "Polymarket · catalog · Paper Alpha · profile P-1. Connection state, data quality and execution readiness are distinct signals."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Получение данных",
+        "Data ingestion",
+        "Ответ получен 12:00 UTC",
+        "Response received 12:00 UTC",
+        "CAT-42 · полнота известна только для снимка",
+        "CAT-42 · completeness applies to snapshot only"
+      ],
+      [
+        "Подключение",
+        "Connection",
+        "Учебный профиль PM-READ-01",
+        "Synthetic profile PM-READ-01",
+        "Метаданные и состояние — в карточке подключения",
+        "Metadata and state in the connection record"
+      ],
+      [
+        "Назначение",
+        "Purpose",
+        "Обнаружение рынков, не исполнение",
+        "Market discovery, not execution",
+        "Изменение не разрешает реальные сделки",
+        "Changing it does not enable live orders"
+      ]
+    ],
+    "actions": [
+      [
+        "К источникам",
+        "Back to sources",
+        "source-catalog"
+      ],
+      [
+        "Подключение Polymarket",
+        "Polymarket connection",
+        "connection-pm"
+      ],
+      [
+        "История качества",
+        "Quality history",
+        "source-quality"
+      ]
+    ]
+  },
+  {
+    "key": "source-limitless",
+    "section": "ADM-06",
+    "title": [
+      "Источник SRC-LL-CAT",
+      "Source SRC-LL-CAT"
+    ],
+    "body": [
+      "Limitless · отдельный неподключённый профиль. Параметры, доступные поля, ограничения и время ответа будут подтверждены при интеграции.",
+      "Limitless · separate disconnected profile. Settings, supported fields, limits and response time require integration evidence."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Подключение",
+        "Connection",
+        "Не настроено",
+        "Not configured",
+        "Нельзя включить сбор или обещать свежесть",
+        "Cannot start collection or promise freshness"
+      ],
+      [
+        "Состояние рынков",
+        "Market state",
+        "Неизвестно",
+        "Unknown",
+        "Не переносить состояние из другой площадки",
+        "Do not inherit another venue state"
+      ]
+    ],
+    "actions": [
+      [
+        "К источникам",
+        "Back to sources",
+        "source-catalog"
+      ],
+      [
+        "Подключение Limitless",
+        "Limitless connection",
+        "connection-ll"
+      ]
+    ]
+  },
+  {
+    "key": "source-quality",
+    "section": "ADM-06",
+    "title": [
+      "История качества потоков",
+      "Stream quality history"
+    ],
+    "body": [
+      "Период 11:50–12:00 UTC · Paper Alpha. Храним начало, окончание, затронутую функцию и подтверждающие данные. Восстановление подключения не доказывает восстановление пропущенной истории.",
+      "Period 11:50–12:00 UTC · Paper Alpha. Store start, end, affected function and evidence. Connection recovery does not prove a historical gap was filled."
+    ],
+    "headers": [
+      [
+        "Событие / период",
+        "Event / period"
+      ],
+      [
+        "Источник / проблема",
+        "Source / issue"
+      ],
+      [
+        "Последствие / инцидент",
+        "Impact / incident"
+      ]
+    ],
+    "rows": [
+      [
+        "DQ-DEMO-01 · 11:52–11:57",
+        "DQ-DEMO-01 · 11:52–11:57",
+        "SRC-PM-HIST · пропуск истории",
+        "SRC-PM-HIST · history gap",
+        "INC-DATA-DEMO-01 · открыт",
+        "INC-DATA-DEMO-01 · open"
+      ],
+      [
+        "DQ-DEMO-02 · с 11:52",
+        "DQ-DEMO-02 · since 11:52",
+        "PM-MKT-DEMO-02 · задержка каталога",
+        "PM-MKT-DEMO-02 · delayed catalog",
+        "Текущее состояние рынка не подтверждено",
+        "Current market state unverified"
+      ],
+      [
+        "DQ-DEMO-03 · 11:59–12:00",
+        "DQ-DEMO-03 · 11:59–12:00",
+        "Ответ восстановлен, пробел ещё проверяется",
+        "Response restored; gap still being checked",
+        "Не закрывать инцидент по одному успешному ответу",
+        "One response does not resolve the incident"
+      ]
+    ],
+    "actions": [
+      [
+        "К источникам",
+        "Back to sources",
+        "source-catalog"
+      ],
+      [
+        "Разобрать пропуск",
+        "Inspect gap",
+        "source-gap"
+      ]
+    ],
+    "rowLinks": {
+      "DQ-DEMO-01": "source-gap",
+      "DQ-DEMO-02": "market-stale"
+    }
+  },
+  {
+    "key": "source-gap",
+    "section": "ADM-06",
+    "title": [
+      "Пропуск публичной истории",
+      "Public-history gap"
+    ],
+    "body": [
+      "SRC-PM-HIST · Polymarket · интервал 11:52–11:57 UTC. Полнота истории не подтверждена; рейтинг и аналитика показывают ограничение покрытия.",
+      "SRC-PM-HIST · Polymarket · 11:52–11:57 UTC. Historical completeness is unverified; ratings and analytics must disclose limited coverage."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Затронутая функция",
+        "Affected function",
+        "Публичная история и входные данные рейтинга",
+        "Public history and rating inputs",
+        "Не объявлять весь торговый контур отключённым",
+        "Does not imply the entire execution path is offline"
+      ],
+      [
+        "INC-DATA-DEMO-01",
+        "INC-DATA-DEMO-01",
+        "Инцидент качества данных · открыт",
+        "Data-quality incident · open",
+        "Сверка только читает; не создаёт сделки",
+        "Reconciliation only reads; no orders"
+      ],
+      [
+        "Восстановление",
+        "Recovery",
+        "Последний ответ 12:00 UTC",
+        "Last response 12:00 UTC",
+        "Заполнение пропуска ещё не подтверждено",
+        "Gap backfill remains unverified"
+      ]
+    ],
+    "actions": [
+      [
+        "История качества",
+        "Quality history",
+        "source-quality"
+      ],
+      [
+        "Открыть инцидент",
+        "Open incident",
+        "source-incident"
+      ]
+    ]
+  },
+  {
+    "key": "source-incident",
+    "section": "ADM-06",
+    "title": [
+      "Инцидент данных INC-DATA-DEMO-01",
+      "Data incident INC-DATA-DEMO-01"
+    ],
+    "body": [
+      "Причина: пропуск SRC-PM-HIST. Область Polymarket / Paper Alpha / публичная история. Эта карточка — контекстный вход в существующий процесс инцидентов.",
+      "Cause: SRC-PM-HIST gap. Scope: Polymarket / Paper Alpha / public history. This record links into the existing incident process."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Подтверждающие данные",
+        "Evidence",
+        "DQ-DEMO-01 · 11:52–11:57 UTC",
+        "DQ-DEMO-01 · 11:52–11:57 UTC",
+        "Оригинальные события и контрольные точки не меняются",
+        "Original events and checkpoints remain unchanged"
+      ],
+      [
+        "Критерий завершения",
+        "Resolution criterion",
+        "Нужны подтверждённое покрытие и сверка",
+        "Verified coverage and reconciliation required",
+        "Успешный ответ не равен полному восстановлению",
+        "A successful response is not full recovery"
+      ]
+    ],
+    "actions": [
+      [
+        "Вернуться к пропуску",
+        "Back to gap",
+        "source-gap"
+      ]
+    ]
+  },
+  {
+    "key": "source-settings",
+    "section": "ADM-07",
+    "title": [
+      "Настройки сбора данных",
+      "Collection settings"
+    ],
+    "body": [
+      "SRC-PM-CAT · Polymarket / Paper Alpha · действующая версия P-1. Интервал и окно — учебные значения, не подтверждённые пределы API. Численные настройки применяет владелец.",
+      "SRC-PM-CAT · Polymarket / Paper Alpha · active P-1. Interval and window are synthetic, not verified API limits. Numeric changes are applied by an owner."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Интервал",
+        "Interval",
+        "P-1: 5 минут → черновик P-2: 10 минут",
+        "P-1: 5 min → draft P-2: 10 min",
+        "Только каталог / публичная история",
+        "Catalog / public history only"
+      ],
+      [
+        "Окно истории",
+        "History window",
+        "90 дней → 90 дней",
+        "90 days → 90 days",
+        "Не управляет торговыми сигналами",
+        "Does not control trading signals"
+      ],
+      [
+        "Проверки применения",
+        "Application checks",
+        "Возможности API, версия, право, ограничения",
+        "API capabilities, version, permission, restrictions",
+        "Нет произвольного URL, ключей и скрытого включения",
+        "No arbitrary URL, secrets or implicit enabling"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить изменения",
+        "Review changes",
+        "source-settings-review"
+      ],
+      [
+        "К источникам",
+        "Back to sources",
+        "source-catalog"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Конфликт версии",
+        "Version conflict",
+        "source-settings-conflict"
+      ],
+      [
+        "Нет права",
+        "Permission denied",
+        "source-settings-denied"
+      ],
+      [
+        "Подтверждённый отказ",
+        "Confirmed failure",
+        "source-settings-failed"
+      ],
+      [
+        "Результат неизвестен",
+        "Outcome unknown",
+        "data-collector-unknown"
+      ]
+    ],
+    "primaryTo": "source-settings-review"
+  },
+  {
+    "key": "source-settings-review",
+    "section": "ADM-07",
+    "title": [
+      "Проверка настроек источника",
+      "Review source settings"
+    ],
+    "body": [
+      "P-1 → P-2 · SRC-PM-CAT. Владелец проверяет точную версию, область и влияние. Применение не меняет риск-политику и не запускает реальные операции.",
+      "P-1 → P-2 · SRC-PM-CAT. Owner checks the exact version, scope and impact. Applying does not alter risk policy or start live operations."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Изменение",
+        "Change",
+        "Интервал 5 → 10 минут",
+        "Interval 5 → 10 minutes",
+        "Может снизиться свежесть каталога",
+        "Catalog may become less fresh"
+      ],
+      [
+        "Влияние",
+        "Impact",
+        "Будущие задания каталога",
+        "Future catalog jobs",
+        "Не меняет завершённые сделки и текущие сессии",
+        "No change to completed trades or current sessions"
+      ],
+      [
+        "Перед применением",
+        "Before application",
+        "Повторная проверка версии и полномочий",
+        "Recheck version and authority",
+        "Запрет или неподтверждённые возможности блокируют",
+        "Restriction or unverified capability blocks it"
+      ]
+    ],
+    "actions": [
+      [
+        "Применить в учебном сценарии",
+        "Apply synthetic change",
+        "source-settings-applied"
+      ],
+      [
+        "Вернуться к черновику",
+        "Back to draft",
+        "source-settings"
+      ]
+    ],
+    "primaryTo": "source-settings-applied"
+  },
+  {
+    "key": "source-settings-applied",
+    "section": "ADM-07",
+    "title": [
+      "Настройки применены: пример",
+      "Settings applied: example"
+    ],
+    "body": [
+      "CMD-DEMO-P2 · учебное подтверждение P-2. Это не ответ реальной площадки. В истории остаются P-1, P-2, автор и причина.",
+      "CMD-DEMO-P2 · synthetic confirmation of P-2. This is not a live venue response. History keeps P-1, P-2, actor and reason."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Версия",
+        "Version",
+        "P-2 · применена в примере",
+        "P-2 · applied in fixture",
+        "Рейтинг и торговые права не изменены",
+        "Rating and trading permissions unchanged"
+      ]
+    ],
+    "actions": [
+      [
+        "Открыть настройки",
+        "Open settings",
+        "source-settings"
+      ]
+    ]
+  },
+  {
+    "key": "source-settings-conflict",
+    "section": "ADM-07",
+    "title": [
+      "Настройки уже изменены",
+      "Settings changed concurrently"
+    ],
+    "body": [
+      "Ожидалась P-1, сейчас P-3. Черновик P-2 не применён. Загрузите текущую версию и заново проверьте различия.",
+      "Expected P-1, current P-3. Draft P-2 was not applied. Load the current version and review differences again."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Результат",
+        "Result",
+        "Изменения не применены",
+        "Change not applied",
+        "Нельзя пометить успешным вручную",
+        "Cannot mark successful manually"
+      ]
+    ],
+    "actions": [
+      [
+        "К настройкам",
+        "Back to settings",
+        "source-settings"
+      ]
+    ]
+  },
+  {
+    "key": "source-settings-denied",
+    "section": "ADM-07",
+    "title": [
+      "Недостаточно прав для применения",
+      "Cannot apply settings"
+    ],
+    "body": [
+      "Подготовка черновика не разрешает применение. Численные настройки доступны владельцу; смена роли или отзыв проверяются повторно.",
+      "Draft editing does not grant application rights. Numeric settings require an owner; role changes and revocation are rechecked."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Результат",
+        "Result",
+        "Изменения не применены",
+        "Change not applied",
+        "Нельзя пометить успешным вручную",
+        "Cannot mark successful manually"
+      ]
+    ],
+    "actions": [
+      [
+        "Войти другим сотрудником",
+        "Sign in as another staff member",
+        "login"
+      ]
+    ]
+  },
+  {
+    "key": "source-settings-failed",
+    "section": "ADM-07",
+    "title": [
+      "Изменение отклонено",
+      "Change rejected"
+    ],
+    "body": [
+      "CMD-DEMO-P2: доказанный отказ до применения. Действует P-1. Причина и подтверждающие данные сохранены; неизвестный исход не считается этим отказом.",
+      "CMD-DEMO-P2: confirmed rejection before application. P-1 remains active. Reason and evidence are retained; an unknown outcome is not this failure."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Результат",
+        "Result",
+        "Изменения не применены",
+        "Change not applied",
+        "Нельзя пометить успешным вручную",
+        "Cannot mark successful manually"
+      ]
+    ],
+    "actions": [
+      [
+        "К настройкам",
+        "Back to settings",
+        "source-settings"
+      ]
+    ]
+  },
+  {
+    "key": "locale-readiness",
+    "section": "ADM-16",
+    "title": [
+      "Готовность и доступность языков",
+      "Language readiness and availability"
+    ],
+    "body": [
+      "Первый набор — русский и английский. Английский — резервный язык. Бенгальский здесь только учебный кандидат будущего этапа; язык личного профиля меняется отдельно.",
+      "Initial languages are Russian and English. English is the fallback. Bengali is a synthetic future candidate only; personal profile language is separate."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Русский · ru",
+        "Russian · ru",
+        "Включён · версия RU-12",
+        "Enabled · RU-12",
+        "Переводы и проверка носителем подтверждены в примере",
+        "Translations and native review confirmed in fixture"
+      ],
+      [
+        "English · en",
+        "English · en",
+        "Включён · резервный",
+        "Enabled · fallback",
+        "Нельзя выключить без утверждённой замены",
+        "Cannot disable without an approved replacement"
+      ],
+      [
+        "Бенгальский · bn",
+        "Bengali · bn",
+        "Черновик · 18 из 24 обязательных текстов",
+        "Draft · 18 of 24 required texts",
+        "Нет проверки носителем; включение запрещено",
+        "No native review; enabling blocked"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить кандидата",
+        "Check candidate",
+        "locale-incomplete"
+      ],
+      [
+        "Проверка отключения",
+        "Review disabling",
+        "locale-disable-review"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Готовый учебный кандидат",
+        "Ready synthetic candidate",
+        "locale-ready"
+      ],
+      [
+        "Защита резервного языка",
+        "Fallback protection",
+        "locale-fallback-blocked"
+      ],
+      [
+        "Конфликт версии",
+        "Version conflict",
+        "locale-conflict"
+      ]
+    ]
+  },
+  {
+    "key": "locale-incomplete",
+    "section": "ADM-16",
+    "title": [
+      "Язык пока нельзя включить",
+      "Language not ready"
+    ],
+    "body": [
+      "bn · черновик BN-1. Неполные тексты и отсутствие проверки носителем блокируют включение. Подстановка английского не заменяет обязательные переводы риска и условий.",
+      "bn · draft BN-1. Missing texts and native review block enabling. English fallback does not replace required risk and terms translations."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Обязательные тексты",
+        "Required texts",
+        "18 / 24 готовы; 6 отсутствуют",
+        "18 / 24 ready; 6 missing",
+        "Включить недоступно",
+        "Enable unavailable"
+      ],
+      [
+        "Проверка носителем",
+        "Native review",
+        "Не подтверждена",
+        "Not confirmed",
+        "Машинный перевод остаётся черновиком",
+        "Machine translation remains a draft"
+      ]
+    ],
+    "actions": [
+      [
+        "К языкам",
+        "Back to languages",
+        "locale-readiness"
+      ]
+    ]
+  },
+  {
+    "key": "locale-ready",
+    "section": "ADM-16",
+    "title": [
+      "Проверка включения языка",
+      "Review language enabling"
+    ],
+    "body": [
+      "Только учебная будущая ветвь BN-2: 24 из 24 обязательных текстов, проверка носителем и версии условий подтверждены в примере. Не расширяет согласованный запуск RU/EN.",
+      "Synthetic future branch BN-2 only: 24 of 24 required texts, native review and terms versions confirmed in fixture. Does not expand the agreed RU/EN launch."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Публикация",
+        "Publication",
+        "Нужно отдельное право публикации",
+        "Requires publish permission",
+        "Владелец не нужен при выданном праве",
+        "No owner approval if permission is granted"
+      ],
+      [
+        "Резервный язык",
+        "Fallback",
+        "English · en",
+        "English · en",
+        "Только разрешённые необязательные пропуски",
+        "Only permitted optional gaps"
+      ]
+    ],
+    "actions": [
+      [
+        "Включить в примере",
+        "Enable in fixture",
+        "locale-enabled"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "locale-readiness"
+      ]
+    ],
+    "primaryTo": "locale-enabled"
+  },
+  {
+    "key": "locale-enabled",
+    "section": "ADM-16",
+    "title": [
+      "Язык включён: учебный результат",
+      "Language enabled: synthetic result"
+    ],
+    "body": [
+      "BN-2 опубликована в изолированном примере. Автор, время, версия и область доступны в журнале. Личные предпочтения сотрудников не меняются.",
+      "BN-2 published in an isolated fixture. Actor, time, version and scope are in the audit log. Staff preferences remain unchanged."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Состояние",
+        "State",
+        "Включён в примере · BN-2",
+        "Enabled in fixture · BN-2",
+        "Реальные локали и клиентский макет не изменены",
+        "Live locales and client design unchanged"
+      ]
+    ],
+    "actions": [
+      [
+        "К языкам",
+        "Back to languages",
+        "locale-readiness"
+      ]
+    ]
+  },
+  {
+    "key": "locale-disable-review",
+    "section": "ADM-16",
+    "title": [
+      "Отключение языка",
+      "Disable language"
+    ],
+    "body": [
+      "Учебный сценарий для RU-12: новые выборы русского языка станут недоступны. При следующем открытии интерфейс использует английский; сохранённое предпочтение и прежние версии не удаляются.",
+      "Synthetic RU-12 scenario: Russian is no longer selectable. On next load the interface uses English; saved preference and prior versions are retained."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Область",
+        "Scope",
+        "Пользовательское приложение · язык ru",
+        "User application · ru locale",
+        "Не язык профиля сотрудника и не оригиналы отзывов",
+        "Not staff preference or original feedback"
+      ],
+      [
+        "Проверки",
+        "Checks",
+        "English включён; версия RU-12 актуальна",
+        "English enabled; RU-12 current",
+        "Нужны право публикации и повторная проверка",
+        "Publish permission and recheck required"
+      ]
+    ],
+    "actions": [
+      [
+        "Отключить в примере",
+        "Disable in fixture",
+        "locale-disabled"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "locale-readiness"
+      ]
+    ],
+    "primaryTo": "locale-disabled"
+  },
+  {
+    "key": "locale-disabled",
+    "section": "ADM-16",
+    "title": [
+      "Язык отключён: учебный результат",
+      "Language disabled: synthetic result"
+    ],
+    "body": [
+      "RU-13: доступность изменена новой версией. Старые словари, предпочтения и журнал сохранены; интерфейс при следующей загрузке использует English.",
+      "RU-13: availability changed by a new version. Prior dictionaries, preferences and audit are retained; next load uses English."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Переход",
+        "Transition",
+        "ru недоступен → en",
+        "ru unavailable → en",
+        "Исторические тексты не переписываются",
+        "Historical texts are not rewritten"
+      ]
+    ],
+    "actions": [
+      [
+        "К языкам",
+        "Back to languages",
+        "locale-readiness"
+      ]
+    ]
+  },
+  {
+    "key": "locale-fallback-blocked",
+    "section": "ADM-16",
+    "title": [
+      "Резервный язык защищён",
+      "Fallback language protected"
+    ],
+    "body": [
+      "Английский используется как резервный. Отключение запрещено, пока замена не утверждена и не проверена. Новое решение о резервном языке здесь не принимается.",
+      "English is the fallback. Disabling is blocked until a replacement is approved and verified. This screen does not select a new fallback."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Действие",
+        "Action",
+        "Публикация запрещена",
+        "Publication blocked",
+        "Нет обхода предупреждения",
+        "No warning override"
+      ]
+    ],
+    "actions": [
+      [
+        "К языкам",
+        "Back to languages",
+        "locale-readiness"
+      ]
+    ]
+  },
+  {
+    "key": "locale-conflict",
+    "section": "ADM-16",
+    "title": [
+      "Версия языка изменилась",
+      "Language version changed"
+    ],
+    "body": [
+      "Ожидалась RU-12, опубликована RU-13. Подтверждение недействительно; загрузите актуальную версию и заново проверьте влияние.",
+      "Expected RU-12; RU-13 has been published. Confirmation is invalid; load current version and review impact again."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Действие",
+        "Action",
+        "Публикация запрещена",
+        "Publication blocked",
+        "Нет обхода предупреждения",
+        "No warning override"
+      ]
+    ],
+    "actions": [
+      [
+        "К языкам",
+        "Back to languages",
+        "locale-readiness"
+      ]
+    ]
+  },
+  {
+    "key": "restriction-scope",
+    "section": "ADM-17",
+    "title": [
+      "Область ограничения",
+      "Restriction scope"
+    ],
+    "body": [
+      "Выберите тип объекта и точный контекст. Каталог предлагает только совместимые объекты; свободный адрес, секрет или произвольный идентификатор не принимается. У разных ограничений разные допустимые типы.",
+      "Choose an object type and exact context. Only compatible objects are offered; no arbitrary address, secret or identifier is accepted. Each restriction supports specific types."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Тип ограничения",
+        "Restriction type",
+        "Остановка использования подключения",
+        "Stop using connection",
+        "Учебный пример; права проверяются отдельно",
+        "Synthetic example; authority checked separately"
+      ],
+      [
+        "Площадка / среда",
+        "Venue / environment",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha",
+        "Limitless не затронут",
+        "Limitless unaffected"
+      ],
+      [
+        "Выбор объекта",
+        "Object selection",
+        "SRC-PM-CAT · источник рыночных данных",
+        "SRC-PM-CAT · market data source",
+        "Не денежный кошелёк и не все источники площадки",
+        "Not a treasury wallet or all venue sources"
+      ]
+    ],
+    "actions": [
+      [
+        "Выбрать тип объекта",
+        "Select object type",
+        "restriction-type-options"
+      ],
+      [
+        "Проверить область",
+        "Review scope",
+        "restriction-preview"
+      ],
+      [
+        "Аварийное управление",
+        "Emergency controls",
+        "emergency"
+      ]
+    ],
+    "scopePicker": true,
+    "scenarios": [
+      [
+        "Несовместимые объекты",
+        "Incompatible objects",
+        "restriction-invalid"
+      ],
+      [
+        "Объект изменился",
+        "Object changed",
+        "restriction-conflict"
+      ]
+    ],
+    "primaryTo": "restriction-preview"
+  },
+  {
+    "key": "restriction-type-options",
+    "section": "ADM-17",
+    "title": [
+      "Допустимые типы объектов",
+      "Allowed object types"
+    ],
+    "body": [
+      "Типы показаны для выбора области, а не как универсальные цели любого рубильника. Список доступен только в рамках конкретного ограничения и выданных прав.",
+      "Object types define scope; not every switch supports every type. Options depend on the selected restriction and granted permissions."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Сотрудник",
+        "Staff",
+        "STAFF-203",
+        "STAFF-203",
+        "Отзыв служебного доступа и неиспользованных подтверждений",
+        "Revoke staff access and unused approvals"
+      ],
+      [
+        "Пользователь",
+        "User",
+        "U-DEMO-002",
+        "U-DEMO-002",
+        "Остановка новых действий выбранного клиента через Shadow",
+        "Stop selected client’s new actions through Shadow"
+      ],
+      [
+        "Источник",
+        "Source",
+        "SRC-PM-CAT",
+        "SRC-PM-CAT",
+        "Остановка чтения одного источника каталога",
+        "Stop reading one catalog source"
+      ],
+      [
+        "Подписант",
+        "Signer",
+        "SIGNER-DEMO-01",
+        "SIGNER-DEMO-01",
+        "Запрет новых подписей выбранным профилем",
+        "Block new signatures by selected profile"
+      ],
+      [
+        "Сеть",
+        "Network",
+        "NET-DEMO-01",
+        "NET-DEMO-01",
+        "Запрет новых денежных отправок в выбранной сети",
+        "Block new money submissions on selected network"
+      ],
+      [
+        "Актив",
+        "Asset",
+        "ASSET-DEMO-01",
+        "ASSET-DEMO-01",
+        "Запрет новых отправок точного актива и контракта",
+        "Block new submissions for exact asset and contract"
+      ],
+      [
+        "Маршрут",
+        "Route",
+        "ROUTE-DEMO-01",
+        "ROUTE-DEMO-01",
+        "Запрет новых отправок по одному маршруту",
+        "Block new submissions on one route"
+      ]
+    ],
+    "actions": [
+      [
+        "Вернуться к выбору",
+        "Back to selection",
+        "restriction-scope"
+      ]
+    ],
+    "rowTargets": [
+      "restriction-staff",
+      "restriction-user",
+      "restriction-scope",
+      "restriction-signer",
+      "restriction-network",
+      "restriction-asset",
+      "restriction-route"
+    ]
+  },
+  {
+    "key": "restriction-preview",
+    "section": "ADM-17",
+    "title": [
+      "Проверка области ограничения",
+      "Review restriction scope"
+    ],
+    "body": [
+      "Остановка SRC-PM-CAT / Polymarket / Paper Alpha. Проверяются точный объект, текущая версия, право и причина. Полное отключение и глобальный денежный запрет сохраняют приоритет.",
+      "Stop SRC-PM-CAT / Polymarket / Paper Alpha. Check the exact object, current version, permission and reason. Technical shutdown and the global money block retain precedence."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Затронуто",
+        "Affected",
+        "Будущие чтения каталога SRC-PM-CAT",
+        "Future SRC-PM-CAT catalog reads",
+        "Собранные снимки сохраняются как прошлые",
+        "Collected snapshots retained as historical"
+      ],
+      [
+        "Не затронуто",
+        "Unaffected",
+        "Limitless, торговые и денежные маршруты",
+        "Limitless, execution and money routes",
+        "Нет автоматического расширения области",
+        "No automatic scope expansion"
+      ],
+      [
+        "Восстановление",
+        "Recovery",
+        "Отдельный процесс по действующему правилу",
+        "Separate process under current rule",
+        "Два подтверждения не обходят полный запрет",
+        "Two approvals do not bypass global blocks"
+      ]
+    ],
+    "actions": [
+      [
+        "Применить ограничение в примере",
+        "Apply restriction in fixture",
+        "restriction-applied"
+      ],
+      [
+        "Изменить область",
+        "Change scope",
+        "restriction-scope"
+      ]
+    ],
+    "primaryTo": "restriction-applied"
+  },
+  {
+    "key": "restriction-applied",
+    "section": "ADM-17",
+    "title": [
+      "Ограничение применено: пример",
+      "Restriction applied: example"
+    ],
+    "body": [
+      "RST-DEMO-01: SRC-PM-CAT остановлен в учебном сценарии. Полная область, версия, автор и причина записаны в журнал. Сбор данных и реальная инфраструктура не менялись.",
+      "RST-DEMO-01: SRC-PM-CAT stopped in the synthetic scenario. Full scope, version, actor and reason are audited. No collection or live infrastructure was changed."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Область",
+        "Scope",
+        "Polymarket / Paper Alpha / SRC-PM-CAT",
+        "Polymarket / Paper Alpha / SRC-PM-CAT",
+        "Восстановление не разрешено этим подтверждением",
+        "This confirmation does not authorize recovery"
+      ]
+    ],
+    "actions": [
+      [
+        "Аварийное управление",
+        "Emergency controls",
+        "emergency"
+      ],
+      [
+        "Проверить источник",
+        "Inspect source",
+        "source-detail"
+      ]
+    ]
+  },
+  {
+    "key": "restriction-invalid",
+    "section": "ADM-17",
+    "title": [
+      "Объекты несовместимы",
+      "Incompatible objects"
+    ],
+    "body": [
+      "Выбран источник Polymarket и маршрут Limitless. Ограничение не создано. Требуется одна совместимая площадка, среда и цепочка объектов из справочника.",
+      "Polymarket source and Limitless route selected. No restriction created. Select a compatible venue, environment and registry relationship."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Результат",
+        "Result",
+        "Ограничение не применено",
+        "Restriction not applied",
+        "Нет отправки и скрытого расширения области",
+        "No submission or implicit scope expansion"
+      ]
+    ],
+    "actions": [
+      [
+        "Выбрать заново",
+        "Select again",
+        "restriction-scope"
+      ]
+    ]
+  },
+  {
+    "key": "restriction-conflict",
+    "section": "ADM-17",
+    "title": [
+      "Область устарела",
+      "Scope changed"
+    ],
+    "body": [
+      "Объект или его связи изменились после выбора. Прежнее подтверждение недействительно. Загрузите актуальные объекты и заново проверьте влияние.",
+      "Object or relationships changed after selection. Prior confirmation is invalid. Reload current objects and review impact again."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Результат",
+        "Result",
+        "Ограничение не применено",
+        "Restriction not applied",
+        "Нет отправки и скрытого расширения области",
+        "No submission or implicit scope expansion"
+      ]
+    ],
+    "actions": [
+      [
+        "Выбрать заново",
+        "Select again",
+        "restriction-scope"
+      ]
+    ]
+  },
+  {
+    "key": "restriction-staff",
+    "section": "ADM-17",
+    "title": [
+      "Сотрудник: проверка области",
+      "Staff: review scope"
+    ],
+    "body": [
+      "Учебный объект STAFF-203. Выбранный тип совместим только с указанным ограничением. Контекст и право проверяются повторно перед применением. Денежные профили вымышлены.",
+      "Synthetic object STAFF-203. The selected type is compatible only with the stated restriction. Context and authority are rechecked before application. Money profiles are fictitious."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Тип / объект",
+        "Type / object",
+        "Сотрудник / STAFF-203",
+        "Staff / STAFF-203",
+        "Служебная учётная запись, не клиент",
+        "Staff account, not a client"
+      ],
+      [
+        "Последствие",
+        "Effect",
+        "Отзыв служебного доступа и неиспользованных подтверждений",
+        "Revoke staff access and unused approvals",
+        "Не расширяется на другие объекты",
+        "Does not expand to other objects"
+      ],
+      [
+        "Проверка связи",
+        "Relationship check",
+        "Идентификатор, актуальная версия и допустимый тип",
+        "Identifier, current version and allowed type",
+        "Нет справочника или связь не подтверждена — запрет",
+        "Unavailable registry or unverified relationship blocks it"
+      ]
+    ],
+    "actions": [
+      [
+        "Изменить тип",
+        "Change type",
+        "restriction-type-options"
+      ],
+      [
+        "Аварийное управление",
+        "Emergency controls",
+        "emergency"
+      ]
+    ]
+  },
+  {
+    "key": "restriction-user",
+    "section": "ADM-17",
+    "title": [
+      "Пользователь: проверка области",
+      "User: review scope"
+    ],
+    "body": [
+      "Учебный объект U-DEMO-002. Выбранный тип совместим только с указанным ограничением. Контекст и право проверяются повторно перед применением. Денежные профили вымышлены.",
+      "Synthetic object U-DEMO-002. The selected type is compatible only with the stated restriction. Context and authority are rechecked before application. Money profiles are fictitious."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Тип / объект",
+        "Type / object",
+        "Пользователь / U-DEMO-002",
+        "User / U-DEMO-002",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Последствие",
+        "Effect",
+        "Остановка новых действий выбранного клиента через Shadow",
+        "Stop selected client’s new actions through Shadow",
+        "Не расширяется на другие объекты",
+        "Does not expand to other objects"
+      ],
+      [
+        "Проверка связи",
+        "Relationship check",
+        "Только U-DEMO-002, не весь сегмент",
+        "Only U-DEMO-002, not the whole segment",
+        "Нет справочника или связь не подтверждена — запрет",
+        "Unavailable registry or unverified relationship blocks it"
+      ]
+    ],
+    "actions": [
+      [
+        "Изменить тип",
+        "Change type",
+        "restriction-type-options"
+      ],
+      [
+        "Аварийное управление",
+        "Emergency controls",
+        "emergency"
+      ]
+    ]
+  },
+  {
+    "key": "restriction-signer",
+    "section": "ADM-17",
+    "title": [
+      "Подписант: проверка области",
+      "Signer: review scope"
+    ],
+    "body": [
+      "Учебный объект SIGNER-DEMO-01. Выбранный тип совместим только с указанным ограничением. Контекст и право проверяются повторно перед применением. Денежные профили вымышлены.",
+      "Synthetic object SIGNER-DEMO-01. The selected type is compatible only with the stated restriction. Context and authority are rechecked before application. Money profiles are fictitious."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Тип / объект",
+        "Type / object",
+        "Подписант / SIGNER-DEMO-01",
+        "Signer / SIGNER-DEMO-01",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Последствие",
+        "Effect",
+        "Запрет новых подписей выбранным профилем",
+        "Block new signatures by selected profile",
+        "Не расширяется на другие объекты",
+        "Does not expand to other objects"
+      ],
+      [
+        "Проверка связи",
+        "Relationship check",
+        "Идентификатор, актуальная версия и допустимый тип",
+        "Identifier, current version and allowed type",
+        "Нет справочника или связь не подтверждена — запрет",
+        "Unavailable registry or unverified relationship blocks it"
+      ]
+    ],
+    "actions": [
+      [
+        "Изменить тип",
+        "Change type",
+        "restriction-type-options"
+      ],
+      [
+        "Аварийное управление",
+        "Emergency controls",
+        "emergency"
+      ]
+    ]
+  },
+  {
+    "key": "restriction-network",
+    "section": "ADM-17",
+    "title": [
+      "Сеть: проверка области",
+      "Network: review scope"
+    ],
+    "body": [
+      "Учебный объект NET-DEMO-01. Выбранный тип совместим только с указанным ограничением. Контекст и право проверяются повторно перед применением. Денежные профили вымышлены.",
+      "Synthetic object NET-DEMO-01. The selected type is compatible only with the stated restriction. Context and authority are rechecked before application. Money profiles are fictitious."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Тип / объект",
+        "Type / object",
+        "Сеть / NET-DEMO-01",
+        "Network / NET-DEMO-01",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Последствие",
+        "Effect",
+        "Запрет новых денежных отправок в выбранной сети",
+        "Block new money submissions on selected network",
+        "Не расширяется на другие объекты",
+        "Does not expand to other objects"
+      ],
+      [
+        "Проверка связи",
+        "Relationship check",
+        "Идентификатор, актуальная версия и допустимый тип",
+        "Identifier, current version and allowed type",
+        "Нет справочника или связь не подтверждена — запрет",
+        "Unavailable registry or unverified relationship blocks it"
+      ]
+    ],
+    "actions": [
+      [
+        "Изменить тип",
+        "Change type",
+        "restriction-type-options"
+      ],
+      [
+        "Аварийное управление",
+        "Emergency controls",
+        "emergency"
+      ]
+    ]
+  },
+  {
+    "key": "restriction-asset",
+    "section": "ADM-17",
+    "title": [
+      "Актив: проверка области",
+      "Asset: review scope"
+    ],
+    "body": [
+      "Учебный объект ASSET-DEMO-01. Выбранный тип совместим только с указанным ограничением. Контекст и право проверяются повторно перед применением. Денежные профили вымышлены.",
+      "Synthetic object ASSET-DEMO-01. The selected type is compatible only with the stated restriction. Context and authority are rechecked before application. Money profiles are fictitious."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Тип / объект",
+        "Type / object",
+        "Актив / ASSET-DEMO-01",
+        "Asset / ASSET-DEMO-01",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Последствие",
+        "Effect",
+        "Запрет новых отправок точного актива и контракта",
+        "Block new submissions for exact asset and contract",
+        "Не расширяется на другие объекты",
+        "Does not expand to other objects"
+      ],
+      [
+        "Проверка связи",
+        "Relationship check",
+        "Сеть NET-DEMO-01 + точный контракт ASSET-DEMO-01",
+        "NET-DEMO-01 + exact ASSET-DEMO-01 contract",
+        "Нет справочника или связь не подтверждена — запрет",
+        "Unavailable registry or unverified relationship blocks it"
+      ]
+    ],
+    "actions": [
+      [
+        "Изменить тип",
+        "Change type",
+        "restriction-type-options"
+      ],
+      [
+        "Аварийное управление",
+        "Emergency controls",
+        "emergency"
+      ]
+    ]
+  },
+  {
+    "key": "restriction-route",
+    "section": "ADM-17",
+    "title": [
+      "Маршрут: проверка области",
+      "Route: review scope"
+    ],
+    "body": [
+      "Учебный объект ROUTE-DEMO-01. Выбранный тип совместим только с указанным ограничением. Контекст и право проверяются повторно перед применением. Денежные профили вымышлены.",
+      "Synthetic object ROUTE-DEMO-01. The selected type is compatible only with the stated restriction. Context and authority are rechecked before application. Money profiles are fictitious."
+    ],
+    "headers": [
+      [
+        "Объект / параметр",
+        "Object / setting"
+      ],
+      [
+        "Значение / состояние",
+        "Value / state"
+      ],
+      [
+        "Проверка / связь",
+        "Check / relation"
+      ]
+    ],
+    "rows": [
+      [
+        "Тип / объект",
+        "Type / object",
+        "Маршрут / ROUTE-DEMO-01",
+        "Route / ROUTE-DEMO-01",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Последствие",
+        "Effect",
+        "Запрет новых отправок по одному маршруту",
+        "Block new submissions on one route",
+        "Не расширяется на другие объекты",
+        "Does not expand to other objects"
+      ],
+      [
+        "Проверка связи",
+        "Relationship check",
+        "Источник + подписант + сеть + актив + получатель",
+        "Source + signer + network + asset + recipient",
+        "Нет справочника или связь не подтверждена — запрет",
+        "Unavailable registry or unverified relationship blocks it"
+      ]
+    ],
+    "actions": [
+      [
+        "Изменить тип",
+        "Change type",
+        "restriction-type-options"
+      ],
+      [
+        "Аварийное управление",
+        "Emergency controls",
+        "emergency"
+      ]
+    ]
+  }
+]

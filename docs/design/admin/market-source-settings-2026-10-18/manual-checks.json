@@ -1,0 +1,138 @@
+{
+  "date": "2026-10-18",
+  "scope": "Selected desktop Present transitions; not full P01–P18, keyboard, runtime or all roles",
+  "viewport": "Normal 1280x720; no override",
+  "browserDelay": "One click timed out before dispatch; unchanged URL verified before retry",
+  "checks": [
+    {
+      "id": 1,
+      "locale": "ru",
+      "from": "market-catalog",
+      "to": "market-filtered",
+      "action": "Выбор актуальности",
+      "point": [
+        894,
+        267
+      ],
+      "result": "pass",
+      "evidence": "Figma Present screenshot before action and resulting node-id in browser URL"
+    },
+    {
+      "id": 2,
+      "locale": "ru",
+      "from": "market-filtered",
+      "to": "market-stale",
+      "action": "Открытие рынка",
+      "point": [
+        466,
+        359
+      ],
+      "result": "pass",
+      "evidence": "Figma Present screenshot before action and resulting node-id in browser URL"
+    },
+    {
+      "id": 3,
+      "locale": "ru",
+      "from": "market-stale",
+      "to": "market-filtered",
+      "action": "Возврат к сохранённой выборке",
+      "point": [
+        448,
+        372
+      ],
+      "result": "pass",
+      "evidence": "Figma Present screenshot before action and resulting node-id in browser URL"
+    },
+    {
+      "id": 4,
+      "locale": "en",
+      "from": "source-quality",
+      "to": "source-gap",
+      "action": "Открытие пропуска",
+      "point": [
+        472,
+        285
+      ],
+      "result": "pass",
+      "evidence": "Figma Present screenshot before action and resulting node-id in browser URL"
+    },
+    {
+      "id": 5,
+      "locale": "en",
+      "from": "source-gap",
+      "to": "source-incident",
+      "action": "Связанный инцидент",
+      "point": [
+        510,
+        395
+      ],
+      "result": "pass",
+      "evidence": "Figma Present screenshot before action and resulting node-id in browser URL"
+    },
+    {
+      "id": 6,
+      "locale": "en",
+      "from": "source-settings",
+      "to": "source-settings-review",
+      "action": "Проверка изменений",
+      "point": [
+        435,
+        459
+      ],
+      "result": "pass",
+      "evidence": "Figma Present screenshot before action and resulting node-id in browser URL"
+    },
+    {
+      "id": 7,
+      "locale": "en",
+      "from": "source-settings-review",
+      "to": "source-settings-applied",
+      "action": "Учебное применение",
+      "point": [
+        455,
+        395
+      ],
+      "result": "pass",
+      "evidence": "Figma Present screenshot before action and resulting node-id in browser URL"
+    },
+    {
+      "id": 8,
+      "locale": "ru",
+      "from": "locale-ready",
+      "to": "locale-enabled",
+      "action": "Учебное включение языка",
+      "point": [
+        444,
+        372
+      ],
+      "result": "pass",
+      "evidence": "Figma Present screenshot before action and resulting node-id in browser URL"
+    },
+    {
+      "id": 9,
+      "locale": "ru",
+      "from": "restriction-scope",
+      "to": "restriction-type-options",
+      "action": "Выбор типа области",
+      "point": [
+        491,
+        278
+      ],
+      "result": "pass",
+      "evidence": "Figma Present screenshot before action and resulting node-id in browser URL"
+    },
+    {
+      "id": 10,
+      "locale": "ru",
+      "from": "restriction-type-options",
+      "to": "restriction-asset",
+      "action": "Точный актив и сеть",
+      "point": [
+        424,
+        483
+      ],
+      "result": "pass",
+      "evidence": "Figma Present screenshot before action and resulting node-id in browser URL"
+    }
+  ]
+}
