@@ -1,6 +1,6 @@
 {
-  "revision": "0.18",
-  "updatedAt": "2026-10-16",
+  "revision": "0.19",
+  "updatedAt": "2026-10-18",
   "purpose": "Living design sitemap; not a production capability inventory or final design acceptance.",
   "figma": {
     "fileKey": "lxPP2um7FvIbt02K8eeH4T",
@@ -14,8 +14,8 @@
     "current Figma RU/EN root frame inventory"
   ],
   "counts": {
-    "ru": 558,
-    "en": 558
+    "ru": 566,
+    "en": 566
   },
   "sections": [
     {
@@ -4602,22 +4602,22 @@
         {
           "id": "2155:76988",
           "key": "mfa-confirm",
-          "title": "Проверить ключи",
+          "title": "Проверка ключей безопасности",
           "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-76988",
           "english": {
             "id": "2155:81137",
-            "title": "EN · mfa-confirm · Verify MFA",
+            "title": "EN · mfa-confirm · Verify security keys",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81137"
           }
         },
         {
           "id": "2155:77104",
           "key": "mfa-enabled",
-          "title": "Ключи подключены",
+          "title": "Оба ключа проверены",
           "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-77104",
           "english": {
             "id": "2155:81253",
-            "title": "EN · mfa-enabled · MFA enabled",
+            "title": "EN · mfa-enabled · Both keys verified",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81253"
           }
         },
@@ -4828,6 +4828,94 @@
             "id": "2258:92949",
             "title": "Interface language · dropdown open",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2258-92949"
+          }
+        },
+        {
+          "id": "3005:57155",
+          "key": "key-primary-prompt",
+          "title": "Подтвердите основной ключ",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3005-57155",
+          "english": {
+            "id": "3007:57147",
+            "title": "EN · key-primary-prompt · Confirm primary key",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3007-57147"
+          }
+        },
+        {
+          "id": "3005:57184",
+          "key": "key-primary-error",
+          "title": "Основной ключ не проверен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3005-57184",
+          "english": {
+            "id": "3007:57176",
+            "title": "EN · key-primary-error · Primary key not verified",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3007-57176"
+          }
+        },
+        {
+          "id": "3005:57213",
+          "key": "key-backup-ready",
+          "title": "Теперь проверьте запасной ключ",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3005-57213",
+          "english": {
+            "id": "3007:57205",
+            "title": "EN · key-backup-ready · Verify the backup key next",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3007-57205"
+          }
+        },
+        {
+          "id": "3005:57242",
+          "key": "key-backup-prompt",
+          "title": "Подтвердите запасной ключ",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3005-57242",
+          "english": {
+            "id": "3007:57234",
+            "title": "EN · key-backup-prompt · Confirm backup key",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3007-57234"
+          }
+        },
+        {
+          "id": "3005:57271",
+          "key": "key-backup-error",
+          "title": "Запасной ключ не проверен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3005-57271",
+          "english": {
+            "id": "3007:57263",
+            "title": "EN · key-backup-error · Backup key not verified",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3007-57263"
+          }
+        },
+        {
+          "id": "3005:57300",
+          "key": "key-backup-cancelled",
+          "title": "Проверка запасного отменена",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3005-57300",
+          "english": {
+            "id": "3007:57292",
+            "title": "EN · key-backup-cancelled · Backup check cancelled",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3007-57292"
+          }
+        },
+        {
+          "id": "3005:57329",
+          "key": "key-backup-duplicate",
+          "title": "Нужен другой физический ключ",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3005-57329",
+          "english": {
+            "id": "3007:57321",
+            "title": "EN · key-backup-duplicate · Use a different physical key",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3007-57321"
+          }
+        },
+        {
+          "id": "3005:57358",
+          "key": "key-proof-expired",
+          "title": "Проверку нужно начать заново",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3005-57358",
+          "english": {
+            "id": "3007:57350",
+            "title": "EN · key-proof-expired · Start verification again",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3007-57350"
           }
         }
       ],

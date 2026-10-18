@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-18",
+  "locale": "RU",
+  "environment": "Figma prototype only; no real browser authenticator requests",
+  "observedNodeTrail": [
+    "2155:76988",
+    "3005:57155",
+    "3005:57213",
+    "3005:57242",
+    "3005:57271",
+    "3005:57242",
+    "3005:57300",
+    "3005:57242",
+    "3005:57329",
+    "3005:57242",
+    "2155:77104"
+  ],
+  "transitions": 10,
+  "passed": [
+    "primary request",
+    "primary verified separately",
+    "backup request",
+    "backup failure",
+    "retry backup only",
+    "cancel backup",
+    "resume backup",
+    "reject reused key",
+    "retry distinct key",
+    "both verified"
+  ],
+  "evidence": "Fresh screenshots and node-id URL after each click in the in-app browser; screenshots of frames saved separately",
+  "notManuallyPassed": [
+    "EN",
+    "primary error",
+    "expiry",
+    "other roles",
+    "keyboard",
+    "actual WebAuthn"
+  ],
+  "fullAcceptance": false
+}
