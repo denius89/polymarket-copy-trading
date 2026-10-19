@@ -1,5 +1,6 @@
 # Полный каталог документов
 
+- [130 — числовая политика paper MVP v1](130_paper_copy_settings_numeric_policy_proposal_2026-10-18.md): принято ADR-0058; диапазоны/шаги, активный F, минимум $5 только fixed; [JSON](policies/paper-mvp-settings-v1.json) и QA.
 - [135 — BL-08: совмещение лимитов и причины отказа](135_effective_limits_and_rejection_reasons_2026-10-19.md): нормативный контракт ADR-0057 и reference-проверки, без runtime.
 
 - [134 — бюджет и версии активной сессии](134_active_session_budget_and_settings_versions_2026-10-19.md): нормативный контракт ADR-0056 и reference-проверки, без runtime.
