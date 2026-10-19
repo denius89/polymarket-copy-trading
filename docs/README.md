@@ -10,6 +10,7 @@
 | Последние изменения и история | [PROJECT_STATE](PROJECT_STATE.md) |
 | Согласованные правила | [Бизнес-логика MVP](MVP_BUSINESS_LOGIC.md), [ADR](decisions/README.md) |
 | Сверка правил и актуальных макетов | [Бизнес-аудит 19.10.2026: замечания, открытые решения и evidence](qa/business-logic-2026-10-19/README.md) |
+| Части позиции и завершение | [ADR-0049](decisions/0049_position_parts_cost_and_manual_sales.md), [ADR-0050](decisions/0050_shadow_assessment_boundary_and_exit_only_tail.md), [ADR-0051](decisions/0051_strict_session_completion_and_paper_reset.md); [исходное предложение](131_position_parts_and_session_completion_proposal_2026-10-19.md) с границей принятия |
 | Все документы, включая ранние | [Полный каталог](DOCUMENT_INDEX.md) |
 | Как хранить, публиковать и завершать задачи | [Карта и правила репозитория](REPOSITORY_GUIDE.md), [каталог внешних архивов](storage/catalog.json) |
 | История уборки и восстановление | [Проверенный срез 19.10.2026](REPOSITORY_MAINTENANCE_2026-10-19.md) |
