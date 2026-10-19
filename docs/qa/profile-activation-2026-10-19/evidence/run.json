@@ -1,0 +1,342 @@
+{
+  "startedAt": "2026-10-19T20:55:53.575477+00:00",
+  "finishedAt": "2026-10-19T20:56:36.527517+00:00",
+  "scope": "bounded unauthenticated market data; two controlled sessions per observed family, full relevant frames until cap; not production acceptance",
+  "streams": [
+    {
+      "profile": {
+        "id": "polymarket-v1",
+        "venue": "polymarket",
+        "assetId": "32338220190071351435772801779725302244575775216413325951443816017994629993401",
+        "conditionId": "0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7",
+        "bookAvailable": true
+      },
+      "sessions": [
+        {
+          "attempt": 0,
+          "startedAt": "2026-10-19T20:55:53.575633+00:00",
+          "generation": 0,
+          "frameCount": 7,
+          "bookCount": 1,
+          "firstFrameMs": 362.550709003699,
+          "outcome": "completed_bounded_capture",
+          "durationMs": 26364,
+          "artifact": "polymarket-v1-session-0.jsonl",
+          "frameCapReached": false,
+          "artifactSHA256": "88bb20f67c8fed62a770ac40f8a81b82b841242bf81b37b0a347ee1cac11be1c"
+        },
+        {
+          "attempt": 1,
+          "startedAt": "2026-10-19T20:56:19.940611+00:00",
+          "generation": 1,
+          "frameCount": 5,
+          "bookCount": 1,
+          "firstFrameMs": 579.6099169965601,
+          "outcome": "completed_bounded_capture",
+          "durationMs": 16586,
+          "artifact": "polymarket-v1-session-1.jsonl",
+          "frameCapReached": false,
+          "artifactSHA256": "cc48caac87d431962261d37dfd9123180e4156cb96a814d4ed455379b5108cdd"
+        }
+      ]
+    },
+    {
+      "profile": {
+        "id": "limitless-legacy",
+        "venue": "limitless",
+        "marketSlug": "btc-up-or-down-5-min-1792443300",
+        "yesToken": "67774815395561241360085662622424705083667956818099302684608319650545764659640",
+        "bookAvailable": true,
+        "metadata": {
+          "fee": true,
+          "takerDelayMs": 250
+        },
+        "settings": {
+          "takerDelayMs": 250,
+          "minSize": "50000000"
+        },
+        "venueData": {
+          "exchange": "0x05c748E2f4DcDe0ec9Fa8DDc40DE6b867f923fa5",
+          "adapter": null
+        }
+      },
+      "sessions": [
+        {
+          "attempt": 0,
+          "startedAt": "2026-10-19T20:55:53.617648+00:00",
+          "generation": 0,
+          "frameCount": 73,
+          "bookCount": 73,
+          "system": [
+            {
+              "message": "Successfully registered connection"
+            },
+            {
+              "message": "Successfully subscribed to market price updates",
+              "markets": [
+                "btc-up-or-down-5-min-1792443300"
+              ]
+            }
+          ],
+          "firstFrameMs": 241.2372919934569,
+          "outcome": "completed_bounded_capture",
+          "durationMs": 25237,
+          "artifact": "limitless-legacy-session-0.jsonl",
+          "frameCapReached": false,
+          "artifactSHA256": "19c6d9732e2f8ad544bb91462fedf85f536f1e1d44a011a4e1f156100f8fce2d"
+        },
+        {
+          "attempt": 1,
+          "startedAt": "2026-10-19T20:56:18.855561+00:00",
+          "generation": 1,
+          "frameCount": 45,
+          "bookCount": 45,
+          "system": [
+            {
+              "message": "Successfully registered connection"
+            },
+            {
+              "message": "Successfully subscribed to market price updates",
+              "markets": [
+                "btc-up-or-down-5-min-1792443300"
+              ]
+            }
+          ],
+          "firstFrameMs": 252.013999997871,
+          "outcome": "completed_bounded_capture",
+          "durationMs": 15258,
+          "artifact": "limitless-legacy-session-1.jsonl",
+          "frameCapReached": false,
+          "artifactSHA256": "b50b8f10e33cdb6777029d64eeee16abbe7ab4a25972f5fc5a43fea114aff709"
+        }
+      ]
+    }
+  ],
+  "clockSamples": [
+    {
+      "value": 1792443353,
+      "requestId": "polymarket-time-0"
+    },
+    {
+      "value": 1792443354,
+      "requestId": "polymarket-time-1"
+    },
+    {
+      "value": 1792443354,
+      "requestId": "polymarket-time-2"
+    },
+    {
+      "value": 1792443354,
+      "requestId": "polymarket-time-3"
+    },
+    {
+      "value": 1792443355,
+      "requestId": "polymarket-time-4"
+    },
+    {
+      "value": 1792443355,
+      "requestId": "polymarket-time-5"
+    },
+    {
+      "value": 1792443355,
+      "requestId": "polymarket-time-6"
+    },
+    {
+      "value": 1792443356,
+      "requestId": "polymarket-time-7"
+    }
+  ],
+  "requests": [
+    {
+      "id": "poly-discovery-0",
+      "url": "https://gamma-api.polymarket.com/markets/keyset?active=true&closed=false&limit=25",
+      "sentAt": "2026-10-19T20:55:52.528412+00:00",
+      "sentUnixNs": 1792443352528410000,
+      "httpStatus": 200,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:55:52 GMT",
+        "Cache-Control": "public, max-age=300"
+      },
+      "sourceSHA256": "dfb366bf9a3464a1dff6af2b01797564e468751bc0772df7681115ad210ac9dd",
+      "receivedUnixNs": 1792443352822376000,
+      "receivedAt": "2026-10-19T20:55:52.822385+00:00",
+      "rttMs": 293.997792
+    },
+    {
+      "id": "polymarket-v1-book",
+      "url": "https://clob.polymarket.com/book?token_id=32338220190071351435772801779725302244575775216413325951443816017994629993401",
+      "sentAt": "2026-10-19T20:55:52.822574+00:00",
+      "sentUnixNs": 1792443352822573000,
+      "httpStatus": 200,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:55:52 GMT"
+      },
+      "sourceSHA256": "ebe16ad2c459da347535f0429266d5ab41fe6bbb6fe551411c68d288b4bb490e",
+      "receivedUnixNs": 1792443353015450000,
+      "receivedAt": "2026-10-19T20:55:53.015459+00:00",
+      "rttMs": 192.9435,
+      "artifact": "polymarket-v1-book.json",
+      "artifactSHA256": "d2bc8931cd2be421ba149fb7b1e2fa525bf3c61d777e98f1f12842a98865bf5b"
+    },
+    {
+      "id": "polymarket-v1-market",
+      "url": "https://clob.polymarket.com/clob-markets/0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7",
+      "sentAt": "2026-10-19T20:55:53.017226+00:00",
+      "sentUnixNs": 1792443353017222000,
+      "httpStatus": 200,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:55:53 GMT"
+      },
+      "sourceSHA256": "10a5dc1118e5f25889a4b03e331f9d796c7c4f6e63716d49896b3b6ccb40df74",
+      "receivedUnixNs": 1792443353183158000,
+      "receivedAt": "2026-10-19T20:55:53.183166+00:00",
+      "rttMs": 165.972334,
+      "artifact": "polymarket-v1-market.json",
+      "artifactSHA256": "6456f4846b81c861f31e52974fd8d5c9021e2df032fd62dba1ba80056592b128"
+    },
+    {
+      "id": "limitless-discovery",
+      "url": "https://api.limitless.exchange/markets/active?limit=25&page=1",
+      "sentAt": "2026-10-19T20:55:53.184373+00:00",
+      "sentUnixNs": 1792443353184369000,
+      "httpStatus": 200,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:55:53 GMT",
+        "Age": "22",
+        "Cache-Control": "public, max-age=30, s-maxage=30"
+      },
+      "sourceSHA256": "8b4f8b55ac4ff556f0bdd4825bb5b833ffd274741e5d8af42a4e1548d19d8253",
+      "receivedUnixNs": 1792443353416336000,
+      "receivedAt": "2026-10-19T20:55:53.416339+00:00",
+      "rttMs": 231.97825
+    },
+    {
+      "id": "limitless-legacy-book",
+      "url": "https://api.limitless.exchange/markets/btc-up-or-down-5-min-1792443300/orderbook",
+      "sentAt": "2026-10-19T20:55:53.416393+00:00",
+      "sentUnixNs": 1792443353416392000,
+      "httpStatus": 200,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:55:53 GMT"
+      },
+      "sourceSHA256": "1337bb28c76e50f66ec4673fa13054d4402529c6accb929c400485b76cba7592",
+      "receivedUnixNs": 1792443353572769000,
+      "receivedAt": "2026-10-19T20:55:53.572774+00:00",
+      "rttMs": 156.401541,
+      "artifact": "limitless-legacy-book.json",
+      "artifactSHA256": "10c84988024730b0569a133251320674f1436ce78ee50b861041c490ad071e0e"
+    },
+    {
+      "id": "polymarket-time-0",
+      "url": "https://clob.polymarket.com/time",
+      "sentAt": "2026-10-19T20:55:53.619181+00:00",
+      "sentUnixNs": 1792443353619179000,
+      "httpStatus": 200,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:55:53 GMT"
+      },
+      "sourceSHA256": "c885413d6e22a5c51ddd3b07b502f2b26e1de106954a9f4ce2813bfb1b57a165",
+      "receivedUnixNs": 1792443353784317000,
+      "receivedAt": "2026-10-19T20:55:53.784325+00:00",
+      "rttMs": 165.167334
+    },
+    {
+      "id": "polymarket-time-1",
+      "url": "https://clob.polymarket.com/time",
+      "sentAt": "2026-10-19T20:55:53.956087+00:00",
+      "sentUnixNs": 1792443353956079000,
+      "httpStatus": 200,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:55:54 GMT"
+      },
+      "sourceSHA256": "148a268f43bd6c05c89810f71c3a925088fe6d836359903dd2ecff3955e27202",
+      "receivedUnixNs": 1792443354120770000,
+      "receivedAt": "2026-10-19T20:55:54.120778+00:00",
+      "rttMs": 164.723125
+    },
+    {
+      "id": "polymarket-time-2",
+      "url": "https://clob.polymarket.com/time",
+      "sentAt": "2026-10-19T20:55:54.292552+00:00",
+      "sentUnixNs": 1792443354292542000,
+      "httpStatus": 200,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:55:54 GMT"
+      },
+      "sourceSHA256": "148a268f43bd6c05c89810f71c3a925088fe6d836359903dd2ecff3955e27202",
+      "receivedUnixNs": 1792443354456993000,
+      "receivedAt": "2026-10-19T20:55:54.457000+00:00",
+      "rttMs": 164.480834
+    },
+    {
+      "id": "polymarket-time-3",
+      "url": "https://clob.polymarket.com/time",
+      "sentAt": "2026-10-19T20:55:54.629058+00:00",
+      "sentUnixNs": 1792443354629049000,
+      "httpStatus": 200,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:55:54 GMT"
+      },
+      "sourceSHA256": "148a268f43bd6c05c89810f71c3a925088fe6d836359903dd2ecff3955e27202",
+      "receivedUnixNs": 1792443354797157000,
+      "receivedAt": "2026-10-19T20:55:54.797164+00:00",
+      "rttMs": 168.13825
+    },
+    {
+      "id": "polymarket-time-4",
+      "url": "https://clob.polymarket.com/time",
+      "sentAt": "2026-10-19T20:55:54.967544+00:00",
+      "sentUnixNs": 1792443354967541000,
+      "httpStatus": 200,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:55:55 GMT"
+      },
+      "sourceSHA256": "74615858053fb434edfcc1220fe83020232eb579cd70633bfbe7256ae49ff7ec",
+      "receivedUnixNs": 1792443355128981000,
+      "receivedAt": "2026-10-19T20:55:55.128986+00:00",
+      "rttMs": 161.461083
+    },
+    {
+      "id": "polymarket-time-5",
+      "url": "https://clob.polymarket.com/time",
+      "sentAt": "2026-10-19T20:55:55.300745+00:00",
+      "sentUnixNs": 1792443355300736000,
+      "httpStatus": 200,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:55:55 GMT"
+      },
+      "sourceSHA256": "74615858053fb434edfcc1220fe83020232eb579cd70633bfbe7256ae49ff7ec",
+      "receivedUnixNs": 1792443355454578000,
+      "receivedAt": "2026-10-19T20:55:55.454586+00:00",
+      "rttMs": 153.877
+    },
+    {
+      "id": "polymarket-time-6",
+      "url": "https://clob.polymarket.com/time",
+      "sentAt": "2026-10-19T20:55:55.626256+00:00",
+      "sentUnixNs": 1792443355626248000,
+      "httpStatus": 200,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:55:55 GMT"
+      },
+      "sourceSHA256": "74615858053fb434edfcc1220fe83020232eb579cd70633bfbe7256ae49ff7ec",
+      "receivedUnixNs": 1792443355792965000,
+      "receivedAt": "2026-10-19T20:55:55.792969+00:00",
+      "rttMs": 166.736625
+    },
+    {
+      "id": "polymarket-time-7",
+      "url": "https://clob.polymarket.com/time",
+      "sentAt": "2026-10-19T20:55:55.963481+00:00",
+      "sentUnixNs": 1792443355963478000,
+      "httpStatus": 200,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:55:56 GMT"
+      },
+      "sourceSHA256": "48b55d92f6258dd6ddcbb733ff0ba4b7ed6db40b926ba4243285da78dfeb8684",
+      "receivedUnixNs": 1792443356119320000,
+      "receivedAt": "2026-10-19T20:55:56.119323+00:00",
+      "rttMs": 155.858292
+    }
+  ]
+}

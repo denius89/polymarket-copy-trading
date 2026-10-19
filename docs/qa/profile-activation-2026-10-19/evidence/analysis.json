@@ -1,0 +1,90 @@
+{
+  "streams": [
+    {
+      "profile": "polymarket-v1",
+      "sessions": [
+        {
+          "frames": 7,
+          "bookCount": 1,
+          "firstFrameMs": 362.550709003699,
+          "frameCapReached": false,
+          "replayEvents": {
+            "delta_after_seed": 6,
+            "full_snapshot": 1
+          },
+          "fullSeedObserved": true
+        },
+        {
+          "frames": 5,
+          "bookCount": 1,
+          "firstFrameMs": 579.6099169965601,
+          "frameCapReached": false,
+          "replayEvents": {
+            "delta_after_seed": 4,
+            "full_snapshot": 1
+          },
+          "fullSeedObserved": true
+        }
+      ],
+      "unadjustedSourceLagMs": {
+        "min": 37.60302734375,
+        "median": 51.323974609375,
+        "max": 7435.509033203125,
+        "above2000": 2,
+        "count": 12
+      },
+      "streamGate": "partial_observed_not_full_acceptance"
+    },
+    {
+      "profile": "limitless-legacy",
+      "sessions": [
+        {
+          "frames": 73,
+          "bookCount": 73,
+          "firstFrameMs": 241.2372919934569,
+          "frameCapReached": false,
+          "replayEvents": {
+            "full_snapshot": 73
+          },
+          "fullSeedObserved": true
+        },
+        {
+          "frames": 45,
+          "bookCount": 45,
+          "firstFrameMs": 252.013999997871,
+          "frameCapReached": false,
+          "replayEvents": {
+            "full_snapshot": 45
+          },
+          "fullSeedObserved": true
+        }
+      ],
+      "unadjustedSourceLagMs": {
+        "min": 23.760009765625,
+        "median": 27.14306640625,
+        "max": 240.15478515625,
+        "above2000": 0,
+        "count": 118
+      },
+      "streamGate": "partial_observed_not_full_acceptance"
+    }
+  ],
+  "runtimeActivationAllowed": false,
+  "clock": {
+    "samples": 8,
+    "conditionalServerMinusLocalIntervalMs": [
+      -119.32,
+      370.951
+    ],
+    "halfWidthMs": 245.1355,
+    "assumptionsVerified": false,
+    "publisherClockBoundVerified": false,
+    "hostSyncConfigurationRead": "administrator_required_not_escalated",
+    "localNtpDiagnostic": "two one-shot SNTP reads, no -s/-S; not continuous sync evidence"
+  },
+  "fees": {
+    "polymarketExponent1": "exact_reference_only_not_settlement_verified",
+    "limitlessCollateral": "exact_reference_only_no_deployed_venue_observed",
+    "limitlessLegacy": "blocked_no_verified_pretrade_curve; docs_whitepaper_counterexample; SDK_profile_rate_fallback"
+  }
+}

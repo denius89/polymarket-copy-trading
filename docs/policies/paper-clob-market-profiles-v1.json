@@ -52,7 +52,14 @@
         "P08",
         "P09"
       ],
-      "concreteMarketInstanceReady": false
+      "concreteMarketInstanceReady": false,
+      "activationAudit": "2026-10-19",
+      "observedChecks": {
+        "publicStreamAndControlledReconnect": "passed_bounded_sample",
+        "syntheticFaultReplay": "passed",
+        "completePublisherClockBound": "not_proven",
+        "feeSettlementParity": "not_proven"
+      }
     },
     {
       "id": "polymarket-protocol-v2",
@@ -81,7 +88,12 @@
         "P08",
         "P09"
       ],
-      "concreteMarketInstanceReady": false
+      "concreteMarketInstanceReady": false,
+      "activationAudit": "2026-10-19",
+      "observedChecks": {
+        "selectedDeployedFamily": "not_observed_in_bounded_discovery",
+        "feeReferenceVectors": "synthetic_only"
+      }
     },
     {
       "id": "limitless-clob-legacy",
@@ -100,7 +112,9 @@
       "blockers": [
         "legacy_exact_fee_and_upper_bound_not_proven",
         "clock_and_stream_acceptance",
-        "typed_order_shape_validation"
+        "typed_order_shape_validation",
+        "inspected_sdk_rank_rate_fallback_not_authoritative",
+        "sdk_quantity_grid_stricter_than_algebraic_api_grid"
       ],
       "documentedSources": [
         "L01",
@@ -110,7 +124,16 @@
         "L08",
         "L06"
       ],
-      "concreteMarketInstanceReady": false
+      "concreteMarketInstanceReady": false,
+      "activationAudit": "2026-10-19",
+      "observedChecks": {
+        "publicStreamAndControlledReconnect": "passed_bounded_sample",
+        "syntheticFaultReplay": "passed",
+        "completePublisherClockBound": "not_proven",
+        "pretradeFeeCurve": "not_proven",
+        "inspectedSdkFeeContext": "conflicts_with_current_docs",
+        "inspectedSdkCommit": "a1dbd0cbc7a0dd58994a36d4b1dbff1d333bb8ba"
+      }
     },
     {
       "id": "limitless-clob-collateral",
@@ -143,7 +166,12 @@
         "L08",
         "L05"
       ],
-      "concreteMarketInstanceReady": false
+      "concreteMarketInstanceReady": false,
+      "activationAudit": "2026-10-19",
+      "observedChecks": {
+        "selectedDeployedFamily": "not_observed_in_bounded_discovery",
+        "feeReferenceVectors": "synthetic_only"
+      }
     },
     {
       "id": "limitless-amm",
@@ -156,10 +184,13 @@
       "documentedSources": [
         "L07"
       ],
-      "concreteMarketInstanceReady": false
+      "concreteMarketInstanceReady": false,
+      "activationAudit": "2026-10-19"
     }
   ],
   "checkedDate": "2026-10-19",
   "kind": "profile_family_contract_not_instantiated_market_configuration",
-  "sourcesManifest": "docs/qa/venue-profiles-2026-10-19/sources.json"
+  "sourcesManifest": "docs/qa/venue-profiles-2026-10-19/sources.json",
+  "lastActivationAudit": "docs/137_profile_activation_audit_2026-10-19.md",
+  "activationAuditResult": "no_profile_eligible_for_execution"
 }
