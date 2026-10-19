@@ -25,7 +25,7 @@ A mobile-first product for controlled copy trading on **Polymarket** and **Limit
 | Area | Status |
 | --- | --- |
 | Client and admin | RU/EN, mobile/desktop, UI kit and handoff prepared. Full manual acceptance remains open. |
-| First entry | [ADR-0048](docs/decisions/0048_unified_registration_and_first_entry.md) is accepted; complete prototype alignment remains open. |
+| First entry | [ADR-0048](docs/decisions/0048_unified_registration_and_first_entry.md) is accepted; [all four Final entry routes are updated](docs/design/client/adr48-entry-fixes-2026-10-19/README.md). Runtime authentication and full end-to-end acceptance remain ahead. |
 | Copy Score | Seven research packages and source inputs preserved. A public ranking formula has not been accepted. |
 | Venue APIs | [Polymarket](docs/api/polymarket/README.md) and [Limitless](docs/api/limitless/README.md) references. Evidence dated 6 October 2026; freshness must be checked for each task. |
 | Application | `apps/` and `packages/` describe future boundaries. Implementation, paper trading and live trading have separate gates. |

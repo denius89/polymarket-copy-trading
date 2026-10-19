@@ -1,0 +1,3251 @@
+{
+  "key": "dr",
+  "roles": {
+    "fixedSetup": "2499:3630",
+    "fixedStart": "2499:3724",
+    "fixedEdit": "2499:3789",
+    "percentSetup": "3087:192517",
+    "percentStart": "3087:192614",
+    "percentEdit": "3087:192679",
+    "confirm": "2525:136008",
+    "resumePrimary": "3239:8346",
+    "resumeSecondary": "3239:8347",
+    "emailBack": "2525:135475",
+    "confirmBack": "2525:136018",
+    "mainPrimary": "2499:3577"
+  },
+  "resume": "3239:8310",
+  "actions": [
+    {
+      "id": "2499:3630",
+      "name": "Action / Сохранить и продолжить",
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:949:4521",
+          "variableValue": {
+            "value": true,
+            "type": "BOOLEAN",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3237:16611",
+          "variableValue": {
+            "value": "fixed",
+            "type": "STRING",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "NODE",
+          "destinationId": "2499:3711",
+          "navigation": "NAVIGATE",
+          "transition": null,
+          "resetVideoPosition": false,
+          "resetScrollPosition": true
+        }
+      ]
+    },
+    {
+      "id": "2499:3724",
+      "name": "Action / Запустить демо",
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3243:4",
+          "variableValue": {
+            "value": false,
+            "type": "BOOLEAN",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "2499:3827",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3237:16610"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "empty",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16613",
+                  "variableValue": {
+                    "value": "Сессия уже активна. Новая не запущена; черновик настройки сохранён.",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16614",
+                  "variableValue": {
+                    "value": "Открыть текущую сессию",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:830:2",
+                  "variableValue": {
+                    "value": "active",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "3239:8310",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3237:16610"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "active",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16613",
+                  "variableValue": {
+                    "value": "Сессия на паузе. Вход её не возобновляет; черновик настройки сохранён.",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16614",
+                  "variableValue": {
+                    "value": "Открыть текущую сессию",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:830:2",
+                  "variableValue": {
+                    "value": "paused",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "3239:8310",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3237:16610"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "paused",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16613",
+                  "variableValue": {
+                    "value": "Остались позиции или незавершённая сверка. Новая сессия недоступна; черновик сохранён.",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16614",
+                  "variableValue": {
+                    "value": "Открыть текущую сессию",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:830:2",
+                  "variableValue": {
+                    "value": "active",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "3239:8310",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3237:16610"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "blocked",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:949:4521",
+                  "variableValue": {
+                    "value": false,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16611",
+                  "variableValue": {
+                    "value": "none",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16610",
+                  "variableValue": {
+                    "value": "empty",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:830:2",
+                  "variableValue": {
+                    "value": "empty",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "2499:3791",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:830:3"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": true,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:949:4521",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16611",
+                  "variableValue": {
+                    "value": "fixed",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16612",
+                  "variableValue": {
+                    "value": "fixed",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "2525:134961",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3243:4"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": false,
+                      "type": "BOOLEAN",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2499:3789",
+      "name": "Action / Изменить настройки",
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3237:16611",
+          "variableValue": {
+            "value": "fixed",
+            "type": "STRING",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "NODE",
+          "destinationId": "2499:3617",
+          "navigation": "NAVIGATE",
+          "transition": null,
+          "resetVideoPosition": false,
+          "resetScrollPosition": true
+        }
+      ]
+    },
+    {
+      "id": "3087:192517",
+      "name": "Action / Сохранить и продолжить",
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:949:4521",
+          "variableValue": {
+            "value": true,
+            "type": "BOOLEAN",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3237:16611",
+          "variableValue": {
+            "value": "percent",
+            "type": "STRING",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "NODE",
+          "destinationId": "3087:192601",
+          "navigation": "NAVIGATE",
+          "transition": null,
+          "resetVideoPosition": false,
+          "resetScrollPosition": true
+        }
+      ]
+    },
+    {
+      "id": "3087:192614",
+      "name": "Action / Запустить демо",
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3243:4",
+          "variableValue": {
+            "value": false,
+            "type": "BOOLEAN",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "2499:3827",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3237:16610"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "empty",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16613",
+                  "variableValue": {
+                    "value": "Сессия уже активна. Новая не запущена; черновик настройки сохранён.",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16614",
+                  "variableValue": {
+                    "value": "Открыть текущую сессию",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:830:2",
+                  "variableValue": {
+                    "value": "active",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "3239:8310",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3237:16610"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "active",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16613",
+                  "variableValue": {
+                    "value": "Сессия на паузе. Вход её не возобновляет; черновик настройки сохранён.",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16614",
+                  "variableValue": {
+                    "value": "Открыть текущую сессию",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:830:2",
+                  "variableValue": {
+                    "value": "paused",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "3239:8310",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3237:16610"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "paused",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16613",
+                  "variableValue": {
+                    "value": "Остались позиции или незавершённая сверка. Новая сессия недоступна; черновик сохранён.",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16614",
+                  "variableValue": {
+                    "value": "Открыть текущую сессию",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:830:2",
+                  "variableValue": {
+                    "value": "active",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "3239:8310",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3237:16610"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "blocked",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:949:4521",
+                  "variableValue": {
+                    "value": false,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16611",
+                  "variableValue": {
+                    "value": "none",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16610",
+                  "variableValue": {
+                    "value": "empty",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:830:2",
+                  "variableValue": {
+                    "value": "empty",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "2499:3791",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:830:3"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": true,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:949:4521",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16611",
+                  "variableValue": {
+                    "value": "percent",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16612",
+                  "variableValue": {
+                    "value": "percent",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "2525:134961",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3243:4"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": false,
+                      "type": "BOOLEAN",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3087:192679",
+      "name": "Action / Изменить настройки",
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3237:16611",
+          "variableValue": {
+            "value": "percent",
+            "type": "STRING",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "NODE",
+          "destinationId": "3087:192504",
+          "navigation": "NAVIGATE",
+          "transition": null,
+          "resetVideoPosition": false,
+          "resetScrollPosition": true
+        }
+      ]
+    },
+    {
+      "id": "2525:136008",
+      "name": "Button/Send secure link",
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:830:3",
+          "variableValue": {
+            "value": true,
+            "type": "BOOLEAN",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3243:4",
+          "variableValue": {
+            "value": false,
+            "type": "BOOLEAN",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:830:2",
+                  "variableValue": {
+                    "value": "empty",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "2499:3827",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3237:16610"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "empty",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16613",
+                  "variableValue": {
+                    "value": "Сессия уже активна. Новая не запущена; черновик настройки сохранён.",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16614",
+                  "variableValue": {
+                    "value": "Открыть текущую сессию",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:830:2",
+                  "variableValue": {
+                    "value": "active",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "3239:8310",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3237:16610"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "active",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16613",
+                  "variableValue": {
+                    "value": "Сессия на паузе. Вход её не возобновляет; черновик настройки сохранён.",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16614",
+                  "variableValue": {
+                    "value": "Открыть текущую сессию",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:830:2",
+                  "variableValue": {
+                    "value": "paused",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "3239:8310",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3237:16610"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "paused",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16613",
+                  "variableValue": {
+                    "value": "Остались позиции или незавершённая сверка. Новая сессия недоступна; черновик сохранён.",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16614",
+                  "variableValue": {
+                    "value": "Открыть текущую сессию",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:830:2",
+                  "variableValue": {
+                    "value": "active",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "3239:8310",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3237:16610"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "blocked",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16613",
+                  "variableValue": {
+                    "value": "Сессия завершена; открытых позиций и незавершённой сверки нет. Можно выбрать трейдера для новой проверки.",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16614",
+                  "variableValue": {
+                    "value": "Выбрать трейдера",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:830:2",
+                  "variableValue": {
+                    "value": "completed",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "3239:8310",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3237:16610"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "completed",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "3087:192601",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3237:16611"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "percent",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "2499:3711",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3237:16611"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "fixed",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:830:2",
+                  "variableValue": {
+                    "value": "before",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "2525:134441",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3243:4"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": false,
+                      "type": "BOOLEAN",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3239:8346",
+      "name": "Action / Выбрать трейдера",
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3243:4",
+          "variableValue": {
+            "value": false,
+            "type": "BOOLEAN",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3237:16610",
+                  "variableValue": {
+                    "value": "new",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:830:2",
+                  "variableValue": {
+                    "value": "before",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "2525:134441",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3237:16610"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "completed",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "2529:133953",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3237:16610"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "paused",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "2499:3827",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3237:16610"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "empty",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "2499:53",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3243:4"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": false,
+                      "type": "BOOLEAN",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3239:8347",
+      "name": "Action / Как это работает",
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "2525:134441",
+          "navigation": "NAVIGATE",
+          "transition": null,
+          "resetVideoPosition": false,
+          "resetScrollPosition": true
+        }
+      ]
+    },
+    {
+      "id": "2525:135475",
+      "name": "Action / Back to review",
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3243:4",
+          "variableValue": {
+            "value": false,
+            "type": "BOOLEAN",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "3087:192601",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3237:16612"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "percent",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "2499:3711",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3243:4"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "BOOLEAN"
+                          },
+                          {
+                            "value": false,
+                            "type": "BOOLEAN",
+                            "resolvedType": "BOOLEAN"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3237:16612"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "fixed",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "AND"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3243:4",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "2499:3541",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3243:4"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "BOOLEAN"
+                    },
+                    {
+                      "value": false,
+                      "type": "BOOLEAN",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2525:136018",
+      "name": "Action / Back to review",
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "2525:134961",
+          "navigation": "NAVIGATE",
+          "transition": null,
+          "resetVideoPosition": false,
+          "resetScrollPosition": true
+        }
+      ]
+    },
+    {
+      "id": "2499:3577",
+      "name": "Action / Начать знакомство",
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3237:16612",
+          "variableValue": {
+            "value": "main",
+            "type": "STRING",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:830:2",
+                  "variableValue": {
+                    "value": "before",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3237:16610"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "new",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "NODE",
+          "destinationId": "2525:134961",
+          "navigation": "NAVIGATE",
+          "transition": null,
+          "resetVideoPosition": false,
+          "resetScrollPosition": true
+        }
+      ]
+    }
+  ],
+  "frames": [
+    {
+      "id": "2499:3711",
+      "name": "Current / Проверка настроек / desktop RU",
+      "width": 1440,
+      "height": 960,
+      "texts": [
+        {
+          "id": "I2499:3724;113:241",
+          "text": "Запустить демо"
+        },
+        {
+          "id": "2499:3727",
+          "text": "shadow"
+        },
+        {
+          "id": "I2499:3729;1013:38",
+          "text": "Главная"
+        },
+        {
+          "id": "I2499:3730;1013:54",
+          "text": "Трейдеры"
+        },
+        {
+          "id": "I2499:3731;1013:74",
+          "text": "Позиции"
+        },
+        {
+          "id": "I2499:3732;1013:92",
+          "text": "Активность"
+        },
+        {
+          "id": "I2499:3735;819:315",
+          "text": "Проверка настроек"
+        },
+        {
+          "id": "I2499:3735;819:316",
+          "text": "Проверьте бюджет и ограничения перед запуском"
+        },
+        {
+          "id": "2499:3763",
+          "text": "Momentum Fox"
+        },
+        {
+          "id": "2499:3764",
+          "text": "Polymarket · Демо · виртуальные средства"
+        },
+        {
+          "id": "2499:3765",
+          "text": "Проверьте перед запуском"
+        },
+        {
+          "id": "2499:3768",
+          "text": "Демо-бюджет"
+        },
+        {
+          "id": "2499:3769",
+          "text": "200,00 $"
+        },
+        {
+          "id": "2499:3771",
+          "text": "Сумма новой покупки"
+        },
+        {
+          "id": "2499:3772",
+          "text": "20,00 $"
+        },
+        {
+          "id": "2499:3774",
+          "text": "Позиция · 10%"
+        },
+        {
+          "id": "2499:3775",
+          "text": "20,00 $"
+        },
+        {
+          "id": "2499:3777",
+          "text": "Покупки/день · 15%"
+        },
+        {
+          "id": "2499:3778",
+          "text": "30,00 $"
+        },
+        {
+          "id": "2499:3780",
+          "text": "Сигнал · системное правило"
+        },
+        {
+          "id": "2499:3781",
+          "text": "30 сек"
+        },
+        {
+          "id": "2499:3784",
+          "text": "Только новые сигналы"
+        },
+        {
+          "id": "2499:3785",
+          "text": "Новые лимиты применяются к новым сигналам. Уже созданные заявки и позиции не меняются."
+        },
+        {
+          "id": "2499:3787",
+          "text": "Демо-счёт · 200,00 $"
+        },
+        {
+          "id": "2499:3788",
+          "text": "Paper Alpha · комиссия сервиса 0%. Только виртуальные средства; реальные заявки не отправляются."
+        },
+        {
+          "id": "2499:3790",
+          "text": "Изменить настройки"
+        }
+      ]
+    },
+    {
+      "id": "3087:192601",
+      "name": "Final / Review · 3% / RU desktop",
+      "width": 1440,
+      "height": 960,
+      "texts": [
+        {
+          "id": "I3087:192614;113:241",
+          "text": "Запустить демо"
+        },
+        {
+          "id": "3087:192617",
+          "text": "shadow"
+        },
+        {
+          "id": "I3087:192619;1013:38",
+          "text": "Главная"
+        },
+        {
+          "id": "I3087:192620;1013:54",
+          "text": "Трейдеры"
+        },
+        {
+          "id": "I3087:192621;1013:74",
+          "text": "Позиции"
+        },
+        {
+          "id": "I3087:192622;1013:92",
+          "text": "Активность"
+        },
+        {
+          "id": "I3087:192625;819:315",
+          "text": "Проверка настроек"
+        },
+        {
+          "id": "I3087:192625;819:316",
+          "text": "Проверьте бюджет и ограничения перед запуском"
+        },
+        {
+          "id": "3087:192653",
+          "text": "Momentum Fox"
+        },
+        {
+          "id": "3087:192654",
+          "text": "Polymarket · Демо · виртуальные средства"
+        },
+        {
+          "id": "3087:192655",
+          "text": "Проверьте перед запуском"
+        },
+        {
+          "id": "3087:192658",
+          "text": "Демо-бюджет"
+        },
+        {
+          "id": "3087:192659",
+          "text": "200,00 $"
+        },
+        {
+          "id": "3087:192661",
+          "text": "Доля покупки трейдера"
+        },
+        {
+          "id": "3087:192662",
+          "text": "3,0 %"
+        },
+        {
+          "id": "3087:192664",
+          "text": "Позиция · 10%"
+        },
+        {
+          "id": "3087:192665",
+          "text": "20,00 $"
+        },
+        {
+          "id": "3087:192667",
+          "text": "Покупки/день · 15%"
+        },
+        {
+          "id": "3087:192668",
+          "text": "30,00 $"
+        },
+        {
+          "id": "3087:192670",
+          "text": "Сигнал · системное правило"
+        },
+        {
+          "id": "3087:192671",
+          "text": "30 сек"
+        },
+        {
+          "id": "3087:192674",
+          "text": "Только новые сигналы"
+        },
+        {
+          "id": "3087:192675",
+          "text": "3% от подтверждённой покупки. Каждый сигнал проверяется по лимитам."
+        },
+        {
+          "id": "3087:192677",
+          "text": "Демо-счёт · 200,00 $"
+        },
+        {
+          "id": "3087:192678",
+          "text": "Paper Alpha · комиссия сервиса 0%. Только виртуальные средства; реальные заявки не отправляются."
+        },
+        {
+          "id": "3087:192680",
+          "text": "Изменить настройки"
+        }
+      ]
+    },
+    {
+      "id": "3239:8310",
+      "name": "ADR-0048 · dr · existing session",
+      "width": 1440,
+      "height": 960,
+      "texts": [
+        {
+          "id": "3239:8325",
+          "text": "shadow"
+        },
+        {
+          "id": "I3239:8327;1013:38",
+          "text": "Главная"
+        },
+        {
+          "id": "I3239:8328;1013:54",
+          "text": "Трейдеры"
+        },
+        {
+          "id": "I3239:8329;1013:74",
+          "text": "Позиции"
+        },
+        {
+          "id": "I3239:8330;1013:92",
+          "text": "Активность"
+        },
+        {
+          "id": "I3239:8333;819:315",
+          "text": "Ваша сессия"
+        },
+        {
+          "id": "I3239:8333;819:316",
+          "text": "Существующая сессия сохраняется."
+        },
+        {
+          "id": "I3239:8333;2752:5214",
+          "text": "6"
+        },
+        {
+          "id": "3239:8336",
+          "text": "​"
+        },
+        {
+          "id": "3239:8341",
+          "text": "Продолжение после входа"
+        },
+        {
+          "id": "3239:8342",
+          "text": "У вас уже есть сессия. Черновик настройки сохранён; вторая сессия не запускается."
+        },
+        {
+          "id": "3239:8345",
+          "text": "Действия"
+        },
+        {
+          "id": "I3239:8346;113:241",
+          "text": "Открыть текущую сессию"
+        },
+        {
+          "id": "I3239:8347;113:243",
+          "text": "Посмотреть трейдеров"
+        }
+      ]
+    }
+  ],
+  "errorActions": [],
+  "launchReactions": [
+    {
+      "action": {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:830:2",
+        "variableValue": {
+          "value": "empty",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:830:2",
+          "variableValue": {
+            "value": "empty",
+            "type": "STRING",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:1219:2",
+          "variableValue": {
+            "value": false,
+            "type": "BOOLEAN",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:1219:3",
+          "variableValue": {
+            "value": {
+              "expressionArguments": [
+                {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              ],
+              "expressionFunction": "NOT"
+            },
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:830:4",
+          "variableValue": {
+            "value": "200,00 $",
+            "type": "STRING",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "NODE",
+          "destinationId": "2499:3827",
+          "navigation": "NAVIGATE",
+          "transition": null,
+          "resetVideoPosition": false,
+          "resetScrollPosition": true
+        }
+      ],
+      "trigger": {
+        "type": "AFTER_TIMEOUT",
+        "timeout": 0.800000011920929
+      }
+    }
+  ],
+  "continuation": {
+    "types": {
+      "FRAME": 29,
+      "TEXT": 15,
+      "INSTANCE": 16,
+      "VECTOR": 17
+    },
+    "images": [],
+    "nodeIds": [
+      "3239:8310",
+      "3239:8311",
+      "3239:8312",
+      "3239:8313",
+      "3239:8314",
+      "3239:8315",
+      "3239:8316",
+      "3239:8317",
+      "3239:8318",
+      "3239:8319",
+      "3239:8320",
+      "3239:8321",
+      "3239:8322",
+      "3239:8323",
+      "3239:8324",
+      "3239:8325",
+      "3239:8326",
+      "3239:8327",
+      "I3239:8327;1013:39",
+      "I3239:8327;1013:40",
+      "I3239:8327;1013:41",
+      "I3239:8327;1013:38",
+      "3239:8328",
+      "I3239:8328;1013:55",
+      "I3239:8328;1013:56",
+      "I3239:8328;1013:57",
+      "I3239:8328;1013:58",
+      "I3239:8328;1013:59",
+      "I3239:8328;1013:54",
+      "3239:8329",
+      "I3239:8329;1013:75",
+      "I3239:8329;1013:76",
+      "I3239:8329;1013:77",
+      "I3239:8329;1013:78",
+      "I3239:8329;1013:74",
+      "3239:8330",
+      "I3239:8330;1013:93",
+      "I3239:8330;1013:94",
+      "I3239:8330;1013:92",
+      "3239:8331",
+      "3239:8332",
+      "3239:8333",
+      "I3239:8333;819:314",
+      "I3239:8333;819:315",
+      "I3239:8333;819:316",
+      "I3239:8333;819:317",
+      "I3239:8333;1187:52",
+      "I3239:8333;1058:39",
+      "I3239:8333;1058:39;1058:35",
+      "I3239:8333;1058:39;1058:36",
+      "I3239:8333;1058:39;1058:37",
+      "I3239:8333;1058:39;1058:38",
+      "I3239:8333;819:321",
+      "I3239:8333;819:323",
+      "I3239:8333;819:324",
+      "I3239:8333;819:325",
+      "I3239:8333;2752:5213",
+      "I3239:8333;2752:5214",
+      "I3239:8333;819:326",
+      "I3239:8333;1187:53",
+      "I3239:8333;1187:54",
+      "I3239:8333;1187:55",
+      "3239:8334",
+      "3239:8335",
+      "3239:8336",
+      "3239:8337",
+      "3239:8338",
+      "3239:8339",
+      "3239:8340",
+      "3239:8341",
+      "3239:8342",
+      "3239:8343",
+      "3239:8344",
+      "3239:8345",
+      "3239:8346",
+      "I3239:8346;113:241",
+      "3239:8347",
+      "I3239:8347;113:243"
+    ]
+  }
+}
