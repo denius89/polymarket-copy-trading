@@ -1,5 +1,11 @@
 # Полный каталог документов
 
+## Дополнение 19.10.2026 · действующие решения и исходные предложения
+
+- [131 — части позиции и завершение: исходное предложение и граница принятия](131_position_parts_and_session_completion_proposal_2026-10-19.md).
+- [132 — поздние исполнения, очередь SELL и округление: исходное предложение](132_late_fills_sell_serialization_rounding_proposal_2026-10-19.md).
+- [ADR-0049–0054 — принятые решения](decisions/README.md); [изолированная проверка модели late/SELL/rounding](qa/late-fill-sell-rounding-2026-10-19/README.md).
+
 [Действующая карта хранения и Git-процесс](REPOSITORY_GUIDE.md) · [Реестр внешних архивов](storage/catalog.json) · [Проверка структуры](qa/repository-structure-review-2026-10-19.md).
 
 Публикация навыков и исследований: [каталог S01–S23](ai-system/CATALOG.md), [Copy Score](../research/TRADER_SCORE_README.md), [реестр крупных исходных данных](../research/DATA_ARCHIVE_2026-10-19.json).
