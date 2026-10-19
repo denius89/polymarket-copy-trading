@@ -1,0 +1,98 @@
+{
+  "checked_date": "2026-10-06",
+  "public_gets": [
+    {
+      "url": "https://data-api.polymarket.com/v2/status",
+      "checked_date": "2026-10-06",
+      "server_date_utc": "Tue, 06 Oct 2026 11:18:00 GMT",
+      "status": 200,
+      "body_file": "status.json",
+      "sha256": "c7b8ee1324f1bb779b067be350105a12ea8810c8c7b7b6c0b7271bf2b2132fd2",
+      "header_file": "status.headers",
+      "headers_sanitized": "Set-Cookie removed; whitespace normalized; no auth/cookies recorded",
+      "note": "server date is HTTP evidence; observed request wall clock not captured individually"
+    },
+    {
+      "url": "https://data-api.polymarket.com/v2/trades?limit=1",
+      "checked_date": "2026-10-06",
+      "server_date_utc": "Tue, 06 Oct 2026 11:18:07 GMT",
+      "status": 200,
+      "body_file": "trades.json",
+      "sha256": "543bba5b2378bdeec9f86dbee7a637bca6ae99e13c2b2fcfea5968e4025383a5",
+      "header_file": "trades.headers",
+      "headers_sanitized": "Set-Cookie removed; whitespace normalized; no auth/cookies recorded",
+      "note": "server date is HTTP evidence; observed request wall clock not captured individually"
+    },
+    {
+      "url": "https://gamma-api.polymarket.com/markets?limit=1&active=true&closed=false",
+      "checked_date": "2026-10-06",
+      "server_date_utc": "Tue, 06 Oct 2026 11:18:12 GMT",
+      "status": 200,
+      "body_file": "gamma.json",
+      "sha256": "4a41239d5352d10585af50aa72a25459fa44b81531f5904f78d42e11be341184",
+      "header_file": "gamma.headers",
+      "headers_sanitized": "Set-Cookie removed; whitespace normalized; no auth/cookies recorded",
+      "note": "server date is HTTP evidence; observed request wall clock not captured individually"
+    },
+    {
+      "url": "https://gamma-api.polymarket.com/markets/keyset?limit=1&active=true&closed=false",
+      "checked_date": "2026-10-06",
+      "server_date_utc": "Tue, 06 Oct 2026 11:18:46 GMT",
+      "status": 200,
+      "body_file": "gamma-keyset.json",
+      "sha256": "b5e53580f9e153b252fd48d2cea120b9aeb5bdee8a95471479ee49a27f8c7a20",
+      "header_file": "gamma-keyset.headers",
+      "headers_sanitized": "Set-Cookie removed; whitespace normalized; no auth/cookies recorded",
+      "note": "server date is HTTP evidence; observed request wall clock not captured individually"
+    },
+    {
+      "url": "https://data-api.polymarket.com/v2/trades?limit=1&offset=1",
+      "checked_date": "2026-10-06",
+      "server_date_utc": "Tue, 06 Oct 2026 11:18:50 GMT",
+      "status": 400,
+      "body_file": "invalid-offset.json",
+      "sha256": "00417ad438e40c5dee6b0bf1ad7e7c1ddc3f6d15bed92fd4fa71179df1a6e696",
+      "header_file": "invalid-offset.headers",
+      "headers_sanitized": "Set-Cookie removed; whitespace normalized; no auth/cookies recorded",
+      "note": "server date is HTTP evidence; observed request wall clock not captured individually"
+    },
+    {
+      "url": "https://data-api.polymarket.com/v2/trades?limit=1&cursor=eyJkYXRhIjp7InR5cGUiOiJ0cmFkZXMiLCJwYXJhbXMiOnsibCI6MSwidHMiOjE3OTEyODU0MzMsInNxIjoiOTUwNTM1MjAwMDA1NzA1OTcwIiwiZCI6MX19LCJzaWciOiJhMGI4YjI1ZmFjYWZhYzZjMjk1ZWRhMWQ0ZWVhYjkyMiJ9",
+      "checked_date": "2026-10-06",
+      "server_date_utc": "Tue, 06 Oct 2026 11:19:12 GMT",
+      "status": 200,
+      "body_file": "trades-page2.json",
+      "sha256": "520dc46991ca58ff353333634715a37cee75a6926cf7fe396aa118c70687584d",
+      "header_file": "trades-page2.headers",
+      "headers_sanitized": "Set-Cookie removed; whitespace normalized; no auth/cookies recorded",
+      "note": "server date is HTTP evidence; observed request wall clock not captured individually"
+    },
+    {
+      "url": "https://clob.polymarket.com/book?token_id=32338220190071351435772801779725302244575775216413325951443816017994629993401",
+      "checked_date": "2026-10-06",
+      "server_date_utc": "Tue, 06 Oct 2026 11:19:21 GMT",
+      "status": 200,
+      "body_file": "book.json",
+      "sha256": "dd73221e86dc4c2ad018c47aee7de649e4b5e8928061ce87c17a3926f93700fd",
+      "header_file": "book.headers",
+      "headers_sanitized": "Set-Cookie removed; whitespace normalized; no auth/cookies recorded",
+      "note": "server date is HTTP evidence; observed request wall clock not captured individually"
+    }
+  ],
+  "unavailable": [
+    {
+      "name": "supported-assets",
+      "url": "https://bridge.polymarket.com/supported-assets",
+      "request_started_at_utc": "2026-10-06T11:23:30.596433+00:00",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "geoblock",
+      "url": "https://polymarket.com/api/geoblock",
+      "request_started_at_utc": "2026-10-06T11:23:30.800859+00:00",
+      "error": "<urlopen error timed out>"
+    }
+  ],
+  "private_requests_executed": false,
+  "money_operations_executed": false
+}

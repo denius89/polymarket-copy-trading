@@ -6,7 +6,9 @@
 
 A mobile-first product for controlled copy trading on **Polymarket** and **Limitless**: choose a trader, try a virtual-money demo, set clear limits, and understand each action.
 
-**Status on 6 October 2026: interfaces and documentation, pre-MVP.** Current work is design review and corrections after the colleague walkthrough. The user application, trading adapters, and real transactions are not implemented. Reviewing business logic against final screens, the admin console, and technical implementation are outside the current scope.
+**Status on 19 October 2026: design and documentation, pre-MVP.** Client and admin RU/EN designs are prepared and remain under review. The user application, trading adapters, and real transactions are not implemented. Follow [ROADMAP](docs/ROADMAP.md) for the current queue and each handoff for verification limits.
+
+Current Final anchors, manual settings, and desktop introduction: [client sitemap](docs/design/client/sitemap.md). [Landing v2](docs/design/landing/hero-2026-10-19/v2/README.md) is awaiting review. [ADR-0048](docs/decisions/0048_unified_registration_and_first_entry.md) records the agreed first entry, with prototype alignment still open. The links and images below retain the original 6 October snapshot.
 
 ## Open a prototype
 
@@ -46,7 +48,7 @@ The preview uses Russian screens; English prototypes are linked above.
 | Read accepted rules and open questions | [MVP business logic](docs/MVP_BUSINESS_LOGIC.md) · [ADRs](docs/decisions/README.md) |
 | Find documents by topic | [Documentation map](docs/README.md) |
 | Read decisions and project history | [Project state](docs/PROJECT_STATE.md) · [Full document index](docs/DOCUMENT_INDEX.md) |
-| Understand GitHub organization | [Cleanup result and PR status](docs/110_repository_navigation_cleanup_2026-10-06.md) |
+| Understand GitHub organization | [Cleanup result and PR status](docs/REPOSITORY_MAINTENANCE_2026-10-19.md) |
 
 If an old report disagrees with the current state, use ROADMAP for the work queue, the latest report for interfaces, and MVP_BUSINESS_LOGIC plus ADRs for rules. A document number or the word “current” in an old entry does not make it today's status.
 
@@ -54,8 +56,8 @@ If an old report disagrees with the current state, use ROADMAP for the work queu
 
 | Venue | Reference | Status |
 | --- | --- | --- |
-| Polymarket | [Draft PR #14](https://github.com/denius89/polymarket-copy-trading/pull/14) | Prepared; repository check passed; not yet included in main |
-| Limitless | [Draft PR #15](https://github.com/denius89/polymarket-copy-trading/pull/15) | Prepared; repository check passed; not yet included in main |
+| Polymarket | [Reference](docs/api/polymarket/README.md) | Evidence dated 6 October 2026; see documented limits |
+| Limitless | [Reference](docs/api/limitless/README.md) | Evidence dated 6 October 2026; see documented limits |
 
 These references document official APIs and evidence from public reads on 6 October 2026. Partner permissions, execution, account-specific fees, and trading connection recovery require separate validation. A reference and a passing Markdown check do not constitute a working integration.
 
