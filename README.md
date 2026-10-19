@@ -25,7 +25,7 @@ Mobile-first продукт для контролируемого копиров
 | Область | Состояние |
 | --- | --- |
 | Клиент и админка | RU/EN, mobile/desktop, UI kit и handoff. Ручная сквозная приёмка остаётся открытой. |
-| Первый вход | [ADR-0048](docs/decisions/0048_unified_registration_and_first_entry.md) принят; приведение всех макетов к нему ещё требуется. |
+| Первый вход | [ADR-0048](docs/decisions/0048_unified_registration_and_first_entry.md) принят; [вход четырёх Final-версий обновлён](docs/design/client/adr48-entry-fixes-2026-10-19/README.md). Runtime-auth и полная сквозная приёмка впереди. |
 | Copy Score | Семь исследовательских пакетов и исходные данные сохранены. Формула публичного рейтинга не утверждена. |
 | API площадок | Справочники [Polymarket](docs/api/polymarket/README.md) и [Limitless](docs/api/limitless/README.md); свидетельства от 06.10.2026, свежесть проверяется под задачу. |
 | Приложение | `apps/` и `packages/` пока описывают будущие границы. Разработка, paper и live проходят отдельные gates. |

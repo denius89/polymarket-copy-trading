@@ -20,6 +20,7 @@
 | --- | --- |
 | Клиентские Final-экраны | [Карта экранов и актуальные якоря](design/client/sitemap.md), [handoff](../design/client-ui-kit/HANDOFF.md) |
 | Клиентский UI kit | [Каталог](../design/client-ui-kit/README.md), [правила применения](../design/client-ui-kit/USAGE.md) |
+| Вход по ADR-0048 и исправления аудита | [Четыре Final-версии, пояснение EN mobile и проверки](design/client/adr48-entry-fixes-2026-10-19/README.md) |
 | Ручные настройки копирования | [Handoff](design/client/manual-copy-settings-2026-10-18.md), [предложение контракта 129](129_copy_settings_contract_proposal_2026-10-18.md) |
 | Десктопное знакомство | [Сцены и веб-превью](design/client/desktop-introduction-2026-10-18.md) |
 | Единый первый вход | [Принятый ADR-0048](decisions/0048_unified_registration_and_first_entry.md); реализация и обновление прототипов остаются открытыми |
