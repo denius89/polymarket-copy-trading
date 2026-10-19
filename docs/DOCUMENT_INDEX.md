@@ -1,5 +1,6 @@
 # Полный каталог документов
 
+- [138 — сначала интерфейсы; технический план отложен](138_interfaces_first_and_deferred_technical_plan_2026-10-19.md): текущий приоритет и сохранённая точка продолжения по поручению владельца.
 - [137 — проверка потоков, часов и fee для активации](137_profile_activation_audit_2026-10-19.md): 12/118 полных bounded кадров, SNTP/time, SDK/legacy conflicts, execution eligibility остаётся blocked.
 - [136 — CLOB-профили: свежесть, минимум/шаг, цена и расходы](136_venue_market_profiles_and_quote_gates_2026-10-19.md): контракт ADR-0059 принят, stream/fee activation gates открыты, публичное evidence/QA.
 - [130 — числовая политика paper MVP v1](130_paper_copy_settings_numeric_policy_proposal_2026-10-18.md): принято ADR-0058; диапазоны/шаги, активный F, минимум $5 только fixed; [JSON](policies/paper-mvp-settings-v1.json) и QA.
