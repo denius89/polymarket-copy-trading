@@ -1,10 +1,14 @@
 import { access, readdir, readFile, stat } from "node:fs/promises";
 import { dirname, extname, join, normalize, resolve, sep } from "node:path";
+import { relativeLinkTargets } from "./markdown-links.mjs";
 
 const root = process.cwd();
 
 const requiredPaths = [
   "README.md",
+  "README.en.md",
+  "docs/REPOSITORY_GUIDE.md",
+  "docs/storage/catalog.json",
   "CONTRIBUTING.md",
   "SECURITY.md",
   "AGENTS.md",
@@ -64,18 +68,6 @@ async function collectMarkdown(directory, result = []) {
   return result;
 }
 
-function relativeLinkTargets(markdown) {
-  const targets = [];
-  const pattern = /!?(?:\[[^\]]*\])\(([^)]+)\)/g;
-  for (const match of markdown.matchAll(pattern)) {
-    let target = match[1].trim();
-    if (target.startsWith("<") && target.endsWith(">")) target = target.slice(1, -1);
-    if (!target || target.startsWith("#") || /^[a-z][a-z0-9+.-]*:/i.test(target)) continue;
-    target = target.split("#", 1)[0].split("?", 1)[0];
-    if (target) targets.push(decodeURIComponent(target));
-  }
-  return targets;
-}
 
 const errors = [];
 

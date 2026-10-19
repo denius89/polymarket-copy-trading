@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "git_file_limit_bytes": 10485760,
+  "purpose": "Canonical index of external project archives; metadata validation does not prove current remote availability",
+  "entries": [
+    {
+      "id": "copy-score-source-data-2026-10-19",
+      "title": "Исходные данные Copy Score",
+      "kind": "research_data",
+      "access": "existing_drive_permissions",
+      "folder_url": "https://drive.google.com/drive/folders/1XIzMZ-kpPqVn2j67iY7DbDlTh-zZJARC",
+      "manifest_path": "research/DATA_ARCHIVE_2026-10-19.json",
+      "restore_path": "research/TRADER_SCORE_README.md",
+      "last_verified": "2026-10-19",
+      "verification": "Local payload SHA256; successful upload and remote size readback; remote bytes not independently hashed"
+    },
+    {
+      "id": "repository-recovery-2026-10-19",
+      "title": "История Git и вспомогательные материалы",
+      "kind": "private_recovery",
+      "access": "existing_private_drive_permissions",
+      "folder_url": "https://drive.google.com/drive/folders/1u-iBU2tx1GtVVqz4ioDAwHottieqjq-x",
+      "manifest_path": "docs/qa/repository-preservation-audit-2026-10-19.json",
+      "restore_path": "docs/REPOSITORY_MAINTENANCE_2026-10-19.md",
+      "last_verified": "2026-10-19",
+      "verification": "Bundle restored and fsck passed locally; archive payload SHA256 and remote sizes verified; remote bytes not independently hashed"
+    }
+  ]
+}
