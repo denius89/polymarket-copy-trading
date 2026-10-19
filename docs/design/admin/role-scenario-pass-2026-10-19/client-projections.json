@@ -1,0 +1,339 @@
+[
+  {
+    "key": "client-tech-down",
+    "title": [
+      "Сервис временно недоступен",
+      "Service temporarily unavailable"
+    ],
+    "severity": "Danger",
+    "body": [
+      "Мы временно закрыли приложение. Торговые и денежные действия через Shadow недоступны. Время восстановления пока неизвестно.",
+      "The app is temporarily closed. Trading and money actions through Shadow are unavailable. Recovery time is not yet known."
+    ],
+    "details": [
+      [
+        "Что с отправленным",
+        "Already submitted"
+      ],
+      [
+        "Операции, уже отправленные на площадку или в сеть, могут завершиться. Прямой доступ к внешнему кошельку Shadow не блокирует.",
+        "Operations already submitted to a venue or network may complete. Shadow does not block direct access to an external wallet."
+      ]
+    ],
+    "identity": [
+      "Публичный статус · ST-DEMO-TECH",
+      "Public status · ST-DEMO-TECH"
+    ],
+    "rule": "ADR-0045; no app navigation or product API",
+    "p": [
+      "P-09",
+      "P-17"
+    ]
+  },
+  {
+    "key": "client-service-pause",
+    "title": [
+      "Новые действия остановлены сервисом",
+      "New actions stopped by the service"
+    ],
+    "severity": "Warning",
+    "body": [
+      "Новые торговые и денежные действия через Shadow временно остановлены на обеих площадках. Это не закрытие ваших позиций.",
+      "New trading and money actions through Shadow are temporarily stopped on both venues. This does not close your positions."
+    ],
+    "details": [
+      [
+        "Что доступно",
+        "Still available"
+      ],
+      [
+        "Можно просматривать подтверждённые данные и обращаться в поддержку. Самостоятельное возобновление этого ограничения недоступно.",
+        "You can view confirmed data and contact support. You cannot lift this service restriction yourself."
+      ]
+    ],
+    "identity": [
+      "Demo Noor · U-DEMO-002 · ST-DEMO-STOP",
+      "Demo Noor · U-DEMO-002 · ST-DEMO-STOP"
+    ],
+    "rule": "GLOBAL_STOP overrides ordinary resume",
+    "p": [
+      "P-09"
+    ]
+  },
+  {
+    "key": "client-deposits-pm",
+    "title": [
+      "Пополнение временно недоступно",
+      "Deposits temporarily unavailable"
+    ],
+    "severity": "Warning",
+    "body": [
+      "Polymarket: новые инструкции пополнения через Shadow временно закрыты. Это ограничение не означает остановку Limitless.",
+      "Polymarket: new deposit instructions through Shadow are temporarily unavailable. This restriction does not mean Limitless is stopped."
+    ],
+    "details": [
+      [
+        "Если уже отправили перевод",
+        "If you already sent a transfer"
+      ],
+      [
+        "Уже отправленный перевод не исчезает. Мы показываем его только после получения данных; отсутствие сведений не означает нулевую сумму.",
+        "An already sent transfer does not disappear. We show it when data is available; missing data does not mean a zero amount."
+      ]
+    ],
+    "identity": [
+      "Polymarket · учебный маршрут",
+      "Polymarket · synthetic route"
+    ],
+    "rule": "DEPOSITS_OFF exact venue, no address instructions",
+    "p": [
+      "P-12",
+      "P-17"
+    ]
+  },
+  {
+    "key": "client-withdrawals-ll",
+    "title": [
+      "Вывод временно недоступен",
+      "Withdrawals temporarily unavailable"
+    ],
+    "severity": "Warning",
+    "body": [
+      "Limitless: новые запросы вывода через Shadow временно закрыты. Доступность Polymarket проверяется отдельно.",
+      "Limitless: new withdrawal requests through Shadow are temporarily unavailable. Polymarket availability is checked separately."
+    ],
+    "details": [
+      [
+        "Уже отправленные операции",
+        "Already submitted operations"
+      ],
+      [
+        "Подтверждение площадки или сети проверяется отдельно. Мы не объявляем отправленную операцию отменённой и не предлагаем повторить её.",
+        "Venue or network confirmation is checked separately. We do not mark a submitted operation cancelled or offer to resend it."
+      ]
+    ],
+    "identity": [
+      "Limitless · учебный маршрут; интеграция не подключена",
+      "Limitless · synthetic route; integration disconnected"
+    ],
+    "rule": "WITHDRAWALS_OFF is separate from partner payouts",
+    "p": [
+      "P-12",
+      "P-17"
+    ]
+  },
+  {
+    "key": "client-incoming-observed",
+    "title": [
+      "Перевод ожидает проверки",
+      "Transfer awaiting verification"
+    ],
+    "severity": "Info",
+    "body": [
+      "Поступление на прежние реквизиты замечено, пока пополнение через Shadow закрыто. Нужны подтверждения сети и сопоставление с вашим счётом.",
+      "An incoming transfer to prior details was observed while deposits through Shadow are closed. Network confirmation and account matching are still required."
+    ],
+    "details": [
+      [
+        "Доступный баланс",
+        "Available balance"
+      ],
+      [
+        "Не увеличен. Сумма и принадлежность ещё не подтверждены. Новый адрес или повторный перевод не предлагаются.",
+        "Not increased. Amount and ownership are not confirmed yet. No new address or repeat transfer is offered."
+      ]
+    ],
+    "identity": [
+      "Demo Noor · U-DEMO-002 · DEP-DEMO-01",
+      "Demo Noor · U-DEMO-002 · DEP-DEMO-01"
+    ],
+    "rule": "Do not lose incoming funds or count unconfirmed funds as available",
+    "p": [
+      "P-17"
+    ]
+  },
+  {
+    "key": "client-withdrawal-renew",
+    "title": [
+      "Проверьте запрос вывода заново",
+      "Review your withdrawal again"
+    ],
+    "severity": "Info",
+    "body": [
+      "Ограничение снято для этого маршрута. Ваш неотправленный запрос не запускается автоматически.",
+      "The restriction has been lifted for this route. Your unsubmitted request does not run automatically."
+    ],
+    "details": [
+      [
+        "Что нужно перед отправкой",
+        "Required before submission"
+      ],
+      [
+        "Заново проверить сумму, полный адрес, сеть, актив и комиссию, затем подтвердить запрос самостоятельно. Учебный маршрут не подключён; отправка здесь недоступна.",
+        "Recheck amount, full address, network, asset and fee, then confirm the request yourself. This synthetic route is disconnected; submission is unavailable here."
+      ]
+    ],
+    "identity": [
+      "Demo Noor · U-DEMO-002 · WD-DEMO-01",
+      "Demo Noor · U-DEMO-002 · WD-DEMO-01"
+    ],
+    "rule": "Staff recovery is not a user signature",
+    "p": [
+      "P-17"
+    ]
+  },
+  {
+    "key": "client-vip-terms",
+    "title": [
+      "Ваши условия",
+      "Your terms"
+    ],
+    "severity": "Info",
+    "body": [
+      "Действующая комиссия Shadow — 0%. Paper Alpha бесплатна; VIP не включает платную версию.",
+      "Your effective Shadow fee is 0%. Paper Alpha is free; VIP does not enable the paid version."
+    ],
+    "details": [
+      [
+        "VIP · U-VIP v2",
+        "VIP · U-VIP v2"
+      ],
+      [
+        "Demo Atlas · U-DEMO-001. Учебный будущий тариф 0,5% вместо 1%: 17–31 октября, 12:00 UTC. Сейчас он не применяется. После окончания действует актуальный базовый тариф; прошлые комиссии не пересчитываются.",
+        "Demo Atlas · U-DEMO-001. Illustrative future fee 0.5% instead of 1%: 17–31 October, 12:00 UTC. It is not applied now. On expiry the effective base tariff applies; past fees are not recalculated."
+      ]
+    ],
+    "identity": [
+      "Alpha-ZERO v1 · действует сейчас",
+      "Alpha-ZERO v1 · effective now"
+    ],
+    "rule": "ADR-0039; alpha 0%; future VIP separate",
+    "p": [
+      "P-05",
+      "P-06"
+    ]
+  },
+  {
+    "key": "client-order-unknown",
+    "title": [
+      "Проверяем результат заявки",
+      "Checking the order outcome"
+    ],
+    "severity": "Warning",
+    "body": [
+      "ORD-DEMO-03: площадка ещё не подтвердила окончательный результат. Это не доказанный отказ.",
+      "ORD-DEMO-03: the venue has not confirmed a final outcome yet. This is not a confirmed failure."
+    ],
+    "details": [
+      [
+        "Сумма и резерв",
+        "Amount and reserve"
+      ],
+      [
+        "План покупки: $20. Подтверждённое исполнение: $0. В резерве: $20. Повторная отправка недоступна до сверки; резерв не освобождён.",
+        "Intended buy: $20. Confirmed fill: $0. Reserved: $20. Resubmission is unavailable until reconciliation; the reserve has not been released."
+      ]
+    ],
+    "identity": [
+      "Demo Noor · S-DEMO-002 · Polymarket",
+      "Demo Noor · S-DEMO-002 · Polymarket"
+    ],
+    "rule": "Match ops CASE-DEMO-03 unknown, no retry",
+    "p": [
+      "P-01",
+      "P-04"
+    ]
+  },
+  {
+    "key": "client-order-late",
+    "title": [
+      "Исполнение пришло после отмены",
+      "A fill arrived after the cancellation request"
+    ],
+    "severity": "Info",
+    "body": [
+      "Отмена остатка ещё не подтверждена. Позднее исполнение учитывается один раз; запрос отмены не равен завершённой отмене.",
+      "Cancellation of the remainder is not final yet. The late fill is counted once; a cancellation request is not a final cancellation."
+    ],
+    "details": [
+      [
+        "ORD-DEMO-03 · учебный снимок",
+        "ORD-DEMO-03 · synthetic snapshot"
+      ],
+      [
+        "Из $20 исполнено $12: сначала $8, затем $4. В резерве $8. Отправить новую заявку на этот остаток нельзя до окончательной сверки.",
+        "Of $20, $12 filled: first $8, then $4. $8 remains reserved. A new order using that remainder is unavailable until final reconciliation."
+      ]
+    ],
+    "identity": [
+      "Demo Noor · S-DEMO-002 · Polymarket",
+      "Demo Noor · S-DEMO-002 · Polymarket"
+    ],
+    "rule": "Match accepted late fill state, no duplicate cash",
+    "p": [
+      "P-01",
+      "P-04"
+    ]
+  },
+  {
+    "key": "client-support-reply",
+    "title": [
+      "Поддержка · TKT-1042",
+      "Support · TKT-1042"
+    ],
+    "severity": "Info",
+    "body": [
+      "Амина Рахман · USR-1007 · S-CP-041 · Polymarket. Переписка относится только к этому обращению.",
+      "Amina Rahman · USR-1007 · S-CP-041 · Polymarket. This conversation belongs only to this ticket."
+    ],
+    "details": [
+      [
+        "Ответ поддержки",
+        "Support reply"
+      ],
+      [
+        "Полная сумма покупки не помещалась в лимит сессии. Проверьте свои настройки риска. Историю пропуска можно открыть в активности.",
+        "The full buy amount exceeded the session limit. Check your risk settings. The skipped event is available in activity."
+      ]
+    ],
+    "identity": [
+      "MSG-1042-C · публичный ответ · отправлено, не прочитано",
+      "MSG-1042-C · public reply · sent, not read"
+    ],
+    "rule": "No internal notes, staff security or hidden ticket joins",
+    "p": [
+      "P-02"
+    ]
+  },
+  {
+    "key": "client-announcement",
+    "title": [
+      "Откройте каталог трейдеров",
+      "Explore the trader catalog"
+    ],
+    "severity": "Info",
+    "body": [
+      "Сравните доступных трейдеров и изучите их профили. Вы сами выбираете, кого копировать.",
+      "Compare available traders and explore their profiles. You choose whom to copy."
+    ],
+    "details": [
+      [
+        "Объявление не меняет ваши условия",
+        "An announcement does not change your terms"
+      ],
+      [
+        "Комиссия Paper Alpha остаётся 0%. Показ сообщения, закрытие карточки и прочтение — разные события; это не согласие на денежную операцию.",
+        "Paper Alpha fee remains 0%. Displaying, dismissing and reading this message are separate events; none is consent to a money operation."
+      ]
+    ],
+    "identity": [
+      "ANN-DEMO-01 · A-2 · RU / EN",
+      "ANN-DEMO-01 · A-2 · RU / EN"
+    ],
+    "rule": "Published content does not alter control or effective tariff",
+    "p": [
+      "P-07",
+      "P-08"
+    ]
+  }
+]

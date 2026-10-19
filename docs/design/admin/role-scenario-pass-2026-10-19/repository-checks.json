@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-19",
+  "packageContract": {
+    "command": "node docs/design/admin/role-scenario-pass-2026-10-19/check-contract.mjs",
+    "passed": true,
+    "checks": 18
+  },
+  "projectCheck": {
+    "command": "npm run check",
+    "exitCode": 1,
+    "brokenLinks": 175,
+    "newPackageLinkErrors": 0,
+    "allRemainingErrorsInAiEvaluationMaterial": true,
+    "note": "Existing local AI-evaluation snapshots are outside this publication scope; not fixed or published"
+  },
+  "diffCheck": {
+    "command": "git diff --check",
+    "exitCode": 0
+  },
+  "sourcesModified": false,
+  "referencesModified": false,
+  "productCodeChanged": false,
+  "localIndexChanged": false
+}
