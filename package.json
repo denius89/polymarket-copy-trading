@@ -12,6 +12,7 @@
   ],
   "scripts": {
     "dev": "echo 'Application scaffold will be added after UX and technical spikes'",
-    "check": "node scripts/check-project.mjs"
+    "check": "node scripts/check-project.mjs && node scripts/check-storage.mjs",
+    "test:repository": "node --test scripts/check-storage.test.mjs && python3 scripts/test_branch_cleanup.py"
   }
 }

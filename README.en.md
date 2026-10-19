@@ -1,84 +1,81 @@
+![Controlled Copy Trading — Polymarket + Limitless](docs/preview/repository/cover.svg)
+
 # Controlled Copy Trading
 
 [Русский](README.md) · **English**
 
 [![Repository check](https://github.com/denius89/polymarket-copy-trading/actions/workflows/repository-check.yml/badge.svg)](https://github.com/denius89/polymarket-copy-trading/actions/workflows/repository-check.yml)
 
-A mobile-first product for controlled copy trading on **Polymarket** and **Limitless**: choose a trader, try a virtual-money demo, set clear limits, and understand each action.
+A mobile-first product for controlled copy trading on **Polymarket** and **Limitless**. The concept: understand a trader's history, try a virtual-money demo, and set clear copy limits.
 
-**Status on 19 October 2026: design and documentation, pre-MVP.** Client and admin RU/EN designs are prepared and remain under review. The user application, trading adapters, and real transactions are not implemented. Follow [ROADMAP](docs/ROADMAP.md) for the current queue and each handoff for verification limits.
+[Roadmap](docs/ROADMAP.md) · [Interfaces](docs/design/client/sitemap.md) · [Documentation](docs/README.md) · [Research](research/TRADER_SCORE_README.md) · [Repository guide](docs/REPOSITORY_GUIDE.md)
 
-Current Final anchors, manual settings, and desktop introduction: [client sitemap](docs/design/client/sitemap.md). [Landing v2](docs/design/landing/hero-2026-10-19/v2/README.md) is awaiting review. [ADR-0048](docs/decisions/0048_unified_registration_and_first_entry.md) records the agreed first entry, with prototype alignment still open. The links and images below retain the original 6 October snapshot.
+> **Stage: design and research · pre-MVP.** RU/EN designs are under review. The user application and trading adapters are not implemented; real transactions are not enabled. Homepage snapshot: **19 October 2026**. Most detailed project documents are in Russian.
 
-## Open a prototype
+## Start with your task
 
-**[Start here in Figma →](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3-2)** — one entry point for every version.
-
-| Version | Russian | English |
+| Understand the product | Explore the design | Continue the work |
 | --- | --- | --- |
-| Mobile | [Mobile RU](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=1839-57824&starting-point-node-id=1839%3A57824&page-id=33%3A2&scaling=scale-down) | [Mobile EN](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=1839-57862&starting-point-node-id=1839%3A57862&page-id=29%3A2&scaling=scale-down) |
-| Desktop | [Desktop RU](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=584-265&starting-point-node-id=584%3A265&page-id=205%3A2&scaling=scale-down) | [Desktop EN](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=584-225&starting-point-node-id=584%3A225&page-id=186%3A2&scaling=scale-down) |
+| [MVP business rules](docs/MVP_BUSINESS_LOGIC.md) | [Client map and Final anchors](docs/design/client/sitemap.md) | [Current queue](docs/ROADMAP.md) |
+| [Accepted and proposed decisions](docs/decisions/README.md) | [Admin living map](docs/design/admin/sitemap.md) | [Client UI kit handoff](design/client-ui-kit/HANDOFF.md) |
+| [Copy Score research and limits](research/TRADER_SCORE_README.md) | [Landing v2, awaiting review](docs/design/landing/hero-2026-10-19/v2/README.md) | [Latest result and history](docs/PROJECT_STATE.md) |
 
-Each entry offers a **first launch** and a separate **prepared active demo**. Use Restart to change scenarios. The mobile first-launch path is introduction → choose a trader → copy size and limits → review → start → an empty home screen.
+## Current scope
 
-Recent corrections include consistent headers and bottom navigation, restored trader selection, explicit PnL labels, a general support question, short venue account names, and profile titles without a repeated period. [Latest results and review route — 109 (RU)](docs/109_latest_design_review_2026-10-06.md).
-
-Images and links for the latest corrections have been checked. **A new manual Present walkthrough has not yet been completed:** browser access was blocked by policy. Walkthroughs in [report 106 (RU)](docs/106_four_prototypes_acceptance_2026-10-06.md) refer to the previous version; final visual acceptance remains open.
-
-## Current preview
-
-Figma layouts captured on 6 October 2026. The data is illustrative; these are not screenshots of a working trading application.
-
-<table>
-<tr><th>New demo</th><th>Trader profile</th></tr>
-<tr>
-<td><img src="docs/preview/2026-10-06/fresh-home-ru.png" width="260" alt="New demo: shared header, budget, and empty history"></td>
-<td><img src="docs/preview/2026-10-06/trader-profile-ru.png" width="260" alt="Trader profile: selected period and performance"></td>
-</tr>
-</table>
-
-The preview uses Russian screens; English prototypes are linked above.
-
-## Find the right material
-
-| Task | Material |
+| Area | Status |
 | --- | --- |
-| Review the latest interfaces with a colleague | [Latest result and review route](docs/109_latest_design_review_2026-10-06.md) |
-| Understand the current queue | [Roadmap](docs/ROADMAP.md) |
-| Read accepted rules and open questions | [MVP business logic](docs/MVP_BUSINESS_LOGIC.md) · [ADRs](docs/decisions/README.md) |
-| Find documents by topic | [Documentation map](docs/README.md) |
-| Read decisions and project history | [Project state](docs/PROJECT_STATE.md) · [Full document index](docs/DOCUMENT_INDEX.md) |
-| Understand GitHub organization | [Cleanup result and PR status](docs/REPOSITORY_MAINTENANCE_2026-10-19.md) |
+| Client and admin | RU/EN, mobile/desktop, UI kit and handoff prepared. Full manual acceptance remains open. |
+| First entry | [ADR-0048](docs/decisions/0048_unified_registration_and_first_entry.md) is accepted; complete prototype alignment remains open. |
+| Copy Score | Seven research packages and source inputs preserved. A public ranking formula has not been accepted. |
+| Venue APIs | [Polymarket](docs/api/polymarket/README.md) and [Limitless](docs/api/limitless/README.md) references. Evidence dated 6 October 2026; freshness must be checked for each task. |
+| Application | `apps/` and `packages/` describe future boundaries. Implementation, paper trading and live trading have separate gates. |
 
-If an old report disagrees with the current state, use ROADMAP for the work queue, the latest report for interfaces, and MVP_BUSINESS_LOGIC plus ADRs for rules. A document number or the word “current” in an old entry does not make it today's status.
+Latest design evidence: [roles and cross-scenario review](docs/design/admin/role-scenario-pass-2026-10-19/README.md), followed by the [44 client-state reading supplement](docs/design/admin/role-scenario-verification-2026-10-19/README.md). Design inspection is not runtime acceptance.
 
-## Venue APIs
+## Figma design
 
-| Venue | Reference | Status |
+[**Open “Start here” →**](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3-2)
+
+| Client Final | RU | EN |
 | --- | --- | --- |
-| Polymarket | [Reference](docs/api/polymarket/README.md) | Evidence dated 6 October 2026; see documented limits |
-| Limitless | [Reference](docs/api/limitless/README.md) | Evidence dated 6 October 2026; see documented limits |
+| Mobile | [Design page](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2477-528) | [Design page](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2499-2) |
+| Desktop | [Design page](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2477-529) | [Design page](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2499-3) |
 
-These references document official APIs and evidence from public reads on 6 October 2026. Partner permissions, execution, account-specific fees, and trading connection recovery require separate validation. A reference and a passing Markdown check do not constitute a working integration.
+These links open design pages. Select specific states and Present routes from the [client map](docs/design/client/sitemap.md) or [admin map](docs/design/admin/sitemap.md).
 
-## Repository layout and checks
+<details>
+<summary>Historical visual snapshot · 6 October 2026</summary>
+
+Earlier illustrative designs; current entry points are listed above.
+
+<table><tr><td><img src="docs/preview/2026-10-06/fresh-home-ru.png" width="240" alt="Historical new-demo design, 6 October 2026"></td><td><img src="docs/preview/2026-10-06/trader-profile-ru.png" width="240" alt="Historical trader-profile design, 6 October 2026"></td></tr></table>
+
+</details>
+
+## Repository map
 
 ```text
-docs/               current navigation, product documents, and history
-docs/decisions/     accepted and proposed ADRs
-docs/preview/       current overview images
-design/            Figma materials and evidence from earlier checks
-apps/, packages/   boundaries for the future application and adapters
-research/          research
-artifacts/         presentations and other materials
-scripts/           structure and link checks
+docs/               product rules, decisions, specifications and navigation
+  design/           screen contracts, living maps and design checks
+  ai-system/        knowledge, training and skill evaluations
+design/             machine-readable UI kit handoff and historical QA packages
+research/           research code, saved results, fixtures and manifests
+.agents/skills/     project skills and Impeccable
+apps/ · packages/   future application boundaries; infra/ — infrastructure plans
+artifacts/          published presentations
+scripts/            structure, link and storage checks
 ```
 
-Use Node.js 22 or later:
+**GitHub** holds current documents and reviewable results. **Google Drive** holds large inputs and private recovery archives. The [external archive catalog](docs/storage/catalog.json) links their manifests and checksums; cloning does not download those archives. The [repository guide](docs/REPOSITORY_GUIDE.md) explains ownership and recovery.
+
+## Working cycle
+
+**Task → branch → checks → PR → main → cleanup.** Preserve each completed block outside the computer. A merged PR branch is removed automatically only if its head still matches the reviewed version; clean up the local worktree after verifying preservation. Unfinished work stays on its branch or in a draft PR.
 
 ```bash
 npm run check
+npm run test:repository
 git diff --check
 ```
 
-These check the repository; they do not launch an application. Contribution guidance: [CONTRIBUTING](CONTRIBUTING.md), [SECURITY](SECURITY.md), [AGENTS](AGENTS.md). Presentations and earlier concepts are in [artifacts](artifacts/README.md); they do not replace the current status or prototypes.
+Node.js 22+ and Python 3.10+ are required. These validate the repository; they do not run an application. [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Agent instructions](AGENTS.md) · [Organization review](docs/qa/repository-structure-review-2026-10-19.md).

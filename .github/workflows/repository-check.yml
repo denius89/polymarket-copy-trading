@@ -17,6 +17,8 @@ jobs:
           node-version: '22'
       - name: Check repository structure and links
         run: npm run check
+      - name: Test repository preservation checks
+        run: npm run test:repository
       - name: Check whitespace in changed files
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
