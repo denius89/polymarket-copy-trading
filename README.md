@@ -2,7 +2,9 @@
 
 # Controlled Copy Trading
 
-**Русский** · [English](README.en.md)[![Проверка репозитория](https://github.com/denius89/polymarket-copy-trading/actions/workflows/repository-check.yml/badge.svg)](https://github.com/denius89/polymarket-copy-trading/actions/workflows/repository-check.yml)
+**Русский** · [English](README.en.md)
+
+[![Проверка репозитория](https://github.com/denius89/polymarket-copy-trading/actions/workflows/repository-check.yml/badge.svg)](https://github.com/denius89/polymarket-copy-trading/actions/workflows/repository-check.yml)
 
 Mobile-first продукт для контролируемого копирования сделок на **Polymarket** и **Limitless**. Замысел: выбрать трейдера, разобраться в его истории, попробовать демо с виртуальными средствами и задать понятные ограничения копирования.
 
