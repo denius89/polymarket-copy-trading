@@ -1,5 +1,9 @@
 # Текущее состояние проекта
 
+## 19.10.2026 — проверена активация профилей
+
+[Аудит активации 137](137_profile_activation_audit_2026-10-19.md): проверены bounded public streams/reconnect, локальный SNTP и fee reference-вектора. **Ни один профиль не включён**: publisher-clock bound ≤250 мс не доказан; legacy Limitless имеет несовпадение whitepaper/current fee table и inspected SDK rank-rate fallback. Polymarket v1/legacy public observation подтверждены, V2/COLLATERAL не найдены в ограниченной выборке, что не доказывает их отсутствие. [18 replay/reference-проверок](qa/profile-activation-2026-10-19/README.md), полные bounded записи 12/118 кадров и fault fixtures сохранены. Продолжать с доказательств publisher clock и авторитетных raw fee/settlement vectors; не заменять их успешным NTP или подгонкой legacy-кривой. Это аудит принятого ADR-0059, новые торговые правила/разработка приложения не начаты.
+
 ## 19.10.2026 — приняты рыночные CLOB-профили · ADR-0059
 
 [ADR-0059](decisions/0059_clob_market_profiles_freshness_price_and_fees.md)/[136](136_venue_market_profiles_and_quote_gates_2026-10-19.md): принят контракт CLOB-профилей обеих площадок — возраст книги ≤2 с, получение snapshot ≤1 с, clock uncertainty ≤250 мс, предел цены 2% от текущего best соответствующей стороны. Минимумы/precision/fees — по точному market/order-shape профилю; AMM пока неподдерживаемый. Обязательная проверка потока/часов и расходов ещё не пройдена: runtime выключен, неизвестное блокирует конкретный профиль. [22 exact reference-проверки](qa/venue-profiles-2026-10-19/README.md) прошли; записаны 8 public GET и по 2 коротких публичных WS-подключения на venue. Это evidence формы/доступности, не полная приёмка свежести/fee. Следом — activation evidence по каждому семейству (clock bound, полный replay, precision/fee/raw totals/delay), partial SELL/cadence, календарная граница/отчёт и физическая реализация. Числовой выбор и исходные документы больше не заменяют проверку.

@@ -1,0 +1,59 @@
+{
+  "repository": "limitless-labs-group/limitless-exchange-ts-sdk",
+  "sha": "a1dbd0cbc7a0dd58994a36d4b1dbff1d333bb8ba",
+  "packageVersion": "1.2.0",
+  "readOnly": true,
+  "files": [
+    {
+      "path": "src/orders/client.ts",
+      "url": "https://github.com/limitless-labs-group/limitless-exchange-ts-sdk/blob/a1dbd0cbc7a0dd58994a36d4b1dbff1d333bb8ba/src/orders/client.ts"
+    },
+    {
+      "path": "src/orders/builder.ts",
+      "url": "https://github.com/limitless-labs-group/limitless-exchange-ts-sdk/blob/a1dbd0cbc7a0dd58994a36d4b1dbff1d333bb8ba/src/orders/builder.ts"
+    },
+    {
+      "path": "src/markets/venue.ts",
+      "url": "https://github.com/limitless-labs-group/limitless-exchange-ts-sdk/blob/a1dbd0cbc7a0dd58994a36d4b1dbff1d333bb8ba/src/markets/venue.ts"
+    },
+    {
+      "path": "src/orders/validator.ts",
+      "url": "https://github.com/limitless-labs-group/limitless-exchange-ts-sdk/blob/a1dbd0cbc7a0dd58994a36d4b1dbff1d333bb8ba/src/orders/validator.ts"
+    },
+    {
+      "path": "src/types/orders.ts",
+      "url": "https://github.com/limitless-labs-group/limitless-exchange-ts-sdk/blob/a1dbd0cbc7a0dd58994a36d4b1dbff1d333bb8ba/src/types/orders.ts"
+    }
+  ],
+  "checkedDate": "2026-10-19",
+  "observations": [
+    {
+      "status": "source_read",
+      "claim": "Inspected OrderClient derives cached feeRateBps from rank.feeRateBps with fallback 300; this is not current docs effectiveFeeRateBps semantics.",
+      "source": "src/orders/client.ts",
+      "lines": "210-222"
+    },
+    {
+      "status": "source_read",
+      "claim": "For default priceTick .001, Builder enforces raw share quantity multiple of 1000 independent of selected price; API algebraic representability can be less restrictive.",
+      "source": "src/orders/builder.ts"
+    },
+    {
+      "status": "documented_conflict",
+      "claim": "Legacy current representative fee table differs from October 2025 whitepaper at p=.60 BUY (2.13% versus computed 2.00% with 300 bps) and p=.40 SELL (1.44% versus 1.20%). Do not infer a current pretrade calculator."
+    }
+  ],
+  "officialDocuments": [
+    "https://docs.limitless.exchange/user-guide/fees",
+    "https://limitless.exchange/whitepaper.pdf",
+    "https://docs.limitless.exchange/developers/eip712-signing",
+    "https://docs.limitless.exchange/developers/migrate-to-new-trading-venues",
+    "https://docs.polymarket.com/trading/fees"
+  ],
+  "explorerSourceAttempt": {
+    "url": "https://basescan.org/address/0x05c748E2f4DcDe0ec9Fa8DDc40DE6b867f923fa5#code",
+    "status": "unavailable_in_web_tool",
+    "deployedBytecodeOrVerifiedSourceMappingProven": false
+  },
+  "sdkInstalledOrExecuted": false
+}

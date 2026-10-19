@@ -1,5 +1,7 @@
 # Polymarket API: справочник для Copy Trading MVP
 
+Новая предметная проверка 19.10.2026: [аудит активации 137](../../137_profile_activation_audit_2026-10-19.md) отделяет наблюдённые public stream/reconnect и локальные часы от недоказанных publisher-clock/fees gates; профили не включены.
+
 Сверка 19.10.2026: [контракт 136](../../136_venue_market_profiles_and_quote_gates_2026-10-19.md) / [ADR-0059](../../decisions/0059_clob_market_profiles_freshness_price_and_fees.md) уточняют актуальные семейства, minimum/precision, свежесть и fees. Ниже сохранён датированный справочник; его проверка 06.10 не означает свежую runtime-приёмку.
 
 Проверка: **06.10.2026**. Область: международная площадка Polymarket Predictions; Perps, Polymarket US, Combos/RFQ и другие продукты не входят в подтверждённый execution scope MVP. Это документационное исследование для коллеги и следующего агента, не реализация адаптера и не разрешение live.
