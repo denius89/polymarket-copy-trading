@@ -1,0 +1,149 @@
+{
+  "checkedDate": "2026-10-19",
+  "scope": "bounded public GET discovery and one selected market; not streaming/latency calibration or execution proof",
+  "records": [
+    {
+      "id": "polymarket-markets",
+      "url": "https://gamma-api.polymarket.com/markets/keyset?active=true&closed=false&limit=1",
+      "startedAt": "2026-10-19T20:43:49.225864+00:00",
+      "authenticated": false,
+      "httpStatus": 200,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:43:49 GMT",
+        "Cache-Control": "public, max-age=300",
+        "Content-Type": "application/json"
+      },
+      "savedAs": "polymarket-markets.json",
+      "durationMs": 301,
+      "receivedAt": "2026-10-19T20:43:49.527324+00:00",
+      "sourceResponseSHA256": "e6562a9bc444f806aeb9e4e0afad00015b89356a23328752890f16e2ffa5ebf2",
+      "artifactSHA256": "12a7df2b172afe19b5190e63c3dd04053edb235be3bfb6598362a5ffc1cf455c",
+      "artifactTransform": "selected public fields"
+    },
+    {
+      "id": "polymarket-book",
+      "url": "https://clob.polymarket.com/book?token_id=32338220190071351435772801779725302244575775216413325951443816017994629993401",
+      "startedAt": "2026-10-19T20:43:49.527388+00:00",
+      "authenticated": false,
+      "httpStatus": 200,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:43:49 GMT",
+        "Content-Type": "application/json"
+      },
+      "savedAs": "polymarket-book.json",
+      "durationMs": 190,
+      "receivedAt": "2026-10-19T20:43:49.718382+00:00",
+      "sourceResponseSHA256": "06f3edd04aadd857d3a77a8000bef73cb9729071b36cb5249df9f6e323c74504",
+      "artifactSHA256": "afbd6d85c6c34a79706ba23e2acf6a4678a8664a7069e8f517327838239ac6a5",
+      "artifactTransform": "JSON normalized; decimal number lexemes preserved as strings"
+    },
+    {
+      "id": "polymarket-fee",
+      "url": "https://clob.polymarket.com/fee-rate?token_id=32338220190071351435772801779725302244575775216413325951443816017994629993401",
+      "startedAt": "2026-10-19T20:43:49.718493+00:00",
+      "authenticated": false,
+      "httpStatus": 200,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:43:49 GMT",
+        "Age": "1858",
+        "Cache-Control": "public, max-age=10800",
+        "Content-Type": "application/json"
+      },
+      "savedAs": "polymarket-fee.json",
+      "durationMs": 157,
+      "receivedAt": "2026-10-19T20:43:49.875993+00:00",
+      "sourceResponseSHA256": "72f0f488905219fa9b2f2c5374dfbf9e83345b1fa38826015b15119ac221a079",
+      "artifactSHA256": "be516379b1aa10c1f07ccca193290d2e374c9d73d277668bd2ea83e3bead7169",
+      "artifactTransform": "JSON normalized; decimal number lexemes preserved as strings"
+    },
+    {
+      "id": "polymarket-time",
+      "url": "https://clob.polymarket.com/time",
+      "startedAt": "2026-10-19T20:43:49.876073+00:00",
+      "authenticated": false,
+      "httpStatus": 200,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:43:50 GMT",
+        "Content-Type": "text/plain; charset=UTF-8"
+      },
+      "savedAs": "polymarket-time.json",
+      "durationMs": 159,
+      "receivedAt": "2026-10-19T20:43:50.035992+00:00",
+      "sourceResponseSHA256": "d97b05981ba86f7e2103e7a19842fb219cdea5973e30ab80798d5848601f64ff",
+      "artifactSHA256": "cb8cecc031d5d85083ba122202c8592e27b57516ce2ceea39d5d3b95d2ee3413",
+      "artifactTransform": "JSON normalized; decimal number lexemes preserved as strings"
+    },
+    {
+      "id": "limitless-markets",
+      "url": "https://api.limitless.exchange/markets/active?limit=1&page=1",
+      "startedAt": "2026-10-19T20:43:50.036131+00:00",
+      "authenticated": false,
+      "httpStatus": 200,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:43:50 GMT",
+        "Cache-Control": "public, max-age=30, s-maxage=30",
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "savedAs": "limitless-markets.json",
+      "durationMs": 213,
+      "receivedAt": "2026-10-19T20:43:50.250076+00:00",
+      "sourceResponseSHA256": "8818ef491411f08c0e59d735d21cffedd0dd3cdb281ab2ca731305b790169f45",
+      "artifactSHA256": "1a579842f4edf1ae46b35db57556c04c6669a334879b47963e995cbe3431d11c",
+      "artifactTransform": "selected public fields"
+    },
+    {
+      "id": "limitless-market",
+      "url": "https://api.limitless.exchange/markets/btc-up-or-down-15-min-1792441800",
+      "startedAt": "2026-10-19T20:43:50.250224+00:00",
+      "authenticated": false,
+      "httpStatus": 200,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:43:50 GMT",
+        "Age": "5",
+        "Cache-Control": "public, s-maxage=15",
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "savedAs": "limitless-market.json",
+      "durationMs": 143,
+      "receivedAt": "2026-10-19T20:43:50.394005+00:00",
+      "sourceResponseSHA256": "92144c9af4d820dd6073d264f4896c4086e0a4893fd93b9b99cd088509fd632a",
+      "artifactSHA256": "7b1d633e00fbb345726f46943223d99912f4e7cc563ee90bc4dab944941fe685",
+      "artifactTransform": "selected public fields"
+    },
+    {
+      "id": "limitless-book",
+      "url": "https://api.limitless.exchange/markets/btc-up-or-down-15-min-1792441800/orderbook",
+      "startedAt": "2026-10-19T20:43:50.394064+00:00",
+      "authenticated": false,
+      "httpStatus": 200,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:43:50 GMT",
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "savedAs": "limitless-book.json",
+      "durationMs": 181,
+      "receivedAt": "2026-10-19T20:43:50.575283+00:00",
+      "sourceResponseSHA256": "0257baeb5f6740158ca53a81d4bc53a587c0c57e2d1ace9697b4051df8bd1f65",
+      "artifactSHA256": "fa1f39d99780e358cbc4745196295ab4f18a4d9aef1ed5b3c1a68183f3998b41",
+      "artifactTransform": "JSON normalized; decimal number lexemes preserved as strings"
+    },
+    {
+      "id": "polymarket-clob-market",
+      "url": "https://clob.polymarket.com/clob-markets/0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7",
+      "startedAt": "2026-10-19T20:49:33.797808+00:00",
+      "receivedAt": "2026-10-19T20:49:34.027589+00:00",
+      "authenticated": false,
+      "httpStatus": 200,
+      "durationMs": 229,
+      "headers": {
+        "Date": "Mon, 19 Oct 2026 20:49:33 GMT",
+        "Content-Type": "application/json"
+      },
+      "sourceResponseSHA256": "10a5dc1118e5f25889a4b03e331f9d796c7c4f6e63716d49896b3b6ccb40df74",
+      "artifactSHA256": "6456f4846b81c861f31e52974fd8d5c9021e2df032fd62dba1ba80056592b128",
+      "savedAs": "polymarket-clob-market.json",
+      "artifactTransform": "JSON normalized; decimal number lexemes preserved as strings"
+    }
+  ],
+  "note": "Source hashes identify original HTTP bodies, which are not archived. Artifact hashes verify the saved transformed evidence. Wall-clock differences have no certified clock correction."
+}

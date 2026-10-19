@@ -1,0 +1,165 @@
+{
+  "contractId": "paper-clob-market-profiles-v1",
+  "decision": "ADR-0059",
+  "status": "accepted_contract_pending_activation",
+  "environment": "paper",
+  "runtimeEnabled": false,
+  "freshness": {
+    "maxBookAgeMs": 2000,
+    "maxSnapshotAcquisitionMs": 1000,
+    "maxClockUncertaintyMs": 250,
+    "sourceTimestampRequired": true,
+    "clockBoundVerified": false,
+    "streamAcceptanceVerified": false,
+    "heartbeatRefreshesBookAge": false,
+    "limitlessRestOnlyAllowed": false,
+    "limitlessDatabaseFallbackVersionZeroAllowed": false,
+    "uncertaintyScope": "source_and_local_clock_combined"
+  },
+  "priceEnvelope": {
+    "basis": "same_snapshot_side_best",
+    "maxAdverseRelativeMove": "0.02",
+    "buyLimitRounding": "floor_to_price_grid",
+    "sellLimitRounding": "ceil_to_price_grid",
+    "reanchorExistingOrder": false
+  },
+  "unknownRequiredField": "block_new_attempt_preserve_existing_obligations",
+  "profiles": [
+    {
+      "id": "polymarket-ctf-v1",
+      "venue": "polymarket",
+      "mechanism": "CLOB",
+      "marketVersion": "v1",
+      "assetSelector": "clobTokenIds",
+      "tradingMinimumField": "book.min_order_size",
+      "priceTickField": "book.tick_size",
+      "precisionRule": "order_shape_and_tick_precision_table",
+      "feeRule": "explicit_clob_market_fd_rate_exponent_no_sdk_zero_default",
+      "activation": "blocked",
+      "blockers": [
+        "clock_and_stream_acceptance",
+        "fee_rounding_charge_bound_and_settlement_units",
+        "collateral_and_order_shape_validation"
+      ],
+      "documentedSources": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08",
+        "P09"
+      ],
+      "concreteMarketInstanceReady": false
+    },
+    {
+      "id": "polymarket-protocol-v2",
+      "venue": "polymarket",
+      "mechanism": "CLOB",
+      "marketVersion": "v2",
+      "assetSelector": "positionIds",
+      "tradingMinimumField": "book.min_order_size",
+      "priceTickField": "book.tick_size",
+      "precisionRule": "order_shape_and_tick_precision_table",
+      "feeRule": "explicit_clob_market_fd_rate_exponent_no_sdk_zero_default",
+      "activation": "blocked",
+      "blockers": [
+        "v2_recorded_market_book_and_wire_validation",
+        "clock_and_stream_acceptance",
+        "fee_rounding_charge_bound_and_settlement_units"
+      ],
+      "documentedSources": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08",
+        "P09"
+      ],
+      "concreteMarketInstanceReady": false
+    },
+    {
+      "id": "limitless-clob-legacy",
+      "venue": "limitless",
+      "mechanism": "CLOB",
+      "venueDiscriminator": "feeModuleType_absent_confirmed_legacy",
+      "rawDecimals": 6,
+      "priceGrid": "0.001",
+      "priceMin": "0.001",
+      "priceMax": "0.999",
+      "makerAmountFloorRaw": "100",
+      "rewardMinSizeIsTradingMinimum": false,
+      "precisionRule": "integer_raw_and_exact_collateral_equation_per_order_shape",
+      "feeRule": "legacy_curve_requires_proven_pretrade_calculator",
+      "activation": "blocked",
+      "blockers": [
+        "legacy_exact_fee_and_upper_bound_not_proven",
+        "clock_and_stream_acceptance",
+        "typed_order_shape_validation"
+      ],
+      "documentedSources": [
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L08",
+        "L06"
+      ],
+      "concreteMarketInstanceReady": false
+    },
+    {
+      "id": "limitless-clob-collateral",
+      "venue": "limitless",
+      "mechanism": "CLOB",
+      "venueDiscriminator": "feeModuleType_COLLATERAL_and_feeModule_present",
+      "rawDecimals": 6,
+      "priceGrid": "0.001",
+      "priceMin": "0.001",
+      "priceMax": "0.999",
+      "makerAmountFloorRaw": "100",
+      "rewardMinSizeIsTradingMinimum": false,
+      "signedFeeRateBps": "0",
+      "feeRule": "collateral_match_fee_v1",
+      "standardRateBps": "500",
+      "feeRoundingQuantumRaw": "10",
+      "feeRounding": "half_up_per_match",
+      "buyReserveRule": "rate_times_notional_plus_proven_rounding_event_bound",
+      "activation": "blocked",
+      "blockers": [
+        "collateral_venue_recorded_evidence_and_fee_vectors",
+        "clock_and_stream_acceptance",
+        "typed_order_shape_validation"
+      ],
+      "documentedSources": [
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L08",
+        "L05"
+      ],
+      "concreteMarketInstanceReady": false
+    },
+    {
+      "id": "limitless-amm",
+      "venue": "limitless",
+      "mechanism": "AMM",
+      "activation": "unsupported_in_first_profile",
+      "blockers": [
+        "separate_quote_fee_and_sell_semantics_required"
+      ],
+      "documentedSources": [
+        "L07"
+      ],
+      "concreteMarketInstanceReady": false
+    }
+  ],
+  "checkedDate": "2026-10-19",
+  "kind": "profile_family_contract_not_instantiated_market_configuration",
+  "sourcesManifest": "docs/qa/venue-profiles-2026-10-19/sources.json"
+}

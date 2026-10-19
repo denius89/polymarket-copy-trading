@@ -10,6 +10,7 @@
 | Последние изменения и история | [PROJECT_STATE](PROJECT_STATE.md) |
 | Согласованные правила | [Бизнес-логика MVP](MVP_BUSINESS_LOGIC.md), [ADR](decisions/README.md) |
 | Сверка правил и актуальных макетов | [Бизнес-аудит 19.10.2026: замечания, открытые решения и evidence](qa/business-logic-2026-10-19/README.md) |
+| Рыночные CLOB-профили · контракт принят, активация blocked | [ADR-0059](decisions/0059_clob_market_profiles_freshness_price_and_fees.md), [136](136_venue_market_profiles_and_quote_gates_2026-10-19.md), [JSON](policies/paper-clob-market-profiles-v1.json), [наблюдения/QA](qa/venue-profiles-2026-10-19/README.md) |
 | Числовые параметры paper MVP · принято | [ADR-0058](decisions/0058_paper_mvp_numeric_settings_policy.md), [политика 130](130_paper_copy_settings_numeric_policy_proposal_2026-10-18.md), [JSON](policies/paper-mvp-settings-v1.json), [проверка](qa/numeric-policy-2026-10-19/README.md) |
 | BL-08: лимиты и причина отказа · принято | [ADR-0057](decisions/0057_effective_limits_and_rejection_reason_priority.md), [контракт 135](135_effective_limits_and_rejection_reasons_2026-10-19.md), [проверка](qa/effective-limits-reasons-2026-10-19/README.md) |
 | Бюджет/настройки активной сессии · принято | [ADR-0056](decisions/0056_active_session_budget_flows_and_settings_revisions.md), [контракт 134](134_active_session_budget_and_settings_versions_2026-10-19.md), [проверка](qa/session-settings-revisions-2026-10-19/README.md) |

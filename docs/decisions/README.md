@@ -144,3 +144,7 @@
 ## Числовые параметры paper MVP · 19.10.2026
 
 [ADR-0058](0058_paper_mvp_numeric_settings_policy.md) — принято владельцем: диапазоны/шаги B/F/q/p/d, фиксированные 30 секунд, $5 только для fixed, сохранение активного F по ADR-0056. [Политика 130](../130_paper_copy_settings_numeric_policy_proposal_2026-10-18.md), [JSON](../policies/paper-mvp-settings-v1.json), [QA](../qa/numeric-policy-2026-10-19/README.md).
+
+## Рыночные профили · 19.10.2026
+
+[ADR-0059](0059_clob_market_profiles_freshness_price_and_fees.md) — контракт принят: 2 с/1 с/250 мс, ценовой предел 2%, CLOB обеих площадок с раздельными версиями и доказанными расходами; AMM пока unsupported. [136](../136_venue_market_profiles_and_quote_gates_2026-10-19.md), [JSON](../policies/paper-clob-market-profiles-v1.json), [QA/evidence](../qa/venue-profiles-2026-10-19/README.md). Активация blocked до проверок.

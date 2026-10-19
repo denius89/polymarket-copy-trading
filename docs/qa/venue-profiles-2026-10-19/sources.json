@@ -1,0 +1,130 @@
+{
+  "checkedDate": "2026-10-19",
+  "method": "official web pages read; paraphrased claims, not full documentation archive",
+  "claims": [
+    {
+      "id": "P01",
+      "url": "https://docs.polymarket.com/market-data/prices-order-books",
+      "status": "documented",
+      "claim": "Outcome book has market/asset identity, timestamp/hash and market-scoped min_order_size/tick_size.",
+      "scope": "documentation_only; observed claims in evidence manifests"
+    },
+    {
+      "id": "P02",
+      "url": "https://docs.polymarket.com/trading/place-orders",
+      "status": "documented",
+      "claim": "Limit-shaped and market-notional amount precision differ; preserve side-specific price protection.",
+      "scope": "documentation_only; observed claims in evidence manifests"
+    },
+    {
+      "id": "P03",
+      "url": "https://docs.polymarket.com/trading/fees",
+      "status": "documented",
+      "claim": "Documented exponent-1 price curve and five-decimal monetary fee precision; not a universal fee-free promise.",
+      "scope": "documentation_only; observed claims in evidence manifests"
+    },
+    {
+      "id": "P04",
+      "url": "https://docs.polymarket.com/market-data/market-details",
+      "status": "documented",
+      "claim": "Select asset by market.version; feeSchedule has rate/exponent/takerOnly. Both identifier arrays may be populated.",
+      "scope": "documentation_only; observed claims in evidence manifests"
+    },
+    {
+      "id": "P05",
+      "url": "https://docs.polymarket.com/concepts/pusd",
+      "status": "documented",
+      "claim": "pUSD collateral on Polygon has six decimals; do not replace actual collateral identity with an old symbol.",
+      "scope": "documentation_only; observed claims in evidence manifests"
+    },
+    {
+      "id": "P06",
+      "url": "https://docs.polymarket.com/market-data/realtime-data",
+      "status": "documented",
+      "claim": "Public book, price_change and tick_size_change payloads; optional timestamps must be checked.",
+      "scope": "documentation_only; observed claims in evidence manifests"
+    },
+    {
+      "id": "L01",
+      "url": "https://docs.limitless.exchange/api-reference/trading/orderbook",
+      "status": "documented",
+      "claim": "YES-side raw-six-decimal book; no freshness guarantee; minSize is reward-related, not trading floor. NO book is complementary.",
+      "scope": "documentation_only; observed claims in evidence manifests"
+    },
+    {
+      "id": "L02",
+      "url": "https://docs.limitless.exchange/developers/websocket/market-data",
+      "status": "documented",
+      "claim": "Coalesced full snapshots with source timestamp and noncontiguous publisher version; fallback version zero.",
+      "scope": "documentation_only; observed claims in evidence manifests"
+    },
+    {
+      "id": "L03",
+      "url": "https://docs.limitless.exchange/api-reference/trading/create-order",
+      "status": "documented",
+      "claim": "makerAmount dust floor 100 raw; GTC/FAK price 0.001–0.999 and exact collateral equation. FOK differs; taker delay is not a fill.",
+      "scope": "documentation_only; observed claims in evidence manifests"
+    },
+    {
+      "id": "L04",
+      "url": "https://docs.limitless.exchange/developers/venue-system",
+      "status": "documented",
+      "claim": "Per-market venue exchange/adapter, optional COLLATERAL fee module discriminator.",
+      "scope": "documentation_only; observed claims in evidence manifests"
+    },
+    {
+      "id": "L05",
+      "url": "https://docs.limitless.exchange/developers/migrate-to-new-trading-venues",
+      "status": "documented",
+      "claim": "New collateral fee computed per aggregated match, signed rate zero, buy reserve and gross/net conventions; half-up to 10 raw.",
+      "scope": "documentation_only; observed claims in evidence manifests"
+    },
+    {
+      "id": "L06",
+      "url": "https://docs.limitless.exchange/user-guide/fees",
+      "status": "documented",
+      "claim": "Legacy BUY fee in outcome tokens, SELL in collateral; exact closed-form curve not published. Post-trade totals do not prove pretrade bound.",
+      "scope": "documentation_only; observed claims in evidence manifests"
+    },
+    {
+      "id": "L07",
+      "url": "https://docs.limitless.exchange/developers/amm-trading",
+      "status": "documented",
+      "claim": "AMM separate quote/fee path and exact-collateral-return SELL semantics; not a CLOB book.",
+      "scope": "documentation_only; observed claims in evidence manifests"
+    },
+    {
+      "id": "L08",
+      "url": "https://docs.limitless.exchange/developers/websocket/overview",
+      "status": "documented",
+      "claim": "Public market subscription requires no account authentication; private positions/orders differ.",
+      "scope": "documentation_only; observed claims in evidence manifests"
+    },
+    {
+      "id": "P07",
+      "url": "https://github.com/Polymarket/ts-sdk/blob/b268185c818a646a93693e09f57be323213530b9/packages/client/src/actions/orders/cache.ts",
+      "status": "source_read_pinned",
+      "claim": "Order metadata comes from fetchMarketInfo; order feeInfo is scoped to the market.",
+      "scope": "source inspection only, library not installed or executed"
+    },
+    {
+      "id": "P08",
+      "url": "https://github.com/Polymarket/ts-sdk/blob/b268185c818a646a93693e09f57be323213530b9/packages/bindings/src/clob/market-data.ts",
+      "status": "source_read_pinned",
+      "claim": "Compact fd.r/e maps to rate/exponent; absent fd can normalize to zero. Project must require raw presence, not inherit this default.",
+      "scope": "source inspection only, library not installed or executed"
+    },
+    {
+      "id": "P09",
+      "url": "https://github.com/Polymarket/ts-sdk/blob/b268185c818a646a93693e09f57be323213530b9/packages/client/src/actions/orders/market.ts",
+      "status": "source_read_pinned",
+      "claim": "maxSpend can adjust BUY amount down for fees. Do not use auto-shrink to bypass full desired BUY admission.",
+      "scope": "source inspection only, library not installed or executed"
+    }
+  ],
+  "observationToolVersions": {
+    "python-socketio": "5.14.1",
+    "websockets": "15.0.1"
+  },
+  "polymarketSdkInspectedCommit": "b268185c818a646a93693e09f57be323213530b9"
+}
