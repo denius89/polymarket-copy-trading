@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "post_freeze_author_review; original cases.json and oracles.json unchanged",
+  "entries": [
+    {
+      "case_id": "S03-A",
+      "check_id": "S03-A-3",
+      "kind": "oracle qualification",
+      "issue": "Fixture does not explicitly specify allocation of acquisition fee when part of a lot is sold. Oracle gives optional proportional-fee realized PnL2.16.",
+      "grading_guidance": "Require the supported distinction gross proceeds8.40 vs net proceeds8.28 vs profit. Do not penalize omission of realized PnL, or an explicit statement that fee allocation must be confirmed. If author supplies2.16 with a stated proportional allocation assumption, accept it as a conditional result. Do not require proportional allocation as an accepted product rule."
+    },
+    {
+      "case_id": "S12-A",
+      "check_id": "S12-A-3",
+      "kind": "missing explicit fixture transition",
+      "issue": "Maximum reservation5.454 and unused amount0.2222 are derivable, but release of unused reserve after a fully filled order is not explicitly specified in fixture standard.",
+      "grading_guidance": "Assess initial reserve5.454 and the absence of a profit claim. Accept0.2222 as unused excess; do not require an unconditional release transition. An answer that conditions release on confirmed terminal status/rules must not fail this check."
+    },
+    {
+      "case_id": "S16-A",
+      "check_id": "S16-A-2",
+      "kind": "oracle over-specific label",
+      "issue": "Age of the cutoff is3days, but no accepted freshness threshold defines the policy label stale.",
+      "grading_guidance": "Require cutoffOct12/readOct15 and data-age context plus coverage40%. Accept either an explicitly qualified stale label or neutral dated wording. Do not require stale as a policy status or penalize a refusal to invent a threshold."
+    },
+    {
+      "case_id": null,
+      "check_id": null,
+      "kind": "readability limitation",
+      "issue": "Several late fixtures and criteria use compressed mixed Russian/English prose and occasional joined words. This is author formatting, not executor behavior.",
+      "grading_guidance": "Judge intended semantic properties, not reproduction of compressed phrases. If a joined phrase causes real ambiguity, mark the affected property unassessable/test defect rather than infer executor failure. Exact lexical matches are never required."
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "status": "unvalidated_ordering_sensitivity_not_primary_result",
+  "clock_note": "JSON timestamp closely follows received clock; no claim of exchange sequence or information available to product",
+  "json_vs_received": [
+    {
+      "n_rows": 369362,
+      "min_s": -4.76837158203125e-07,
+      "max_s": 0.00099945068359375,
+      "median_s": 0.0004858970642089844,
+      "within_1ms": 369362
+    }
+  ],
+  "json_vs_created": [
+    {
+      "min_s": -2.395395040512085,
+      "max_s": -0.0037021636962890625,
+      "median_s": -0.04392349720001221
+    }
+  ],
+  "availability_all": [
+    {
+      "n_groups": 26325,
+      "tied": 23442,
+      "finer_timestamp_distinguishes": 23442,
+      "all_finer_timestamps_distinct": 23442
+    }
+  ],
+  "availability_snapshot": [
+    {
+      "n_groups": 5967,
+      "tied": 1642,
+      "finer_timestamp_distinguishes": 1642,
+      "all_finer_timestamps_distinct": 1642
+    }
+  ],
+  "both_parquet_clocks_all": [
+    {
+      "n_groups": 191454,
+      "tied": 63807,
+      "finer_timestamp_distinguishes": 63807,
+      "all_finer_timestamps_distinct": 63807
+    }
+  ],
+  "replay_json_timestamp_order": {
+    "counts": {
+      "comparisons": 8764,
+      "same_depth": 8691,
+      "same_top": 8734,
+      "mismatch_with_missing_or_added_price_levels": 32,
+      "mismatch_quantity_only": 41,
+      "quantity_only_all_deltas_le_1e_6": 0,
+      "top_difference_gt_1e_6": 30
+    },
+    "max_best_price_absolute_delta": 0.020000000000000018,
+    "max_quantity_absolute_delta": 1799.0,
+    "min_nonzero_quantity_absolute_delta": 5.0,
+    "tick_size_verified": false,
+    "first_mismatches": [
+      {
+        "token": "43481843661147155552738046316049831798856705994211537436787837503117360715000",
+        "jt": 1772343021.0208619,
+        "old_top": [
+          0.59,
+          0.61
+        ],
+        "new_top": [
+          0.59,
+          0.61
+        ],
+        "changed_levels": [
+          {
+            "side": "bids",
+            "price": 0.49,
+            "old_size": 693.11,
+            "new_size": 664.11
+          },
+          {
+            "side": "asks",
+            "price": 0.69,
+            "old_size": 513.0,
+            "new_size": 508.0
+          },
+          {
+            "side": "asks",
+            "price": 0.76,
+            "old_size": 107.0,
+            "new_size": 46.0
+          }
+        ]
+      },
+      {
+        "token": "52736928268999623219663287346669092430951157945031775768947601747850161790268",
+        "jt": 1772343021.021087,
+        "old_top": [
+          0.39,
+          0.41
+        ],
+        "new_top": [
+          0.39,
+          0.41
+        ],
+        "changed_levels": [
+          {
+            "side": "bids",
+            "price": 0.24,
+            "old_size": 107.0,
+            "new_size": 46.0
+          },
+          {
+            "side": "bids",
+            "price": 0.31,
+            "old_size": 513.0,
+            "new_size": 508.0
+          },
+          {
+            "side": "asks",
+            "price": 0.51,
+            "old_size": 693.11,
+            "new_size": 664.11
+          }
+        ]
+      },
+      {
+        "token": "43481843661147155552738046316049831798856705994211537436787837503117360715000",
+        "jt": 1772343038.0432222,
+        "old_top": [
+          0.64,
+          0.65
+        ],
+        "new_top": [
+          0.64,
+          0.65
+        ],
+        "changed_levels": [
+          {
+            "side": "asks",
+            "price": 0.73,
+            "old_size": 76.0,
+            "new_size": 71.0
+          }
+        ]
+      }
+    ]
+  },
+  "demonstration_event_group": [
+    {
+      "token": "43481843661147155552738046316049831798856705994211537436787837503117360715000",
+      "update_type": "price_change",
+      "jt": 1772343006.9490216,
+      "received_s": 1772343006.949,
+      "created_s": 1772343006.976
+    },
+    {
+      "token": "43481843661147155552738046316049831798856705994211537436787837503117360715000",
+      "update_type": "price_change",
+      "jt": 1772343006.9495606,
+      "received_s": 1772343006.949,
+      "created_s": 1772343006.976
+    },
+    {
+      "token": "43481843661147155552738046316049831798856705994211537436787837503117360715000",
+      "update_type": "book_snapshot",
+      "jt": 1772343006.9498518,
+      "received_s": 1772343006.949,
+      "created_s": 1772343006.976
+    },
+    {
+      "token": "52736928268999623219663287346669092430951157945031775768947601747850161790268",
+      "update_type": "price_change",
+      "jt": 1772343006.9490166,
+      "received_s": 1772343006.949,
+      "created_s": 1772343006.976
+    },
+    {
+      "token": "52736928268999623219663287346669092430951157945031775768947601747850161790268",
+      "update_type": "price_change",
+      "jt": 1772343006.9495556,
+      "received_s": 1772343006.949,
+      "created_s": 1772343006.976
+    }
+  ]
+}

@@ -1,0 +1,2211 @@
+{
+  "trace": [
+    {
+      "event_id": "missing_fee",
+      "sequence": 1,
+      "kind": "intent",
+      "received_at": "2026-03-28T22:59:42Z",
+      "decision": "skipped:unknown_expenses",
+      "state": {
+        "cash": "200",
+        "gross_buy_reserve": "0",
+        "expense_reserve": "0",
+        "cash_reserve": "0",
+        "available": "200",
+        "current_day": "2026-03-28",
+        "local_time": "2026-03-28T23:59:42+01:00",
+        "next_reset_utc": "2026-03-28T23:00:00+00:00",
+        "daily_spent": "0",
+        "daily_pending": "0",
+        "daily_available": "30",
+        "daily_used_all": {},
+        "fees_paid": "0",
+        "gross_bought": "0",
+        "gross_sold": "0",
+        "settlement_cash": "0",
+        "risk_blocked": false,
+        "positions": {},
+        "orders": {}
+      }
+    },
+    {
+      "event_id": "missing_book",
+      "sequence": 2,
+      "kind": "intent",
+      "received_at": "2026-03-28T22:59:44Z",
+      "decision": "skipped:invalid_age_or_no_snapshot",
+      "state": {
+        "cash": "200",
+        "gross_buy_reserve": "0",
+        "expense_reserve": "0",
+        "cash_reserve": "0",
+        "available": "200",
+        "current_day": "2026-03-28",
+        "local_time": "2026-03-28T23:59:44+01:00",
+        "next_reset_utc": "2026-03-28T23:00:00+00:00",
+        "daily_spent": "0",
+        "daily_pending": "0",
+        "daily_available": "30",
+        "daily_used_all": {},
+        "fees_paid": "0",
+        "gross_bought": "0",
+        "gross_sold": "0",
+        "settlement_cash": "0",
+        "risk_blocked": false,
+        "positions": {},
+        "orders": {}
+      }
+    },
+    {
+      "event_id": "thin_book",
+      "sequence": 3,
+      "kind": "intent",
+      "received_at": "2026-03-28T22:59:46Z",
+      "decision": "skipped:insufficient_full_buy_depth",
+      "state": {
+        "cash": "200",
+        "gross_buy_reserve": "0",
+        "expense_reserve": "0",
+        "cash_reserve": "0",
+        "available": "200",
+        "current_day": "2026-03-28",
+        "local_time": "2026-03-28T23:59:46+01:00",
+        "next_reset_utc": "2026-03-28T23:00:00+00:00",
+        "daily_spent": "0",
+        "daily_pending": "0",
+        "daily_available": "30",
+        "daily_used_all": {},
+        "fees_paid": "0",
+        "gross_bought": "0",
+        "gross_sold": "0",
+        "settlement_cash": "0",
+        "risk_blocked": false,
+        "positions": {},
+        "orders": {}
+      }
+    },
+    {
+      "event_id": "A_intent",
+      "sequence": 4,
+      "kind": "intent",
+      "received_at": "2026-03-28T22:59:52Z",
+      "decision": "admitted:no_fill_generated",
+      "state": {
+        "cash": "200",
+        "gross_buy_reserve": "5",
+        "expense_reserve": "0.10",
+        "cash_reserve": "5.10",
+        "available": "194.90",
+        "current_day": "2026-03-28",
+        "local_time": "2026-03-28T23:59:52+01:00",
+        "next_reset_utc": "2026-03-28T23:00:00+00:00",
+        "daily_spent": "0",
+        "daily_pending": "5",
+        "daily_available": "25",
+        "daily_used_all": {},
+        "fees_paid": "0",
+        "gross_bought": "0",
+        "gross_sold": "0",
+        "settlement_cash": "0",
+        "risk_blocked": false,
+        "positions": {},
+        "orders": {
+          "A_intent": {
+            "side": "BUY",
+            "token": "A",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "0",
+            "filled_quantity": "0",
+            "fee_cap": "0.10",
+            "fee_actual": null,
+            "terminal": false,
+            "status": "admitted",
+            "decision_at": "2026-03-28T22:59:52Z",
+            "price_boundary": "0.52",
+            "cancel_requested": false,
+            "remaining_cancelled": "0"
+          }
+        }
+      }
+    },
+    {
+      "event_id": "A_fill_1",
+      "sequence": 5,
+      "kind": "fill",
+      "received_at": "2026-03-28T22:59:54Z",
+      "decision": "confirmed_partial_fill:cancel_requested_not_confirmed",
+      "state": {
+        "cash": "198.00",
+        "gross_buy_reserve": "3.00",
+        "expense_reserve": "0.10",
+        "cash_reserve": "3.10",
+        "available": "194.90",
+        "current_day": "2026-03-28",
+        "local_time": "2026-03-28T23:59:54+01:00",
+        "next_reset_utc": "2026-03-28T23:00:00+00:00",
+        "daily_spent": "2.00",
+        "daily_pending": "3.00",
+        "daily_available": "25.00",
+        "daily_used_all": {
+          "2026-03-28": "2.00"
+        },
+        "fees_paid": "0",
+        "gross_bought": "2.00",
+        "gross_sold": "0",
+        "settlement_cash": "0",
+        "risk_blocked": false,
+        "positions": {
+          "A": {
+            "quantity": "4",
+            "cost_basis": "2.00",
+            "pending_buy": "3.00",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "A_fill_1",
+                "order_id": "A_intent",
+                "quantity": "4",
+                "cost_basis": "2.00",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:53Z"
+              }
+            ]
+          }
+        },
+        "orders": {
+          "A_intent": {
+            "side": "BUY",
+            "token": "A",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "2.00",
+            "filled_quantity": "4",
+            "fee_cap": "0.10",
+            "fee_actual": null,
+            "terminal": false,
+            "status": "partial_cancel_requested",
+            "decision_at": "2026-03-28T22:59:52Z",
+            "price_boundary": "0.52",
+            "cancel_requested": true,
+            "remaining_cancelled": "0"
+          }
+        }
+      }
+    },
+    {
+      "event_id": "A_unknown",
+      "sequence": 6,
+      "kind": "unknown",
+      "received_at": "2026-03-28T22:59:55Z",
+      "decision": "unknown:all_existing_reserves_retained",
+      "state": {
+        "cash": "198.00",
+        "gross_buy_reserve": "3.00",
+        "expense_reserve": "0.10",
+        "cash_reserve": "3.10",
+        "available": "194.90",
+        "current_day": "2026-03-28",
+        "local_time": "2026-03-28T23:59:55+01:00",
+        "next_reset_utc": "2026-03-28T23:00:00+00:00",
+        "daily_spent": "2.00",
+        "daily_pending": "3.00",
+        "daily_available": "25.00",
+        "daily_used_all": {
+          "2026-03-28": "2.00"
+        },
+        "fees_paid": "0",
+        "gross_bought": "2.00",
+        "gross_sold": "0",
+        "settlement_cash": "0",
+        "risk_blocked": false,
+        "positions": {
+          "A": {
+            "quantity": "4",
+            "cost_basis": "2.00",
+            "pending_buy": "3.00",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "A_fill_1",
+                "order_id": "A_intent",
+                "quantity": "4",
+                "cost_basis": "2.00",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:53Z"
+              }
+            ]
+          }
+        },
+        "orders": {
+          "A_intent": {
+            "side": "BUY",
+            "token": "A",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "2.00",
+            "filled_quantity": "4",
+            "fee_cap": "0.10",
+            "fee_actual": null,
+            "terminal": false,
+            "status": "unknown",
+            "decision_at": "2026-03-28T22:59:52Z",
+            "price_boundary": "0.52",
+            "cancel_requested": true,
+            "remaining_cancelled": "0"
+          }
+        }
+      }
+    },
+    {
+      "event_id": "midnight",
+      "sequence": 7,
+      "kind": "tick",
+      "received_at": "2026-03-28T23:00:00Z",
+      "decision": "clock_only",
+      "state": {
+        "cash": "198.00",
+        "gross_buy_reserve": "3.00",
+        "expense_reserve": "0.10",
+        "cash_reserve": "3.10",
+        "available": "194.90",
+        "current_day": "2026-03-29",
+        "local_time": "2026-03-29T00:00:00+01:00",
+        "next_reset_utc": "2026-03-29T22:00:00+00:00",
+        "daily_spent": "0",
+        "daily_pending": "3.00",
+        "daily_available": "27.00",
+        "daily_used_all": {
+          "2026-03-28": "2.00"
+        },
+        "fees_paid": "0",
+        "gross_bought": "2.00",
+        "gross_sold": "0",
+        "settlement_cash": "0",
+        "risk_blocked": false,
+        "positions": {
+          "A": {
+            "quantity": "4",
+            "cost_basis": "2.00",
+            "pending_buy": "3.00",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "A_fill_1",
+                "order_id": "A_intent",
+                "quantity": "4",
+                "cost_basis": "2.00",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:53Z"
+              }
+            ]
+          }
+        },
+        "orders": {
+          "A_intent": {
+            "side": "BUY",
+            "token": "A",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "2.00",
+            "filled_quantity": "4",
+            "fee_cap": "0.10",
+            "fee_actual": null,
+            "terminal": false,
+            "status": "unknown",
+            "decision_at": "2026-03-28T22:59:52Z",
+            "price_boundary": "0.52",
+            "cancel_requested": true,
+            "remaining_cancelled": "0"
+          }
+        }
+      }
+    },
+    {
+      "event_id": "A_fill_2",
+      "sequence": 8,
+      "kind": "fill",
+      "received_at": "2026-03-28T23:00:02Z",
+      "decision": "confirmed_partial_fill:cancel_requested_not_confirmed",
+      "state": {
+        "cash": "197.00",
+        "gross_buy_reserve": "2.00",
+        "expense_reserve": "0.10",
+        "cash_reserve": "2.10",
+        "available": "194.90",
+        "current_day": "2026-03-29",
+        "local_time": "2026-03-29T00:00:02+01:00",
+        "next_reset_utc": "2026-03-29T22:00:00+00:00",
+        "daily_spent": "0",
+        "daily_pending": "2.00",
+        "daily_available": "28.00",
+        "daily_used_all": {
+          "2026-03-28": "3.00"
+        },
+        "fees_paid": "0",
+        "gross_bought": "3.00",
+        "gross_sold": "0",
+        "settlement_cash": "0",
+        "risk_blocked": false,
+        "positions": {
+          "A": {
+            "quantity": "6",
+            "cost_basis": "3.00",
+            "pending_buy": "2.00",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "A_fill_1",
+                "order_id": "A_intent",
+                "quantity": "4",
+                "cost_basis": "2.00",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:53Z"
+              },
+              {
+                "lot_id": "A_fill_2",
+                "order_id": "A_intent",
+                "quantity": "2",
+                "cost_basis": "1.00",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:58Z"
+              }
+            ]
+          }
+        },
+        "orders": {
+          "A_intent": {
+            "side": "BUY",
+            "token": "A",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "3.00",
+            "filled_quantity": "6",
+            "fee_cap": "0.10",
+            "fee_actual": null,
+            "terminal": false,
+            "status": "partial_cancel_requested",
+            "decision_at": "2026-03-28T22:59:52Z",
+            "price_boundary": "0.52",
+            "cancel_requested": true,
+            "remaining_cancelled": "0"
+          }
+        }
+      }
+    },
+    {
+      "event_id": "A_cancel",
+      "sequence": 9,
+      "kind": "terminal",
+      "received_at": "2026-03-28T23:00:03Z",
+      "decision": "terminal_confirmed:remaining_and_expense_reserve_released",
+      "state": {
+        "cash": "196.95",
+        "gross_buy_reserve": "0",
+        "expense_reserve": "0",
+        "cash_reserve": "0",
+        "available": "196.95",
+        "current_day": "2026-03-29",
+        "local_time": "2026-03-29T00:00:03+01:00",
+        "next_reset_utc": "2026-03-29T22:00:00+00:00",
+        "daily_spent": "0",
+        "daily_pending": "0",
+        "daily_available": "30",
+        "daily_used_all": {
+          "2026-03-28": "3.00"
+        },
+        "fees_paid": "0.05",
+        "gross_bought": "3.00",
+        "gross_sold": "0",
+        "settlement_cash": "0",
+        "risk_blocked": false,
+        "positions": {
+          "A": {
+            "quantity": "6",
+            "cost_basis": "3.00",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "A_fill_1",
+                "order_id": "A_intent",
+                "quantity": "4",
+                "cost_basis": "2.00",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:53Z"
+              },
+              {
+                "lot_id": "A_fill_2",
+                "order_id": "A_intent",
+                "quantity": "2",
+                "cost_basis": "1.00",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:58Z"
+              }
+            ]
+          }
+        },
+        "orders": {
+          "A_intent": {
+            "side": "BUY",
+            "token": "A",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "3.00",
+            "filled_quantity": "6",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "cancelled_remainder",
+            "decision_at": "2026-03-28T22:59:52Z",
+            "price_boundary": "0.52",
+            "cancel_requested": true,
+            "remaining_cancelled": "2.00"
+          }
+        }
+      }
+    },
+    {
+      "event_id": "S_intent",
+      "sequence": 10,
+      "kind": "intent",
+      "received_at": "2026-03-28T23:00:06Z",
+      "decision": "admitted:no_fill_generated",
+      "state": {
+        "cash": "196.95",
+        "gross_buy_reserve": "0",
+        "expense_reserve": "0.10",
+        "cash_reserve": "0.10",
+        "available": "196.85",
+        "current_day": "2026-03-29",
+        "local_time": "2026-03-29T00:00:06+01:00",
+        "next_reset_utc": "2026-03-29T22:00:00+00:00",
+        "daily_spent": "0",
+        "daily_pending": "0",
+        "daily_available": "30",
+        "daily_used_all": {
+          "2026-03-28": "3.00"
+        },
+        "fees_paid": "0.05",
+        "gross_bought": "3.00",
+        "gross_sold": "0",
+        "settlement_cash": "0",
+        "risk_blocked": false,
+        "positions": {
+          "A": {
+            "quantity": "6",
+            "cost_basis": "3.00",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "1.5",
+            "lots": [
+              {
+                "lot_id": "A_fill_1",
+                "order_id": "A_intent",
+                "quantity": "4",
+                "cost_basis": "2.00",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:53Z"
+              },
+              {
+                "lot_id": "A_fill_2",
+                "order_id": "A_intent",
+                "quantity": "2",
+                "cost_basis": "1.00",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:58Z"
+              }
+            ]
+          }
+        },
+        "orders": {
+          "A_intent": {
+            "side": "BUY",
+            "token": "A",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "3.00",
+            "filled_quantity": "6",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "cancelled_remainder",
+            "decision_at": "2026-03-28T22:59:52Z",
+            "price_boundary": "0.52",
+            "cancel_requested": true,
+            "remaining_cancelled": "2.00"
+          },
+          "S_intent": {
+            "side": "SELL",
+            "token": "A",
+            "target_gross": "0.900",
+            "target_quantity": "1.5",
+            "filled_gross": "0",
+            "filled_quantity": "0",
+            "fee_cap": "0.10",
+            "fee_actual": null,
+            "terminal": false,
+            "status": "admitted",
+            "decision_at": "2026-03-28T23:00:06Z",
+            "price_boundary": "0.58",
+            "cancel_requested": false,
+            "remaining_cancelled": "0"
+          }
+        }
+      }
+    },
+    {
+      "event_id": "S_fill",
+      "sequence": 11,
+      "kind": "fill",
+      "received_at": "2026-03-28T23:00:07Z",
+      "decision": "confirmed_full_fill:fee_bound_retained",
+      "state": {
+        "cash": "197.85",
+        "gross_buy_reserve": "0",
+        "expense_reserve": "0.10",
+        "cash_reserve": "0.10",
+        "available": "197.75",
+        "current_day": "2026-03-29",
+        "local_time": "2026-03-29T00:00:07+01:00",
+        "next_reset_utc": "2026-03-29T22:00:00+00:00",
+        "daily_spent": "0",
+        "daily_pending": "0",
+        "daily_available": "30",
+        "daily_used_all": {
+          "2026-03-28": "3.00"
+        },
+        "fees_paid": "0.05",
+        "gross_bought": "3.00",
+        "gross_sold": "0.90",
+        "settlement_cash": "0",
+        "risk_blocked": false,
+        "positions": {
+          "A": {
+            "quantity": "4.5",
+            "cost_basis": "2.250",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0.0",
+            "lots": [
+              {
+                "lot_id": "A_fill_1",
+                "order_id": "A_intent",
+                "quantity": "3.0",
+                "cost_basis": "1.500",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:53Z"
+              },
+              {
+                "lot_id": "A_fill_2",
+                "order_id": "A_intent",
+                "quantity": "1.5",
+                "cost_basis": "0.750",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:58Z"
+              }
+            ]
+          }
+        },
+        "orders": {
+          "A_intent": {
+            "side": "BUY",
+            "token": "A",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "3.00",
+            "filled_quantity": "6",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "cancelled_remainder",
+            "decision_at": "2026-03-28T22:59:52Z",
+            "price_boundary": "0.52",
+            "cancel_requested": true,
+            "remaining_cancelled": "2.00"
+          },
+          "S_intent": {
+            "side": "SELL",
+            "token": "A",
+            "target_gross": "0.900",
+            "target_quantity": "1.5",
+            "filled_gross": "0.90",
+            "filled_quantity": "1.5",
+            "fee_cap": "0.10",
+            "fee_actual": null,
+            "terminal": false,
+            "status": "full_fill_awaiting_terminal_fee",
+            "decision_at": "2026-03-28T23:00:06Z",
+            "price_boundary": "0.58",
+            "cancel_requested": false,
+            "remaining_cancelled": "0"
+          }
+        }
+      }
+    },
+    {
+      "event_id": "S_terminal",
+      "sequence": 12,
+      "kind": "terminal",
+      "received_at": "2026-03-28T23:00:08Z",
+      "decision": "terminal_confirmed:remaining_and_expense_reserve_released",
+      "state": {
+        "cash": "197.80",
+        "gross_buy_reserve": "0",
+        "expense_reserve": "0",
+        "cash_reserve": "0",
+        "available": "197.80",
+        "current_day": "2026-03-29",
+        "local_time": "2026-03-29T00:00:08+01:00",
+        "next_reset_utc": "2026-03-29T22:00:00+00:00",
+        "daily_spent": "0",
+        "daily_pending": "0",
+        "daily_available": "30",
+        "daily_used_all": {
+          "2026-03-28": "3.00"
+        },
+        "fees_paid": "0.10",
+        "gross_bought": "3.00",
+        "gross_sold": "0.90",
+        "settlement_cash": "0",
+        "risk_blocked": false,
+        "positions": {
+          "A": {
+            "quantity": "4.5",
+            "cost_basis": "2.250",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "A_fill_1",
+                "order_id": "A_intent",
+                "quantity": "3.0",
+                "cost_basis": "1.500",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:53Z"
+              },
+              {
+                "lot_id": "A_fill_2",
+                "order_id": "A_intent",
+                "quantity": "1.5",
+                "cost_basis": "0.750",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:58Z"
+              }
+            ]
+          }
+        },
+        "orders": {
+          "A_intent": {
+            "side": "BUY",
+            "token": "A",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "3.00",
+            "filled_quantity": "6",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "cancelled_remainder",
+            "decision_at": "2026-03-28T22:59:52Z",
+            "price_boundary": "0.52",
+            "cancel_requested": true,
+            "remaining_cancelled": "2.00"
+          },
+          "S_intent": {
+            "side": "SELL",
+            "token": "A",
+            "target_gross": "0.900",
+            "target_quantity": "1.5",
+            "filled_gross": "0.90",
+            "filled_quantity": "1.5",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "filled",
+            "decision_at": "2026-03-28T23:00:06Z",
+            "price_boundary": "0.58",
+            "cancel_requested": false,
+            "remaining_cancelled": "0.0"
+          }
+        }
+      }
+    },
+    {
+      "event_id": "B_intent",
+      "sequence": 13,
+      "kind": "intent",
+      "received_at": "2026-03-28T23:00:11Z",
+      "decision": "admitted:no_fill_generated",
+      "state": {
+        "cash": "197.80",
+        "gross_buy_reserve": "5",
+        "expense_reserve": "0.10",
+        "cash_reserve": "5.10",
+        "available": "192.70",
+        "current_day": "2026-03-29",
+        "local_time": "2026-03-29T00:00:11+01:00",
+        "next_reset_utc": "2026-03-29T22:00:00+00:00",
+        "daily_spent": "0",
+        "daily_pending": "5",
+        "daily_available": "25",
+        "daily_used_all": {
+          "2026-03-28": "3.00"
+        },
+        "fees_paid": "0.10",
+        "gross_bought": "3.00",
+        "gross_sold": "0.90",
+        "settlement_cash": "0",
+        "risk_blocked": false,
+        "positions": {
+          "A": {
+            "quantity": "4.5",
+            "cost_basis": "2.250",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "A_fill_1",
+                "order_id": "A_intent",
+                "quantity": "3.0",
+                "cost_basis": "1.500",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:53Z"
+              },
+              {
+                "lot_id": "A_fill_2",
+                "order_id": "A_intent",
+                "quantity": "1.5",
+                "cost_basis": "0.750",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:58Z"
+              }
+            ]
+          }
+        },
+        "orders": {
+          "A_intent": {
+            "side": "BUY",
+            "token": "A",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "3.00",
+            "filled_quantity": "6",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "cancelled_remainder",
+            "decision_at": "2026-03-28T22:59:52Z",
+            "price_boundary": "0.52",
+            "cancel_requested": true,
+            "remaining_cancelled": "2.00"
+          },
+          "S_intent": {
+            "side": "SELL",
+            "token": "A",
+            "target_gross": "0.900",
+            "target_quantity": "1.5",
+            "filled_gross": "0.90",
+            "filled_quantity": "1.5",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "filled",
+            "decision_at": "2026-03-28T23:00:06Z",
+            "price_boundary": "0.58",
+            "cancel_requested": false,
+            "remaining_cancelled": "0.0"
+          },
+          "B_intent": {
+            "side": "BUY",
+            "token": "B",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "0",
+            "filled_quantity": "0",
+            "fee_cap": "0.10",
+            "fee_actual": null,
+            "terminal": false,
+            "status": "admitted",
+            "decision_at": "2026-03-28T23:00:11Z",
+            "price_boundary": "0.52",
+            "cancel_requested": false,
+            "remaining_cancelled": "0"
+          }
+        }
+      }
+    },
+    {
+      "event_id": "B_fill",
+      "sequence": 14,
+      "kind": "fill",
+      "received_at": "2026-03-28T23:00:12Z",
+      "decision": "confirmed_full_fill:fee_bound_retained",
+      "state": {
+        "cash": "192.80",
+        "gross_buy_reserve": "0.00",
+        "expense_reserve": "0.10",
+        "cash_reserve": "0.10",
+        "available": "192.70",
+        "current_day": "2026-03-29",
+        "local_time": "2026-03-29T00:00:12+01:00",
+        "next_reset_utc": "2026-03-29T22:00:00+00:00",
+        "daily_spent": "5.00",
+        "daily_pending": "0.00",
+        "daily_available": "25.00",
+        "daily_used_all": {
+          "2026-03-28": "3.00",
+          "2026-03-29": "5.00"
+        },
+        "fees_paid": "0.10",
+        "gross_bought": "8.00",
+        "gross_sold": "0.90",
+        "settlement_cash": "0",
+        "risk_blocked": false,
+        "positions": {
+          "A": {
+            "quantity": "4.5",
+            "cost_basis": "2.250",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "A_fill_1",
+                "order_id": "A_intent",
+                "quantity": "3.0",
+                "cost_basis": "1.500",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:53Z"
+              },
+              {
+                "lot_id": "A_fill_2",
+                "order_id": "A_intent",
+                "quantity": "1.5",
+                "cost_basis": "0.750",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:58Z"
+              }
+            ]
+          },
+          "B": {
+            "quantity": "10",
+            "cost_basis": "5.00",
+            "pending_buy": "0.00",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "B_fill",
+                "order_id": "B_intent",
+                "quantity": "10",
+                "cost_basis": "5.00",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T23:00:11.5Z"
+              }
+            ]
+          }
+        },
+        "orders": {
+          "A_intent": {
+            "side": "BUY",
+            "token": "A",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "3.00",
+            "filled_quantity": "6",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "cancelled_remainder",
+            "decision_at": "2026-03-28T22:59:52Z",
+            "price_boundary": "0.52",
+            "cancel_requested": true,
+            "remaining_cancelled": "2.00"
+          },
+          "S_intent": {
+            "side": "SELL",
+            "token": "A",
+            "target_gross": "0.900",
+            "target_quantity": "1.5",
+            "filled_gross": "0.90",
+            "filled_quantity": "1.5",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "filled",
+            "decision_at": "2026-03-28T23:00:06Z",
+            "price_boundary": "0.58",
+            "cancel_requested": false,
+            "remaining_cancelled": "0.0"
+          },
+          "B_intent": {
+            "side": "BUY",
+            "token": "B",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "5.00",
+            "filled_quantity": "10",
+            "fee_cap": "0.10",
+            "fee_actual": null,
+            "terminal": false,
+            "status": "full_fill_awaiting_terminal_fee",
+            "decision_at": "2026-03-28T23:00:11Z",
+            "price_boundary": "0.52",
+            "cancel_requested": false,
+            "remaining_cancelled": "0"
+          }
+        }
+      }
+    },
+    {
+      "event_id": "B_fill",
+      "sequence": 15,
+      "kind": "fill",
+      "received_at": "2026-03-28T23:00:12.2Z",
+      "decision": "duplicate:no_economic_mutation",
+      "state": {
+        "cash": "192.80",
+        "gross_buy_reserve": "0.00",
+        "expense_reserve": "0.10",
+        "cash_reserve": "0.10",
+        "available": "192.70",
+        "current_day": "2026-03-29",
+        "local_time": "2026-03-29T00:00:12.200000+01:00",
+        "next_reset_utc": "2026-03-29T22:00:00+00:00",
+        "daily_spent": "5.00",
+        "daily_pending": "0.00",
+        "daily_available": "25.00",
+        "daily_used_all": {
+          "2026-03-28": "3.00",
+          "2026-03-29": "5.00"
+        },
+        "fees_paid": "0.10",
+        "gross_bought": "8.00",
+        "gross_sold": "0.90",
+        "settlement_cash": "0",
+        "risk_blocked": false,
+        "positions": {
+          "A": {
+            "quantity": "4.5",
+            "cost_basis": "2.250",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "A_fill_1",
+                "order_id": "A_intent",
+                "quantity": "3.0",
+                "cost_basis": "1.500",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:53Z"
+              },
+              {
+                "lot_id": "A_fill_2",
+                "order_id": "A_intent",
+                "quantity": "1.5",
+                "cost_basis": "0.750",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:58Z"
+              }
+            ]
+          },
+          "B": {
+            "quantity": "10",
+            "cost_basis": "5.00",
+            "pending_buy": "0.00",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "B_fill",
+                "order_id": "B_intent",
+                "quantity": "10",
+                "cost_basis": "5.00",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T23:00:11.5Z"
+              }
+            ]
+          }
+        },
+        "orders": {
+          "A_intent": {
+            "side": "BUY",
+            "token": "A",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "3.00",
+            "filled_quantity": "6",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "cancelled_remainder",
+            "decision_at": "2026-03-28T22:59:52Z",
+            "price_boundary": "0.52",
+            "cancel_requested": true,
+            "remaining_cancelled": "2.00"
+          },
+          "S_intent": {
+            "side": "SELL",
+            "token": "A",
+            "target_gross": "0.900",
+            "target_quantity": "1.5",
+            "filled_gross": "0.90",
+            "filled_quantity": "1.5",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "filled",
+            "decision_at": "2026-03-28T23:00:06Z",
+            "price_boundary": "0.58",
+            "cancel_requested": false,
+            "remaining_cancelled": "0.0"
+          },
+          "B_intent": {
+            "side": "BUY",
+            "token": "B",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "5.00",
+            "filled_quantity": "10",
+            "fee_cap": "0.10",
+            "fee_actual": null,
+            "terminal": false,
+            "status": "full_fill_awaiting_terminal_fee",
+            "decision_at": "2026-03-28T23:00:11Z",
+            "price_boundary": "0.52",
+            "cancel_requested": false,
+            "remaining_cancelled": "0"
+          }
+        }
+      }
+    },
+    {
+      "event_id": "full_before_terminal",
+      "sequence": 16,
+      "kind": "tick",
+      "received_at": "2026-03-28T23:00:12.5Z",
+      "decision": "clock_only",
+      "state": {
+        "cash": "192.80",
+        "gross_buy_reserve": "0.00",
+        "expense_reserve": "0.10",
+        "cash_reserve": "0.10",
+        "available": "192.70",
+        "current_day": "2026-03-29",
+        "local_time": "2026-03-29T00:00:12.500000+01:00",
+        "next_reset_utc": "2026-03-29T22:00:00+00:00",
+        "daily_spent": "5.00",
+        "daily_pending": "0.00",
+        "daily_available": "25.00",
+        "daily_used_all": {
+          "2026-03-28": "3.00",
+          "2026-03-29": "5.00"
+        },
+        "fees_paid": "0.10",
+        "gross_bought": "8.00",
+        "gross_sold": "0.90",
+        "settlement_cash": "0",
+        "risk_blocked": false,
+        "positions": {
+          "A": {
+            "quantity": "4.5",
+            "cost_basis": "2.250",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "A_fill_1",
+                "order_id": "A_intent",
+                "quantity": "3.0",
+                "cost_basis": "1.500",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:53Z"
+              },
+              {
+                "lot_id": "A_fill_2",
+                "order_id": "A_intent",
+                "quantity": "1.5",
+                "cost_basis": "0.750",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:58Z"
+              }
+            ]
+          },
+          "B": {
+            "quantity": "10",
+            "cost_basis": "5.00",
+            "pending_buy": "0.00",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "B_fill",
+                "order_id": "B_intent",
+                "quantity": "10",
+                "cost_basis": "5.00",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T23:00:11.5Z"
+              }
+            ]
+          }
+        },
+        "orders": {
+          "A_intent": {
+            "side": "BUY",
+            "token": "A",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "3.00",
+            "filled_quantity": "6",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "cancelled_remainder",
+            "decision_at": "2026-03-28T22:59:52Z",
+            "price_boundary": "0.52",
+            "cancel_requested": true,
+            "remaining_cancelled": "2.00"
+          },
+          "S_intent": {
+            "side": "SELL",
+            "token": "A",
+            "target_gross": "0.900",
+            "target_quantity": "1.5",
+            "filled_gross": "0.90",
+            "filled_quantity": "1.5",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "filled",
+            "decision_at": "2026-03-28T23:00:06Z",
+            "price_boundary": "0.58",
+            "cancel_requested": false,
+            "remaining_cancelled": "0.0"
+          },
+          "B_intent": {
+            "side": "BUY",
+            "token": "B",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "5.00",
+            "filled_quantity": "10",
+            "fee_cap": "0.10",
+            "fee_actual": null,
+            "terminal": false,
+            "status": "full_fill_awaiting_terminal_fee",
+            "decision_at": "2026-03-28T23:00:11Z",
+            "price_boundary": "0.52",
+            "cancel_requested": false,
+            "remaining_cancelled": "0"
+          }
+        }
+      }
+    },
+    {
+      "event_id": "B_terminal",
+      "sequence": 17,
+      "kind": "terminal",
+      "received_at": "2026-03-28T23:00:13Z",
+      "decision": "terminal_confirmed:remaining_and_expense_reserve_released",
+      "state": {
+        "cash": "192.75",
+        "gross_buy_reserve": "0",
+        "expense_reserve": "0",
+        "cash_reserve": "0",
+        "available": "192.75",
+        "current_day": "2026-03-29",
+        "local_time": "2026-03-29T00:00:13+01:00",
+        "next_reset_utc": "2026-03-29T22:00:00+00:00",
+        "daily_spent": "5.00",
+        "daily_pending": "0",
+        "daily_available": "25.00",
+        "daily_used_all": {
+          "2026-03-28": "3.00",
+          "2026-03-29": "5.00"
+        },
+        "fees_paid": "0.15",
+        "gross_bought": "8.00",
+        "gross_sold": "0.90",
+        "settlement_cash": "0",
+        "risk_blocked": false,
+        "positions": {
+          "A": {
+            "quantity": "4.5",
+            "cost_basis": "2.250",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "A_fill_1",
+                "order_id": "A_intent",
+                "quantity": "3.0",
+                "cost_basis": "1.500",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:53Z"
+              },
+              {
+                "lot_id": "A_fill_2",
+                "order_id": "A_intent",
+                "quantity": "1.5",
+                "cost_basis": "0.750",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:58Z"
+              }
+            ]
+          },
+          "B": {
+            "quantity": "10",
+            "cost_basis": "5.00",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "B_fill",
+                "order_id": "B_intent",
+                "quantity": "10",
+                "cost_basis": "5.00",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T23:00:11.5Z"
+              }
+            ]
+          }
+        },
+        "orders": {
+          "A_intent": {
+            "side": "BUY",
+            "token": "A",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "3.00",
+            "filled_quantity": "6",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "cancelled_remainder",
+            "decision_at": "2026-03-28T22:59:52Z",
+            "price_boundary": "0.52",
+            "cancel_requested": true,
+            "remaining_cancelled": "2.00"
+          },
+          "S_intent": {
+            "side": "SELL",
+            "token": "A",
+            "target_gross": "0.900",
+            "target_quantity": "1.5",
+            "filled_gross": "0.90",
+            "filled_quantity": "1.5",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "filled",
+            "decision_at": "2026-03-28T23:00:06Z",
+            "price_boundary": "0.58",
+            "cancel_requested": false,
+            "remaining_cancelled": "0.0"
+          },
+          "B_intent": {
+            "side": "BUY",
+            "token": "B",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "5.00",
+            "filled_quantity": "10",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "filled",
+            "decision_at": "2026-03-28T23:00:11Z",
+            "price_boundary": "0.52",
+            "cancel_requested": false,
+            "remaining_cancelled": "0.00"
+          }
+        }
+      }
+    },
+    {
+      "event_id": "valuation_missing_B",
+      "sequence": 18,
+      "kind": "valuation",
+      "received_at": "2026-03-28T23:00:14Z",
+      "decision": "valuation:unknown",
+      "state": {
+        "cash": "192.75",
+        "gross_buy_reserve": "0",
+        "expense_reserve": "0",
+        "cash_reserve": "0",
+        "available": "192.75",
+        "current_day": "2026-03-29",
+        "local_time": "2026-03-29T00:00:14+01:00",
+        "next_reset_utc": "2026-03-29T22:00:00+00:00",
+        "daily_spent": "5.00",
+        "daily_pending": "0",
+        "daily_available": "25.00",
+        "daily_used_all": {
+          "2026-03-28": "3.00",
+          "2026-03-29": "5.00"
+        },
+        "fees_paid": "0.15",
+        "gross_bought": "8.00",
+        "gross_sold": "0.90",
+        "settlement_cash": "0",
+        "risk_blocked": false,
+        "positions": {
+          "A": {
+            "quantity": "4.5",
+            "cost_basis": "2.250",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "A_fill_1",
+                "order_id": "A_intent",
+                "quantity": "3.0",
+                "cost_basis": "1.500",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:53Z"
+              },
+              {
+                "lot_id": "A_fill_2",
+                "order_id": "A_intent",
+                "quantity": "1.5",
+                "cost_basis": "0.750",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:58Z"
+              }
+            ]
+          },
+          "B": {
+            "quantity": "10",
+            "cost_basis": "5.00",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "B_fill",
+                "order_id": "B_intent",
+                "quantity": "10",
+                "cost_basis": "5.00",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T23:00:11.5Z"
+              }
+            ]
+          }
+        },
+        "orders": {
+          "A_intent": {
+            "side": "BUY",
+            "token": "A",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "3.00",
+            "filled_quantity": "6",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "cancelled_remainder",
+            "decision_at": "2026-03-28T22:59:52Z",
+            "price_boundary": "0.52",
+            "cancel_requested": true,
+            "remaining_cancelled": "2.00"
+          },
+          "S_intent": {
+            "side": "SELL",
+            "token": "A",
+            "target_gross": "0.900",
+            "target_quantity": "1.5",
+            "filled_gross": "0.90",
+            "filled_quantity": "1.5",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "filled",
+            "decision_at": "2026-03-28T23:00:06Z",
+            "price_boundary": "0.58",
+            "cancel_requested": false,
+            "remaining_cancelled": "0.0"
+          },
+          "B_intent": {
+            "side": "BUY",
+            "token": "B",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "5.00",
+            "filled_quantity": "10",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "filled",
+            "decision_at": "2026-03-28T23:00:11Z",
+            "price_boundary": "0.52",
+            "cancel_requested": false,
+            "remaining_cancelled": "0.00"
+          }
+        }
+      }
+    },
+    {
+      "event_id": "future_resolution_rejected",
+      "sequence": 19,
+      "kind": "settlement",
+      "received_at": "2026-03-28T23:00:15Z",
+      "decision": "unknown:resolution_not_known_at_cutoff",
+      "state": {
+        "cash": "192.75",
+        "gross_buy_reserve": "0",
+        "expense_reserve": "0",
+        "cash_reserve": "0",
+        "available": "192.75",
+        "current_day": "2026-03-29",
+        "local_time": "2026-03-29T00:00:15+01:00",
+        "next_reset_utc": "2026-03-29T22:00:00+00:00",
+        "daily_spent": "5.00",
+        "daily_pending": "0",
+        "daily_available": "25.00",
+        "daily_used_all": {
+          "2026-03-28": "3.00",
+          "2026-03-29": "5.00"
+        },
+        "fees_paid": "0.15",
+        "gross_bought": "8.00",
+        "gross_sold": "0.90",
+        "settlement_cash": "0",
+        "risk_blocked": false,
+        "positions": {
+          "A": {
+            "quantity": "4.5",
+            "cost_basis": "2.250",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "A_fill_1",
+                "order_id": "A_intent",
+                "quantity": "3.0",
+                "cost_basis": "1.500",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:53Z"
+              },
+              {
+                "lot_id": "A_fill_2",
+                "order_id": "A_intent",
+                "quantity": "1.5",
+                "cost_basis": "0.750",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:58Z"
+              }
+            ]
+          },
+          "B": {
+            "quantity": "10",
+            "cost_basis": "5.00",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "B_fill",
+                "order_id": "B_intent",
+                "quantity": "10",
+                "cost_basis": "5.00",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T23:00:11.5Z"
+              }
+            ]
+          }
+        },
+        "orders": {
+          "A_intent": {
+            "side": "BUY",
+            "token": "A",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "3.00",
+            "filled_quantity": "6",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "cancelled_remainder",
+            "decision_at": "2026-03-28T22:59:52Z",
+            "price_boundary": "0.52",
+            "cancel_requested": true,
+            "remaining_cancelled": "2.00"
+          },
+          "S_intent": {
+            "side": "SELL",
+            "token": "A",
+            "target_gross": "0.900",
+            "target_quantity": "1.5",
+            "filled_gross": "0.90",
+            "filled_quantity": "1.5",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "filled",
+            "decision_at": "2026-03-28T23:00:06Z",
+            "price_boundary": "0.58",
+            "cancel_requested": false,
+            "remaining_cancelled": "0.0"
+          },
+          "B_intent": {
+            "side": "BUY",
+            "token": "B",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "5.00",
+            "filled_quantity": "10",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "filled",
+            "decision_at": "2026-03-28T23:00:11Z",
+            "price_boundary": "0.52",
+            "cancel_requested": false,
+            "remaining_cancelled": "0.00"
+          }
+        }
+      }
+    },
+    {
+      "event_id": "B_settlement",
+      "sequence": 20,
+      "kind": "settlement",
+      "received_at": "2026-03-28T23:00:16Z",
+      "decision": "settled_from_known_fixture_confirmation",
+      "state": {
+        "cash": "202.75",
+        "gross_buy_reserve": "0",
+        "expense_reserve": "0",
+        "cash_reserve": "0",
+        "available": "202.75",
+        "current_day": "2026-03-29",
+        "local_time": "2026-03-29T00:00:16+01:00",
+        "next_reset_utc": "2026-03-29T22:00:00+00:00",
+        "daily_spent": "5.00",
+        "daily_pending": "0",
+        "daily_available": "25.00",
+        "daily_used_all": {
+          "2026-03-28": "3.00",
+          "2026-03-29": "5.00"
+        },
+        "fees_paid": "0.15",
+        "gross_bought": "8.00",
+        "gross_sold": "0.90",
+        "settlement_cash": "10",
+        "risk_blocked": false,
+        "positions": {
+          "A": {
+            "quantity": "4.5",
+            "cost_basis": "2.250",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "A_fill_1",
+                "order_id": "A_intent",
+                "quantity": "3.0",
+                "cost_basis": "1.500",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:53Z"
+              },
+              {
+                "lot_id": "A_fill_2",
+                "order_id": "A_intent",
+                "quantity": "1.5",
+                "cost_basis": "0.750",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:58Z"
+              }
+            ]
+          },
+          "B": {
+            "quantity": "0",
+            "cost_basis": "0",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "B_fill",
+                "order_id": "B_intent",
+                "quantity": "0",
+                "cost_basis": "0",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T23:00:11.5Z"
+              }
+            ]
+          }
+        },
+        "orders": {
+          "A_intent": {
+            "side": "BUY",
+            "token": "A",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "3.00",
+            "filled_quantity": "6",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "cancelled_remainder",
+            "decision_at": "2026-03-28T22:59:52Z",
+            "price_boundary": "0.52",
+            "cancel_requested": true,
+            "remaining_cancelled": "2.00"
+          },
+          "S_intent": {
+            "side": "SELL",
+            "token": "A",
+            "target_gross": "0.900",
+            "target_quantity": "1.5",
+            "filled_gross": "0.90",
+            "filled_quantity": "1.5",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "filled",
+            "decision_at": "2026-03-28T23:00:06Z",
+            "price_boundary": "0.58",
+            "cancel_requested": false,
+            "remaining_cancelled": "0.0"
+          },
+          "B_intent": {
+            "side": "BUY",
+            "token": "B",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "5.00",
+            "filled_quantity": "10",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "filled",
+            "decision_at": "2026-03-28T23:00:11Z",
+            "price_boundary": "0.52",
+            "cancel_requested": false,
+            "remaining_cancelled": "0.00"
+          }
+        }
+      }
+    },
+    {
+      "event_id": "valuation_known",
+      "sequence": 21,
+      "kind": "valuation",
+      "received_at": "2026-03-28T23:00:17Z",
+      "decision": "valuation:known_under_controlled_fixture",
+      "state": {
+        "cash": "202.75",
+        "gross_buy_reserve": "0",
+        "expense_reserve": "0",
+        "cash_reserve": "0",
+        "available": "202.75",
+        "current_day": "2026-03-29",
+        "local_time": "2026-03-29T00:00:17+01:00",
+        "next_reset_utc": "2026-03-29T22:00:00+00:00",
+        "daily_spent": "5.00",
+        "daily_pending": "0",
+        "daily_available": "25.00",
+        "daily_used_all": {
+          "2026-03-28": "3.00",
+          "2026-03-29": "5.00"
+        },
+        "fees_paid": "0.15",
+        "gross_bought": "8.00",
+        "gross_sold": "0.90",
+        "settlement_cash": "10",
+        "risk_blocked": false,
+        "positions": {
+          "A": {
+            "quantity": "4.5",
+            "cost_basis": "2.250",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "A_fill_1",
+                "order_id": "A_intent",
+                "quantity": "3.0",
+                "cost_basis": "1.500",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:53Z"
+              },
+              {
+                "lot_id": "A_fill_2",
+                "order_id": "A_intent",
+                "quantity": "1.5",
+                "cost_basis": "0.750",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:58Z"
+              }
+            ]
+          },
+          "B": {
+            "quantity": "0",
+            "cost_basis": "0",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "B_fill",
+                "order_id": "B_intent",
+                "quantity": "0",
+                "cost_basis": "0",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T23:00:11.5Z"
+              }
+            ]
+          }
+        },
+        "orders": {
+          "A_intent": {
+            "side": "BUY",
+            "token": "A",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "3.00",
+            "filled_quantity": "6",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "cancelled_remainder",
+            "decision_at": "2026-03-28T22:59:52Z",
+            "price_boundary": "0.52",
+            "cancel_requested": true,
+            "remaining_cancelled": "2.00"
+          },
+          "S_intent": {
+            "side": "SELL",
+            "token": "A",
+            "target_gross": "0.900",
+            "target_quantity": "1.5",
+            "filled_gross": "0.90",
+            "filled_quantity": "1.5",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "filled",
+            "decision_at": "2026-03-28T23:00:06Z",
+            "price_boundary": "0.58",
+            "cancel_requested": false,
+            "remaining_cancelled": "0.0"
+          },
+          "B_intent": {
+            "side": "BUY",
+            "token": "B",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "5.00",
+            "filled_quantity": "10",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "filled",
+            "decision_at": "2026-03-28T23:00:11Z",
+            "price_boundary": "0.52",
+            "cancel_requested": false,
+            "remaining_cancelled": "0.00"
+          }
+        }
+      }
+    },
+    {
+      "event_id": "dst_jump",
+      "sequence": 22,
+      "kind": "tick",
+      "received_at": "2026-03-29T01:30:00Z",
+      "decision": "clock_only",
+      "state": {
+        "cash": "202.75",
+        "gross_buy_reserve": "0",
+        "expense_reserve": "0",
+        "cash_reserve": "0",
+        "available": "202.75",
+        "current_day": "2026-03-29",
+        "local_time": "2026-03-29T03:30:00+02:00",
+        "next_reset_utc": "2026-03-29T22:00:00+00:00",
+        "daily_spent": "5.00",
+        "daily_pending": "0",
+        "daily_available": "25.00",
+        "daily_used_all": {
+          "2026-03-28": "3.00",
+          "2026-03-29": "5.00"
+        },
+        "fees_paid": "0.15",
+        "gross_bought": "8.00",
+        "gross_sold": "0.90",
+        "settlement_cash": "10",
+        "risk_blocked": false,
+        "positions": {
+          "A": {
+            "quantity": "4.5",
+            "cost_basis": "2.250",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "A_fill_1",
+                "order_id": "A_intent",
+                "quantity": "3.0",
+                "cost_basis": "1.500",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:53Z"
+              },
+              {
+                "lot_id": "A_fill_2",
+                "order_id": "A_intent",
+                "quantity": "1.5",
+                "cost_basis": "0.750",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:58Z"
+              }
+            ]
+          },
+          "B": {
+            "quantity": "0",
+            "cost_basis": "0",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "B_fill",
+                "order_id": "B_intent",
+                "quantity": "0",
+                "cost_basis": "0",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T23:00:11.5Z"
+              }
+            ]
+          }
+        },
+        "orders": {
+          "A_intent": {
+            "side": "BUY",
+            "token": "A",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "3.00",
+            "filled_quantity": "6",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "cancelled_remainder",
+            "decision_at": "2026-03-28T22:59:52Z",
+            "price_boundary": "0.52",
+            "cancel_requested": true,
+            "remaining_cancelled": "2.00"
+          },
+          "S_intent": {
+            "side": "SELL",
+            "token": "A",
+            "target_gross": "0.900",
+            "target_quantity": "1.5",
+            "filled_gross": "0.90",
+            "filled_quantity": "1.5",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "filled",
+            "decision_at": "2026-03-28T23:00:06Z",
+            "price_boundary": "0.58",
+            "cancel_requested": false,
+            "remaining_cancelled": "0.0"
+          },
+          "B_intent": {
+            "side": "BUY",
+            "token": "B",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "5.00",
+            "filled_quantity": "10",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "filled",
+            "decision_at": "2026-03-28T23:00:11Z",
+            "price_boundary": "0.52",
+            "cancel_requested": false,
+            "remaining_cancelled": "0.00"
+          }
+        }
+      }
+    },
+    {
+      "event_id": "dst_next_midnight",
+      "sequence": 23,
+      "kind": "tick",
+      "received_at": "2026-03-29T22:00:00Z",
+      "decision": "clock_only",
+      "state": {
+        "cash": "202.75",
+        "gross_buy_reserve": "0",
+        "expense_reserve": "0",
+        "cash_reserve": "0",
+        "available": "202.75",
+        "current_day": "2026-03-30",
+        "local_time": "2026-03-30T00:00:00+02:00",
+        "next_reset_utc": "2026-03-30T22:00:00+00:00",
+        "daily_spent": "0",
+        "daily_pending": "0",
+        "daily_available": "30",
+        "daily_used_all": {
+          "2026-03-28": "3.00",
+          "2026-03-29": "5.00"
+        },
+        "fees_paid": "0.15",
+        "gross_bought": "8.00",
+        "gross_sold": "0.90",
+        "settlement_cash": "10",
+        "risk_blocked": false,
+        "positions": {
+          "A": {
+            "quantity": "4.5",
+            "cost_basis": "2.250",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "A_fill_1",
+                "order_id": "A_intent",
+                "quantity": "3.0",
+                "cost_basis": "1.500",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:53Z"
+              },
+              {
+                "lot_id": "A_fill_2",
+                "order_id": "A_intent",
+                "quantity": "1.5",
+                "cost_basis": "0.750",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T22:59:58Z"
+              }
+            ]
+          },
+          "B": {
+            "quantity": "0",
+            "cost_basis": "0",
+            "pending_buy": "0",
+            "reserved_sell_quantity": "0",
+            "lots": [
+              {
+                "lot_id": "B_fill",
+                "order_id": "B_intent",
+                "quantity": "0",
+                "cost_basis": "0",
+                "source": "tracked_copy",
+                "executed_at": "2026-03-28T23:00:11.5Z"
+              }
+            ]
+          }
+        },
+        "orders": {
+          "A_intent": {
+            "side": "BUY",
+            "token": "A",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "3.00",
+            "filled_quantity": "6",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "cancelled_remainder",
+            "decision_at": "2026-03-28T22:59:52Z",
+            "price_boundary": "0.52",
+            "cancel_requested": true,
+            "remaining_cancelled": "2.00"
+          },
+          "S_intent": {
+            "side": "SELL",
+            "token": "A",
+            "target_gross": "0.900",
+            "target_quantity": "1.5",
+            "filled_gross": "0.90",
+            "filled_quantity": "1.5",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "filled",
+            "decision_at": "2026-03-28T23:00:06Z",
+            "price_boundary": "0.58",
+            "cancel_requested": false,
+            "remaining_cancelled": "0.0"
+          },
+          "B_intent": {
+            "side": "BUY",
+            "token": "B",
+            "target_gross": "5",
+            "target_quantity": null,
+            "filled_gross": "5.00",
+            "filled_quantity": "10",
+            "fee_cap": "0.10",
+            "fee_actual": "0.05",
+            "terminal": true,
+            "status": "filled",
+            "decision_at": "2026-03-28T23:00:11Z",
+            "price_boundary": "0.52",
+            "cancel_requested": false,
+            "remaining_cancelled": "0.00"
+          }
+        }
+      }
+    }
+  ],
+  "final": {
+    "cash": "202.75",
+    "gross_buy_reserve": "0",
+    "expense_reserve": "0",
+    "cash_reserve": "0",
+    "available": "202.75",
+    "current_day": "2026-03-30",
+    "local_time": "2026-03-30T00:00:00+02:00",
+    "next_reset_utc": "2026-03-30T22:00:00+00:00",
+    "daily_spent": "0",
+    "daily_pending": "0",
+    "daily_available": "30",
+    "daily_used_all": {
+      "2026-03-28": "3.00",
+      "2026-03-29": "5.00"
+    },
+    "fees_paid": "0.15",
+    "gross_bought": "8.00",
+    "gross_sold": "0.90",
+    "settlement_cash": "10",
+    "risk_blocked": false,
+    "positions": {
+      "A": {
+        "quantity": "4.5",
+        "cost_basis": "2.250",
+        "pending_buy": "0",
+        "reserved_sell_quantity": "0",
+        "lots": [
+          {
+            "lot_id": "A_fill_1",
+            "order_id": "A_intent",
+            "quantity": "3.0",
+            "cost_basis": "1.500",
+            "source": "tracked_copy",
+            "executed_at": "2026-03-28T22:59:53Z"
+          },
+          {
+            "lot_id": "A_fill_2",
+            "order_id": "A_intent",
+            "quantity": "1.5",
+            "cost_basis": "0.750",
+            "source": "tracked_copy",
+            "executed_at": "2026-03-28T22:59:58Z"
+          }
+        ]
+      },
+      "B": {
+        "quantity": "0",
+        "cost_basis": "0",
+        "pending_buy": "0",
+        "reserved_sell_quantity": "0",
+        "lots": [
+          {
+            "lot_id": "B_fill",
+            "order_id": "B_intent",
+            "quantity": "0",
+            "cost_basis": "0",
+            "source": "tracked_copy",
+            "executed_at": "2026-03-28T23:00:11.5Z"
+          }
+        ]
+      }
+    },
+    "orders": {
+      "A_intent": {
+        "side": "BUY",
+        "token": "A",
+        "target_gross": "5",
+        "target_quantity": null,
+        "filled_gross": "3.00",
+        "filled_quantity": "6",
+        "fee_cap": "0.10",
+        "fee_actual": "0.05",
+        "terminal": true,
+        "status": "cancelled_remainder",
+        "decision_at": "2026-03-28T22:59:52Z",
+        "price_boundary": "0.52",
+        "cancel_requested": true,
+        "remaining_cancelled": "2.00"
+      },
+      "S_intent": {
+        "side": "SELL",
+        "token": "A",
+        "target_gross": "0.900",
+        "target_quantity": "1.5",
+        "filled_gross": "0.90",
+        "filled_quantity": "1.5",
+        "fee_cap": "0.10",
+        "fee_actual": "0.05",
+        "terminal": true,
+        "status": "filled",
+        "decision_at": "2026-03-28T23:00:06Z",
+        "price_boundary": "0.58",
+        "cancel_requested": false,
+        "remaining_cancelled": "0.0"
+      },
+      "B_intent": {
+        "side": "BUY",
+        "token": "B",
+        "target_gross": "5",
+        "target_quantity": null,
+        "filled_gross": "5.00",
+        "filled_quantity": "10",
+        "fee_cap": "0.10",
+        "fee_actual": "0.05",
+        "terminal": true,
+        "status": "filled",
+        "decision_at": "2026-03-28T23:00:11Z",
+        "price_boundary": "0.52",
+        "cancel_requested": false,
+        "remaining_cancelled": "0.00"
+      }
+    }
+  },
+  "valuations": [
+    {
+      "event_id": "valuation_missing_B",
+      "status": "unknown",
+      "equity": null,
+      "pnl": null,
+      "reason": "B:invalid_age_or_no_snapshot"
+    },
+    {
+      "event_id": "valuation_known",
+      "status": "known_under_controlled_fixture",
+      "equity": "205.400",
+      "pnl": "5.400",
+      "reason": "marked_only_no_cash_or_lot_mutation"
+    }
+  ],
+  "incidents": [],
+  "evidence_class": "controlled_synthetic_accounting_fixture_not_historical_backtest",
+  "standard_id": "copy-reference-single-v1",
+  "input_canonical_sha256": "c86e4a012515677888c0dc7de3fcb24d5bcae115cd14f4aa1c5e72ee2e114b8d",
+  "config_canonical_sha256": "600d5903ffd79dd8818cbc90231ea264bc5f9c79aaab36fb37820c632a7fed77",
+  "standard_canonical_sha256": "76da8ce1910afc079bc5c86922a7a9194283179f99958135cb222f3106c8a992",
+  "full_historical_30_day_outcomes": 0,
+  "model_comparison_permitted": false,
+  "source_to_fill_inference": false,
+  "arithmetic": "Decimal precision 50; explicit fixture quanta; authoritative fill units",
+  "first_received_at": "2026-03-28T22:59:42Z",
+  "last_received_at": "2026-03-29T22:00:00Z",
+  "manifest": [
+    {
+      "file": "reference-input.json",
+      "bytes": 11282,
+      "sha256": "242ef49e0cff8e728757e47f2d7fb475928c96bc39b280714096b310bd273880"
+    },
+    {
+      "file": "copier-standard.json",
+      "bytes": 6097,
+      "sha256": "c3eeec577f26bf8a40b309e2de370674603a2e25c889aa1a57b4f31c1622d17a"
+    },
+    {
+      "file": "reference_replay.py",
+      "bytes": 24393,
+      "sha256": "d971a833e3bcecc0ff8f9049ba397cffaf7dd1e2f139b0c90532caabd75452da"
+    },
+    {
+      "file": "market_data.py",
+      "bytes": 9040,
+      "sha256": "7c61a6db5c990d0a997d89e1b9c106fe2338598e72f5aedf1a55e58d106a8fe1"
+    }
+  ]
+}

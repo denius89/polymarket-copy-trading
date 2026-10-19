@@ -1,0 +1,1 @@
+Identity=(venue,fillId), repeated version same fillId replaces older record только после observedAt correction. Cutoff uses observedAt<=cutoff. Fills spot buys; расходы=qty*price+fee. Данные cashflows и opening positions отсутствуют. EventId E1 объединяет одно экономическое событие на обеих площадках, E2 другое.

@@ -1,0 +1,447 @@
+{
+  "result_kind": "descriptive_provider_quote_diagnostic",
+  "diagnostic_kind": "provider_side_aligned_conditional_quote_displacement_not_execution_or_pnl",
+  "interval_utc": [
+    "2026-03-01T00:00:00Z",
+    "2026-03-04T00:00:00Z"
+  ],
+  "model_verdict": "comparison_blocked_by_horizon_and_data",
+  "complete_30_day_outcomes": 0,
+  "selected_token_count": 38,
+  "scope": "StandardBinary archive rows for tokens selected by quote availability, not all Polymarket fills; no maker-wallet reconstruction.",
+  "quote_partition_ranges": [
+    {
+      "filename": "/Users/denisfedko/.codex/.chatgpt-projects/g-p-6ab3bea8f0208191ada58dd99e906e49/polymarket-copy-trading/research/trader-score-aligned-2026-10-16/data/date=2026-02-28.parquet",
+      "rows": 771374,
+      "first_ms": 1772255092273,
+      "last_ms": 1772290024452
+    },
+    {
+      "filename": "/Users/denisfedko/.codex/.chatgpt-projects/g-p-6ab3bea8f0208191ada58dd99e906e49/polymarket-copy-trading/research/trader-score-aligned-2026-10-16/data/date=2026-03-01.parquet",
+      "rows": 317198,
+      "first_ms": 1772343702475,
+      "last_ms": 1772425930073
+    },
+    {
+      "filename": "/Users/denisfedko/.codex/.chatgpt-projects/g-p-6ab3bea8f0208191ada58dd99e906e49/polymarket-copy-trading/research/trader-score-aligned-2026-10-16/data/date=2026-03-02.parquet",
+      "rows": 689258,
+      "first_ms": 1772431078714,
+      "last_ms": 1772513204755
+    },
+    {
+      "filename": "/Users/denisfedko/.codex/.chatgpt-projects/g-p-6ab3bea8f0208191ada58dd99e906e49/polymarket-copy-trading/research/trader-score-aligned-2026-10-16/data/date=2026-03-03.parquet",
+      "rows": 612476,
+      "first_ms": 1772518436848,
+      "last_ms": 1772589769435
+    }
+  ],
+  "trades": {
+    "rows": 193045,
+    "assets": 38,
+    "conditions": 19,
+    "takers": 5777,
+    "makers": 2921,
+    "first_ms": 1772340367000,
+    "last_ms": 1772568985000,
+    "invalid_semantics": 0
+  },
+  "quotes": {
+    "rows": 1607524,
+    "assets": 38,
+    "negative_ingest_lag_rows": 0,
+    "missing_bbo_rows": 4,
+    "invalid_bbo_rows": 4
+  },
+  "funnels": [
+    {
+      "lag_ms": 500,
+      "all_subset_rows": 193045,
+      "supported_semantics": 193045,
+      "asof_present": 50059,
+      "fresh": 49918,
+      "fresh_valid": 49918,
+      "eligible": 39550,
+      "conflicting_bbo": 0,
+      "exact_timestamp_ties": 10368,
+      "eligible_ingested_after_arrival": 18914,
+      "eligible_any_ingested_after_arrival": 18914
+    },
+    {
+      "lag_ms": 2000,
+      "all_subset_rows": 193045,
+      "supported_semantics": 193045,
+      "asof_present": 50377,
+      "fresh": 50227,
+      "fresh_valid": 50227,
+      "eligible": 36560,
+      "conflicting_bbo": 46,
+      "exact_timestamp_ties": 13621,
+      "eligible_ingested_after_arrival": 19657,
+      "eligible_any_ingested_after_arrival": 19680
+    },
+    {
+      "lag_ms": 5000,
+      "all_subset_rows": 193045,
+      "supported_semantics": 193045,
+      "asof_present": 50846,
+      "fresh": 50589,
+      "fresh_valid": 50589,
+      "eligible": 38883,
+      "conflicting_bbo": 29,
+      "exact_timestamp_ties": 11706,
+      "eligible_ingested_after_arrival": 18670,
+      "eligible_any_ingested_after_arrival": 18687
+    }
+  ],
+  "caveats": [
+    "Block timestamps are settlement time with second precision, not offchain match time; all comparisons are conditional, not measured product arrivals.",
+    "Source clock and recorder route are not independently verified. Earliest quote ingestion may be after simulated arrival.",
+    "Price-change BBO can include provider fallback; validity tests alone do not prove historical executable quotes.",
+    "Conflicting BBO at identical timestamps and exact arrival ties excluded; no event-ID deduplication is possible.",
+    "Price change size is not available top depth. No $5 fills, fees, cash balance, PnL or score inferred.",
+    "Final market labels and resolution metadata never read into analytical tables."
+  ],
+  "quote_event_types": [
+    {
+      "event_type": "price_change",
+      "rows": 1607486
+    },
+    {
+      "event_type": "book",
+      "rows": 38
+    }
+  ],
+  "bbo_evidence_class": "provider_only_fallback_and_clock_provenance_unverified",
+  "comparisons": [
+    {
+      "cohort": "per_lag",
+      "groups": [
+        {
+          "lag_ms": 500,
+          "taker_direction": "BUY",
+          "rows": 5136,
+          "assets": 33,
+          "conditions": 17,
+          "adverse_cents_p10": -2.0995024875621935,
+          "adverse_cents_median": 0.900497512437809,
+          "adverse_cents_p90": 5.000000000000004,
+          "adverse_bps_median": 101.01010101009997,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 14.0
+        },
+        {
+          "lag_ms": 500,
+          "taker_direction": "SELL",
+          "rows": 34414,
+          "assets": 36,
+          "conditions": 19,
+          "adverse_cents_p10": -3.099502487562189,
+          "adverse_cents_median": 0.0,
+          "adverse_cents_p90": 4.0000021719137395,
+          "adverse_bps_median": 0.0,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 12.0
+        },
+        {
+          "lag_ms": 2000,
+          "taker_direction": "BUY",
+          "rows": 4919,
+          "assets": 33,
+          "conditions": 17,
+          "adverse_cents_p10": -3.9999999999999925,
+          "adverse_cents_median": 0.9004975124378034,
+          "adverse_cents_p90": 6.040419690942743,
+          "adverse_bps_median": 101.01010101009997,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 11.0
+        },
+        {
+          "lag_ms": 2000,
+          "taker_direction": "SELL",
+          "rows": 31641,
+          "assets": 36,
+          "conditions": 19,
+          "adverse_cents_p10": -4.0999999999999925,
+          "adverse_cents_median": 0.0,
+          "adverse_cents_p90": 4.999999999999999,
+          "adverse_bps_median": 0.0,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 10.0
+        },
+        {
+          "lag_ms": 5000,
+          "taker_direction": "BUY",
+          "rows": 5263,
+          "assets": 33,
+          "conditions": 17,
+          "adverse_cents_p10": -4.999999999999993,
+          "adverse_cents_median": 0.9004975124378145,
+          "adverse_cents_p90": 7.9999999999999964,
+          "adverse_bps_median": 101.0101010101011,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 14.0
+        },
+        {
+          "lag_ms": 5000,
+          "taker_direction": "SELL",
+          "rows": 33620,
+          "assets": 36,
+          "conditions": 19,
+          "adverse_cents_p10": -5.999987674729238,
+          "adverse_cents_median": 5.551115123125783e-15,
+          "adverse_cents_p90": 6.000000000000005,
+          "adverse_bps_median": 1.1214373986112692e-12,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 12.0
+        }
+      ]
+    },
+    {
+      "cohort": "common_all_lags",
+      "groups": [
+        {
+          "lag_ms": 500,
+          "taker_direction": "BUY",
+          "rows": 3283,
+          "assets": 33,
+          "conditions": 17,
+          "adverse_cents_p10": -2.079307046381822,
+          "adverse_cents_median": 0.900497512437809,
+          "adverse_cents_p90": 5.999999999999995,
+          "adverse_bps_median": 101.01010101009997,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 16.0
+        },
+        {
+          "lag_ms": 500,
+          "taker_direction": "SELL",
+          "rows": 20521,
+          "assets": 36,
+          "conditions": 19,
+          "adverse_cents_p10": -3.0000000000000027,
+          "adverse_cents_median": 0.0,
+          "adverse_cents_p90": 4.000000494061872,
+          "adverse_bps_median": 0.0,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 14.0
+        },
+        {
+          "lag_ms": 2000,
+          "taker_direction": "BUY",
+          "rows": 3283,
+          "assets": 33,
+          "conditions": 17,
+          "adverse_cents_p10": -2.9999999999999973,
+          "adverse_cents_median": 0.9004975124378145,
+          "adverse_cents_p90": 6.000000000000005,
+          "adverse_bps_median": 101.01010101009997,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 14.0
+        },
+        {
+          "lag_ms": 2000,
+          "taker_direction": "SELL",
+          "rows": 20521,
+          "assets": 36,
+          "conditions": 19,
+          "adverse_cents_p10": -4.000000000000001,
+          "adverse_cents_median": 0.0,
+          "adverse_cents_p90": 4.999999999999999,
+          "adverse_bps_median": 0.0,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 11.0
+        },
+        {
+          "lag_ms": 5000,
+          "taker_direction": "BUY",
+          "rows": 3283,
+          "assets": 33,
+          "conditions": 17,
+          "adverse_cents_p10": -4.0000000000000036,
+          "adverse_cents_median": 0.9004975124378145,
+          "adverse_cents_p90": 6.580000000000017,
+          "adverse_bps_median": 101.01010101009997,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 18.0
+        },
+        {
+          "lag_ms": 5000,
+          "taker_direction": "SELL",
+          "rows": 20521,
+          "assets": 36,
+          "conditions": 19,
+          "adverse_cents_p10": -5.0,
+          "adverse_cents_median": 1.1102230246251565e-14,
+          "adverse_cents_p90": 6.0,
+          "adverse_bps_median": 1.1214373986112692e-12,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 15.0
+        }
+      ]
+    }
+  ],
+  "common_complete_case_rows": 23804,
+  "secondary_recorded_by_arrival_audit": {
+    "preregistered": false,
+    "method": "Subset of primary diagnostic; require all identical BBO records at selected source timestamp ingested by arrival. No fallback to an older recorded quote.",
+    "groups": [
+      {
+        "lag_ms": 500,
+        "primary_diagnostic_rows": 39550,
+        "recorded_by_arrival_rows": 20636
+      },
+      {
+        "lag_ms": 2000,
+        "primary_diagnostic_rows": 36560,
+        "recorded_by_arrival_rows": 16880
+      },
+      {
+        "lag_ms": 5000,
+        "primary_diagnostic_rows": 38883,
+        "recorded_by_arrival_rows": 20196
+      }
+    ],
+    "common_all_lags_rows": 5232
+  },
+  "partial_trade_legs": [
+    {
+      "taker_direction": "BUY",
+      "source_rows": 20597,
+      "archive_gross_notional_usd": 202354.78706899966,
+      "archive_fee_field_usd": 7495.922675999959,
+      "unknown_or_invalid_fee_rows": 0
+    },
+    {
+      "taker_direction": "SELL",
+      "source_rows": 172448,
+      "archive_gross_notional_usd": 1238564.6678209903,
+      "archive_fee_field_usd": 164667.57856000063,
+      "unknown_or_invalid_fee_rows": 0
+    }
+  ],
+  "clock_sensitivity": [
+    {
+      "source_clock_shift_ms": -1000,
+      "groups": [
+        {
+          "lag_ms": 500,
+          "taker_direction": "BUY",
+          "denominator_rows": 20597,
+          "eligible_rows": 5469,
+          "adverse_cents_median": 0.7000000000000006,
+          "adverse_cents_p10": -3.0,
+          "adverse_cents_p90": 6.0
+        },
+        {
+          "lag_ms": 500,
+          "taker_direction": "SELL",
+          "denominator_rows": 172448,
+          "eligible_rows": 34567,
+          "adverse_cents_median": 0.0,
+          "adverse_cents_p10": -4.0000000000000036,
+          "adverse_cents_p90": 4.999999999999999
+        },
+        {
+          "lag_ms": 2000,
+          "taker_direction": "BUY",
+          "denominator_rows": 20597,
+          "eligible_rows": 5192,
+          "adverse_cents_median": 0.9004976728670455,
+          "adverse_cents_p10": -3.9999999999999925,
+          "adverse_cents_p90": 7.000000000000001
+        },
+        {
+          "lag_ms": 2000,
+          "taker_direction": "SELL",
+          "denominator_rows": 172448,
+          "eligible_rows": 33832,
+          "adverse_cents_median": 1.1102230246251565e-14,
+          "adverse_cents_p10": -4.999999999999993,
+          "adverse_cents_p90": 5.900497512437814
+        },
+        {
+          "lag_ms": 5000,
+          "taker_direction": "BUY",
+          "denominator_rows": 20597,
+          "eligible_rows": 5184,
+          "adverse_cents_median": 0.9999999999999898,
+          "adverse_cents_p10": -5.000000000000004,
+          "adverse_cents_p90": 8.000000000000002
+        },
+        {
+          "lag_ms": 5000,
+          "taker_direction": "SELL",
+          "denominator_rows": 172448,
+          "eligible_rows": 32670,
+          "adverse_cents_median": 0.0,
+          "adverse_cents_p10": -5.999999999999995,
+          "adverse_cents_p90": 6.900497512437809
+        }
+      ]
+    },
+    {
+      "source_clock_shift_ms": 1000,
+      "groups": [
+        {
+          "lag_ms": 500,
+          "taker_direction": "BUY",
+          "denominator_rows": 20597,
+          "eligible_rows": 5338,
+          "adverse_cents_median": 3.456002211077447e-05,
+          "adverse_cents_p10": -2.0000000000000018,
+          "adverse_cents_p90": 4.900497512437807
+        },
+        {
+          "lag_ms": 500,
+          "taker_direction": "SELL",
+          "denominator_rows": 172448,
+          "eligible_rows": 34403,
+          "adverse_cents_median": 0.0,
+          "adverse_cents_p10": -2.9999999999999973,
+          "adverse_cents_p90": 3.900497512437812
+        },
+        {
+          "lag_ms": 2000,
+          "taker_direction": "BUY",
+          "denominator_rows": 20597,
+          "eligible_rows": 5017,
+          "adverse_cents_median": 0.7000000000000006,
+          "adverse_cents_p10": -2.999982265227642,
+          "adverse_cents_p90": 5.000000000000004
+        },
+        {
+          "lag_ms": 2000,
+          "taker_direction": "SELL",
+          "denominator_rows": 172448,
+          "eligible_rows": 33046,
+          "adverse_cents_median": 0.0,
+          "adverse_cents_p10": -3.9999984276480047,
+          "adverse_cents_p90": 4.1001925177933245
+        },
+        {
+          "lag_ms": 5000,
+          "taker_direction": "BUY",
+          "denominator_rows": 20597,
+          "eligible_rows": 5064,
+          "adverse_cents_median": 0.9004975124378034,
+          "adverse_cents_p10": -4.999999126914402,
+          "adverse_cents_p90": 6.999999999999995
+        },
+        {
+          "lag_ms": 5000,
+          "taker_direction": "SELL",
+          "denominator_rows": 172448,
+          "eligible_rows": 32099,
+          "adverse_cents_median": 5.551115123125783e-15,
+          "adverse_cents_p10": -5.000000000000004,
+          "adverse_cents_p90": 6.0
+        }
+      ]
+    }
+  ],
+  "input_manifest_files": [
+    "quotes-manifest.json",
+    "trades-manifest.json"
+  ],
+  "partial_trade_legs_warning": "Signed notional proxy, not wallet money movements. Fee source field is not verified taker cash expense; BUY fees can be tokens."
+}

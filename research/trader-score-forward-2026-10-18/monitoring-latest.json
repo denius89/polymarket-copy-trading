@@ -1,0 +1,1238 @@
+{
+  "checked_at": "2026-10-19T06:14:14.550996+00:00",
+  "runner_lock_held": false,
+  "runner_reported_state": {
+    "schema": "forward-runner-v1",
+    "launch_id": "20261018T170358011089Z",
+    "pid": 53525,
+    "started_at": "2026-10-18T17:03:58.011484Z",
+    "updated_at": "2026-10-19T04:19:31.458747Z",
+    "status": "storage_limit_reached",
+    "deadline_epoch": 1792429438.01149,
+    "config_sha256": "5cf6124bb0d578a6eb74497088c5f4e29332681c8fd5fe6c55e490fb1190599c",
+    "config_file": "/Users/denisfedko/.codex/.chatgpt-projects/g-p-6ab3bea8f0208191ada58dd99e906e49/polymarket-copy-trading/research/trader-score-forward-2026-10-18/observations/config-20261018T170358011089Z.json",
+    "max_bytes": 268435456,
+    "collector_file": "/Users/denisfedko/.codex/.chatgpt-projects/g-p-6ab3bea8f0208191ada58dd99e906e49/polymarket-copy-trading/research/trader-score-forward-2026-10-18/observations/collector-20261018T170358011089Z.py",
+    "collector_sha256": "f876035330a99a8f0385a3ee5c878711537f9923e24c3cbfbd13b6fe26181d90",
+    "completed_chunks": 145,
+    "failed_chunks": 1,
+    "current_chunk": "/Users/denisfedko/.codex/.chatgpt-projects/g-p-6ab3bea8f0208191ada58dd99e906e49/polymarket-copy-trading/research/trader-score-forward-2026-10-18/observations/capture-20261018T170358011089Z-0146",
+    "continuous_coverage_guaranteed": false,
+    "real_money": false,
+    "venue_binding_verified": false,
+    "bytes_used": 267402622,
+    "child_pid": null,
+    "last_exit_code": 0
+  },
+  "reported_event_counts": {
+    "limitless:coverage_gap": 756,
+    "limitless:http_response": 5511,
+    "limitless:market_events_quality": 2705,
+    "polymarket:activity_window_quality": 5460,
+    "polymarket:connection_start": 223,
+    "polymarket:heartbeat_received": 1846,
+    "polymarket:heartbeat_sent": 1879,
+    "polymarket:http_response": 16111,
+    "polymarket:market_message": 594141,
+    "polymarket:positions_baseline_incomplete": 381,
+    "polymarket:subscription_sent": 160,
+    "system:capture_start": 146,
+    "polymarket:connection_end": 190,
+    "polymarket:coverage_gap": 1725
+  },
+  "capture_status_counts": {
+    "stopped_byte_limit": 120,
+    "completed": 25,
+    "failed": 1
+  },
+  "captures": [
+    {
+      "directory": "capture-20261018T170358011089Z-0001",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:03:58.165872Z",
+      "ended_at": "2026-10-18T17:05:24.517428Z",
+      "records": 7708,
+      "events_sha256": "dc839c4cef4e1c7e72fc800dce6f9c7f5a1302ece1ad884b047f47890a24bfbc"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0002",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:05:31.813050Z",
+      "ended_at": "2026-10-18T17:06:52.947386Z",
+      "records": 7779,
+      "events_sha256": "8b96855094d648865b558fe85dc36e17f256a1e872f4d9cacdb3ffaed30a1bb0"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0003",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:06:59.472120Z",
+      "ended_at": "2026-10-18T17:08:21.214329Z",
+      "records": 7758,
+      "events_sha256": "9deb2630b15a58c057225decf15cd911adb48ea903e92c0262626e94b4fa475f"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0004",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:08:26.993227Z",
+      "ended_at": "2026-10-18T17:10:07.718738Z",
+      "records": 7658,
+      "events_sha256": "fd846cbfda6b6274b8d932ee74008e159b19a46dbb0cecec6640c1c7d81d9434"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0005",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:10:15.441449Z",
+      "ended_at": "2026-10-18T17:11:36.973084Z",
+      "records": 7801,
+      "events_sha256": "1dea60aedc5bbcaca2e17a07e084d19d0f0f6af96c49ae6a005d1c809af4cdbc"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0006",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:11:43.025973Z",
+      "ended_at": "2026-10-18T17:13:30.427127Z",
+      "records": 7374,
+      "events_sha256": "94a04c1e6cb70bb0ab411e47d117165fdb647d82abc5aeda1ad025a2196da558"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0007",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:13:36.836555Z",
+      "ended_at": "2026-10-18T17:14:50.136196Z",
+      "records": 7577,
+      "events_sha256": "f8dc3d65955ffac7d4caa56737beb37412663ee1c15344f18ff118c10f249743"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0008",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:14:56.620008Z",
+      "ended_at": "2026-10-18T17:17:36.714742Z",
+      "records": 6808,
+      "events_sha256": "7f475cebf7d5ae41ce899073943123427ad54c7113f221da81c145c55fe7f7bf"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0009",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:17:42.564568Z",
+      "ended_at": "2026-10-18T17:19:06.734552Z",
+      "records": 7256,
+      "events_sha256": "9b3103c5eb38aac00d30e4073ef2f3774491dd54676e2b905bc730c1ec0fe0b7"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0010",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:19:13.375061Z",
+      "ended_at": "2026-10-18T17:20:31.201361Z",
+      "records": 7277,
+      "events_sha256": "1a85dca61f0a629e917a569590d0c572113c1fd788daa78d3f40f9be1a477929"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0011",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:20:36.956458Z",
+      "ended_at": "2026-10-18T17:22:23.554497Z",
+      "records": 7685,
+      "events_sha256": "751e26a81dd79f63f44e4df0f6e570f5909561720b0c540493a652d3b9681d3f"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0012",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:22:30.874755Z",
+      "ended_at": "2026-10-18T17:24:00.893559Z",
+      "records": 7531,
+      "events_sha256": "23c6608e8425812c5f0cf1f4269ef0ad905760f49ec6b8ac875ac61a9d52c60d"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0013",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:24:06.939113Z",
+      "ended_at": "2026-10-18T17:25:19.673083Z",
+      "records": 7743,
+      "events_sha256": "67141b24363340e06390cfe33a008c96287e5b6e2746f3fc98505e9566e01e9e"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0014",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:25:26.755904Z",
+      "ended_at": "2026-10-18T17:26:53.012477Z",
+      "records": 6985,
+      "events_sha256": "28b7ba2a024bc055dbf3f04c2d4c467f181831816279645841b24863f426b1d3"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0015",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:26:58.628046Z",
+      "ended_at": "2026-10-18T17:28:11.691554Z",
+      "records": 7766,
+      "events_sha256": "5d1eee74efc32af22afa78c63f400bbe96e25e47663ceeb7501e064c266163bf"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0016",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:28:18.342674Z",
+      "ended_at": "2026-10-18T17:29:05.734181Z",
+      "records": 8142,
+      "events_sha256": "9508f3029426cc292841b7525e4fe8e3f59077ea525cf7cc74be9536b5ec0ede"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0017",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:29:12.103943Z",
+      "ended_at": "2026-10-18T17:30:02.878119Z",
+      "records": 7894,
+      "events_sha256": "0bdf246dc895dd449e466d00c589730eb64d9512314a30cc4b0ebf2ba2b1e79d"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0018",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:30:09.658813Z",
+      "ended_at": "2026-10-18T17:31:38.289709Z",
+      "records": 7287,
+      "events_sha256": "181e9510e8d8a1315639d9ef70fcaa0ccc1fd7aba41143d2ca645696a12d7621"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0019",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:31:44.028703Z",
+      "ended_at": "2026-10-18T17:32:33.256850Z",
+      "records": 8227,
+      "events_sha256": "5d27efd5612ed363d0d8d4a1e76293732b1649c964544b6c7b338b1d55a3d0d7"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0020",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:32:40.575083Z",
+      "ended_at": "2026-10-18T17:34:24.882556Z",
+      "records": 7685,
+      "events_sha256": "bacd150ec1cb0c5d99b1af482d5df6def0e3a1f5bb8504aef0139b59b4e797a4"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0021",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:34:33.115341Z",
+      "ended_at": "2026-10-18T17:36:39.003840Z",
+      "records": 7395,
+      "events_sha256": "b20fc2239840e07f123bfa84b3f117861c88c0a87d3704704b4dfe188d2a8cdb"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0022",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:36:46.688936Z",
+      "ended_at": "2026-10-18T17:37:56.139033Z",
+      "records": 8300,
+      "events_sha256": "803a1c2c648b3b3092b2e8e903a6bb7aa41fe2e829e24f350e172e1f0f1b8af6"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0023",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:38:06.865339Z",
+      "ended_at": "2026-10-18T17:39:32.991749Z",
+      "records": 7781,
+      "events_sha256": "fb2a3faf587603d45e465cb3a61a2d0754c52db717199f074a4878a3f595b395"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0024",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:39:45.861038Z",
+      "ended_at": "2026-10-18T17:41:42.592346Z",
+      "records": 7573,
+      "events_sha256": "49050b6ee19f514d06dd6643e9d5f425825cd7df7bd2f220868598761c895e4e"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0025",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:41:50.915151Z",
+      "ended_at": "2026-10-18T17:42:41.337336Z",
+      "records": 8310,
+      "events_sha256": "4d90ff12ba7588b6b7a60e77a71c1c26d7a6c845d121e8bef79440ed6526c8e7"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0026",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:42:48.342865Z",
+      "ended_at": "2026-10-18T17:43:42.586838Z",
+      "records": 8374,
+      "events_sha256": "f90ab212736c692f76b5485cfc21ac16945bb0aa246c890e7bad6834da79f1cf"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0027",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:43:50.277205Z",
+      "ended_at": "2026-10-18T17:45:50.293331Z",
+      "records": 6528,
+      "events_sha256": "180e17985619c760e5c55113baa55d4228eaaf3055bc928f9d38f074635790e9"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0028",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:45:57.554920Z",
+      "ended_at": "2026-10-18T17:46:59.109659Z",
+      "records": 8123,
+      "events_sha256": "5fc02e507fe212d353c623386dd96070cca2c4f7c7598360da99c856cf5a1ee5"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0029",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:47:05.426849Z",
+      "ended_at": "2026-10-18T17:47:59.416396Z",
+      "records": 8387,
+      "events_sha256": "8309766d216723a3560efb0f784bbf84e9c745bfcdc7cf63620043d3b485d68a"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0030",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:48:05.153368Z",
+      "ended_at": "2026-10-18T17:49:08.503005Z",
+      "records": 8248,
+      "events_sha256": "0ec88456b0c57759fbb31d7d2e3477bae7ee6234bf5c7221b6e35c62c879e48c"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0031",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:49:14.987149Z",
+      "ended_at": "2026-10-18T17:50:50.284596Z",
+      "records": 7317,
+      "events_sha256": "45e3a3381770dec484b85b7656e151d3fe536577b1fafbd95b0e9794c010c3fe"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0032",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:50:57.381358Z",
+      "ended_at": "2026-10-18T17:52:35.142189Z",
+      "records": 7671,
+      "events_sha256": "d7d493b115d1562f8c58875be00ed98b00d1015756176aa902236f392cae2dec"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0033",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:52:41.579021Z",
+      "ended_at": "2026-10-18T17:53:40.472229Z",
+      "records": 8207,
+      "events_sha256": "2b1d009cc66b63989241694022852dd091e5e7f215b5fba75857c2a131e3e899"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0034",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:53:47.459663Z",
+      "ended_at": "2026-10-18T17:54:38.063205Z",
+      "records": 7929,
+      "events_sha256": "eddb771cfc98a86aa160481736c4b9ae733c62ece9cf042aa5ca5c4b034449b8"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0035",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:54:45.370038Z",
+      "ended_at": "2026-10-18T17:55:19.906651Z",
+      "records": 8215,
+      "events_sha256": "fbdf7b3c4ead82c5733b88c67d8135e1c6c7f0e60264ce7da567bfcd0c5a1388"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0036",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:55:26.881545Z",
+      "ended_at": "2026-10-18T17:56:27.165259Z",
+      "records": 8239,
+      "events_sha256": "1e6f2e6dba5ae427adda27d825e31c1273f0fb52ec1457f0928a2ce65eb1ddca"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0037",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:56:33.121362Z",
+      "ended_at": "2026-10-18T17:57:45.455037Z",
+      "records": 7634,
+      "events_sha256": "15878bc30092c7c62f5cbf7565c2fb6aa8ee149cf6005721858b522e4be8cfde"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0038",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:57:51.299061Z",
+      "ended_at": "2026-10-18T17:58:36.851674Z",
+      "records": 8421,
+      "events_sha256": "2ca823fa8ca1265de5a03377953dd79e905144211e6a3c58133ec6eb5db8fef5"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0039",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T17:58:43.101361Z",
+      "ended_at": "2026-10-18T17:59:54.763276Z",
+      "records": 7471,
+      "events_sha256": "801d2ee4f719c9c1873aaae034d75e6b24bfbab14558416f0f2fd204822b6c1b"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0040",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T18:00:01.160844Z",
+      "ended_at": "2026-10-18T18:01:07.105461Z",
+      "records": 7231,
+      "events_sha256": "fad65330bc6f6be762b199f4d968254907b23882ab6be7bf04131c52ab961db9"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0041",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T18:01:13.061691Z",
+      "ended_at": "2026-10-18T18:02:17.254931Z",
+      "records": 7143,
+      "events_sha256": "99df32d4d58d750eb26c8c0dbbb3621b2aace0987fe9553c099533b9b80c8059"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0042",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T18:02:23.157323Z",
+      "ended_at": "2026-10-18T18:03:46.042552Z",
+      "records": 7779,
+      "events_sha256": "615d57b76f0990d5d022ec662f08b6b4593949ac44e370849d48c9fd9cd04b6b"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0043",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T18:03:53.065608Z",
+      "ended_at": "2026-10-18T18:04:44.499820Z",
+      "records": 8490,
+      "events_sha256": "0835678b91192e52ca52b51e0bd36487e558bb2a58b4646d4a954fdcbdcc1a15"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0044",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T18:04:50.888281Z",
+      "ended_at": "2026-10-18T18:05:45.512030Z",
+      "records": 8211,
+      "events_sha256": "7fd9bf8ad29d4335ec9b0cf4b946f155802c530f2b7d20863cfe8695511e672f"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0045",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T18:05:52.752261Z",
+      "ended_at": "2026-10-18T18:06:43.164859Z",
+      "records": 8484,
+      "events_sha256": "921899a63eab3f79ee8f4b45a1ce358c36ceaf2d86ed6322544ee264516cb5b4"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0046",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T18:06:50.542425Z",
+      "ended_at": "2026-10-18T18:08:05.004220Z",
+      "records": 7862,
+      "events_sha256": "a6f35e57f9e94705719b4f6adb4d88a61cc3a53a13ab663fac48152700133ad5"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0047",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T18:08:12.770830Z",
+      "ended_at": "2026-10-18T18:10:08.751493Z",
+      "records": 6929,
+      "events_sha256": "49a5294525a2325b247ba85a91d3bc92997b14e1057e46211fcf3ae4da168bd8"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0048",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T18:10:15.165454Z",
+      "ended_at": "2026-10-18T18:12:32.832175Z",
+      "records": 6929,
+      "events_sha256": "46e5908cb545b82f7ca01060701b31e3cdadd968caf3c3be3c303b854bfd1054"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0049",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T18:12:40.050115Z",
+      "ended_at": "2026-10-18T18:15:46.684288Z",
+      "records": 5698,
+      "events_sha256": "b781cd876849ce4f433e7480d7de1a921996103229538a6e3bc66e270fca14dd"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0050",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T18:15:53.704081Z",
+      "ended_at": "2026-10-18T18:18:57.202873Z",
+      "records": 6345,
+      "events_sha256": "3e9c822516e64ac033cbcc84d841240d156344e6ae2734a1950453980949c9ca"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0051",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T18:19:03.675232Z",
+      "ended_at": "2026-10-18T18:22:38.708512Z",
+      "records": 5586,
+      "events_sha256": "ba2b4da0f49ca7f9e08af842ded448fb32410e6c77364ddd743efde6e0eadd10"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0052",
+      "status": "completed",
+      "started_at": "2026-10-18T18:22:46.030775Z",
+      "ended_at": "2026-10-18T18:27:47.261685Z",
+      "records": 3595,
+      "events_sha256": "3db61f3296b2db3648e6b281108ac212b2717766a6439c1dfc277f6739d4b6f1"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0053",
+      "status": "completed",
+      "started_at": "2026-10-18T18:27:53.227412Z",
+      "ended_at": "2026-10-18T18:32:54.436491Z",
+      "records": 2618,
+      "events_sha256": "f995de1995b17a5adea7415bbf3ef3248103e10a07201c04f3c129f1689ba713"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0054",
+      "status": "completed",
+      "started_at": "2026-10-18T18:33:00.680170Z",
+      "ended_at": "2026-10-18T18:38:01.751550Z",
+      "records": 4637,
+      "events_sha256": "e50ed6ef7a9da8fb550475b17d0d52654e8c88f4cb868a74a180a7fb6db89458"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0055",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T18:38:08.647984Z",
+      "ended_at": "2026-10-18T18:41:13.082864Z",
+      "records": 6272,
+      "events_sha256": "6a2f2d390616e5208c3bf7318753e983b6b6132ed7249a8eafd0ba394c078f89"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0056",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T18:41:20.769244Z",
+      "ended_at": "2026-10-18T18:43:40.781891Z",
+      "records": 6993,
+      "events_sha256": "207a71476131fb548f9bcfd60ed72a9122146e8feba673d5c60796901efe4c11"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0057",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T18:43:50.517112Z",
+      "ended_at": "2026-10-18T18:46:04.720196Z",
+      "records": 7127,
+      "events_sha256": "caf94c149e314a9ae9ef8706829c0b0ac974bc555256fd32c26e9f61fc4d7e19"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0058",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T18:46:10.608077Z",
+      "ended_at": "2026-10-18T18:50:54.590938Z",
+      "records": 5124,
+      "events_sha256": "6d82d8f52de14a02b18cb5e7c10e611df7d3e1f7a5c481920ae924cd4648dc25"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0059",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T18:51:00.263618Z",
+      "ended_at": "2026-10-18T18:54:04.830561Z",
+      "records": 6032,
+      "events_sha256": "b0941bc080e86f6cb2c311e62d2007217e9bf12d73aa437dd36c61e38637c1ad"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0060",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T18:54:12.255094Z",
+      "ended_at": "2026-10-18T18:58:17.125844Z",
+      "records": 5766,
+      "events_sha256": "20f9e720bd076d4808a3070953cc990a306cfb8261ad8f0be9c17acdc6dbca63"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0061",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T18:58:23.537583Z",
+      "ended_at": "2026-10-18T19:01:36.309953Z",
+      "records": 4613,
+      "events_sha256": "241a0bb7f35472ddb03011a943ef83189ecaacbe7cff959a05135f1f4d20fe82"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0062",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T19:01:43.988897Z",
+      "ended_at": "2026-10-18T19:04:23.994055Z",
+      "records": 5549,
+      "events_sha256": "11e2ab79fa40aa2ea27cb6577e8e2515cc8d5a5cf8cc2f960dc51ee5f96b816e"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0063",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T19:04:31.487435Z",
+      "ended_at": "2026-10-18T19:07:58.308099Z",
+      "records": 5822,
+      "events_sha256": "8df50485718594f02ddec1fdcba60da15d894fe80ebbe20104f466451163208d"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0064",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T19:08:05.795738Z",
+      "ended_at": "2026-10-18T19:10:43.185716Z",
+      "records": 5082,
+      "events_sha256": "884992a372f2f0384f1afa28228749155bc371217afd29e65ee584c1cf886273"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0065",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T19:10:49.660308Z",
+      "ended_at": "2026-10-18T19:13:45.724056Z",
+      "records": 6776,
+      "events_sha256": "57d5de0338189499cbac129b4025adbdccc88719207a7fb7eda98de10949667b"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0066",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T19:13:51.899857Z",
+      "ended_at": "2026-10-18T19:17:52.800354Z",
+      "records": 5606,
+      "events_sha256": "e1e4624c22457d4f3cdbaf700f20a2e266dd9be1c8f363e0ea095d2c8d066983"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0067",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T19:18:00.428741Z",
+      "ended_at": "2026-10-18T19:20:12.000971Z",
+      "records": 7170,
+      "events_sha256": "7e21c99b394dfe13340b6742c04d73cc2614e503f851125e5a9d58805c418efb"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0068",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T19:20:17.639778Z",
+      "ended_at": "2026-10-18T19:22:19.206964Z",
+      "records": 7754,
+      "events_sha256": "c08d100595b9484c331e61d5e28f8e9db73273bfab4198c155e5a9152ea22724"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0069",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T19:22:25.288381Z",
+      "ended_at": "2026-10-18T19:23:26.455016Z",
+      "records": 8558,
+      "events_sha256": "1276106c7463f33341156bf62e75cf6f0f3ed888c4de7ce50fedacf4da3ef80f"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0070",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T19:23:32.238453Z",
+      "ended_at": "2026-10-18T19:27:02.883742Z",
+      "records": 6263,
+      "events_sha256": "3dfa3b6671882d77dc0c31e5ad8f15c2fe460a50b5decdc6b1b202ba64ec9c47"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0071",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T19:27:10.371339Z",
+      "ended_at": "2026-10-18T19:30:33.138235Z",
+      "records": 6099,
+      "events_sha256": "a05e4a2086f1e7df35c00133e39b0743303e674bd4ed30f231e34c4e9aaab45e"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0072",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T19:30:40.812170Z",
+      "ended_at": "2026-10-18T19:34:32.704107Z",
+      "records": 6133,
+      "events_sha256": "5af54b0ac0fde5ef0ab3e73266517c6f222fd79293cef5fb01220e9895617743"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0073",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T19:34:38.687853Z",
+      "ended_at": "2026-10-18T19:37:44.839971Z",
+      "records": 6452,
+      "events_sha256": "627d18614af502bf679cf6bf68649b985adf5d1a32b8a72c61f6fc2951d5cf90"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0074",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T19:37:50.821820Z",
+      "ended_at": "2026-10-18T19:39:47.492615Z",
+      "records": 7776,
+      "events_sha256": "5719ff938de81ac39f46ad1b9fdd7572105f3d57b5e3b46767227b7f8ac37544"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0075",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T19:39:54.451770Z",
+      "ended_at": "2026-10-18T19:42:53.176914Z",
+      "records": 6854,
+      "events_sha256": "5bd754cf5ad2a810031137bea7097639a4c559f67cbee3da92b2128d5ecb341e"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0076",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T19:43:00.751002Z",
+      "ended_at": "2026-10-18T19:46:42.357396Z",
+      "records": 5581,
+      "events_sha256": "1951ae67d3a071c754ceb4aa82bc7ab58f913213a7ba8ccd9026870684551faa"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0077",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T19:46:48.967350Z",
+      "ended_at": "2026-10-18T19:49:26.089247Z",
+      "records": 6997,
+      "events_sha256": "3c37191facf31d80b0d3896dae892aebe49419a0b2e687693266b4bceef18a71"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0078",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T19:49:33.088724Z",
+      "ended_at": "2026-10-18T19:51:07.341084Z",
+      "records": 7862,
+      "events_sha256": "b717d732a6a34e0418e631b0e2e40bf9f359b6ce66532d9bb93b79a544ea2926"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0079",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T19:51:13.320207Z",
+      "ended_at": "2026-10-18T19:54:19.031654Z",
+      "records": 6333,
+      "events_sha256": "1663262a15c19227f452f0232c6c63a8a67665ed88b05b7d9b7a2eec8137e581"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0080",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T19:54:24.947957Z",
+      "ended_at": "2026-10-18T19:58:28.694433Z",
+      "records": 5785,
+      "events_sha256": "99fb923c1c65c7a70bf17561ec68d0e79e35f545545f5476a96a5ab0dc5bfb20"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0081",
+      "status": "completed",
+      "started_at": "2026-10-18T19:58:34.950568Z",
+      "ended_at": "2026-10-18T20:03:36.042581Z",
+      "records": 3465,
+      "events_sha256": "dd84bfdea1f3c949f6c1025fb1e12c85f301aabe7d8f597aaad80d837eb4a9b2"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0082",
+      "status": "completed",
+      "started_at": "2026-10-18T20:03:42.490262Z",
+      "ended_at": "2026-10-18T20:08:43.590931Z",
+      "records": 1930,
+      "events_sha256": "ae8b589ca29c4fc8f4207957d1511fa28978b03ffd45acde61a45d3d73da7ea2"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0083",
+      "status": "completed",
+      "started_at": "2026-10-18T20:08:49.665887Z",
+      "ended_at": "2026-10-18T20:13:50.983777Z",
+      "records": 2199,
+      "events_sha256": "3126e09576e476da242526222fb6d47b9eb161dbc38f34c6ddf70392531e6721"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0084",
+      "status": "completed",
+      "started_at": "2026-10-18T20:13:57.322472Z",
+      "ended_at": "2026-10-18T20:18:58.408303Z",
+      "records": 2177,
+      "events_sha256": "f10b898179e86a97bf8eba463790fb802239ab90143187b24ec51f05132e093f"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0085",
+      "status": "completed",
+      "started_at": "2026-10-18T20:19:06.125428Z",
+      "ended_at": "2026-10-18T20:24:07.980626Z",
+      "records": 1794,
+      "events_sha256": "2162dd5025236fa1af4f2259caebdb031403584a6e110b8c709909c0d18b0888"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0086",
+      "status": "completed",
+      "started_at": "2026-10-18T20:24:15.415690Z",
+      "ended_at": "2026-10-18T20:29:16.506387Z",
+      "records": 1769,
+      "events_sha256": "3dbf0ba2889526c048ffaf1dcf013e431c142cde7af2a6f21875c777e7629e07"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0087",
+      "status": "completed",
+      "started_at": "2026-10-18T20:29:22.399458Z",
+      "ended_at": "2026-10-18T20:34:23.554158Z",
+      "records": 1982,
+      "events_sha256": "61afce946d1ca7f678a2d666a331d7a25ce2827fab0f423b800a5476201310d3"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0088",
+      "status": "completed",
+      "started_at": "2026-10-18T20:34:33.298929Z",
+      "ended_at": "2026-10-18T20:39:34.374299Z",
+      "records": 1271,
+      "events_sha256": "a833eedf422cfa72dbef51eb6bf19148e3a890ca5c7abcbdd0507b290cfc886e"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0089",
+      "status": "completed",
+      "started_at": "2026-10-18T20:39:40.921267Z",
+      "ended_at": "2026-10-18T20:44:41.990368Z",
+      "records": 2160,
+      "events_sha256": "81d42ac3cf9b126b4434d430ef127afef6b535edeb711d80c3ee6927837d2d45"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0090",
+      "status": "completed",
+      "started_at": "2026-10-18T20:44:49.097726Z",
+      "ended_at": "2026-10-18T20:49:50.147069Z",
+      "records": 1779,
+      "events_sha256": "6dd7c826e2ca71f147804b6c150dfc48da75e49483116c859f0652b11cba8b45"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0091",
+      "status": "completed",
+      "started_at": "2026-10-18T20:49:56.597565Z",
+      "ended_at": "2026-10-18T20:54:57.675839Z",
+      "records": 2211,
+      "events_sha256": "6ed7512a7daffecb27b862a2fb7da960d0644f659cc97151ad9a069546ced826"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0092",
+      "status": "completed",
+      "started_at": "2026-10-18T20:55:05.068395Z",
+      "ended_at": "2026-10-18T21:00:06.140391Z",
+      "records": 1774,
+      "events_sha256": "0a2e2d93aff588be02a51beeca2c6bee0f67b9fefdba6e880a003d1402524822"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0093",
+      "status": "completed",
+      "started_at": "2026-10-18T21:00:12.427434Z",
+      "ended_at": "2026-10-18T21:05:13.492975Z",
+      "records": 2057,
+      "events_sha256": "b6e50270e3864cc7da2f133729c392b94c980942ab73ad643de4b4e0b7c31d51"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0094",
+      "status": "completed",
+      "started_at": "2026-10-18T21:05:19.642085Z",
+      "ended_at": "2026-10-18T21:10:20.710085Z",
+      "records": 1794,
+      "events_sha256": "d043debf017f7ffed76cdbb5c54a880a5d324f50c9da383ff9e3e7448f09ee47"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0095",
+      "status": "completed",
+      "started_at": "2026-10-18T21:10:26.517740Z",
+      "ended_at": "2026-10-18T21:15:27.583574Z",
+      "records": 1875,
+      "events_sha256": "c29f3f2f43578a284aad8aeff14dd3572a728c57432bb856d26824c549c7990e"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0096",
+      "status": "completed",
+      "started_at": "2026-10-18T21:15:34.064539Z",
+      "ended_at": "2026-10-18T21:20:35.126948Z",
+      "records": 1983,
+      "events_sha256": "ffbb68eeded1c4ad785ba8ffcae6360f3ade169a3a6873f007616c48655f157a"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0097",
+      "status": "completed",
+      "started_at": "2026-10-18T21:20:42.066944Z",
+      "ended_at": "2026-10-18T21:25:43.135350Z",
+      "records": 1853,
+      "events_sha256": "40bba7260e1485e5d799911321af18a54e1b4aea55c491299b70b960a14f0b7a"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0098",
+      "status": "completed",
+      "started_at": "2026-10-18T21:25:50.478897Z",
+      "ended_at": "2026-10-18T21:30:51.923641Z",
+      "records": 1860,
+      "events_sha256": "cd112c8fba9d5963a1adaac49533a673b0ae4943e8f5b47e3059a7147ad168b7"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0099",
+      "status": "completed",
+      "started_at": "2026-10-18T21:30:59.421117Z",
+      "ended_at": "2026-10-18T21:36:00.484579Z",
+      "records": 1791,
+      "events_sha256": "7fc8394763c11ff7d8a0bc2b2517ef416b9dcd61d734300d339613fd68c42de2"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0100",
+      "status": "completed",
+      "started_at": "2026-10-18T21:36:06.377855Z",
+      "ended_at": "2026-10-18T21:41:07.443066Z",
+      "records": 1840,
+      "events_sha256": "8ed724b4180108a192abcbb9a84a987a4b3ceb84f5835734ae5f4628815d3055"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0101",
+      "status": "completed",
+      "started_at": "2026-10-18T21:41:13.108122Z",
+      "ended_at": "2026-10-18T21:46:14.528038Z",
+      "records": 1924,
+      "events_sha256": "f15cdc33d4231b081273ba41cfbbd18e4e61b07590f06fdc218322a991701084"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0102",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-18T21:46:20.827361Z",
+      "ended_at": "2026-10-18T23:06:10.174938Z",
+      "records": 1015,
+      "events_sha256": "7f0130d53c2ee1b8586526cd5fcc0d647cf0d244624a7107af286a358d443aed"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0103",
+      "status": "failed",
+      "started_at": "2026-10-18T23:22:51.937123Z",
+      "ended_at": "2026-10-18T23:39:08.227839Z",
+      "records": 405,
+      "events_sha256": "a6e87f5fea6c55aa10e7ee8046fcdf0b34e796ddd150ddf5a9cabcf9a5b9c416"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0104",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T00:18:34.795614Z",
+      "ended_at": "2026-10-19T00:56:54.671619Z",
+      "records": 1523,
+      "events_sha256": "706a4681da6987c936d0bdb5ff68e06906b9754cfa7bfaee4ab10640d78cdd88"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0105",
+      "status": "completed",
+      "started_at": "2026-10-19T00:57:00.906245Z",
+      "ended_at": "2026-10-19T01:02:01.957052Z",
+      "records": 1809,
+      "events_sha256": "5ab8b3a2d9ce8f4ece67db7c24a925f82ab8947fe082036322eb8217b739726a"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0106",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T01:02:07.621586Z",
+      "ended_at": "2026-10-19T01:52:07.979576Z",
+      "records": 833,
+      "events_sha256": "e392d4a3cf5c3b99cdd6e1e36faba34cdc5b4ae1ff4543aa517b38aceb657158"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0107",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T01:52:13.997337Z",
+      "ended_at": "2026-10-19T02:58:52.749921Z",
+      "records": 805,
+      "events_sha256": "8bf7d118e31d4e6befb93e6d00653abf6c60cc03425145aa22a73c764818ce28"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0108",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T02:59:00.196752Z",
+      "ended_at": "2026-10-19T03:32:46.453016Z",
+      "records": 1118,
+      "events_sha256": "e05bca8725b71e489273bcb961339f5a9955f8a68f7f50b71b7f54e47a09eae2"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0109",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T03:32:53.195992Z",
+      "ended_at": "2026-10-19T03:37:08.337956Z",
+      "records": 1519,
+      "events_sha256": "dfd3862d9429899e2256fc24855d54b62cb69a7899f11971c6209bbe77b8102a"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0110",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T03:37:14.388173Z",
+      "ended_at": "2026-10-19T03:41:18.881471Z",
+      "records": 1505,
+      "events_sha256": "0470c655bbeae8a36dc75df1ea73ea961ecf0e3bc00a86042ca20a6c9563648b"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0111",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T03:41:25.451850Z",
+      "ended_at": "2026-10-19T03:45:09.757934Z",
+      "records": 1335,
+      "events_sha256": "5d616260b69544c99eb9cbd9277fae521578245ac63bf4f8704c2c5328d742cf"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0112",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T03:45:16.105509Z",
+      "ended_at": "2026-10-19T03:48:25.476554Z",
+      "records": 1136,
+      "events_sha256": "962d850e8b7ecf4b78b5fc319020af7a54f9456feb2537bebdfe34c206e7bffd"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0113",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T03:48:31.891703Z",
+      "ended_at": "2026-10-19T03:51:36.415314Z",
+      "records": 1102,
+      "events_sha256": "904cbe65cd6ee914c333c78ace034c0d3e6ad1664cf63afb3a019614706764c5"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0114",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T03:51:43.557400Z",
+      "ended_at": "2026-10-19T03:54:26.563820Z",
+      "records": 1040,
+      "events_sha256": "5ff5a30ad66a6a2f17a882b5b9ec9fcdce26ad3fc666c16452eb0250976767b8"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0115",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T03:54:32.707550Z",
+      "ended_at": "2026-10-19T03:57:03.919970Z",
+      "records": 897,
+      "events_sha256": "2bb783ac3ee0476935b982390d926904f7710733a70f36b7b630a751b54562aa"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0116",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T03:57:09.524468Z",
+      "ended_at": "2026-10-19T03:59:14.702162Z",
+      "records": 760,
+      "events_sha256": "ffed88ec8dc12e7b09bff248267bfddcc4056d5ccf9f9f32401df3a3a5e59f48"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0117",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T03:59:21.837249Z",
+      "ended_at": "2026-10-19T04:00:43.123696Z",
+      "records": 737,
+      "events_sha256": "34872ba7f6b10d537c80eb708316c03723de46bb02b167e58d3e8b91bd98bed0"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0118",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:00:49.042921Z",
+      "ended_at": "2026-10-19T04:01:53.513935Z",
+      "records": 655,
+      "events_sha256": "d6d0730d4bb474126e5896af367ff35a4d3c6576816ac6c9e3349edf0f7d8b9e"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0119",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:01:59.801535Z",
+      "ended_at": "2026-10-19T04:03:46.651505Z",
+      "records": 644,
+      "events_sha256": "fc7d7b24fea9679cab748f681ad2fee0ae29826bcd90c81cbfe291c9a4cd6be9"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0120",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:03:53.608624Z",
+      "ended_at": "2026-10-19T04:05:25.975926Z",
+      "records": 557,
+      "events_sha256": "16b01857ec134454e5e92249fe6a73d7c08cda7c574fc82b1ccb4c6487118ee7"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0121",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:05:33.073056Z",
+      "ended_at": "2026-10-19T04:06:49.920305Z",
+      "records": 477,
+      "events_sha256": "ebe76cc3b7b4ee021526852d71351f71fe28d717be35f9dbc9079ea922ca66e3"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0122",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:06:56.170369Z",
+      "ended_at": "2026-10-19T04:08:00.604025Z",
+      "records": 418,
+      "events_sha256": "d53c7bd7713e900508b61e01ec664d569158dc5713dc65b826b3f2fe7a4e61f1"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0123",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:08:06.882346Z",
+      "ended_at": "2026-10-19T04:09:11.438574Z",
+      "records": 414,
+      "events_sha256": "ab3956caa01b7a38c8e562b4a0186d82f5581c5a8cb8267ec8c3b5b9291df4f5"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0124",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:09:17.669769Z",
+      "ended_at": "2026-10-19T04:10:22.158507Z",
+      "records": 392,
+      "events_sha256": "f504d8180e81c532711d7f18c0461d10c4930bce3474480b85768ae0f15c77b9"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0125",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:10:28.371452Z",
+      "ended_at": "2026-10-19T04:11:32.805008Z",
+      "records": 396,
+      "events_sha256": "82d10eb0b08fb7c963995b8dba2ecce229a5f0ea8c2b95fc53ccacce32c7118d"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0126",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:11:39.118471Z",
+      "ended_at": "2026-10-19T04:12:43.570497Z",
+      "records": 377,
+      "events_sha256": "85e57e519e53cca06e0888938dea7bac98e867009cb11ed3d55e0da6eb3ba403"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0127",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:12:49.893016Z",
+      "ended_at": "2026-10-19T04:13:45.959877Z",
+      "records": 343,
+      "events_sha256": "5cfeb75228ea06b39899acac724e69e8d57655b665c1e3f2785408219a7799df"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0128",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:13:52.442404Z",
+      "ended_at": "2026-10-19T04:14:39.339313Z",
+      "records": 285,
+      "events_sha256": "814e5a6707d6034a0c61d73de1784c656da0f516969a44b2faba320ef45a97c9"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0129",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:14:44.785739Z",
+      "ended_at": "2026-10-19T04:15:21.970065Z",
+      "records": 237,
+      "events_sha256": "6a8d25eb8808898c0c3f753862db7d088fd559e728ff889add570b177f75fc58"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0130",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:15:28.881107Z",
+      "ended_at": "2026-10-19T04:16:01.244367Z",
+      "records": 203,
+      "events_sha256": "5de180e1dd7491652a1bf61b0d4bf6833fa745a327a8e82ebc38ca7e96e2495f"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0131",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:16:06.853870Z",
+      "ended_at": "2026-10-19T04:16:26.080879Z",
+      "records": 133,
+      "events_sha256": "0a51238a5d17b72e35c0552845d48563ccf6c45921b501cf4920ba01c7a7797c"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0132",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:16:32.505467Z",
+      "ended_at": "2026-10-19T04:16:49.371363Z",
+      "records": 119,
+      "events_sha256": "7fc18e4757fad937c89e483b458c1faac5699db9a9853145b8e04e433eea7616"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0133",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:16:56.096247Z",
+      "ended_at": "2026-10-19T04:17:02.088449Z",
+      "records": 57,
+      "events_sha256": "afb979f944a36d2d9825fb237ce8c8be4c1a68c65cefb93e31ce682626f71fff"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0134",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:17:07.310885Z",
+      "ended_at": "2026-10-19T04:17:11.034813Z",
+      "records": 42,
+      "events_sha256": "ca9a3d4421040ac69bc33a48213ba5a424555739ec5761669313ed896cd6f04d"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0135",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:17:16.509669Z",
+      "ended_at": "2026-10-19T04:17:20.909336Z",
+      "records": 39,
+      "events_sha256": "fd3b3e8bd44d96abb969a3d455d22575a23f3097545a74ced09ecca8f4726066"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0136",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:17:27.781205Z",
+      "ended_at": "2026-10-19T04:17:32.254632Z",
+      "records": 39,
+      "events_sha256": "40060edf5adec5c04a383c6ad92fddd86a4eed9bb08273d60a59be8f66502d7d"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0137",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:17:39.030227Z",
+      "ended_at": "2026-10-19T04:17:43.469989Z",
+      "records": 39,
+      "events_sha256": "9b6cd5dfe6e474bd16d97cdaadb15f62ae5c6d22a9e3606f46af2d5fad4573b2"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0138",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:17:50.293636Z",
+      "ended_at": "2026-10-19T04:17:54.678484Z",
+      "records": 41,
+      "events_sha256": "ff1260de7086f13b2ae4f115ba8feb2775cb750e8c412e31723e4cd4a86116e2"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0139",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:18:01.514680Z",
+      "ended_at": "2026-10-19T04:18:05.986125Z",
+      "records": 41,
+      "events_sha256": "a8177da6fab177d2be22e1b7d4e2cbe4130f823e29ea774adea969d552f016c7"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0140",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:18:12.764717Z",
+      "ended_at": "2026-10-19T04:18:17.253287Z",
+      "records": 42,
+      "events_sha256": "d8893998164c78f49e40fac4743666f9154cbf76929205cb77aaf1ea13fa24f7"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0141",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:18:24.020151Z",
+      "ended_at": "2026-10-19T04:18:28.586465Z",
+      "records": 43,
+      "events_sha256": "7de4069b00b66db0388093c07ee97c16e71482b3eb2f581f20f90a58f8bd8ba7"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0142",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:18:35.245735Z",
+      "ended_at": "2026-10-19T04:18:39.632542Z",
+      "records": 39,
+      "events_sha256": "b98b14fcfff8a51e88eeb57e91815d5ba22984f56093f4f1f0a3a2e0d972700a"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0143",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:18:46.531871Z",
+      "ended_at": "2026-10-19T04:18:50.917399Z",
+      "records": 39,
+      "events_sha256": "ff6a875122f626d15f200fc1fc627e7f87406af891c6b3498ae454446a74f807"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0144",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:18:57.762678Z",
+      "ended_at": "2026-10-19T04:19:02.185727Z",
+      "records": 38,
+      "events_sha256": "00dd4f8f9f54958d6995bd364eac9bd09a6eb76a02794602d8e22c4039dc1824"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0145",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:19:08.998544Z",
+      "ended_at": "2026-10-19T04:19:13.400899Z",
+      "records": 39,
+      "events_sha256": "f22f749d1db93e3df6a998148290e4accba2e93eaee91f8c57de0a1b27b6f88b"
+    },
+    {
+      "directory": "capture-20261018T170358011089Z-0146",
+      "status": "stopped_byte_limit",
+      "started_at": "2026-10-19T04:19:20.284481Z",
+      "ended_at": "2026-10-19T04:19:24.729935Z",
+      "records": 39,
+      "events_sha256": "ba1810a83322d4b1036453e4ca12b19b55ba4bf12abf09d8af91689e7155dc8f"
+    }
+  ],
+  "unfinalized_gaps": [],
+  "local_storage_bytes": 267403920,
+  "counts_verified_by_this_status_reader": false,
+  "continuous_coverage_proven": false,
+  "qualified_financial_sessions": 0,
+  "comparison_executed": false,
+  "winner": null,
+  "next_gate": "audit identities, live bindings, coverage and modeled ledger before financial sessions",
+  "integrity_verification": {
+    "captures_verified_this_check": 38,
+    "total_verified_captures": 146,
+    "failures": [],
+    "latest_closed_archive_reverified": "capture-20261018T170358011089Z-0146"
+  },
+  "pilot_complete": true,
+  "termination_reason": "storage_limit_reached",
+  "all_persisted_closed_captures_verified": true,
+  "total_verified_records": 631234,
+  "automation_status": "PAUSED",
+  "completion_summary": "PILOT_COMPLETION.json"
+}

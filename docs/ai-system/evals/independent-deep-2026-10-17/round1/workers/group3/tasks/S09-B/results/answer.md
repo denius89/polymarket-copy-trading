@@ -1,0 +1,7 @@
+Предложенное исправление не закрывает исходные причины и ухудшает достоверность статуса. Public origin обходит CDN/WAF и его per-IP limit 10/s. Даже через CDN много клиентов и общий NAT требуют отдельных решений; один IP не равен одному пользователю. /history без page limit допускает дорогой запрос независимо от request rate.
+
+Номинальная интенсивность reconnect: 5000×10=50 000 reconnect/s; по два provider request — 100 000 requests/s, то есть 500× quota 200/s. Это расчёт по fixture, а не измеренная пропускная способность. Даже при отсутствии другой нагрузки quota допускает максимум 100 reconnect/s: одно переподключение всех клиентов требует не менее 50 секунд. Нужен запас на обычные запросы, поэтому это нижняя граница времени, не целевой SLO.
+
+План для согласования: закрыть прямой origin доверенным ingress/debug path; ограничить /history pagination, объём и время; ввести shared provider budget, backpressure, bounded retries и exponential backoff с jitter. Unknown/error сохранять честными, с freshness, а не зелёным up to date.
+
+Drill готовить только после подтверждения изолированного staging или локального стенда. Последовательно испытать небольшой reconnect burst, provider throttling/outage и дорогую history выборку. Измерять provider rps, queue depth/age, retries, DB latency, freshness и долю подтверждённых восстановлений. Назначить владельца и предложенные stop thresholds до запуска; abort при исчерпании quota или ухудшении очереди, восстановление после sync и reconciliation. Production нагрузка не разрешена review-запросом и не выполнялась.

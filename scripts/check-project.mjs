@@ -34,6 +34,16 @@ const requiredPaths = [
 
 const ignoredDirectories = new Set([".git", "node_modules", ".next", "dist", "build", "coverage"]);
 
+// Frozen evaluation workspaces retain their original links and temporary paths.
+// Check the reports above them and the active skills/docs, not these replicas.
+const archivedEvaluationRoots = new Set([
+  "docs/ai-system/evals/independent-2026-10-17/round1",
+  "docs/ai-system/evals/independent-2026-10-17/round2",
+  "docs/ai-system/evals/independent-catalog-2026-10-17/round1",
+  "docs/ai-system/evals/independent-deep-2026-10-17/round1",
+  "docs/ai-system/evals/independent-deep-2026-10-17/round2",
+]);
+
 async function exists(path) {
   try {
     await access(path);
@@ -47,6 +57,7 @@ async function collectMarkdown(directory, result = []) {
   for (const entry of await readdir(directory, { withFileTypes: true })) {
     if (entry.isDirectory() && ignoredDirectories.has(entry.name)) continue;
     const path = join(directory, entry.name);
+    if (entry.isDirectory() && archivedEvaluationRoots.has(path.slice(root.length + 1).split(sep).join("/"))) continue;
     if (entry.isDirectory()) await collectMarkdown(path, result);
     else if (entry.isFile() && extname(entry.name) === ".md") result.push(path);
   }

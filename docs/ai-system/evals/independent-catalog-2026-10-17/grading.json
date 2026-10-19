@@ -1,0 +1,1301 @@
+{
+  "evaluation": "independent_fixture_catalog_review",
+  "scope": "20 synthetic explicit-file tasks; 40 behavioral criteria; 15 manual metadata routing cases. Not runtime discovery, skill causality, full professional competence, product acceptance or live safety.",
+  "counts": {
+    "behavior_criteria": {
+      "pass": 40,
+      "fail": 0,
+      "not_verified": 0
+    },
+    "cases": {
+      "pass": 20,
+      "fail": 0,
+      "not_verified": 0
+    },
+    "manual_routing": {
+      "pass": 15,
+      "fail": 0,
+      "not_verified": 0
+    }
+  },
+  "method": "Read task/domain/SKILL/answer fixtures, supplied oracles and routing metadata/results. Repeated domains and operating rules deduplicated by content hashes. Exact answer quotes checked programmatically. Trace statements treated as self-reports, not independent execution proof. No network or real project content read beyond two authorized oracle files.",
+  "cases": [
+    {
+      "id": "C-S02",
+      "status": "pass",
+      "inputs": {
+        "task.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S02/task.md",
+        "domain.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S02/domain.md",
+        "SKILL.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S02/SKILL.md",
+        "OPERATING_RULES.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S02/OPERATING_RULES.md"
+      },
+      "answer_sha256": "d5ec267b61e60ec4364e318af9baf6b3252d6ee56c9ed8b5e4a0d67f2a77a4c7",
+      "criteria": [
+        {
+          "criterion_index": 1,
+          "criterion": "Не объявлять текущую цену, доход или PMF доказанными",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S02/results/answer.md",
+              "line": 3,
+              "quote": "Скриншот конкурента годичной давности подтверждает только отображавшийся тогда fee 1%;"
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S02/results/answer.md",
+              "line": 3,
+              "quote": "Несогласованный partner rebate — условный сценарий, а не доход."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S02/results/answer.md",
+              "line": 13,
+              "quote": "Сейчас оснований объявлять PMF или прибыльность нет."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        },
+        {
+          "criterion_index": 2,
+          "criterion": "Дать конкретные следующие исследования/экономические неизвестные без outreach",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S02/results/answer.md",
+              "line": 11,
+              "quote": "Подготовить вопросы о последнем реальном эпизоде, расходах, альтернативе и причине прекращения; никого не контактировать."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S02/results/answer.md",
+              "line": 13,
+              "quote": "Неизвестные расходы оставить неизвестными."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        }
+      ]
+    },
+    {
+      "id": "C-S03",
+      "status": "pass",
+      "inputs": {
+        "task.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S03/task.md",
+        "domain.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S03/domain.md",
+        "SKILL.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S03/SKILL.md",
+        "OPERATING_RULES.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S03/OPERATING_RULES.md"
+      },
+      "answer_sha256": "c12c77fcb855b9765d7e2da5f7cba8063d50eb75259bf5b23390adceaeae1679",
+      "criteria": [
+        {
+          "criterion_index": 1,
+          "criterion": "Разделить manual/copy provenance; не закрывать ручные автоматически",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S03/results/answer.md",
+              "line": 3,
+              "quote": "При условии, что все три copy units связаны именно с этим лидером, область выхода — 3 units; 7 ручных units остаются неизменными."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        },
+        {
+          "criterion_index": 2,
+          "criterion": "Unknown reserve не освобождать догадкой; никаких отправок",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S03/results/answer.md",
+              "line": 5,
+              "quote": "Её нельзя объявить отказавшей, повторно отправить или освободить её резерв на основании предложения менеджера."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S03/results/answer.md",
+              "line": 9,
+              "quote": "Это заключение по supplied правилу и числам, без исполнения сделок или освобождения средств."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        }
+      ]
+    },
+    {
+      "id": "C-S04",
+      "status": "pass",
+      "inputs": {
+        "task.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S04/task.md",
+        "domain.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S04/domain.md",
+        "SKILL.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S04/SKILL.md",
+        "OPERATING_RULES.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S04/OPERATING_RULES.md"
+      },
+      "answer_sha256": "42deaab1ba6bd26c83bdfda1d6bd41cdb272d7dd2818c48a709aceb0ec13ea39",
+      "criteria": [
+        {
+          "criterion_index": 1,
+          "criterion": "Выделить смысл статуса и потерю значимой суммы",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S04/results/answer.md",
+              "line": 5,
+              "quote": "Единственное различие в оттенке зелёного скрывает финансовый смысл и допускает ошибочное прочтение заявки как исполненной."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S04/results/answer.md",
+              "line": 6,
+              "quote": "Пользователь не видит величину затронутых денег."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        },
+        {
+          "criterion_index": 2,
+          "criterion": "Не объявлять EN/desktop/runtime проверенными и не менять kit",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S04/results/answer.md",
+              "line": 8,
+              "quote": "Контраст, keyboard/focus, screen reader, остальные состояния, EN и desktop не проверены. Макеты не изменялись."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S04/results/answer.md",
+              "line": 6,
+              "quote": "Не сокращать финансовую величину молча и не уменьшать шрифт вне kit."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        }
+      ]
+    },
+    {
+      "id": "C-S05",
+      "status": "pass",
+      "inputs": {
+        "task.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S05/task.md",
+        "domain.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S05/domain.md",
+        "SKILL.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S05/SKILL.md",
+        "OPERATING_RULES.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S05/OPERATING_RULES.md"
+      },
+      "answer_sha256": "89dd7be7aa33aa11ca2a02a0172224b4b95c2e63129e67023a3c86e5ebb50f7e",
+      "criteria": [
+        {
+          "criterion_index": 1,
+          "criterion": "Не считать publication миграцией instances",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S05/results/answer.md",
+              "line": 3,
+              "quote": "Следовательно, публикация не доказывает принятие обновления или миграцию этих экранов."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        },
+        {
+          "criterion_index": 2,
+          "criterion": "Ограниченный маршрут сверки и неизвестные IDs, без writes",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S05/results/answer.md",
+              "line": 5,
+              "quote": "Для каждого из двух экранов нужен bounded inspection: актуальные file/page/node IDs, версия main component и instance, variant properties, variable/token bindings, overrides и доступность library update."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S05/results/answer.md",
+              "line": 9,
+              "quote": "Результат review — запрос конкретного evidence и карта неизвестного, без Figma edits, публикации, миграции или реализации."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        }
+      ]
+    },
+    {
+      "id": "C-S06",
+      "status": "pass",
+      "inputs": {
+        "task.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S06/task.md",
+        "domain.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S06/domain.md",
+        "SKILL.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S06/SKILL.md",
+        "OPERATING_RULES.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S06/OPERATING_RULES.md"
+      },
+      "answer_sha256": "94b80c5df1c650d5f1f6fcafd790915a146c543ea3deb3822b54dc1d86c09a70",
+      "criteria": [
+        {
+          "criterion_index": 1,
+          "criterion": "Сохранить конкретное measured наблюдение с условиями",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S06/results/answer.md",
+              "line": 3,
+              "quote": "Подтверждено наличие измерения desktop lab LCP на warm cache. Само значение, версия сборки, маршрут, устройство и сеть не указаны, поэтому даже соответствие LCP принятому бюджету не установлено."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        },
+        {
+          "criterion_index": 2,
+          "criterion": "Разделить field/mobile/a11y неизвестность и предложить соразмерную проверку",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S06/results/answer.md",
+              "line": 5,
+              "quote": "mobile field, INP и CLS — not_verified."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S06/results/answer.md",
+              "line": 11,
+              "quote": "Для доступности пройти основные потоки клавиатурой: порядок и видимость фокуса, отсутствие ловушек, формы и ошибки;"
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S06/results/answer.md",
+              "line": 11,
+              "quote": "Эти действия здесь только запланированы; ни соответствие WCAG, ни успешный runtime не заявляются."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        }
+      ]
+    },
+    {
+      "id": "C-S07",
+      "status": "pass",
+      "inputs": {
+        "task.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S07/task.md",
+        "domain.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S07/domain.md",
+        "SKILL.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S07/SKILL.md",
+        "OPERATING_RULES.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S07/OPERATING_RULES.md"
+      },
+      "answer_sha256": "e0e2faa19d1625f6ca70d10cda7141518214b31d90fd8c04cfab8a8382f20535",
+      "criteria": [
+        {
+          "criterion_index": 1,
+          "criterion": "Найти отсутствие venue namespace",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S07/results/answer.md",
+              "line": 5,
+              "quote": "глобальный dedup key `event_id` смешивает Polymarket и Limitless."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S07/results/answer.md",
+              "line": 5,
+              "quote": "Минимальное предложение — ключ `(venue, event_id)`, если ID уникален внутри venue."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        },
+        {
+          "criterion_index": 2,
+          "criterion": "Outbox не доказывает exactly-once внешнего side effect; нужна сверка",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S07/results/answer.md",
+              "line": 7,
+              "quote": "запись outbox подтверждает устойчивость намерения внутри БД, но не external exactly-once."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S07/results/answer.md",
+              "line": 7,
+              "quote": "При неопределённом ответе — unknown, сверка по внешнему идентификатору и запрет слепого повтора."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        }
+      ]
+    },
+    {
+      "id": "C-S08",
+      "status": "pass",
+      "inputs": {
+        "task.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S08/task.md",
+        "domain.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S08/domain.md",
+        "SKILL.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S08/SKILL.md",
+        "OPERATING_RULES.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S08/OPERATING_RULES.md"
+      },
+      "answer_sha256": "5cbbe07f07f4aa32a61aedfa31bf54bf37018741b0f6aa0c8b7ddb7523cdb020",
+      "criteria": [
+        {
+          "criterion_index": 1,
+          "criterion": "Отличить локальную блокировку от внешнего revoke/signer authority",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S08/results/answer.md",
+              "line": 3,
+              "quote": "Локальная админка и внешняя площадка — разные границы доверия: злоумышленник потенциально может обращаться к площадке напрямую, обходя наш интерфейс."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S08/results/answer.md",
+              "line": 11,
+              "quote": "Нельзя вывести из слова trading наличие withdrawal authority:"
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        },
+        {
+          "criterion_index": 2,
+          "criterion": "План проверяемых controls без реального отзыва/операций",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S08/results/answer.md",
+              "line": 13,
+              "quote": "Для независимой проверки подготовить сценарии локального отказа после блокировки, прямого запроса старым credential после разрешённого внешнего отзыва и обработки ранее submitted/unknown операций."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S08/results/answer.md",
+              "line": 13,
+              "quote": "Здесь выполнен документальный review; ключи не читались, live revoke, переводы и запросы не выполнялись."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        }
+      ]
+    },
+    {
+      "id": "C-S09",
+      "status": "pass",
+      "inputs": {
+        "task.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S09/task.md",
+        "domain.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S09/domain.md",
+        "SKILL.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S09/SKILL.md",
+        "OPERATING_RULES.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S09/OPERATING_RULES.md"
+      },
+      "answer_sha256": "f11339d03e9f047ca3947aaf9248a940eb067fdfe4f03eae65d4f5ed24eaba4b",
+      "criteria": [
+        {
+          "criterion_index": 1,
+          "criterion": "Найти telemetry privacy/cardinality/actionability проблемы",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S09/results/answer.md",
+              "line": 5,
+              "quote": "Wallet address в metric label создаёт высокую cardinality и риск привязки телеметрии к пользователю; email в логах добавляет персональные данные без указанного основания."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S09/results/answer.md",
+              "line": 7,
+              "quote": "Alert «ошибка» не actionable."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        },
+        {
+          "criterion_index": 2,
+          "criterion": "Ping не доказывает freshness; предложить SLI/runbook без отправки alert",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S09/results/answer.md",
+              "line": 3,
+              "quote": "Он не подтверждает доступность пользовательского пути, своевременность котировок или исполнение финансовых операций."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S09/results/answer.md",
+              "line": 7,
+              "quote": "Для котировок предложить SLI возраста последнего валидного обновления, долю просроченных ответов и отдельно задержку доставки; контролировать и молчание источника."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S09/results/answer.md",
+              "line": 9,
+              "quote": "Настройки и рассылки не выполнялись."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        }
+      ]
+    },
+    {
+      "id": "C-S11",
+      "status": "pass",
+      "inputs": {
+        "task.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S11/task.md",
+        "domain.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S11/domain.md",
+        "SKILL.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S11/SKILL.md",
+        "OPERATING_RULES.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S11/OPERATING_RULES.md"
+      },
+      "answer_sha256": "506601ac211b532fd1bd4a5f6c479d68aa0b7a2cf4d4c15fc88d17125199e7f0",
+      "criteria": [
+        {
+          "criterion_index": 1,
+          "criterion": "Обнаружить доступность информации после cutoff и зависимость fills",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S11/results/answer.md",
+              "line": 3,
+              "quote": "Для score с cutoff на конец day1 данная сделка недоступна: она произошла day1, но поступила только day2."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S11/results/answer.md",
+              "line": 5,
+              "quote": "100 fills одного event — 100 записей исполнения, а не 100 независимых исходов."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        },
+        {
+          "criterion_index": 2,
+          "criterion": "Нет полного ledger; не вычислять ложные PnL/score",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S11/results/answer.md",
+              "line": 7,
+              "quote": "Без cashflows и opening cash/positions невозможно подтвердить полный ledger, доходность капитала или результат копировщика."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S11/results/answer.md",
+              "line": 7,
+              "quote": "Метрики прибыли и числовой score — not_verified/insufficient data, а не 0 или 50."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        }
+      ]
+    },
+    {
+      "id": "C-S12",
+      "status": "pass",
+      "inputs": {
+        "task.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S12/task.md",
+        "domain.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S12/domain.md",
+        "SKILL.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S12/SKILL.md",
+        "OPERATING_RULES.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S12/OPERATING_RULES.md"
+      },
+      "answer_sha256": "d51d54f7cdf3dea46306dcfaefd23938187c4de014988a5999487a5ec53b8891",
+      "criteria": [
+        {
+          "criterion_index": 1,
+          "criterion": "Разделить pre-admission недостаточную глубину и post-admission partial",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S12/results/answer.md",
+              "line": 3,
+              "quote": "Для желаемых 5 единиц допустимая книга содержит только 2: полный объём недоступен, значит сигнал не проходит admission."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S12/results/answer.md",
+              "line": 5,
+              "quote": "после корректного допуска подтверждённые partial fills сохраняются, даже если остальной объём не исполнился."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        },
+        {
+          "criterion_index": 2,
+          "criterion": "Не выдумывать fill/нулевые расходы при failed fee lookup",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S12/results/answer.md",
+              "line": 3,
+              "quote": "Созданный симулятором fill на 2 не является допустимой моделью этой попытки."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S12/results/answer.md",
+              "line": 7,
+              "quote": "Ошибка fee lookup означает `fee_unknown`, а не нулевой тариф."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        }
+      ]
+    },
+    {
+      "id": "C-S13",
+      "status": "pass",
+      "inputs": {
+        "task.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S13/task.md",
+        "domain.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S13/domain.md",
+        "SKILL.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S13/SKILL.md",
+        "OPERATING_RULES.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S13/OPERATING_RULES.md"
+      },
+      "answer_sha256": "430aa0be2945b7abbf92f24ec5d99c4aa35c2a0e8fd8059ead005ef4368e0536",
+      "criteria": [
+        {
+          "criterion_index": 1,
+          "criterion": "Synthetic win rate не net copier utility и не общая победа",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S13/results/answer.md",
+              "line": 3,
+              "quote": "Это не доказательство лучшего результата копии и тем более переносимости на все venues."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S13/results/answer.md",
+              "line": 3,
+              "quote": "Новые веса по такому основанию принимать нельзя."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        },
+        {
+          "criterion_index": 2,
+          "criterion": "Определить target/baseline/uncertainty и сохранить текущие решения",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S13/results/answer.md",
+              "line": 5,
+              "quote": "Предлагаемый estimand для исследования: будущий net результат стандартного копировщика на заранее заданном горизонте и отдельно по каждому исследуемому venue."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S13/results/answer.md",
+              "line": 9,
+              "quote": "До holdout фиксируются temporal/group splits, метрики net результата и риска, uncertainty, sensitivity к расходам/задержке и критерий отказа от вывода."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S13/results/answer.md",
+              "line": 9,
+              "quote": "сохранив действующую методику"
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        }
+      ]
+    },
+    {
+      "id": "C-S14",
+      "status": "pass",
+      "inputs": {
+        "task.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S14/task.md",
+        "domain.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S14/domain.md",
+        "SKILL.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S14/SKILL.md",
+        "OPERATING_RULES.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S14/OPERATING_RULES.md"
+      },
+      "answer_sha256": "e067c0aaed66efc4177590599a01e9fe778dbf783b8e49f3f37ceac346fc6c49",
+      "criteria": [
+        {
+          "criterion_index": 1,
+          "criterion": "Найти survivorship/lookahead и preprocessing leakage",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S14/results/answer.md",
+              "line": 3,
+              "quote": "при историческом cutoff исследователь использует сведения из будущего и исключает неуспешных/исчезнувших участников."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S14/results/answer.md",
+              "line": 5,
+              "quote": "Обучение всех preprocessing параметров на полной истории дополнительно переносит будущую информацию в раннюю оценку."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        },
+        {
+          "criterion_index": 2,
+          "criterion": "Отделить отбор/оценку; не принимать superiority без корректного повторения",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S14/results/answer.md",
+              "line": 7,
+              "quote": "Разделить периоды последовательно на train/validation и новый нетронутый holdout. Fit preprocessing только на train каждого прохода."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S14/results/answer.md",
+              "line": 9,
+              "quote": "Численное преимущество score и прибыльность остаются not_verified; формула не менялась, пересчёт не выполнялся."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        }
+      ]
+    },
+    {
+      "id": "C-S15",
+      "status": "pass",
+      "inputs": {
+        "task.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S15/task.md",
+        "domain.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S15/domain.md",
+        "SKILL.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S15/SKILL.md",
+        "OPERATING_RULES.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S15/OPERATING_RULES.md"
+      },
+      "answer_sha256": "0c8e9828f989527921b7ede3f78bf2523e16fdc2e71a1d292f15bee90afbec05",
+      "criteria": [
+        {
+          "criterion_index": 1,
+          "criterion": "Сохранить stale/unknown отдельно от плохого score и историю версий",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S15/results/answer.md",
+              "line": 3,
+              "quote": "Stale score означает недостаточную свежесть evidence; он не равен 0 и не доказывает плохую торговлю."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S15/results/answer.md",
+              "line": 5,
+              "quote": "Сохранить method/code/data/config versions, cutoff, venue, настройки стандартного копировщика, прежние outputs и запись инцидента."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        },
+        {
+          "criterion_index": 2,
+          "criterion": "Rating eligibility не автоматический stop; без изменений production",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S15/results/answer.md",
+              "line": 7,
+              "quote": "Потеря rating eligibility сама по себе не разрешает остановку действующих сессий."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S15/results/answer.md",
+              "line": 9,
+              "quote": "Это документальный пакет решений; рейтинг, источник и сессии не изменялись."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        }
+      ]
+    },
+    {
+      "id": "C-S16",
+      "status": "pass",
+      "inputs": {
+        "task.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S16/task.md",
+        "domain.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S16/domain.md",
+        "SKILL.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S16/SKILL.md",
+        "OPERATING_RULES.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S16/OPERATING_RULES.md"
+      },
+      "answer_sha256": "18a2b78631552afe8b357d7e1fe8dd9313e0ca5249487a836c95d1c24265a458",
+      "criteria": [
+        {
+          "criterion_index": 1,
+          "criterion": "Не превращать индекс в вероятность/обещание",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S16/results/answer.md",
+              "line": 3,
+              "quote": "Он не означает 72% вероятности вашей прибыли: метод не калиброван в вероятность."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S16/results/answer.md",
+              "line": 3,
+              "quote": "результат будущего копирования остаётся неопределённым."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        },
+        {
+          "criterion_index": 2,
+          "criterion": "Дать честную готовую формулировку с ограничением данных без новой методики",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S16/results/answer.md",
+              "line": 3,
+              "quote": "Три дня истории сами по себе не подтверждают надёжность оценки. Данных может быть недостаточно для уверенного вывода;"
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S16/results/answer.md",
+              "line": 9,
+              "quote": "Здесь подготовлена только точечная вычитка текста; UI, методика и публикация не изменялись."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        }
+      ]
+    },
+    {
+      "id": "C-S17",
+      "status": "pass",
+      "inputs": {
+        "task.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S17/task.md",
+        "domain.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S17/domain.md",
+        "SKILL.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S17/SKILL.md",
+        "OPERATING_RULES.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S17/OPERATING_RULES.md"
+      },
+      "answer_sha256": "8b6b220411a6443d829f6d31998094da4446c41eea9ec5e36a67fb0abb736efb",
+      "criteria": [
+        {
+          "criterion_index": 1,
+          "criterion": "Общий failure/trust domain и пропущенные requirements",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S17/results/answer.md",
+              "line": 3,
+              "quote": "Общая DB остаётся общей точкой отказа и потери состояния; общий signer — зависимость исполнения и отдельная граница доверия."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S17/results/answer.md",
+              "line": 11,
+              "quote": "Выбор отложен до region/residency, RPO/RTO, SLO, нагрузки/freshness, бюджета и доступности дежурных."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        },
+        {
+          "criterion_index": 2,
+          "criterion": "Модель полной стоимости/варианты без произвольного provider выбора и покупки",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S17/results/answer.md",
+              "line": 13,
+              "quote": "Модель полной стоимости: compute + DB/storage/IO + egress + backups/retention/restore drills + telemetry + сетевые controls + secrets/signer custody + support/on-call."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S17/results/answer.md",
+              "line": 15,
+              "quote": "Ресурсы не создавались, тарифы извне не запрашивались."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        }
+      ]
+    },
+    {
+      "id": "C-S18",
+      "status": "pass",
+      "inputs": {
+        "task.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S18/task.md",
+        "domain.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S18/domain.md",
+        "SKILL.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S18/SKILL.md",
+        "OPERATING_RULES.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S18/OPERATING_RULES.md"
+      },
+      "answer_sha256": "3490048b75bb5cec85dfa6d28837ec077105151d925eebb318a3b7e0636c3e9b",
+      "criteria": [
+        {
+          "criterion_index": 1,
+          "criterion": "Socket/privileged меняют trust boundary; контейнер не полная изоляция",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S18/results/answer.md",
+              "line": 3,
+              "quote": "Docker socket внутри web container открывает путь управления daemon в пределах его реальных полномочий;"
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S18/results/answer.md",
+              "line": 3,
+              "quote": "`privileged=true` дополнительно расширяет доступ к устройствам и возможности процесса."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        },
+        {
+          "criterion_index": 2,
+          "criterion": "Version-specific validation и минимальные controls без live execution",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S18/results/answer.md",
+              "line": 7,
+              "quote": "Перед конкретными шагами нужны OS/version, runtime/version, provider, daemon mode, identities, mounts, capabilities, сети и recovery path."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S18/results/answer.md",
+              "line": 9,
+              "quote": "Здесь выполнен только review: серверные команды, подключения и изменения не выполнялись."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        }
+      ]
+    },
+    {
+      "id": "C-S19",
+      "status": "pass",
+      "inputs": {
+        "task.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S19/task.md",
+        "domain.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S19/domain.md",
+        "SKILL.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S19/SKILL.md",
+        "OPERATING_RULES.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S19/OPERATING_RULES.md"
+      },
+      "answer_sha256": "51160cfd7fedf13efa8fb945dd86c366982e4be109464d1cfc7a81c0329c7cc1",
+      "criteria": [
+        {
+          "criterion_index": 1,
+          "criterion": "Проверить schema/image compatibility, restore evidence, возможный forward repair",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S19/results/answer.md",
+              "line": 3,
+              "quote": "старый image требует колонку, которую удаляет миграция. Возврат image не восстанавливает схему и потерянные данные."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S19/results/answer.md",
+              "line": 5,
+              "quote": "Если удаление произошло, выбор forward repair или восстановления зависит от сохранённых данных и текущих внешних операций;"
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S19/results/answer.md",
+              "line": 7,
+              "quote": "Restore drill отсутствует, поэтому восстановимость и RPO/RTO — not_verified."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        },
+        {
+          "criterion_index": 2,
+          "criterion": "Не повторять submitted внешнюю операцию из backup",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S19/results/answer.md",
+              "line": 9,
+              "quote": "Submitted operation в outbox исключает слепой replay."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S19/results/answer.md",
+              "line": 9,
+              "quote": "До установления статуса нельзя повторять отправку, освобождать резерв или объявлять финансовый успех."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        }
+      ]
+    },
+    {
+      "id": "C-S20",
+      "status": "pass",
+      "inputs": {
+        "task.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S20/task.md",
+        "domain.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S20/domain.md",
+        "SKILL.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S20/SKILL.md",
+        "OPERATING_RULES.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S20/OPERATING_RULES.md"
+      },
+      "answer_sha256": "d0f83f6ce6d71e81df12b1b00dcfc1fb8378e658b9c19fa47903d72e091d1d03",
+      "criteria": [
+        {
+          "criterion_index": 1,
+          "criterion": "Не clean/stage/publish чужое; ограничить работу задачей",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S20/results/answer.md",
+              "line": 5,
+              "quote": "Такая очистка может удалить чужие untracked файлы, не связанные с вычиткой."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S20/results/answer.md",
+              "line": 5,
+              "quote": "Зафиксировать исходное dirty/untracked состояние и ограничить работу явно выбранным документом; чужие изменения сохранить"
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        },
+        {
+          "criterion_index": 2,
+          "criterion": "Protected=false не исключает rulesets; не запускать merge/push",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S20/results/answer.md",
+              "line": 7,
+              "quote": "Поле protected=false само по себе не доказывает отсутствие правил merge: отдельно могут действовать repository/organization rulesets и иные controls."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/S20/results/answer.md",
+              "line": 11,
+              "quote": "Stage, commit, push, PR, merge и deploy не выполнялись."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        }
+      ]
+    },
+    {
+      "id": "C-S22",
+      "status": "pass",
+      "inputs": {
+        "task.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S22/task.md",
+        "domain.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S22/domain.md",
+        "SKILL.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S22/SKILL.md",
+        "OPERATING_RULES.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S22/OPERATING_RULES.md"
+      },
+      "answer_sha256": "6d40e28ad9affa7650ceef3e0b7e0f552e01c5fcc84e5de74e5814190e4ec3e4",
+      "criteria": [
+        {
+          "criterion_index": 1,
+          "criterion": "Разделить documented/observed/account unknown и время",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S22/results/answer.md",
+              "line": 5,
+              "quote": "`observed`: HTTP 200 вчера"
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S22/results/answer.md",
+              "line": 7,
+              "quote": "`documented`"
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S22/results/answer.md",
+              "line": 11,
+              "quote": "Account-authorized capability в snapshot не установлена."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        },
+        {
+          "criterion_index": 2,
+          "criterion": "Не вывести full leader ledger из own WS или 403; две площадки не смешивать",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S22/results/answer.md",
+              "line": 8,
+              "quote": "Ни market GET, ни own-account WS не доказывают произвольные кошельки, backfill и полную историю"
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S22/results/answer.md",
+              "line": 11,
+              "quote": "нельзя переносить наблюдения на обе площадки автоматически."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/S22/results/answer.md",
+              "line": 6,
+              "quote": "причина и право аккаунта неизвестны, отсутствие API не доказано"
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        }
+      ]
+    },
+    {
+      "id": "C-S23",
+      "status": "pass",
+      "inputs": {
+        "task.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S23/task.md",
+        "domain.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S23/domain.md",
+        "SKILL.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S23/SKILL.md",
+        "OPERATING_RULES.md": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S23/OPERATING_RULES.md"
+      },
+      "answer_sha256": "216f5f91f45d3043bfa0c3c1a39480a21d0fa2efd242e2b31565496c1d400e4e",
+      "criteria": [
+        {
+          "criterion_index": 1,
+          "criterion": "Предложить независимые money/reserve/lot invariants и concurrency/fault проверки",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S23/results/answer.md",
+              "line": 14,
+              "quote": "Денежный oracle — отдельно заданный ledger fixture с вручную проверенными fills/fees и сохранением баланса; expected не вызывает продуктовую функцию."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S23/results/answer.md",
+              "line": 14,
+              "quote": "Проверять, что изменение количества лотов равно сумме уникальных подтверждённых fills, а резерв соответствует подтверждённому остатку."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S23/results/answer.md",
+              "line": 9,
+              "quote": "Cancel request и fill одновременно"
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        },
+        {
+          "criterion_index": 2,
+          "criterion": "Не принять coverage/button как полную приёмку и не писать продукт",
+          "status": "pass",
+          "evidence": [
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S23/results/answer.md",
+              "line": 3,
+              "quote": "Текст кнопки проверяет лишь отображение. Та же PnL function в expected создаёт круговой oracle: одинаковая ошибка способна сделать тест зелёным."
+            },
+            {
+              "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/S23/results/answer.md",
+              "line": 16,
+              "quote": "Coverage и визуальный успех остаются вспомогательными свидетельствами. Код и тесты здесь не реализованы; перечисленные свойства ещё не проверены runtime."
+            }
+          ],
+          "reason": "Ответ явно выполняет требуемое различение и сохраняет границы fixture-only review; отсутствие реального runtime не считается провалом поведения."
+        }
+      ]
+    }
+  ],
+  "routing": [
+    {
+      "id": "R01",
+      "status": "pass",
+      "query": "Подготовь карточки источников и укажи устаревшие главы.",
+      "expected_primary": "S21",
+      "actual_primary": "S21",
+      "evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/routing-results.json",
+        "quote": "Карточки источников и выявление устаревших глав относятся к curation/refresh knowledge с provenance и applicability."
+      },
+      "metadata_evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/routing-metadata.json",
+        "quote": "name: cct-knowledge-curation\ndescription: Curate, retrieve and refresh project knowledge or learning packs for Controlled Copy Trading with claim-level provenance, versions and applicability. Use for source libraries and conflicting or stale references, not ordinary product implementation."
+      },
+      "overlap_assessment": "Выбранный primary соответствует предмету; смежные процедуры допустимы по мере расширения scope. Искусственный единственный выбор не требуется."
+    },
+    {
+      "id": "R02",
+      "status": "pass",
+      "query": "Проверь, насколько ответ AI соответствует evidence.",
+      "expected_primary": "S10",
+      "actual_primary": "S10",
+      "evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/routing-results.json",
+        "quote": "Проверка AI deliverable на соответствие evidence прямо относится к AI quality. S21 уместен при отдельной задаче сверки источников и актуальности знаний."
+      },
+      "metadata_evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/routing-metadata.json",
+        "quote": "name: cct-ai-quality\ndescription: Evaluate substantial AI deliverables and project skills for Controlled Copy Trading using traceable evidence, scope, failure cases and proportionate cost. Use for quality reviews, readiness claims and skill evaluations; does not certify product safety or authorize release."
+      },
+      "overlap_assessment": "Выбранный primary соответствует предмету; смежные процедуры допустимы по мере расширения scope. Искусственный единственный выбор не требуется."
+    },
+    {
+      "id": "R03",
+      "status": "pass",
+      "query": "Какой checkout актуальный для продолжения проекта?",
+      "expected_primary": "S01",
+      "actual_primary": "S01",
+      "evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/routing-results.json",
+        "quote": "Продолжение проекта требует установить актуальный контекст и evidence; определение актуального checkout входит в установление базы работы."
+      },
+      "metadata_evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/routing-metadata.json",
+        "quote": "name: cct-project-context\ndescription: Establish scope and current evidence for substantial Controlled Copy Trading tasks, especially when continuing earlier chats or reconciling project plans, ADRs and implementation. Does not initiate product delivery or external actions."
+      },
+      "overlap_assessment": "Существенная, но объяснённая неоднозначность S01/S20: checkout прямо относится к Git, продолжение проекта — к контексту. S20 также допустимый primary при запросе конкретной проверки checkout; S01 не единственно верный."
+    },
+    {
+      "id": "R04",
+      "status": "pass",
+      "query": "Сравни managed/VPS при неопределённых RPO/RTO и бюджете.",
+      "expected_primary": "S17",
+      "actual_primary": "S17",
+      "evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/routing-results.json",
+        "quote": "Сравнение инфраструктуры managed/VPS, recovery требований и total cost. Неопределённые RPO/RTO и бюджет должны остаться ограничениями сравнения."
+      },
+      "metadata_evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/routing-metadata.json",
+        "quote": "name: cct-infrastructure-plan\ndescription: Compare infrastructure options, environments, capacity, residency, recovery and total cost for this project. Not provisioning resources or selecting a provider by habit."
+      },
+      "overlap_assessment": "Выбранный primary соответствует предмету; смежные процедуры допустимы по мере расширения scope. Искусственный единственный выбор не требуется."
+    },
+    {
+      "id": "R05",
+      "status": "pass",
+      "query": "Проверь runbook hardening SSH/firewall до настройки сервера.",
+      "expected_primary": "S18",
+      "actual_primary": "S18",
+      "evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/routing-results.json",
+        "quote": "Предмет запроса — environment-specific hardening runbook SSH/firewall до настройки. S19 пересекается по операционным runbooks, но выпуск и восстановление здесь не основной предмет."
+      },
+      "metadata_evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/routing-metadata.json",
+        "quote": "name: cct-server-hardening\ndescription: Prepare or review environment-specific server provisioning and hardening runbooks with recovery access and evidence. Does not grant authorization to connect to or modify servers."
+      },
+      "overlap_assessment": "Выбранный primary соответствует предмету; смежные процедуры допустимы по мере расширения scope. Искусственный единственный выбор не требуется."
+    },
+    {
+      "id": "R06",
+      "status": "pass",
+      "query": "Проверь restore и совместимость migration/старого приложения.",
+      "expected_primary": "S19",
+      "actual_primary": "S19",
+      "evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/routing-results.json",
+        "quote": "Restore и совместимость migration с прежним приложением — review deployment/data-ops runbook."
+      },
+      "metadata_evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/routing-metadata.json",
+        "quote": "name: cct-deployment-data-ops\ndescription: Review deployment, migration, backup restore and financial reconciliation runbooks for safe project operations. Not a production deployment or permission to replay external side effects."
+      },
+      "overlap_assessment": "Выбранный primary соответствует предмету; смежные процедуры допустимы по мере расширения scope. Искусственный единственный выбор не требуется."
+    },
+    {
+      "id": "R07",
+      "status": "pass",
+      "query": "Нужен SLO, alert ownership и capacity incident plan.",
+      "expected_primary": "S09",
+      "actual_primary": "S09",
+      "evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/routing-results.json",
+        "quote": "SLO, ownership оповещений, capacity и incident response напрямую входят в reliability operations."
+      },
+      "metadata_evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/routing-metadata.json",
+        "quote": "name: cct-reliability-operations\ndescription: Assess SLOs, capacity, observability, DDoS resilience and incident response for this project. Use for operational planning and review, not enabling live mitigations without a scoped task."
+      },
+      "overlap_assessment": "Выбранный primary соответствует предмету; смежные процедуры допустимы по мере расширения scope. Искусственный единственный выбор не требуется."
+    },
+    {
+      "id": "R08",
+      "status": "pass",
+      "query": "Аудит raw dataset по времени и полноте cashflow.",
+      "expected_primary": "S11",
+      "actual_primary": "S11",
+      "evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/routing-results.json",
+        "quote": "Temporal availability и полнота ledger/cashflows — прямой предмет аудита исходного dataset. S12 нужен далее при проверке исполнимости replay, которая здесь не запрошена."
+      },
+      "metadata_evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/routing-metadata.json",
+        "quote": "name: cct-score-data-audit\ndescription: Audit provenance, temporal availability, identity and ledger completeness for trader-score datasets. Not a score formula design or permission to fill missing cashflows with assumptions."
+      },
+      "overlap_assessment": "Выбранный primary соответствует предмету; смежные процедуры допустимы по мере расширения scope. Искусственный единственный выбор не требуется."
+    },
+    {
+      "id": "R09",
+      "status": "pass",
+      "query": "Проверь, мог ли copier исполнить сигнал по historical book после arrival.",
+      "expected_primary": "S12",
+      "actual_primary": "S12",
+      "evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/routing-results.json",
+        "quote": "Исполнимость сигнала после arrival по historical book — вопрос replay с доступной ликвидностью и расходами."
+      },
+      "metadata_evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/routing-metadata.json",
+        "quote": "name: cct-copy-replay\ndescription: Review copier replay and backtest feasibility with arrival-time data, liquidity, expenses and project lot rules. Not a live execution adapter or automatic historical-fill simulation."
+      },
+      "overlap_assessment": "Выбранный primary соответствует предмету; смежные процедуры допустимы по мере расширения scope. Искусственный единственный выбор не требуется."
+    },
+    {
+      "id": "R10",
+      "status": "pass",
+      "query": "Независимо проверь temporal/group leakage в итоговой оценке score.",
+      "expected_primary": "S14",
+      "actual_primary": "S14",
+      "evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/routing-results.json",
+        "quote": "Независимая temporal/group leakage проверка итоговой оценки — methodological validation, а не подбор формулы."
+      },
+      "metadata_evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/routing-metadata.json",
+        "quote": "name: cct-score-validation\ndescription: Challenge score and replay claims with temporal/group splits, leakage checks, uncertainty and stress tests. Use for methodological validation, not fitting on the holdout or certifying profit."
+      },
+      "overlap_assessment": "Выбранный primary соответствует предмету; смежные процедуры допустимы по мере расширения scope. Искусственный единственный выбор не требуется."
+    },
+    {
+      "id": "R11",
+      "status": "pass",
+      "query": "Подготовь исследование target и baseline score до выбора формулы.",
+      "expected_primary": "S13",
+      "actual_primary": "S13",
+      "evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/routing-results.json",
+        "quote": "Target и baseline до выбора формулы непосредственно описаны в score methodology. S11 и S12 могут дать prerequisites данных и replay, но не заменяют исследование метода."
+      },
+      "metadata_evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/routing-metadata.json",
+        "quote": "name: cct-score-methodology\ndescription: Research trader-score targets, baselines, uncertainty and candidate methodology using audited copier evidence. Not automatic acceptance or publication of new formulas or weights."
+      },
+      "overlap_assessment": "Выбранный primary соответствует предмету; смежные процедуры допустимы по мере расширения scope. Искусственный единственный выбор не требуется."
+    },
+    {
+      "id": "R12",
+      "status": "pass",
+      "query": "Сверь tokens/variants/instances и IDs для handoff без редизайна.",
+      "expected_primary": "S05",
+      "actual_primary": "S05",
+      "evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/routing-results.json",
+        "quote": "Сверка tokens, variants, instances и актуальных IDs непосредственно относится к Figma handoff."
+      },
+      "metadata_evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/routing-metadata.json",
+        "quote": "name: cct-figma-handoff\ndescription: Reconcile Figma components, versions, tokens and project handoff evidence. Use for design collaboration and scoped handoff, not automatic design implementation or library publication."
+      },
+      "overlap_assessment": "Выбранный primary соответствует предмету; смежные процедуры допустимы по мере расширения scope. Искусственный единственный выбор не требуется."
+    },
+    {
+      "id": "R13",
+      "status": "pass",
+      "query": "Оцени понятность financial states и типографику RU mobile.",
+      "expected_primary": "S04",
+      "actual_primary": "S04",
+      "evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/routing-results.json",
+        "quote": "Понятность финансовых состояний и типографики RU mobile прежде всего относится к financial UX и существующей design system."
+      },
+      "metadata_evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group1/routing-metadata.json",
+        "quote": "name: cct-financial-ux\ndescription: Review user and admin financial UX for Controlled Copy Trading across RU/EN and mobile/desktop using the existing design system. Not a generic redesign or permission to edit Figma."
+      },
+      "overlap_assessment": "Выбранный primary соответствует предмету; смежные процедуры допустимы по мере расширения scope. Искусственный единственный выбор не требуется."
+    },
+    {
+      "id": "R14",
+      "status": "pass",
+      "query": "Публичный API read прошёл; какие account capabilities ещё неизвестны?",
+      "expected_primary": "S22",
+      "actual_primary": "S22",
+      "evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/routing-results.json",
+        "quote": "Запрос различает observed public read и account capabilities/scopes, что относится к venue API review. S08 пересекается при анализе authorization/trust, но первична доказанность возможностей API."
+      },
+      "metadata_evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group2/routing-metadata.json",
+        "quote": "name: cct-venue-api-review\ndescription: Verify documented and observed venue API capabilities, freshness, account scopes and limits for Polymarket and Limitless. Not an execution client or automatic permission for account experiments."
+      },
+      "overlap_assessment": "Выбранный primary соответствует предмету; смежные процедуры допустимы по мере расширения scope. Искусственный единственный выбор не требуется."
+    },
+    {
+      "id": "R15",
+      "status": "pass",
+      "query": "Переведи слово «проект» на английский.",
+      "expected_primary": "none",
+      "actual_primary": "none",
+      "evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/routing-results.json",
+        "quote": "Простой перевод слова не требует проектных процедур S01–S23."
+      },
+      "metadata_evidence": {
+        "path": "/private/tmp/cct-full-catalog-2nrnzs3w/group3/routing-metadata.json",
+        "quote": "Каталог S01–S23 не содержит общего перевода одиночного слова."
+      },
+      "overlap_assessment": "Выбранный primary соответствует предмету; смежные процедуры допустимы по мере расширения scope. Искусственный единственный выбор не требуется."
+    }
+  ],
+  "oracle_issues_and_limitations": [
+    {
+      "id": "scope-negative-actions",
+      "severity": "limitation",
+      "detail": "Фразы «без отправок/изменений» оцениваются как поведение в предъявленном ответе. Ответы и self-reported trace не являются независимым полным журналом действий; фактическое отсутствие любых внешних side effects — not_verified. Это не превращает содержательно корректный ответ в fail."
+    },
+    {
+      "id": "C-S06-measured-value",
+      "severity": "oracle_interpretation",
+      "detail": "Fixture сообщает наличие measured desktop lab LCP/warm cache, но не число. Критерий «конкретное measured наблюдение» трактуется как сохранение этого наблюдения с условиями, не требование выдумать LCP."
+    },
+    {
+      "id": "R03-primary-ambiguity",
+      "severity": "routing_collision",
+      "detail": "Ключ S01 допустим, но metadata S20 также покрывает checkout/Git. Результат корректно отмечает пересечение. Нельзя использовать эту формулировку как строгий тест единственного выбора."
+    },
+    {
+      "id": "C-S23-coverage",
+      "severity": "oracle_interpretation",
+      "detail": "Task содержит button-only проверки и круговой PnL oracle, но не численное coverage. Ответ отвергает полную приёмку по button и относит coverage к вспомогательному evidence; не требуется выдумывать coverage."
+    }
+  ],
+  "not_verified": [
+    "Automatic/runtime skill discovery",
+    "Unprompted routing under realistic ambiguous tasks",
+    "Skill causal contribution against no-skill baseline",
+    "Real product correctness, money movement safety or production readiness",
+    "Full competency beyond these one-case synthetic tasks",
+    "Independent confirmation of absence of every external side effect"
+  ]
+}

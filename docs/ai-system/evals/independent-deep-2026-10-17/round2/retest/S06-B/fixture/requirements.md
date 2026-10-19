@@ -1,0 +1,1 @@
+Fixture rules: confirmation comes from server; connection banner must represent connection state; cached balances carry lastConfirmedAt and must remain labelled stale until sync. Требуется review, изменения кода не поручены.

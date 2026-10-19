@@ -1,0 +1,234 @@
+{
+  "schema_version": "1.0",
+  "created_date": "2026-10-16",
+  "status": "not_reconciled",
+  "scope": {
+    "chain_id": 137,
+    "venue": "Polymarket",
+    "protocol": "CTF Exchange v1",
+    "market_type": "Standard Binary",
+    "collateral": "USDC.e",
+    "interval_start_inclusive": "2026-03-01T00:00:00Z",
+    "interval_end_exclusive": "2026-03-04T00:00:00Z",
+    "start_unix_seconds": 1772323200,
+    "end_unix_seconds": 1772582400,
+    "start_block": null,
+    "end_block_exclusive": null,
+    "opening_state_block": null,
+    "closing_state_block": null,
+    "address_universe": "not_frozen_for_ledger",
+    "token_universe": "quote-selected subset in root analysis; full wallet token universe unknown"
+  },
+  "requirements": [
+    {
+      "id": "contract_identity",
+      "category": "deployment",
+      "status": "missing",
+      "requirement": "Historical standard-binary CTF Exchange, ConditionalTokens, USDC.e addresses, decimals, ABI, deployed code hash and active-version block intervals. No NegRisk events silently pooled.",
+      "required_for_reconciled_wallet": true
+    },
+    {
+      "id": "utc_boundaries",
+      "category": "boundaries",
+      "status": "missing",
+      "requirement": "Canonical first block timestamp >= START and first block timestamp >= END. Opening state at start_block-1; closing state at end_block-1. Preserve predecessor/successor headers to establish boundaries.",
+      "required_for_reconciled_wallet": true
+    },
+    {
+      "id": "canonical_blocks",
+      "category": "events",
+      "status": "missing",
+      "requirement": "Every included block header hash, parent hash, number and timestamp; every receipt transactionHash, transactionIndex, logIndex, status and emitting contract. Include only canonical successful transfers.",
+      "required_for_reconciled_wallet": true
+    },
+    {
+      "id": "address_scope",
+      "category": "scope",
+      "status": "partial",
+      "requirement": "Freeze tracked collateral-holding proxy/safe addresses and token universe before performance labels; label token subset versus full-wallet scope.",
+      "required_for_reconciled_wallet": true
+    },
+    {
+      "id": "collateral_open_close",
+      "category": "state",
+      "status": "missing",
+      "requirement": "Archive eth_call balanceOf(address) at exact opening and closing block for USDC.e; record raw hex/result and decimals. No current balance substitution.",
+      "required_for_reconciled_wallet": true
+    },
+    {
+      "id": "token_open_close",
+      "category": "state",
+      "status": "missing",
+      "requirement": "Archive ERC1155 balanceOf(address,tokenId), or balanceOfBatch, at both boundaries for every scoped token; completeness of token universe explicit.",
+      "required_for_reconciled_wallet": true
+    },
+    {
+      "id": "collateral_transfers",
+      "category": "events",
+      "status": "missing",
+      "requirement": "All USDC.e Transfer logs involving tracked addresses for [start_block,end_block), including exchange, mint, merge, redemption and external funding routes.",
+      "required_for_reconciled_wallet": true
+    },
+    {
+      "id": "erc1155_transfers",
+      "category": "events",
+      "status": "missing",
+      "requirement": "All TransferSingle/TransferBatch logs involving tracked addresses; expand batch ids/values, include zero-address mint/burn and transfers unrelated to exchange.",
+      "required_for_reconciled_wallet": true
+    },
+    {
+      "id": "full_transaction_context",
+      "category": "events",
+      "status": "missing",
+      "requirement": "Complete receipts for transactions involving scoped tokens/collateral/addresses, not only one topic; explain intermediate exchange/adapter flows and refunds.",
+      "required_for_reconciled_wallet": true
+    },
+    {
+      "id": "raw_fills",
+      "category": "events",
+      "status": "blocked",
+      "requirement": "OrderFilled and OrdersMatched logs with order hashes, integer maker/taker asset amounts, asset IDs, fee and emitted addresses; individual and aggregate fills not posted twice.",
+      "required_for_reconciled_wallet": true
+    },
+    {
+      "id": "ctf_lifecycle",
+      "category": "events",
+      "status": "missing",
+      "requirement": "Relevant PositionSplit, PositionsMerge, PayoutRedemption, ConditionPreparation and ConditionResolution logs with original integer values, collateralToken, parentCollectionId, partition/indexSets and payout vectors.",
+      "required_for_reconciled_wallet": true
+    },
+    {
+      "id": "point_in_time_state",
+      "category": "state",
+      "status": "missing",
+      "requirement": "Historical payoutDenominator/payoutNumerators before and after resolution; token-to-condition mapping, outcomeSlotCount and root/parent collection; metadata as known at cutoff.",
+      "required_for_reconciled_wallet": true
+    },
+    {
+      "id": "external_flow_classification",
+      "category": "classification",
+      "status": "missing",
+      "requirement": "Classify every collateral delta into economic trade/lifecycle/fee/reward/external transfer using receipt context; unknown classification remains unknown.",
+      "required_for_reconciled_wallet": true
+    },
+    {
+      "id": "fees_and_gas",
+      "category": "classification",
+      "status": "missing",
+      "requirement": "Identify fee recipient, actual fee asset, integer fee quantities, rebates and payer; gas charged only if borne by tracked address. Native-token gas requires its own valuation if included in net metric.",
+      "required_for_reconciled_wallet": true
+    },
+    {
+      "id": "independent_balance_reconciliation",
+      "category": "acceptance",
+      "status": "not_run",
+      "requirement": "Transfer-derived balances equal independently fetched endpoint balances exactly in native asset units; contract-only reserve/status not added to cash.",
+      "required_for_reconciled_wallet": true
+    },
+    {
+      "id": "source_provenance",
+      "category": "provenance",
+      "status": "partial",
+      "requirement": "Request parameters, access time, dataset revision when supported, byte lengths and SHA256; schema/decoder versions; retry coverage and unresolved gaps.",
+      "required_for_reconciled_wallet": true
+    },
+    {
+      "id": "book_execution_context",
+      "category": "copy_only",
+      "status": "missing",
+      "requirement": "Same-token full snapshots+deltas, known sequence/gaps, receivedAt and source clock, full depth after signal, spread/fee rules, data through horizon and sufficient terminal liquidation depth.",
+      "required_for_reconciled_wallet": false
+    },
+    {
+      "id": "leader_sale_fraction",
+      "category": "copy_only",
+      "status": "missing",
+      "requirement": "Leader holdings immediately before sell reconstructed from all relevant token flows; sell reduction ratio only computed with known positive denominator.",
+      "required_for_reconciled_wallet": false
+    },
+    {
+      "id": "copy_money_state",
+      "category": "copy_only",
+      "status": "not_run",
+      "requirement": "Separate virtual $200 starting cash and zero holdings, all fills, fees, rejected/unknown orders, reservations, partials, sells, settlements and carry-over; no invented cash replenishment.",
+      "required_for_reconciled_wallet": false
+    }
+  ],
+  "acceptance_checks": [
+    {
+      "id": "cash_balance",
+      "equation": "C_end = C_start + sum(ERC20 received units) - sum(ERC20 sent units)",
+      "tolerance_native_units": 0
+    },
+    {
+      "id": "token_balance",
+      "equation": "Q_end[token] = Q_start[token] + sum(ERC1155 received units) - sum(ERC1155 sent units)",
+      "tolerance_native_units": 0
+    },
+    {
+      "id": "self_transfers",
+      "equation": "A transfer from tracked address to itself has net delta zero; still preserve log",
+      "tolerance_native_units": 0
+    },
+    {
+      "id": "fill_fee",
+      "equation": "For v1 BUY, received outcome units reconcile to taking minus fee; for SELL received collateral reconciles likewise, including actual refunds. Verify deployed code.",
+      "tolerance_native_units": 0
+    },
+    {
+      "id": "no_double_post",
+      "equation": "Transfer logs are posted exactly once; fill/CTF explanatory records do not add a second delta",
+      "tolerance_native_units": 0
+    },
+    {
+      "id": "root_binary_split_merge",
+      "equation": "For root binary partition [1,2], split amount x consumes x collateral and mints x each side; merge reverses. Other partitions require full contract semantics.",
+      "tolerance_native_units": 0
+    },
+    {
+      "id": "profit_vs_flow",
+      "equation": "Economic PnL = terminal observed liquidation equity - opening observed liquidation equity - net external capital inflow",
+      "tolerance_native_units": null
+    }
+  ],
+  "acceptance_policy": {
+    "all_required_fields_complete": true,
+    "independent_cash_and_token_balances_pass": true,
+    "unexplained_delta_native_units": 0,
+    "unknown_values_are_never_zero": true,
+    "source_floats_are_not_exact_ledger": true,
+    "partial_ledger_must_not_be_named_wallet_pnl": true
+  },
+  "observed_failures": [
+    {
+      "evidence": "rpc-probe.json",
+      "result": "403/403/401; no archive balances"
+    },
+    {
+      "evidence": "hf-filter-march.json",
+      "result": "100-row filtered request timed out"
+    },
+    {
+      "evidence": "hf-filter-march-10.json",
+      "result": "10-row filtered request HTTP500 index loading"
+    },
+    {
+      "evidence": "hf-filter-march-10-retry.json",
+      "result": "retry HTTP500 index loading"
+    },
+    {
+      "evidence": "blockscout-transfer-sample.json",
+      "result": "HTTP403 Cloudflare challenge; zero transfers downloaded"
+    },
+    {
+      "evidence": "quant-desk-manifest.json",
+      "result": "Public source code and schemas available; no downloadable matching-period ledger in inspected repository tree/catalog. fills_v1 producer documented as not implemented."
+    }
+  ],
+  "sources": [
+    "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/src/exchange/mixins/Trading.sol",
+    "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
+    "https://huggingface.co/datasets/TimeSeventeen/Polymarket-v1",
+    "https://docs.polygon.technology/pos/reference/rpc-endpoints"
+  ]
+}

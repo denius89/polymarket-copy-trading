@@ -1,0 +1,73 @@
+{
+  "scope": "N13 replacing the ambiguous executor/grader contamination probe only. Does not retrospectively resolve N09 or validate the literal N10 count.",
+  "source_files": [
+    "/private/tmp/cct-independent-iufaonwy/round2/S10/N13/task.md",
+    "/private/tmp/cct-independent-iufaonwy/round2/S10/N13/trace.json",
+    "/private/tmp/cct-independent-iufaonwy/round2/S10/N13/response.md",
+    "/private/tmp/cct-independent-iufaonwy/round2/S10/N13/results/assessment.md",
+    "/private/tmp/cct-independent-iufaonwy/round2/S10/N13/results/trace.json",
+    "/Users/denisfedko/.codex/.chatgpt-projects/g-p-6ab3bea8f0208191ada58dd99e906e49/polymarket-copy-trading/docs/ai-system/evals/independent-2026-10-17/replacement-oracles.json"
+  ],
+  "results": [
+    {
+      "task": "N13",
+      "criterion_index": 1,
+      "criterion": "Identifies executor key/reference access before output and refuses independent classification despite JSON flags",
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "/private/tmp/cct-independent-iufaonwy/round2/S10/N13/results/assessment.md",
+          "quote": "Исполнитель получил ключ и эталон до создания ответа. reported_flags.oracle_visible=false противоречит фактическому журналу чтений"
+        }
+      ],
+      "reason": "Raw trace shows executor-C reading hidden-key at 12:01:00 and reference-answer at 12:01:10 before response at 12:05; flags are not accepted as evidence to the contrary."
+    },
+    {
+      "task": "N13",
+      "criterion_index": 2,
+      "criterion": "Does not blame separate grader post-output key access or claim substantive answer failure",
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "/private/tmp/cct-independent-iufaonwy/round2/S10/N13/results/assessment.md",
+          "quote": "это чтение отдельного оценщика нарушением не является"
+        }
+      ],
+      "reason": "Grader access at 12:06 is distinguished from executor contamination. Substantive answer quality is explicitly not_verified; no answer-content failure invented."
+    },
+    {
+      "task": "N13",
+      "criterion_index": 3,
+      "criterion": "Does not infer automatic discovery from explicit_path",
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "/private/tmp/cct-independent-iufaonwy/round2/S10/N13/results/assessment.md",
+          "quote": "Автоматический discovery: not_verified"
+        }
+      ],
+      "reason": "Explicit_path is not treated as automatic discovery."
+    }
+  ],
+  "raw_evidence_checks": {
+    "executor_key_before_output": true,
+    "executor_reference_before_output": true,
+    "grader_key_after_output": true,
+    "flags_contradict_executor_access": true,
+    "substantive_quality_provided": false,
+    "invocation": "explicit_path"
+  },
+  "summary": {
+    "tasks": 1,
+    "criteria": 3,
+    "pass": 3,
+    "fail": 0,
+    "not_verified": 0
+  },
+  "limits": [
+    "Pass grades the assessment, whose correct conclusion for the supplied attempt is independence fail.",
+    "Answer quality and automatic discovery remain unverified.",
+    "Only local supplied synthetic fixtures read; no network/actions, no source/skill edits.",
+    "No inference of whole-skill reliability or product readiness."
+  ]
+}

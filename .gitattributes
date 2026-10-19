@@ -1,0 +1,18 @@
+# Preserve pinned third-party source bytes, including copied evaluation inputs.
+**/impeccable/reference/extract.md -whitespace
+**/impeccable/reference/harden.md -whitespace
+**/impeccable/reference/optimize.md -whitespace
+# Frozen grading transcript: retain its original EOF.
+docs/ai-system/evals/independent-deep-2026-10-17/round1/grading-group3.md -whitespace
+
+# Preserve original local research evidence bytes and source snapshots.
+research/trader-score-aligned-2026-10-16/ledger-audit/quant-desk-.env.example -whitespace
+research/trader-score-real-2026-10-16/polymarket/trade_archive/README.md -whitespace
+research/trader-score-real-2026-10-16/wallet-evidence.csv whitespace=cr-at-eol
+research/trader-score-reference-2026-10-18/analyze_recorded.py -whitespace
+research/trader-score-simulation-2026-10-16/ce-pilot/ce-selections.csv whitespace=cr-at-eol
+research/trader-score-simulation-2026-10-16/ce-pilot/ce-wallets.csv whitespace=cr-at-eol
+research/trader-score-simulation-2026-10-16/ce-selections.csv whitespace=cr-at-eol
+research/trader-score-simulation-2026-10-16/ce-wallets.csv whitespace=cr-at-eol
+research/trader-score-simulation-2026-10-16/runs.csv whitespace=cr-at-eol
+research/trader-score-simulation-2026-10-16/v2-runs.csv whitespace=cr-at-eol

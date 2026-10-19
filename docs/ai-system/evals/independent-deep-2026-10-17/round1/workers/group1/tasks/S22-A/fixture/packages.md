@@ -1,0 +1,1 @@
+P package branch api-review head p9 draft PR, not merged; verified Oct10. L package main head l4 verified Oct12. Required usecase arbitrary leader 30-day complete ledger including cashflows. Documentation snapshots Oct14 supplied, account scopes unknown (unchanged is not established).

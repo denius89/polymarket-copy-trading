@@ -1,0 +1,107 @@
+{
+  "observed_at": "2026-10-17T21:11:18+00:00",
+  "structural_and_deterministic_checks": [
+    {
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "/Users/denisfedko/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        ".agents/skills/cct-project-context"
+      ],
+      "exit_code": 0,
+      "output": "Skill is valid!\n"
+    },
+    {
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "/Users/denisfedko/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        ".agents/skills/cct-knowledge-curation"
+      ],
+      "exit_code": 0,
+      "output": "Skill is valid!\n"
+    },
+    {
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "/Users/denisfedko/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        ".agents/skills/cct-ai-quality"
+      ],
+      "exit_code": 0,
+      "output": "Skill is valid!\n"
+    },
+    {
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "docs/ai-system/evals",
+        "-p",
+        "test_checks.py"
+      ],
+      "exit_code": 0,
+      "output": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.005s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "docs/ai-system/evals/checks.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "output": "{\n  \"check\": \"validate\",\n  \"status\": \"pass\",\n  \"problems\": []\n}\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        "AGENTS.md",
+        "docs/PROJECT_STATE.md"
+      ],
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "author_review_grades": {
+    "R01": "pass",
+    "R02": "pass",
+    "R03": "pass",
+    "R04": "pass",
+    "R05": "pass",
+    "R06": "pass",
+    "S01-A": "pass",
+    "S01-B": "pass",
+    "S01-C": "pass",
+    "S01-D": "pass",
+    "S10-A": "pass",
+    "S10-B": "pass",
+    "S10-C": "pass",
+    "S10-D": "pass",
+    "S21-A": "pass",
+    "S21-B": "pass",
+    "S21-C": "pass",
+    "S21-D": "pass"
+  },
+  "skills": {
+    "cct-project-context": {
+      ".agents/skills/cct-project-context/SKILL.md": "bb1ec96ae4cf8e5559582e0932bcdfb90e79ab0b0a36cdab78acf1297922dd0c",
+      ".agents/skills/cct-project-context/agents/openai.yaml": "654f47efd42ae52c23e6b2ff78982975a9a634f520f0428a9a8da57ee318fbb9"
+    },
+    "cct-knowledge-curation": {
+      ".agents/skills/cct-knowledge-curation/SKILL.md": "0a5594e2c2fd7c1634ee76b2c59575e49b47ec888c5735fb9e0916020144d8cf",
+      ".agents/skills/cct-knowledge-curation/agents/openai.yaml": "e9b89cb471caf281973fa73dce68f61f42d6f90ba9806c1c76437963e0488cd8"
+    },
+    "cct-ai-quality": {
+      ".agents/skills/cct-ai-quality/SKILL.md": "c326a4cfff37f406e6af5992a1d0b58e16f629ebec31144444ae3c445a43392c",
+      ".agents/skills/cct-ai-quality/agents/openai.yaml": "2daec00cc0439fe41b8e3b9cc40fba685480c2b9307eeee9ee81770315cd3f10"
+    }
+  },
+  "independent_runs": 0,
+  "runtime_discovery": "not_verified",
+  "baseline_comparison": "not_run",
+  "tokens": null,
+  "cost_usd": null,
+  "limits": "Author visible-oracle self-pilot; successful record validation is not independent semantic proof"
+}

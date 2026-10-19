@@ -1,0 +1,85 @@
+{
+  "observed_at": "2026-10-17T21:20:27+00:00",
+  "checks": [
+    {
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "/Users/denisfedko/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        ".agents/skills/cct-project-context"
+      ],
+      "exit_code": 0,
+      "output": "Skill is valid!\n"
+    },
+    {
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "/Users/denisfedko/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        ".agents/skills/cct-knowledge-curation"
+      ],
+      "exit_code": 0,
+      "output": "Skill is valid!\n"
+    },
+    {
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "/Users/denisfedko/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        ".agents/skills/cct-ai-quality"
+      ],
+      "exit_code": 0,
+      "output": "Skill is valid!\n"
+    },
+    {
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "docs/ai-system/evals",
+        "-p",
+        "test_checks.py"
+      ],
+      "exit_code": 0,
+      "output": ".............\n----------------------------------------------------------------------\nRan 13 tests in 0.007s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "docs/ai-system/evals/checks.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "output": "{\n  \"check\": \"validate\",\n  \"status\": \"pass\",\n  \"problems\": []\n}\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        "AGENTS.md",
+        "docs/PROJECT_STATE.md"
+      ],
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "final_skill_fingerprints": {
+    ".agents/skills/cct-project-context/SKILL.md": "990b3b77d2c2e51fc899930b94ab3c7c8e0fab662f44604eb58e60d57e7bbeb6",
+    ".agents/skills/cct-project-context/agents/openai.yaml": "654f47efd42ae52c23e6b2ff78982975a9a634f520f0428a9a8da57ee318fbb9",
+    ".agents/skills/cct-knowledge-curation/SKILL.md": "41c33acfab7e78d44d35eadf60b508f130e6e68c85fa984e5ed1fc1dcbd2eb0b",
+    ".agents/skills/cct-knowledge-curation/agents/openai.yaml": "e9b89cb471caf281973fa73dce68f61f42d6f90ba9806c1c76437963e0488cd8",
+    ".agents/skills/cct-ai-quality/SKILL.md": "66d171201393cf4eb40da6cf38c514317cf37d04a903e5a6993c7c1123f21035",
+    ".agents/skills/cct-ai-quality/agents/openai.yaml": "2daec00cc0439fe41b8e3b9cc40fba685480c2b9307eeee9ee81770315cd3f10"
+  },
+  "tested_skill_bytes_match_current": true,
+  "new_unique_tasks": 13,
+  "task_outputs": 22,
+  "executor_contexts": 6,
+  "separate_grader_contexts": 1,
+  "automatic_discovery": "not_verified",
+  "baseline_comparison": "not_run",
+  "tokens": null,
+  "cost_usd": null,
+  "limits": "Local synthetic explicit-path independent execution and separate semantic review. Two oracle defects preserved; no blanket reliability claim."
+}

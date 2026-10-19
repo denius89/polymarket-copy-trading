@@ -1,0 +1,77 @@
+{
+  "id": "V1",
+  "title": "Venue account feed",
+  "publisher": "Venue",
+  "locator": "https://venue.example.test/docs",
+  "section": "account feed",
+  "access": "read",
+  "observed_at": "2026-10-15T09:00:00Z",
+  "currency": "conflict",
+  "version": "v2",
+  "sha256": null,
+  "supports": [
+    "Snapshot v2 §account feed documents authenticated own-account fills with 7-day retention."
+  ],
+  "limits": [
+    "Arbitrary leader history is not described in the supplied excerpt; absence across the full API is not established.",
+    "No account-specific permission or endpoint execution was verified.",
+    "Old v1 text unavailable; the previous supports claim cannot establish an API change.",
+    "Seven-day own-account feed does not satisfy the fixture expectation of longer leader history."
+  ],
+  "tags": [
+    "api"
+  ],
+  "used_by": [
+    "S11",
+    "S22"
+  ],
+  "refresh_when": "before account-dependent decision",
+  "usage": "link and short summary",
+  "evidence": {
+    "snapshot_file": "tasks/S21-A/fixture/new-excerpt.md",
+    "snapshot_observed_at": "2026-10-15T09:00:00Z",
+    "execution_mode": "supplied_snapshot_review_only",
+    "historical_card": {
+      "id": "V1",
+      "title": "Venue account feed",
+      "publisher": "Venue",
+      "locator": "https://venue.example.test/docs",
+      "section": "account feed",
+      "access": "read",
+      "observed_at": "2026-10-01T10:00:00Z",
+      "currency": "current_at_observation",
+      "version": "v1",
+      "sha256": null,
+      "supports": [
+        "полная история любого трейдера"
+      ],
+      "limits": [],
+      "tags": [
+        "api"
+      ],
+      "used_by": [
+        "S11",
+        "S22"
+      ],
+      "refresh_when": "before account-dependent decision",
+      "usage": "link and short summary"
+    },
+    "follow_up": [
+      {
+        "consumer": "S11",
+        "status": "needs_recheck",
+        "reason": "ledger completeness and trader scope"
+      },
+      {
+        "consumer": "S22",
+        "status": "needs_recheck",
+        "reason": "documented scope and account authorization differ"
+      },
+      {
+        "consumer": "S12/S13",
+        "status": "needs_recheck",
+        "reason": "conditional downstream dependency on historical inputs"
+      }
+    ]
+  }
+}

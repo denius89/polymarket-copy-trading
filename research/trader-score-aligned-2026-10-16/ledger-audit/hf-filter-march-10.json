@@ -1,0 +1,15 @@
+{
+  "url": "https://datasets-server.huggingface.co/filter?dataset=TimeSeventeen%2FPolymarket-v1&config=orderfilled&split=train&where=%22block_timestamp%22%3E%3D1772323200+AND+%22block_timestamp%22%3C1772582400&offset=0&length=10",
+  "params": {
+    "dataset": "TimeSeventeen/Polymarket-v1",
+    "config": "orderfilled",
+    "split": "train",
+    "where": "\"block_timestamp\">=1772323200 AND \"block_timestamp\"<1772582400",
+    "offset": 0,
+    "length": 10
+  },
+  "retrieved_at": "2026-10-16T16:18:38.208776+00:00",
+  "request_revision_note": "Dataset viewer filter endpoint does not expose a revision parameter; provenance is live index.",
+  "status": 500,
+  "response": "{\"error\":\"the dataset index is loading, this may take longer than usual\"}"
+}

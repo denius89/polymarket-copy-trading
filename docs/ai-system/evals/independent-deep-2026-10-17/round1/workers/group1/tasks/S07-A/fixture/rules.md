@@ -1,0 +1,1 @@
+Здесь identity экономического fill=(venue,fill_id), не order_id; повтор same identity списывается один раз. Один order может иметь несколько fill. Money exact decimal. Начало cash=50, reserve order(P,O7)=20. Каждый fill P/O7 уменьшает cash и его reserve на cost+fee. Позиции учитываются отдельно по venue. Начальные позиции0.

@@ -1,0 +1,896 @@
+{
+  "results": [
+    {
+      "id": "q01",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-project-context"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-project-context"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-project-context/SKILL.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 32822,
+          "cached_input_tokens": 28032,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 315,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "seconds": 11.77,
+      "observed_at": "2026-10-17T21:40:38.058264+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q02",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-product-discovery"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-product-discovery"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-product-discovery/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S02.md docs/ai-system/knowledge/domains/product.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 50913,
+          "cached_input_tokens": 44416,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 377,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "seconds": 13.69,
+      "observed_at": "2026-10-17T21:40:39.984226+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q03",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-market-domain"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-market-domain"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-market-domain/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S03.md docs/ai-system/knowledge/domains/engineering.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc \"rg -n 'ADR-0028|виртуаль|комисси|лот' docs/adr references --glob '*.md'\"",
+          "exit_code": 2
+        },
+        {
+          "command": "/bin/bash -lc \"rg --files -g '*0028*' -g '*ADR*' -g '*sources*' -g '*KB07*'\"",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 122571,
+          "cached_input_tokens": 111488,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 650,
+          "reasoning_output_tokens": 54
+        }
+      ],
+      "seconds": 19.29,
+      "observed_at": "2026-10-17T21:40:57.349203+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q04",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-financial-ux"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-financial-ux"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-financial-ux/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S04.md docs/ai-system/knowledge/domains/design.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 51117,
+          "cached_input_tokens": 40960,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 423,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "seconds": 14.55,
+      "observed_at": "2026-10-17T21:40:54.534887+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q05",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-figma-handoff"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-figma-handoff"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-figma-handoff/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S05.md docs/ai-system/knowledge/domains/collaboration.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 50814,
+          "cached_input_tokens": 44416,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 381,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "seconds": 13.41,
+      "observed_at": "2026-10-17T21:41:07.947420+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q06",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-frontend-quality"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-frontend-quality"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-frontend-quality/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S06.md docs/ai-system/knowledge/domains/engineering.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 51077,
+          "cached_input_tokens": 40960,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 422,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "seconds": 12.39,
+      "observed_at": "2026-10-17T21:41:09.741251+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q07",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-backend-data"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-backend-data"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-backend-data/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S07.md docs/ai-system/knowledge/domains/engineering.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 97103,
+          "cached_input_tokens": 80128,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 469,
+          "reasoning_output_tokens": 22
+        }
+      ],
+      "seconds": 17.86,
+      "observed_at": "2026-10-17T21:41:25.805061+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q08",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-wallet-security"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-wallet-security"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-wallet-security/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S08.md docs/ai-system/knowledge/domains/engineering.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 51077,
+          "cached_input_tokens": 44416,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 393,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "seconds": 15.56,
+      "observed_at": "2026-10-17T21:41:25.299457+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q09",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-reliability-operations"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-reliability-operations"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-reliability-operations/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S09.md docs/ai-system/knowledge/domains/operations.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 51013,
+          "cached_input_tokens": 44416,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 400,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "seconds": 19.18,
+      "observed_at": "2026-10-17T21:41:44.478727+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q10",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-ai-quality"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-ai-quality"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-ai-quality/SKILL.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 32833,
+          "cached_input_tokens": 24576,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 343,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "seconds": 12.59,
+      "observed_at": "2026-10-17T21:41:38.399372+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q11",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-score-data-audit"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-score-data-audit"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-score-data-audit/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S11.md docs/ai-system/knowledge/domains/score.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 78455,
+          "cached_input_tokens": 69248,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 467,
+          "reasoning_output_tokens": 22
+        }
+      ],
+      "seconds": 20.97,
+      "observed_at": "2026-10-17T21:41:59.368929+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q12",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-copy-replay"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-copy-replay"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-copy-replay/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S12.md docs/ai-system/knowledge/domains/score.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 51057,
+          "cached_input_tokens": 40320,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 398,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "seconds": 12.99,
+      "observed_at": "2026-10-17T21:41:57.469319+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q13",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-score-methodology"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-score-methodology"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-score-methodology/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S13.md docs/ai-system/knowledge/domains/score.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 79614,
+          "cached_input_tokens": 68608,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 471,
+          "reasoning_output_tokens": 20
+        }
+      ],
+      "seconds": 16.1,
+      "observed_at": "2026-10-17T21:42:13.566755+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q14",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-score-validation"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-ai-quality",
+        "cct-project-context",
+        "cct-score-validation"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-score-validation/SKILL.md .agents/skills/cct-ai-quality/SKILL.md .agents/skills/cct-project-context/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S14.md docs/ai-system/knowledge/domains/score.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 66720,
+          "cached_input_tokens": 52224,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 472,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "seconds": 14.24,
+      "observed_at": "2026-10-17T21:42:13.610886+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q15",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-score-governance"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-project-context",
+        "cct-score-governance"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-score-governance/SKILL.md .agents/skills/cct-project-context/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S15.md docs/ai-system/knowledge/domains/score.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 52607,
+          "cached_input_tokens": 40448,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 444,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "seconds": 15.08,
+      "observed_at": "2026-10-17T21:42:28.647529+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q16",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-score-explanation"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-score-explanation"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-score-explanation/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S16.md docs/ai-system/knowledge/domains/design.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 50859,
+          "cached_input_tokens": 44288,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 409,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "seconds": 13.19,
+      "observed_at": "2026-10-17T21:42:26.801683+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q17",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-infrastructure-plan"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-infrastructure-plan",
+        "cct-project-context"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-infrastructure-plan/SKILL.md .agents/skills/cct-project-context/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S17.md docs/ai-system/knowledge/domains/operations.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 52971,
+          "cached_input_tokens": 48000,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 409,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "seconds": 13.32,
+      "observed_at": "2026-10-17T21:42:40.127368+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q18",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-server-hardening"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-server-hardening"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-server-hardening/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S18.md docs/ai-system/knowledge/domains/operations.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 78269,
+          "cached_input_tokens": 67584,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 475,
+          "reasoning_output_tokens": 25
+        }
+      ],
+      "seconds": 17.33,
+      "observed_at": "2026-10-17T21:42:45.981383+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q19",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-deployment-data-ops"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-deployment-data-ops"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-deployment-data-ops/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S19.md docs/ai-system/knowledge/domains/operations.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 50971,
+          "cached_input_tokens": 46848,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 405,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "seconds": 13.72,
+      "observed_at": "2026-10-17T21:42:53.849429+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q20",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-git-collaboration"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-git-collaboration"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-git-collaboration/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S20.md docs/ai-system/knowledge/domains/collaboration.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 50855,
+          "cached_input_tokens": 44416,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 391,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "seconds": 13.21,
+      "observed_at": "2026-10-17T21:42:59.191718+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q21",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-knowledge-curation"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-knowledge-curation"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-knowledge-curation/SKILL.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 32966,
+          "cached_input_tokens": 28032,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 350,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "seconds": 14.84,
+      "observed_at": "2026-10-17T21:43:08.685368+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q22",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-venue-api-review"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-venue-api-review"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-venue-api-review/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S22.md docs/ai-system/knowledge/domains/engineering.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 51192,
+          "cached_input_tokens": 44416,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 407,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "seconds": 13.54,
+      "observed_at": "2026-10-17T21:43:12.734835+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q23",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [
+        "cct-product-qa"
+      ],
+      "should_activate": true,
+      "observed_skill_file_reads": [
+        "cct-product-qa"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-product-qa/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S23.md docs/ai-system/knowledge/domains/engineering.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 95875,
+          "cached_input_tokens": 79360,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 496,
+          "reasoning_output_tokens": 17
+        }
+      ],
+      "seconds": 16.83,
+      "observed_at": "2026-10-17T21:43:25.512202+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q24",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [],
+      "should_activate": false,
+      "observed_skill_file_reads": [],
+      "commands": [],
+      "usage": [
+        {
+          "input_tokens": 15814,
+          "cached_input_tokens": 12288,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 242,
+          "reasoning_output_tokens": 40
+        }
+      ],
+      "seconds": 8.51,
+      "observed_at": "2026-10-17T21:43:21.243022+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q25",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [],
+      "should_activate": false,
+      "observed_skill_file_reads": [],
+      "commands": [],
+      "usage": [
+        {
+          "input_tokens": 15819,
+          "cached_input_tokens": 12288,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 208,
+          "reasoning_output_tokens": 25
+        }
+      ],
+      "seconds": 9.69,
+      "observed_at": "2026-10-17T21:43:30.930365+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q26",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [],
+      "should_activate": false,
+      "observed_skill_file_reads": [],
+      "commands": [],
+      "usage": [
+        {
+          "input_tokens": 15814,
+          "cached_input_tokens": 12288,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 197,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "seconds": 8.14,
+      "observed_at": "2026-10-17T21:43:33.653074+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q27",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [],
+      "should_activate": false,
+      "observed_skill_file_reads": [],
+      "commands": [],
+      "usage": [
+        {
+          "input_tokens": 15821,
+          "cached_input_tokens": 14720,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 182,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "seconds": 7.38,
+      "observed_at": "2026-10-17T21:43:38.311272+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    },
+    {
+      "id": "q28",
+      "returncode": 0,
+      "status": "pass",
+      "expected_any": [],
+      "should_activate": false,
+      "observed_skill_file_reads": [],
+      "commands": [],
+      "usage": [
+        {
+          "input_tokens": 15824,
+          "cached_input_tokens": 12288,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 219,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "seconds": 8.29,
+      "observed_at": "2026-10-17T21:43:41.947829+00:00",
+      "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+    }
+  ],
+  "counts": {
+    "pass": 28,
+    "fail": 0,
+    "not_verified": 0
+  }
+}

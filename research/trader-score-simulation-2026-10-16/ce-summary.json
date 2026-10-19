@@ -1,0 +1,330 @@
+{
+  "config": {
+    "seeds": [
+      202610170,
+      202610171,
+      202610172,
+      202610173,
+      202610174,
+      202610175
+    ],
+    "wallets_per_type": 16,
+    "history_days": 270,
+    "horizon": 30,
+    "future_windows": 6,
+    "draws": 600,
+    "block": 7,
+    "budget": 200,
+    "buy": 5,
+    "daily_cap": 30,
+    "position_cap": 20,
+    "fee": 0.002,
+    "min_fill": 0.6,
+    "max_history_drawdown": 0.25,
+    "top_k": 10,
+    "stress_probability": 0.005,
+    "ui_scale": 0.05
+  },
+  "regression_checks": 14,
+  "wallets": 768,
+  "methods": {
+    "lcb": {
+      "selected_wallets": 59,
+      "type_counts": {
+        "steady": 0,
+        "no_edge": 0,
+        "loser": 0,
+        "rare_crash": 59,
+        "rare_upside": 0,
+        "illiquid": 0,
+        "delay_sensitive": 0,
+        "lucky_history": 0
+      },
+      "future_mean_return": 0.16603185638944185,
+      "future_ce2": 0.15254285875265583,
+      "future_loss_frequency": 0.11016949152542373,
+      "future_loss_over_20pct": 0.011299435028248588,
+      "future_mean_drawdown": 0.0886834425700896,
+      "future_worst_return": -0.24722838137472325,
+      "per_world": [
+        {
+          "seed": 202610170,
+          "ce2": 0.1615115875667592,
+          "mean_return": 0.1726034737620099
+        },
+        {
+          "seed": 202610171,
+          "ce2": 0.1453640592980796,
+          "mean_return": 0.16395971914264562
+        },
+        {
+          "seed": 202610172,
+          "ce2": 0.12619359738557678,
+          "mean_return": 0.14081208425720582
+        },
+        {
+          "seed": 202610173,
+          "ce2": 0.17400930532910586,
+          "mean_return": 0.18296747967479643
+        },
+        {
+          "seed": 202610174,
+          "ce2": 0.17355856018818772,
+          "mean_return": 0.18335735402808528
+        },
+        {
+          "seed": 202610175,
+          "ce2": 0.135648573264048,
+          "mean_return": 0.152283813747228
+        }
+      ]
+    },
+    "ce2": {
+      "selected_wallets": 59,
+      "type_counts": {
+        "steady": 0,
+        "no_edge": 0,
+        "loser": 0,
+        "rare_crash": 59,
+        "rare_upside": 0,
+        "illiquid": 0,
+        "delay_sensitive": 0,
+        "lucky_history": 0
+      },
+      "future_mean_return": 0.16517531662219498,
+      "future_ce2": 0.15088398588199725,
+      "future_loss_frequency": 0.11299435028248588,
+      "future_loss_over_20pct": 0.014124293785310734,
+      "future_mean_drawdown": 0.0888502524308283,
+      "future_worst_return": -0.25521064301552143,
+      "per_world": [
+        {
+          "seed": 202610170,
+          "ce2": 0.1615115875667592,
+          "mean_return": 0.1726034737620099
+        },
+        {
+          "seed": 202610171,
+          "ce2": 0.1453640592980796,
+          "mean_return": 0.16395971914264562
+        },
+        {
+          "seed": 202610172,
+          "ce2": 0.11137259660208843,
+          "mean_return": 0.13068736141906823
+        },
+        {
+          "seed": 202610173,
+          "ce2": 0.17400930532910586,
+          "mean_return": 0.18296747967479643
+        },
+        {
+          "seed": 202610174,
+          "ce2": 0.17355856018818772,
+          "mean_return": 0.18335735402808528
+        },
+        {
+          "seed": 202610175,
+          "ce2": 0.14143356146436603,
+          "mean_return": 0.15735495195860993
+        }
+      ]
+    },
+    "ce1": {
+      "selected_wallets": 59,
+      "type_counts": {
+        "steady": 0,
+        "no_edge": 0,
+        "loser": 0,
+        "rare_crash": 59,
+        "rare_upside": 0,
+        "illiquid": 0,
+        "delay_sensitive": 0,
+        "lucky_history": 0
+      },
+      "future_mean_return": 0.16431580167111326,
+      "future_ce2": 0.14988296979421256,
+      "future_loss_frequency": 0.11581920903954802,
+      "future_loss_over_20pct": 0.014124293785310734,
+      "future_mean_drawdown": 0.089108768108798,
+      "future_worst_return": -0.25521064301552143,
+      "per_world": [
+        {
+          "seed": 202610170,
+          "ce2": 0.1615115875667592,
+          "mean_return": 0.1726034737620099
+        },
+        {
+          "seed": 202610171,
+          "ce2": 0.1453640592980796,
+          "mean_return": 0.16395971914264562
+        },
+        {
+          "seed": 202610172,
+          "ce2": 0.11137259660208843,
+          "mean_return": 0.13068736141906823
+        },
+        {
+          "seed": 202610173,
+          "ce2": 0.17400930532910586,
+          "mean_return": 0.18296747967479643
+        },
+        {
+          "seed": 202610174,
+          "ce2": 0.17355856018818772,
+          "mean_return": 0.18335735402808528
+        },
+        {
+          "seed": 202610175,
+          "ce2": 0.135648573264048,
+          "mean_return": 0.152283813747228
+        }
+      ]
+    },
+    "probability": {
+      "selected_wallets": 59,
+      "type_counts": {
+        "steady": 0,
+        "no_edge": 0,
+        "loser": 0,
+        "rare_crash": 59,
+        "rare_upside": 0,
+        "illiquid": 0,
+        "delay_sensitive": 0,
+        "lucky_history": 0
+      },
+      "future_mean_return": 0.16469443296127828,
+      "future_ce2": 0.15029534393451627,
+      "future_loss_frequency": 0.11581920903954802,
+      "future_loss_over_20pct": 0.014124293785310734,
+      "future_mean_drawdown": 0.08879515995188582,
+      "future_worst_return": -0.25521064301552143,
+      "per_world": [
+        {
+          "seed": 202610170,
+          "ce2": 0.1598382039545374,
+          "mean_return": 0.1719650776053212
+        },
+        {
+          "seed": 202610171,
+          "ce2": 0.1453640592980796,
+          "mean_return": 0.16395971914264562
+        },
+        {
+          "seed": 202610172,
+          "ce2": 0.11137259660208843,
+          "mean_return": 0.13068736141906823
+        },
+        {
+          "seed": 202610173,
+          "ce2": 0.17400930532910586,
+          "mean_return": 0.18296747967479643
+        },
+        {
+          "seed": 202610174,
+          "ce2": 0.17355856018818772,
+          "mean_return": 0.18335735402808528
+        },
+        {
+          "seed": 202610175,
+          "ce2": 0.13963682345036976,
+          "mean_return": 0.15515613451589028
+        }
+      ]
+    },
+    "ce2_stress": {
+      "selected_wallets": 59,
+      "type_counts": {
+        "steady": 0,
+        "no_edge": 0,
+        "loser": 0,
+        "rare_crash": 59,
+        "rare_upside": 0,
+        "illiquid": 0,
+        "delay_sensitive": 0,
+        "lucky_history": 0
+      },
+      "future_mean_return": 0.16431580167111326,
+      "future_ce2": 0.14988296979421256,
+      "future_loss_frequency": 0.11581920903954802,
+      "future_loss_over_20pct": 0.014124293785310734,
+      "future_mean_drawdown": 0.089108768108798,
+      "future_worst_return": -0.25521064301552143,
+      "per_world": [
+        {
+          "seed": 202610170,
+          "ce2": 0.1615115875667592,
+          "mean_return": 0.1726034737620099
+        },
+        {
+          "seed": 202610171,
+          "ce2": 0.1453640592980796,
+          "mean_return": 0.16395971914264562
+        },
+        {
+          "seed": 202610172,
+          "ce2": 0.11137259660208843,
+          "mean_return": 0.13068736141906823
+        },
+        {
+          "seed": 202610173,
+          "ce2": 0.17400930532910586,
+          "mean_return": 0.18296747967479643
+        },
+        {
+          "seed": 202610174,
+          "ce2": 0.17355856018818772,
+          "mean_return": 0.18335735402808528
+        },
+        {
+          "seed": 202610175,
+          "ce2": 0.135648573264048,
+          "mean_return": 0.152283813747228
+        }
+      ]
+    }
+  },
+  "prediction_90pct_interval_coverage": 0.9049479166666666,
+  "type_diagnostics": {
+    "steady": {
+      "admitted": 0,
+      "future_mean_return": 0.389760921591413,
+      "interval_coverage": 0.8940972222222222
+    },
+    "no_edge": {
+      "admitted": 0,
+      "future_mean_return": -0.013317736000441999,
+      "interval_coverage": 0.8871527777777778
+    },
+    "loser": {
+      "admitted": 0,
+      "future_mean_return": -0.19137547034085822,
+      "interval_coverage": 0.8888888888888888
+    },
+    "rare_crash": {
+      "admitted": 72,
+      "future_mean_return": 0.16633859555925062,
+      "interval_coverage": 0.9045138888888888
+    },
+    "rare_upside": {
+      "admitted": 0,
+      "future_mean_return": 1.0286852904040404,
+      "interval_coverage": 0.9409722222222222
+    },
+    "illiquid": {
+      "admitted": 0,
+      "future_mean_return": 0.11029337511066867,
+      "interval_coverage": 0.8940972222222222
+    },
+    "delay_sensitive": {
+      "admitted": 0,
+      "future_mean_return": -0.09299361464218418,
+      "interval_coverage": 0.8802083333333334
+    },
+    "lucky_history": {
+      "admitted": 0,
+      "future_mean_return": -0.016538706285966574,
+      "interval_coverage": 0.9496527777777778
+    }
+  }
+}

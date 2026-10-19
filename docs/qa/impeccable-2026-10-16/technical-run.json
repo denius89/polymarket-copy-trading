@@ -1,0 +1,94 @@
+{
+  "assessment": "B — installation and detector/runtime compatibility; independent of visual assessment A",
+  "date": "2026-10-16",
+  "target": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3-2",
+  "skill": {
+    "repository": "https://github.com/pbakaus/impeccable",
+    "commit": "6af45ac9a5eb8792f033d3242f52e99812fd91fa",
+    "version": "4.6.0",
+    "location": ".agents/skills/impeccable",
+    "fileCountAtCheck": 63,
+    "missingRelativeMarkdownLinks": [],
+    "scope": "Repository-scoped; not globally installed and not automatically loaded by existing chats."
+  },
+  "launcher": {
+    "path": ".agents/skills/impeccable/scripts/impeccable",
+    "initialMode": "0644",
+    "repair": "chmod +x; resulting mode 0755",
+    "startupPriority": [
+      "IMPECCABLE_BIN executable override",
+      "sibling scripts/bin/<os>-<arch>/impeccable",
+      "~/.impeccable/bin/impeccable with engine-probe handshake",
+      "version-pinned user cache",
+      "PATH impeccable with engine-probe handshake",
+      "official version-pinned download"
+    ],
+    "pinLimit": "Source commit and scripts/VERSION pin downloaded fallback engine. Executable overrides, sibling binary, unversioned home engine and PATH candidate can take precedence; engine-probe validates identity but does not enforce exact engine version."
+  },
+  "engine": {
+    "version": "0.1.15",
+    "platform": "darwin-arm64",
+    "probeOutput": "impeccable-engine 0.1.15",
+    "officialReleaseURL": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.15/impeccable-darwin-arm64",
+    "verification": "Launcher verified downloaded binary against official .sha256 sidecar before execution. This checks release-file integrity, not a separate publisher signature.",
+    "sha256": "c7914209b4490dc81b7ab17c20f1f76415d1f0b8bb5de6f7e86e9aa111d1c1a5",
+    "defaultCache": "~/.impeccable/bin/0.1.15/impeccable",
+    "initialDownloadCache": "/private/tmp/polymarket-impeccable-runtime/bin/0.1.15/impeccable",
+    "portability": "Verified cached binary was copied to standard user cache and ordinary repository launcher engine-probe succeeded without IMPECCABLE_HOME. Future local sessions can reuse it while cache exists. Other machines/platforms need their own official engine download.",
+    "temporaryCacheCleanup": "Removed only this run’s /private/tmp/polymarket-impeccable-runtime cache after verified engine had been retained in standard user cache."
+  },
+  "context": {
+    "attempts": 1,
+    "command": ".agents/skills/impeccable/scripts/impeccable context --target <Figma URL>",
+    "cwd": "polymarket-copy-trading repository root",
+    "exitCode": 126,
+    "stderr": "/bin/bash: .agents/skills/impeccable/scripts/impeccable: Permission denied",
+    "requiredFallbackNoticeEmitted": "Context loading did not run; I’ll read the existing project context directly.",
+    "fallbackFiles": {
+      "PRODUCT.md": "Absent; not created",
+      "DESIGN.md": "Absent; not created"
+    },
+    "rerun": false
+  },
+  "hooks": {
+    "installedOrEnabledByThisAssessment": false,
+    "providerManifestExistenceAtCheck": {
+      ".codex/hooks.json": false,
+      ".claude/settings.local.json": false,
+      ".cursor/hooks.json": false,
+      ".github/hooks/impeccable.json": false,
+      ".gemini/settings.json": false
+    },
+    "impeccableConfigExistenceAtCheck": {
+      ".impeccable/config.json": false,
+      ".impeccable/config.local.json": false
+    },
+    "note": "No automatic hook installation, no init/document command, no AGENTS.md edits by this assessment."
+  },
+  "detector": {
+    "helpCommand": "IMPECCABLE_HOME=/private/tmp/polymarket-impeccable-runtime .agents/skills/impeccable/scripts/impeccable detect --help",
+    "helpExitCode": 0,
+    "supportedModes": [
+      "Static HTML/CSS analysis",
+      "Regex on code sources",
+      "Puppeteer URL rendering"
+    ],
+    "command": "IMPECCABLE_HOME=/private/tmp/polymarket-impeccable-runtime .agents/skills/impeccable/scripts/impeccable detect --json --no-consent-hiding --no-overlay-hiding \"https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3-2\"",
+    "exitCode": 1,
+    "stderr": "Error: Failed to launch the browser process!\n[]",
+    "findingCount": null,
+    "result": "Unavailable; not a clean scan and no technical quality score assigned.",
+    "reproNow": ".agents/skills/impeccable/scripts/impeccable detect --json --no-consent-hiding --no-overlay-hiding \"https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3-2\""
+  },
+  "figmaScope": {
+    "nativeFigmaNodeDetector": false,
+    "limitations": [
+      "A Figma Design URL is the editor/viewer web page. Its DOM is not the product UI implementation.",
+      "Scanning editor DOM would not establish accessibility, semantics, keyboard handling, network behavior, performance or responsive implementation correctness of the design.",
+      "Screenshots and Figma-node geometry can support manual design critique and measured layout/token checks, with evidence labels; they do not substitute for native DOM/ARIA/runtime testing.",
+      "No overlay injected, no local live-server started, no unrelated repository scan and no fake HTML substitute used."
+    ],
+    "browserEvidence": "Independent visual assessment A owns Figma inspection. B did not inspect its screenshots or findings."
+  },
+  "publicationNote": "Do not publish machine-specific absolute home paths or runtime binaries. This report stores portable cache notation; caches are outside the project."
+}

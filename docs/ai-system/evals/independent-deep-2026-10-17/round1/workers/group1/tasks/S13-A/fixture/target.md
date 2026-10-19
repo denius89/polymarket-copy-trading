@@ -1,0 +1,1 @@
+Исследуем future7-day net copier outcome на standard account100USD, limit/latency fixed in supplied audited replay. Eligibility: минимум3 независимых resolved events. Это fixture research gate, не новое правило продукта. Accepted production weights здесь не изменяются.

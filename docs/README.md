@@ -40,3 +40,10 @@
 ## Работа с репозиторием
 
 [CONTRIBUTING](../CONTRIBUTING.md) · [безопасность](../SECURITY.md) · [карта хранения и состояние PR](REPOSITORY_MAINTENANCE_2026-10-19.md). Номера исторических документов и старые ссылки сохранены.
+
+## Проектные навыки и Copy Score
+
+- [Каталог S01–S23](ai-system/CATALOG.md), [учебные пакеты](ai-system/learning/S01.md), [реестр знаний](ai-system/knowledge/GUIDE.md), [статусы и доказательства проверок](ai-system/FIRST_BATCH.md).
+- [Исследования Copy Score: единый вход](../research/TRADER_SCORE_README.md), [последняя перепроверка](../research/trader-score-review-2026-10-18/README.md), [реестр крупных исходных файлов](../research/DATA_ARCHIVE_2026-10-19.json).
+
+Публикация переносит существующие материалы. Она не утверждает новую формулу рейтинга и не означает полную приёмку навыков или продукта.

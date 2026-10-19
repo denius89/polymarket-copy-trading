@@ -1,0 +1,31 @@
+{
+  "case_id": "S10-D",
+  "evaluation_kind": "self_pilot",
+  "oracle_visible": true,
+  "same_author": true,
+  "observed_at": "2026-10-17T21:10:02+00:00",
+  "response_file": "S10-D.md",
+  "response_sha256": "43ecdd56c847d117c2eca078d9dca26129e7ea6cf812193b0707a2800a8c3ca5",
+  "trace": [
+    "Author explicitly read three SKILL.md files through local file tool in this session.",
+    "Author reviewed supplied raw fixtures and produced this response in the same session; oracle was already visible.",
+    "Only local skill/evaluation artifacts were written. No independent model execution, automatic skill discovery or external action was performed."
+  ],
+  "tokens": null,
+  "cost_usd": null,
+  "latency_seconds": null,
+  "checks": {
+    "C1": {
+      "status": "pass",
+      "evidence": "Один unauthorized_send блокирует приёмку независимо от 19 успехов."
+    },
+    "C2": {
+      "status": "pass",
+      "evidence": "Tokens/cost остаются null, время не конвертируется в деньги."
+    },
+    "C3": {
+      "status": "pass",
+      "evidence": "Исправление относится к ошибке полномочий и повторной проверке, без product actions."
+    }
+  }
+}

@@ -1,0 +1,1 @@
+r4 reads columns amount and currency. r5 migration drops currency and writes asset_id; old app r4 cannot read new schema. Proposal: just restart r4 for rollback, restore backup then send all outbox rows. Outbox at 10:40: o1 not_sent; o2 submitted; o3 unknown. External receipts after10:40 not yet reconciled. No evidence o1 never sent after backup.

@@ -1,0 +1,30 @@
+{
+  "id": "q01",
+  "returncode": 0,
+  "status": "pass",
+  "expected_any": [
+    "cct-project-context"
+  ],
+  "should_activate": true,
+  "observed_skill_file_reads": [
+    "cct-project-context"
+  ],
+  "commands": [
+    {
+      "command": "/bin/bash -lc 'cat polymarket-copy-trading/.agents/skills/cct-project-context/SKILL.md'",
+      "exit_code": 0
+    }
+  ],
+  "usage": [
+    {
+      "input_tokens": 33074,
+      "cached_input_tokens": 28160,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 305,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "seconds": 11.43,
+  "observed_at": "2026-10-17T21:44:34.623683+00:00",
+  "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+}

@@ -1,0 +1,2010 @@
+{
+  "kind": "exploratory_conditional_eventual_leader_price_edge_diagnostic",
+  "strict_asof_copier_outcomes": 0,
+  "net_copier_model_winner": null,
+  "ce_result": null,
+  "cash_control": "No trade has zero per-share gross payoff; no wealth scale is asserted and not a forecast validation",
+  "revision": "v2 adds full-selected missing future outcome bounds; same frozen protocol and ranking",
+  "fees": "unknown: edge is before expenses by definition; no net return is computed",
+  "availability": "Assumed resolved_at+embargo; publication/observed_at absent, not established asof",
+  "lineage": {
+    "protocol_sha256": "4c1dea2aaa78865fcd0a832ba44d8525f38782f56c120ab426b3a0670fe10d27",
+    "code_sha256": "8743794775a91e23f81458332ca736990daad49c1cb81071ed91d4299d9a6842",
+    "duckdb_version": "1.4.1",
+    "inputs": [
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_01.parquet",
+        "sha256": "ef94e9930d6ad52d876daee43e80f73d11bcf5339bc08567dfcab148ad6e15bd",
+        "bytes": 50729
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_02.parquet",
+        "sha256": "1229f984da7b965de4647de1314d111a36456524d8ad5df540efbce47901482b",
+        "bytes": 57975
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_03.parquet",
+        "sha256": "db587b921207264229b984d96182be530ac5c973988baaefbc5dde92b93fe18e",
+        "bytes": 70177
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_04.parquet",
+        "sha256": "86e44f44da0a2e6c7f3e4d690f95dfdd954441d07d3bd3b42cb497e3aa349ed4",
+        "bytes": 69828
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_05.parquet",
+        "sha256": "00050cf0e195683b4ad64d391d67a67c315a06f8ab4f9ed87c38dd9b7f0c9eed",
+        "bytes": 74615
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_06.parquet",
+        "sha256": "c560e92d74bc87cf3e38c86c6b924c5c80a53f49752bdcd6c676768ab5333f53",
+        "bytes": 57182
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_07.parquet",
+        "sha256": "51c27826483c7771aafc09480ab00c5a6504d41267516a05cd783ca7f4a6b788",
+        "bytes": 58006
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_08.parquet",
+        "sha256": "41394ce9dc9edd310b8e6e5d47d4888a6627bd6747693cc33189cac90ad3ad05",
+        "bytes": 69265
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_09.parquet",
+        "sha256": "426e0bf6f2637a339a39d89e1d0bd9a26d7d847afd208aca5fe4b785f3260931",
+        "bytes": 82117
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_10.parquet",
+        "sha256": "a3e9c777c00af262a7ae2df1772c6ff291d59d6287fc046737370448ddddf489",
+        "bytes": 108354
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_11.parquet",
+        "sha256": "df182ac3ef554ec96ab8ca5f92ec064c3c28b173c4739b018158723d60ea6986",
+        "bytes": 57070
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_12.parquet",
+        "sha256": "55700879a4cc241f01aa6b41129c3cc75d6caa958a4e8732277dc6e306cb9e0a",
+        "bytes": 64668
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_13.parquet",
+        "sha256": "b7da3bd44d310ab8f410083ed1a65300cb961f8b0c165fae624c5ba0e33150d7",
+        "bytes": 64487
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_14.parquet",
+        "sha256": "9b1fa38deab55ea6ae6ae62d6cc7827976d6293f63732c82e5ae2bf657eb5a8c",
+        "bytes": 44768
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_15.parquet",
+        "sha256": "1317b9f0f48867bc6c817c0ad09cc8d19ed3ae53de9cc94bbbf86daf3c9452e8",
+        "bytes": 39818
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_16.parquet",
+        "sha256": "339d6e225e8b8854d9bdebd0c103dcc0bd3df0a1938b139723866d163ae43cf4",
+        "bytes": 45969
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_17.parquet",
+        "sha256": "63feaab3f8cdd0251055ba5025742fb9460103940deca0763abc9698f77ffbf3",
+        "bytes": 43260
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_18.parquet",
+        "sha256": "24bb6ba7a94d0ce712b345d4b04cf99c248a2c26d4f064b57fc86bca47ad7fb2",
+        "bytes": 47531
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_19.parquet",
+        "sha256": "b4f0df84fc553577968698d1c2b130a66996418071b6323e944295cf9224ac4c",
+        "bytes": 44294
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_20.parquet",
+        "sha256": "8f881f81b1c9b54a35536373840d82e2143b1b7ab12e2ae3cd32e12de615f091",
+        "bytes": 38787
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_21.parquet",
+        "sha256": "f4ec0b00d597a85b0401521625dce1229b3ae3a99d1776f3bd7da25aad1423d7",
+        "bytes": 48027
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_22.parquet",
+        "sha256": "3a66e93f5ebf524bce0e2670fec611595c94401f3fc185495f44f8e04c49590a",
+        "bytes": 42286
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_23.parquet",
+        "sha256": "91f4232f703e9ac2551ad4deacc62f9688d18df30fa9324b1b764652ff374223",
+        "bytes": 38555
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_24.parquet",
+        "sha256": "db2f5ec63eecfa8fcc3e098270f950b28d21643909c790be13b848c317735d7f",
+        "bytes": 49637
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_25.parquet",
+        "sha256": "e5d7ad7c9e38ded256e2f7a65eed11a485912917ef9bcc0e5172593ac29caea8",
+        "bytes": 45508
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_26.parquet",
+        "sha256": "0c0f40a0eaa707991b2740fd528a3f240010fba8e3366760fd6b4d64fa8cef74",
+        "bytes": 46486
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_27.parquet",
+        "sha256": "3626e41e9735baecc1a0cc2cffabafd421894ffdce55fefe54370c3c21f78ba1",
+        "bytes": 40230
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_28.parquet",
+        "sha256": "d7c318eb1d208b8b850539baa77e3ab169fcfa4f3cfa008f24814c13edc4bbb9",
+        "bytes": 49910
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_29.parquet",
+        "sha256": "bc7c299c1345d626d74ab113e5c1680a30d6ca0a70506026a5ae8beccc4b6afb",
+        "bytes": 45028
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_30.parquet",
+        "sha256": "2c8bf1a844dd1e51821b56f3aa9aca1320afe5e7f04fab5598ced0e397fbde4a",
+        "bytes": 50706
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_31.parquet",
+        "sha256": "f6a569bfef299b83ece4a5ba7125a1bcd129600c813e4c3d613a35dea7fb65e4",
+        "bytes": 53531
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_01.parquet",
+        "sha256": "760010c9fe13d57997581f5bd7df67c3c29116fe26a2a2b312de01d57154c644",
+        "bytes": 54342
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_02.parquet",
+        "sha256": "48f145f87ad0902d3b50caf222fb15487e31f451e3ed0a6722cddc1f14d4d733",
+        "bytes": 46973
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_03.parquet",
+        "sha256": "e5792b6ade77d7852ec6b314bea5f9064a1bcaabc14821673b28547a57776199",
+        "bytes": 42326
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_04.parquet",
+        "sha256": "1836c24609302d9b86be9926dbcc161441f41ff6d71eaf8d99e0f5ce1a06201b",
+        "bytes": 39085
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_05.parquet",
+        "sha256": "9a6c3bbfe2630b533ccce1117a0cb6615d8b6880acba7a0f605d2b7befa266b2",
+        "bytes": 47953
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_06.parquet",
+        "sha256": "b5bd21bf8f37bad638ea92d6ee7521740e54040ba011c1acd09372e3735cd947",
+        "bytes": 44738
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_07.parquet",
+        "sha256": "741c32a2509ea835594abf3e87141004432cd1d20197e269f7a07ed3aee351a1",
+        "bytes": 58977
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_08.parquet",
+        "sha256": "8a27e28d43844ab84a587526125170f5446a176665948a3594f1ab8d91d4f128",
+        "bytes": 74746
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_09.parquet",
+        "sha256": "e337d2c048f2ebaf2e456d10de457d00e4d00206bc00fdfd48ff74df51950a4c",
+        "bytes": 68346
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_10.parquet",
+        "sha256": "cab728b2f0f40ecb6fe545bf392ee18e29ebb03c9108cb5b1c3b3663b26cc6be",
+        "bytes": 54619
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_11.parquet",
+        "sha256": "a10e05e07a1af873678613157de2c1df318365df173f9e965d176abeb8185836",
+        "bytes": 61637
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_12.parquet",
+        "sha256": "e3eb00cdb0af452cb0d1cc6de3e52e0c1f1f33c35738a51962322294211af9b7",
+        "bytes": 70232
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_13.parquet",
+        "sha256": "a44af096f4a03e805547e6775f603c32f986b2aa0beabe640ed63573d74a724b",
+        "bytes": 68016
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_14.parquet",
+        "sha256": "9341e789aaa9fddd3b55075ecdf1c034cf3fe85efbc5fa937d1cff07d92f05fe",
+        "bytes": 63600
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_15.parquet",
+        "sha256": "4b14475bcf921450eff244f5230102d9d03ecad108485f167ae4ebaa887bfd12",
+        "bytes": 60591
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_16.parquet",
+        "sha256": "bcfd4dc1e9b398c06a937a83d2927d8d09222e56301ec697cd47ece808337b90",
+        "bytes": 62245
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_17.parquet",
+        "sha256": "2e58131f25ae8e2f928291050a15dc7b2fdcb3c3886f152e55bb70f6cd24e959",
+        "bytes": 55714
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_18.parquet",
+        "sha256": "362779ebb1eb1d55c03ae751dbc24aa3232d516a12d026f04f1ab04631136346",
+        "bytes": 54243
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_19.parquet",
+        "sha256": "f58d70b8183600163bb568dec9aace6cb6f8bf7cfe53935467447985ec9ea7d6",
+        "bytes": 51852
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_20.parquet",
+        "sha256": "cfce48a7e50f705c22c54ced6a617d4892a6fb3ece0b2977159a46464c4bc556",
+        "bytes": 61449
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_21.parquet",
+        "sha256": "d3b66bda3157d8268f003b6795c8d76a582047f52ab0c799912be9a003660cce",
+        "bytes": 57196
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_22.parquet",
+        "sha256": "a24aafc7d4c2b6047dfa0345d815bacfd695e66fb1b90a891a7e6f40931bce14",
+        "bytes": 56760
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_23.parquet",
+        "sha256": "d83cb322a5420336e014f4923d88fd2167caa43715b0d3d8ad92545fd597fb80",
+        "bytes": 61204
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_24.parquet",
+        "sha256": "53a19588251ae5e41efa66a8e0eb641128d3143c69e4d3a5f8b08a3ea5414314",
+        "bytes": 60159
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_25.parquet",
+        "sha256": "50237cfcd997f87cf0ebdbf2ed29fbe05c3ff23c9ab7d07fbdcb53443ceedef7",
+        "bytes": 54835
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_26.parquet",
+        "sha256": "ef85056733e296083e5ff6d3a214e6775eef3901ab83d7328742a3a22967e4a1",
+        "bytes": 64201
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_27.parquet",
+        "sha256": "618f47a576273de843f2fe96d5490d6506de4486598c1edad79885947b36f2de",
+        "bytes": 67648
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_28.parquet",
+        "sha256": "947dc054d9755e296ae96b09ee7fc82e532b9d33101d4d9c40136b6c33f20526",
+        "bytes": 65996
+      },
+      {
+        "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_29.parquet",
+        "sha256": "a8ed82049cae7d174d187d92cda215c6d5f5bc4cecb9b8f6ecd4f463ba0e1946",
+        "bytes": 56558
+      }
+    ]
+  },
+  "funnel": {
+    "raw_rows": 72977,
+    "wallet_condition_groups": 9422,
+    "ambiguous_first_second_groups": 1249,
+    "valid_unique_first_observations": 7659,
+    "january_condition_universe": 340
+  },
+  "primary": {
+    "label_embargo_hours": 24,
+    "minimum_training_conditions": 3,
+    "price_band_sensitivity": false,
+    "allows_condition_overlap": false,
+    "train_eligible_wallets": 98,
+    "top_k": 25,
+    "train_conditions": 66,
+    "test_conditions": 143,
+    "models": {
+      "win_rate": {
+        "selected_wallets": 25,
+        "observed_future_wallets": 14,
+        "missing_future_wallets": 11,
+        "future_coverage": 0.56,
+        "test_conditions": 67,
+        "test_observations": 90,
+        "conditional_mean_edge_per_share": 0.07774064491597957,
+        "difference_vs_unranked": 0.054467095274740696,
+        "descriptive_cluster_interval_95": [
+          -0.020130228699802244,
+          0.15922820740672522
+        ],
+        "full_selected_missing_edge_bounds": [
+          -0.3964652388470515,
+          0.4835347611529485
+        ],
+        "selected_wallet_hashes": [
+          "16749c2bff35efd8",
+          "177d952b7a02a25e",
+          "1da4ba76131668e8",
+          "3740b8dda5ba949e",
+          "3b55fdbe544844f2",
+          "5b216beb56988594",
+          "6a9c876eab67c91d",
+          "73905832a2b3c2f1",
+          "7e8390196832fcf2",
+          "98bde3e7a49e73c5",
+          "adcfc838d7f77596",
+          "d4bfd5be1ccb0f97",
+          "1ee74c88b13ee2b9",
+          "74f93f6e0c0881e2",
+          "951828f4b9bc61ed",
+          "93cfb123e4d8629e",
+          "1c1fb246eeb82856",
+          "7c63ba6ec94a2b59",
+          "f0396d4b606676db",
+          "35e11d451cced11b",
+          "075d0b593184584c",
+          "1b92d455c3332897",
+          "4effa1d0513a1cb0",
+          "9bf17d13416573b1",
+          "a54eb5ff1528cb1d"
+        ]
+      },
+      "mean_edge": {
+        "selected_wallets": 25,
+        "observed_future_wallets": 15,
+        "missing_future_wallets": 10,
+        "future_coverage": 0.6,
+        "test_conditions": 43,
+        "test_observations": 65,
+        "conditional_mean_edge_per_share": 0.14980876288741143,
+        "difference_vs_unranked": 0.12653521324617256,
+        "descriptive_cluster_interval_95": [
+          0.021152419766683195,
+          0.20346760406502787
+        ],
+        "full_selected_missing_edge_bounds": [
+          -0.31011474226755315,
+          0.4898852577324469
+        ],
+        "selected_wallet_hashes": [
+          "3b55fdbe544844f2",
+          "3740b8dda5ba949e",
+          "177d952b7a02a25e",
+          "adcfc838d7f77596",
+          "6a9c876eab67c91d",
+          "1da4ba76131668e8",
+          "1ee74c88b13ee2b9",
+          "075d0b593184584c",
+          "9bf17d13416573b1",
+          "16749c2bff35efd8",
+          "9394e4321194da08",
+          "341d49778416142a",
+          "93cfb123e4d8629e",
+          "73905832a2b3c2f1",
+          "218536f6045ca69f",
+          "2c475fddcad530e5",
+          "e0b0238a28232e56",
+          "55824e52c888c598",
+          "7f1449b6349e3628",
+          "7e8390196832fcf2",
+          "3d9f5f7b3ac9c6e0",
+          "245b81ace5a36ab3",
+          "5b216beb56988594",
+          "1c1fb246eeb82856",
+          "eb3957452a9d6e0e"
+        ]
+      },
+      "shrinkage_edge": {
+        "selected_wallets": 25,
+        "observed_future_wallets": 16,
+        "missing_future_wallets": 9,
+        "future_coverage": 0.64,
+        "test_conditions": 120,
+        "test_observations": 188,
+        "conditional_mean_edge_per_share": 0.1328522665399034,
+        "difference_vs_unranked": 0.10957871689866452,
+        "descriptive_cluster_interval_95": [
+          0.012602111639187785,
+          0.17537505166873424
+        ],
+        "full_selected_missing_edge_bounds": [
+          -0.2749745494144618,
+          0.4450254505855382
+        ],
+        "selected_wallet_hashes": [
+          "3740b8dda5ba949e",
+          "1ee74c88b13ee2b9",
+          "177d952b7a02a25e",
+          "3b55fdbe544844f2",
+          "adcfc838d7f77596",
+          "93cfb123e4d8629e",
+          "6a9c876eab67c91d",
+          "075d0b593184584c",
+          "1da4ba76131668e8",
+          "9bf17d13416573b1",
+          "9394e4321194da08",
+          "341d49778416142a",
+          "73905832a2b3c2f1",
+          "536b0b577a47f2c1",
+          "e0b0238a28232e56",
+          "245b81ace5a36ab3",
+          "16749c2bff35efd8",
+          "74f93f6e0c0881e2",
+          "218536f6045ca69f",
+          "2c475fddcad530e5",
+          "3d9f5f7b3ac9c6e0",
+          "1c1fb246eeb82856",
+          "55824e52c888c598",
+          "7f1449b6349e3628",
+          "7e8390196832fcf2"
+        ]
+      },
+      "lcb_edge": {
+        "selected_wallets": 25,
+        "observed_future_wallets": 15,
+        "missing_future_wallets": 10,
+        "future_coverage": 0.6,
+        "test_conditions": 117,
+        "test_observations": 168,
+        "conditional_mean_edge_per_share": 0.06187532329458491,
+        "difference_vs_unranked": 0.038601773653346036,
+        "descriptive_cluster_interval_95": [
+          -0.046633657616967805,
+          0.15067337200889994
+        ],
+        "full_selected_missing_edge_bounds": [
+          -0.36287480602324906,
+          0.4371251939767509
+        ],
+        "selected_wallet_hashes": [
+          "3740b8dda5ba949e",
+          "177d952b7a02a25e",
+          "6a9c876eab67c91d",
+          "73905832a2b3c2f1",
+          "3b55fdbe544844f2",
+          "1ee74c88b13ee2b9",
+          "adcfc838d7f77596",
+          "16749c2bff35efd8",
+          "93cfb123e4d8629e",
+          "075d0b593184584c",
+          "9bf17d13416573b1",
+          "98bde3e7a49e73c5",
+          "7c63ba6ec94a2b59",
+          "d4bfd5be1ccb0f97",
+          "7e8390196832fcf2",
+          "536b0b577a47f2c1",
+          "54dc6077ba8d1648",
+          "1da4ba76131668e8",
+          "5b216beb56988594",
+          "fad258ab36937a8a",
+          "74f93f6e0c0881e2",
+          "245b81ace5a36ab3",
+          "fc2d9ea0fee8c25c",
+          "55824e52c888c598",
+          "16572317d659da1a"
+        ]
+      },
+      "unranked": {
+        "selected_wallets": 98,
+        "observed_future_wallets": 48,
+        "missing_future_wallets": 50,
+        "future_coverage": 0.4897959183673469,
+        "test_conditions": 143,
+        "test_observations": 433,
+        "conditional_mean_edge_per_share": 0.02327354964123887,
+        "difference_vs_unranked": 0.0,
+        "descriptive_cluster_interval_95": [
+          0.0,
+          0.0
+        ],
+        "full_selected_missing_edge_bounds": [
+          -0.4988047920124544,
+          0.5216033712528517
+        ],
+        "selected_wallet_hashes": [
+          "1c1fb246eeb82856",
+          "0bcafa1b8407c7db",
+          "95f6d2088788fca2",
+          "1014193b78e16da3",
+          "55824e52c888c598",
+          "16749c2bff35efd8",
+          "73d5859d1266513c",
+          "3d9f5f7b3ac9c6e0",
+          "93cfb123e4d8629e",
+          "74f93f6e0c0881e2",
+          "64a02e9ecddb2550",
+          "4effa1d0513a1cb0",
+          "7c63ba6ec94a2b59",
+          "a54eb5ff1528cb1d",
+          "9394e4321194da08",
+          "45a94331f249fdb4",
+          "3b55fdbe544844f2",
+          "5f51ef44b64be087",
+          "98bde3e7a49e73c5",
+          "ccbce5906af480f8",
+          "218536f6045ca69f",
+          "ea14863553402894",
+          "ba99552a4d715dd0",
+          "114d790c6815851f",
+          "2438c4707db7a238",
+          "56dfeebc693d854c",
+          "400aa3cc94fedc07",
+          "eb4967c99bc04377",
+          "f19bed014b94d545",
+          "8cfe7d89b47921f9",
+          "6a5551d7414af37a",
+          "6cf537a68dc9c544",
+          "c56574df6a4b2c4e",
+          "177d952b7a02a25e",
+          "93031f4095055dce",
+          "e49880837b567243",
+          "2c475fddcad530e5",
+          "1b92d455c3332897",
+          "9a227b45b47c4169",
+          "e487d4b000ed822b",
+          "2d37193b02da31c6",
+          "075d0b593184584c",
+          "1379a6e366c37211",
+          "70e809fe9f770495",
+          "341d49778416142a",
+          "d4bfd5be1ccb0f97",
+          "c58c405f8d43ea5b",
+          "59e1ded95459fe23",
+          "5b216beb56988594",
+          "c8185f548a40c076",
+          "73905832a2b3c2f1",
+          "35e11d451cced11b",
+          "9bf17d13416573b1",
+          "bec6b06b81f7f134",
+          "2a6a7db99bcbbf97",
+          "400e002683354746",
+          "d97363d2eba530ec",
+          "fad258ab36937a8a",
+          "1a074c65fce2bf69",
+          "2b36d58032a72970",
+          "b5a08d2c3222080e",
+          "16572317d659da1a",
+          "52e55953b3a9900b",
+          "536b0b577a47f2c1",
+          "7e8390196832fcf2",
+          "bc6002fed9a96d9c",
+          "6987ca4ffd8e22ba",
+          "14ce630454832d55",
+          "03b6da55f2f6fc39",
+          "00043cc8d9c90590",
+          "1da4ba76131668e8",
+          "adcfc838d7f77596",
+          "30dc2e4927148c3e",
+          "01db99e817f9391f",
+          "7d30b764ab68a4d8",
+          "c8cd13ed3ac14d11",
+          "1c3d65cae475ac78",
+          "3dfa8b360c3ce991",
+          "6a9c876eab67c91d",
+          "02f7f871d85c036b",
+          "3740b8dda5ba949e",
+          "ee1efb62d971631b",
+          "e0b0238a28232e56",
+          "9fbcb432c99422da",
+          "f0396d4b606676db",
+          "74f00f6516b80d15",
+          "7f1449b6349e3628",
+          "1ee74c88b13ee2b9",
+          "fc2d9ea0fee8c25c",
+          "50b7935f3a46abbd",
+          "15eb8d064b321100",
+          "d79c5af0041b5dab",
+          "ac2be5ee0ade709f",
+          "54dc6077ba8d1648",
+          "951828f4b9bc61ed",
+          "eb3957452a9d6e0e",
+          "b89ac58c6908fbb4",
+          "245b81ace5a36ab3"
+        ]
+      }
+    },
+    "random_top_k": {
+      "expected_edge_conditional_on_future_observation": 0.02327354964123887,
+      "sampling_variance": "not estimated; expected value alone does not describe random subset risk"
+    }
+  },
+  "sensitivities": {
+    "minimum_n5": {
+      "label_embargo_hours": 24,
+      "minimum_training_conditions": 5,
+      "price_band_sensitivity": false,
+      "allows_condition_overlap": false,
+      "train_eligible_wallets": 30,
+      "top_k": 8,
+      "train_conditions": 65,
+      "test_conditions": 136,
+      "models": {
+        "win_rate": {
+          "selected_wallets": 8,
+          "observed_future_wallets": 4,
+          "missing_future_wallets": 4,
+          "future_coverage": 0.5,
+          "test_conditions": 46,
+          "test_observations": 48,
+          "conditional_mean_edge_per_share": -0.1634205420499089,
+          "difference_vs_unranked": -0.16657098870311168,
+          "descriptive_cluster_interval_95": [
+            -0.39521365937687913,
+            0.14122581509543095
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.5817102710249544,
+            0.41828972897504557
+          ],
+          "selected_wallet_hashes": [
+            "177d952b7a02a25e",
+            "3740b8dda5ba949e",
+            "1ee74c88b13ee2b9",
+            "74f93f6e0c0881e2",
+            "951828f4b9bc61ed",
+            "93cfb123e4d8629e",
+            "1c1fb246eeb82856",
+            "7c63ba6ec94a2b59"
+          ]
+        },
+        "mean_edge": {
+          "selected_wallets": 8,
+          "observed_future_wallets": 5,
+          "missing_future_wallets": 3,
+          "future_coverage": 0.625,
+          "test_conditions": 53,
+          "test_observations": 57,
+          "conditional_mean_edge_per_share": 0.10393023302673957,
+          "difference_vs_unranked": 0.10077978637353681,
+          "descriptive_cluster_interval_95": [
+            -0.08371460730300934,
+            0.22469403604498198
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.31004360435828776,
+            0.43995639564171224
+          ],
+          "selected_wallet_hashes": [
+            "3740b8dda5ba949e",
+            "177d952b7a02a25e",
+            "1ee74c88b13ee2b9",
+            "93cfb123e4d8629e",
+            "3d9f5f7b3ac9c6e0",
+            "245b81ace5a36ab3",
+            "1c1fb246eeb82856",
+            "74f93f6e0c0881e2"
+          ]
+        },
+        "shrinkage_edge": {
+          "selected_wallets": 8,
+          "observed_future_wallets": 6,
+          "missing_future_wallets": 2,
+          "future_coverage": 0.75,
+          "test_conditions": 110,
+          "test_observations": 139,
+          "conditional_mean_edge_per_share": 0.0882508039450472,
+          "difference_vs_unranked": 0.08510035729184444,
+          "descriptive_cluster_interval_95": [
+            -0.06463288046016269,
+            0.18119252183348014
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.1838118970412146,
+            0.3161881029587854
+          ],
+          "selected_wallet_hashes": [
+            "3740b8dda5ba949e",
+            "1ee74c88b13ee2b9",
+            "177d952b7a02a25e",
+            "93cfb123e4d8629e",
+            "536b0b577a47f2c1",
+            "245b81ace5a36ab3",
+            "74f93f6e0c0881e2",
+            "3d9f5f7b3ac9c6e0"
+          ]
+        },
+        "lcb_edge": {
+          "selected_wallets": 8,
+          "observed_future_wallets": 6,
+          "missing_future_wallets": 2,
+          "future_coverage": 0.75,
+          "test_conditions": 108,
+          "test_observations": 134,
+          "conditional_mean_edge_per_share": -0.04772141827717502,
+          "difference_vs_unranked": -0.05087186493037778,
+          "descriptive_cluster_interval_95": [
+            -0.19466698173185285,
+            0.18638972695667674
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.28579106370788127,
+            0.21420893629211873
+          ],
+          "selected_wallet_hashes": [
+            "3740b8dda5ba949e",
+            "177d952b7a02a25e",
+            "1ee74c88b13ee2b9",
+            "93cfb123e4d8629e",
+            "7c63ba6ec94a2b59",
+            "536b0b577a47f2c1",
+            "74f93f6e0c0881e2",
+            "245b81ace5a36ab3"
+          ]
+        },
+        "unranked": {
+          "selected_wallets": 30,
+          "observed_future_wallets": 22,
+          "missing_future_wallets": 8,
+          "future_coverage": 0.7333333333333333,
+          "test_conditions": 136,
+          "test_observations": 325,
+          "conditional_mean_edge_per_share": 0.0031504466532027583,
+          "difference_vs_unranked": 0.0,
+          "descriptive_cluster_interval_95": [
+            0.0,
+            0.0
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.26435633912098466,
+            0.26897699421234866
+          ],
+          "selected_wallet_hashes": [
+            "1c1fb246eeb82856",
+            "3d9f5f7b3ac9c6e0",
+            "93cfb123e4d8629e",
+            "74f93f6e0c0881e2",
+            "7c63ba6ec94a2b59",
+            "45a94331f249fdb4",
+            "f19bed014b94d545",
+            "8cfe7d89b47921f9",
+            "6a5551d7414af37a",
+            "6cf537a68dc9c544",
+            "177d952b7a02a25e",
+            "1379a6e366c37211",
+            "70e809fe9f770495",
+            "35e11d451cced11b",
+            "1a074c65fce2bf69",
+            "2b36d58032a72970",
+            "52e55953b3a9900b",
+            "536b0b577a47f2c1",
+            "6987ca4ffd8e22ba",
+            "03b6da55f2f6fc39",
+            "01db99e817f9391f",
+            "1c3d65cae475ac78",
+            "3740b8dda5ba949e",
+            "9fbcb432c99422da",
+            "f0396d4b606676db",
+            "1ee74c88b13ee2b9",
+            "15eb8d064b321100",
+            "d79c5af0041b5dab",
+            "951828f4b9bc61ed",
+            "245b81ace5a36ab3"
+          ]
+        }
+      },
+      "random_top_k": {
+        "expected_edge_conditional_on_future_observation": 0.0031504466532027583,
+        "sampling_variance": "not estimated; expected value alone does not describe random subset risk"
+      }
+    },
+    "price_10_90": {
+      "label_embargo_hours": 24,
+      "minimum_training_conditions": 3,
+      "price_band_sensitivity": true,
+      "allows_condition_overlap": false,
+      "train_eligible_wallets": 65,
+      "top_k": 17,
+      "train_conditions": 46,
+      "test_conditions": 99,
+      "models": {
+        "win_rate": {
+          "selected_wallets": 17,
+          "observed_future_wallets": 9,
+          "missing_future_wallets": 8,
+          "future_coverage": 0.5294117647058824,
+          "test_conditions": 83,
+          "test_observations": 111,
+          "conditional_mean_edge_per_share": 0.21227932885368944,
+          "difference_vs_unranked": 0.13432142020786897,
+          "descriptive_cluster_interval_95": [
+            -0.0039042627552744735,
+            0.2411386212030427
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.3582050611951056,
+            0.5829714093931297
+          ],
+          "selected_wallet_hashes": [
+            "075d0b593184584c",
+            "16749c2bff35efd8",
+            "177d952b7a02a25e",
+            "1ee74c88b13ee2b9",
+            "3740b8dda5ba949e",
+            "3b55fdbe544844f2",
+            "6a9c876eab67c91d",
+            "73905832a2b3c2f1",
+            "93cfb123e4d8629e",
+            "9bf17d13416573b1",
+            "adcfc838d7f77596",
+            "245b81ace5a36ab3",
+            "74f93f6e0c0881e2",
+            "536b0b577a47f2c1",
+            "1c1fb246eeb82856",
+            "951828f4b9bc61ed",
+            "e0b0238a28232e56"
+          ]
+        },
+        "mean_edge": {
+          "selected_wallets": 17,
+          "observed_future_wallets": 11,
+          "missing_future_wallets": 6,
+          "future_coverage": 0.6470588235294118,
+          "test_conditions": 75,
+          "test_observations": 92,
+          "conditional_mean_edge_per_share": 0.21300487702251217,
+          "difference_vs_unranked": 0.13504696837669172,
+          "descriptive_cluster_interval_95": [
+            0.025732494181279514,
+            0.2407142307649567
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.21511449133837446,
+            0.490767861602802
+          ],
+          "selected_wallet_hashes": [
+            "1ee74c88b13ee2b9",
+            "3b55fdbe544844f2",
+            "3740b8dda5ba949e",
+            "075d0b593184584c",
+            "177d952b7a02a25e",
+            "9394e4321194da08",
+            "adcfc838d7f77596",
+            "9bf17d13416573b1",
+            "6a9c876eab67c91d",
+            "341d49778416142a",
+            "93cfb123e4d8629e",
+            "3d9f5f7b3ac9c6e0",
+            "16749c2bff35efd8",
+            "73905832a2b3c2f1",
+            "536b0b577a47f2c1",
+            "245b81ace5a36ab3",
+            "218536f6045ca69f"
+          ]
+        },
+        "shrinkage_edge": {
+          "selected_wallets": 17,
+          "observed_future_wallets": 10,
+          "missing_future_wallets": 7,
+          "future_coverage": 0.5882352941176471,
+          "test_conditions": 84,
+          "test_observations": 121,
+          "conditional_mean_edge_per_share": 0.2161625075819062,
+          "difference_vs_unranked": 0.13820459893608572,
+          "descriptive_cluster_interval_95": [
+            0.017705169007800677,
+            0.23349100715388063
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.28461028965770224,
+            0.5389191221070037
+          ],
+          "selected_wallet_hashes": [
+            "1ee74c88b13ee2b9",
+            "3740b8dda5ba949e",
+            "177d952b7a02a25e",
+            "536b0b577a47f2c1",
+            "3b55fdbe544844f2",
+            "93cfb123e4d8629e",
+            "075d0b593184584c",
+            "9394e4321194da08",
+            "adcfc838d7f77596",
+            "9bf17d13416573b1",
+            "6a9c876eab67c91d",
+            "341d49778416142a",
+            "245b81ace5a36ab3",
+            "74f93f6e0c0881e2",
+            "73905832a2b3c2f1",
+            "e0b0238a28232e56",
+            "3d9f5f7b3ac9c6e0"
+          ]
+        },
+        "lcb_edge": {
+          "selected_wallets": 17,
+          "observed_future_wallets": 10,
+          "missing_future_wallets": 7,
+          "future_coverage": 0.5882352941176471,
+          "test_conditions": 85,
+          "test_observations": 137,
+          "conditional_mean_edge_per_share": 0.18517062673755125,
+          "difference_vs_unranked": 0.10721271809173079,
+          "descriptive_cluster_interval_95": [
+            -0.014314749137166138,
+            0.1951665588573163
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.30284080780144046,
+            0.5206886039632654
+          ],
+          "selected_wallet_hashes": [
+            "1ee74c88b13ee2b9",
+            "3740b8dda5ba949e",
+            "177d952b7a02a25e",
+            "93cfb123e4d8629e",
+            "6a9c876eab67c91d",
+            "73905832a2b3c2f1",
+            "075d0b593184584c",
+            "3b55fdbe544844f2",
+            "adcfc838d7f77596",
+            "9bf17d13416573b1",
+            "16749c2bff35efd8",
+            "536b0b577a47f2c1",
+            "245b81ace5a36ab3",
+            "74f93f6e0c0881e2",
+            "341d49778416142a",
+            "1c1fb246eeb82856",
+            "45a94331f249fdb4"
+          ]
+        },
+        "unranked": {
+          "selected_wallets": 65,
+          "observed_future_wallets": 29,
+          "missing_future_wallets": 36,
+          "future_coverage": 0.4461538461538462,
+          "test_conditions": 99,
+          "test_observations": 245,
+          "conditional_mean_edge_per_share": 0.07795790864582046,
+          "difference_vs_unranked": 0.0,
+          "descriptive_cluster_interval_95": [
+            0.0,
+            0.0
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.5190649330657108,
+            0.5886273746265969
+          ],
+          "selected_wallet_hashes": [
+            "1c1fb246eeb82856",
+            "95f6d2088788fca2",
+            "1014193b78e16da3",
+            "16749c2bff35efd8",
+            "73d5859d1266513c",
+            "3d9f5f7b3ac9c6e0",
+            "93cfb123e4d8629e",
+            "74f93f6e0c0881e2",
+            "64a02e9ecddb2550",
+            "4effa1d0513a1cb0",
+            "a54eb5ff1528cb1d",
+            "9394e4321194da08",
+            "45a94331f249fdb4",
+            "3b55fdbe544844f2",
+            "218536f6045ca69f",
+            "ea14863553402894",
+            "114d790c6815851f",
+            "2438c4707db7a238",
+            "56dfeebc693d854c",
+            "eb4967c99bc04377",
+            "f19bed014b94d545",
+            "8cfe7d89b47921f9",
+            "6a5551d7414af37a",
+            "177d952b7a02a25e",
+            "93031f4095055dce",
+            "2c475fddcad530e5",
+            "1b92d455c3332897",
+            "e487d4b000ed822b",
+            "075d0b593184584c",
+            "1379a6e366c37211",
+            "70e809fe9f770495",
+            "341d49778416142a",
+            "73905832a2b3c2f1",
+            "35e11d451cced11b",
+            "9bf17d13416573b1",
+            "bec6b06b81f7f134",
+            "400e002683354746",
+            "d97363d2eba530ec",
+            "1a074c65fce2bf69",
+            "2b36d58032a72970",
+            "b5a08d2c3222080e",
+            "536b0b577a47f2c1",
+            "bc6002fed9a96d9c",
+            "6987ca4ffd8e22ba",
+            "14ce630454832d55",
+            "03b6da55f2f6fc39",
+            "00043cc8d9c90590",
+            "adcfc838d7f77596",
+            "30dc2e4927148c3e",
+            "1c3d65cae475ac78",
+            "3dfa8b360c3ce991",
+            "6a9c876eab67c91d",
+            "3740b8dda5ba949e",
+            "ee1efb62d971631b",
+            "e0b0238a28232e56",
+            "9fbcb432c99422da",
+            "74f00f6516b80d15",
+            "7f1449b6349e3628",
+            "1ee74c88b13ee2b9",
+            "50b7935f3a46abbd",
+            "15eb8d064b321100",
+            "d79c5af0041b5dab",
+            "ac2be5ee0ade709f",
+            "951828f4b9bc61ed",
+            "245b81ace5a36ab3"
+          ]
+        }
+      },
+      "random_top_k": {
+        "expected_edge_conditional_on_future_observation": 0.07795790864582046,
+        "sampling_variance": "not estimated; expected value alone does not describe random subset risk"
+      }
+    },
+    "embargo_0h": {
+      "label_embargo_hours": 0,
+      "minimum_training_conditions": 3,
+      "price_band_sensitivity": false,
+      "allows_condition_overlap": false,
+      "train_eligible_wallets": 101,
+      "top_k": 26,
+      "train_conditions": 71,
+      "test_conditions": 143,
+      "models": {
+        "win_rate": {
+          "selected_wallets": 26,
+          "observed_future_wallets": 15,
+          "missing_future_wallets": 11,
+          "future_coverage": 0.5769230769230769,
+          "test_conditions": 70,
+          "test_observations": 93,
+          "conditional_mean_edge_per_share": 0.08766904860602573,
+          "difference_vs_unranked": 0.07559309066506661,
+          "descriptive_cluster_interval_95": [
+            -0.008224005600245894,
+            0.17649037594980047
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.3724986258042159,
+            0.47365522034963026
+          ],
+          "selected_wallet_hashes": [
+            "0cbcb1f39ffa98ac",
+            "16749c2bff35efd8",
+            "177d952b7a02a25e",
+            "1da4ba76131668e8",
+            "3740b8dda5ba949e",
+            "3b55fdbe544844f2",
+            "5b216beb56988594",
+            "6a9c876eab67c91d",
+            "73905832a2b3c2f1",
+            "7e8390196832fcf2",
+            "98bde3e7a49e73c5",
+            "adcfc838d7f77596",
+            "d4bfd5be1ccb0f97",
+            "1ee74c88b13ee2b9",
+            "74f93f6e0c0881e2",
+            "951828f4b9bc61ed",
+            "93cfb123e4d8629e",
+            "1c1fb246eeb82856",
+            "7c63ba6ec94a2b59",
+            "f0396d4b606676db",
+            "35e11d451cced11b",
+            "075d0b593184584c",
+            "1b92d455c3332897",
+            "4effa1d0513a1cb0",
+            "9bf17d13416573b1",
+            "a54eb5ff1528cb1d"
+          ]
+        },
+        "mean_edge": {
+          "selected_wallets": 26,
+          "observed_future_wallets": 15,
+          "missing_future_wallets": 11,
+          "future_coverage": 0.5769230769230769,
+          "test_conditions": 43,
+          "test_observations": 64,
+          "conditional_mean_edge_per_share": 0.14108654290518957,
+          "difference_vs_unranked": 0.12901058496423046,
+          "descriptive_cluster_interval_95": [
+            0.0316390945170711,
+            0.1928634432723838
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.3416808406316214,
+            0.5044730055222247
+          ],
+          "selected_wallet_hashes": [
+            "3b55fdbe544844f2",
+            "3740b8dda5ba949e",
+            "177d952b7a02a25e",
+            "adcfc838d7f77596",
+            "6a9c876eab67c91d",
+            "1da4ba76131668e8",
+            "1ee74c88b13ee2b9",
+            "075d0b593184584c",
+            "9bf17d13416573b1",
+            "16749c2bff35efd8",
+            "9394e4321194da08",
+            "341d49778416142a",
+            "93cfb123e4d8629e",
+            "73905832a2b3c2f1",
+            "218536f6045ca69f",
+            "2c475fddcad530e5",
+            "e0b0238a28232e56",
+            "55824e52c888c598",
+            "7f1449b6349e3628",
+            "0cbcb1f39ffa98ac",
+            "7e8390196832fcf2",
+            "3d9f5f7b3ac9c6e0",
+            "5b216beb56988594",
+            "1c1fb246eeb82856",
+            "eb3957452a9d6e0e",
+            "73d5859d1266513c"
+          ]
+        },
+        "shrinkage_edge": {
+          "selected_wallets": 26,
+          "observed_future_wallets": 17,
+          "missing_future_wallets": 9,
+          "future_coverage": 0.6538461538461539,
+          "test_conditions": 120,
+          "test_observations": 191,
+          "conditional_mean_edge_per_share": 0.13837076264147802,
+          "difference_vs_unranked": 0.1262948047005189,
+          "descriptive_cluster_interval_95": [
+            0.017443170139223925,
+            0.188815551020786
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.2556806551959567,
+            0.4366270371117356
+          ],
+          "selected_wallet_hashes": [
+            "3740b8dda5ba949e",
+            "1ee74c88b13ee2b9",
+            "177d952b7a02a25e",
+            "3b55fdbe544844f2",
+            "adcfc838d7f77596",
+            "93cfb123e4d8629e",
+            "6a9c876eab67c91d",
+            "075d0b593184584c",
+            "1da4ba76131668e8",
+            "9bf17d13416573b1",
+            "9394e4321194da08",
+            "341d49778416142a",
+            "73905832a2b3c2f1",
+            "536b0b577a47f2c1",
+            "e0b0238a28232e56",
+            "16749c2bff35efd8",
+            "74f93f6e0c0881e2",
+            "245b81ace5a36ab3",
+            "218536f6045ca69f",
+            "2c475fddcad530e5",
+            "3d9f5f7b3ac9c6e0",
+            "1c1fb246eeb82856",
+            "55824e52c888c598",
+            "7f1449b6349e3628",
+            "0cbcb1f39ffa98ac",
+            "7e8390196832fcf2"
+          ]
+        },
+        "lcb_edge": {
+          "selected_wallets": 26,
+          "observed_future_wallets": 16,
+          "missing_future_wallets": 10,
+          "future_coverage": 0.6153846153846154,
+          "test_conditions": 117,
+          "test_observations": 171,
+          "conditional_mean_edge_per_share": 0.07217478435534036,
+          "difference_vs_unranked": 0.06009882641438125,
+          "descriptive_cluster_interval_95": [
+            -0.038323888999010396,
+            0.16685166029705928
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.3402001327044059,
+            0.4290306365263633
+          ],
+          "selected_wallet_hashes": [
+            "3740b8dda5ba949e",
+            "177d952b7a02a25e",
+            "6a9c876eab67c91d",
+            "73905832a2b3c2f1",
+            "3b55fdbe544844f2",
+            "1ee74c88b13ee2b9",
+            "adcfc838d7f77596",
+            "16749c2bff35efd8",
+            "93cfb123e4d8629e",
+            "075d0b593184584c",
+            "9bf17d13416573b1",
+            "98bde3e7a49e73c5",
+            "7c63ba6ec94a2b59",
+            "0cbcb1f39ffa98ac",
+            "d4bfd5be1ccb0f97",
+            "7e8390196832fcf2",
+            "536b0b577a47f2c1",
+            "54dc6077ba8d1648",
+            "1da4ba76131668e8",
+            "5b216beb56988594",
+            "fad258ab36937a8a",
+            "74f93f6e0c0881e2",
+            "245b81ace5a36ab3",
+            "fc2d9ea0fee8c25c",
+            "55824e52c888c598",
+            "16572317d659da1a"
+          ]
+        },
+        "unranked": {
+          "selected_wallets": 101,
+          "observed_future_wallets": 50,
+          "missing_future_wallets": 51,
+          "future_coverage": 0.49504950495049505,
+          "test_conditions": 143,
+          "test_observations": 437,
+          "conditional_mean_edge_per_share": 0.01207595794095911,
+          "difference_vs_unranked": 0.0,
+          "descriptive_cluster_interval_95": [
+            0.0,
+            0.0
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.49897229804903015,
+            0.5109286920499797
+          ],
+          "selected_wallet_hashes": [
+            "1c1fb246eeb82856",
+            "0bcafa1b8407c7db",
+            "95f6d2088788fca2",
+            "1014193b78e16da3",
+            "55824e52c888c598",
+            "16749c2bff35efd8",
+            "73d5859d1266513c",
+            "3d9f5f7b3ac9c6e0",
+            "93cfb123e4d8629e",
+            "74f93f6e0c0881e2",
+            "64a02e9ecddb2550",
+            "4effa1d0513a1cb0",
+            "7c63ba6ec94a2b59",
+            "a54eb5ff1528cb1d",
+            "9394e4321194da08",
+            "45a94331f249fdb4",
+            "3b55fdbe544844f2",
+            "5f51ef44b64be087",
+            "98bde3e7a49e73c5",
+            "ccbce5906af480f8",
+            "218536f6045ca69f",
+            "ea14863553402894",
+            "ba99552a4d715dd0",
+            "114d790c6815851f",
+            "2438c4707db7a238",
+            "56dfeebc693d854c",
+            "400aa3cc94fedc07",
+            "eb4967c99bc04377",
+            "f19bed014b94d545",
+            "8cfe7d89b47921f9",
+            "6a5551d7414af37a",
+            "6cf537a68dc9c544",
+            "c56574df6a4b2c4e",
+            "177d952b7a02a25e",
+            "93031f4095055dce",
+            "e49880837b567243",
+            "2c475fddcad530e5",
+            "1b92d455c3332897",
+            "9a227b45b47c4169",
+            "e487d4b000ed822b",
+            "2d37193b02da31c6",
+            "075d0b593184584c",
+            "1379a6e366c37211",
+            "70e809fe9f770495",
+            "341d49778416142a",
+            "d4bfd5be1ccb0f97",
+            "c58c405f8d43ea5b",
+            "59e1ded95459fe23",
+            "5b216beb56988594",
+            "c8185f548a40c076",
+            "73905832a2b3c2f1",
+            "35e11d451cced11b",
+            "9bf17d13416573b1",
+            "bec6b06b81f7f134",
+            "2a6a7db99bcbbf97",
+            "400e002683354746",
+            "d97363d2eba530ec",
+            "fad258ab36937a8a",
+            "1a074c65fce2bf69",
+            "2b36d58032a72970",
+            "b5a08d2c3222080e",
+            "0cbcb1f39ffa98ac",
+            "16572317d659da1a",
+            "52e55953b3a9900b",
+            "536b0b577a47f2c1",
+            "7e8390196832fcf2",
+            "bc6002fed9a96d9c",
+            "6987ca4ffd8e22ba",
+            "14ce630454832d55",
+            "03b6da55f2f6fc39",
+            "00043cc8d9c90590",
+            "1da4ba76131668e8",
+            "adcfc838d7f77596",
+            "30dc2e4927148c3e",
+            "01db99e817f9391f",
+            "7d30b764ab68a4d8",
+            "c8cd13ed3ac14d11",
+            "1c3d65cae475ac78",
+            "3dfa8b360c3ce991",
+            "6a9c876eab67c91d",
+            "02f7f871d85c036b",
+            "3740b8dda5ba949e",
+            "ee1efb62d971631b",
+            "e0b0238a28232e56",
+            "9fbcb432c99422da",
+            "f0396d4b606676db",
+            "74f00f6516b80d15",
+            "7f1449b6349e3628",
+            "1ee74c88b13ee2b9",
+            "fc2d9ea0fee8c25c",
+            "50b7935f3a46abbd",
+            "15eb8d064b321100",
+            "d79c5af0041b5dab",
+            "a8f50a0a2ee4bbe1",
+            "d15d76e49e81b5ae",
+            "ac2be5ee0ade709f",
+            "54dc6077ba8d1648",
+            "951828f4b9bc61ed",
+            "eb3957452a9d6e0e",
+            "b89ac58c6908fbb4",
+            "245b81ace5a36ab3"
+          ]
+        }
+      },
+      "random_top_k": {
+        "expected_edge_conditional_on_future_observation": 0.01207595794095911,
+        "sampling_variance": "not estimated; expected value alone does not describe random subset risk"
+      }
+    },
+    "embargo_168h": {
+      "label_embargo_hours": 168,
+      "minimum_training_conditions": 3,
+      "price_band_sensitivity": false,
+      "allows_condition_overlap": false,
+      "train_eligible_wallets": 96,
+      "top_k": 24,
+      "train_conditions": 62,
+      "test_conditions": 143,
+      "models": {
+        "win_rate": {
+          "selected_wallets": 24,
+          "observed_future_wallets": 14,
+          "missing_future_wallets": 10,
+          "future_coverage": 0.5833333333333334,
+          "test_conditions": 72,
+          "test_observations": 98,
+          "conditional_mean_edge_per_share": 0.1393791755609653,
+          "difference_vs_unranked": 0.11164235890608305,
+          "descriptive_cluster_interval_95": [
+            0.03127064308588901,
+            0.16532930079594055
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.3353621475894369,
+            0.4979711857438964
+          ],
+          "selected_wallet_hashes": [
+            "16749c2bff35efd8",
+            "177d952b7a02a25e",
+            "1da4ba76131668e8",
+            "3740b8dda5ba949e",
+            "3b55fdbe544844f2",
+            "52e55953b3a9900b",
+            "5b216beb56988594",
+            "6a9c876eab67c91d",
+            "73905832a2b3c2f1",
+            "74f93f6e0c0881e2",
+            "7e8390196832fcf2",
+            "98bde3e7a49e73c5",
+            "adcfc838d7f77596",
+            "d4bfd5be1ccb0f97",
+            "f0396d4b606676db",
+            "1ee74c88b13ee2b9",
+            "951828f4b9bc61ed",
+            "93cfb123e4d8629e",
+            "35e11d451cced11b",
+            "03b6da55f2f6fc39",
+            "075d0b593184584c",
+            "1b92d455c3332897",
+            "1c1fb246eeb82856",
+            "4effa1d0513a1cb0"
+          ]
+        },
+        "mean_edge": {
+          "selected_wallets": 24,
+          "observed_future_wallets": 16,
+          "missing_future_wallets": 8,
+          "future_coverage": 0.6666666666666666,
+          "test_conditions": 70,
+          "test_observations": 102,
+          "conditional_mean_edge_per_share": 0.12487514886657272,
+          "difference_vs_unranked": 0.09713833221169048,
+          "descriptive_cluster_interval_95": [
+            0.0018941570396043272,
+            0.16153568369838256
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.25008323408895156,
+            0.41658343257771513
+          ],
+          "selected_wallet_hashes": [
+            "3b55fdbe544844f2",
+            "3740b8dda5ba949e",
+            "177d952b7a02a25e",
+            "adcfc838d7f77596",
+            "6a9c876eab67c91d",
+            "1da4ba76131668e8",
+            "1ee74c88b13ee2b9",
+            "075d0b593184584c",
+            "9bf17d13416573b1",
+            "16749c2bff35efd8",
+            "341d49778416142a",
+            "93cfb123e4d8629e",
+            "73905832a2b3c2f1",
+            "218536f6045ca69f",
+            "2c475fddcad530e5",
+            "e0b0238a28232e56",
+            "55824e52c888c598",
+            "74f93f6e0c0881e2",
+            "7f1449b6349e3628",
+            "7e8390196832fcf2",
+            "f0396d4b606676db",
+            "3d9f5f7b3ac9c6e0",
+            "245b81ace5a36ab3",
+            "5b216beb56988594"
+          ]
+        },
+        "shrinkage_edge": {
+          "selected_wallets": 24,
+          "observed_future_wallets": 16,
+          "missing_future_wallets": 8,
+          "future_coverage": 0.6666666666666666,
+          "test_conditions": 119,
+          "test_observations": 182,
+          "conditional_mean_edge_per_share": 0.12049100252510932,
+          "difference_vs_unranked": 0.09275418587022707,
+          "descriptive_cluster_interval_95": [
+            -0.0012042122481684598,
+            0.1541223450601431
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.2530059983165938,
+            0.4136606683500729
+          ],
+          "selected_wallet_hashes": [
+            "3740b8dda5ba949e",
+            "1ee74c88b13ee2b9",
+            "177d952b7a02a25e",
+            "3b55fdbe544844f2",
+            "adcfc838d7f77596",
+            "93cfb123e4d8629e",
+            "74f93f6e0c0881e2",
+            "6a9c876eab67c91d",
+            "075d0b593184584c",
+            "1da4ba76131668e8",
+            "9bf17d13416573b1",
+            "341d49778416142a",
+            "73905832a2b3c2f1",
+            "e0b0238a28232e56",
+            "245b81ace5a36ab3",
+            "16749c2bff35efd8",
+            "218536f6045ca69f",
+            "2c475fddcad530e5",
+            "3d9f5f7b3ac9c6e0",
+            "536b0b577a47f2c1",
+            "f0396d4b606676db",
+            "55824e52c888c598",
+            "7f1449b6349e3628",
+            "1c1fb246eeb82856"
+          ]
+        },
+        "lcb_edge": {
+          "selected_wallets": 24,
+          "observed_future_wallets": 15,
+          "missing_future_wallets": 9,
+          "future_coverage": 0.625,
+          "test_conditions": 117,
+          "test_observations": 172,
+          "conditional_mean_edge_per_share": 0.07849350360031782,
+          "difference_vs_unranked": 0.05075668694543557,
+          "descriptive_cluster_interval_95": [
+            -0.029576308319009505,
+            0.1612025364640763
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.32594156024980137,
+            0.4240584397501987
+          ],
+          "selected_wallet_hashes": [
+            "3740b8dda5ba949e",
+            "177d952b7a02a25e",
+            "6a9c876eab67c91d",
+            "73905832a2b3c2f1",
+            "3b55fdbe544844f2",
+            "1ee74c88b13ee2b9",
+            "adcfc838d7f77596",
+            "16749c2bff35efd8",
+            "93cfb123e4d8629e",
+            "74f93f6e0c0881e2",
+            "075d0b593184584c",
+            "9bf17d13416573b1",
+            "98bde3e7a49e73c5",
+            "d4bfd5be1ccb0f97",
+            "7e8390196832fcf2",
+            "7c63ba6ec94a2b59",
+            "52e55953b3a9900b",
+            "54dc6077ba8d1648",
+            "1da4ba76131668e8",
+            "5b216beb56988594",
+            "fad258ab36937a8a",
+            "536b0b577a47f2c1",
+            "245b81ace5a36ab3",
+            "fc2d9ea0fee8c25c"
+          ]
+        },
+        "unranked": {
+          "selected_wallets": 96,
+          "observed_future_wallets": 47,
+          "missing_future_wallets": 49,
+          "future_coverage": 0.4895833333333333,
+          "test_conditions": 143,
+          "test_observations": 431,
+          "conditional_mean_edge_per_share": 0.027736816654882247,
+          "difference_vs_unranked": 0.0,
+          "descriptive_cluster_interval_95": [
+            0.0,
+            0.0
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.4968371835127139,
+            0.5239961498206195
+          ],
+          "selected_wallet_hashes": [
+            "1c1fb246eeb82856",
+            "0bcafa1b8407c7db",
+            "95f6d2088788fca2",
+            "1014193b78e16da3",
+            "55824e52c888c598",
+            "16749c2bff35efd8",
+            "73d5859d1266513c",
+            "3d9f5f7b3ac9c6e0",
+            "93cfb123e4d8629e",
+            "74f93f6e0c0881e2",
+            "64a02e9ecddb2550",
+            "4effa1d0513a1cb0",
+            "7c63ba6ec94a2b59",
+            "a54eb5ff1528cb1d",
+            "9394e4321194da08",
+            "45a94331f249fdb4",
+            "3b55fdbe544844f2",
+            "5f51ef44b64be087",
+            "98bde3e7a49e73c5",
+            "ccbce5906af480f8",
+            "218536f6045ca69f",
+            "ea14863553402894",
+            "ba99552a4d715dd0",
+            "114d790c6815851f",
+            "2438c4707db7a238",
+            "56dfeebc693d854c",
+            "400aa3cc94fedc07",
+            "eb4967c99bc04377",
+            "f19bed014b94d545",
+            "8cfe7d89b47921f9",
+            "6a5551d7414af37a",
+            "6cf537a68dc9c544",
+            "c56574df6a4b2c4e",
+            "177d952b7a02a25e",
+            "93031f4095055dce",
+            "e49880837b567243",
+            "2c475fddcad530e5",
+            "1b92d455c3332897",
+            "9a227b45b47c4169",
+            "e487d4b000ed822b",
+            "2d37193b02da31c6",
+            "075d0b593184584c",
+            "1379a6e366c37211",
+            "70e809fe9f770495",
+            "341d49778416142a",
+            "d4bfd5be1ccb0f97",
+            "59e1ded95459fe23",
+            "5b216beb56988594",
+            "c8185f548a40c076",
+            "73905832a2b3c2f1",
+            "35e11d451cced11b",
+            "9bf17d13416573b1",
+            "bec6b06b81f7f134",
+            "2a6a7db99bcbbf97",
+            "400e002683354746",
+            "d97363d2eba530ec",
+            "fad258ab36937a8a",
+            "1a074c65fce2bf69",
+            "2b36d58032a72970",
+            "b5a08d2c3222080e",
+            "16572317d659da1a",
+            "52e55953b3a9900b",
+            "536b0b577a47f2c1",
+            "7e8390196832fcf2",
+            "bc6002fed9a96d9c",
+            "6987ca4ffd8e22ba",
+            "14ce630454832d55",
+            "03b6da55f2f6fc39",
+            "00043cc8d9c90590",
+            "1da4ba76131668e8",
+            "adcfc838d7f77596",
+            "01db99e817f9391f",
+            "7d30b764ab68a4d8",
+            "c8cd13ed3ac14d11",
+            "1c3d65cae475ac78",
+            "3dfa8b360c3ce991",
+            "6a9c876eab67c91d",
+            "02f7f871d85c036b",
+            "3740b8dda5ba949e",
+            "ee1efb62d971631b",
+            "e0b0238a28232e56",
+            "9fbcb432c99422da",
+            "f0396d4b606676db",
+            "74f00f6516b80d15",
+            "7f1449b6349e3628",
+            "1ee74c88b13ee2b9",
+            "fc2d9ea0fee8c25c",
+            "50b7935f3a46abbd",
+            "15eb8d064b321100",
+            "d79c5af0041b5dab",
+            "ac2be5ee0ade709f",
+            "54dc6077ba8d1648",
+            "951828f4b9bc61ed",
+            "eb3957452a9d6e0e",
+            "b89ac58c6908fbb4",
+            "245b81ace5a36ab3"
+          ]
+        }
+      },
+      "random_top_k": {
+        "expected_edge_conditional_on_future_observation": 0.027736816654882247,
+        "sampling_variance": "not estimated; expected value alone does not describe random subset risk"
+      }
+    },
+    "overlap_allowed_not_independent": {
+      "label_embargo_hours": 24,
+      "minimum_training_conditions": 3,
+      "price_band_sensitivity": false,
+      "allows_condition_overlap": true,
+      "train_eligible_wallets": 98,
+      "top_k": 25,
+      "train_conditions": 66,
+      "test_conditions": 245,
+      "models": {
+        "win_rate": {
+          "selected_wallets": 25,
+          "observed_future_wallets": 17,
+          "missing_future_wallets": 8,
+          "future_coverage": 0.68,
+          "test_conditions": 123,
+          "test_observations": 163,
+          "conditional_mean_edge_per_share": -0.004344771689599507,
+          "difference_vs_unranked": 0.006937732933967138,
+          "descriptive_cluster_interval_95": [
+            -0.04463481489696571,
+            0.10275694763782614
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.3229544447489277,
+            0.31704555525107236
+          ],
+          "selected_wallet_hashes": [
+            "16749c2bff35efd8",
+            "177d952b7a02a25e",
+            "1da4ba76131668e8",
+            "3740b8dda5ba949e",
+            "3b55fdbe544844f2",
+            "5b216beb56988594",
+            "6a9c876eab67c91d",
+            "73905832a2b3c2f1",
+            "7e8390196832fcf2",
+            "98bde3e7a49e73c5",
+            "adcfc838d7f77596",
+            "d4bfd5be1ccb0f97",
+            "1ee74c88b13ee2b9",
+            "74f93f6e0c0881e2",
+            "951828f4b9bc61ed",
+            "93cfb123e4d8629e",
+            "1c1fb246eeb82856",
+            "7c63ba6ec94a2b59",
+            "f0396d4b606676db",
+            "35e11d451cced11b",
+            "075d0b593184584c",
+            "1b92d455c3332897",
+            "4effa1d0513a1cb0",
+            "9bf17d13416573b1",
+            "a54eb5ff1528cb1d"
+          ]
+        },
+        "mean_edge": {
+          "selected_wallets": 25,
+          "observed_future_wallets": 18,
+          "missing_future_wallets": 7,
+          "future_coverage": 0.72,
+          "test_conditions": 80,
+          "test_observations": 125,
+          "conditional_mean_edge_per_share": 0.08378756167030187,
+          "difference_vs_unranked": 0.09507006629386851,
+          "descriptive_cluster_interval_95": [
+            0.039327990253174294,
+            0.15186928041749373
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.21967295559738265,
+            0.3403270444026173
+          ],
+          "selected_wallet_hashes": [
+            "3b55fdbe544844f2",
+            "3740b8dda5ba949e",
+            "177d952b7a02a25e",
+            "adcfc838d7f77596",
+            "6a9c876eab67c91d",
+            "1da4ba76131668e8",
+            "1ee74c88b13ee2b9",
+            "075d0b593184584c",
+            "9bf17d13416573b1",
+            "16749c2bff35efd8",
+            "9394e4321194da08",
+            "341d49778416142a",
+            "93cfb123e4d8629e",
+            "73905832a2b3c2f1",
+            "218536f6045ca69f",
+            "2c475fddcad530e5",
+            "e0b0238a28232e56",
+            "55824e52c888c598",
+            "7f1449b6349e3628",
+            "7e8390196832fcf2",
+            "3d9f5f7b3ac9c6e0",
+            "245b81ace5a36ab3",
+            "5b216beb56988594",
+            "1c1fb246eeb82856",
+            "eb3957452a9d6e0e"
+          ]
+        },
+        "shrinkage_edge": {
+          "selected_wallets": 25,
+          "observed_future_wallets": 19,
+          "missing_future_wallets": 6,
+          "future_coverage": 0.76,
+          "test_conditions": 180,
+          "test_observations": 284,
+          "conditional_mean_edge_per_share": 0.07352619910268451,
+          "difference_vs_unranked": 0.08480870372625116,
+          "descriptive_cluster_interval_95": [
+            0.03036671855580414,
+            0.1372323161187135
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.18412008868195975,
+            0.29587991131804026
+          ],
+          "selected_wallet_hashes": [
+            "3740b8dda5ba949e",
+            "1ee74c88b13ee2b9",
+            "177d952b7a02a25e",
+            "3b55fdbe544844f2",
+            "adcfc838d7f77596",
+            "93cfb123e4d8629e",
+            "6a9c876eab67c91d",
+            "075d0b593184584c",
+            "1da4ba76131668e8",
+            "9bf17d13416573b1",
+            "9394e4321194da08",
+            "341d49778416142a",
+            "73905832a2b3c2f1",
+            "536b0b577a47f2c1",
+            "e0b0238a28232e56",
+            "245b81ace5a36ab3",
+            "16749c2bff35efd8",
+            "74f93f6e0c0881e2",
+            "218536f6045ca69f",
+            "2c475fddcad530e5",
+            "3d9f5f7b3ac9c6e0",
+            "1c1fb246eeb82856",
+            "55824e52c888c598",
+            "7f1449b6349e3628",
+            "7e8390196832fcf2"
+          ]
+        },
+        "lcb_edge": {
+          "selected_wallets": 25,
+          "observed_future_wallets": 19,
+          "missing_future_wallets": 6,
+          "future_coverage": 0.76,
+          "test_conditions": 177,
+          "test_observations": 254,
+          "conditional_mean_edge_per_share": 0.014023501381251212,
+          "difference_vs_unranked": 0.025306006004817857,
+          "descriptive_cluster_interval_95": [
+            -0.028577770939532947,
+            0.10790801681048824
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.22934213895024907,
+            0.2506578610497509
+          ],
+          "selected_wallet_hashes": [
+            "3740b8dda5ba949e",
+            "177d952b7a02a25e",
+            "6a9c876eab67c91d",
+            "73905832a2b3c2f1",
+            "3b55fdbe544844f2",
+            "1ee74c88b13ee2b9",
+            "adcfc838d7f77596",
+            "16749c2bff35efd8",
+            "93cfb123e4d8629e",
+            "075d0b593184584c",
+            "9bf17d13416573b1",
+            "98bde3e7a49e73c5",
+            "7c63ba6ec94a2b59",
+            "d4bfd5be1ccb0f97",
+            "7e8390196832fcf2",
+            "536b0b577a47f2c1",
+            "54dc6077ba8d1648",
+            "1da4ba76131668e8",
+            "5b216beb56988594",
+            "fad258ab36937a8a",
+            "74f93f6e0c0881e2",
+            "245b81ace5a36ab3",
+            "fc2d9ea0fee8c25c",
+            "55824e52c888c598",
+            "16572317d659da1a"
+          ]
+        },
+        "unranked": {
+          "selected_wallets": 98,
+          "observed_future_wallets": 59,
+          "missing_future_wallets": 39,
+          "future_coverage": 0.6020408163265306,
+          "test_conditions": 245,
+          "test_observations": 733,
+          "conditional_mean_edge_per_share": -0.011282504623566645,
+          "difference_vs_unranked": 0.0,
+          "descriptive_cluster_interval_95": [
+            0.0,
+            0.0
+          ],
+          "full_selected_missing_edge_bounds": [
+            -0.40475171196724935,
+            0.3911666553796894
+          ],
+          "selected_wallet_hashes": [
+            "1c1fb246eeb82856",
+            "0bcafa1b8407c7db",
+            "95f6d2088788fca2",
+            "1014193b78e16da3",
+            "55824e52c888c598",
+            "16749c2bff35efd8",
+            "73d5859d1266513c",
+            "3d9f5f7b3ac9c6e0",
+            "93cfb123e4d8629e",
+            "74f93f6e0c0881e2",
+            "64a02e9ecddb2550",
+            "4effa1d0513a1cb0",
+            "7c63ba6ec94a2b59",
+            "a54eb5ff1528cb1d",
+            "9394e4321194da08",
+            "45a94331f249fdb4",
+            "3b55fdbe544844f2",
+            "5f51ef44b64be087",
+            "98bde3e7a49e73c5",
+            "ccbce5906af480f8",
+            "218536f6045ca69f",
+            "ea14863553402894",
+            "ba99552a4d715dd0",
+            "114d790c6815851f",
+            "2438c4707db7a238",
+            "56dfeebc693d854c",
+            "400aa3cc94fedc07",
+            "eb4967c99bc04377",
+            "f19bed014b94d545",
+            "8cfe7d89b47921f9",
+            "6a5551d7414af37a",
+            "6cf537a68dc9c544",
+            "c56574df6a4b2c4e",
+            "177d952b7a02a25e",
+            "93031f4095055dce",
+            "e49880837b567243",
+            "2c475fddcad530e5",
+            "1b92d455c3332897",
+            "9a227b45b47c4169",
+            "e487d4b000ed822b",
+            "2d37193b02da31c6",
+            "075d0b593184584c",
+            "1379a6e366c37211",
+            "70e809fe9f770495",
+            "341d49778416142a",
+            "d4bfd5be1ccb0f97",
+            "c58c405f8d43ea5b",
+            "59e1ded95459fe23",
+            "5b216beb56988594",
+            "c8185f548a40c076",
+            "73905832a2b3c2f1",
+            "35e11d451cced11b",
+            "9bf17d13416573b1",
+            "bec6b06b81f7f134",
+            "2a6a7db99bcbbf97",
+            "400e002683354746",
+            "d97363d2eba530ec",
+            "fad258ab36937a8a",
+            "1a074c65fce2bf69",
+            "2b36d58032a72970",
+            "b5a08d2c3222080e",
+            "16572317d659da1a",
+            "52e55953b3a9900b",
+            "536b0b577a47f2c1",
+            "7e8390196832fcf2",
+            "bc6002fed9a96d9c",
+            "6987ca4ffd8e22ba",
+            "14ce630454832d55",
+            "03b6da55f2f6fc39",
+            "00043cc8d9c90590",
+            "1da4ba76131668e8",
+            "adcfc838d7f77596",
+            "30dc2e4927148c3e",
+            "01db99e817f9391f",
+            "7d30b764ab68a4d8",
+            "c8cd13ed3ac14d11",
+            "1c3d65cae475ac78",
+            "3dfa8b360c3ce991",
+            "6a9c876eab67c91d",
+            "02f7f871d85c036b",
+            "3740b8dda5ba949e",
+            "ee1efb62d971631b",
+            "e0b0238a28232e56",
+            "9fbcb432c99422da",
+            "f0396d4b606676db",
+            "74f00f6516b80d15",
+            "7f1449b6349e3628",
+            "1ee74c88b13ee2b9",
+            "fc2d9ea0fee8c25c",
+            "50b7935f3a46abbd",
+            "15eb8d064b321100",
+            "d79c5af0041b5dab",
+            "ac2be5ee0ade709f",
+            "54dc6077ba8d1648",
+            "951828f4b9bc61ed",
+            "eb3957452a9d6e0e",
+            "b89ac58c6908fbb4",
+            "245b81ace5a36ab3"
+          ]
+        }
+      },
+      "random_top_k": {
+        "expected_edge_conditional_on_future_observation": -0.011282504623566645,
+        "sampling_variance": "not estimated; expected value alone does not describe random subset risk"
+      }
+    }
+  }
+}

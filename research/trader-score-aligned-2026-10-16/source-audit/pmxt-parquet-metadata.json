@@ -1,0 +1,939 @@
+{
+  "url": "https://dl.pendulumflow.com/pmxt/v1/polymarket_orderbook_2026-03-01T00.parquet",
+  "size": 621439015,
+  "schema": "timestamp_received: timestamp[ms, tz=UTC] not null\ntimestamp_created_at: timestamp[ms, tz=UTC] not null\nmarket_id: string not null\nupdate_type: string not null\ndata: string not null",
+  "rows": 29390989,
+  "row_groups": 30,
+  "groups": [
+    {
+      "id": 0,
+      "rows": 1005505,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 802415,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.003000+00:00\n  max: 2026-03-01 00:54:39.475000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1005505\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 1084823,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 00:54:39.517000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1005505\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 84309,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 0x00000977017fa72fb6b1908ae694000d3b51f442c2552656b10bdbbfd16ff707\n  max: 0xd8976f67fdfa89290ea7fa5eaf9746793f30b2308a20d1b9259b5a3377906670\n  null_count: None\n  distinct_count: None\n  num_values: 1005505\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 6173,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1005505\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 15898551,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x00000977017fa72fb6b1908ae694000d3b51f442c2552656b10bdbbfd16ff707\", \"token_id\": \"44554681108074793313893626424278471150091658237406724818592366780413111952248\", \"side\": \"YES\", \"best_bid\": \"0.009\", \"best_ask\": \"0.016\", \"timestamp\": 1772326429.9128041, \"bids\": [[\"0.001\", \"9746.26\"], [\"0.002\", \"2030\"], [\"0.003\", \"1102.59\"], [\"0.004\", \"180\"], [\"0.005\", \"227\"], [\"0.007\", \"400\"], [\"0.008\", \"2000\"], [\"0.009\", \"380\"]], \"asks\": [[\"0.999\", \"40\"], [\"0.998\", \"250\"], [\"0.997\", \"406.63\"], [\"0.994\", \"200\"], [\"0.993\", \"9.76\"], [\"0.99\", \"10500\"], [\"0.989\", \"1818.18\"], [\"0.98\", \"2000\"], [\"0.979\", \"8.81\"], [\"0.95\", \"7420\"], [\"0.94\", \"400\"], [\"0.939\", \"9.44\"], [\"0.9\", \"2000\"], [\"0.89\", \"190\"], [\"0.85\", \"1758.33\"], [\"0.84\", \"109\"], [\"0.8\", \"1750\"], [\"0.79\", \"66\"], [\"0.789\", \"5.4\"], [\"0.75\", \"840\"], [\"0.74\", \"35\"], [\"0.7\", \"408.33\"], [\"0.69\", \"18\"], [\"0.65\", \"285.71\"], [\"0.6\", \"425\"], [\"0.569\", \"200\"], [\"0.567\", \"5\"], [\"0.56\", \"515\"], [\"0.559\", \"453\"], [\"0.558\", \"452\"], [\"0.557\", \"400\"], [\"0.148\", \"311.79\"], [\"0.147\", \"30\"], [\"0.131\", \"20\"], [\"0.129\", \"228.76\"], [\"0.116\", \"50\"], [\"0.084\", \"66.65\"], [\"0.065\", \"5\"], [\"0.051\", \"5\"], [\"0.043\", \"250\"], [\"0.042\", \"302.2\"], [\"0.032\", \"29.4\"], [\"0.019\", \"129.76\"], [\"0.017\", \"37.37\"], [\"0.016\", \"13.61\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xd8976f67fdfa89290ea7fa5eaf9746793f30b2308a20d1b9259b5a3377906670\", \"token_id\": \"93233059037800663374272168894497980022025133882994130955185539795448046691062\", \"side\": \"NO\", \"best_bid\": \"0.76\", \"best_ask\": \"0.88\", \"timestamp\": 1772324256.8628316, \"change_price\": \"0.09\", \"change_size\": \"0\", \"change_side\": \"BUY\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1005505\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "rows": 1003066,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 901117,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.039000+00:00\n  max: 2026-03-01 00:54:39.504000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1003066\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 1256321,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 2026-03-01 00:00:01.250000+00:00\n  max: 2026-03-01 00:54:39.517000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1003066\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 122340,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 0x01b8c21fdeacf1fc8b705cdf3ebc9f3d48763478beb84ff477280b22942190ca\n  max: 0xda5c517dd5b78c80dec8ceb08ca4f466317633487827d7290332b4851cc4a4fa\n  null_count: None\n  distinct_count: None\n  num_values: 1003066\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 5395,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1003066\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 15938511,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x0212cc693008e0b5c8728e0d7a32399f6bd4bd120d01825f0d0ac1c624a320f1\", \"token_id\": \"28183717281766543162996749727255330679849528000834861626007748693723616672387\", \"side\": \"NO\", \"best_bid\": \"0.77\", \"best_ask\": \"0.79\", \"timestamp\": 1772324941.3206203, \"bids\": [[\"0.01\", \"170.17\"], [\"0.02\", \"150\"], [\"0.03\", \"10.94\"], [\"0.05\", \"177\"], [\"0.08\", \"303.99\"], [\"0.69\", \"33.14\"], [\"0.72\", \"125\"], [\"0.73\", \"260\"], [\"0.74\", \"851\"], [\"0.75\", \"217\"], [\"0.76\", \"121\"], [\"0.77\", \"562\"]], \"asks\": [[\"0.99\", \"100\"], [\"0.98\", \"307.34\"], [\"0.97\", \"400\"], [\"0.95\", \"260.39\"], [\"0.82\", \"360\"], [\"0.81\", \"117\"], [\"0.8\", \"953.3\"], [\"0.79\", \"21\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xda5c517dd5b78c80dec8ceb08ca4f466317633487827d7290332b4851cc4a4fa\", \"token_id\": \"22488814055465212843401871684243737932656687199587127613893702721105723939237\", \"side\": \"NO\", \"best_bid\": \"0.961\", \"best_ask\": \"0.965\", \"timestamp\": 1772324522.3904512, \"change_price\": \"0.98\", \"change_size\": \"11970\", \"change_side\": \"SELL\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1003066\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "rows": 1002993,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 878075,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.019000+00:00\n  max: 2026-03-01 00:54:39.500000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1002993\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 1232636,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 2026-03-01 00:00:01.250000+00:00\n  max: 2026-03-01 00:54:39.517000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1002993\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 124521,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 0x032239ad00d4549e33616588129286485c9744108de196f0535a6f5ba9f08eb3\n  max: 0xdcbb85388b085905980195fcdd3beadf36e59c4b7f67e8969a5fba467a126dc6\n  null_count: None\n  distinct_count: None\n  num_values: 1002993\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 5093,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1002993\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 15757755,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x033fd103c4b8e79b70ea828c6335843ab1972c99fa7ddeb1ea760e19632b3ad8\", \"token_id\": \"41653534715811758030990608819681136053313342245976839393737566806360499678651\", \"side\": \"YES\", \"best_bid\": \"0.31\", \"best_ask\": \"0.62\", \"timestamp\": 1772324759.6378808, \"bids\": [[\"0.01\", \"969.43\"], [\"0.02\", \"415\"], [\"0.03\", \"6.45\"], [\"0.04\", \"25\"], [\"0.05\", \"30\"], [\"0.06\", \"22.03\"], [\"0.12\", \"500\"], [\"0.13\", \"5.38\"], [\"0.15\", \"500\"], [\"0.17\", \"500\"], [\"0.2\", \"300\"], [\"0.23\", \"5\"], [\"0.25\", \"140\"], [\"0.27\", \"200\"], [\"0.28\", \"300\"], [\"0.29\", \"156.12\"], [\"0.31\", \"23.23\"]], \"asks\": [[\"0.99\", \"170.55\"], [\"0.98\", \"36.98\"], [\"0.97\", \"13.49\"], [\"0.96\", \"35\"], [\"0.95\", \"60\"], [\"0.8\", \"30\"], [\"0.62\", \"3.46\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xdcbb85388b085905980195fcdd3beadf36e59c4b7f67e8969a5fba467a126dc6\", \"token_id\": \"70323455644827895879896778135440061560711357803746800121901703990023020928729\", \"side\": \"NO\", \"best_bid\": \"0.83\", \"best_ask\": \"0.92\", \"timestamp\": 1772325018.0443227, \"change_price\": \"0.6\", \"change_size\": \"0\", \"change_side\": \"BUY\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1002993\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "rows": 1001220,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 702047,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 2026-03-01 00:00:00+00:00\n  max: 2026-03-01 00:54:39.500000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1001220\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 899039,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 00:54:39.517000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1001220\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 100908,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 0x041a123fc00ed9079b450f1209c724658d2ae3379611f80dc67f83ca33fd91c5\n  max: 0xde2b22bc134a5f7520684bd476d8c9269ce43b586eb5e2a82b35178337471d8d\n  null_count: None\n  distinct_count: None\n  num_values: 1001220\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 9531,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1001220\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 15802254,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x041a123fc00ed9079b450f1209c724658d2ae3379611f80dc67f83ca33fd91c5\", \"token_id\": \"56614969328073687467091872590066522992499835732074578195954355331173076315612\", \"side\": \"NO\", \"best_bid\": \"0.21\", \"best_ask\": \"0.23\", \"timestamp\": 1772324268.0902824, \"bids\": [[\"0.02\", \"7.78\"], [\"0.04\", \"21.1\"], [\"0.14\", \"1200\"], [\"0.18\", \"83\"], [\"0.19\", \"23\"], [\"0.2\", \"31000\"], [\"0.21\", \"2702.02\"]], \"asks\": [[\"0.99\", \"9.82\"], [\"0.97\", \"8.05\"], [\"0.91\", \"7.33\"], [\"0.79\", \"726.76\"], [\"0.5\", \"76.92\"], [\"0.29\", \"1200\"], [\"0.27\", \"808.21\"], [\"0.26\", \"2326\"], [\"0.25\", \"31.32\"], [\"0.24\", \"10021.24\"], [\"0.23\", \"3116\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xde2b22bc134a5f7520684bd476d8c9269ce43b586eb5e2a82b35178337471d8d\", \"token_id\": \"90891724774783382413802285583332393111527254778013792918327677860440234762319\", \"side\": \"YES\", \"best_bid\": \"0.76\", \"best_ask\": \"0.79\", \"timestamp\": 1772324414.250658, \"change_price\": \"0.75\", \"change_size\": \"0\", \"change_side\": \"BUY\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1001220\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "rows": 1000259,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 659010,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 00:54:39.497000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1000259\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 800915,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 2026-03-01 00:00:01.250000+00:00\n  max: 2026-03-01 00:54:39.517000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1000259\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 88999,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 0x05ed606f5ce3cef2a44d810a14c62394c570b0815a6d30f8310dd3e3732edcfe\n  max: 0xdff6ae962747c013aad7cc65222189331c7b5b7fec1d20312ead50c9c37ea106\n  null_count: None\n  distinct_count: None\n  num_values: 1000259\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 12109,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1000259\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 16148052,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x05ed606f5ce3cef2a44d810a14c62394c570b0815a6d30f8310dd3e3732edcfe\", \"token_id\": \"20572060946228773728068212435007919668198884880118365134074661941314619455710\", \"side\": \"NO\", \"best_bid\": \"0.01\", \"best_ask\": \"0.02\", \"timestamp\": 1772323991.6450245, \"bids\": [[\"0.01\", \"2818.7\"]], \"asks\": [[\"0.99\", \"9590.71\"], [\"0.98\", \"1026.24\"], [\"0.97\", \"323\"], [\"0.96\", \"40\"], [\"0.95\", \"1180\"], [\"0.94\", \"28.59\"], [\"0.93\", \"29.92\"], [\"0.92\", \"10\"], [\"0.91\", \"10\"], [\"0.9\", \"253.23\"], [\"0.89\", \"20\"], [\"0.88\", \"177\"], [\"0.87\", \"182\"], [\"0.86\", \"157\"], [\"0.85\", \"187\"], [\"0.84\", \"162\"], [\"0.83\", \"162\"], [\"0.82\", \"235.38\"], [\"0.81\", \"239.88\"], [\"0.8\", \"194\"], [\"0.79\", \"173\"], [\"0.78\", \"15\"], [\"0.77\", \"173\"], [\"0.76\", \"173\"], [\"0.75\", \"173\"], [\"0.74\", \"173\"], [\"0.73\", \"169\"], [\"0.72\", \"211.4\"], [\"0.71\", \"228.82\"], [\"0.7\", \"264\"], [\"0.69\", \"164\"], [\"0.68\", \"169\"], [\"0.67\", \"169\"], [\"0.66\", \"169\"], [\"0.65\", \"32.14\"], [\"0.64\", \"15\"], [\"0.63\", \"15\"], [\"0.62\", \"15\"], [\"0.61\", \"15\"], [\"0.6\", \"216.92\"], [\"0.59\", \"166\"], [\"0.58\", \"166\"], [\"0.57\", \"163.45\"], [\"0.56\", \"171.22\"], [\"0.55\", \"160\"], [\"0.54\", \"160\"], [\"0.53\", \"161\"], [\"0.52\", \"171\"], [\"0.51\", \"160\"], [\"0.5\", \"176.88\"], [\"0.49\", \"160\"], [\"0.48\", \"165\"], [\"0.47\", \"162.98\"], [\"0.46\", \"159.78\"], [\"0.45\", \"179\"], [\"0.44\", \"284\"], [\"0.43\", \"14.94\"], [\"0.42\", \"176\"], [\"0.41\", \"178\"], [\"0.4\", \"181\"], [\"0.39\", \"176\"], [\"0.38\", \"180\"], [\"0.37\", \"171\"], [\"0.36\", \"171\"], [\"0.35\", \"176\"], [\"0.34\", \"171\"], [\"0.33\", \"174\"], [\"0.32\", \"169\"], [\"0.31\", \"169\"], [\"0.3\", \"169\"], [\"0.29\", \"179\"], [\"0.28\", \"195.6\"], [\"0.27\", \"172\"], [\"0.26\", \"185\"], [\"0.25\", \"185\"], [\"0.24\", \"296.84\"], [\"0.23\", \"558\"], [\"0.22\", \"185\"], [\"0.21\", \"211.12\"], [\"0.2\", \"323.58\"], [\"0.19\", \"205.12\"], [\"0.18\", \"223\"], [\"0.17\", \"441.33\"], [\"0.16\", \"315.43\"], [\"0.15\", \"405\"], [\"0.14\", \"228.82\"], [\"0.13\", \"165.75\"], [\"0.12\", \"188.69\"], [\"0.11\", \"317\"], [\"0.1\", \"218.62\"], [\"0.09\", \"175\"], [\"0.08\", \"187\"], [\"0.07\", \"252\"], [\"0.06\", \"344\"], [\"0.05\", \"993\"], [\"0.04\", \"501.7\"], [\"0.03\", \"2059.4\"], [\"0.02\", \"42.28\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xdff6ae962747c013aad7cc65222189331c7b5b7fec1d20312ead50c9c37ea106\", \"token_id\": \"73220237166485660339919739131628253209107203756640313675829685249852538285398\", \"side\": \"NO\", \"best_bid\": \"0.74\", \"best_ask\": \"0.86\", \"timestamp\": 1772324117.6312866, \"change_price\": \"0.74\", \"change_size\": \"14\", \"change_side\": \"BUY\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1000259\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "rows": 1006048,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 870251,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 2026-03-01 00:00:00+00:00\n  max: 2026-03-01 00:54:39.497000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1006048\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 1186001,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 00:54:39.517000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1006048\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 139959,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 0x062fb517843cae1a28484de274a0b435579331b2ac9ab829accee1f8fe78ad2d\n  max: 0xe0d1e91f91b13d4aea9ef6742d9f2d0730cb04012da4549e54fcc331a1b714c7\n  null_count: None\n  distinct_count: None\n  num_values: 1006048\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 7223,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1006048\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 16148153,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x062fb517843cae1a28484de274a0b435579331b2ac9ab829accee1f8fe78ad2d\", \"token_id\": \"100968528715522451456400387725702807668104615012069633177302987123897906636411\", \"side\": \"YES\", \"best_bid\": \"0.06\", \"best_ask\": \"0.92\", \"timestamp\": 1772323388.1846154, \"bids\": [[\"0.01\", \"568.07\"], [\"0.02\", \"216.21\"], [\"0.03\", \"42.94\"], [\"0.04\", \"37\"], [\"0.05\", \"20\"], [\"0.06\", \"12.09\"]], \"asks\": [[\"0.99\", \"584.67\"], [\"0.98\", \"174.31\"], [\"0.97\", \"42.2\"], [\"0.96\", \"274.39\"], [\"0.95\", \"30\"], [\"0.94\", \"7.63\"], [\"0.93\", \"118\"], [\"0.92\", \"25.08\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xe0d1e91f91b13d4aea9ef6742d9f2d0730cb04012da4549e54fcc331a1b714c7\", \"token_id\": \"74555224989089931237530940496854228593130805019661318558537542370228388290092\", \"side\": \"YES\", \"best_bid\": \"0.003\", \"best_ask\": \"0.02\", \"timestamp\": 1772324062.3080726, \"change_price\": \"0.315\", \"change_size\": \"150\", \"change_side\": \"SELL\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1006048\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "rows": 1008099,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 718088,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 2026-03-01 00:00:01.321000+00:00\n  max: 2026-03-01 00:54:39.457000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1008099\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 931118,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 2026-03-01 00:00:01.604000+00:00\n  max: 2026-03-01 00:54:39.517000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1008099\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 79003,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 0x078b7ffff537f9608687066e97094ac2075ddc7b88fd8238523d166d98369b34\n  max: 0xe2ad1cbb1806ce5e3993894b52ade4f7e208734a5ca0fd3eee14e8dfc2ae0bcb\n  null_count: None\n  distinct_count: None\n  num_values: 1008099\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 8930,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1008099\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 15837300,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x078fe2e11f6d1eb4117b110de2c34830abf4a94d25b648bdcf969b3da758e0e7\", \"token_id\": \"93525183962520697217234791615071342625609370078695047417834082361246589773743\", \"side\": \"NO\", \"best_bid\": \"0.49\", \"best_ask\": \"0.51\", \"timestamp\": 1772323517.365306, \"bids\": [[\"0.01\", \"799\"], [\"0.02\", \"149\"], [\"0.03\", \"75\"], [\"0.47\", \"12\"], [\"0.48\", \"24\"], [\"0.49\", \"99\"]], \"asks\": [[\"0.99\", \"1049\"], [\"0.98\", \"149\"], [\"0.97\", \"75\"], [\"0.52\", \"24\"], [\"0.51\", \"99\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xe2ad1cbb1806ce5e3993894b52ade4f7e208734a5ca0fd3eee14e8dfc2ae0bcb\", \"token_id\": \"5776983690450810166348390386241244875928868583471779309964316179469216646481\", \"side\": \"YES\", \"best_bid\": \"0.06\", \"best_ask\": \"0.91\", \"timestamp\": 1772324605.8384914, \"change_price\": \"0.97\", \"change_size\": \"457.08\", \"change_side\": \"SELL\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1008099\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "rows": 1000929,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 700289,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.003000+00:00\n  max: 2026-03-01 00:54:39.499000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1000929\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 923890,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 00:54:39.517000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1000929\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 85424,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 0x08fa7d350c801391e7ec81d0da90f1fb05ec365f98d16d27e6d64a18d7118973\n  max: 0xe3320389aa0c7f419ee7b52042f4c42da94b2b7c11004f708443115fb7c0f174\n  null_count: None\n  distinct_count: None\n  num_values: 1000929\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 7299,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1000929\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 15468228,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x0918fd2ceae27c84ae45ebf9cd445e63946aa6439835ac702c750b212a0ddf6f\", \"token_id\": \"31320046358563768750621370234219268644135508058578813413000517884741974149190\", \"side\": \"YES\", \"best_bid\": \"0.06\", \"best_ask\": \"0.89\", \"timestamp\": 1772323389.9748886, \"bids\": [[\"0.01\", \"572.66\"], [\"0.02\", \"150\"], [\"0.03\", \"80.55\"], [\"0.04\", \"25\"], [\"0.05\", \"20\"], [\"0.06\", \"22.22\"]], \"asks\": [[\"0.99\", \"175.02\"], [\"0.98\", \"164.27\"], [\"0.97\", \"33\"], [\"0.96\", \"171.31\"], [\"0.95\", \"130\"], [\"0.94\", \"101\"], [\"0.93\", \"5.92\"], [\"0.9\", \"59\"], [\"0.89\", \"7.25\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xe3320389aa0c7f419ee7b52042f4c42da94b2b7c11004f708443115fb7c0f174\", \"token_id\": \"86342557409281088286820922555844104972319663490888539602775225344425746435947\", \"side\": \"NO\", \"best_bid\": \"0.83\", \"best_ask\": \"0.84\", \"timestamp\": 1772324638.49831, \"change_price\": \"0.94\", \"change_size\": \"97\", \"change_side\": \"SELL\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1000929\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "rows": 1001206,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 814276,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.009000+00:00\n  max: 2026-03-01 00:54:39.502000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1001206\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 1111733,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 00:54:39.517000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1001206\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 124463,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 0x0a42019050b85e67831c95b05d05f86d5c64f0d88fc19271f0b9c520a7be79c1\n  max: 0xe59d96d37f800f92be45f30093a05bae2710677d3293f47ca7f7cdedba24d175\n  null_count: None\n  distinct_count: None\n  num_values: 1001206\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 5374,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1001206\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 15780325,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x0a535e9097fd27586a59ba08e05365f5052ac26a11ffe9a1af17018be2d4bbd3\", \"token_id\": \"12662986222896886417040373579342242933950635326317568506313801121315133652065\", \"side\": \"YES\", \"best_bid\": null, \"best_ask\": \"0.001\", \"timestamp\": 1772323769.195699, \"bids\": [], \"asks\": [[\"0.999\", \"356260\"], [\"0.998\", \"60000\"], [\"0.997\", \"166\"], [\"0.996\", \"490\"], [\"0.994\", \"83\"], [\"0.99\", \"1271.5\"], [\"0.988\", \"60000\"], [\"0.98\", \"4500\"], [\"0.979\", \"34550\"], [\"0.95\", \"40\"], [\"0.939\", \"19250\"], [\"0.889\", \"14550\"], [\"0.79\", \"5600\"], [\"0.689\", \"5750\"], [\"0.688\", \"1024\"], [\"0.687\", \"6\"], [\"0.5\", \"150\"], [\"0.21\", \"49.99\"], [\"0.111\", \"4000\"], [\"0.08\", \"3000\"], [\"0.061\", \"1500\"], [\"0.059\", \"28\"], [\"0.051\", \"1000\"], [\"0.049\", \"30\"], [\"0.038\", \"300\"], [\"0.025\", \"3900\"], [\"0.019\", \"100\"], [\"0.015\", \"295\"], [\"0.012\", \"52\"], [\"0.011\", \"40\"], [\"0.01\", \"21729.95\"], [\"0.009\", \"30300\"], [\"0.007\", \"52.36\"], [\"0.005\", \"844\"], [\"0.004\", \"255\"], [\"0.003\", \"200\"], [\"0.002\", \"1025.59\"], [\"0.001\", \"10972.83\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xe59d96d37f800f92be45f30093a05bae2710677d3293f47ca7f7cdedba24d175\", \"token_id\": \"60734290866314646217112678270771237620776083869374749602918545924710180037112\", \"side\": \"NO\", \"best_bid\": \"0.5\", \"best_ask\": \"0.51\", \"timestamp\": 1772324426.2345805, \"change_price\": \"0.11\", \"change_size\": \"5.13\", \"change_side\": \"BUY\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1001206\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "rows": 1000549,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 619410,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.036000+00:00\n  max: 2026-03-01 00:54:39.485000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1000549\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 747163,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 2026-03-01 00:00:01.250000+00:00\n  max: 2026-03-01 00:54:39.517000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1000549\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 60903,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 0x0be11fe6b3c2795a1874d0f5ae3017d6f31791d0629e1c6ba9a87779613b63e0\n  max: 0xe75cc2a889dbff8cec981ddd3cf468bbc99f61e763b892c1669f3cd89c2cbce0\n  null_count: None\n  distinct_count: None\n  num_values: 1000549\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 11974,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1000549\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 15845238,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x0bef1733d019bd5bce06250c21cf1ce42b1e3723b5888ea6165dd3d0eec4a602\", \"token_id\": \"33951083547065754748715136574522895887512129414938328274557019448474594264445\", \"side\": \"YES\", \"best_bid\": \"0.07\", \"best_ask\": \"0.86\", \"timestamp\": 1772324221.7346187, \"bids\": [[\"0.01\", \"166.16\"], [\"0.02\", \"208\"], [\"0.03\", \"5.35\"], [\"0.04\", \"25\"], [\"0.05\", \"30\"], [\"0.06\", \"16\"], [\"0.07\", \"11.55\"]], \"asks\": [[\"0.99\", \"167.48\"], [\"0.98\", \"158.43\"], [\"0.97\", \"24.65\"], [\"0.96\", \"89\"], [\"0.95\", \"35.25\"], [\"0.94\", \"16\"], [\"0.93\", \"10.78\"], [\"0.87\", \"15.32\"], [\"0.86\", \"7.02\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xe75cc2a889dbff8cec981ddd3cf468bbc99f61e763b892c1669f3cd89c2cbce0\", \"token_id\": \"87242510423551427679061782774164095458918757575363869407310155133136876372796\", \"side\": \"NO\", \"best_bid\": \"0.85\", \"best_ask\": \"0.89\", \"timestamp\": 1772325027.02512, \"change_price\": \"0.94\", \"change_size\": \"483.53\", \"change_side\": \"SELL\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1000549\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "rows": 1002867,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 809559,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.009000+00:00\n  max: 2026-03-01 00:54:39.505000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1002867\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 1093409,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 00:54:39.517000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1002867\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 110355,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 0x0cdc0200f9ce1a17dc6e7f027106f1a84f9ab533b95773038b14bf1adfaaeae0\n  max: 0xe87319767e22e606da418be56673cc1f531b5a0a6045f0095806614e871fc05a\n  null_count: None\n  distinct_count: None\n  num_values: 1002867\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 8419,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1002867\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 15924168,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x0cdc0200f9ce1a17dc6e7f027106f1a84f9ab533b95773038b14bf1adfaaeae0\", \"token_id\": \"115124880298184422859254064497735406233509229505525771003492608101027275642900\", \"side\": \"YES\", \"best_bid\": \"0.42\", \"best_ask\": \"0.44\", \"timestamp\": 1772324820.598687, \"bids\": [[\"0.01\", \"69360.57\"], [\"0.02\", \"49364.92\"], [\"0.05\", \"40\"], [\"0.06\", \"8.75\"], [\"0.08\", \"800\"], [\"0.09\", \"475\"], [\"0.15\", \"420\"], [\"0.37\", \"8432\"], [\"0.38\", \"660\"], [\"0.39\", \"167\"], [\"0.4\", \"9843.82\"], [\"0.41\", \"38395.16\"], [\"0.42\", \"5750.2\"]], \"asks\": [[\"0.99\", \"69335.16\"], [\"0.98\", \"53297.87\"], [\"0.95\", \"40\"], [\"0.93\", \"1350\"], [\"0.89\", \"400\"], [\"0.87\", \"78.94\"], [\"0.85\", \"20\"], [\"0.84\", \"200\"], [\"0.78\", \"485\"], [\"0.56\", \"10\"], [\"0.54\", \"410\"], [\"0.52\", \"10\"], [\"0.51\", \"8016\"], [\"0.5\", \"310\"], [\"0.49\", \"203\"], [\"0.48\", \"2364\"], [\"0.47\", \"3664\"], [\"0.46\", \"11729.24\"], [\"0.45\", \"26812.81\"], [\"0.44\", \"1332.99\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xe87319767e22e606da418be56673cc1f531b5a0a6045f0095806614e871fc05a\", \"token_id\": \"95458147951799907942320072429851647015072317685346871945534248191534910362569\", \"side\": \"YES\", \"best_bid\": \"0.934\", \"best_ask\": \"0.956\", \"timestamp\": 1772323778.501247, \"change_price\": \"0.964\", \"change_size\": \"0\", \"change_side\": \"SELL\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1002867\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "rows": 1000113,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 825802,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.018000+00:00\n  max: 2026-03-01 00:54:39.507000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1000113\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 1105607,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 2026-03-01 00:00:01.250000+00:00\n  max: 2026-03-01 00:54:39.517000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1000113\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 130473,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 0x0ea10d3ddc14652f33b4477d12e02f30677a0b5a25434192e446deb4d2bf6861\n  max: 0xe977ea41b7a3f8488bfa2ecb77af647ff304b2d847e95b35771d33ca43375620\n  null_count: None\n  distinct_count: None\n  num_values: 1000113\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 7006,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1000113\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 16168939,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x0ea8005efbc460378340a2f28a6d97b0d1d9d9d7fba4d16f529b8a415dca77a2\", \"token_id\": \"48266425622404486484896353767723266081505997963592758694068789352158715350186\", \"side\": \"NO\", \"best_bid\": \"0.34\", \"best_ask\": \"0.36\", \"timestamp\": 1772324875.7937253, \"bids\": [[\"0.01\", \"13014.76\"], [\"0.02\", \"1025.45\"], [\"0.03\", \"952\"], [\"0.04\", \"7.11\"], [\"0.05\", \"4677.76\"], [\"0.06\", \"1337.71\"], [\"0.08\", \"456\"], [\"0.09\", \"100\"], [\"0.1\", \"6\"], [\"0.11\", \"825\"], [\"0.12\", \"16\"], [\"0.13\", \"120\"], [\"0.14\", \"207.15\"], [\"0.15\", \"39\"], [\"0.16\", \"16\"], [\"0.17\", \"228.58\"], [\"0.2\", \"5\"], [\"0.22\", \"361\"], [\"0.25\", \"8.08\"], [\"0.29\", \"198.68\"], [\"0.3\", \"197.61\"], [\"0.31\", \"63\"], [\"0.33\", \"20\"], [\"0.34\", \"59.93\"]], \"asks\": [[\"0.99\", \"1117264.55\"], [\"0.98\", \"1000\"], [\"0.97\", \"33200\"], [\"0.96\", \"5.82\"], [\"0.95\", \"60\"], [\"0.91\", \"500\"], [\"0.9\", \"1540\"], [\"0.89\", \"10860.65\"], [\"0.87\", \"500\"], [\"0.86\", \"1142\"], [\"0.8\", \"660\"], [\"0.76\", \"3457\"], [\"0.72\", \"5375\"], [\"0.61\", \"2283\"], [\"0.6\", \"228.82\"], [\"0.56\", \"300\"], [\"0.55\", \"3862\"], [\"0.54\", \"350\"], [\"0.53\", \"1200\"], [\"0.5\", \"416.72\"], [\"0.49\", \"1534\"], [\"0.47\", \"1000\"], [\"0.46\", \"2952\"], [\"0.45\", \"2700\"], [\"0.44\", \"5399.35\"], [\"0.43\", \"884.74\"], [\"0.42\", \"102.24\"], [\"0.41\", \"58\"], [\"0.4\", \"10\"], [\"0.38\", \"201.92\"], [\"0.37\", \"465\"], [\"0.36\", \"47\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xe977ea41b7a3f8488bfa2ecb77af647ff304b2d847e95b35771d33ca43375620\", \"token_id\": \"57663645605727224185599106977086057650107072751502061940480114164133106253972\", \"side\": \"NO\", \"best_bid\": \"0.921\", \"best_ask\": \"0.999\", \"timestamp\": 1772325017.6488514, \"change_price\": \"0.186\", \"change_size\": \"0\", \"change_side\": \"BUY\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1000113\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "rows": 1005065,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 777590,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.031000+00:00\n  max: 2026-03-01 00:59:49.440000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1005065\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 1042458,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 2026-03-01 00:00:01.250000+00:00\n  max: 2026-03-01 00:59:49.467000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1005065\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 112979,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 0x00000977017fa72fb6b1908ae694000d3b51f442c2552656b10bdbbfd16ff707\n  max: 0xeadbd38da3b17be9420f4801c4fa2b4d9c4717cc7c2fd07df4dc0e0036390701\n  null_count: None\n  distinct_count: None\n  num_values: 1005065\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 8551,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1005065\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 15983805,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x0044dd6bc7e3738ade92e7fdcc2a9819c828605f7af54bcbf4c7b85f1567f64d\", \"token_id\": \"537112803318439045387457191646285984434512161256012273508094245483299199171\", \"side\": \"NO\", \"best_bid\": \"0.32\", \"best_ask\": \"0.467\", \"timestamp\": 1772326522.0316157, \"bids\": [[\"0.001\", \"554.99\"], [\"0.002\", \"250\"], [\"0.003\", \"166\"], [\"0.006\", \"83\"], [\"0.007\", \"285\"], [\"0.01\", \"5\"], [\"0.05\", \"30\"], [\"0.064\", \"50\"], [\"0.169\", \"8\"], [\"0.171\", \"15\"], [\"0.172\", \"203.68\"], [\"0.241\", \"8\"], [\"0.242\", \"5\"], [\"0.261\", \"8\"], [\"0.262\", \"20\"], [\"0.281\", \"8\"], [\"0.285\", \"25\"], [\"0.286\", \"30\"], [\"0.288\", \"5\"], [\"0.32\", \"99.52\"]], \"asks\": [[\"0.999\", \"181\"], [\"0.998\", \"8\"], [\"0.99\", \"5\"], [\"0.989\", \"8\"], [\"0.98\", \"300\"], [\"0.978\", \"8\"], [\"0.9\", \"30\"], [\"0.586\", \"8\"], [\"0.584\", \"12.9\"], [\"0.482\", \"56\"], [\"0.481\", \"6.7\"], [\"0.467\", \"5\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xeadbd38da3b17be9420f4801c4fa2b4d9c4717cc7c2fd07df4dc0e0036390701\", \"token_id\": \"50293208120898970921573492706106520271566827349008733406355557243998087628355\", \"side\": \"YES\", \"best_bid\": \"0.18\", \"best_ask\": \"0.23\", \"timestamp\": 1772325031.0310369, \"change_price\": \"0.81\", \"change_size\": \"0\", \"change_side\": \"SELL\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1005065\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "rows": 1004694,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 814837,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.001000+00:00\n  max: 2026-03-01 00:59:49.429000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1004694\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 1067059,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 00:59:49.467000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1004694\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 133421,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 0x0428d55c4a21a40122543862ee416af92fe23ef7aa844563c49664b403bea9f7\n  max: 0xec16c4e42cbe609a1e420221cfdb593d007b2a8352c8599992a1fd421e3ed00c\n  null_count: None\n  distinct_count: None\n  num_values: 1004694\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 3730,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1004694\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 15714304,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x04cac7412c51f810a0c82d8333d32e6c7107ced282136d8b1751555a99522da8\", \"token_id\": \"54576450272656684197247086303010322119524108452336623462558716895702547773325\", \"side\": \"NO\", \"best_bid\": \"0.86\", \"best_ask\": \"0.87\", \"timestamp\": 1772326562.2085197, \"bids\": [[\"0.01\", \"2019.69\"], [\"0.02\", \"7350\"], [\"0.03\", \"7.96\"], [\"0.05\", \"4810\"], [\"0.08\", \"2500\"], [\"0.09\", \"7.38\"], [\"0.2\", \"1900\"], [\"0.27\", \"500\"], [\"0.34\", \"300\"], [\"0.55\", \"7.14\"], [\"0.66\", \"40\"], [\"0.75\", \"104.93\"], [\"0.77\", \"150\"], [\"0.81\", \"5000\"], [\"0.82\", \"260\"], [\"0.83\", \"12949\"], [\"0.84\", \"112040\"], [\"0.85\", \"28502.08\"], [\"0.86\", \"14853.06\"]], \"asks\": [[\"0.99\", \"205\"], [\"0.98\", \"105.19\"], [\"0.97\", \"1862\"], [\"0.95\", \"10\"], [\"0.94\", \"9.19\"], [\"0.92\", \"41004\"], [\"0.91\", \"45040\"], [\"0.9\", \"91116.7\"], [\"0.89\", \"27995.94\"], [\"0.88\", \"118740.56\"], [\"0.87\", \"1399.29\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xec16c4e42cbe609a1e420221cfdb593d007b2a8352c8599992a1fd421e3ed00c\", \"token_id\": \"28558016633683720394939014975606116603577725200407024506438493546043326610806\", \"side\": \"NO\", \"best_bid\": \"0.98\", \"best_ask\": \"0.984\", \"timestamp\": 1772325018.1480637, \"change_price\": \"0.421\", \"change_size\": \"400\", \"change_side\": \"BUY\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1004694\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "rows": 1004201,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 834764,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.019000+00:00\n  max: 2026-03-01 00:59:49.446000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1004201\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 1065572,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 2026-03-01 00:00:01.250000+00:00\n  max: 2026-03-01 00:59:49.467000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1004201\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 167630,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 0x1275653046fc7785241234109d7aa073c956b1c7aafb6149e94c09038e2e1b12\n  max: 0xece051cdc1d2fe60892c000eae72a390482e6259147fcf0f1b9999199dee23ce\n  null_count: None\n  distinct_count: None\n  num_values: 1004201\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 5560,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1004201\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 15848074,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x127e0ef297060b253c86606ac0e2419efda466d62e71da622571a0c9b8775bde\", \"token_id\": \"44049145299238874280779917840388461097730933917883612613519373509006635696770\", \"side\": \"YES\", \"best_bid\": \"0.01\", \"best_ask\": \"0.014\", \"timestamp\": 1772324520.8988903, \"bids\": [[\"0.001\", \"12080\"], [\"0.002\", \"2000\"], [\"0.003\", \"6000\"], [\"0.004\", \"500\"], [\"0.005\", \"162.41\"], [\"0.008\", \"100\"], [\"0.01\", \"4483.56\"]], \"asks\": [[\"0.999\", \"2220.03\"], [\"0.998\", \"8.12\"], [\"0.995\", \"16.02\"], [\"0.991\", \"555.55\"], [\"0.99\", \"1021.66\"], [\"0.989\", \"2272.72\"], [\"0.987\", \"384.61\"], [\"0.98\", \"100\"], [\"0.979\", \"11.43\"], [\"0.95\", \"4020\"], [\"0.949\", \"98.03\"], [\"0.918\", \"203.24\"], [\"0.917\", \"5.92\"], [\"0.916\", \"59.52\"], [\"0.9\", \"1400\"], [\"0.89\", \"190\"], [\"0.889\", \"45.04\"], [\"0.85\", \"933.33\"], [\"0.84\", \"109\"], [\"0.839\", \"31.05\"], [\"0.8\", \"675\"], [\"0.79\", \"97.74\"], [\"0.789\", \"5.53\"], [\"0.786\", \"23.36\"], [\"0.75\", \"460\"], [\"0.747\", \"160\"], [\"0.74\", \"35\"], [\"0.739\", \"19.15\"], [\"0.7\", \"333.33\"], [\"0.69\", \"18\"], [\"0.689\", \"19.29\"], [\"0.65\", \"285.71\"], [\"0.649\", \"14.24\"], [\"0.6\", \"200\"], [\"0.599\", \"12.46\"], [\"0.5\", \"124\"], [\"0.45\", \"56.38\"], [\"0.42\", \"100\"], [\"0.414\", \"5\"], [\"0.407\", \"994.98\"], [\"0.188\", \"278.87\"], [\"0.18\", \"95.03\"], [\"0.163\", \"10\"], [\"0.15\", \"285\"], [\"0.149\", \"400\"], [\"0.143\", \"10\"], [\"0.123\", \"10\"], [\"0.121\", \"25\"], [\"0.103\", \"10\"], [\"0.102\", \"35\"], [\"0.09\", \"143.62\"], [\"0.08\", \"70\"], [\"0.079\", \"60\"], [\"0.078\", \"161.99\"], [\"0.067\", \"10\"], [\"0.058\", \"20\"], [\"0.041\", \"83.14\"], [\"0.04\", \"100\"], [\"0.038\", \"20.1\"], [\"0.031\", \"105\"], [\"0.024\", \"100\"], [\"0.023\", \"73.21\"], [\"0.019\", \"8\"], [\"0.018\", \"84.61\"], [\"0.017\", \"8\"], [\"0.014\", \"45\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xece051cdc1d2fe60892c000eae72a390482e6259147fcf0f1b9999199dee23ce\", \"token_id\": \"33453138134494877145786993949339161499610423268332931164717578305110848785376\", \"side\": \"NO\", \"best_bid\": \"0.994\", \"best_ask\": \"0.998\", \"timestamp\": 1772324281.5462654, \"change_price\": \"0.151\", \"change_size\": \"66.22\", \"change_side\": \"BUY\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1004201\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "rows": 1004525,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 729139,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.003000+00:00\n  max: 2026-03-01 00:59:49.452000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1004525\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 904387,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 00:59:49.467000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1004525\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 127167,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 0x142ae3ee1eeea8898a89309f588210d4c65430459c18b68f243e40c7a1421c0f\n  max: 0xeeb92af2a7e3057441e4f929457e3f92988815fb278eebbcc420a894af479653\n  null_count: None\n  distinct_count: None\n  num_values: 1004525\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 7313,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1004525\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 15852107,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x142ae3ee1eeea8898a89309f588210d4c65430459c18b68f243e40c7a1421c0f\", \"token_id\": \"60137836922463000237501210790081339213140293230497640738247745178537582651460\", \"side\": \"NO\", \"best_bid\": \"0.998\", \"best_ask\": \"0.999\", \"timestamp\": 1772323925.3782668, \"bids\": [[\"0.001\", \"6195\"], [\"0.002\", \"5250\"], [\"0.003\", \"166\"], [\"0.006\", \"83\"], [\"0.01\", \"25155\"], [\"0.011\", \"1818.18\"], [\"0.02\", \"12500\"], [\"0.03\", \"7500\"], [\"0.04\", \"4750\"], [\"0.05\", \"3520\"], [\"0.1\", \"5500\"], [\"0.11\", \"190\"], [\"0.15\", \"10250\"], [\"0.16\", \"109\"], [\"0.2\", \"6000\"], [\"0.201\", \"500\"], [\"0.21\", \"66\"], [\"0.25\", \"2000\"], [\"0.26\", \"35\"], [\"0.3\", \"3250\"], [\"0.31\", \"18\"], [\"0.32\", \"10\"], [\"0.35\", \"1750\"], [\"0.4\", \"4750\"], [\"0.45\", \"2500\"], [\"0.5\", \"2700\"], [\"0.55\", \"1250\"], [\"0.6\", \"1750\"], [\"0.65\", \"1075\"], [\"0.651\", \"5\"], [\"0.652\", \"40\"], [\"0.68\", \"5\"], [\"0.69\", \"5\"], [\"0.7\", \"5\"], [\"0.71\", \"5\"], [\"0.72\", \"405\"], [\"0.73\", \"5\"], [\"0.74\", \"5\"], [\"0.75\", \"5\"], [\"0.76\", \"605\"], [\"0.77\", \"5\"], [\"0.78\", \"5\"], [\"0.79\", \"5\"], [\"0.8\", \"5\"], [\"0.805\", \"10\"], [\"0.81\", \"5\"], [\"0.82\", \"5\"], [\"0.825\", \"10\"], [\"0.83\", \"758\"], [\"0.831\", \"25\"], [\"0.84\", \"5\"], [\"0.841\", \"25\"], [\"0.845\", \"10\"], [\"0.85\", \"5\"], [\"0.853\", \"400\"], [\"0.854\", \"400\"], [\"0.86\", \"74.6\"], [\"0.865\", \"10\"], [\"0.87\", \"5\"], [\"0.88\", \"5\"], [\"0.885\", \"10\"], [\"0.89\", \"5\"], [\"0.9\", \"415\"], [\"0.901\", \"30\"], [\"0.91\", \"5\"], [\"0.92\", \"183.57\"], [\"0.93\", \"5\"], [\"0.94\", \"5\"], [\"0.95\", \"105\"], [\"0.955\", \"5\"], [\"0.96\", \"5\"], [\"0.963\", \"879.99\"], [\"0.964\", \"933.36\"], [\"0.965\", \"5\"], [\"0.966\", \"16\"], [\"0.968\", \"46.36\"], [\"0.97\", \"195\"], [\"0.977\", \"29.44\"], [\"0.978\", \"42.6\"], [\"0.979\", \"59.32\"], [\"0.98\", \"64.32\"], [\"0.981\", \"118.65\"], [\"0.99\", \"10\"], [\"0.992\", \"24\"], [\"0.997\", \"279.33\"], [\"0.998\", \"13159.88\"]], \"asks\": [[\"0.999\", \"76181.1\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xeeb92af2a7e3057441e4f929457e3f92988815fb278eebbcc420a894af479653\", \"token_id\": \"84611466579628440503621590191300313871167455766626696912207340296631600913685\", \"side\": \"YES\", \"best_bid\": \"0.002\", \"best_ask\": \"0.005\", \"timestamp\": 1772324848.018392, \"change_price\": \"0.002\", \"change_size\": \"5041.86\", \"change_side\": \"BUY\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1004525\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "rows": 1000772,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 752781,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 2026-03-01 00:00:00+00:00\n  max: 2026-03-01 00:59:49.440000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1000772\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 963121,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 00:59:49.467000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1000772\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 127255,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 0x153866c82043e636aa6c94b5f431de9404a544e1a09f4423e096579283b4c033\n  max: 0xf084b94e4f75d4a96e8937019301577c53247bcdd196f663aeb70114d2f09212\n  null_count: None\n  distinct_count: None\n  num_values: 1000772\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 9034,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1000772\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 16044036,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x1538a813c1476325a3c00d2809aeccec3367e708b3effbf4f273f73048f64014\", \"token_id\": \"29536895032650401839251403403106384912244685736694906414276121897606172079179\", \"side\": \"NO\", \"best_bid\": \"0.08\", \"best_ask\": \"0.78\", \"timestamp\": 1772323389.7908406, \"bids\": [[\"0.01\", \"422.29\"], [\"0.02\", \"670\"], [\"0.03\", \"12.12\"], [\"0.04\", \"100\"], [\"0.06\", \"600\"], [\"0.07\", \"260\"], [\"0.08\", \"5.79\"]], \"asks\": [[\"0.99\", \"217.24\"], [\"0.98\", \"670\"], [\"0.97\", \"11.46\"], [\"0.96\", \"600\"], [\"0.95\", \"250\"], [\"0.92\", \"75\"], [\"0.91\", \"5.93\"], [\"0.82\", \"27\"], [\"0.78\", \"10\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xf084b94e4f75d4a96e8937019301577c53247bcdd196f663aeb70114d2f09212\", \"token_id\": \"72467464861622973785853286809379363910529444812660774119776153196645970793269\", \"side\": \"NO\", \"best_bid\": \"0.999\", \"best_ask\": \"1\", \"timestamp\": 1772324818.5986435, \"change_price\": \"0.999\", \"change_size\": \"350403.5\", \"change_side\": \"BUY\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1000772\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "rows": 1007160,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 809816,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.007000+00:00\n  max: 2026-03-01 00:59:49.451000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1007160\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 1029753,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 00:59:49.467000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1007160\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 139537,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 0x173e1e71d57e728e99544c38da074e38e079e1f2865b332c10ad5ae7f84385b8\n  max: 0xf2309f90bec7985cdcf92e788b55296cc0bad2fc97a13f11bf7b206948eee810\n  null_count: None\n  distinct_count: None\n  num_values: 1007160\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 6536,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1007160\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 16001476,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x1747c70c95be9648bda9ba6bf3465b1ebf9b8b88e97224bd18b36b1ff329034c\", \"token_id\": \"7588697446594809866179417382514789579846152785912821569541234196802575740034\", \"side\": \"YES\", \"best_bid\": null, \"best_ask\": null, \"timestamp\": 1772323667.4500263}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xf2309f90bec7985cdcf92e788b55296cc0bad2fc97a13f11bf7b206948eee810\", \"token_id\": \"93808813672044839741099928093244843548501600576022153464126332101716487892916\", \"side\": \"YES\", \"best_bid\": \"0.16\", \"best_ask\": \"0.48\", \"timestamp\": 1772324459.0521004, \"change_price\": \"0.99\", \"change_size\": \"12012.78\", \"change_side\": \"SELL\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1007160\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "rows": 1006899,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 741730,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.008000+00:00\n  max: 2026-03-01 00:59:49.426000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1006899\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 905249,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 00:59:49.467000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1006899\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 98129,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 0x18922fd72436bc93f379876b1dda6dff7c852cfff04c906e517b95780a615c03\n  max: 0xf38f4e0a5f9a8b70a5677ddc917c0c5d8571e44357958f7655f91307f3426115\n  null_count: None\n  distinct_count: None\n  num_values: 1006899\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 12628,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1006899\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 16207088,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x18922fd72436bc93f379876b1dda6dff7c852cfff04c906e517b95780a615c03\", \"token_id\": \"106975787384861969604720535393456602769704382288770063801352931706034777453982\", \"side\": \"NO\", \"best_bid\": \"0.73\", \"best_ask\": \"0.84\", \"timestamp\": 1772324960.020598, \"bids\": [[\"0.01\", \"13514.1\"], [\"0.02\", \"47.26\"], [\"0.03\", \"6.62\"], [\"0.14\", \"1724.97\"], [\"0.15\", \"874.14\"], [\"0.73\", \"95\"]], \"asks\": [[\"0.99\", \"14388.23\"], [\"0.98\", \"403.18\"], [\"0.97\", \"383.97\"], [\"0.96\", \"874.14\"], [\"0.95\", \"15.19\"], [\"0.84\", \"5\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xf38f4e0a5f9a8b70a5677ddc917c0c5d8571e44357958f7655f91307f3426115\", \"token_id\": \"89834397396534293492391335593169797666606543102794407122827454546463264645669\", \"side\": \"YES\", \"best_bid\": \"0.79\", \"best_ask\": \"0.88\", \"timestamp\": 1772323673.2497597, \"change_price\": \"0.92\", \"change_size\": \"1006.28\", \"change_side\": \"SELL\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1006899\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "rows": 1002205,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 870420,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.014000+00:00\n  max: 2026-03-01 00:59:49.451000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1002205\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 1160044,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 00:59:49.467000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1002205\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 173627,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 0x1a218a21e567287289a1f1de2b8151adc42d485c8eea91c949d2ab69a18b0338\n  max: 0xf51445abaac63089f9f1b5b294104e129180f31397992a4908a09b9dbad93913\n  null_count: None\n  distinct_count: None\n  num_values: 1002205\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 8045,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1002205\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 16248152,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x1a218a21e567287289a1f1de2b8151adc42d485c8eea91c949d2ab69a18b0338\", \"token_id\": \"54734019448618878025104494879760727781671568505531046995808088922025432494063\", \"side\": \"NO\", \"best_bid\": \"0.73\", \"best_ask\": \"0.75\", \"timestamp\": 1772324934.3162084, \"bids\": [[\"0.01\", \"40614.17\"], [\"0.02\", \"47516.97\"], [\"0.03\", \"3048.28\"], [\"0.04\", \"25\"], [\"0.05\", \"20\"], [\"0.06\", \"9.9\"], [\"0.09\", \"400\"], [\"0.1\", \"400\"], [\"0.11\", \"43085.95\"], [\"0.14\", \"1114\"], [\"0.16\", \"200\"], [\"0.17\", \"6.15\"], [\"0.68\", \"4012.12\"], [\"0.69\", \"2991.01\"], [\"0.7\", \"17\"], [\"0.71\", \"9830.98\"], [\"0.72\", \"9834.33\"], [\"0.73\", \"865.73\"]], \"asks\": [[\"0.99\", \"40601.65\"], [\"0.98\", \"45455.64\"], [\"0.97\", \"33\"], [\"0.95\", \"2020\"], [\"0.94\", \"3049.59\"], [\"0.91\", \"24502.12\"], [\"0.8\", \"5120\"], [\"0.79\", \"20717.39\"], [\"0.78\", \"941.45\"], [\"0.77\", \"8563.03\"], [\"0.76\", \"8287.79\"], [\"0.75\", \"1024.1\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xf51445abaac63089f9f1b5b294104e129180f31397992a4908a09b9dbad93913\", \"token_id\": \"5764468817751291908909841086533332492051159005243258757428869268885110368995\", \"side\": \"YES\", \"best_bid\": \"0.004\", \"best_ask\": \"0.103\", \"timestamp\": 1772324780.7846887, \"change_price\": \"0.004\", \"change_size\": \"75.37\", \"change_side\": \"BUY\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1002205\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "rows": 1002102,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 803512,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.009000+00:00\n  max: 2026-03-01 00:59:49.446000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1002102\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 1056080,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 00:59:49.467000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1002102\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 135530,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 0x1ac433cb9099188b10d0629139ec94dba5955da32f7cd71e42e4e76fc58bb4f3\n  max: 0xf6d8f096d93ea58f68cd1fdfef70f4e257e9e8c517a1acbad0e33dfde596e40f\n  null_count: None\n  distinct_count: None\n  num_values: 1002102\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 7030,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1002102\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 15918672,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x1ac56475465b7d500a59618c645de92bec3ffeb69eac26242721b23f64e31a12\", \"token_id\": \"115453296197533695645437479820838351764006903443706015760045707417386562380727\", \"side\": \"NO\", \"best_bid\": \"0.64\", \"best_ask\": \"0.65\", \"timestamp\": 1772323761.8230407, \"bids\": [[\"0.01\", \"162.93\"], [\"0.02\", \"1161.08\"], [\"0.04\", \"23\"], [\"0.05\", \"8.66\"], [\"0.06\", \"500\"], [\"0.11\", \"200\"], [\"0.12\", \"10.54\"], [\"0.3\", \"200\"], [\"0.45\", \"10\"], [\"0.47\", \"77\"], [\"0.53\", \"10\"], [\"0.54\", \"546\"], [\"0.55\", \"10\"], [\"0.57\", \"10\"], [\"0.58\", \"198\"], [\"0.59\", \"189\"], [\"0.6\", \"230\"], [\"0.61\", \"500.01\"], [\"0.62\", \"388.97\"], [\"0.63\", \"57\"], [\"0.64\", \"36.28\"]], \"asks\": [[\"0.99\", \"193\"], [\"0.98\", \"1155.68\"], [\"0.96\", \"84\"], [\"0.95\", \"11.06\"], [\"0.92\", \"250\"], [\"0.83\", \"10\"], [\"0.75\", \"558\"], [\"0.71\", \"219\"], [\"0.7\", \"242\"], [\"0.69\", \"205\"], [\"0.68\", \"334\"], [\"0.67\", \"954\"], [\"0.66\", \"16176.69\"], [\"0.65\", \"461.93\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xf6d8f096d93ea58f68cd1fdfef70f4e257e9e8c517a1acbad0e33dfde596e40f\", \"token_id\": \"668218074207034154585702391896620495542515773947992706137191450147539002513\", \"side\": \"NO\", \"best_bid\": \"0.62\", \"best_ask\": \"0.63\", \"timestamp\": 1772324169.7292695, \"change_price\": \"0.61\", \"change_size\": \"66.9\", \"change_side\": \"BUY\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1002102\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "rows": 1002031,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 813955,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 00:59:49.430000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1002031\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 1060667,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 2026-03-01 00:00:01.250000+00:00\n  max: 2026-03-01 00:59:49.467000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1002031\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 132283,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 0x1c5179aa7756ff073aded144cbc1ae31b69d65363c3bdee741fdd2efb917b7f5\n  max: 0xf7737a969cf1cdd14a236277025d2b93cc5c6c2795fe2abdd859bcdbd6cba3d2\n  null_count: None\n  distinct_count: None\n  num_values: 1002031\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 8240,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1002031\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 16070936,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x1c57312afed65a7f21d5940f207f57ba5a97b104bc3d35425dd587b5f7171b16\", \"token_id\": \"20194390143100918933033698479546149349227100384544034074827942103760115878967\", \"side\": \"YES\", \"best_bid\": \"0.974\", \"best_ask\": \"0.976\", \"timestamp\": 1772323471.8070574, \"bids\": [[\"0.001\", \"11038.96\"], [\"0.002\", \"2008.89\"], [\"0.003\", \"2000\"], [\"0.004\", \"17.35\"], [\"0.01\", \"39155\"], [\"0.011\", \"1818.18\"], [\"0.012\", \"25.69\"], [\"0.03\", \"14500\"], [\"0.031\", \"32\"], [\"0.05\", \"30\"], [\"0.051\", \"19\"], [\"0.052\", \"6.84\"], [\"0.06\", \"12250\"], [\"0.11\", \"8750\"], [\"0.111\", \"9.04\"], [\"0.21\", \"6200\"], [\"0.31\", \"4350\"], [\"0.311\", \"250\"], [\"0.928\", \"5000\"], [\"0.948\", \"10\"], [\"0.974\", \"6118.69\"]], \"asks\": [[\"0.999\", \"49030\"], [\"0.998\", \"2044.72\"], [\"0.997\", \"2029.27\"], [\"0.996\", \"66.03\"], [\"0.994\", \"6301\"], [\"0.993\", \"262.64\"], [\"0.992\", \"261\"], [\"0.991\", \"18.89\"], [\"0.99\", \"200\"], [\"0.989\", \"37.97\"], [\"0.985\", \"100\"], [\"0.984\", \"34.18\"], [\"0.978\", \"100\"], [\"0.976\", \"5000\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xf7737a969cf1cdd14a236277025d2b93cc5c6c2795fe2abdd859bcdbd6cba3d2\", \"token_id\": \"58543813267610081631435862141368982206334171301935983040553279894003752861071\", \"side\": \"YES\", \"best_bid\": \"0.12\", \"best_ask\": \"0.5\", \"timestamp\": 1772324589.7042217, \"change_price\": \"0.8\", \"change_size\": \"10\", \"change_side\": \"SELL\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1002031\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "rows": 1001903,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 909703,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.002000+00:00\n  max: 2026-03-01 00:59:49.446000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1001903\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 1239355,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 00:59:49.467000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1001903\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 172911,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 0x1df11985854e9f89e4521273ef2f953957410137ad76ca5af533327d3699c79e\n  max: 0xf95fc25ba1f06787bd1165c8afdc7854de0fe0191199e7624d2f7328d0d1bfa4\n  null_count: None\n  distinct_count: None\n  num_values: 1001903\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 6534,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1001903\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 16251766,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x1df11985854e9f89e4521273ef2f953957410137ad76ca5af533327d3699c79e\", \"token_id\": \"57938305920417124822967446358437277639519236306927763585552259166063699033124\", \"side\": \"YES\", \"best_bid\": \"0.031\", \"best_ask\": \"0.108\", \"timestamp\": 1772323927.347729, \"bids\": [[\"0.001\", \"180\"], [\"0.002\", \"250\"], [\"0.003\", \"14.32\"], [\"0.01\", \"100\"], [\"0.011\", \"19.26\"], [\"0.016\", \"5000\"], [\"0.03\", \"3444\"], [\"0.031\", \"2500\"]], \"asks\": [[\"0.999\", \"165.23\"], [\"0.998\", \"5.25\"], [\"0.997\", \"166\"], [\"0.996\", \"6.51\"], [\"0.994\", \"83\"], [\"0.992\", \"15\"], [\"0.991\", \"6.82\"], [\"0.99\", \"3100\"], [\"0.98\", \"1600\"], [\"0.979\", \"9.18\"], [\"0.95\", \"30\"], [\"0.94\", \"640\"], [\"0.938\", \"32\"], [\"0.937\", \"9.43\"], [\"0.89\", \"80\"], [\"0.8\", \"460\"], [\"0.79\", \"30\"], [\"0.789\", \"5.26\"], [\"0.74\", \"30\"], [\"0.73\", \"100\"], [\"0.69\", \"30\"], [\"0.66\", \"100\"], [\"0.64\", \"20\"], [\"0.29\", \"5\"], [\"0.28\", \"885.51\"], [\"0.273\", \"40\"], [\"0.268\", \"10\"], [\"0.248\", \"105\"], [\"0.24\", \"556\"], [\"0.239\", \"25\"], [\"0.229\", \"108.84\"], [\"0.228\", \"30\"], [\"0.208\", \"10\"], [\"0.196\", \"900\"], [\"0.188\", \"8\"], [\"0.187\", \"10\"], [\"0.186\", \"30\"], [\"0.166\", \"8\"], [\"0.16\", \"1500\"], [\"0.15\", \"500\"], [\"0.11\", \"5\"], [\"0.109\", \"14.83\"], [\"0.108\", \"1.25\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xf95fc25ba1f06787bd1165c8afdc7854de0fe0191199e7624d2f7328d0d1bfa4\", \"token_id\": \"59269784504199975303774619820126015156439754824794262032003248542210643939857\", \"side\": \"YES\", \"best_bid\": \"0.058\", \"best_ask\": \"0.657\", \"timestamp\": 1772324564.0561535, \"change_price\": \"0.871\", \"change_size\": \"400\", \"change_side\": \"SELL\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1001903\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "rows": 1000983,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 749161,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.018000+00:00\n  max: 2026-03-01 00:59:59.994000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1000983\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 916593,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 2026-03-01 00:00:01.250000+00:00\n  max: 2026-03-01 01:00:00.059000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1000983\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 136869,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 0x00000977017fa72fb6b1908ae694000d3b51f442c2552656b10bdbbfd16ff707\n  max: 0xffffa6f853e4bc25771104e97a9cdcdb74ac4ae224cae9762d235022b32531eb\n  null_count: None\n  distinct_count: None\n  num_values: 1000983\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 9207,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1000983\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 16013890,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x0af4a72e2f3f5f3509a289ea2646d9fc933c4403e05f19e04d5d332e4179a038\", \"token_id\": \"39586172211596427905827512340558370722864103473948992121155943904825440201377\", \"side\": \"YES\", \"best_bid\": \"0.01\", \"best_ask\": \"0.2\", \"timestamp\": 1772326792.0411491, \"bids\": [[\"0.001\", \"34\"], [\"0.01\", \"64.98\"]], \"asks\": [[\"0.999\", \"34\"], [\"0.95\", \"100\"], [\"0.9\", \"50\"], [\"0.89\", \"45\"], [\"0.74\", \"24\"], [\"0.2\", \"10\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xffffa6f853e4bc25771104e97a9cdcdb74ac4ae224cae9762d235022b32531eb\", \"token_id\": \"64674936363636611504965896469928814363996612480912640134385639300346991703409\", \"side\": \"NO\", \"best_bid\": \"0.51\", \"best_ask\": \"0.92\", \"timestamp\": 1772326584.3772187, \"change_price\": \"0.93\", \"change_size\": \"0\", \"change_side\": \"SELL\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1000983\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "rows": 1002829,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 908842,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.003000+00:00\n  max: 2026-03-01 00:59:59.995000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1002829\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 1236483,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 01:00:00.059000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1002829\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 182055,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 0x169f41180ed918bad699de56a6198c4778cc80cf21d787a6d4233ad9b7f778cc\n  max: 0xfcb652752fff46da55daec32efb9b53269342b92a72734f4c20f3ecc3ce1388c\n  null_count: None\n  distinct_count: None\n  num_values: 1002829\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 5219,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1002829\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 16142767,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x1938a347b41a4b58665f83ee7c445bc9efb69c76fca9f26636530c77291b03f2\", \"token_id\": \"114998500932443994549703345402420496255067738789869196178729759222206365295892\", \"side\": \"NO\", \"best_bid\": \"0.951\", \"best_ask\": \"0.963\", \"timestamp\": 1772326799.7567713, \"bids\": [[\"0.001\", \"1039.57\"], [\"0.002\", \"21.43\"], [\"0.003\", \"7.47\"], [\"0.006\", \"83\"], [\"0.01\", \"15255\"], [\"0.011\", \"1818.18\"], [\"0.012\", \"5.57\"], [\"0.02\", \"1000\"], [\"0.021\", \"11.12\"], [\"0.031\", \"32\"], [\"0.05\", \"8270\"], [\"0.051\", \"5019\"], [\"0.052\", \"10.46\"], [\"0.088\", \"906.88\"], [\"0.1\", \"2500\"], [\"0.101\", \"964.01\"], [\"0.12\", \"3.86\"], [\"0.14\", \"2529.99\"], [\"0.141\", \"5.42\"], [\"0.19\", \"1194.21\"], [\"0.191\", \"836\"], [\"0.24\", \"988.33\"], [\"0.241\", \"394\"], [\"0.29\", \"474.82\"], [\"0.34\", \"649.11\"], [\"0.36\", \"20\"], [\"0.39\", \"205.12\"], [\"0.417\", \"1000\"], [\"0.5\", \"500.13\"], [\"0.772\", \"200\"], [\"0.81\", \"6\"], [\"0.934\", \"120\"], [\"0.937\", \"963\"], [\"0.94\", \"98.42\"], [\"0.945\", \"500\"], [\"0.947\", \"390\"], [\"0.948\", \"13.21\"], [\"0.95\", \"220.5\"], [\"0.951\", \"131.42\"]], \"asks\": [[\"0.999\", \"8070\"], [\"0.998\", \"4207.53\"], [\"0.997\", \"263.81\"], [\"0.996\", \"110.86\"], [\"0.995\", \"107.08\"], [\"0.994\", \"39.36\"], [\"0.993\", \"19.8\"], [\"0.99\", \"618.82\"], [\"0.989\", \"100\"], [\"0.988\", \"9.87\"], [\"0.986\", \"548.29\"], [\"0.985\", \"24.28\"], [\"0.98\", \"15.32\"], [\"0.979\", \"15.7\"], [\"0.97\", \"100\"], [\"0.969\", \"7.25\"], [\"0.968\", \"8258.37\"], [\"0.965\", \"421.55\"], [\"0.964\", \"96.09\"], [\"0.963\", \"60\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xfcb652752fff46da55daec32efb9b53269342b92a72734f4c20f3ecc3ce1388c\", \"token_id\": \"70488477725127436047102952804040026335853072692075486663527712515200637147211\", \"side\": \"YES\", \"best_bid\": \"0.11\", \"best_ask\": \"0.54\", \"timestamp\": 1772324581.2939842, \"change_price\": \"0.02\", \"change_size\": \"882.9\", \"change_side\": \"BUY\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1002829\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "rows": 1000614,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 871097,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.003000+00:00\n  max: 2026-03-01 00:59:59.995000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1000614\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 1171744,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 01:00:00.059000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1000614\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 141415,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 0x23715979b9acd13402e59062737f2d8ec62894ab01454f857d7bee07e7673b9d\n  max: 0xfea4f0b45b24d9d8ce4adb827230b1eced42106363a96a5339b289093e441201\n  null_count: None\n  distinct_count: None\n  num_values: 1000614\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 5750,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1000614\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 16039333,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x23862cc33d499e4f93c0fba6e64a4db04d4a83ac5f180458e3d13b97cb9c78d0\", \"token_id\": \"33069578092013388167178789652438366143603080812585722308466176777583824511087\", \"side\": \"YES\", \"best_bid\": \"0.11\", \"best_ask\": \"0.25\", \"timestamp\": 1772324459.2031665, \"bids\": [[\"0.01\", \"5.98\"], [\"0.02\", \"1000\"], [\"0.03\", \"357.73\"], [\"0.04\", \"90.77\"], [\"0.05\", \"130\"], [\"0.06\", \"7.81\"], [\"0.07\", \"249.8\"], [\"0.09\", \"75\"], [\"0.1\", \"51.1\"], [\"0.11\", \"5.12\"]], \"asks\": [[\"0.99\", \"1015.52\"], [\"0.98\", \"5403.52\"], [\"0.95\", \"30\"], [\"0.94\", \"12.81\"], [\"0.82\", \"500\"], [\"0.79\", \"222.82\"], [\"0.77\", \"55\"], [\"0.69\", \"6\"], [\"0.68\", \"73\"], [\"0.35\", \"123.07\"], [\"0.33\", \"5\"], [\"0.25\", \"36.16\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xfea4f0b45b24d9d8ce4adb827230b1eced42106363a96a5339b289093e441201\", \"token_id\": \"61384220646957027221269270897168774504388701854083438309241371207726869530752\", \"side\": \"YES\", \"best_bid\": \"0.1\", \"best_ask\": \"0.12\", \"timestamp\": 1772325032.684333, \"change_price\": \"0.19\", \"change_size\": \"468.52\", \"change_side\": \"SELL\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1000614\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "rows": 1001250,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 782087,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.006000+00:00\n  max: 2026-03-01 00:59:59.994000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1001250\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 1076692,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 01:00:00.059000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1001250\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 127550,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 0x26354756d19d8f79382119dcfa9e9c39cec2bb9bbbc7b317c05408079797e02d\n  max: 0xfff8b5e704ac9e84e635c86750b5eca81a6c2eddd068368b64ac375c2be41d3a\n  null_count: None\n  distinct_count: None\n  num_values: 1001250\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 5609,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1001250\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 15816420,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x26354756d19d8f79382119dcfa9e9c39cec2bb9bbbc7b317c05408079797e02d\", \"token_id\": \"30259937547427717570502438050054201742655297680280370179015890711063417431598\", \"side\": \"YES\", \"best_bid\": \"0.37\", \"best_ask\": \"0.38\", \"timestamp\": 1772324163.5532777, \"bids\": [[\"0.01\", \"17011.24\"], [\"0.02\", \"7926.68\"], [\"0.03\", \"2957.13\"], [\"0.04\", \"317.45\"], [\"0.05\", \"599.76\"], [\"0.06\", \"229.97\"], [\"0.07\", \"340.86\"], [\"0.08\", \"212.5\"], [\"0.09\", \"129.11\"], [\"0.1\", \"358\"], [\"0.11\", \"210.09\"], [\"0.12\", \"287.16\"], [\"0.13\", \"89.69\"], [\"0.14\", \"107.42\"], [\"0.15\", \"113.34\"], [\"0.16\", \"167.38\"], [\"0.17\", \"180.53\"], [\"0.18\", \"79.78\"], [\"0.19\", \"119.1\"], [\"0.2\", \"87.5\"], [\"0.21\", \"138\"], [\"0.22\", \"93\"], [\"0.23\", \"109\"], [\"0.24\", \"76\"], [\"0.25\", \"86\"], [\"0.26\", \"126\"], [\"0.27\", \"86\"], [\"0.28\", \"56\"], [\"0.29\", \"33\"], [\"0.3\", \"174.33\"], [\"0.31\", \"195\"], [\"0.32\", \"149\"], [\"0.33\", \"157\"], [\"0.34\", \"242\"], [\"0.35\", \"278\"], [\"0.36\", \"136\"], [\"0.37\", \"26\"]], \"asks\": [[\"0.99\", \"17089.39\"], [\"0.98\", \"8734.68\"], [\"0.97\", \"2946.13\"], [\"0.96\", \"201.45\"], [\"0.95\", \"619.76\"], [\"0.94\", \"229.97\"], [\"0.93\", \"340.86\"], [\"0.92\", \"162.5\"], [\"0.91\", \"129.11\"], [\"0.9\", \"348\"], [\"0.89\", \"127.09\"], [\"0.88\", \"297.16\"], [\"0.87\", \"99.69\"], [\"0.86\", \"107.42\"], [\"0.85\", \"113.34\"], [\"0.84\", \"167.38\"], [\"0.83\", \"80.53\"], [\"0.82\", \"99.78\"], [\"0.81\", \"70.1\"], [\"0.8\", \"87.5\"], [\"0.79\", \"118\"], [\"0.78\", \"78\"], [\"0.77\", \"166\"], [\"0.76\", \"66\"], [\"0.75\", \"76\"], [\"0.74\", \"100\"], [\"0.73\", \"66\"], [\"0.72\", \"81\"], [\"0.71\", \"58\"], [\"0.7\", \"186\"], [\"0.69\", \"177\"], [\"0.68\", \"58\"], [\"0.67\", \"66\"], [\"0.66\", \"66\"], [\"0.65\", \"168\"], [\"0.64\", \"66\"], [\"0.63\", \"143.91\"], [\"0.62\", \"88\"], [\"0.61\", \"76\"], [\"0.6\", \"186\"], [\"0.59\", \"68\"], [\"0.58\", \"115.61\"], [\"0.57\", \"68\"], [\"0.56\", \"218\"], [\"0.55\", \"195\"], [\"0.54\", \"292.79\"], [\"0.53\", \"205\"], [\"0.52\", \"654.28\"], [\"0.51\", \"190\"], [\"0.5\", \"238\"], [\"0.49\", \"190\"], [\"0.48\", \"192.11\"], [\"0.47\", \"199\"], [\"0.46\", \"194\"], [\"0.45\", \"189\"], [\"0.44\", \"86.93\"], [\"0.43\", \"199\"], [\"0.42\", \"219.9\"], [\"0.41\", \"209\"], [\"0.4\", \"502.04\"], [\"0.39\", \"204\"], [\"0.38\", \"25.28\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xfff8b5e704ac9e84e635c86750b5eca81a6c2eddd068368b64ac375c2be41d3a\", \"token_id\": \"21906518166513132225586519394378945986748793590258730261712898181233794866144\", \"side\": \"NO\", \"best_bid\": \"0.08\", \"best_ask\": \"0.92\", \"timestamp\": 1772324910.9397724, \"change_price\": \"0.08\", \"change_size\": \"10\", \"change_side\": \"BUY\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1001250\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "rows": 1004663,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 787441,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.009000+00:00\n  max: 2026-03-01 00:59:59.995000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1004663\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 1045118,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 01:00:00.059000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1004663\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 130222,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 0x4c04cc7094bf35bd682eb4f0e492836b97392c213087a2b891d0b5d897a81eb2\n  max: 0xffffa6f853e4bc25771104e97a9cdcdb74ac4ae224cae9762d235022b32531eb\n  null_count: None\n  distinct_count: None\n  num_values: 1004663\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 6694,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1004663\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 16259270,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x4c0990f822dbd8eed0f67c8c9cce3e915e9ce1bb97bb53d6ed007e1ef2a10e8b\", \"token_id\": \"10292141282540978760766107030199485097926312146419170918801864952647427127092\", \"side\": \"YES\", \"best_bid\": \"0.93\", \"best_ask\": \"0.97\", \"timestamp\": 1772324646.0417466, \"bids\": [[\"0.01\", \"14056.16\"], [\"0.02\", \"10\"], [\"0.03\", \"107.96\"], [\"0.09\", \"7.37\"], [\"0.21\", \"479.11\"], [\"0.37\", \"389.22\"], [\"0.38\", \"868.33\"], [\"0.92\", \"95\"], [\"0.93\", \"5.34\"]], \"asks\": [[\"0.99\", \"404.22\"], [\"0.98\", \"46.31\"], [\"0.97\", \"4.12\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xffffa6f853e4bc25771104e97a9cdcdb74ac4ae224cae9762d235022b32531eb\", \"token_id\": \"64674936363636611504965896469928814363996612480912640134385639300346991703409\", \"side\": \"NO\", \"best_bid\": \"0.51\", \"best_ask\": \"0.93\", \"timestamp\": 1772324500.176105, \"change_price\": \"0.93\", \"change_size\": \"6.84\", \"change_side\": \"SELL\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1004663\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "rows": 1006330,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 886542,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.006000+00:00\n  max: 2026-03-01 00:54:39.488000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1006330\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 1206785,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 00:54:39.517000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 1006330\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 104508,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: 0x4de03019be9f2b1b1bf7f1dc335d23580989f2b430f9e8f6153258b5c46cd381\n  max: 0xffffa6f853e4bc25771104e97a9cdcdb74ac4ae224cae9762d235022b32531eb\n  null_count: None\n  distinct_count: None\n  num_values: 1006330\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 5556,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 1006330\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 16035333,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a1fd0>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x4decc84ca9043bc955336d53de1533f86c426e47b2ff3c05ff63f122318ea7c8\", \"token_id\": \"17534298117009088653925892532629674654011194647421335094162202923073472881781\", \"side\": \"NO\", \"best_bid\": \"0.99\", \"best_ask\": \"0.994\", \"timestamp\": 1772323426.448388, \"bids\": [[\"0.001\", \"50.51\"], [\"0.005\", \"2000\"], [\"0.01\", \"1200\"], [\"0.011\", \"8.51\"], [\"0.02\", \"2222\"], [\"0.03\", \"500\"], [\"0.031\", \"8.45\"], [\"0.05\", \"4140\"], [\"0.1\", \"1400\"], [\"0.101\", \"5.88\"], [\"0.15\", \"1013.33\"], [\"0.2\", \"935.64\"], [\"0.25\", \"470\"], [\"0.3\", \"463.33\"], [\"0.301\", \"6\"], [\"0.31\", \"30\"], [\"0.33\", \"222\"], [\"0.34\", \"100\"], [\"0.35\", \"285.71\"], [\"0.36\", \"80.63\"], [\"0.4\", \"200\"], [\"0.45\", \"10\"], [\"0.51\", \"222\"], [\"0.58\", \"10\"], [\"0.59\", \"10\"], [\"0.6\", \"2610\"], [\"0.61\", \"10\"], [\"0.65\", \"300\"], [\"0.68\", \"4888.11\"], [\"0.7\", \"24.16\"], [\"0.8\", \"124.99\"], [\"0.81\", \"500\"], [\"0.82\", \"4997.6\"], [\"0.9\", \"1500\"], [\"0.95\", \"2700\"], [\"0.96\", \"900\"], [\"0.97\", \"540\"], [\"0.975\", \"873.51\"], [\"0.983\", \"60.47\"], [\"0.985\", \"194.98\"], [\"0.99\", \"24\"]], \"asks\": [[\"0.999\", \"30010\"], [\"0.998\", \"5092.13\"], [\"0.997\", \"1058.31\"], [\"0.996\", \"7145.13\"], [\"0.995\", \"552.42\"], [\"0.994\", \"48.25\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xffffa6f853e4bc25771104e97a9cdcdb74ac4ae224cae9762d235022b32531eb\", \"token_id\": \"64674936363636611504965896469928814363996612480912640134385639300346991703409\", \"side\": \"NO\", \"best_bid\": \"0.51\", \"best_ask\": \"0.92\", \"timestamp\": 1772325182.2088642, \"change_price\": \"0.51\", \"change_size\": \"6\", \"change_side\": \"BUY\"}\n  null_count: None\n  distinct_count: None\n  num_values: 1006330\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "rows": 299909,
+      "columns": [
+        {
+          "name": "timestamp_received",
+          "bytes": 758525,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.003000+00:00\n  max: 2026-03-01 00:30:33.221000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 299909\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "timestamp_created_at",
+          "bytes": 457305,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: 2026-03-01 00:00:00.029000+00:00\n  max: 2026-03-01 00:30:33.234000+00:00\n  null_count: None\n  distinct_count: None\n  num_values: 299909\n  physical_type: INT64\n  logical_type: Timestamp(isAdjustedToUTC=true, timeUnit=milliseconds, is_from_converted_type=false, force_set_converted_type=false)\n  converted_type (legacy): TIMESTAMP_MILLIS"
+        },
+        {
+          "name": "market_id",
+          "bytes": 24418,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: 0x4fbd086817445f575f5ca39d650d5f2f98761b20a8fad60bdf6d75f1a6024d63\n  max: 0xd7aceefac01f694c28e6e7a82155140112df32c7d4a148c81c97d38943b98463\n  null_count: None\n  distinct_count: None\n  num_values: 299909\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "update_type",
+          "bytes": 1454,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a3f60>\n  has_min_max: True\n  min: book_snapshot\n  max: price_change\n  null_count: None\n  distinct_count: None\n  num_values: 299909\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        },
+        {
+          "name": "data",
+          "bytes": 4534485,
+          "stats": "<pyarrow._parquet.Statistics object at 0x1070a0b80>\n  has_min_max: True\n  min: {\"update_type\": \"book_snapshot\", \"market_id\": \"0x50c774af812a614fe1f3269e4e9e1d52a31a453dfffc5ca259cf1d8511ee5fa0\", \"token_id\": \"35185609052910803954185386450154984279196278899860327186509841948683596829759\", \"side\": \"YES\", \"best_bid\": \"0.29\", \"best_ask\": \"0.54\", \"timestamp\": 1772323389.7699132, \"bids\": [[\"0.01\", \"345\"], [\"0.02\", \"628.33\"], [\"0.05\", \"40\"], [\"0.06\", \"20\"], [\"0.07\", \"7.14\"], [\"0.09\", \"100\"], [\"0.28\", \"10\"], [\"0.29\", \"25.22\"]], \"asks\": [[\"0.99\", \"360.63\"], [\"0.98\", \"620\"], [\"0.97\", \"8.88\"], [\"0.95\", \"40\"], [\"0.94\", \"26.29\"], [\"0.93\", \"17.14\"], [\"0.78\", \"96.77\"], [\"0.74\", \"19\"], [\"0.57\", \"10\"], [\"0.55\", \"10\"], [\"0.54\", \"15.58\"]]}\n  max: {\"update_type\": \"price_change\", \"market_id\": \"0xd7aceefac01f694c28e6e7a82155140112df32c7d4a148c81c97d38943b98463\", \"token_id\": \"27120940008614662831773841740250166364458072083507052358932058225117822094865\", \"side\": \"NO\", \"best_bid\": \"0.48\", \"best_ask\": \"0.49\", \"timestamp\": 1772324959.3466287, \"change_price\": \"0.54\", \"change_size\": \"1069\", \"change_side\": \"SELL\"}\n  null_count: None\n  distinct_count: None\n  num_values: 299909\n  physical_type: BYTE_ARRAY\n  logical_type: String\n  converted_type (legacy): UTF8"
+        }
+      ]
+    }
+  ]
+}

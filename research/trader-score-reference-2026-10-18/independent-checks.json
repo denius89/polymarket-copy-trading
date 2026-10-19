@@ -1,0 +1,42 @@
+{
+  "scope": "controlled independent manual and adversarial accounting checks; not historical or statistical model validation",
+  "primary_events": 23,
+  "adversarial_cases": [
+    "repeat_buy_position_cap",
+    "pending_position_cap",
+    "daily_gross_excludes_fees",
+    "unknown_cancel_request_midnight",
+    "full_fill_retains_fee",
+    "duplicate_before_terminal",
+    "duplicate_after_terminal",
+    "conflicting_identity_then_reconcile",
+    "unknown_fee",
+    "missing_price",
+    "future_book",
+    "stale_source",
+    "exact_book_tie",
+    "empty_depth",
+    "cancel_race_full_confirmation",
+    "overfill",
+    "future_fill",
+    "preintent_fill",
+    "wrong_units",
+    "price_cap",
+    "terminal_mismatch",
+    "terminal_unknown_fee",
+    "late_new_day_execution",
+    "fall_dst",
+    "sell_unknown_inventory"
+  ],
+  "assertions": 1125,
+  "passed": 1125,
+  "failed": [],
+  "oracle_sha256": "42bf8af63b97d8e81e6c6898f71095c1d4b408b285f3a8d97b82c9cb5c8c5974",
+  "actual_file": "reference-output.json",
+  "reviewed_hashes": {
+    "reference_replay.py": "d971a833e3bcecc0ff8f9049ba397cffaf7dd1e2f139b0c90532caabd75452da",
+    "market_data.py": "7c61a6db5c990d0a997d89e1b9c106fe2338598e72f5aedf1a55e58d106a8fe1",
+    "copier-standard.json": "c3eeec577f26bf8a40b309e2de370674603a2e25c889aa1a57b4f31c1622d17a",
+    "reference-output.json": "e3e2e12e77bcf147b779da191e1a11c442576d8fcd67c423930ef667ff26c752"
+  }
+}

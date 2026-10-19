@@ -1,0 +1,27 @@
+{
+  "evidence": "public discovery bootstrap; not signals/fills/universe completeness",
+  "sources": [
+    {
+      "file": "polymarket-trades.json",
+      "request": "https://data-api.polymarket.com/v2/trades?limit=100",
+      "method": "GET",
+      "status": 200,
+      "requested_at": "2026-10-18T16:56:41.945758+00:00",
+      "observed_at": "2026-10-18T16:56:42.145683+00:00",
+      "monotonic_ns": 65121145838583,
+      "bytes": 77704,
+      "sha256": "8045dd294a286ee0738d65dd032513b2b350ea615ccab8fdd83ca09fc0e5798c"
+    },
+    {
+      "file": "limitless-markets.json",
+      "request": "https://api.limitless.exchange/markets/active?limit=10",
+      "method": "GET",
+      "status": 200,
+      "requested_at": "2026-10-18T16:56:42.146010+00:00",
+      "observed_at": "2026-10-18T16:56:42.314045+00:00",
+      "monotonic_ns": 65121314268916,
+      "bytes": 43671,
+      "sha256": "5bea0ce33646f8b157b52e03f06820628600d18d8c6b668fb3394863a79d8035"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "classification_type": "manual_metadata_only",
+  "runtime_discovery": false,
+  "results": [
+    {
+      "id": "R03",
+      "primary_skill": "S01",
+      "reason": "Продолжение проекта требует установить актуальный контекст и evidence; определение актуального checkout входит в установление базы работы.",
+      "overlap": "S20 нужен для конкретной проверки Git checkout/branch/HEAD и dirty состояния, если вопрос развивается в Git workflow."
+    },
+    {
+      "id": "R06",
+      "primary_skill": "S19",
+      "reason": "Restore и совместимость migration с прежним приложением — review deployment/data-ops runbook.",
+      "overlap": "S07 дополняет проверку целостности и механизмов миграции внутри БД."
+    },
+    {
+      "id": "R09",
+      "primary_skill": "S12",
+      "reason": "Исполнимость сигнала после arrival по historical book — вопрос replay с доступной ликвидностью и расходами.",
+      "overlap": "S11 при необходимости проверяет temporal availability исходных данных; S14 — независимость validation claim."
+    },
+    {
+      "id": "R12",
+      "primary_skill": "S05",
+      "reason": "Сверка tokens, variants, instances и актуальных IDs непосредственно относится к Figma handoff.",
+      "overlap": "S04 понадобился бы для оценки финансового UX, но такой оценки запрос не содержит."
+    },
+    {
+      "id": "R15",
+      "primary_skill": "none",
+      "reason": "Простой перевод слова не требует проектных процедур S01–S23.",
+      "overlap": null
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "case_id": "S01-B",
+  "evaluation_kind": "self_pilot",
+  "oracle_visible": true,
+  "same_author": true,
+  "observed_at": "2026-10-17T21:10:02+00:00",
+  "response_file": "S01-B.md",
+  "response_sha256": "9471d4f5bdc621967fa027b19601bff4d26b07c410ad05d936c1593375cc5a31",
+  "trace": [
+    "Author explicitly read three SKILL.md files through local file tool in this session.",
+    "Author reviewed supplied raw fixtures and produced this response in the same session; oracle was already visible.",
+    "Only local skill/evaluation artifacts were written. No independent model execution, automatic skill discovery or external action was performed."
+  ],
+  "tokens": null,
+  "cost_usd": null,
+  "latency_seconds": null,
+  "checks": {
+    "C1": {
+      "status": "pass",
+      "evidence": "Выбран accepted документ checkout/docs/decisions/008.md с двумя площадками."
+    },
+    "C2": {
+      "status": "pass",
+      "evidence": "Названы старый mirror и новый proposed документ с разными статусами."
+    },
+    "C3": {
+      "status": "pass",
+      "evidence": "Новое исключение B прямо не принимается."
+    }
+  }
+}

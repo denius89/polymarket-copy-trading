@@ -1,0 +1,1 @@
+Synthetic EU snapshot Oct10. 3 API replicas each pool 20, 2 workers each pool 15, admin reserve 10 connections. DB max 100 with 20 reserved for maintenance, app usable 80. RPO<=15min, RTO<=60min proposed, not approved. Paper/live credentials must be separate. Load/IOPS unknown.

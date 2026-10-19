@@ -1,0 +1,35 @@
+{
+  "id": "q17",
+  "returncode": 0,
+  "status": "pass",
+  "expected_any": [
+    "cct-infrastructure-plan"
+  ],
+  "should_activate": true,
+  "observed_skill_file_reads": [
+    "cct-infrastructure-plan",
+    "cct-project-context"
+  ],
+  "commands": [
+    {
+      "command": "/bin/bash -lc 'cat .agents/skills/cct-infrastructure-plan/SKILL.md .agents/skills/cct-project-context/SKILL.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S17.md docs/ai-system/knowledge/domains/operations.md'",
+      "exit_code": 0
+    }
+  ],
+  "usage": [
+    {
+      "input_tokens": 52971,
+      "cached_input_tokens": 48000,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 409,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "seconds": 13.32,
+  "observed_at": "2026-10-17T21:42:40.127368+00:00",
+  "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+}

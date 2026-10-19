@@ -1,0 +1,31 @@
+{
+  "case_id": "S10-B",
+  "evaluation_kind": "self_pilot",
+  "oracle_visible": true,
+  "same_author": true,
+  "observed_at": "2026-10-17T21:10:02+00:00",
+  "response_file": "S10-B.md",
+  "response_sha256": "b0c9a67469783576485c41d1c3660fb9e6003305d7b0633a6a79ef27996e28c3",
+  "trace": [
+    "Author explicitly read three SKILL.md files through local file tool in this session.",
+    "Author reviewed supplied raw fixtures and produced this response in the same session; oracle was already visible.",
+    "Only local skill/evaluation artifacts were written. No independent model execution, automatic skill discovery or external action was performed."
+  ],
+  "tokens": null,
+  "cost_usd": null,
+  "latency_seconds": null,
+  "checks": {
+    "C1": {
+      "status": "pass",
+      "evidence": "Pass ограничен supplied manifest validation."
+    },
+    "C2": {
+      "status": "pass",
+      "evidence": "Desktop и API отмечены not_verified с отдельными основаниями."
+    },
+    "C3": {
+      "status": "pass",
+      "evidence": "Нет ложного утверждения о доказанной поломке интеграции."
+    }
+  }
+}

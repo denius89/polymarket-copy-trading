@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "decision": "not_validated_do_not_publish_research_scores",
+  "models": [
+    "LCB_expected_net_return",
+    "LCB_CE_gamma_2"
+  ],
+  "comparison_status": "comparison_blocked_by_horizon_and_data",
+  "verified_wallet_ledgers": 0,
+  "complete_30_day_copy_outcomes": 0,
+  "common_three_lag_descriptive_rows": 23804,
+  "ledger_requirement_file": "ledger-audit/ledger-completeness.json",
+  "missing_gates": [
+    "independent_integer_cash_and_token_reconciliation",
+    "complete_time_consistent_execution_and_fee_paths",
+    "known_leader_inventory_for_proportional_sells",
+    "sufficient_disjoint_30_day_train_validation_holdout_periods",
+    "separate_Limitless_evidence"
+  ],
+  "not_inferred": [
+    "copier_net_pnl",
+    "probability_of_profit",
+    "published_0_100_score",
+    "CE_superiority",
+    "unconditional_fill_capacity"
+  ],
+  "notes": [
+    "Observed quote metrics are not model outcomes.",
+    "LCB remains a research control, not a validated production winner.",
+    "Subset L2 sample does not satisfy complete depth coverage.",
+    "No active sessions, accepted weights or product rules changed."
+  ]
+}

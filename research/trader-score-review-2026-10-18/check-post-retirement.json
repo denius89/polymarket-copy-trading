@@ -1,0 +1,160 @@
+{
+  "scope": "Saved snapshots only; no new financial model or replay execution",
+  "duckdb_version": "1.4.1",
+  "actual_calendar_bounds": [
+    {
+      "first_s": 1704067555,
+      "last_s": 1709250975,
+      "before_jan1": 0,
+      "after_march1": 0
+    }
+  ],
+  "first_buy_ties": [
+    {
+      "wallet_condition_groups": 9385,
+      "groups_with_multiple_earliest_rows": 1246,
+      "groups_with_ambiguous_earliest_economic_values": 1221,
+      "groups_with_multiple_prices": 953,
+      "groups_with_multiple_outcomes": 0,
+      "earliest_rows": 11391
+    }
+  ],
+  "tie_order_ASC": [
+    {
+      "band": "0.00-0.10",
+      "n": 1441,
+      "mean_price": 0.0436599298853974,
+      "win_fraction": 0.01457321304649549,
+      "payoff_minus_price": -0.029086716838901894
+    },
+    {
+      "band": "0.10-0.50",
+      "n": 3344,
+      "mean_price": 0.26492603253257624,
+      "win_fraction": 0.2673444976076555,
+      "payoff_minus_price": 0.0024184650750791598
+    },
+    {
+      "band": "0.50-0.90",
+      "n": 2963,
+      "mean_price": 0.7217079761296359,
+      "win_fraction": 0.684441444481944,
+      "payoff_minus_price": -0.03726653164769195
+    },
+    {
+      "band": "0.90-1.00",
+      "n": 1637,
+      "mean_price": 0.9616872067248035,
+      "win_fraction": 0.9804520464263897,
+      "payoff_minus_price": 0.018764839701588452
+    }
+  ],
+  "tie_order_DESC": [
+    {
+      "band": "0.00-0.10",
+      "n": 1424,
+      "mean_price": 0.043723286097695296,
+      "win_fraction": 0.014747191011235955,
+      "payoff_minus_price": -0.028976095086459347
+    },
+    {
+      "band": "0.10-0.50",
+      "n": 3331,
+      "mean_price": 0.26515156362618314,
+      "win_fraction": 0.26628640048033625,
+      "payoff_minus_price": 0.001134836854152994
+    },
+    {
+      "band": "0.50-0.90",
+      "n": 2977,
+      "mean_price": 0.7218030438318049,
+      "win_fraction": 0.6795431642593215,
+      "payoff_minus_price": -0.04225987957248319
+    },
+    {
+      "band": "0.90-1.00",
+      "n": 1653,
+      "mean_price": 0.9620148524358486,
+      "win_fraction": 0.9782214156079855,
+      "payoff_minus_price": 0.016206563172138734
+    }
+  ],
+  "first_after_metadata_filter": [
+    {
+      "represented_groups": 9385,
+      "first_changed_by_metadata_filter": 0
+    }
+  ],
+  "snapshot_fail_closed_fixtures": [
+    {
+      "case": "malformed_pair",
+      "validation_errors": [
+        "malformed_level"
+      ],
+      "book_exception": "ValueError: not enough values to unpack (expected 2, got 1)"
+    },
+    {
+      "case": "nonnumeric_size",
+      "validation_errors": [
+        "nonnumeric_level"
+      ],
+      "book_exception": "ValueError: could not convert string to float: 'unknown'"
+    },
+    {
+      "case": "missing_asks",
+      "validation_errors": [],
+      "book_result": {
+        "bids": {
+          "0.4": 10.0
+        },
+        "asks": {}
+      },
+      "capacity": {
+        "ask_notional": 0,
+        "fits_5_usd": false,
+        "vwap_5_usd": null,
+        "best_ask": null,
+        "ask_levels": 0,
+        "bid_levels": 1
+      }
+    }
+  ],
+  "same_signature_invalid_tie": {
+    "group_invalid_flags": [
+      false,
+      true
+    ],
+    "selected_invalid": false,
+    "conflicting": false,
+    "fits_5_usd": true,
+    "passes_current_invalid_and_conflict_checks": true
+  },
+  "input_hash_checks": [
+    {
+      "manifest": "research/trader-score-aligned-2026-10-16/trades-manifest.json",
+      "files": 4,
+      "all_match": true
+    },
+    {
+      "manifest": "research/trader-score-aligned-2026-10-16/quotes-manifest.json",
+      "files": 5,
+      "all_match": true
+    },
+    {
+      "manifest": "research/trader-score-real-2026-10-16/polymarket/manifest.json",
+      "files": 64,
+      "all_match": true
+    }
+  ],
+  "pmxt_derived_integrity_now": {
+    "bytes_match": true,
+    "sha_matches": true
+  },
+  "audited_code_sha256": {
+    "research/trader-score-aligned-2026-10-16/source-audit/analyze_pmxt_target.2026-10-16.py.txt": "2d61101cf4f37a7139982c9a7ec7813243169390c7e70ff5661f59c6381eb3cd",
+    "research/trader-score-aligned-2026-10-16/analyze_alignment.py": "185d75bb71acb093d5abae6ecbe482366d9cecb9d113acee5d70500c6a43d3bc",
+    "research/trader-score-real-2026-10-16/analyze_public.2026-10-16.py.txt": "14a864f497b926983e03101ea8cc396e1c4145618f73db924c7c31ba73a79263",
+    "research/trader-score-aligned-2026-10-16/extract_trades.py": "27980f0be23f6c37c1476e28c9b386c236be99db299084f2f337d0e1284a3bb2"
+  },
+  "historical_source_note": "Archived 16 October code reproduces historical defects; executable entrypoints are now retirement guards. Original review baseline preserved."
+}

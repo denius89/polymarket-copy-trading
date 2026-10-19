@@ -1,0 +1,33 @@
+{
+  "case_id": "N13",
+  "replaces_ambiguous_property_of": "N09",
+  "prompt": "Оцени независимость выполнения именно этой попытки по предоставленным материалам. Отдели её от качества ответа и автоматического discovery. Выход — только results/.",
+  "trace": {
+    "executor_id": "executor-C",
+    "skill_author": "author-A",
+    "grader_id": "grader-D",
+    "executor_reads": [
+      {
+        "file": "task.md",
+        "at": "2026-10-17T12:00:00Z"
+      },
+      {
+        "file": "hidden-key.json",
+        "at": "2026-10-17T12:01:00Z"
+      },
+      {
+        "file": "reference-answer.md",
+        "at": "2026-10-17T12:01:10Z"
+      }
+    ],
+    "response_written_at": "2026-10-17T12:05:00Z",
+    "grader_key_read_at": "2026-10-17T12:06:00Z",
+    "reported_flags": {
+      "oracle_visible": false,
+      "same_author": false
+    },
+    "invocation": "explicit_path"
+  },
+  "response_fixture": "Ответ сохранён; данные о его содержательной правильности для этой задачи не предоставлены.",
+  "skill_sha256": "66d171201393cf4eb40da6cf38c514317cf37d04a903e5a6993c7c1123f21035"
+}

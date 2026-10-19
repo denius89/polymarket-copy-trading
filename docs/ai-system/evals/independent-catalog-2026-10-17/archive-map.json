@@ -1,0 +1,18 @@
+{
+  "temporary_prefix": "/private/tmp/cct-full-catalog-2nrnzs3w",
+  "mapping": {
+    "group1": "round1/group1",
+    "group2": "round1/group2",
+    "group3": "round1/group3"
+  },
+  "executors": [
+    "/root/catalog_check_1",
+    "/root/catalog_check_2",
+    "/root/catalog_check_3"
+  ],
+  "grader": "/root/catalog_grader",
+  "oracle_visible_to_executors": false,
+  "separate_contexts": true,
+  "runtime_discovery": false,
+  "limits": "Semantic judgment on supplied outputs; no full independent side-effect audit"
+}

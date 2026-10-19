@@ -1,0 +1,48 @@
+{
+  "scope": "bounded independent execution of original helper functions and exact rational arithmetic; internal crossreview not blind",
+  "original_code_sha256": "2d61101cf4f37a7139982c9a7ec7813243169390c7e70ff5661f59c6381eb3cd",
+  "mixed_validity_same_signature_in_both_orders": [
+    {
+      "selected_invalid": false,
+      "conflicting": false,
+      "fits": true,
+      "passes": true
+    },
+    {
+      "selected_invalid": true,
+      "conflicting": false,
+      "fits": true,
+      "passes": false
+    }
+  ],
+  "malformed_exceptions": {
+    "malformed": {
+      "validator_errors": [
+        "malformed_level"
+      ],
+      "next_book_raises": "ValueError"
+    },
+    "nonnumeric": {
+      "validator_errors": [
+        "nonnumeric_level"
+      ],
+      "next_book_raises": "ValueError"
+    }
+  },
+  "missing_side": {
+    "errors": [],
+    "capacity": {
+      "ask_notional": 0,
+      "fits_5_usd": false,
+      "vwap_5_usd": null,
+      "best_ask": null,
+      "ask_levels": 0,
+      "bid_levels": 1
+    }
+  },
+  "conditional_ce_q10_percent": 10.0,
+  "predictive_ce_exact": "-107/129",
+  "predictive_ce_percent": -82.94573643410853,
+  "matches_methodology_json": true,
+  "whole_dataset_or_MC_rerun": false
+}

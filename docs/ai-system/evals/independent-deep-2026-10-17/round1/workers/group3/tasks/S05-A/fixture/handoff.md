@@ -1,0 +1,1 @@
+Kit file K v12 published. HANDOFF требует RU/EN mobile/desktop, current instances tokens и отдельное prototype evidence. Frames: F1 RU mobile, F2 EN mobile, F3 EN desktop. Frame F4 RU desktop заявлен в old sitemap, в экспорте не читался.

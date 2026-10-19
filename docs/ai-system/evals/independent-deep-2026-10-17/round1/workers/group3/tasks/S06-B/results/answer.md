@@ -1,0 +1,9 @@
+Review ограничен excerpt.txt и requirements.md: приложение недоступно, screenshot показывает только успешное первое соединение. По нему reconnect и runtime performance не подтверждаются.
+
+Функционально onDisconnect устанавливает Connected, что прямо противоречит требованию правдивого banner. Spinner не устраняет ложный статус. setInterval(reconnect, 0) создаёт неконтролируемые попытки и риск нескольких параллельных циклов при повторном disconnect; ограничение браузерного таймера не делает стратегию корректной. Cleanup и отмена предыдущих попыток в excerpt не показаны. OnRestore выводит cachedOptimisticBalance вместо подтверждённого сервером состояния: восстановленная сеть ещё не означает sync. До подтверждения требуется stale label с lastConfirmedAt; pending и confirmed должны различаться.
+
+В accessibility выявлено игнорирование prefers-reduced-motion для route transition. Наличие keyboard/focus handling и объявления изменения соединения не показано; это отдельные проверки, а не доказанные дефекты. Визуальная проверка reconnect отсутствует.
+
+План регрессии: на одном зафиксированном build сравнить initial connection, offline→reconnect→sync, повторный disconnect и delayed server confirmation. Записать device/browser, route, network, cache, reduced-motion, число одновременных timers, attempts/sec, ошибки, время до server confirmation и main-thread long tasks. Проверить, что stale исчезает только после sync, старый optimistic ответ не перезаписывает новый confirmed balance, focus сохраняется и status доступен reader.
+
+Для performance провести повторяемые lab измерения responsiveness/INP при этих сценариях и отдельно field наблюдение, если доступно. Числовые бюджеты в fixture не заданы: предложить их после baseline. Изменения кода и новые frontend-функции не поручены и не выполнялись.

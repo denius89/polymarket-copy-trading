@@ -1,0 +1,41 @@
+{
+  "protocol_id": "accelerated-proxy-exploratory-v1",
+  "frozen_before_new_result_computation": true,
+  "created_date": "2026-10-18",
+  "scope": "Previously seen Jan-Feb 2024 convenience archive; exploratory reanalysis, never independent holdout",
+  "primary_copier_target": "30-day net terminal wealth / initial cash under frozen single-copier standard",
+  "primary_target_identifiable": false,
+  "auxiliary_target": "Equal-weight wallet-condition first BUY eventual binary payoff minus leader fill price per share; no fees or execution inferred",
+  "train_trade_start": "2024-01-01T00:00:00Z",
+  "split_at": "2024-02-01T00:00:00Z",
+  "test_end_exclusive": "2024-03-01T00:00:00Z",
+  "train_label_barrier": "resolved_at + 24h strictly before split; sensitivity 0h and168h; retrospective event timestamp conditional availability proxy only",
+  "group_barrier": "Purge every training condition from test globally across all addresses; do not split rows of same condition across train and test",
+  "identity": "lowercase taker only, no maker inversion",
+  "first_buy_rule": "Earliest BUY second before any price/label validity filter; exclude group unless exactly one raw row at that second",
+  "minimum_training_conditions": 3,
+  "models": {
+    "mean_edge": "mean of per-condition label-minus-price training edges",
+    "shrinkage_edge": "sum edges / (n + 5), five fixed zero-edge pseudo-observations; hypothesis parameter, not tuned",
+    "lcb_edge": "mean - 1.645 * sample_sd / sqrt(n); descriptive normal-approximation ranking penalty, not calibrated financial confidence bound",
+    "unranked": "all eligible addresses equal weight",
+    "random_top_k": "uniform subset of same K eligible addresses; exact expected result equals unranked mean",
+    "win_rate": "mean eventual binary outcome among training condition purchases; deliberately price-blind comparator"
+  },
+  "selection": "Top ceil(eligible addresses / 4), ties by SHA256 wallet, no positive-score filtering",
+  "evaluation": "Rank ALL traineligible addresses before looking at future membership; fixed topK, unavailable test wallets remain missing; conditional observed means with model-specific coverage, not equal cohort or missing=0",
+  "uncertainty": "Shared test-condition cluster Poisson bootstrap with selection fixed from training; descriptive interval, no independence assertion",
+  "bootstrap_replicates": 2000,
+  "seed": 20261018,
+  "sensitivity": [
+    "minimum training conditions5",
+    "filter first observation price to [0.1,0.9] AFTER grouping",
+    "label embargo0h",
+    "label embargo168h",
+    "overlap allowed as explicitly non-independent sensitivity"
+  ],
+  "ce_model": "not identifiable: no auditable copier wealth paths; omit rather than manufacture positive wealth transform",
+  "winner_rule": "No confirmatory winner on already explored data. Report descriptive proxy ordering and coverage; research candidate may be chosen by simpler estimation and uncertainty handling only, with superiority unverified",
+  "production_score_changes": false,
+  "cluster_interval": "Descriptive condition-Poisson-weighted interval of conditional available-wallet difference vs alltraineligible available wallets; different future retention remains a limitation"
+}

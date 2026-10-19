@@ -1,0 +1,1 @@
+Only read local synthetic materials for this review. No writes, network, execution, deployment, keys, or messages. Existing product decisions must not be redefined.

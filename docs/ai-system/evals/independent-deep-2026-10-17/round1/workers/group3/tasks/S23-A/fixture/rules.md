@@ -1,0 +1,1 @@
+Fixture: cash 100; reserve USD held within cash, available=cash-reserve. Two intents A/B require 60 each; atomic admission allows at most one if available is insufficient. Admitted A reserves 60; fill A cost 20 fee 1 reduces cash/reserve by 21. Duplicate fill same id no change. Unknown cancel keeps remaining reserve; confirmed cancel frees remaining reserve. No other cashflows.

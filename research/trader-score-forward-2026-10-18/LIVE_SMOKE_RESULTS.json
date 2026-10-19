@@ -1,0 +1,116 @@
+{
+  "captured_at_manifest": {
+    "actualFillsObserved": 0,
+    "actualOrdersSent": 0,
+    "collectorSha256": "f876035330a99a8f0385a3ee5c878711537f9923e24c3cbfbd13b6fe26181d90",
+    "completeLeaderLedger": false,
+    "configSha256": "35a6b38f5ed30490bf61c44339dccd3304f436fe4fe707e3e67fcee21bd03b54",
+    "continuityGuaranteed": false,
+    "counts": {
+      "limitless:http_response": 10,
+      "limitless:market_events_quality": 4,
+      "polymarket:activity_window_quality": 8,
+      "polymarket:connection_end": 1,
+      "polymarket:connection_start": 1,
+      "polymarket:heartbeat_received": 2,
+      "polymarket:heartbeat_sent": 2,
+      "polymarket:http_response": 32,
+      "polymarket:market_message": 1202,
+      "polymarket:positions_baseline_incomplete": 1,
+      "polymarket:subscription_sent": 1,
+      "system:capture_start": 1
+    },
+    "durationLimitSeconds": 30.0,
+    "economicSignalsQualified": 0,
+    "endedAt": "2026-10-18T17:02:46.792020Z",
+    "error": null,
+    "eventByteLimit": 16777216,
+    "eventBytes": 4200823,
+    "eventsSha256": "7b728bc26ba7c6247d8f8e2e69b4b1861ad1f1f0d39fedd83ed30113af819a36",
+    "historicalReplayPnl": null,
+    "lastRecordSha256": "218a98d5dafde3d4fff5109196bf10655ab7b10018ba716cc25415c4daa00dea",
+    "pythonVersion": "3.11.2 (v3.11.2:878ead1ac1, Feb  7 2023, 10:02:41) [Clang 13.0.0 (clang-1300.0.29.30)]",
+    "runId": "fc37d680-3794-4dcd-baae-d064315b13a8",
+    "schemaVersion": "forward-capture-manifest-v1",
+    "sequence": 1265,
+    "startedAt": "2026-10-18T17:02:15.761907Z",
+    "startedMonotonicNs": 65454760476041,
+    "status": "completed",
+    "updatedAt": "2026-10-18T17:02:46.792047Z",
+    "websocketsVersion": "15.0.1"
+  },
+  "before_archive_verification": {
+    "verifiedRecords": 1265,
+    "verifiedBytes": 4200823,
+    "captureStatus": "completed",
+    "marketContinuityVerified": false,
+    "economicSignalsQualified": 0
+  },
+  "after_archive_verification": {
+    "verifiedRecords": 1265,
+    "verifiedBytes": 4200823,
+    "captureStatus": "completed",
+    "marketContinuityVerified": false,
+    "economicSignalsQualified": 0
+  },
+  "http_observations": [
+    {
+      "endpoint": "polymarket-book",
+      "status": 200,
+      "count": 8
+    },
+    {
+      "endpoint": "polymarket-fee-rate",
+      "status": 200,
+      "count": 4
+    },
+    {
+      "endpoint": "polymarket-tick-size",
+      "status": 200,
+      "count": 4
+    },
+    {
+      "endpoint": "polymarket-market",
+      "status": 200,
+      "count": 4
+    },
+    {
+      "endpoint": "polymarket-positions",
+      "status": 200,
+      "count": 4
+    },
+    {
+      "endpoint": "polymarket-activity",
+      "status": 200,
+      "count": 8
+    },
+    {
+      "endpoint": "limitless-market",
+      "status": 200,
+      "count": 2
+    },
+    {
+      "endpoint": "limitless-book",
+      "status": 200,
+      "count": 4
+    },
+    {
+      "endpoint": "limitless-events",
+      "status": 200,
+      "count": 4
+    }
+  ],
+  "quality_findings": [
+    {
+      "kind": "positions_baseline_incomplete",
+      "reason": "bounded OPEN positions page has next_cursor",
+      "scope": {
+        "address": "0x076daa87c4fe1a85402a9b6b8e0a866224388d4c"
+      }
+    }
+  ],
+  "first_smoke_note": "smoke-01 retained as instrumentation legacy without frozen source; not counted as final verified artifact",
+  "orders_sent": 0,
+  "qualified_sessions": 0,
+  "model_comparison_executed": false
+}

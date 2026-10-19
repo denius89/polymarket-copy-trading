@@ -1,0 +1,86 @@
+{
+  "parameters": {
+    "seed": 20261016,
+    "days": 90,
+    "repetitions": 100,
+    "bootstrap": 160,
+    "block": 7,
+    "alpha": 0.1,
+    "T_ref": 90,
+    "N_ref": 60,
+    "d_ref": 0.1,
+    "r_ref": 0.001
+  },
+  "summary": [
+    {
+      "profile": "stable",
+      "eligible_runs": 100,
+      "median_score": 84.49100341983504,
+      "median_return": 0.09072451026518014,
+      "median_drawdown": 0.012634135010034242,
+      "median_P": 47.97499313641784,
+      "profitable_runs": 100,
+      "losing_score_above_70": 0
+    },
+    {
+      "profile": "losing",
+      "eligible_runs": 100,
+      "median_score": 67.46865389097192,
+      "median_return": -0.053969418770735245,
+      "median_drawdown": 0.055476854393461894,
+      "median_P": 0.0,
+      "profitable_runs": 0,
+      "losing_score_above_70": 4
+    },
+    {
+      "profile": "no_edge",
+      "eligible_runs": 100,
+      "median_score": 65.20201813707493,
+      "median_return": 0.0018973815478430245,
+      "median_drawdown": 0.074273229299192,
+      "median_P": 0.0,
+      "profitable_runs": 52,
+      "losing_score_above_70": 0
+    },
+    {
+      "profile": "illiquid",
+      "eligible_runs": 100,
+      "median_score": 65.566815270999,
+      "median_return": 0.09076113843379396,
+      "median_drawdown": 0.012630732745710083,
+      "median_P": 42.38416675136439,
+      "profitable_runs": 100,
+      "losing_score_above_70": 0
+    },
+    {
+      "profile": "one_lucky_event",
+      "eligible_runs": 100,
+      "median_score": 74.1839111241635,
+      "median_return": 0.18070414681420155,
+      "median_drawdown": 0.016205341811992735,
+      "median_P": 0.0,
+      "profitable_runs": 100,
+      "losing_score_above_70": 0
+    },
+    {
+      "profile": "tail_loss",
+      "eligible_runs": 100,
+      "median_score": 55.008521035338745,
+      "median_return": -0.19515149187740916,
+      "median_drawdown": 0.2514346526137615,
+      "median_P": 0.0,
+      "profitable_runs": 0,
+      "losing_score_above_70": 0
+    },
+    {
+      "profile": "one_market_many_fills",
+      "eligible_runs": 0,
+      "median_score": null,
+      "median_return": null,
+      "median_drawdown": null,
+      "median_P": null,
+      "profitable_runs": 0,
+      "losing_score_above_70": 0
+    }
+  ]
+}

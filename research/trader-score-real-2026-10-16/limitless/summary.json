@@ -1,0 +1,86 @@
+{
+  "status": "blocked_public_api_cloudflare_1010",
+  "as_of_utc": "2026-10-16T15:58:02Z",
+  "real_trade_records_downloaded": 0,
+  "wallets_downloaded": 0,
+  "evidence_manifest": "raw/20261016T155801007596Z/manifest.json",
+  "conclusion_ru": "API публичная по документации, но из этой среды оба GET-запроса получили HTTP 403 и error code: 1010. Это сетевой запрет Cloudflare, не доказательство отсутствия публичных данных. Доступ не обходился. Оценка качества трейдеров Limitless на реальных данных в этом прогоне не выполнена.",
+  "sources": [
+    {
+      "url": "https://docs.limitless.exchange/api-reference/feed/trading-feed",
+      "verified_via": "web on 2026-10-16",
+      "facts": [
+        "GET /feed/trading?audience=all returns recent public trading events with profile.account, newest first.",
+        "Last 24 hours only; page limit 1-30; opaque nextCursor.",
+        "Use all, not featured, for an activity-defined cohort."
+      ]
+    },
+    {
+      "url": "https://docs.limitless.exchange/api-reference/public-portfolio/history",
+      "verified_via": "web on 2026-10-16",
+      "facts": [
+        "GET /portfolio/{account}/history is public, no HMAC needed.",
+        "Limit 1-100, nextCursor pagination, optional fixed market filter.",
+        "Malformed address 400; address never active on Limitless 404."
+      ]
+    },
+    {
+      "url": "https://docs.limitless.exchange/api-reference/public-portfolio/positions",
+      "verified_via": "web on 2026-10-16",
+      "facts": [
+        "GET /portfolio/{account}/positions supports public account snapshot; AMM/CLOB shapes differ.",
+        "Current snapshot is not a historical account snapshot."
+      ]
+    },
+    {
+      "url": "https://docs.limitless.exchange/api-reference/trading/market-events",
+      "verified_via": "web on 2026-10-16",
+      "facts": [
+        "GET /markets/{slug}/events returns finalized MINED CLOB trades, not all order lifecycle events.",
+        "Side is taker side: 0 BUY, 1 SELL. matchedSize is position-token quantity in raw 6 decimals. makerAmount and takerAmount currently both represent collateral cost, raw 6 decimals.",
+        "Public attribution is taker profile; example does not expose wallet address. Do not assume complete maker discovery.",
+        "Page/limit pagination; exact market/group slug, not stable alias."
+      ]
+    },
+    {
+      "url": "https://docs.limitless.exchange/api-reference/trading/historical-price",
+      "verified_via": "web on 2026-10-16",
+      "facts": [
+        "Historical YES-price points are newest first; interval is lookback preset, no custom from/to bounds.",
+        "Resolved CLOB can append final payout at timestamp one second after newest retained point; this is not proven outcome knowledge time.",
+        "AMM buckets without trades can synthesize 0.5 points; these are not executable trades.",
+        "History covers one market lifespan; recurring markets require all historical instance slugs.",
+        "Price series does not establish contemporaneous depth or a copier fill."
+      ]
+    },
+    {
+      "url": "https://docs.limitless.exchange/api-reference/trading/orderbook",
+      "verified_via": "web on 2026-10-16",
+      "facts": [
+        "Current order book endpoint exists; a complete historical depth archive was not established."
+      ]
+    }
+  ],
+  "sampling_plan": [
+    "Freeze a prospective cohort from every profile.account observed in an all-audience 24-hour feed window, before reading its PnL. Deduplicate addresses; never sample by profit, rank or featured status.",
+    "Archive every page with URL/cursor, retrieval time, body hash and API event time; record incomplete pagination and duplicate identities. Sample uniformly from addresses if a cap is needed, using predeclared hash sorting, not event volume.",
+    "Repeat windows over a predefined enrollment period to include infrequent users; keep entrants who later stop trading, lose, close accounts or have no positions. A one-day active cohort is not an unbiased venue-wide historical population.",
+    "For historical model evaluation, do not use a cohort discovered today as if it was known months ago. Need historical point-in-time market/address universe, or begin a forward holdout now.",
+    "Fetch full public history cursor pages per selected address plus all referenced market metadata, finalization timestamps, fee schedules and opening/closing position snapshots. No winners-only leaderboard replacement."
+  ],
+  "score_validation_without_lookahead": [
+    "Fit baseline and candidate only on timestamped data available before cutoff T. Freeze features, gates, candidate score, eligible address set, copier policy and evaluation horizon before future outcomes.",
+    "Use historical outcome fields and PnL only as labels after their genuine publication/finalization time. Never use appended historical-price payout point as an earlier known forecast or executable price.",
+    "Feature quality tracks unknown/partial data instead of treating missing positions/history/price as zero or a 0.5 tradable price.",
+    "For defensible copier validation, record signal observed_at, bid/ask depth and fee/settlement rules contemporaneously. Replay after observed_at plus declared latency; strict limits and skip rules; mark unobservable fill paths unknown.",
+    "Keep related same-market and recurring-event outcomes clustered; overlapping positions/markets and common shocks must not multiply independent evidence. Separate maker strategies from taker-copyable strategies.",
+    "Evaluate realized copier net return, loss severity, drawdown, fill capacity, calibration and coverage on a locked future period; report score uncertainty and abstention. Do not select scoring weights using the same final holdout.",
+    "Current real record count is zero. No numerical Limitless backtest, score, or comparison is justified from this collection attempt."
+  ],
+  "unresolved_reconstruction": [
+    "Historical depth, own observation latency, queue priority and impact absent.",
+    "Public market feed limited to finalized CLOB and taker attribution; complete discovery of makers, AMM users and inactive historical users unverified.",
+    "Cashflows, transfer/split/merge/redemption accounting must reconcile with history and on-chain evidence; current portfolio snapshot alone cannot establish past equity.",
+    "Historical fee versions, rebates and any outcome-token-denominated fees must be applied by actual timestamp, not current settings."
+  ]
+}

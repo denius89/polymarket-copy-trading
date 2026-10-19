@@ -1,0 +1,114 @@
+"""Real data audit, not trader PnL or executable copy backtest.
+
+Dependency: duckdb 1.4.1. Run with PYTHONPATH=/tmp/trader-score-python-deps.
+Targets fixed by calendar before label inspection; retrospective metadata is not
+assumed point-in-time. Keep missing timestamps/labels missing.
+"""
+import csv
+import hashlib
+import json
+from pathlib import Path
+import duckdb
+
+ROOT = Path(__file__).resolve().parent
+DATA = ROOT / 'polymarket'
+CUTOFF = 1706745600  # 2024-02-01 00:00 UTC
+
+
+def main():
+    c = duckdb.connect()
+    c.execute("SET TimeZone='UTC'")
+    c.read_parquet(str(DATA/'trade_archive'/'*.parquet')).create_view('trades')
+    c.read_parquet(str(DATA/'quote_sample'/'polymarket_ticks_ms.parquet')).create_view('quotes')
+
+    def one(sql):
+        cur = c.execute(sql)
+        return dict(zip([x[0] for x in cur.description], cur.fetchone()))
+
+    def many(sql):
+        cur = c.execute(sql)
+        names = [x[0] for x in cur.description]
+        return [dict(zip(names, row)) for row in cur.fetchall()]
+
+    result = {'scope': 'Jan-Feb2024 Standard Binary archive; descriptive data audit only',
+              'cutoff_utc': '2024-02-01T00:00:00Z'}
+    result['archive'] = one('''select count(*) row_count, count(distinct condition_id) conditions,
+        count(distinct taker) takers, count(distinct maker) makers,
+        min(block_timestamp) first_timestamp, max(block_timestamp) last_timestamp,
+        count(*) filter(where resolved_at is null) missing_resolution_time,
+        count(*) filter(where winning_outcome_label is null) missing_winner,
+        count(*) filter(where price<=0 or price>=1) boundary_or_invalid_prices,
+        count(*) filter(where resolved_at<to_timestamp(block_timestamp)) after_resolution_rows
+        from trades''')
+    result['archive'].update(one('select count(*) filter(where fee_usdc<>0) nonzero_fee_rows from trades'))
+    result['identical_rows'] = one('''select count(*) group_count, sum(n-1) extra_rows
+        from (select *,count(*) n from trades group by all) where n>1''')
+    result['archive'].update(one('''select count(distinct address) distinct_addresses from
+        (select lower(maker) address from trades union all select lower(taker) address from trades)'''))
+    result['categories'] = many('select category_refined category, count(*) row_count from trades group by 1 order by 2 desc')
+    result['resolution_status'] = many('select resolution_status, count(*) row_count from trades group by 1')
+    result['january_buys'] = one(f'''select count(*) row_count, count(distinct taker) buyers,
+        count(*) filter(where resolved_at>='2024-02-01') outcome_not_known_by_cutoff,
+        count(*) filter(where resolved_at<'2024-02-01') resolution_before_cutoff,
+        count(*) filter(where resolved_at is null) resolution_time_unknown
+        from trades where taker_direction='BUY' and block_timestamp<{CUTOFF}''')
+    c.execute(f'''create view jan_wallets as select lower(taker) wallet, count(*) fills,
+        count(distinct condition_id) conditions,
+        count(distinct condition_id) filter(where resolved_at<'2024-02-01'
+          and winning_outcome_label is not null and price>0 and price<1
+          and resolved_at>=to_timestamp(block_timestamp)) known_resolved_conditions
+        from trades where taker_direction='BUY' and block_timestamp<{CUTOFF} group by 1''')
+    result['evidence_counts'] = one('''select count(*) january_buyers,
+        count(*) filter(where fills>=20) at_least_20_fills,
+        count(*) filter(where conditions>=20) at_least_20_conditions,
+        count(*) filter(where known_resolved_conditions>=20) at_least_20_known_conditions,
+        median(fills) median_fills, median(conditions) median_conditions from jan_wallets''')
+    wallets = many('select * from jan_wallets order by wallet')
+    # Pseudonymous output for review; raw public data retains source addresses.
+    for row in wallets:
+        row['wallet'] = hashlib.sha256(row['wallet'].encode()).hexdigest()[:16]
+    with (ROOT/'wallet-evidence.csv').open('w',newline='') as f:
+        w = csv.DictWriter(f,fieldnames=list(wallets[0]));w.writeheader();w.writerows(wallets)
+
+    # Diagnostic of purchased odds only: one first BUY per wallet/condition.
+    # Known final labels describe hindsight outcomes, NEVER train features.
+    c.execute('''create view first_buys as select * from trades
+        where taker_direction='BUY' and price>0 and price<1
+        and outcome_label is not null and winning_outcome_label is not null
+        qualify row_number() over(partition by lower(taker),condition_id
+             order by block_timestamp,asset_id,price,usdc_amount)=1''')
+    result['hindsight_odds_diagnostic'] = many('''select
+        case when price<.1 then '0.00-0.10' when price<.5 then '0.10-0.50'
+             when price<.9 then '0.50-0.90' else '0.90-1.00' end price_band,
+        count(*) wallet_market_first_buys, count(distinct condition_id) conditions,
+        avg(price) mean_price,
+        avg(case when outcome_label=winning_outcome_label then 1.0 else 0.0 end) win_fraction,
+        avg(case when outcome_label=winning_outcome_label then 1.0 else 0.0 end-price) payoff_minus_price_per_share
+        from first_buys group by 1 order by 1''')
+    result['quotes'] = one('''select count(*) row_count, count(distinct asset_id) tokens,
+        count(distinct market_slug) markets,
+        min(source_ts_ms) first_source_ms, max(source_ts_ms) last_source_ms,
+        count(*) filter(where price<best_bid or price>best_ask) price_outside_best_quotes,
+        count(*) filter(where best_bid>best_ask) crossed_best_quotes,
+        median(ingest_ts_ms-source_ts_ms) median_source_to_ingest_ms,
+        max(ingest_ts_ms-source_ts_ms) max_source_to_ingest_ms,
+        count(*) filter(where ingest_ts_ms<source_ts_ms) negative_source_to_ingest
+        from quotes''')
+    result['checks'] = {}
+    manifest = json.loads((DATA/'manifest.json').read_text())
+    assert all(hashlib.sha256((DATA/x['file']).read_bytes()).hexdigest()==x['sha256'] for x in manifest)
+    result['checks']['all_download_hashes_match'] = True
+    j = result['january_buys']
+    assert j['row_count'] == j['outcome_not_known_by_cutoff']+j['resolution_before_cutoff']+j['resolution_time_unknown']
+    result['checks']['label_time_partitions_cover_january'] = True
+    e = result['evidence_counts']
+    assert e['at_least_20_known_conditions'] <= e['at_least_20_conditions'] <= e['at_least_20_fills']
+    result['checks']['distinct_evidence_never_exceeds_fills'] = True
+    assert len(list((DATA/'trade_archive').glob('*.parquet'))) == 60
+    result['checks']['all_60_calendar_files_present'] = True
+    (ROOT/'real-data-audit.json').write_text(json.dumps(result,indent=2)+'\n')
+    print(json.dumps(result,indent=2))
+
+
+if __name__=='__main__':
+    main()

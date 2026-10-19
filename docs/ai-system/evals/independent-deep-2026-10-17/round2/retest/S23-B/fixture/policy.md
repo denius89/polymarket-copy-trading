@@ -1,0 +1,1 @@
+Fixture: user tenant A must not read/modify tenant B; support read-only; unknown withdrawal requires reconciliation before retry. Product two-venue/RUEN/mobile scope; no runtime evidence beyond listed.

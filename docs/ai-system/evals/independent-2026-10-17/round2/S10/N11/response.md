@@ -1,0 +1,1 @@
+The returned result is sealed before grading. No scoring content supplied in this fixture; evaluate independence only.

@@ -1,0 +1,23 @@
+{
+  "case_id": "R03",
+  "evaluation_kind": "metadata_review",
+  "oracle_visible": true,
+  "same_author": true,
+  "observed_at": "2026-10-17T21:10:02+00:00",
+  "response_file": "R03.md",
+  "response_sha256": "59be93ca315e2a28113ae730796726c4db3f17c0274c633b08478fe8cc3cab99",
+  "trace": [
+    "Author explicitly read three SKILL.md files through local file tool in this session.",
+    "Author reviewed supplied raw fixtures and produced this response in the same session; oracle was already visible.",
+    "Only local skill/evaluation artifacts were written. No independent model execution, automatic skill discovery or external action was performed."
+  ],
+  "tokens": null,
+  "cost_usd": null,
+  "latency_seconds": null,
+  "checks": {
+    "C1": {
+      "status": "pass",
+      "evidence": "Выбор в ответе совпадает с задачей и ожидаемым primary; это ручной metadata review, не runtime discovery."
+    }
+  }
+}

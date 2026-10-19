@@ -1,0 +1,1 @@
+Fixture recovery policy: lost-owner requests go through documented recovery authority, verification of identity and audited approval; support cannot approve own request or mutate treasury. Существующие pending operations сохраняются до reconciliation. Пользователь просит только draft response/review; настоящих seed или ключей во входе нет.

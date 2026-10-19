@@ -1,0 +1,46 @@
+{
+  "diagnostic_version": "recorded-qualification-v2-2026-10-18",
+  "result_kind": "hindsight_first_second_bucket_diagnostic_not_pnl",
+  "selection_rule": "first eligible observed second per wallet/condition; multiple source rows excluded from strict table",
+  "metadata_note": "Retrospective final labels only; not information known at prediction time. Raw first event identity absent.",
+  "summary": {
+    "wallet_condition_groups": 9385,
+    "multiple_row_buckets": 1246,
+    "ambiguous_economic_buckets": 1221,
+    "ambiguous_price_buckets": 953,
+    "strict_single_row_buckets": 8139,
+    "pooled_lower_if_arbitrary_first_row": -0.014544489121541949,
+    "pooled_upper_if_arbitrary_first_row": -0.012096888911497444
+  },
+  "strict_single_row_price_bands": [
+    {
+      "price_band": "0.00-0.10",
+      "observations": 1258,
+      "mean_price": 0.04410092186515849,
+      "hindsight_win_fraction": 0.01589825119236884,
+      "payoff_minus_price": -0.02820267067278964
+    },
+    {
+      "price_band": "0.10-0.50",
+      "observations": 2870,
+      "mean_price": 0.26653097448633534,
+      "hindsight_win_fraction": 0.26794425087108015,
+      "payoff_minus_price": 0.0014132763847446107
+    },
+    {
+      "price_band": "0.50-0.90",
+      "observations": 2583,
+      "mean_price": 0.719472990611919,
+      "hindsight_win_fraction": 0.6813782423538521,
+      "payoff_minus_price": -0.03809474825806619
+    },
+    {
+      "price_band": "0.90-1.00",
+      "observations": 1428,
+      "mean_price": 0.9623087939417888,
+      "hindsight_win_fraction": 0.9810924369747899,
+      "payoff_minus_price": 0.018783643033003294
+    }
+  ],
+  "bounds_note": "Bounds enumerate admissible first-row payoff-price values inside each observed bucket; not confidence intervals, return or model calibration."
+}

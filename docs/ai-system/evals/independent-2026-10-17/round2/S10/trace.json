@@ -1,0 +1,105 @@
+{
+  "scope_root": "/private/tmp/cct-independent-iufaonwy/round2/S10",
+  "evaluation_mode": "explicit-path fixture evaluation",
+  "reads": [
+    ".agents/skills/cct-ai-quality/SKILL.md",
+    "N07/task.md",
+    "N08/task.md",
+    "N09/task.md",
+    "N11/task.md",
+    "docs/ai-system/evals/PROTOCOL.md",
+    "docs/ai-system/knowledge/GUIDE.md",
+    "N07/request.md",
+    "N07/summary.md",
+    "N07/trace.json",
+    "N08/request.md",
+    "N08/source.md",
+    "N08/answer.md",
+    "N08/trace.md",
+    "N08/rubric.md",
+    "N09/report.md",
+    "N09/record.json",
+    "N09/trace.md",
+    "N11/response.md",
+    "N11/trace.json"
+  ],
+  "visible_actions": [
+    {
+      "action": "list_directory",
+      "path": "."
+    },
+    {
+      "action": "list_files",
+      "paths": [
+        "N07",
+        "N08",
+        "N09",
+        "N11",
+        "docs",
+        ".agents"
+      ],
+      "excluded": [
+        "results/**",
+        "oracle*"
+      ]
+    },
+    {
+      "action": "read",
+      "paths": [
+        ".agents/skills/cct-ai-quality/SKILL.md",
+        "N07/task.md",
+        "N08/task.md",
+        "N09/task.md",
+        "N11/task.md",
+        "docs/ai-system/evals/PROTOCOL.md",
+        "docs/ai-system/knowledge/GUIDE.md",
+        "N07/request.md",
+        "N07/summary.md",
+        "N07/trace.json",
+        "N08/request.md",
+        "N08/source.md",
+        "N08/answer.md",
+        "N08/trace.md",
+        "N08/rubric.md",
+        "N09/report.md",
+        "N09/record.json",
+        "N09/trace.md",
+        "N11/response.md",
+        "N11/trace.json"
+      ]
+    },
+    {
+      "action": "write_assessments",
+      "paths": [
+        "N07/results/assessment.md",
+        "N08/results/assessment.md",
+        "N09/results/assessment.md",
+        "N11/results/assessment.md"
+      ]
+    }
+  ],
+  "created_files": [
+    "N07/results/assessment.md",
+    "N08/results/assessment.md",
+    "N09/results/assessment.md",
+    "N11/results/assessment.md",
+    "trace.json"
+  ],
+  "constraints": {
+    "network_used": false,
+    "accounts_used": false,
+    "publication_performed": false,
+    "fixtures_modified": false,
+    "skill_modified": false,
+    "external_paths_read": false,
+    "oracle_read": false,
+    "internal_N08_rubric_read": true
+  },
+  "limitations": [
+    "Learning package docs/ai-system/learning/S10.md was not present in the listed fixture files.",
+    "N08/rubric.md is an explicitly supplied internal rubric required for review of proportionality; no hidden grading oracle was opened.",
+    "No baseline, token, or cost measurements were supplied."
+  ],
+  "token_count": null,
+  "cost": null
+}

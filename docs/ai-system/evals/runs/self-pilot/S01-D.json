@@ -1,0 +1,31 @@
+{
+  "case_id": "S01-D",
+  "evaluation_kind": "self_pilot",
+  "oracle_visible": true,
+  "same_author": true,
+  "observed_at": "2026-10-17T21:10:02+00:00",
+  "response_file": "S01-D.md",
+  "response_sha256": "687e9da21d0ec995397c485f218042c73149fde0256549f313dd075401feafa3",
+  "trace": [
+    "Author explicitly read three SKILL.md files through local file tool in this session.",
+    "Author reviewed supplied raw fixtures and produced this response in the same session; oracle was already visible.",
+    "Only local skill/evaluation artifacts were written. No independent model execution, automatic skill discovery or external action was performed."
+  ],
+  "tokens": null,
+  "cost_usd": null,
+  "latency_seconds": null,
+  "checks": {
+    "C1": {
+      "status": "pass",
+      "evidence": "Ответ принимает новое разрешение готовить пакет и не задаёт лишний вопрос."
+    },
+    "C2": {
+      "status": "pass",
+      "evidence": "Результат ограничен учебным каркасом; references/продукт не редактировались."
+    },
+    "C3": {
+      "status": "pass",
+      "evidence": "Каркас содержит компетенцию, маршрут чтения, правила, практику и критерии."
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "scope": "/private/tmp/cct-independent-iufaonwy/S21",
+  "date": "2026-10-17",
+  "actions": [
+    {
+      "action": "inventory",
+      "scope": "S21 only"
+    },
+    {
+      "action": "read",
+      "files": [
+        "SKILL.md",
+        "N04/task.md",
+        "N05/task.md",
+        "N06/task.md",
+        "N04/observation.json",
+        "N04/old-card.json",
+        "N04/vendor.md",
+        "N05/consumers.json",
+        "N05/source-new.md",
+        "N05/card.json",
+        "N05/source-old.md",
+        "N06/source.md",
+        "N06/rights.txt"
+      ]
+    },
+    {
+      "action": "compare",
+      "files": [
+        "N05/source-old.md",
+        "N05/source-new.md"
+      ],
+      "method": "Локальная смысловая сверка и SHA-256"
+    },
+    {
+      "action": "write",
+      "files": [
+        "N04/answer.md",
+        "N04/knowledge-card.json",
+        "N05/answer.md",
+        "N05/updated-card.json",
+        "N05/metadata-basics-package.md",
+        "N05/wallet-auth-package.md",
+        "N06/answer.md",
+        "N06/source-card.json",
+        "N06/learning-pack.md"
+      ]
+    },
+    {
+      "action": "write",
+      "files": [
+        "trace.json"
+      ]
+    }
+  ],
+  "source_hashes": {
+    "SKILL.md": "0a5594e2c2fd7c1634ee76b2c59575e49b47ec888c5735fb9e0916020144d8cf",
+    "N04/task.md": "140ea94a502191ac02fd216bbef2a9b0162c1562e40f3b5b05f2b2b481980087",
+    "N05/task.md": "3d3ac1460a5169b7e4e637cd39bb5d3fb7a6802ac98c54f3c67d4b5371b50ef2",
+    "N06/task.md": "e44c6a865b24c6daf789b286fdfef2fb992d313a989833bd8710d7b6924dd163",
+    "N04/observation.json": "2bf36f37dbacd836126b3a8bc56267d72d585d7069cfe32680cfcc3009991f9c",
+    "N04/old-card.json": "77d02176a92d307817622ddb7770ebd948a95a2b7ca8bf3bf386c81453163d06",
+    "N04/vendor.md": "54bbc26000694883886e532b7f23fa22d849beb8a762162f1d8a2370baa30934",
+    "N05/consumers.json": "2255724c6119bece2b73e834ec59c100c3404406e106cb38bc91f7bcad45b132",
+    "N05/source-new.md": "e6683e3c171e16555436c3d42bba70a98e372348b98a98fdc61ffa4f2e6a2c8c",
+    "N05/card.json": "e345ac273c276d2f6fa85fd12c74e82de792e4f9e82d5bb18153cda888442e12",
+    "N05/source-old.md": "de04ab3d976903bdc8e7dcf967b8c3e3379c64173386f0723a743abfb3bb8879",
+    "N06/source.md": "37033eff6c445ff544055fa3714f26667b803d25af7b30c8ad44426c123c731f",
+    "N06/rights.txt": "97d4b7bb1851e01a087ccb977f7af4429c4351b91d34a7dffe4b3cf08b00b1f8"
+  },
+  "constraints": {
+    "network_used": false,
+    "keys_used": false,
+    "source_instructions_executed": false,
+    "outside_scope_read_write": false,
+    "originals_modified": false
+  },
+  "limits": [
+    "Нет новых live/API проверок",
+    "Внешние refs навыка не открывались",
+    "Полные исходные пакеты N05 не предоставлены; созданы минимальные локальные обновления",
+    "N06 основан только на excerpt, без перераспространения существенного текста"
+  ]
+}

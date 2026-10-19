@@ -1,0 +1,1 @@
+Если в будущем поручен commit: docs linkcheck и staged diff review required. Branch protected=false в cached response; rulesets response unavailable.

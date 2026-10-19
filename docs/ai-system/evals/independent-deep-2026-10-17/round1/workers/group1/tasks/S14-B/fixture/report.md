@@ -1,0 +1,1 @@
+Frozen candidate vs baseline evaluated once on synthetic replay. Universe: all6 events for venue P with full depth and latency<=1s, October1..7; none for venue L or sparse books. Correct grouped temporal split confirmed in audit. Mean paired net difference +0.20USD/event; event-level90% interval[-0.10,+0.50]. Coverage eligible sample6/30 events in target universe.
