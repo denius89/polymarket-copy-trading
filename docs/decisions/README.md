@@ -120,3 +120,11 @@
 | [0049](0049_position_parts_cost_and_manual_sales.md) | Части, стоимость и ручные продажи | Принято владельцем для paper MVP |
 | [0050](0050_shadow_assessment_boundary_and_exit_only_tail.md) | 14 дней и продолжение только сокращений | Принято владельцем для paper MVP |
 | [0051](0051_strict_session_completion_and_paper_reset.md) | Строгий финал и сброс с сохранением истории | Принято владельцем для paper MVP |
+
+## Поздние исполнения, последовательные продажи и округление · 19.10.2026
+
+| ADR | Решение | Статус |
+| --- | --- | --- |
+| [0052](0052_late_fills_follow_ownership_and_exit_target.md) | Поздние fills и цель сокращения | Принято владельцем для paper MVP |
+| [0053](0053_serialize_sells_and_preserve_exit_targets.md) | Один незавершённый SELL на исход | Принято владельцем для paper MVP |
+| [0054](0054_round_down_without_limit_bypass_and_keep_dust.md) | Округление вниз, без обхода допуска и списания dust | Принято владельцем для paper MVP |

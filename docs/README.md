@@ -10,6 +10,7 @@
 | Последние изменения и история | [PROJECT_STATE](PROJECT_STATE.md) |
 | Согласованные правила | [Бизнес-логика MVP](MVP_BUSINESS_LOGIC.md), [ADR](decisions/README.md) |
 | Сверка правил и актуальных макетов | [Бизнес-аудит 19.10.2026: замечания, открытые решения и evidence](qa/business-logic-2026-10-19/README.md) |
+| Поздние исполнения, продажи и округление | [ADR-0052](decisions/0052_late_fills_follow_ownership_and_exit_target.md), [ADR-0053](decisions/0053_serialize_sells_and_preserve_exit_targets.md), [ADR-0054](decisions/0054_round_down_without_limit_bypass_and_keep_dust.md); [модель и предел проверки](qa/late-fill-sell-rounding-2026-10-19/README.md) |
 | Части позиции и завершение | [ADR-0049](decisions/0049_position_parts_cost_and_manual_sales.md), [ADR-0050](decisions/0050_shadow_assessment_boundary_and_exit_only_tail.md), [ADR-0051](decisions/0051_strict_session_completion_and_paper_reset.md); [исходное предложение](131_position_parts_and_session_completion_proposal_2026-10-19.md) с границей принятия |
 | Все документы, включая ранние | [Полный каталог](DOCUMENT_INDEX.md) |
 | Как хранить, публиковать и завершать задачи | [Карта и правила репозитория](REPOSITORY_GUIDE.md), [каталог внешних архивов](storage/catalog.json) |
