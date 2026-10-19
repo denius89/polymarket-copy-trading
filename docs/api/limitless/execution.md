@@ -1,5 +1,7 @@
 # Limitless: исполнение, realtime и сверка
 
+Уточнение 19.10.2026: текущая Create Order docs задаёт GTC/FAK price 0.001–0.999 (до 3 decimal places), а не прежние 0.01–0.99 ниже. COLLATERAL venues имеют feeModule, подписанное feeRateBps=0 и отдельный денежный тариф; legacy правило effectiveFeeRateBps не универсально. Нормативная свежая сверка/ограничения — [136](../../136_venue_market_profiles_and_quote_gates_2026-10-19.md), evidence только публичное. Остальное ниже — срез 06.10.
+
 Дата проверки официальных документов: **2026-10-06**. REST production: `https://api.limitless.exchange`; Socket.IO: `wss://ws.limitless.exchange/markets`, транспорт WebSocket. [OpenAPI](https://docs.limitless.exchange/openapi.json): OpenAPI 3, `info.version: 1.0` — это версия спецификации, не обещание неизменности поведения. EIP-712 domain version `1`. Все возможности ниже **документированы, но не проверены торговым запросом**. Чтение документации/spec выполнено; credentials, approvals, сделки и подключения к приватному stream не создавались. Партнёрские операции дополнительно **требуют партнёрского доступа**. SDK пакет в этом исследовании не устанавливался; фиксировать фактически выбранную версию перед реализацией.
 
 ## Routing, сеть и precision

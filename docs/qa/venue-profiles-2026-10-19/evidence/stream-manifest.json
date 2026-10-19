@@ -1,0 +1,34 @@
+{
+  "checkedDate": "2026-10-19",
+  "scope": "two bounded public sessions per venue; initial subscription and reconnect; retained first six relevant frames per session, not an unbiased latency sample",
+  "records": [
+    {
+      "id": "polymarket-public-stream",
+      "artifact": "polymarket-public-stream.json",
+      "artifactSHA256": "0059d8d8b1f37507955b228dd899b783833327dad01ac14aac0fc3c0619b4f51",
+      "sessions": 2,
+      "observedRelevantFrameCount": 9,
+      "retainedFrameCount": 9,
+      "retainedUnadjustedSourceLagMs": {
+        "min": 48.765,
+        "max": 5660.013
+      },
+      "certifiedClockUncertaintyMs": null,
+      "activationReady": false
+    },
+    {
+      "id": "limitless-public-stream",
+      "artifact": "limitless-public-stream.json",
+      "artifactSHA256": "d2b48c3b44e1e1c0b1ee88c32960005e590652133b0a31cad6751e61fe1f424d",
+      "sessions": 2,
+      "observedRelevantFrameCount": 51,
+      "retainedFrameCount": 12,
+      "retainedUnadjustedSourceLagMs": {
+        "min": 24.506,
+        "max": 148.881
+      },
+      "certifiedClockUncertaintyMs": null,
+      "activationReady": false
+    }
+  ]
+}

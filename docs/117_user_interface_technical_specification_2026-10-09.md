@@ -1,5 +1,7 @@
 # Пользовательский интерфейс Shadow: техническая спецификация
 
+Уточнение 19.10.2026: [ADR-0059](decisions/0059_clob_market_profiles_freshness_price_and_fees.md)/[136](136_venue_market_profiles_and_quote_gates_2026-10-19.md): принят контракт CLOB-профилей обеих площадок — возраст книги ≤2 с, получение snapshot ≤1 с, clock uncertainty ≤250 мс, предел цены 2% от текущего best соответствующей стороны. Минимумы/precision/fees — по точному market/order-shape профилю; AMM пока неподдерживаемый. Обязательная проверка потока/часов и расходов ещё не пройдена: runtime выключен, неизвестное блокирует конкретный профиль.
+
 Уточнение 19.10.2026: [ADR-0058](decisions/0058_paper_mvp_numeric_settings_policy.md) принимает [числовую политику 130](130_paper_copy_settings_numeric_policy_proposal_2026-10-18.md): B=$100–$1 000/шаг $10; новый F от $5/шаг $1 до целого доллара min(P,D); q=1–20%/шаг 0,5 п.п.; p=5–20% и d=10–30%/шаг 1 п.п.; сигнал 30 с без редактирования. $5 — минимум только фиксированного поля, не процентного BUY. Неизменённый активный F при снижении B/p/d сохраняется с предупреждением по ADR-0056. Профили рынка/расходов и runtime отдельно; Figma не менялась.
 
 Уточнение 19.10.2026: [ADR-0057](decisions/0057_effective_limits_and_rejection_reason_priority.md)/[контракт 135](135_effective_limits_and_rejection_reasons_2026-10-19.md) закрывают способ совмещения лимитов и главной причины BL-08. Все применимые правила обязательны; min максимумов допустим только одной квоте, разные области имеют собственные остатки. Причины упорядочены от режима/сверки и данных до денег/экспозиции/дня, остальные доказанные препятствия сохраняются в деталях. Неизвестное/непроверенное отдельно от нарушенного. Числовые thresholds и runtime этим не принимаются.
@@ -374,7 +376,7 @@ Logs используют correlationId/commandId/resourceId без auth codes, 
 | UI-01 | Видимые Low/Medium/High заменены ручными полями 18.10; принят один starter preset. Диапазоны/шаги приняты ADR-0058/130 | Серверная валидация и UI/RU/EN-проверка |
 | UI-02 | Процент 1–20%/0,5 п.п. принят ADR-0058; точная арифметика ADR-0055; venue minima и expense bound открыты | Admission/формы и adapters |
 | UI-03 | ADR-0049/0052–0055: части, late, очередь, шаг/dust и точная арифметика/раскладка приняты; физический ledger, транзакции и внешняя сверка открыты | Manual/close и ledger |
-| UI-04 | BL-06: freshness, depth, rounding, unknown evidence/timeout, SELL liquidity | Paper engine и venue integration |
+| UI-04 | ADR-0059/136: пороги freshness/цены приняты; activation evidence/clock, depth/precision/fee, unknown timeout и SELL liquidity открыты | Paper engine и venue integration |
 | UI-05 | ADR-0050/0051 приняты: max14/только сокращения и строгий финал/reset; детали времени/отчёта и реализация открыты | Stop/report/restart |
 | UI-06 | ADR-0057/135: способ BL-08 принят; диапазоны формы приняты ADR-0058; полнота policy/counters, системные/global границы, UI и runtime-проверки открыты | Effective policy/admission |
 | UI-07 | Rating formulas/quality sources и report benchmark | Вычисляемые ratings/reports |
