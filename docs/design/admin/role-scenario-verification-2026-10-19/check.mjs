@@ -1,0 +1,17 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const dir=new URL('.',import.meta.url);
+const rows=JSON.parse(fs.readFileSync(new URL('client-native-44.json',dir)));
+const expected=JSON.parse(fs.readFileSync(new URL('../role-scenario-pass-2026-10-19/client-screen-records.json',dir)));
+const checks=[];
+const run=(name,fn)=>{fn();checks.push({name,passed:true});};
+run('44 unique expected roots',()=>{assert.equal(rows.length,44);assert.equal(new Set(rows.map(r=>r.id)).size,44);assert.deepEqual(rows.map(r=>r.id).sort(),expected.map(r=>r.id).sort());});
+run('11 scenarios in each of four variants',()=>{for(const loc of ['mobile-ru','mobile-en','desktop-ru','desktop-en'])assert.equal(new Set(rows.filter(r=>r.locale===loc).map(r=>r.key)).size,11);});
+run('expected content and frame sizes',()=>{for(const r of rows){const e=expected.find(e=>e.id===r.id);assert.equal(r.width,e.width);assert.equal(r.height,e.height);assert(r.texts.includes(e.body));}});
+run('Paper Alpha fee remains zero in all states',()=>{for(const r of rows)assert(r.texts.some(t=>/Paper Alpha/.test(t)&&/0%/.test(t)));});
+run('prototype refresh has no send or navigation action',()=>{for(const r of rows)for(const l of r.links)for(const a of l.actions)assert(a.type==='NODE'&&a.to==='630:20'&&a.navigation==='CHANGE_TO');});
+run('late-fill amount and reserve remain explicit',()=>{for(const r of rows.filter(r=>r.key==='client-order-late')){const text=r.texts.join(' ');for(const amount of ['$20','$12','$8','$4'])assert(text.includes(amount));assert(text.includes('ORD-DEMO-03'));}});
+run('Russian title describes cancellation request',()=>{for(const r of rows.filter(r=>r.key==='client-order-late'&&r.locale.endsWith('-ru')))assert(r.texts.includes('Исполнение после запроса отмены'));});
+run('support and announcement identities match',()=>{for(const r of rows.filter(r=>r.key==='client-support-reply'))assert(r.texts.join(' ').includes('MSG-1042-C'));for(const r of rows.filter(r=>r.key==='client-announcement'))assert(r.texts.join(' ').includes('ANN-DEMO-01'));});
+fs.writeFileSync(new URL('checks.json',dir),JSON.stringify({scope:'captured native design texts and prototype actions only',checks},null,2)+'\n');
+console.log(checks.length+' scoped checks passed');
