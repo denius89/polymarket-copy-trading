@@ -1,0 +1,6539 @@
+[
+  {
+    "key": "command-collector-apply",
+    "section": "ADM-07",
+    "title": [
+      "Применить настройки сборщика",
+      "Apply collector settings"
+    ],
+    "body": [
+      "Учебная проверка команды CMD-P2. Перед выполнением повторно проверяются личность, право, область, версии, данные и действующие ограничения.",
+      "Synthetic review of CMD-P2. Recheck identity, grant, scope, versions, data and restrictions before execution."
+    ],
+    "rows": [
+      [
+        "Команда / объект",
+        "Command / object",
+        "CMD-P2 · SRC-PM-CAT",
+        "CMD-P2 · SRC-PM-CAT",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Версия / снимок",
+        "Version / snapshot",
+        "P-1 → P-2",
+        "P-1 → P-2",
+        "Версия, область и снимок неизменяемы для команды",
+        "Version, scope and snapshot pinned per command"
+      ],
+      [
+        "Необходимое право",
+        "Required permission",
+        "Владелец · применение численных настроек",
+        "Owner · apply numeric settings",
+        "Просмотр и черновик не разрешают выполнение",
+        "Read or draft access does not allow execution"
+      ],
+      [
+        "Изменение",
+        "Change",
+        "Интервал 5 → 10 минут; окно 90 дней. Только учебные значения.",
+        "Interval 5 → 10 minutes; 90-day window. Synthetic values only.",
+        "История, контрольные точки и торговая политика сохранены.",
+        "History, checkpoints and trading policy retained."
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить в примере",
+        "Confirm in fixture",
+        "command-collector-apply-result"
+      ],
+      [
+        "Все команды",
+        "All commands",
+        "commands-hub"
+      ]
+    ],
+    "primaryTo": "command-collector-apply-result",
+    "scenarios": [
+      [
+        "Результат неизвестен",
+        "Outcome unknown",
+        "command-collector-apply-unknown"
+      ],
+      [
+        "Общие отказы: пример",
+        "Common failures: example",
+        "command-exceptions"
+      ]
+    ]
+  },
+  {
+    "key": "command-collector-apply-result",
+    "section": "ADM-07",
+    "title": [
+      "Применить настройки сборщика: результат",
+      "Apply collector settings: result"
+    ],
+    "body": [
+      "P-2 подтверждена; изменятся только будущие задания каталога. Подтверждение учебное; реальные API не вызывались.",
+      "P-2 confirmed; only future catalog jobs change. Synthetic confirmation; no live API calls."
+    ],
+    "rows": [
+      [
+        "Команда",
+        "Command",
+        "CMD-P2",
+        "CMD-P2",
+        "SRC-PM-CAT",
+        "SRC-PM-CAT"
+      ],
+      [
+        "Подтверждённый эффект",
+        "Confirmed effect",
+        "P-2 подтверждена; изменятся только будущие задания каталога.",
+        "P-2 confirmed; only future catalog jobs change.",
+        "История, контрольные точки и торговая политика сохранены.",
+        "History, checkpoints and trading policy retained."
+      ],
+      [
+        "История",
+        "Audit",
+        "Автор, время, причина, версия, снимок и результат сохранены",
+        "Actor, time, reason, version, snapshot and result retained",
+        "Сохранение записи не равно успешному исполнению",
+        "An audit record alone does not prove execution"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все команды",
+        "All commands",
+        "commands-hub"
+      ]
+    ]
+  },
+  {
+    "key": "command-collector-apply-unknown",
+    "section": "ADM-07",
+    "title": [
+      "Применить настройки сборщика: результат неизвестен",
+      "Apply collector settings: outcome unknown"
+    ],
+    "body": [
+      "Команда CMD-P2 принята, но её эффект не подтверждён. Повторное выполнение того же намерения запрещено. Проверяем статус именно этой команды, не создаём новую.",
+      "Command CMD-P2 accepted; effect unverified. Re-execution of the same intent is blocked. Read this exact command status; do not create another."
+    ],
+    "rows": [
+      [
+        "Команда / объект",
+        "Command / object",
+        "CMD-P2 · SRC-PM-CAT",
+        "CMD-P2 · SRC-PM-CAT",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Версия / снимок",
+        "Version / snapshot",
+        "P-1 → P-2",
+        "P-1 → P-2",
+        "Версия, область и снимок неизменяемы для команды",
+        "Version, scope and snapshot pinned per command"
+      ],
+      [
+        "Разрешено сейчас",
+        "Allowed now",
+        "Только чтение статуса и подтверждающих данных",
+        "Only status and evidence reads",
+        "Не объявлять конфигурацию применённой",
+        "Do not claim configuration was applied"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить статус: учебный результат",
+        "Read status: synthetic result",
+        "command-collector-apply-result"
+      ],
+      [
+        "Список команд",
+        "Command list",
+        "commands-hub"
+      ]
+    ]
+  },
+  {
+    "key": "command-collector-pause",
+    "section": "ADM-07",
+    "title": [
+      "Приостановить сбор",
+      "Pause collection"
+    ],
+    "body": [
+      "Учебная проверка команды CMD-PAUSE. Перед выполнением повторно проверяются личность, право, область, версии, данные и действующие ограничения.",
+      "Synthetic review of CMD-PAUSE. Recheck identity, grant, scope, versions, data and restrictions before execution."
+    ],
+    "rows": [
+      [
+        "Команда / объект",
+        "Command / object",
+        "CMD-PAUSE · SRC-PM-CAT",
+        "CMD-PAUSE · SRC-PM-CAT",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Версия / снимок",
+        "Version / snapshot",
+        "P-2 · запущен → P-2 · пауза",
+        "P-2 · running → P-2 · paused",
+        "Версия, область и снимок неизменяемы для команды",
+        "Version, scope and snapshot pinned per command"
+      ],
+      [
+        "Необходимое право",
+        "Required permission",
+        "Отдельное право управления сбором в этой области",
+        "Separate collection-control grant for this scope",
+        "Просмотр и черновик не разрешают выполнение",
+        "Read or draft access does not allow execution"
+      ],
+      [
+        "Изменение",
+        "Change",
+        "Запретить новые задания каталога; текущие чтения завершить безопасно.",
+        "Block new catalog jobs; settle current reads safely.",
+        "События и контрольные точки сохранены; торговые сессии не закрыты.",
+        "Events and checkpoints retained; trading sessions not closed."
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить в примере",
+        "Confirm in fixture",
+        "command-collector-pause-result"
+      ],
+      [
+        "Все команды",
+        "All commands",
+        "commands-hub"
+      ]
+    ],
+    "primaryTo": "command-collector-pause-result",
+    "scenarios": [
+      [
+        "Результат неизвестен",
+        "Outcome unknown",
+        "command-collector-pause-unknown"
+      ],
+      [
+        "Общие отказы: пример",
+        "Common failures: example",
+        "command-exceptions"
+      ]
+    ]
+  },
+  {
+    "key": "command-collector-pause-result",
+    "section": "ADM-07",
+    "title": [
+      "Приостановить сбор: результат",
+      "Pause collection: result"
+    ],
+    "body": [
+      "Пауза подтверждена: новые задания этого сборщика не запускаются. Подтверждение учебное; реальные API не вызывались.",
+      "Pause confirmed: no new jobs for this collector. Synthetic confirmation; no live API calls."
+    ],
+    "rows": [
+      [
+        "Команда",
+        "Command",
+        "CMD-PAUSE",
+        "CMD-PAUSE",
+        "SRC-PM-CAT",
+        "SRC-PM-CAT"
+      ],
+      [
+        "Подтверждённый эффект",
+        "Confirmed effect",
+        "Пауза подтверждена: новые задания этого сборщика не запускаются.",
+        "Pause confirmed: no new jobs for this collector.",
+        "События и контрольные точки сохранены; торговые сессии не закрыты.",
+        "Events and checkpoints retained; trading sessions not closed."
+      ],
+      [
+        "История",
+        "Audit",
+        "Автор, время, причина, версия, снимок и результат сохранены",
+        "Actor, time, reason, version, snapshot and result retained",
+        "Сохранение записи не равно успешному исполнению",
+        "An audit record alone does not prove execution"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все команды",
+        "All commands",
+        "commands-hub"
+      ]
+    ]
+  },
+  {
+    "key": "command-collector-pause-unknown",
+    "section": "ADM-07",
+    "title": [
+      "Приостановить сбор: результат неизвестен",
+      "Pause collection: outcome unknown"
+    ],
+    "body": [
+      "Команда CMD-PAUSE принята, но её эффект не подтверждён. Повторное выполнение того же намерения запрещено. Проверяем статус именно этой команды, не создаём новую.",
+      "Command CMD-PAUSE accepted; effect unverified. Re-execution of the same intent is blocked. Read this exact command status; do not create another."
+    ],
+    "rows": [
+      [
+        "Команда / объект",
+        "Command / object",
+        "CMD-PAUSE · SRC-PM-CAT",
+        "CMD-PAUSE · SRC-PM-CAT",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Версия / снимок",
+        "Version / snapshot",
+        "P-2 · запущен → P-2 · пауза",
+        "P-2 · running → P-2 · paused",
+        "Версия, область и снимок неизменяемы для команды",
+        "Version, scope and snapshot pinned per command"
+      ],
+      [
+        "Разрешено сейчас",
+        "Allowed now",
+        "Только чтение статуса и подтверждающих данных",
+        "Only status and evidence reads",
+        "Не объявлять конфигурацию применённой",
+        "Do not claim configuration was applied"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить статус: учебный результат",
+        "Read status: synthetic result",
+        "command-collector-pause-result"
+      ],
+      [
+        "Список команд",
+        "Command list",
+        "commands-hub"
+      ]
+    ]
+  },
+  {
+    "key": "command-collector-resume",
+    "section": "ADM-07",
+    "title": [
+      "Возобновить сбор",
+      "Resume collection"
+    ],
+    "body": [
+      "Учебная проверка команды CMD-RESUME. Перед выполнением повторно проверяются личность, право, область, версии, данные и действующие ограничения.",
+      "Synthetic review of CMD-RESUME. Recheck identity, grant, scope, versions, data and restrictions before execution."
+    ],
+    "rows": [
+      [
+        "Команда / объект",
+        "Command / object",
+        "CMD-RESUME · SRC-PM-CAT",
+        "CMD-RESUME · SRC-PM-CAT",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Версия / снимок",
+        "Version / snapshot",
+        "P-2 · пауза → P-2 · запущен",
+        "P-2 · paused → P-2 · running",
+        "Версия, область и снимок неизменяемы для команды",
+        "Version, scope and snapshot pinned per command"
+      ],
+      [
+        "Необходимое право",
+        "Required permission",
+        "Отдельное право управления сбором; нет аварийной блокировки",
+        "Collection-control grant; no emergency block",
+        "Просмотр и черновик не разрешают выполнение",
+        "Read or draft access does not allow execution"
+      ],
+      [
+        "Изменение",
+        "Change",
+        "Продолжить с подтверждённой контрольной точки в пределах профиля.",
+        "Continue from verified checkpoint within profile limits.",
+        "Не выполняет аварийное восстановление, не снимает ограничения.",
+        "Does not perform emergency recovery or lift restrictions."
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить в примере",
+        "Confirm in fixture",
+        "command-collector-resume-result"
+      ],
+      [
+        "Все команды",
+        "All commands",
+        "commands-hub"
+      ]
+    ],
+    "primaryTo": "command-collector-resume-result",
+    "scenarios": [
+      [
+        "Результат неизвестен",
+        "Outcome unknown",
+        "command-collector-resume-unknown"
+      ],
+      [
+        "Общие отказы: пример",
+        "Common failures: example",
+        "command-exceptions"
+      ]
+    ]
+  },
+  {
+    "key": "command-collector-resume-result",
+    "section": "ADM-07",
+    "title": [
+      "Возобновить сбор: результат",
+      "Resume collection: result"
+    ],
+    "body": [
+      "Сбор возобновлён по P-2; полнота старого пропуска ещё не доказана. Подтверждение учебное; реальные API не вызывались.",
+      "Collection resumed under P-2; old gap completeness remains unverified. Synthetic confirmation; no live API calls."
+    ],
+    "rows": [
+      [
+        "Команда",
+        "Command",
+        "CMD-RESUME",
+        "CMD-RESUME",
+        "SRC-PM-CAT",
+        "SRC-PM-CAT"
+      ],
+      [
+        "Подтверждённый эффект",
+        "Confirmed effect",
+        "Сбор возобновлён по P-2; полнота старого пропуска ещё не доказана.",
+        "Collection resumed under P-2; old gap completeness remains unverified.",
+        "Не выполняет аварийное восстановление, не снимает ограничения.",
+        "Does not perform emergency recovery or lift restrictions."
+      ],
+      [
+        "История",
+        "Audit",
+        "Автор, время, причина, версия, снимок и результат сохранены",
+        "Actor, time, reason, version, snapshot and result retained",
+        "Сохранение записи не равно успешному исполнению",
+        "An audit record alone does not prove execution"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все команды",
+        "All commands",
+        "commands-hub"
+      ]
+    ]
+  },
+  {
+    "key": "command-collector-resume-unknown",
+    "section": "ADM-07",
+    "title": [
+      "Возобновить сбор: результат неизвестен",
+      "Resume collection: outcome unknown"
+    ],
+    "body": [
+      "Команда CMD-RESUME принята, но её эффект не подтверждён. Повторное выполнение того же намерения запрещено. Проверяем статус именно этой команды, не создаём новую.",
+      "Command CMD-RESUME accepted; effect unverified. Re-execution of the same intent is blocked. Read this exact command status; do not create another."
+    ],
+    "rows": [
+      [
+        "Команда / объект",
+        "Command / object",
+        "CMD-RESUME · SRC-PM-CAT",
+        "CMD-RESUME · SRC-PM-CAT",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Версия / снимок",
+        "Version / snapshot",
+        "P-2 · пауза → P-2 · запущен",
+        "P-2 · paused → P-2 · running",
+        "Версия, область и снимок неизменяемы для команды",
+        "Version, scope and snapshot pinned per command"
+      ],
+      [
+        "Разрешено сейчас",
+        "Allowed now",
+        "Только чтение статуса и подтверждающих данных",
+        "Only status and evidence reads",
+        "Не объявлять конфигурацию применённой",
+        "Do not claim configuration was applied"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить статус: учебный результат",
+        "Read status: synthetic result",
+        "command-collector-resume-result"
+      ],
+      [
+        "Список команд",
+        "Command list",
+        "commands-hub"
+      ]
+    ]
+  },
+  {
+    "key": "command-validator-apply",
+    "section": "ADM-07",
+    "title": [
+      "Применить правила проверки",
+      "Apply validation rules"
+    ],
+    "body": [
+      "Учебная проверка команды CMD-V2. Перед выполнением повторно проверяются личность, право, область, версии, данные и действующие ограничения.",
+      "Synthetic review of CMD-V2. Recheck identity, grant, scope, versions, data and restrictions before execution."
+    ],
+    "rows": [
+      [
+        "Команда / объект",
+        "Command / object",
+        "CMD-V2 · VALIDATOR-PM",
+        "CMD-V2 · VALIDATOR-PM",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Версия / снимок",
+        "Version / snapshot",
+        "V-1 → V-2",
+        "V-1 → V-2",
+        "Версия, область и снимок неизменяемы для команды",
+        "Version, scope and snapshot pinned per command"
+      ],
+      [
+        "Необходимое право",
+        "Required permission",
+        "Владелец · применение численных правил",
+        "Owner · apply numeric rules",
+        "Просмотр и черновик не разрешают выполнение",
+        "Read or draft access does not allow execution"
+      ],
+      [
+        "Изменение",
+        "Change",
+        "Учебный срок актуальности рейтинговых данных 10 → 15 минут.",
+        "Synthetic rating-data freshness 10 → 15 minutes.",
+        "Проверки личности, дублей и расхождений обязательны; сделки не пересчитываются.",
+        "Identity, duplicate and discrepancy checks stay mandatory; no trade recalculation."
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить в примере",
+        "Confirm in fixture",
+        "command-validator-apply-result"
+      ],
+      [
+        "Все команды",
+        "All commands",
+        "commands-hub"
+      ]
+    ],
+    "primaryTo": "command-validator-apply-result",
+    "scenarios": [
+      [
+        "Результат неизвестен",
+        "Outcome unknown",
+        "command-validator-apply-unknown"
+      ],
+      [
+        "Общие отказы: пример",
+        "Common failures: example",
+        "command-exceptions"
+      ]
+    ]
+  },
+  {
+    "key": "command-validator-apply-result",
+    "section": "ADM-07",
+    "title": [
+      "Применить правила проверки: результат",
+      "Apply validation rules: result"
+    ],
+    "body": [
+      "V-2 подтверждена для новых проверок рейтинговых данных. Подтверждение учебное; реальные API не вызывались.",
+      "V-2 confirmed for new rating-data checks. Synthetic confirmation; no live API calls."
+    ],
+    "rows": [
+      [
+        "Команда",
+        "Command",
+        "CMD-V2",
+        "CMD-V2",
+        "VALIDATOR-PM",
+        "VALIDATOR-PM"
+      ],
+      [
+        "Подтверждённый эффект",
+        "Confirmed effect",
+        "V-2 подтверждена для новых проверок рейтинговых данных.",
+        "V-2 confirmed for new rating-data checks.",
+        "Проверки личности, дублей и расхождений обязательны; сделки не пересчитываются.",
+        "Identity, duplicate and discrepancy checks stay mandatory; no trade recalculation."
+      ],
+      [
+        "История",
+        "Audit",
+        "Автор, время, причина, версия, снимок и результат сохранены",
+        "Actor, time, reason, version, snapshot and result retained",
+        "Сохранение записи не равно успешному исполнению",
+        "An audit record alone does not prove execution"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все команды",
+        "All commands",
+        "commands-hub"
+      ]
+    ]
+  },
+  {
+    "key": "command-validator-apply-unknown",
+    "section": "ADM-07",
+    "title": [
+      "Применить правила проверки: результат неизвестен",
+      "Apply validation rules: outcome unknown"
+    ],
+    "body": [
+      "Команда CMD-V2 принята, но её эффект не подтверждён. Повторное выполнение того же намерения запрещено. Проверяем статус именно этой команды, не создаём новую.",
+      "Command CMD-V2 accepted; effect unverified. Re-execution of the same intent is blocked. Read this exact command status; do not create another."
+    ],
+    "rows": [
+      [
+        "Команда / объект",
+        "Command / object",
+        "CMD-V2 · VALIDATOR-PM",
+        "CMD-V2 · VALIDATOR-PM",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Версия / снимок",
+        "Version / snapshot",
+        "V-1 → V-2",
+        "V-1 → V-2",
+        "Версия, область и снимок неизменяемы для команды",
+        "Version, scope and snapshot pinned per command"
+      ],
+      [
+        "Разрешено сейчас",
+        "Allowed now",
+        "Только чтение статуса и подтверждающих данных",
+        "Only status and evidence reads",
+        "Не объявлять конфигурацию применённой",
+        "Do not claim configuration was applied"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить статус: учебный результат",
+        "Read status: synthetic result",
+        "command-validator-apply-result"
+      ],
+      [
+        "Список команд",
+        "Command list",
+        "commands-hub"
+      ]
+    ]
+  },
+  {
+    "key": "command-validator-run",
+    "section": "ADM-07",
+    "title": [
+      "Запустить проверку данных",
+      "Run data validation"
+    ],
+    "body": [
+      "Учебная проверка команды CMD-CHECK. Перед выполнением повторно проверяются личность, право, область, версии, данные и действующие ограничения.",
+      "Synthetic review of CMD-CHECK. Recheck identity, grant, scope, versions, data and restrictions before execution."
+    ],
+    "rows": [
+      [
+        "Команда / объект",
+        "Command / object",
+        "CMD-CHECK · DS-DEMO-01",
+        "CMD-CHECK · DS-DEMO-01",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Версия / снимок",
+        "Version / snapshot",
+        "V-2 → CHECK-DEMO-02",
+        "V-2 → CHECK-DEMO-02",
+        "Версия, область и снимок неизменяемы для команды",
+        "Version, scope and snapshot pinned per command"
+      ],
+      [
+        "Необходимое право",
+        "Required permission",
+        "Отдельное право диагностики и чтения выбранных данных",
+        "Separate diagnostics grant and read access to selected data",
+        "Просмотр и черновик не разрешают выполнение",
+        "Read or draft access does not allow execution"
+      ],
+      [
+        "Изменение",
+        "Change",
+        "Проверить личность, качество и допуск раздельно на закреплённом снимке.",
+        "Check identity, quality and eligibility separately on pinned snapshot.",
+        "Не исправляет исходные события, не назначает баллы и не публикует рейтинг.",
+        "Does not edit source events, assign scores or publish ratings."
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить в примере",
+        "Confirm in fixture",
+        "command-validator-run-result"
+      ],
+      [
+        "Все команды",
+        "All commands",
+        "commands-hub"
+      ]
+    ],
+    "primaryTo": "command-validator-run-result",
+    "scenarios": [
+      [
+        "Результат неизвестен",
+        "Outcome unknown",
+        "command-validator-run-unknown"
+      ],
+      [
+        "Общие отказы: пример",
+        "Common failures: example",
+        "command-exceptions"
+      ]
+    ]
+  },
+  {
+    "key": "command-validator-run-result",
+    "section": "ADM-07",
+    "title": [
+      "Запустить проверку данных: результат",
+      "Run data validation: result"
+    ],
+    "body": [
+      "Проверка завершена: профиль A пригоден, B — недостаточно данных. Подтверждение учебное; реальные API не вызывались.",
+      "Check complete: profile A eligible; B has insufficient data. Synthetic confirmation; no live API calls."
+    ],
+    "rows": [
+      [
+        "Команда",
+        "Command",
+        "CMD-CHECK",
+        "CMD-CHECK",
+        "DS-DEMO-01",
+        "DS-DEMO-01"
+      ],
+      [
+        "Подтверждённый эффект",
+        "Confirmed effect",
+        "Проверка завершена: профиль A пригоден, B — недостаточно данных.",
+        "Check complete: profile A eligible; B has insufficient data.",
+        "Не исправляет исходные события, не назначает баллы и не публикует рейтинг.",
+        "Does not edit source events, assign scores or publish ratings."
+      ],
+      [
+        "История",
+        "Audit",
+        "Автор, время, причина, версия, снимок и результат сохранены",
+        "Actor, time, reason, version, snapshot and result retained",
+        "Сохранение записи не равно успешному исполнению",
+        "An audit record alone does not prove execution"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все команды",
+        "All commands",
+        "commands-hub"
+      ]
+    ]
+  },
+  {
+    "key": "command-validator-run-unknown",
+    "section": "ADM-07",
+    "title": [
+      "Запустить проверку данных: результат неизвестен",
+      "Run data validation: outcome unknown"
+    ],
+    "body": [
+      "Команда CMD-CHECK принята, но её эффект не подтверждён. Повторное выполнение того же намерения запрещено. Проверяем статус именно этой команды, не создаём новую.",
+      "Command CMD-CHECK accepted; effect unverified. Re-execution of the same intent is blocked. Read this exact command status; do not create another."
+    ],
+    "rows": [
+      [
+        "Команда / объект",
+        "Command / object",
+        "CMD-CHECK · DS-DEMO-01",
+        "CMD-CHECK · DS-DEMO-01",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Версия / снимок",
+        "Version / snapshot",
+        "V-2 → CHECK-DEMO-02",
+        "V-2 → CHECK-DEMO-02",
+        "Версия, область и снимок неизменяемы для команды",
+        "Version, scope and snapshot pinned per command"
+      ],
+      [
+        "Разрешено сейчас",
+        "Allowed now",
+        "Только чтение статуса и подтверждающих данных",
+        "Only status and evidence reads",
+        "Не объявлять конфигурацию применённой",
+        "Do not claim configuration was applied"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить статус: учебный результат",
+        "Read status: synthetic result",
+        "command-validator-run-result"
+      ],
+      [
+        "Список команд",
+        "Command list",
+        "commands-hub"
+      ]
+    ]
+  },
+  {
+    "key": "command-rating-simulate",
+    "section": "ADM-07",
+    "title": [
+      "Сравнить методики",
+      "Compare methodologies"
+    ],
+    "body": [
+      "Учебная проверка команды CMD-SIM-R2. Перед выполнением повторно проверяются личность, право, область, версии, данные и действующие ограничения.",
+      "Synthetic review of CMD-SIM-R2. Recheck identity, grant, scope, versions, data and restrictions before execution."
+    ],
+    "rows": [
+      [
+        "Команда / объект",
+        "Command / object",
+        "CMD-SIM-R2 · DS-DEMO-01",
+        "CMD-SIM-R2 · DS-DEMO-01",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Версия / снимок",
+        "Version / snapshot",
+        "R-1 → R-2 · черновик",
+        "R-1 → R-2 · draft",
+        "Версия, область и снимок неизменяемы для команды",
+        "Version, scope and snapshot pinned per command"
+      ],
+      [
+        "Необходимое право",
+        "Required permission",
+        "Отдельное право симуляции и чтения снимка",
+        "Separate simulation grant and snapshot read access",
+        "Просмотр и черновик не разрешают выполнение",
+        "Read or draft access does not allow execution"
+      ],
+      [
+        "Изменение",
+        "Change",
+        "Сравнить R-1/R-2 на одном снимке: в R-2 профиль C не проходит минимум действий.",
+        "Compare R-1/R-2 on one snapshot: C fails the R-2 activity minimum.",
+        "Пользовательский каталог и действующая методика не меняются.",
+        "User catalog and active methodology stay unchanged."
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить в примере",
+        "Confirm in fixture",
+        "command-rating-simulate-result"
+      ],
+      [
+        "Все команды",
+        "All commands",
+        "commands-hub"
+      ]
+    ],
+    "primaryTo": "command-rating-simulate-result",
+    "scenarios": [
+      [
+        "Результат неизвестен",
+        "Outcome unknown",
+        "command-rating-simulate-unknown"
+      ],
+      [
+        "Общие отказы: пример",
+        "Common failures: example",
+        "command-exceptions"
+      ]
+    ]
+  },
+  {
+    "key": "command-rating-simulate-result",
+    "section": "ADM-07",
+    "title": [
+      "Сравнить методики: результат",
+      "Compare methodologies: result"
+    ],
+    "body": [
+      "Сравнение готово: A — 79, C в R-2 — недостаточно данных, не ноль. Подтверждение учебное; реальные API не вызывались.",
+      "Comparison ready: A 79; C under R-2 has insufficient data, not zero. Synthetic confirmation; no live API calls."
+    ],
+    "rows": [
+      [
+        "Команда",
+        "Command",
+        "CMD-SIM-R2",
+        "CMD-SIM-R2",
+        "DS-DEMO-01",
+        "DS-DEMO-01"
+      ],
+      [
+        "Подтверждённый эффект",
+        "Confirmed effect",
+        "Сравнение готово: A — 79, C в R-2 — недостаточно данных, не ноль.",
+        "Comparison ready: A 79; C under R-2 has insufficient data, not zero.",
+        "Пользовательский каталог и действующая методика не меняются.",
+        "User catalog and active methodology stay unchanged."
+      ],
+      [
+        "История",
+        "Audit",
+        "Автор, время, причина, версия, снимок и результат сохранены",
+        "Actor, time, reason, version, snapshot and result retained",
+        "Сохранение записи не равно успешному исполнению",
+        "An audit record alone does not prove execution"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все команды",
+        "All commands",
+        "commands-hub"
+      ]
+    ]
+  },
+  {
+    "key": "command-rating-simulate-unknown",
+    "section": "ADM-07",
+    "title": [
+      "Сравнить методики: результат неизвестен",
+      "Compare methodologies: outcome unknown"
+    ],
+    "body": [
+      "Команда CMD-SIM-R2 принята, но её эффект не подтверждён. Повторное выполнение того же намерения запрещено. Проверяем статус именно этой команды, не создаём новую.",
+      "Command CMD-SIM-R2 accepted; effect unverified. Re-execution of the same intent is blocked. Read this exact command status; do not create another."
+    ],
+    "rows": [
+      [
+        "Команда / объект",
+        "Command / object",
+        "CMD-SIM-R2 · DS-DEMO-01",
+        "CMD-SIM-R2 · DS-DEMO-01",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Версия / снимок",
+        "Version / snapshot",
+        "R-1 → R-2 · черновик",
+        "R-1 → R-2 · draft",
+        "Версия, область и снимок неизменяемы для команды",
+        "Version, scope and snapshot pinned per command"
+      ],
+      [
+        "Разрешено сейчас",
+        "Allowed now",
+        "Только чтение статуса и подтверждающих данных",
+        "Only status and evidence reads",
+        "Не переключать каталог по неизвестному исходу",
+        "Do not switch catalog on unknown result"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить статус: учебный результат",
+        "Read status: synthetic result",
+        "command-rating-simulate-result"
+      ],
+      [
+        "Список команд",
+        "Command list",
+        "commands-hub"
+      ]
+    ]
+  },
+  {
+    "key": "command-rating-publish",
+    "section": "ADM-07",
+    "title": [
+      "Опубликовать версию методики",
+      "Publish methodology version"
+    ],
+    "body": [
+      "Учебная проверка команды CMD-PUB-R2. Перед выполнением повторно проверяются личность, право, область, версии, данные и действующие ограничения.",
+      "Synthetic review of CMD-PUB-R2. Recheck identity, grant, scope, versions, data and restrictions before execution."
+    ],
+    "rows": [
+      [
+        "Команда / объект",
+        "Command / object",
+        "CMD-PUB-R2 · RATING-PM",
+        "CMD-PUB-R2 · RATING-PM",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Версия / снимок",
+        "Version / snapshot",
+        "R-1 → R-2",
+        "R-1 → R-2",
+        "Версия, область и снимок неизменяемы для команды",
+        "Version, scope and snapshot pinned per command"
+      ],
+      [
+        "Необходимое право",
+        "Required permission",
+        "Владелец · публикация методики",
+        "Owner · publish methodology",
+        "Просмотр и черновик не разрешают выполнение",
+        "Read or draft access does not allow execution"
+      ],
+      [
+        "Изменение",
+        "Change",
+        "Зафиксировать R-2; новый каталог ожидает отдельного полного расчёта.",
+        "Record R-2; new catalog waits for a separate complete calculation.",
+        "R-1 видна только пока её данные пригодны; иначе статус без числа.",
+        "R-1 visible only while its data is eligible; otherwise show status without score."
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить в примере",
+        "Confirm in fixture",
+        "command-rating-publish-result"
+      ],
+      [
+        "Все команды",
+        "All commands",
+        "commands-hub"
+      ]
+    ],
+    "primaryTo": "command-rating-publish-result",
+    "scenarios": [
+      [
+        "Результат неизвестен",
+        "Outcome unknown",
+        "command-rating-publish-unknown"
+      ],
+      [
+        "Общие отказы: пример",
+        "Common failures: example",
+        "command-exceptions"
+      ]
+    ]
+  },
+  {
+    "key": "command-rating-publish-result",
+    "section": "ADM-07",
+    "title": [
+      "Опубликовать версию методики: результат",
+      "Publish methodology version: result"
+    ],
+    "body": [
+      "R-2 опубликована как конфигурация; каталог ещё не переключён. Подтверждение учебное; реальные API не вызывались.",
+      "R-2 configuration published; catalog not switched yet. Synthetic confirmation; no live API calls."
+    ],
+    "rows": [
+      [
+        "Команда",
+        "Command",
+        "CMD-PUB-R2",
+        "CMD-PUB-R2",
+        "RATING-PM",
+        "RATING-PM"
+      ],
+      [
+        "Подтверждённый эффект",
+        "Confirmed effect",
+        "R-2 опубликована как конфигурация; каталог ещё не переключён.",
+        "R-2 configuration published; catalog not switched yet.",
+        "R-1 видна только пока её данные пригодны; иначе статус без числа.",
+        "R-1 visible only while its data is eligible; otherwise show status without score."
+      ],
+      [
+        "История",
+        "Audit",
+        "Автор, время, причина, версия, снимок и результат сохранены",
+        "Actor, time, reason, version, snapshot and result retained",
+        "Сохранение записи не равно успешному исполнению",
+        "An audit record alone does not prove execution"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все команды",
+        "All commands",
+        "commands-hub"
+      ]
+    ]
+  },
+  {
+    "key": "command-rating-publish-unknown",
+    "section": "ADM-07",
+    "title": [
+      "Опубликовать версию методики: результат неизвестен",
+      "Publish methodology version: outcome unknown"
+    ],
+    "body": [
+      "Команда CMD-PUB-R2 принята, но её эффект не подтверждён. Повторное выполнение того же намерения запрещено. Проверяем статус именно этой команды, не создаём новую.",
+      "Command CMD-PUB-R2 accepted; effect unverified. Re-execution of the same intent is blocked. Read this exact command status; do not create another."
+    ],
+    "rows": [
+      [
+        "Команда / объект",
+        "Command / object",
+        "CMD-PUB-R2 · RATING-PM",
+        "CMD-PUB-R2 · RATING-PM",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Версия / снимок",
+        "Version / snapshot",
+        "R-1 → R-2",
+        "R-1 → R-2",
+        "Версия, область и снимок неизменяемы для команды",
+        "Version, scope and snapshot pinned per command"
+      ],
+      [
+        "Разрешено сейчас",
+        "Allowed now",
+        "Только чтение статуса и подтверждающих данных",
+        "Only status and evidence reads",
+        "Не переключать каталог по неизвестному исходу",
+        "Do not switch catalog on unknown result"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить статус: учебный результат",
+        "Read status: synthetic result",
+        "command-rating-publish-result"
+      ],
+      [
+        "Список команд",
+        "Command list",
+        "commands-hub"
+      ]
+    ]
+  },
+  {
+    "key": "command-rating-calculate",
+    "section": "ADM-07",
+    "title": [
+      "Рассчитать опубликованную версию",
+      "Calculate published version"
+    ],
+    "body": [
+      "Учебная проверка команды CMD-CALC-R2. Перед выполнением повторно проверяются личность, право, область, версии, данные и действующие ограничения.",
+      "Synthetic review of CMD-CALC-R2. Recheck identity, grant, scope, versions, data and restrictions before execution."
+    ],
+    "rows": [
+      [
+        "Команда / объект",
+        "Command / object",
+        "CMD-CALC-R2 · DS-DEMO-01 / RATING-PM",
+        "CMD-CALC-R2 · DS-DEMO-01 / RATING-PM",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Версия / снимок",
+        "Version / snapshot",
+        "R-2 · опубликована → RS-DEMO-R2",
+        "R-2 · published → RS-DEMO-R2",
+        "Версия, область и снимок неизменяемы для команды",
+        "Version, scope and snapshot pinned per command"
+      ],
+      [
+        "Необходимое право",
+        "Required permission",
+        "Отдельное право запуска расчёта выбранной опубликованной версии",
+        "Separate grant to calculate selected published version",
+        "Просмотр и черновик не разрешают выполнение",
+        "Read or draft access does not allow execution"
+      ],
+      [
+        "Изменение",
+        "Change",
+        "Полный расчёт кандидата R-2; проверка качества и атомарное переключение.",
+        "Calculate complete R-2 candidate; validate quality and switch atomically.",
+        "Нет смеси R-1/R-2. A — 79; C — недостаточно данных. Это учебные результаты.",
+        "No R-1/R-2 mix. A 79; C insufficient data. Synthetic results only."
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Запустить расчёт в примере",
+        "Start calculation in fixture",
+        "command-pending"
+      ],
+      [
+        "Все команды",
+        "All commands",
+        "commands-hub"
+      ]
+    ],
+    "primaryTo": "command-pending",
+    "scenarios": [
+      [
+        "Результат неизвестен",
+        "Outcome unknown",
+        "command-rating-calculate-unknown"
+      ],
+      [
+        "Общие отказы: пример",
+        "Common failures: example",
+        "command-exceptions"
+      ]
+    ]
+  },
+  {
+    "key": "command-rating-calculate-result",
+    "section": "ADM-07",
+    "title": [
+      "Рассчитать опубликованную версию: результат",
+      "Calculate published version: result"
+    ],
+    "body": [
+      "RS-DEMO-R2 полностью подтверждён; каталог переключён целиком. Подтверждение учебное; реальные API не вызывались.",
+      "RS-DEMO-R2 fully confirmed; catalog switched atomically. Synthetic confirmation; no live API calls."
+    ],
+    "rows": [
+      [
+        "Команда",
+        "Command",
+        "CMD-CALC-R2",
+        "CMD-CALC-R2",
+        "DS-DEMO-01 / RATING-PM",
+        "DS-DEMO-01 / RATING-PM"
+      ],
+      [
+        "Подтверждённый эффект",
+        "Confirmed effect",
+        "RS-DEMO-R2 полностью подтверждён; каталог переключён целиком.",
+        "RS-DEMO-R2 fully confirmed; catalog switched atomically.",
+        "Нет смеси R-1/R-2. A — 79; C — недостаточно данных. Это учебные результаты.",
+        "No R-1/R-2 mix. A 79; C insufficient data. Synthetic results only."
+      ],
+      [
+        "История",
+        "Audit",
+        "Автор, время, причина, версия, снимок и результат сохранены",
+        "Actor, time, reason, version, snapshot and result retained",
+        "Сохранение записи не равно успешному исполнению",
+        "An audit record alone does not prove execution"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все команды",
+        "All commands",
+        "commands-hub"
+      ]
+    ]
+  },
+  {
+    "key": "command-rating-calculate-unknown",
+    "section": "ADM-07",
+    "title": [
+      "Рассчитать опубликованную версию: результат неизвестен",
+      "Calculate published version: outcome unknown"
+    ],
+    "body": [
+      "Команда CMD-CALC-R2 принята, но её эффект не подтверждён. Повторное выполнение того же намерения запрещено. Проверяем статус именно этой команды, не создаём новую.",
+      "Command CMD-CALC-R2 accepted; effect unverified. Re-execution of the same intent is blocked. Read this exact command status; do not create another."
+    ],
+    "rows": [
+      [
+        "Команда / объект",
+        "Command / object",
+        "CMD-CALC-R2 · DS-DEMO-01 / RATING-PM",
+        "CMD-CALC-R2 · DS-DEMO-01 / RATING-PM",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Версия / снимок",
+        "Version / snapshot",
+        "R-2 · опубликована → RS-DEMO-R2",
+        "R-2 · published → RS-DEMO-R2",
+        "Версия, область и снимок неизменяемы для команды",
+        "Version, scope and snapshot pinned per command"
+      ],
+      [
+        "Разрешено сейчас",
+        "Allowed now",
+        "Только чтение статуса и подтверждающих данных",
+        "Only status and evidence reads",
+        "Не переключать каталог по неизвестному исходу",
+        "Do not switch catalog on unknown result"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить статус: учебный результат",
+        "Read status: synthetic result",
+        "command-rating-calculate-result"
+      ],
+      [
+        "Список команд",
+        "Command list",
+        "commands-hub"
+      ]
+    ]
+  },
+  {
+    "key": "command-rating-restore",
+    "section": "ADM-07",
+    "title": [
+      "Восстановить прежние правила",
+      "Restore previous rules"
+    ],
+    "body": [
+      "Учебная проверка команды CMD-RESTORE-R3. Перед выполнением повторно проверяются личность, право, область, версии, данные и действующие ограничения.",
+      "Synthetic review of CMD-RESTORE-R3. Recheck identity, grant, scope, versions, data and restrictions before execution."
+    ],
+    "rows": [
+      [
+        "Команда / объект",
+        "Command / object",
+        "CMD-RESTORE-R3 · RATING-PM",
+        "CMD-RESTORE-R3 · RATING-PM",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Версия / снимок",
+        "Version / snapshot",
+        "R-2 → R-3 · значения R-1",
+        "R-2 → R-3 · R-1 values",
+        "Версия, область и снимок неизменяемы для команды",
+        "Version, scope and snapshot pinned per command"
+      ],
+      [
+        "Необходимое право",
+        "Required permission",
+        "Владелец · восстановление новой версией",
+        "Owner · restore as new version",
+        "Просмотр и черновик не разрешают выполнение",
+        "Read or draft access does not allow execution"
+      ],
+      [
+        "Изменение",
+        "Change",
+        "Создать R-3 со значениями R-1; прежние версии не удаляются.",
+        "Create R-3 with R-1 values; retain previous versions.",
+        "Сделки и прежние решения не переписываются; каталог не переключён преждевременно.",
+        "Trades and prior decisions unchanged; no premature catalog switch."
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить в примере",
+        "Confirm in fixture",
+        "command-rating-restore-result"
+      ],
+      [
+        "Все команды",
+        "All commands",
+        "commands-hub"
+      ]
+    ],
+    "primaryTo": "command-rating-restore-result",
+    "scenarios": [
+      [
+        "Результат неизвестен",
+        "Outcome unknown",
+        "command-rating-restore-unknown"
+      ],
+      [
+        "Общие отказы: пример",
+        "Common failures: example",
+        "command-exceptions"
+      ]
+    ]
+  },
+  {
+    "key": "command-rating-restore-result",
+    "section": "ADM-07",
+    "title": [
+      "Восстановить прежние правила: результат",
+      "Restore previous rules: result"
+    ],
+    "body": [
+      "R-3 опубликована как новая конфигурация; нужен отдельный полный расчёт. Подтверждение учебное; реальные API не вызывались.",
+      "R-3 published as new configuration; separate full calculation required. Synthetic confirmation; no live API calls."
+    ],
+    "rows": [
+      [
+        "Команда",
+        "Command",
+        "CMD-RESTORE-R3",
+        "CMD-RESTORE-R3",
+        "RATING-PM",
+        "RATING-PM"
+      ],
+      [
+        "Подтверждённый эффект",
+        "Confirmed effect",
+        "R-3 опубликована как новая конфигурация; нужен отдельный полный расчёт.",
+        "R-3 published as new configuration; separate full calculation required.",
+        "Сделки и прежние решения не переписываются; каталог не переключён преждевременно.",
+        "Trades and prior decisions unchanged; no premature catalog switch."
+      ],
+      [
+        "История",
+        "Audit",
+        "Автор, время, причина, версия, снимок и результат сохранены",
+        "Actor, time, reason, version, snapshot and result retained",
+        "Сохранение записи не равно успешному исполнению",
+        "An audit record alone does not prove execution"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все команды",
+        "All commands",
+        "commands-hub"
+      ]
+    ]
+  },
+  {
+    "key": "command-rating-restore-unknown",
+    "section": "ADM-07",
+    "title": [
+      "Восстановить прежние правила: результат неизвестен",
+      "Restore previous rules: outcome unknown"
+    ],
+    "body": [
+      "Команда CMD-RESTORE-R3 принята, но её эффект не подтверждён. Повторное выполнение того же намерения запрещено. Проверяем статус именно этой команды, не создаём новую.",
+      "Command CMD-RESTORE-R3 accepted; effect unverified. Re-execution of the same intent is blocked. Read this exact command status; do not create another."
+    ],
+    "rows": [
+      [
+        "Команда / объект",
+        "Command / object",
+        "CMD-RESTORE-R3 · RATING-PM",
+        "CMD-RESTORE-R3 · RATING-PM",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Версия / снимок",
+        "Version / snapshot",
+        "R-2 → R-3 · значения R-1",
+        "R-2 → R-3 · R-1 values",
+        "Версия, область и снимок неизменяемы для команды",
+        "Version, scope and snapshot pinned per command"
+      ],
+      [
+        "Разрешено сейчас",
+        "Allowed now",
+        "Только чтение статуса и подтверждающих данных",
+        "Only status and evidence reads",
+        "Не переключать каталог по неизвестному исходу",
+        "Do not switch catalog on unknown result"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить статус: учебный результат",
+        "Read status: synthetic result",
+        "command-rating-restore-result"
+      ],
+      [
+        "Список команд",
+        "Command list",
+        "commands-hub"
+      ]
+    ]
+  },
+  {
+    "key": "commands-hub",
+    "section": "ADM-07",
+    "title": [
+      "Команды данных и рейтинга",
+      "Data and rating commands"
+    ],
+    "body": [
+      "Команды управляют каталогом, публичной историей, проверкой и рейтингом. Торговые сигналы и исполнение отделены. Числа и результаты учебные; обязательность обеих площадок сохраняется.",
+      "Commands control catalog, public history, validation and rating. Trading signals and execution remain separate. Values and results are synthetic; both venues remain required."
+    ],
+    "rows": [
+      [
+        "Применить настройки сборщика",
+        "Apply collector settings",
+        "Владелец · применение численных настроек",
+        "Owner · apply numeric settings",
+        "CMD-P2 · SRC-PM-CAT",
+        "CMD-P2 · SRC-PM-CAT"
+      ],
+      [
+        "Приостановить сбор",
+        "Pause collection",
+        "Отдельное право управления сбором в этой области",
+        "Separate collection-control grant for this scope",
+        "CMD-PAUSE · SRC-PM-CAT",
+        "CMD-PAUSE · SRC-PM-CAT"
+      ],
+      [
+        "Возобновить сбор",
+        "Resume collection",
+        "Отдельное право управления сбором; нет аварийной блокировки",
+        "Collection-control grant; no emergency block",
+        "CMD-RESUME · SRC-PM-CAT",
+        "CMD-RESUME · SRC-PM-CAT"
+      ],
+      [
+        "Применить правила проверки",
+        "Apply validation rules",
+        "Владелец · применение численных правил",
+        "Owner · apply numeric rules",
+        "CMD-V2 · VALIDATOR-PM",
+        "CMD-V2 · VALIDATOR-PM"
+      ],
+      [
+        "Запустить проверку данных",
+        "Run data validation",
+        "Отдельное право диагностики и чтения выбранных данных",
+        "Separate diagnostics grant and read access to selected data",
+        "CMD-CHECK · DS-DEMO-01",
+        "CMD-CHECK · DS-DEMO-01"
+      ],
+      [
+        "Сравнить методики",
+        "Compare methodologies",
+        "Отдельное право симуляции и чтения снимка",
+        "Separate simulation grant and snapshot read access",
+        "CMD-SIM-R2 · DS-DEMO-01",
+        "CMD-SIM-R2 · DS-DEMO-01"
+      ],
+      [
+        "Опубликовать версию методики",
+        "Publish methodology version",
+        "Владелец · публикация методики",
+        "Owner · publish methodology",
+        "CMD-PUB-R2 · RATING-PM",
+        "CMD-PUB-R2 · RATING-PM"
+      ],
+      [
+        "Рассчитать опубликованную версию",
+        "Calculate published version",
+        "Отдельное право запуска расчёта выбранной опубликованной версии",
+        "Separate grant to calculate selected published version",
+        "CMD-CALC-R2 · DS-DEMO-01 / RATING-PM",
+        "CMD-CALC-R2 · DS-DEMO-01 / RATING-PM"
+      ],
+      [
+        "Восстановить прежние правила",
+        "Restore previous rules",
+        "Владелец · восстановление новой версией",
+        "Owner · restore as new version",
+        "CMD-RESTORE-R3 · RATING-PM",
+        "CMD-RESTORE-R3 · RATING-PM"
+      ]
+    ],
+    "headers": [
+      [
+        "Команда",
+        "Command"
+      ],
+      [
+        "Полномочие",
+        "Authority"
+      ],
+      [
+        "Идентификатор / объект",
+        "Identifier / object"
+      ]
+    ],
+    "actions": [
+      [
+        "Матрица прав и условий",
+        "Permissions and gates",
+        "command-permissions"
+      ],
+      [
+        "Limitless: нет профиля",
+        "Limitless: no profile",
+        "command-limitless"
+      ]
+    ],
+    "rowTargets": [
+      "command-collector-apply",
+      "command-collector-pause",
+      "command-collector-resume",
+      "command-validator-apply",
+      "command-validator-run",
+      "command-rating-simulate",
+      "command-rating-publish",
+      "command-rating-calculate",
+      "command-rating-restore"
+    ]
+  },
+  {
+    "key": "command-permissions",
+    "section": "ADM-07",
+    "title": [
+      "Права и условия команд",
+      "Command permissions and gates"
+    ],
+    "body": [
+      "Право привязано к действующему сотруднику, площадке, среде, источнику и типу действия. Просмотр, черновик, диагностика, симуляция, запуск и публикация независимы. Конкретные технические имена прав остаются контрактом реализации.",
+      "Grants bind the current staff identity, venue, environment, source and action. Read, draft, diagnostics, simulation, run and publish are independent. Technical permission names remain an implementation contract."
+    ],
+    "rows": [
+      [
+        "Применить настройки сборщика",
+        "Apply collector settings",
+        "Владелец · применение численных настроек",
+        "Owner · apply numeric settings",
+        "Повторная проверка перед выполнением; отказ по умолчанию",
+        "Recheck before execution; deny by default"
+      ],
+      [
+        "Приостановить сбор",
+        "Pause collection",
+        "Отдельное право управления сбором в этой области",
+        "Separate collection-control grant for this scope",
+        "Повторная проверка перед выполнением; отказ по умолчанию",
+        "Recheck before execution; deny by default"
+      ],
+      [
+        "Возобновить сбор",
+        "Resume collection",
+        "Отдельное право управления сбором; нет аварийной блокировки",
+        "Collection-control grant; no emergency block",
+        "Повторная проверка перед выполнением; отказ по умолчанию",
+        "Recheck before execution; deny by default"
+      ],
+      [
+        "Применить правила проверки",
+        "Apply validation rules",
+        "Владелец · применение численных правил",
+        "Owner · apply numeric rules",
+        "Повторная проверка перед выполнением; отказ по умолчанию",
+        "Recheck before execution; deny by default"
+      ],
+      [
+        "Запустить проверку данных",
+        "Run data validation",
+        "Отдельное право диагностики и чтения выбранных данных",
+        "Separate diagnostics grant and read access to selected data",
+        "Повторная проверка перед выполнением; отказ по умолчанию",
+        "Recheck before execution; deny by default"
+      ],
+      [
+        "Сравнить методики",
+        "Compare methodologies",
+        "Отдельное право симуляции и чтения снимка",
+        "Separate simulation grant and snapshot read access",
+        "Повторная проверка перед выполнением; отказ по умолчанию",
+        "Recheck before execution; deny by default"
+      ],
+      [
+        "Опубликовать версию методики",
+        "Publish methodology version",
+        "Владелец · публикация методики",
+        "Owner · publish methodology",
+        "Повторная проверка перед выполнением; отказ по умолчанию",
+        "Recheck before execution; deny by default"
+      ],
+      [
+        "Рассчитать опубликованную версию",
+        "Calculate published version",
+        "Отдельное право запуска расчёта выбранной опубликованной версии",
+        "Separate grant to calculate selected published version",
+        "Повторная проверка перед выполнением; отказ по умолчанию",
+        "Recheck before execution; deny by default"
+      ],
+      [
+        "Восстановить прежние правила",
+        "Restore previous rules",
+        "Владелец · восстановление новой версией",
+        "Owner · restore as new version",
+        "Повторная проверка перед выполнением; отказ по умолчанию",
+        "Recheck before execution; deny by default"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "К командам",
+        "Back to commands",
+        "commands-hub"
+      ]
+    ]
+  },
+  {
+    "key": "command-conflict",
+    "section": "ADM-07",
+    "title": [
+      "Конфликт версии команды",
+      "Command version conflict"
+    ],
+    "body": [
+      "CMD-P2 ожидала P-1, но источник уже P-3. Подтверждение недействительно; текущая конфигурация не перезаписывается. Нужны новые различия и новое подтверждение.",
+      "CMD-P2 expected P-1; source is P-3. Confirmation invalid; do not overwrite current settings. New diff and confirmation required."
+    ],
+    "rows": [
+      [
+        "Изменение",
+        "Change",
+        "Не выполнено / не подтверждено",
+        "Not executed / unverified",
+        "Не помечать успешным вручную",
+        "Cannot mark successful manually"
+      ],
+      [
+        "Следующий шаг",
+        "Next step",
+        "Получить актуальные подтверждающие данные",
+        "Read current evidence",
+        "Не создавать повтор неизвестной команды",
+        "Do not duplicate an unknown command"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Общие отказы",
+        "Common failures",
+        "command-exceptions"
+      ]
+    ],
+    "denied": false
+  },
+  {
+    "key": "command-stale",
+    "section": "ADM-07",
+    "title": [
+      "Снимок больше не пригоден",
+      "Snapshot no longer eligible"
+    ],
+    "body": [
+      "CMD-CALC-R2: снимок устарел или отозван. Новый каталог не публикуется; непригодный старый рейтинг скрывает число, а не показывает ноль.",
+      "CMD-CALC-R2: snapshot stale or revoked. Do not publish new catalog; an ineligible old rating hides its score rather than showing zero."
+    ],
+    "rows": [
+      [
+        "Изменение",
+        "Change",
+        "Не выполнено / не подтверждено",
+        "Not executed / unverified",
+        "Не помечать успешным вручную",
+        "Cannot mark successful manually"
+      ],
+      [
+        "Следующий шаг",
+        "Next step",
+        "Получить актуальные подтверждающие данные",
+        "Read current evidence",
+        "Не создавать повтор неизвестной команды",
+        "Do not duplicate an unknown command"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Общие отказы",
+        "Common failures",
+        "command-exceptions"
+      ]
+    ],
+    "denied": false
+  },
+  {
+    "key": "command-denied",
+    "section": "ADM-07",
+    "title": [
+      "Команда запрещена по правам",
+      "Command permission denied"
+    ],
+    "body": [
+      "Просмотра или сохранения черновика недостаточно. Полномочие отсутствует, истекло или отозвано; подтверждение не принимается. Закрытые данные не раскрываются.",
+      "Read or draft access is insufficient. Grant missing, expired or revoked; confirmation rejected. Restricted data is not disclosed."
+    ],
+    "rows": [
+      [
+        "Изменение",
+        "Change",
+        "Не выполнено / не подтверждено",
+        "Not executed / unverified",
+        "Не помечать успешным вручную",
+        "Cannot mark successful manually"
+      ],
+      [
+        "Следующий шаг",
+        "Next step",
+        "Получить действующее право",
+        "Obtain current authority",
+        "Не создавать повтор неизвестной команды",
+        "Do not duplicate an unknown command"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Войти другим сотрудником",
+        "Sign in as another staff member",
+        "login"
+      ]
+    ],
+    "denied": true
+  },
+  {
+    "key": "command-failed",
+    "section": "ADM-07",
+    "title": [
+      "Подтверждённый отказ команды",
+      "Confirmed command rejection"
+    ],
+    "body": [
+      "CMD-P2: подтверждён отказ до применения. Действует P-1. Причина и ответ сохранены. Это не неизвестный исход и не разрешение скрыто повторить запрос.",
+      "CMD-P2: confirmed rejection before application. P-1 stays active. Reason and response retained. Not an unknown outcome or implicit retry authorization."
+    ],
+    "rows": [
+      [
+        "Изменение",
+        "Change",
+        "Не выполнено / не подтверждено",
+        "Not executed / unverified",
+        "Не помечать успешным вручную",
+        "Cannot mark successful manually"
+      ],
+      [
+        "Следующий шаг",
+        "Next step",
+        "Получить актуальные подтверждающие данные",
+        "Read current evidence",
+        "Не создавать повтор неизвестной команды",
+        "Do not duplicate an unknown command"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Общие отказы",
+        "Common failures",
+        "command-exceptions"
+      ]
+    ],
+    "denied": false
+  },
+  {
+    "key": "command-stopped",
+    "section": "ADM-07",
+    "title": [
+      "Действующее ограничение запрещает команду",
+      "Active restriction blocks command"
+    ],
+    "body": [
+      "Полное техническое отключение запрещает продуктовые задания, включая сбор, диагностику и перерасчёт. Владелец и два согласия не обходят запрет. Безопасное чтение статуса доступно только в аварийном контуре по правам.",
+      "Technical shutdown blocks product jobs including collection, diagnostics and recalculation. An owner or two approvals cannot bypass it. Safe status reads require emergency-console access."
+    ],
+    "rows": [
+      [
+        "Изменение",
+        "Change",
+        "Не выполнено / не подтверждено",
+        "Not executed / unverified",
+        "Не помечать успешным вручную",
+        "Cannot mark successful manually"
+      ],
+      [
+        "Следующий шаг",
+        "Next step",
+        "Получить актуальные подтверждающие данные",
+        "Read current evidence",
+        "Не создавать повтор неизвестной команды",
+        "Do not duplicate an unknown command"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Общие отказы",
+        "Common failures",
+        "command-exceptions"
+      ]
+    ],
+    "denied": false
+  },
+  {
+    "key": "command-limitless",
+    "section": "ADM-07",
+    "title": [
+      "Limitless: команда пока недоступна",
+      "Limitless: command unavailable"
+    ],
+    "body": [
+      "SRC-LL-CAT не подключён. Возможности, ограничения и контрольные точки не подтверждены. Команда не отправляется и не наследует профиль Polymarket.",
+      "SRC-LL-CAT is disconnected. Capabilities, limits and checkpoints unverified. Do not submit or inherit a Polymarket profile."
+    ],
+    "rows": [
+      [
+        "Изменение",
+        "Change",
+        "Не выполнено / не подтверждено",
+        "Not executed / unverified",
+        "Не помечать успешным вручную",
+        "Cannot mark successful manually"
+      ],
+      [
+        "Следующий шаг",
+        "Next step",
+        "Получить актуальные подтверждающие данные",
+        "Read current evidence",
+        "Не создавать повтор неизвестной команды",
+        "Do not duplicate an unknown command"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Общие отказы",
+        "Common failures",
+        "command-exceptions"
+      ]
+    ],
+    "denied": false
+  },
+  {
+    "key": "command-exceptions",
+    "section": "ADM-07",
+    "title": [
+      "Общие отказы команд: примеры",
+      "Common command failures: examples"
+    ],
+    "body": [
+      "Учебные случаи с разными командами. Это отдельные примеры, а не изменение команды, выбранной в другом экране. Для всех девяти команд повторно проверяются право, версия, данные, допустимость и отсутствие дубликата намерения.",
+      "Synthetic cases use different commands. These are separate examples, not changes to a command selected elsewhere. All nine commands recheck grants, versions, data, admissibility and duplicate intent."
+    ],
+    "rows": [
+      [
+        "Конфликт версии команды",
+        "Command version conflict",
+        "Изменения не применены",
+        "No change applied",
+        "Причина и безопасный следующий шаг",
+        "Reason and safe next step"
+      ],
+      [
+        "Снимок больше не пригоден",
+        "Snapshot no longer eligible",
+        "Изменения не применены",
+        "No change applied",
+        "Причина и безопасный следующий шаг",
+        "Reason and safe next step"
+      ],
+      [
+        "Команда запрещена по правам",
+        "Command permission denied",
+        "Изменения не применены",
+        "No change applied",
+        "Причина и безопасный следующий шаг",
+        "Reason and safe next step"
+      ],
+      [
+        "Подтверждённый отказ команды",
+        "Confirmed command rejection",
+        "Изменения не применены",
+        "No change applied",
+        "Причина и безопасный следующий шаг",
+        "Reason and safe next step"
+      ],
+      [
+        "Действующее ограничение запрещает команду",
+        "Active restriction blocks command",
+        "Изменения не применены",
+        "No change applied",
+        "Причина и безопасный следующий шаг",
+        "Reason and safe next step"
+      ],
+      [
+        "Limitless: команда пока недоступна",
+        "Limitless: command unavailable",
+        "Изменения не применены",
+        "No change applied",
+        "Причина и безопасный следующий шаг",
+        "Reason and safe next step"
+      ],
+      [
+        "Расчёт ещё выполняется",
+        "Calculation still running",
+        "CMD-CALC-R2",
+        "CMD-CALC-R2",
+        "Есть ответ исполнителя, результата ещё нет",
+        "Worker responds; result not ready"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Команды",
+        "Commands",
+        "commands-hub"
+      ]
+    ],
+    "rowTargets": [
+      "command-conflict",
+      "command-stale",
+      "command-denied",
+      "command-failed",
+      "command-stopped",
+      "command-limitless",
+      "command-pending"
+    ]
+  },
+  {
+    "key": "scope-staff-active",
+    "section": "ADM-17",
+    "title": [
+      "Сотрудник: ограничение подтверждено",
+      "Staff: restriction confirmed"
+    ],
+    "body": [
+      "Подтверждены все исполнители, необходимые для этой области. RST-STAFF-1 действует. При неполном подтверждении такой результат показывать нельзя.",
+      "All executors required for this scope confirmed. RST-STAFF-1 active. Never show this result with incomplete acknowledgements."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Блокировка служебной учётной записи",
+        "Block staff account",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "STAFF-203",
+        "STAFF-203",
+        "Служебная личность; не клиент",
+        "Staff identity, not client"
+      ],
+      [
+        "Подтверждённый эффект",
+        "Confirmed effect",
+        "Запрет новых действий от имени STAFF-203; отзыв сеансов и неиспользованных подтверждений.",
+        "Block new STAFF-203 actions; revoke sessions and unused approvals.",
+        "Отправленные внешние операции только сверяются; история сохраняется.",
+        "Submitted external operations only reconciled; history retained."
+      ],
+      [
+        "Остаётся доступно",
+        "Still available",
+        "Наблюдение, журнал и безопасная сверка по правам",
+        "Observation, audit and safe reconciliation under grants",
+        "Никаких новых отправок от сверки",
+        "Reconciliation creates no new submissions"
+      ],
+      [
+        "Защитные действия",
+        "Protective actions",
+        "Сеансы отозваны; неиспользованные согласия недействительны",
+        "Sessions revoked; unused approvals invalid",
+        "Инцидент сохранён; уведомления обоим владельцам отправлены в примере",
+        "Incident retained; alerts to both owners submitted in fixture"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подготовить восстановление",
+        "Prepare recovery",
+        "scope-staff-recover"
+      ],
+      [
+        "Области",
+        "Scopes",
+        "scopes-hub"
+      ]
+    ],
+    "primaryTo": "scope-staff-recover"
+  },
+  {
+    "key": "scope-staff-recover",
+    "section": "ADM-17",
+    "title": [
+      "Сотрудник: проверка восстановления",
+      "Staff: review recovery"
+    ],
+    "body": [
+      "Владелец A проверяет устранение причины, объект OBJ-1 и ограничение RST-STAFF-1. Подготовка ещё не создаёт согласие.",
+      "Owner A checks remediation, OBJ-1 and RST-STAFF-1. Preparation does not create approval."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Блокировка служебной учётной записи",
+        "Block staff account",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "STAFF-203",
+        "STAFF-203",
+        "Служебная личность; не клиент",
+        "Staff identity, not client"
+      ],
+      [
+        "Контрольный список",
+        "Checklist",
+        "Причина устранена; профиль, данные и связи проверены",
+        "Cause remediated; profile, data and relationships checked",
+        "До подтверждения всех обязательных проверок восстановление недоступно",
+        "Recovery unavailable until all required checks pass"
+      ],
+      [
+        "Кто подтверждает",
+        "Who approves",
+        "Владелец + независимый уполномоченный сотрудник",
+        "Owner + independent authorized staff member",
+        "В примере вторым выступает владелец B",
+        "Owner B is the independent actor in this fixture"
+      ],
+      [
+        "Снимок подтверждения",
+        "Approval snapshot",
+        "RST-STAFF-1 / OBJ-1 / CHECK-1",
+        "RST-STAFF-1 / OBJ-1 / CHECK-1",
+        "Право, срок и снимок проверяются повторно; жёсткие запреты не обходятся",
+        "Recheck grant, validity and snapshot; hard blocks cannot be bypassed"
+      ],
+      [
+        "Запрос восстановления",
+        "Recovery request",
+        "REC-STAFF-1",
+        "REC-STAFF-1",
+        "Отдельно от исходной команды остановки",
+        "Separate from the original stop command"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить свою часть",
+        "Approve my part",
+        "scope-staff-waiting"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "scope-staff-active"
+      ]
+    ],
+    "primaryTo": "scope-staff-waiting"
+  },
+  {
+    "key": "scope-staff-second",
+    "section": "ADM-17",
+    "title": [
+      "Сотрудник: независимое подтверждение",
+      "Staff: independent approval"
+    ],
+    "body": [
+      "Владелец A подтвердил точный снимок. Сейчас пример открыт от имени владельца B. Второй участник проверяет те же область, версии, срок и контрольный список; одна личность не подтверждает дважды.",
+      "Owner A approved the exact snapshot. This fixture now uses Owner B. The second actor checks the same scope, versions, validity and checklist; one identity cannot approve twice."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Блокировка служебной учётной записи",
+        "Block staff account",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "STAFF-203",
+        "STAFF-203",
+        "Служебная личность; не клиент",
+        "Staff identity, not client"
+      ],
+      [
+        "Первое согласие",
+        "First approval",
+        "Владелец A / RST-STAFF-1 / CHECK-1",
+        "Owner A / RST-STAFF-1 / CHECK-1",
+        "Действительно только для неизменённого снимка",
+        "Valid only for unchanged snapshot"
+      ],
+      [
+        "Второе согласие",
+        "Second approval",
+        "В примере — владелец B; допустим другой уполномоченный сотрудник",
+        "Owner B in fixture; another authorized staff identity may qualify",
+        "До него ограничение остаётся действующим",
+        "Restriction stays active until approval"
+      ],
+      [
+        "Глобальные запреты",
+        "Global blocks",
+        "Перед восстановлением проверяются заново",
+        "Rechecked before recovery",
+        "Два согласия не снимают полное отключение и денежный запрет",
+        "Two approvals do not lift shutdown or global money block"
+      ],
+      [
+        "Проверка личности",
+        "Identity check",
+        "Свежая проверка владельца B физическим ключом",
+        "Fresh Owner B physical-key check",
+        "Не заменяет действующие полномочия и независимость личности",
+        "Does not replace current authority or independent identity"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить восстановление",
+        "Approve recovery",
+        "scope-staff-restored"
+      ],
+      [
+        "Оставить на ожидании",
+        "Leave pending",
+        "scope-staff-waiting"
+      ]
+    ],
+    "primaryTo": "scope-staff-restored",
+    "actorLabel": [
+      "Владелец B · независимое подтверждение · демонстрация",
+      "Owner B · independent approval · demo"
+    ],
+    "hideAccount": true,
+    "scenarios": [
+      [
+        "Повтор той же личности",
+        "Same-identity attempt",
+        "scope-approval-denied"
+      ],
+      [
+        "Другой запрет действует",
+        "Another restriction active",
+        "scope-recovery-blocked"
+      ]
+    ]
+  },
+  {
+    "key": "scope-staff-restored",
+    "section": "ADM-17",
+    "title": [
+      "Сотрудник: восстановление подтверждено",
+      "Staff: recovery confirmed"
+    ],
+    "body": [
+      "Снято только RST-STAFF-1 для OBJ-1. Сохраняются журнал, инцидент, история согласий и все остальные ограничения. Реальные действия не запускались.",
+      "Only RST-STAFF-1 for OBJ-1 lifted. Audit, incident, approval history and all other restrictions retained. No live actions executed."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Блокировка служебной учётной записи",
+        "Block staff account",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "STAFF-203",
+        "STAFF-203",
+        "Служебная личность; не клиент",
+        "Staff identity, not client"
+      ],
+      [
+        "Результат",
+        "Result",
+        "Возвращается только разрешённый доступ. Старые сеансы и подтверждения не восстанавливаются.",
+        "Only allowed access returns. Old sessions and approvals are not restored.",
+        "Пропущенные команды, подписи и сделки автоматически не повторяются",
+        "No automatic replay of skipped commands, signatures or trades"
+      ],
+      [
+        "Последующие действия",
+        "Subsequent actions",
+        "Обычные проверки доступа, риска и готовности действуют",
+        "Normal access, risk and readiness checks still apply",
+        "Не подтверждает денежную операцию и не отменяет другие ограничения",
+        "Does not authorize money operations or lift other restrictions"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "actorLabel": [
+      "Владелец B · подтверждённый результат · демонстрация",
+      "Owner B · confirmed result · demo"
+    ],
+    "hideAccount": true
+  },
+  {
+    "key": "scope-user-active",
+    "section": "ADM-17",
+    "title": [
+      "Пользователь: ограничение подтверждено",
+      "User: restriction confirmed"
+    ],
+    "body": [
+      "Подтверждены все исполнители, необходимые для этой области. RST-USER-1 действует. При неполном подтверждении такой результат показывать нельзя.",
+      "All executors required for this scope confirmed. RST-USER-1 active. Never show this result with incomplete acknowledgements."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет новых действий выбранного клиента",
+        "Block selected client’s new actions",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "U-DEMO-002",
+        "U-DEMO-002",
+        "Клиент; не сотрудник",
+        "Client, not staff"
+      ],
+      [
+        "Подтверждённый эффект",
+        "Confirmed effect",
+        "Новые торговые и денежные запросы U-DEMO-002 через Shadow запрещены.",
+        "New U-DEMO-002 trading and money requests through Shadow blocked.",
+        "Другие клиенты и прямые действия вне Shadow не блокируются; отправленное сверяется.",
+        "Other clients and direct actions outside Shadow unaffected; submitted operations reconciled."
+      ],
+      [
+        "Остаётся доступно",
+        "Still available",
+        "Наблюдение, журнал и безопасная сверка по правам",
+        "Observation, audit and safe reconciliation under grants",
+        "Никаких новых отправок от сверки",
+        "Reconciliation creates no new submissions"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подготовить восстановление",
+        "Prepare recovery",
+        "scope-user-recover"
+      ],
+      [
+        "Области",
+        "Scopes",
+        "scopes-hub"
+      ]
+    ],
+    "primaryTo": "scope-user-recover"
+  },
+  {
+    "key": "scope-user-recover",
+    "section": "ADM-17",
+    "title": [
+      "Пользователь: проверка восстановления",
+      "User: review recovery"
+    ],
+    "body": [
+      "Владелец A проверяет устранение причины, объект OBJ-1 и ограничение RST-USER-1. Подготовка ещё не создаёт согласие.",
+      "Owner A checks remediation, OBJ-1 and RST-USER-1. Preparation does not create approval."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет новых действий выбранного клиента",
+        "Block selected client’s new actions",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "U-DEMO-002",
+        "U-DEMO-002",
+        "Клиент; не сотрудник",
+        "Client, not staff"
+      ],
+      [
+        "Контрольный список",
+        "Checklist",
+        "Причина устранена; профиль, данные и связи проверены",
+        "Cause remediated; profile, data and relationships checked",
+        "До подтверждения всех обязательных проверок восстановление недоступно",
+        "Recovery unavailable until all required checks pass"
+      ],
+      [
+        "Кто подтверждает",
+        "Who approves",
+        "Владелец + независимый уполномоченный сотрудник",
+        "Owner + independent authorized staff member",
+        "В примере вторым выступает владелец B",
+        "Owner B is the independent actor in this fixture"
+      ],
+      [
+        "Снимок подтверждения",
+        "Approval snapshot",
+        "RST-USER-1 / OBJ-1 / CHECK-1",
+        "RST-USER-1 / OBJ-1 / CHECK-1",
+        "Право, срок и снимок проверяются повторно; жёсткие запреты не обходятся",
+        "Recheck grant, validity and snapshot; hard blocks cannot be bypassed"
+      ],
+      [
+        "Запрос восстановления",
+        "Recovery request",
+        "REC-USER-1",
+        "REC-USER-1",
+        "Отдельно от исходной команды остановки",
+        "Separate from the original stop command"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить свою часть",
+        "Approve my part",
+        "scope-user-waiting"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "scope-user-active"
+      ]
+    ],
+    "primaryTo": "scope-user-waiting"
+  },
+  {
+    "key": "scope-user-second",
+    "section": "ADM-17",
+    "title": [
+      "Пользователь: независимое подтверждение",
+      "User: independent approval"
+    ],
+    "body": [
+      "Владелец A подтвердил точный снимок. Сейчас пример открыт от имени владельца B. Второй участник проверяет те же область, версии, срок и контрольный список; одна личность не подтверждает дважды.",
+      "Owner A approved the exact snapshot. This fixture now uses Owner B. The second actor checks the same scope, versions, validity and checklist; one identity cannot approve twice."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет новых действий выбранного клиента",
+        "Block selected client’s new actions",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "U-DEMO-002",
+        "U-DEMO-002",
+        "Клиент; не сотрудник",
+        "Client, not staff"
+      ],
+      [
+        "Первое согласие",
+        "First approval",
+        "Владелец A / RST-USER-1 / CHECK-1",
+        "Owner A / RST-USER-1 / CHECK-1",
+        "Действительно только для неизменённого снимка",
+        "Valid only for unchanged snapshot"
+      ],
+      [
+        "Второе согласие",
+        "Second approval",
+        "В примере — владелец B; допустим другой уполномоченный сотрудник",
+        "Owner B in fixture; another authorized staff identity may qualify",
+        "До него ограничение остаётся действующим",
+        "Restriction stays active until approval"
+      ],
+      [
+        "Глобальные запреты",
+        "Global blocks",
+        "Перед восстановлением проверяются заново",
+        "Rechecked before recovery",
+        "Два согласия не снимают полное отключение и денежный запрет",
+        "Two approvals do not lift shutdown or global money block"
+      ],
+      [
+        "Проверка личности",
+        "Identity check",
+        "Свежая проверка владельца B физическим ключом",
+        "Fresh Owner B physical-key check",
+        "Не заменяет действующие полномочия и независимость личности",
+        "Does not replace current authority or independent identity"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить восстановление",
+        "Approve recovery",
+        "scope-user-restored"
+      ],
+      [
+        "Оставить на ожидании",
+        "Leave pending",
+        "scope-user-waiting"
+      ]
+    ],
+    "primaryTo": "scope-user-restored",
+    "actorLabel": [
+      "Владелец B · независимое подтверждение · демонстрация",
+      "Owner B · independent approval · demo"
+    ],
+    "hideAccount": true,
+    "scenarios": [
+      [
+        "Повтор той же личности",
+        "Same-identity attempt",
+        "scope-approval-denied"
+      ],
+      [
+        "Другой запрет действует",
+        "Another restriction active",
+        "scope-recovery-blocked"
+      ]
+    ]
+  },
+  {
+    "key": "scope-user-restored",
+    "section": "ADM-17",
+    "title": [
+      "Пользователь: восстановление подтверждено",
+      "User: recovery confirmed"
+    ],
+    "body": [
+      "Снято только RST-USER-1 для OBJ-1. Сохраняются журнал, инцидент, история согласий и все остальные ограничения. Реальные действия не запускались.",
+      "Only RST-USER-1 for OBJ-1 lifted. Audit, incident, approval history and all other restrictions retained. No live actions executed."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет новых действий выбранного клиента",
+        "Block selected client’s new actions",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "U-DEMO-002",
+        "U-DEMO-002",
+        "Клиент; не сотрудник",
+        "Client, not staff"
+      ],
+      [
+        "Результат",
+        "Result",
+        "Новые запросы снова проходят обычные права и риск-проверки; пропущенные действия не повторяются.",
+        "New requests undergo normal grants and risk checks; skipped actions are not replayed.",
+        "Пропущенные команды, подписи и сделки автоматически не повторяются",
+        "No automatic replay of skipped commands, signatures or trades"
+      ],
+      [
+        "Последующие действия",
+        "Subsequent actions",
+        "Обычные проверки доступа, риска и готовности действуют",
+        "Normal access, risk and readiness checks still apply",
+        "Не подтверждает денежную операцию и не отменяет другие ограничения",
+        "Does not authorize money operations or lift other restrictions"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "actorLabel": [
+      "Владелец B · подтверждённый результат · демонстрация",
+      "Owner B · confirmed result · demo"
+    ],
+    "hideAccount": true
+  },
+  {
+    "key": "scope-data-source-active",
+    "section": "ADM-17",
+    "title": [
+      "Источник рыночных данных: ограничение подтверждено",
+      "Market data source: restriction confirmed"
+    ],
+    "body": [
+      "Подтверждены все исполнители, необходимые для этой области. RST-DATA-SOURCE-1 действует. При неполном подтверждении такой результат показывать нельзя.",
+      "All executors required for this scope confirmed. RST-DATA-SOURCE-1 active. Never show this result with incomplete acknowledgements."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Остановка чтений выбранного источника",
+        "Stop selected source reads",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "SRC-PM-CAT",
+        "SRC-PM-CAT",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Подтверждённый эффект",
+        "Confirmed effect",
+        "Запрет новых заданий каталога SRC-PM-CAT. Собранные снимки становятся прошлыми по времени.",
+        "Block new SRC-PM-CAT catalog jobs. Collected snapshots age normally.",
+        "Не останавливает торговые сигналы или денежные источники; пропуск не считается заполненным.",
+        "Does not stop trading signals or treasury sources; gap is not declared filled."
+      ],
+      [
+        "Остаётся доступно",
+        "Still available",
+        "Наблюдение, журнал и безопасная сверка по правам",
+        "Observation, audit and safe reconciliation under grants",
+        "Никаких новых отправок от сверки",
+        "Reconciliation creates no new submissions"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подготовить восстановление",
+        "Prepare recovery",
+        "scope-data-source-recover"
+      ],
+      [
+        "Области",
+        "Scopes",
+        "scopes-hub"
+      ]
+    ],
+    "primaryTo": "scope-data-source-recover"
+  },
+  {
+    "key": "scope-data-source-recover",
+    "section": "ADM-17",
+    "title": [
+      "Источник рыночных данных: проверка восстановления",
+      "Market data source: review recovery"
+    ],
+    "body": [
+      "Владелец A проверяет устранение причины, объект OBJ-1 и ограничение RST-DATA-SOURCE-1. Подготовка ещё не создаёт согласие.",
+      "Owner A checks remediation, OBJ-1 and RST-DATA-SOURCE-1. Preparation does not create approval."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Остановка чтений выбранного источника",
+        "Stop selected source reads",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "SRC-PM-CAT",
+        "SRC-PM-CAT",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Контрольный список",
+        "Checklist",
+        "Причина устранена; профиль, данные и связи проверены",
+        "Cause remediated; profile, data and relationships checked",
+        "До подтверждения всех обязательных проверок восстановление недоступно",
+        "Recovery unavailable until all required checks pass"
+      ],
+      [
+        "Кто подтверждает",
+        "Who approves",
+        "Владелец + независимый уполномоченный сотрудник",
+        "Owner + independent authorized staff member",
+        "В примере вторым выступает владелец B",
+        "Owner B is the independent actor in this fixture"
+      ],
+      [
+        "Снимок подтверждения",
+        "Approval snapshot",
+        "RST-DATA-SOURCE-1 / OBJ-1 / CHECK-1",
+        "RST-DATA-SOURCE-1 / OBJ-1 / CHECK-1",
+        "Право, срок и снимок проверяются повторно; жёсткие запреты не обходятся",
+        "Recheck grant, validity and snapshot; hard blocks cannot be bypassed"
+      ],
+      [
+        "Запрос восстановления",
+        "Recovery request",
+        "REC-DATA-SOURCE-1",
+        "REC-DATA-SOURCE-1",
+        "Отдельно от исходной команды остановки",
+        "Separate from the original stop command"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить свою часть",
+        "Approve my part",
+        "scope-data-source-waiting"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "scope-data-source-active"
+      ]
+    ],
+    "primaryTo": "scope-data-source-waiting"
+  },
+  {
+    "key": "scope-data-source-second",
+    "section": "ADM-17",
+    "title": [
+      "Источник рыночных данных: независимое подтверждение",
+      "Market data source: independent approval"
+    ],
+    "body": [
+      "Владелец A подтвердил точный снимок. Сейчас пример открыт от имени владельца B. Второй участник проверяет те же область, версии, срок и контрольный список; одна личность не подтверждает дважды.",
+      "Owner A approved the exact snapshot. This fixture now uses Owner B. The second actor checks the same scope, versions, validity and checklist; one identity cannot approve twice."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Остановка чтений выбранного источника",
+        "Stop selected source reads",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "SRC-PM-CAT",
+        "SRC-PM-CAT",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Первое согласие",
+        "First approval",
+        "Владелец A / RST-DATA-SOURCE-1 / CHECK-1",
+        "Owner A / RST-DATA-SOURCE-1 / CHECK-1",
+        "Действительно только для неизменённого снимка",
+        "Valid only for unchanged snapshot"
+      ],
+      [
+        "Второе согласие",
+        "Second approval",
+        "В примере — владелец B; допустим другой уполномоченный сотрудник",
+        "Owner B in fixture; another authorized staff identity may qualify",
+        "До него ограничение остаётся действующим",
+        "Restriction stays active until approval"
+      ],
+      [
+        "Глобальные запреты",
+        "Global blocks",
+        "Перед восстановлением проверяются заново",
+        "Rechecked before recovery",
+        "Два согласия не снимают полное отключение и денежный запрет",
+        "Two approvals do not lift shutdown or global money block"
+      ],
+      [
+        "Проверка личности",
+        "Identity check",
+        "Свежая проверка владельца B физическим ключом",
+        "Fresh Owner B physical-key check",
+        "Не заменяет действующие полномочия и независимость личности",
+        "Does not replace current authority or independent identity"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить восстановление",
+        "Approve recovery",
+        "scope-data-source-restored"
+      ],
+      [
+        "Оставить на ожидании",
+        "Leave pending",
+        "scope-data-source-waiting"
+      ]
+    ],
+    "primaryTo": "scope-data-source-restored",
+    "actorLabel": [
+      "Владелец B · независимое подтверждение · демонстрация",
+      "Owner B · independent approval · demo"
+    ],
+    "hideAccount": true,
+    "scenarios": [
+      [
+        "Повтор той же личности",
+        "Same-identity attempt",
+        "scope-approval-denied"
+      ],
+      [
+        "Другой запрет действует",
+        "Another restriction active",
+        "scope-recovery-blocked"
+      ]
+    ]
+  },
+  {
+    "key": "scope-data-source-restored",
+    "section": "ADM-17",
+    "title": [
+      "Источник рыночных данных: восстановление подтверждено",
+      "Market data source: recovery confirmed"
+    ],
+    "body": [
+      "Снято только RST-DATA-SOURCE-1 для OBJ-1. Сохраняются журнал, инцидент, история согласий и все остальные ограничения. Реальные действия не запускались.",
+      "Only RST-DATA-SOURCE-1 for OBJ-1 lifted. Audit, incident, approval history and all other restrictions retained. No live actions executed."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Остановка чтений выбранного источника",
+        "Stop selected source reads",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "SRC-PM-CAT",
+        "SRC-PM-CAT",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Результат",
+        "Result",
+        "Будущие чтения разрешены после проверок; свежесть и полнота подтверждаются отдельно.",
+        "Future reads allowed after checks; freshness and completeness verified separately.",
+        "Пропущенные команды, подписи и сделки автоматически не повторяются",
+        "No automatic replay of skipped commands, signatures or trades"
+      ],
+      [
+        "Последующие действия",
+        "Subsequent actions",
+        "Обычные проверки доступа, риска и готовности действуют",
+        "Normal access, risk and readiness checks still apply",
+        "Не подтверждает денежную операцию и не отменяет другие ограничения",
+        "Does not authorize money operations or lift other restrictions"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "actorLabel": [
+      "Владелец B · подтверждённый результат · демонстрация",
+      "Owner B · confirmed result · demo"
+    ],
+    "hideAccount": true
+  },
+  {
+    "key": "scope-treasury-source-review",
+    "section": "ADM-17",
+    "title": [
+      "Собственный денежный источник: подтверждение ограничения",
+      "Owned treasury source: confirm restriction"
+    ],
+    "body": [
+      "Перед применением фиксируются причина, точная область и версия объекта. Команда SRC-SERVICE-01 не расширяет область и не меняет состояние площадки вне Shadow.",
+      "Pin reason, exact scope and object version before application. Command SRC-SERVICE-01 does not expand scope or affect venue state outside Shadow."
+    ],
+    "headers": [
+      [
+        "Объект / проверка",
+        "Object / check"
+      ],
+      [
+        "Точное значение",
+        "Exact value"
+      ],
+      [
+        "Последствие / граница",
+        "Effect / boundary"
+      ]
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Отключение собственного денежного источника",
+        "Disable owned treasury source",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "SRC-SERVICE-01",
+        "SRC-SERVICE-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Полномочие",
+        "Authority",
+        "Отключение — один владелец; активация — два разных владельца",
+        "Disable: one owner; activate: two distinct owners",
+        "Новые отправки из SRC-SERVICE-01 запрещены. Адрес остаётся наблюдаемым.",
+        "New SRC-SERVICE-01 submissions blocked. Address remains observable."
+      ],
+      [
+        "Полный адрес источника",
+        "Full source address",
+        "0x6666666666666666666666666666666666666666",
+        "0x6666666666666666666666666666666666666666",
+        "NET-DEMO-01 · USDT · учебные реквизиты",
+        "NET-DEMO-01 · USDT · synthetic details"
+      ],
+      [
+        "Версия / причина",
+        "Version / reason",
+        "OBJ-1 · контроль RST-TREASURY-SOURCE-1",
+        "OBJ-1 · control RST-TREASURY-SOURCE-1",
+        "Учебный инцидент INC-SCOPE-01; версия проверяется повторно",
+        "Synthetic incident INC-SCOPE-01; recheck version"
+      ]
+    ],
+    "actions": [
+      [
+        "Применить ограничение в примере",
+        "Apply restriction in fixture",
+        "scope-treasury-source-active"
+      ],
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "primaryTo": "scope-treasury-source-active",
+    "scenarios": [
+      [
+        "Общие отказы: пример",
+        "Common failures: example",
+        "scope-exceptions"
+      ]
+    ]
+  },
+  {
+    "key": "scope-treasury-source-active",
+    "section": "ADM-17",
+    "title": [
+      "Собственный денежный источник: ограничение подтверждено",
+      "Owned treasury source: restriction confirmed"
+    ],
+    "body": [
+      "Подтверждены все исполнители, необходимые для этой области. RST-TREASURY-SOURCE-1 действует. При неполном подтверждении такой результат показывать нельзя.",
+      "All executors required for this scope confirmed. RST-TREASURY-SOURCE-1 active. Never show this result with incomplete acknowledgements."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Отключение собственного денежного источника",
+        "Disable owned treasury source",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "SRC-SERVICE-01",
+        "SRC-SERVICE-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Подтверждённый эффект",
+        "Confirmed effect",
+        "Новые отправки из SRC-SERVICE-01 запрещены. Адрес остаётся наблюдаемым.",
+        "New SRC-SERVICE-01 submissions blocked. Address remains observable.",
+        "Долги, резервы и сверка сохраняются; внешнее поступление нельзя физически остановить.",
+        "Debts, reserves and reconciliation retained; external deposits cannot be physically stopped."
+      ],
+      [
+        "Остаётся доступно",
+        "Still available",
+        "Наблюдение, журнал и безопасная сверка по правам",
+        "Observation, audit and safe reconciliation under grants",
+        "Никаких новых отправок от сверки",
+        "Reconciliation creates no new submissions"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подготовить восстановление",
+        "Prepare recovery",
+        "scope-treasury-source-recover"
+      ],
+      [
+        "Области",
+        "Scopes",
+        "scopes-hub"
+      ]
+    ],
+    "primaryTo": "scope-treasury-source-recover"
+  },
+  {
+    "key": "scope-treasury-source-recover",
+    "section": "ADM-17",
+    "title": [
+      "Собственный денежный источник: проверка восстановления",
+      "Owned treasury source: review recovery"
+    ],
+    "body": [
+      "Владелец A проверяет устранение причины, объект OBJ-1 и ограничение RST-TREASURY-SOURCE-1. Подготовка ещё не создаёт согласие.",
+      "Owner A checks remediation, OBJ-1 and RST-TREASURY-SOURCE-1. Preparation does not create approval."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Отключение собственного денежного источника",
+        "Disable owned treasury source",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "SRC-SERVICE-01",
+        "SRC-SERVICE-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Контрольный список",
+        "Checklist",
+        "Причина устранена; профиль, данные и связи проверены",
+        "Cause remediated; profile, data and relationships checked",
+        "До подтверждения всех обязательных проверок восстановление недоступно",
+        "Recovery unavailable until all required checks pass"
+      ],
+      [
+        "Кто подтверждает",
+        "Who approves",
+        "Два разных действующих владельца",
+        "Two distinct current owners",
+        "В примере вторым выступает владелец B",
+        "Owner B is the independent actor in this fixture"
+      ],
+      [
+        "Снимок подтверждения",
+        "Approval snapshot",
+        "RST-TREASURY-SOURCE-1 / OBJ-1 / CHECK-1",
+        "RST-TREASURY-SOURCE-1 / OBJ-1 / CHECK-1",
+        "Право, срок и снимок проверяются повторно; жёсткие запреты не обходятся",
+        "Recheck grant, validity and snapshot; hard blocks cannot be bypassed"
+      ],
+      [
+        "Запрос восстановления",
+        "Recovery request",
+        "REC-TREASURY-SOURCE-1",
+        "REC-TREASURY-SOURCE-1",
+        "Отдельно от исходной команды остановки",
+        "Separate from the original stop command"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить свою часть",
+        "Approve my part",
+        "scope-treasury-source-waiting"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "scope-treasury-source-active"
+      ]
+    ],
+    "primaryTo": "scope-treasury-source-waiting"
+  },
+  {
+    "key": "scope-treasury-source-second",
+    "section": "ADM-17",
+    "title": [
+      "Собственный денежный источник: независимое подтверждение",
+      "Owned treasury source: independent approval"
+    ],
+    "body": [
+      "Владелец A подтвердил точный снимок. Сейчас пример открыт от имени владельца B. Второй участник проверяет те же область, версии, срок и контрольный список; одна личность не подтверждает дважды.",
+      "Owner A approved the exact snapshot. This fixture now uses Owner B. The second actor checks the same scope, versions, validity and checklist; one identity cannot approve twice."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Отключение собственного денежного источника",
+        "Disable owned treasury source",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "SRC-SERVICE-01",
+        "SRC-SERVICE-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Первое согласие",
+        "First approval",
+        "Владелец A / RST-TREASURY-SOURCE-1 / CHECK-1",
+        "Owner A / RST-TREASURY-SOURCE-1 / CHECK-1",
+        "Действительно только для неизменённого снимка",
+        "Valid only for unchanged snapshot"
+      ],
+      [
+        "Второе согласие",
+        "Second approval",
+        "Требуется другой владелец B",
+        "Distinct Owner B required",
+        "До него ограничение остаётся действующим",
+        "Restriction stays active until approval"
+      ],
+      [
+        "Глобальные запреты",
+        "Global blocks",
+        "Перед восстановлением проверяются заново",
+        "Rechecked before recovery",
+        "Два согласия не снимают полное отключение и денежный запрет",
+        "Two approvals do not lift shutdown or global money block"
+      ],
+      [
+        "Проверка личности",
+        "Identity check",
+        "Свежая проверка владельца B физическим ключом",
+        "Fresh Owner B physical-key check",
+        "Не заменяет действующие полномочия и независимость личности",
+        "Does not replace current authority or independent identity"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить восстановление",
+        "Approve recovery",
+        "scope-treasury-source-restored"
+      ],
+      [
+        "Оставить на ожидании",
+        "Leave pending",
+        "scope-treasury-source-waiting"
+      ]
+    ],
+    "primaryTo": "scope-treasury-source-restored",
+    "actorLabel": [
+      "Владелец B · независимое подтверждение · демонстрация",
+      "Owner B · independent approval · demo"
+    ],
+    "hideAccount": true,
+    "scenarios": [
+      [
+        "Повтор той же личности",
+        "Same-identity attempt",
+        "scope-approval-denied"
+      ],
+      [
+        "Другой запрет действует",
+        "Another restriction active",
+        "scope-recovery-blocked"
+      ]
+    ]
+  },
+  {
+    "key": "scope-treasury-source-restored",
+    "section": "ADM-17",
+    "title": [
+      "Собственный денежный источник: восстановление подтверждено",
+      "Owned treasury source: recovery confirmed"
+    ],
+    "body": [
+      "Снято только RST-TREASURY-SOURCE-1 для OBJ-1. Сохраняются журнал, инцидент, история согласий и все остальные ограничения. Реальные действия не запускались.",
+      "Only RST-TREASURY-SOURCE-1 for OBJ-1 lifted. Audit, incident, approval history and all other restrictions retained. No live actions executed."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Отключение собственного денежного источника",
+        "Disable owned treasury source",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "SRC-SERVICE-01",
+        "SRC-SERVICE-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Результат",
+        "Result",
+        "Повторная активация собственного источника требует двух разных владельцев.",
+        "Reactivation of an owned source requires two distinct owners.",
+        "Пропущенные команды, подписи и сделки автоматически не повторяются",
+        "No automatic replay of skipped commands, signatures or trades"
+      ],
+      [
+        "Последующие действия",
+        "Subsequent actions",
+        "Обычные проверки доступа, риска и готовности действуют",
+        "Normal access, risk and readiness checks still apply",
+        "Не переводит средства; задержка 24 часа относится к партнёрским реквизитам",
+        "No transfer; 24-hour delay belongs to partner recipient details"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "actorLabel": [
+      "Владелец B · подтверждённый результат · демонстрация",
+      "Owner B · confirmed result · demo"
+    ],
+    "hideAccount": true
+  },
+  {
+    "key": "scope-signer-active",
+    "section": "ADM-17",
+    "title": [
+      "Подписант: ограничение подтверждено",
+      "Signer: restriction confirmed"
+    ],
+    "body": [
+      "Подтверждены все исполнители, необходимые для этой области. RST-SIGNER-1 действует. При неполном подтверждении такой результат показывать нельзя.",
+      "All executors required for this scope confirmed. RST-SIGNER-1 active. Never show this result with incomplete acknowledgements."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет новых подписей",
+        "Block new signatures",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "SIGNER-DEMO-01",
+        "SIGNER-DEMO-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Подтверждённый эффект",
+        "Confirmed effect",
+        "Shadow не поручает новые подписи профилю SIGNER-DEMO-01.",
+        "Shadow requests no new SIGNER-DEMO-01 signatures.",
+        "Это не отзыв ключа у площадки и не защита от прямого внешнего использования украденного ключа.",
+        "Not venue-side key revocation or protection against direct use of a stolen key."
+      ],
+      [
+        "Остаётся доступно",
+        "Still available",
+        "Наблюдение, журнал и безопасная сверка по правам",
+        "Observation, audit and safe reconciliation under grants",
+        "Никаких новых отправок от сверки",
+        "Reconciliation creates no new submissions"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подготовить восстановление",
+        "Prepare recovery",
+        "scope-signer-recover"
+      ],
+      [
+        "Области",
+        "Scopes",
+        "scopes-hub"
+      ]
+    ],
+    "primaryTo": "scope-signer-recover"
+  },
+  {
+    "key": "scope-signer-recover",
+    "section": "ADM-17",
+    "title": [
+      "Подписант: проверка восстановления",
+      "Signer: review recovery"
+    ],
+    "body": [
+      "Владелец A проверяет устранение причины, объект OBJ-1 и ограничение RST-SIGNER-1. Подготовка ещё не создаёт согласие.",
+      "Owner A checks remediation, OBJ-1 and RST-SIGNER-1. Preparation does not create approval."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет новых подписей",
+        "Block new signatures",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "SIGNER-DEMO-01",
+        "SIGNER-DEMO-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Контрольный список",
+        "Checklist",
+        "Причина устранена; профиль, данные и связи проверены",
+        "Cause remediated; profile, data and relationships checked",
+        "До подтверждения всех обязательных проверок восстановление недоступно",
+        "Recovery unavailable until all required checks pass"
+      ],
+      [
+        "Кто подтверждает",
+        "Who approves",
+        "Владелец + независимый уполномоченный сотрудник",
+        "Owner + independent authorized staff member",
+        "В примере вторым выступает владелец B",
+        "Owner B is the independent actor in this fixture"
+      ],
+      [
+        "Снимок подтверждения",
+        "Approval snapshot",
+        "RST-SIGNER-1 / OBJ-1 / CHECK-1",
+        "RST-SIGNER-1 / OBJ-1 / CHECK-1",
+        "Право, срок и снимок проверяются повторно; жёсткие запреты не обходятся",
+        "Recheck grant, validity and snapshot; hard blocks cannot be bypassed"
+      ],
+      [
+        "Запрос восстановления",
+        "Recovery request",
+        "REC-SIGNER-1",
+        "REC-SIGNER-1",
+        "Отдельно от исходной команды остановки",
+        "Separate from the original stop command"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить свою часть",
+        "Approve my part",
+        "scope-signer-waiting"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "scope-signer-active"
+      ]
+    ],
+    "primaryTo": "scope-signer-waiting"
+  },
+  {
+    "key": "scope-signer-second",
+    "section": "ADM-17",
+    "title": [
+      "Подписант: независимое подтверждение",
+      "Signer: independent approval"
+    ],
+    "body": [
+      "Владелец A подтвердил точный снимок. Сейчас пример открыт от имени владельца B. Второй участник проверяет те же область, версии, срок и контрольный список; одна личность не подтверждает дважды.",
+      "Owner A approved the exact snapshot. This fixture now uses Owner B. The second actor checks the same scope, versions, validity and checklist; one identity cannot approve twice."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет новых подписей",
+        "Block new signatures",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "SIGNER-DEMO-01",
+        "SIGNER-DEMO-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Первое согласие",
+        "First approval",
+        "Владелец A / RST-SIGNER-1 / CHECK-1",
+        "Owner A / RST-SIGNER-1 / CHECK-1",
+        "Действительно только для неизменённого снимка",
+        "Valid only for unchanged snapshot"
+      ],
+      [
+        "Второе согласие",
+        "Second approval",
+        "В примере — владелец B; допустим другой уполномоченный сотрудник",
+        "Owner B in fixture; another authorized staff identity may qualify",
+        "До него ограничение остаётся действующим",
+        "Restriction stays active until approval"
+      ],
+      [
+        "Глобальные запреты",
+        "Global blocks",
+        "Перед восстановлением проверяются заново",
+        "Rechecked before recovery",
+        "Два согласия не снимают полное отключение и денежный запрет",
+        "Two approvals do not lift shutdown or global money block"
+      ],
+      [
+        "Проверка личности",
+        "Identity check",
+        "Свежая проверка владельца B физическим ключом",
+        "Fresh Owner B physical-key check",
+        "Не заменяет действующие полномочия и независимость личности",
+        "Does not replace current authority or independent identity"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить восстановление",
+        "Approve recovery",
+        "scope-signer-restored"
+      ],
+      [
+        "Оставить на ожидании",
+        "Leave pending",
+        "scope-signer-waiting"
+      ]
+    ],
+    "primaryTo": "scope-signer-restored",
+    "actorLabel": [
+      "Владелец B · независимое подтверждение · демонстрация",
+      "Owner B · independent approval · demo"
+    ],
+    "hideAccount": true,
+    "scenarios": [
+      [
+        "Повтор той же личности",
+        "Same-identity attempt",
+        "scope-approval-denied"
+      ],
+      [
+        "Другой запрет действует",
+        "Another restriction active",
+        "scope-recovery-blocked"
+      ]
+    ]
+  },
+  {
+    "key": "scope-signer-restored",
+    "section": "ADM-17",
+    "title": [
+      "Подписант: восстановление подтверждено",
+      "Signer: recovery confirmed"
+    ],
+    "body": [
+      "Снято только RST-SIGNER-1 для OBJ-1. Сохраняются журнал, инцидент, история согласий и все остальные ограничения. Реальные действия не запускались.",
+      "Only RST-SIGNER-1 for OBJ-1 lifted. Audit, incident, approval history and all other restrictions retained. No live actions executed."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет новых подписей",
+        "Block new signatures",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "SIGNER-DEMO-01",
+        "SIGNER-DEMO-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Результат",
+        "Result",
+        "Нужны проверка компрометации и подтверждённый профиль без раскрытия секрета.",
+        "Compromise check and verified profile required; no secret disclosure.",
+        "Пропущенные команды, подписи и сделки автоматически не повторяются",
+        "No automatic replay of skipped commands, signatures or trades"
+      ],
+      [
+        "Последующие действия",
+        "Subsequent actions",
+        "Обычные проверки доступа, риска и готовности действуют",
+        "Normal access, risk and readiness checks still apply",
+        "Не подтверждает денежную операцию и не отменяет другие ограничения",
+        "Does not authorize money operations or lift other restrictions"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "actorLabel": [
+      "Владелец B · подтверждённый результат · демонстрация",
+      "Owner B · confirmed result · demo"
+    ],
+    "hideAccount": true
+  },
+  {
+    "key": "scope-network-active",
+    "section": "ADM-17",
+    "title": [
+      "Сеть: ограничение подтверждено",
+      "Network: restriction confirmed"
+    ],
+    "body": [
+      "Подтверждены все исполнители, необходимые для этой области. RST-NETWORK-1 действует. При неполном подтверждении такой результат показывать нельзя.",
+      "All executors required for this scope confirmed. RST-NETWORK-1 active. Never show this result with incomplete acknowledgements."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет новых денежных отправок в сеть",
+        "Block new money submissions on network",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "NET-DEMO-01",
+        "NET-DEMO-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Подтверждённый эффект",
+        "Confirmed effect",
+        "Все соответствующие новые отправки Shadow в NET-DEMO-01 запрещены.",
+        "All matching new Shadow submissions on NET-DEMO-01 blocked.",
+        "Не останавливает блокчейн или уже отправленные транзакции; другие сети не затронуты.",
+        "Does not stop blockchain or submitted transactions; other networks unaffected."
+      ],
+      [
+        "Остаётся доступно",
+        "Still available",
+        "Наблюдение, журнал и безопасная сверка по правам",
+        "Observation, audit and safe reconciliation under grants",
+        "Никаких новых отправок от сверки",
+        "Reconciliation creates no new submissions"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подготовить восстановление",
+        "Prepare recovery",
+        "scope-network-recover"
+      ],
+      [
+        "Области",
+        "Scopes",
+        "scopes-hub"
+      ]
+    ],
+    "primaryTo": "scope-network-recover"
+  },
+  {
+    "key": "scope-network-recover",
+    "section": "ADM-17",
+    "title": [
+      "Сеть: проверка восстановления",
+      "Network: review recovery"
+    ],
+    "body": [
+      "Владелец A проверяет устранение причины, объект OBJ-1 и ограничение RST-NETWORK-1. Подготовка ещё не создаёт согласие.",
+      "Owner A checks remediation, OBJ-1 and RST-NETWORK-1. Preparation does not create approval."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет новых денежных отправок в сеть",
+        "Block new money submissions on network",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "NET-DEMO-01",
+        "NET-DEMO-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Контрольный список",
+        "Checklist",
+        "Причина устранена; профиль, данные и связи проверены",
+        "Cause remediated; profile, data and relationships checked",
+        "До подтверждения всех обязательных проверок восстановление недоступно",
+        "Recovery unavailable until all required checks pass"
+      ],
+      [
+        "Кто подтверждает",
+        "Who approves",
+        "Владелец + независимый уполномоченный сотрудник",
+        "Owner + independent authorized staff member",
+        "В примере вторым выступает владелец B",
+        "Owner B is the independent actor in this fixture"
+      ],
+      [
+        "Снимок подтверждения",
+        "Approval snapshot",
+        "RST-NETWORK-1 / OBJ-1 / CHECK-1",
+        "RST-NETWORK-1 / OBJ-1 / CHECK-1",
+        "Право, срок и снимок проверяются повторно; жёсткие запреты не обходятся",
+        "Recheck grant, validity and snapshot; hard blocks cannot be bypassed"
+      ],
+      [
+        "Запрос восстановления",
+        "Recovery request",
+        "REC-NETWORK-1",
+        "REC-NETWORK-1",
+        "Отдельно от исходной команды остановки",
+        "Separate from the original stop command"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить свою часть",
+        "Approve my part",
+        "scope-network-waiting"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "scope-network-active"
+      ]
+    ],
+    "primaryTo": "scope-network-waiting"
+  },
+  {
+    "key": "scope-network-second",
+    "section": "ADM-17",
+    "title": [
+      "Сеть: независимое подтверждение",
+      "Network: independent approval"
+    ],
+    "body": [
+      "Владелец A подтвердил точный снимок. Сейчас пример открыт от имени владельца B. Второй участник проверяет те же область, версии, срок и контрольный список; одна личность не подтверждает дважды.",
+      "Owner A approved the exact snapshot. This fixture now uses Owner B. The second actor checks the same scope, versions, validity and checklist; one identity cannot approve twice."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет новых денежных отправок в сеть",
+        "Block new money submissions on network",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "NET-DEMO-01",
+        "NET-DEMO-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Первое согласие",
+        "First approval",
+        "Владелец A / RST-NETWORK-1 / CHECK-1",
+        "Owner A / RST-NETWORK-1 / CHECK-1",
+        "Действительно только для неизменённого снимка",
+        "Valid only for unchanged snapshot"
+      ],
+      [
+        "Второе согласие",
+        "Second approval",
+        "В примере — владелец B; допустим другой уполномоченный сотрудник",
+        "Owner B in fixture; another authorized staff identity may qualify",
+        "До него ограничение остаётся действующим",
+        "Restriction stays active until approval"
+      ],
+      [
+        "Глобальные запреты",
+        "Global blocks",
+        "Перед восстановлением проверяются заново",
+        "Rechecked before recovery",
+        "Два согласия не снимают полное отключение и денежный запрет",
+        "Two approvals do not lift shutdown or global money block"
+      ],
+      [
+        "Проверка личности",
+        "Identity check",
+        "Свежая проверка владельца B физическим ключом",
+        "Fresh Owner B physical-key check",
+        "Не заменяет действующие полномочия и независимость личности",
+        "Does not replace current authority or independent identity"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить восстановление",
+        "Approve recovery",
+        "scope-network-restored"
+      ],
+      [
+        "Оставить на ожидании",
+        "Leave pending",
+        "scope-network-waiting"
+      ]
+    ],
+    "primaryTo": "scope-network-restored",
+    "actorLabel": [
+      "Владелец B · независимое подтверждение · демонстрация",
+      "Owner B · independent approval · demo"
+    ],
+    "hideAccount": true,
+    "scenarios": [
+      [
+        "Повтор той же личности",
+        "Same-identity attempt",
+        "scope-approval-denied"
+      ],
+      [
+        "Другой запрет действует",
+        "Another restriction active",
+        "scope-recovery-blocked"
+      ]
+    ]
+  },
+  {
+    "key": "scope-network-restored",
+    "section": "ADM-17",
+    "title": [
+      "Сеть: восстановление подтверждено",
+      "Network: recovery confirmed"
+    ],
+    "body": [
+      "Снято только RST-NETWORK-1 для OBJ-1. Сохраняются журнал, инцидент, история согласий и все остальные ограничения. Реальные действия не запускались.",
+      "Only RST-NETWORK-1 for OBJ-1 lifted. Audit, incident, approval history and all other restrictions retained. No live actions executed."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет новых денежных отправок в сеть",
+        "Block new money submissions on network",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "NET-DEMO-01",
+        "NET-DEMO-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Результат",
+        "Result",
+        "Сеть, подключения и наблюдение проверены; прочие ограничения проверяются заново.",
+        "Network, connections and observation checked; re-evaluate all other restrictions.",
+        "Пропущенные команды, подписи и сделки автоматически не повторяются",
+        "No automatic replay of skipped commands, signatures or trades"
+      ],
+      [
+        "Последующие действия",
+        "Subsequent actions",
+        "Обычные проверки доступа, риска и готовности действуют",
+        "Normal access, risk and readiness checks still apply",
+        "Не подтверждает денежную операцию и не отменяет другие ограничения",
+        "Does not authorize money operations or lift other restrictions"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "actorLabel": [
+      "Владелец B · подтверждённый результат · демонстрация",
+      "Owner B · confirmed result · demo"
+    ],
+    "hideAccount": true
+  },
+  {
+    "key": "scope-asset-active",
+    "section": "ADM-17",
+    "title": [
+      "Точный актив: ограничение подтверждено",
+      "Exact asset: restriction confirmed"
+    ],
+    "body": [
+      "Подтверждены все исполнители, необходимые для этой области. RST-ASSET-1 действует. При неполном подтверждении такой результат показывать нельзя.",
+      "All executors required for this scope confirmed. RST-ASSET-1 active. Never show this result with incomplete acknowledgements."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет отправок точного актива",
+        "Block exact-asset submissions",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "ASSET-DEMO-01",
+        "ASSET-DEMO-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Подтверждённый эффект",
+        "Confirmed effect",
+        "USDT в NET-DEMO-01 с указанным контрактом запрещён для новых отправок Shadow.",
+        "New Shadow submissions of USDT on NET-DEMO-01 with the specified contract blocked.",
+        "Одинаковый тикер в другой сети или контракте не объединяется; прямые переводы не блокируются.",
+        "Same ticker on another network or contract remains distinct; direct transfers not blocked."
+      ],
+      [
+        "Остаётся доступно",
+        "Still available",
+        "Наблюдение, журнал и безопасная сверка по правам",
+        "Observation, audit and safe reconciliation under grants",
+        "Никаких новых отправок от сверки",
+        "Reconciliation creates no new submissions"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подготовить восстановление",
+        "Prepare recovery",
+        "scope-asset-recover"
+      ],
+      [
+        "Области",
+        "Scopes",
+        "scopes-hub"
+      ]
+    ],
+    "primaryTo": "scope-asset-recover"
+  },
+  {
+    "key": "scope-asset-recover",
+    "section": "ADM-17",
+    "title": [
+      "Точный актив: проверка восстановления",
+      "Exact asset: review recovery"
+    ],
+    "body": [
+      "Владелец A проверяет устранение причины, объект OBJ-1 и ограничение RST-ASSET-1. Подготовка ещё не создаёт согласие.",
+      "Owner A checks remediation, OBJ-1 and RST-ASSET-1. Preparation does not create approval."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет отправок точного актива",
+        "Block exact-asset submissions",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "ASSET-DEMO-01",
+        "ASSET-DEMO-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Контрольный список",
+        "Checklist",
+        "Причина устранена; профиль, данные и связи проверены",
+        "Cause remediated; profile, data and relationships checked",
+        "До подтверждения всех обязательных проверок восстановление недоступно",
+        "Recovery unavailable until all required checks pass"
+      ],
+      [
+        "Кто подтверждает",
+        "Who approves",
+        "Владелец + независимый уполномоченный сотрудник",
+        "Owner + independent authorized staff member",
+        "В примере вторым выступает владелец B",
+        "Owner B is the independent actor in this fixture"
+      ],
+      [
+        "Снимок подтверждения",
+        "Approval snapshot",
+        "RST-ASSET-1 / OBJ-1 / CHECK-1",
+        "RST-ASSET-1 / OBJ-1 / CHECK-1",
+        "Право, срок и снимок проверяются повторно; жёсткие запреты не обходятся",
+        "Recheck grant, validity and snapshot; hard blocks cannot be bypassed"
+      ],
+      [
+        "Запрос восстановления",
+        "Recovery request",
+        "REC-ASSET-1",
+        "REC-ASSET-1",
+        "Отдельно от исходной команды остановки",
+        "Separate from the original stop command"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить свою часть",
+        "Approve my part",
+        "scope-asset-waiting"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "scope-asset-active"
+      ]
+    ],
+    "primaryTo": "scope-asset-waiting"
+  },
+  {
+    "key": "scope-asset-second",
+    "section": "ADM-17",
+    "title": [
+      "Точный актив: независимое подтверждение",
+      "Exact asset: independent approval"
+    ],
+    "body": [
+      "Владелец A подтвердил точный снимок. Сейчас пример открыт от имени владельца B. Второй участник проверяет те же область, версии, срок и контрольный список; одна личность не подтверждает дважды.",
+      "Owner A approved the exact snapshot. This fixture now uses Owner B. The second actor checks the same scope, versions, validity and checklist; one identity cannot approve twice."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет отправок точного актива",
+        "Block exact-asset submissions",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "ASSET-DEMO-01",
+        "ASSET-DEMO-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Первое согласие",
+        "First approval",
+        "Владелец A / RST-ASSET-1 / CHECK-1",
+        "Owner A / RST-ASSET-1 / CHECK-1",
+        "Действительно только для неизменённого снимка",
+        "Valid only for unchanged snapshot"
+      ],
+      [
+        "Второе согласие",
+        "Second approval",
+        "В примере — владелец B; допустим другой уполномоченный сотрудник",
+        "Owner B in fixture; another authorized staff identity may qualify",
+        "До него ограничение остаётся действующим",
+        "Restriction stays active until approval"
+      ],
+      [
+        "Глобальные запреты",
+        "Global blocks",
+        "Перед восстановлением проверяются заново",
+        "Rechecked before recovery",
+        "Два согласия не снимают полное отключение и денежный запрет",
+        "Two approvals do not lift shutdown or global money block"
+      ],
+      [
+        "Проверка личности",
+        "Identity check",
+        "Свежая проверка владельца B физическим ключом",
+        "Fresh Owner B physical-key check",
+        "Не заменяет действующие полномочия и независимость личности",
+        "Does not replace current authority or independent identity"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить восстановление",
+        "Approve recovery",
+        "scope-asset-restored"
+      ],
+      [
+        "Оставить на ожидании",
+        "Leave pending",
+        "scope-asset-waiting"
+      ]
+    ],
+    "primaryTo": "scope-asset-restored",
+    "actorLabel": [
+      "Владелец B · независимое подтверждение · демонстрация",
+      "Owner B · independent approval · demo"
+    ],
+    "hideAccount": true,
+    "scenarios": [
+      [
+        "Повтор той же личности",
+        "Same-identity attempt",
+        "scope-approval-denied"
+      ],
+      [
+        "Другой запрет действует",
+        "Another restriction active",
+        "scope-recovery-blocked"
+      ]
+    ]
+  },
+  {
+    "key": "scope-asset-restored",
+    "section": "ADM-17",
+    "title": [
+      "Точный актив: восстановление подтверждено",
+      "Exact asset: recovery confirmed"
+    ],
+    "body": [
+      "Снято только RST-ASSET-1 для OBJ-1. Сохраняются журнал, инцидент, история согласий и все остальные ограничения. Реальные действия не запускались.",
+      "Only RST-ASSET-1 for OBJ-1 lifted. Audit, incident, approval history and all other restrictions retained. No live actions executed."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет отправок точного актива",
+        "Block exact-asset submissions",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "ASSET-DEMO-01",
+        "ASSET-DEMO-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Результат",
+        "Result",
+        "Проверяются точные сеть и контракт; курс и прежние обязательства не пересчитываются.",
+        "Exact network and contract checked; no repricing of past obligations.",
+        "Пропущенные команды, подписи и сделки автоматически не повторяются",
+        "No automatic replay of skipped commands, signatures or trades"
+      ],
+      [
+        "Последующие действия",
+        "Subsequent actions",
+        "Обычные проверки доступа, риска и готовности действуют",
+        "Normal access, risk and readiness checks still apply",
+        "Не подтверждает денежную операцию и не отменяет другие ограничения",
+        "Does not authorize money operations or lift other restrictions"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "actorLabel": [
+      "Владелец B · подтверждённый результат · демонстрация",
+      "Owner B · confirmed result · demo"
+    ],
+    "hideAccount": true
+  },
+  {
+    "key": "scope-route-active",
+    "section": "ADM-17",
+    "title": [
+      "Маршрут: ограничение подтверждено",
+      "Route: restriction confirmed"
+    ],
+    "body": [
+      "Подтверждены все исполнители, необходимые для этой области. RST-ROUTE-1 действует. При неполном подтверждении такой результат показывать нельзя.",
+      "All executors required for this scope confirmed. RST-ROUTE-1 active. Never show this result with incomplete acknowledgements."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет новых отправок по маршруту",
+        "Block new route submissions",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "ROUTE-DEMO-01",
+        "ROUTE-DEMO-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Подтверждённый эффект",
+        "Confirmed effect",
+        "Запрещена одна точная цепочка источник → подписант → сеть → актив → получатель.",
+        "Block one exact source → signer → network → asset → recipient chain.",
+        "Смена любого звена требует нового просмотра; запрет не переносится на неизвестные маршруты.",
+        "Changing any link requires new review; no expansion to unknown routes."
+      ],
+      [
+        "Остаётся доступно",
+        "Still available",
+        "Наблюдение, журнал и безопасная сверка по правам",
+        "Observation, audit and safe reconciliation under grants",
+        "Никаких новых отправок от сверки",
+        "Reconciliation creates no new submissions"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подготовить восстановление",
+        "Prepare recovery",
+        "scope-route-recover"
+      ],
+      [
+        "Области",
+        "Scopes",
+        "scopes-hub"
+      ]
+    ],
+    "primaryTo": "scope-route-recover"
+  },
+  {
+    "key": "scope-route-recover",
+    "section": "ADM-17",
+    "title": [
+      "Маршрут: проверка восстановления",
+      "Route: review recovery"
+    ],
+    "body": [
+      "Владелец A проверяет устранение причины, объект OBJ-1 и ограничение RST-ROUTE-1. Подготовка ещё не создаёт согласие.",
+      "Owner A checks remediation, OBJ-1 and RST-ROUTE-1. Preparation does not create approval."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет новых отправок по маршруту",
+        "Block new route submissions",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "ROUTE-DEMO-01",
+        "ROUTE-DEMO-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Контрольный список",
+        "Checklist",
+        "Причина устранена; профиль, данные и связи проверены",
+        "Cause remediated; profile, data and relationships checked",
+        "До подтверждения всех обязательных проверок восстановление недоступно",
+        "Recovery unavailable until all required checks pass"
+      ],
+      [
+        "Кто подтверждает",
+        "Who approves",
+        "Владелец + независимый уполномоченный сотрудник",
+        "Owner + independent authorized staff member",
+        "В примере вторым выступает владелец B",
+        "Owner B is the independent actor in this fixture"
+      ],
+      [
+        "Снимок подтверждения",
+        "Approval snapshot",
+        "RST-ROUTE-1 / OBJ-1 / CHECK-1",
+        "RST-ROUTE-1 / OBJ-1 / CHECK-1",
+        "Право, срок и снимок проверяются повторно; жёсткие запреты не обходятся",
+        "Recheck grant, validity and snapshot; hard blocks cannot be bypassed"
+      ],
+      [
+        "Запрос восстановления",
+        "Recovery request",
+        "REC-ROUTE-1",
+        "REC-ROUTE-1",
+        "Отдельно от исходной команды остановки",
+        "Separate from the original stop command"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить свою часть",
+        "Approve my part",
+        "scope-route-waiting"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "scope-route-active"
+      ]
+    ],
+    "primaryTo": "scope-route-waiting"
+  },
+  {
+    "key": "scope-route-second",
+    "section": "ADM-17",
+    "title": [
+      "Маршрут: независимое подтверждение",
+      "Route: independent approval"
+    ],
+    "body": [
+      "Владелец A подтвердил точный снимок. Сейчас пример открыт от имени владельца B. Второй участник проверяет те же область, версии, срок и контрольный список; одна личность не подтверждает дважды.",
+      "Owner A approved the exact snapshot. This fixture now uses Owner B. The second actor checks the same scope, versions, validity and checklist; one identity cannot approve twice."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет новых отправок по маршруту",
+        "Block new route submissions",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "ROUTE-DEMO-01",
+        "ROUTE-DEMO-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Первое согласие",
+        "First approval",
+        "Владелец A / RST-ROUTE-1 / CHECK-1",
+        "Owner A / RST-ROUTE-1 / CHECK-1",
+        "Действительно только для неизменённого снимка",
+        "Valid only for unchanged snapshot"
+      ],
+      [
+        "Второе согласие",
+        "Second approval",
+        "В примере — владелец B; допустим другой уполномоченный сотрудник",
+        "Owner B in fixture; another authorized staff identity may qualify",
+        "До него ограничение остаётся действующим",
+        "Restriction stays active until approval"
+      ],
+      [
+        "Глобальные запреты",
+        "Global blocks",
+        "Перед восстановлением проверяются заново",
+        "Rechecked before recovery",
+        "Два согласия не снимают полное отключение и денежный запрет",
+        "Two approvals do not lift shutdown or global money block"
+      ],
+      [
+        "Проверка личности",
+        "Identity check",
+        "Свежая проверка владельца B физическим ключом",
+        "Fresh Owner B physical-key check",
+        "Не заменяет действующие полномочия и независимость личности",
+        "Does not replace current authority or independent identity"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Подтвердить восстановление",
+        "Approve recovery",
+        "scope-route-restored"
+      ],
+      [
+        "Оставить на ожидании",
+        "Leave pending",
+        "scope-route-waiting"
+      ]
+    ],
+    "primaryTo": "scope-route-restored",
+    "actorLabel": [
+      "Владелец B · независимое подтверждение · демонстрация",
+      "Owner B · independent approval · demo"
+    ],
+    "hideAccount": true,
+    "scenarios": [
+      [
+        "Повтор той же личности",
+        "Same-identity attempt",
+        "scope-approval-denied"
+      ],
+      [
+        "Другой запрет действует",
+        "Another restriction active",
+        "scope-recovery-blocked"
+      ]
+    ]
+  },
+  {
+    "key": "scope-route-restored",
+    "section": "ADM-17",
+    "title": [
+      "Маршрут: восстановление подтверждено",
+      "Route: recovery confirmed"
+    ],
+    "body": [
+      "Снято только RST-ROUTE-1 для OBJ-1. Сохраняются журнал, инцидент, история согласий и все остальные ограничения. Реальные действия не запускались.",
+      "Only RST-ROUTE-1 for OBJ-1 lifted. Audit, incident, approval history and all other restrictions retained. No live actions executed."
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет новых отправок по маршруту",
+        "Block new route submissions",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "ROUTE-DEMO-01",
+        "ROUTE-DEMO-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Результат",
+        "Result",
+        "Восстановление маршрута не подтверждает перевод и не обходит глобальные запреты.",
+        "Route recovery does not authorize a transfer or bypass global blocks.",
+        "Пропущенные команды, подписи и сделки автоматически не повторяются",
+        "No automatic replay of skipped commands, signatures or trades"
+      ],
+      [
+        "Последующие действия",
+        "Subsequent actions",
+        "Обычные проверки доступа, риска и готовности действуют",
+        "Normal access, risk and readiness checks still apply",
+        "Не подтверждает денежную операцию и не отменяет другие ограничения",
+        "Does not authorize money operations or lift other restrictions"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "actorLabel": [
+      "Владелец B · подтверждённый результат · демонстрация",
+      "Owner B · confirmed result · demo"
+    ],
+    "hideAccount": true
+  },
+  {
+    "key": "scopes-hub",
+    "section": "ADM-17",
+    "title": [
+      "Применение ограничений по объектам",
+      "Apply restrictions by object"
+    ],
+    "body": [
+      "Все поддержанные типы: сотрудник, пользователь, источник, подписант, сеть, актив, маршрут. Источники рыночных данных и собственные денежные источники — разные подтипы с разными полномочиями. Числа, адреса и результаты вымышлены.",
+      "All supported types: staff, user, source, signer, network, asset, route. Market-data and owned treasury sources are distinct subtypes with different authority. Values, addresses and outcomes are synthetic."
+    ],
+    "rows": [
+      [
+        "Сотрудник",
+        "Staff",
+        "STAFF-203",
+        "STAFF-203",
+        "Остановка по праву; восстановление независимо",
+        "Stop under grant; independent recovery"
+      ],
+      [
+        "Пользователь",
+        "User",
+        "U-DEMO-002",
+        "U-DEMO-002",
+        "Остановка по праву; восстановление независимо",
+        "Stop under grant; independent recovery"
+      ],
+      [
+        "Источник рыночных данных",
+        "Market data source",
+        "SRC-PM-CAT",
+        "SRC-PM-CAT",
+        "Остановка по праву; восстановление независимо",
+        "Stop under grant; independent recovery"
+      ],
+      [
+        "Собственный денежный источник",
+        "Owned treasury source",
+        "SRC-SERVICE-01",
+        "SRC-SERVICE-01",
+        "Остановка: один владелец; возврат: два владельца",
+        "Stop: one owner; reactivate: two owners"
+      ],
+      [
+        "Подписант",
+        "Signer",
+        "SIGNER-DEMO-01",
+        "SIGNER-DEMO-01",
+        "Остановка по праву; восстановление независимо",
+        "Stop under grant; independent recovery"
+      ],
+      [
+        "Сеть",
+        "Network",
+        "NET-DEMO-01",
+        "NET-DEMO-01",
+        "Остановка по праву; восстановление независимо",
+        "Stop under grant; independent recovery"
+      ],
+      [
+        "Точный актив",
+        "Exact asset",
+        "ASSET-DEMO-01",
+        "ASSET-DEMO-01",
+        "Остановка по праву; восстановление независимо",
+        "Stop under grant; independent recovery"
+      ],
+      [
+        "Маршрут",
+        "Route",
+        "ROUTE-DEMO-01",
+        "ROUTE-DEMO-01",
+        "Остановка по праву; восстановление независимо",
+        "Stop under grant; independent recovery"
+      ]
+    ],
+    "headers": [
+      [
+        "Тип объекта",
+        "Object type"
+      ],
+      [
+        "Точный объект",
+        "Exact object"
+      ],
+      [
+        "Полномочия",
+        "Authority"
+      ]
+    ],
+    "actions": [],
+    "rowTargets": [
+      "restriction-staff",
+      "restriction-user",
+      "restriction-scope",
+      "scope-treasury-source-review",
+      "restriction-signer",
+      "restriction-network",
+      "restriction-asset",
+      "restriction-route"
+    ],
+    "actorLabel": [
+      "Области ограничений · контекст текущего сотрудника",
+      "Restriction scopes · current staff context"
+    ],
+    "hideAccount": true,
+    "scenarios": [
+      [
+        "Отказы: учебные примеры",
+        "Failures: synthetic cases",
+        "scope-exceptions"
+      ]
+    ]
+  },
+  {
+    "key": "scope-apply-unknown",
+    "section": "ADM-17",
+    "title": [
+      "Маршрут: результат остановки неизвестен",
+      "Route: stop outcome unknown"
+    ],
+    "body": [
+      "ROUTE-DEMO-01 / RST-ROUTE-1: запрос принят, подтверждения применения нет. Новые отправки через этот маршрут закрыты; эффект всех исполнителей ещё не доказан. Повтор той же команды запрещён.",
+      "ROUTE-DEMO-01 / RST-ROUTE-1: request accepted; application unconfirmed. New submissions on this route blocked; all-executor effect remains unverified. Duplicate command blocked."
+    ],
+    "rows": [
+      [
+        "Признак результата",
+        "Result signal",
+        "Результат неизвестен",
+        "Outcome unknown",
+        "Не выдавать за успех и не обходить подтверждения",
+        "Do not claim success or bypass approvals"
+      ],
+      [
+        "Разрешённое действие",
+        "Allowed action",
+        "Чтение статуса той же команды",
+        "Read status of the same command",
+        "Нет повторной отправки по неизвестному результату",
+        "No resubmission on an unknown outcome"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить статус: учебный результат",
+        "Read status: synthetic result",
+        "scope-route-active"
+      ]
+    ],
+    "denied": false
+  },
+  {
+    "key": "scope-apply-partial",
+    "section": "ADM-17",
+    "title": [
+      "Сеть: не все исполнители подтвердили",
+      "Network: incomplete acknowledgements"
+    ],
+    "body": [
+      "NET-DEMO-01: вход новых отправок закрыт, но один обязательный исполнитель не подтвердил остановку. Не показывать «полностью применено». Уже отправленное только сверяется; создаётся инцидент.",
+      "NET-DEMO-01: new submissions blocked, but one required executor has not acknowledged the stop. Do not show fully applied. Submitted operations only reconciled; incident created."
+    ],
+    "rows": [
+      [
+        "Признак результата",
+        "Result signal",
+        "Применено не полностью",
+        "Incomplete application",
+        "Не выдавать за успех и не обходить подтверждения",
+        "Do not claim success or bypass approvals"
+      ],
+      [
+        "Разрешённое действие",
+        "Allowed action",
+        "Чтение статуса той же команды",
+        "Read status of the same command",
+        "Нет повторной отправки по неизвестному результату",
+        "No resubmission on an unknown outcome"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить статус: учебный результат",
+        "Read status: synthetic result",
+        "scope-network-active"
+      ]
+    ],
+    "denied": false
+  },
+  {
+    "key": "scope-recovery-blocked",
+    "section": "ADM-17",
+    "title": [
+      "Восстановление заблокировано другим запретом",
+      "Recovery blocked by another restriction"
+    ],
+    "body": [
+      "ROUTE-DEMO-01: два согласия получены, но действует полный технический режим или глобальный денежный запрет. Обычное восстановление не выполняется. Для восстановительного пополнения сначала отдельно разрешается точный маршрут двумя владельцами, затем перевод — тоже двумя.",
+      "ROUTE-DEMO-01: two approvals obtained, but technical shutdown or global money block active. Ordinary recovery blocked. Recovery funding first needs separate exact-route authorization by two owners, then a separate two-owner transfer."
+    ],
+    "rows": [
+      [
+        "Признак результата",
+        "Result signal",
+        "Действие запрещено",
+        "Action blocked",
+        "Не выдавать за успех и не обходить подтверждения",
+        "Do not claim success or bypass approvals"
+      ],
+      [
+        "Разрешённое действие",
+        "Allowed action",
+        "Исправить условие и подготовить новый просмотр",
+        "Resolve condition and prepare new review",
+        "Нет повторной отправки по неизвестному результату",
+        "No resubmission on an unknown outcome"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Вернуться к проверке",
+        "Back to review",
+        "scopes-hub"
+      ]
+    ],
+    "denied": false
+  },
+  {
+    "key": "scope-approval-denied",
+    "section": "ADM-17",
+    "title": [
+      "Второе согласие не принято",
+      "Second approval rejected"
+    ],
+    "body": [
+      "Одна и та же личность не может подтвердить восстановление дважды. Второй участник, право, срок или снимок не совпали — согласие не действует, ограничение сохраняется.",
+      "One identity cannot approve recovery twice. If the second identity, grant, validity or snapshot does not match, approval is invalid and restriction stays active."
+    ],
+    "rows": [
+      [
+        "Признак результата",
+        "Result signal",
+        "Действие запрещено",
+        "Action blocked",
+        "Не выдавать за успех и не обходить подтверждения",
+        "Do not claim success or bypass approvals"
+      ],
+      [
+        "Разрешённое действие",
+        "Allowed action",
+        "Исправить условие и подготовить новый просмотр",
+        "Resolve condition and prepare new review",
+        "Нет повторной отправки по неизвестному результату",
+        "No resubmission on an unknown outcome"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Вернуться к проверке",
+        "Back to review",
+        "scope-route-recover"
+      ]
+    ],
+    "denied": false
+  },
+  {
+    "key": "scope-conflict",
+    "section": "ADM-17",
+    "title": [
+      "Объект или версия изменились",
+      "Object or version changed"
+    ],
+    "body": [
+      "OBJ-1 уже не актуален; связи маршрута или версия ограничения изменились. Прежний снимок и согласия недействительны. Нужны новый выбор и повторные подтверждения; перезаписи чужого изменения нет.",
+      "OBJ-1 is stale; route relationships or restriction version changed. Prior snapshot and approvals invalid. Reselect and approve again; never overwrite another actor’s update."
+    ],
+    "rows": [
+      [
+        "Признак результата",
+        "Result signal",
+        "Действие запрещено",
+        "Action blocked",
+        "Не выдавать за успех и не обходить подтверждения",
+        "Do not claim success or bypass approvals"
+      ],
+      [
+        "Разрешённое действие",
+        "Allowed action",
+        "Исправить условие и подготовить новый просмотр",
+        "Resolve condition and prepare new review",
+        "Нет повторной отправки по неизвестному результату",
+        "No resubmission on an unknown outcome"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Вернуться к проверке",
+        "Back to review",
+        "scopes-hub"
+      ]
+    ],
+    "denied": false
+  },
+  {
+    "key": "scope-denied",
+    "section": "ADM-17",
+    "title": [
+      "Нет права на эту область",
+      "No authority for this scope"
+    ],
+    "body": [
+      "Право отсутствует, отозвано или действует в другой площадке, среде либо классе действий. Команда не исполняется; закрытые объекты и подтверждения не раскрываются.",
+      "Grant missing, revoked or scoped to another venue, environment or action class. Command not executed; restricted objects and approvals not disclosed."
+    ],
+    "rows": [
+      [
+        "Признак результата",
+        "Result signal",
+        "Действие запрещено",
+        "Action blocked",
+        "Не выдавать за успех и не обходить подтверждения",
+        "Do not claim success or bypass approvals"
+      ],
+      [
+        "Разрешённое действие",
+        "Allowed action",
+        "Исправить условие и подготовить новый просмотр",
+        "Resolve condition and prepare new review",
+        "Нет повторной отправки по неизвестному результату",
+        "No resubmission on an unknown outcome"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Войти другим сотрудником",
+        "Sign in as another staff member",
+        "login"
+      ]
+    ],
+    "denied": true
+  },
+  {
+    "key": "scope-exceptions",
+    "section": "ADM-17",
+    "title": [
+      "Отказы применения и восстановления: примеры",
+      "Application and recovery failures: examples"
+    ],
+    "body": [
+      "Отдельные учебные случаи. Ни неизвестный исход, ни отсутствие ответа части исполнителей не объявляются полным применением. Эти примеры не меняют объект в другом открытом экране.",
+      "Separate synthetic cases. Unknown outcome or missing acknowledgements never means full application. These examples do not change an object selected in another view."
+    ],
+    "rows": [
+      [
+        "Маршрут: результат остановки неизвестен",
+        "Route: stop outcome unknown",
+        "Ограничения и история сохраняются",
+        "Restrictions and history retained",
+        "Точная причина и безопасный следующий шаг",
+        "Exact reason and safe next step"
+      ],
+      [
+        "Сеть: не все исполнители подтвердили",
+        "Network: incomplete acknowledgements",
+        "Ограничения и история сохраняются",
+        "Restrictions and history retained",
+        "Точная причина и безопасный следующий шаг",
+        "Exact reason and safe next step"
+      ],
+      [
+        "Восстановление заблокировано другим запретом",
+        "Recovery blocked by another restriction",
+        "Ограничения и история сохраняются",
+        "Restrictions and history retained",
+        "Точная причина и безопасный следующий шаг",
+        "Exact reason and safe next step"
+      ],
+      [
+        "Второе согласие не принято",
+        "Second approval rejected",
+        "Ограничения и история сохраняются",
+        "Restrictions and history retained",
+        "Точная причина и безопасный следующий шаг",
+        "Exact reason and safe next step"
+      ],
+      [
+        "Объект или версия изменились",
+        "Object or version changed",
+        "Ограничения и история сохраняются",
+        "Restrictions and history retained",
+        "Точная причина и безопасный следующий шаг",
+        "Exact reason and safe next step"
+      ],
+      [
+        "Нет права на эту область",
+        "No authority for this scope",
+        "Ограничения и история сохраняются",
+        "Restrictions and history retained",
+        "Точная причина и безопасный следующий шаг",
+        "Exact reason and safe next step"
+      ],
+      [
+        "Результат восстановления неизвестен",
+        "Recovery outcome unknown",
+        "REC-ROUTE-1",
+        "REC-ROUTE-1",
+        "Запрет сохраняется до подтверждения",
+        "Denial retained until confirmation"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Области",
+        "Scopes",
+        "scopes-hub"
+      ]
+    ],
+    "rowTargets": [
+      "scope-apply-unknown",
+      "scope-apply-partial",
+      "scope-recovery-blocked",
+      "scope-approval-denied",
+      "scope-conflict",
+      "scope-denied",
+      "scope-recovery-unknown"
+    ]
+  },
+  {
+    "key": "command-pending",
+    "section": "ADM-07",
+    "title": [
+      "Расчёт выполняется",
+      "Calculation in progress"
+    ],
+    "body": [
+      "CMD-CALC-R2: команда принята, исполнитель отвечает и расчёт ещё идёт. Это не неизвестный результат и не готовый каталог. Частичный набор не переключает публикацию.",
+      "CMD-CALC-R2 accepted; worker responds and calculation is ongoing. This is neither unknown nor a completed catalog. A partial output cannot switch publication."
+    ],
+    "rows": [
+      [
+        "Команда / снимок",
+        "Command / snapshot",
+        "CMD-CALC-R2 / DS-DEMO-01 / R-2",
+        "CMD-CALC-R2 / DS-DEMO-01 / R-2",
+        "Запрос статуса — чтение этой же команды",
+        "Status polling reads this same command"
+      ],
+      [
+        "Пользовательский каталог",
+        "User catalog",
+        "Прежний снимок только пока пригоден",
+        "Prior snapshot only while eligible",
+        "Устаревшие данные — статус без числа, не прежний рейтинг любой ценой",
+        "Stale data shows status without score, not old score at any cost"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить завершение: пример",
+        "Read completion: fixture",
+        "command-rating-calculate-result"
+      ],
+      [
+        "Команды",
+        "Commands",
+        "commands-hub"
+      ]
+    ]
+  },
+  {
+    "key": "scope-recovery-unknown",
+    "section": "ADM-17",
+    "title": [
+      "Восстановление маршрута: результат неизвестен",
+      "Route recovery: outcome unknown"
+    ],
+    "body": [
+      "REC-ROUTE-1: оба согласия записаны, но снятие RST-ROUTE-1 не подтверждено. Локальный запрет новых отправок сохраняется. Повтор восстановления и перевод средств запрещены до сверки.",
+      "REC-ROUTE-1: both approvals recorded, but lifting RST-ROUTE-1 is unconfirmed. Local denial of new submissions remains. No duplicate recovery or transfer before reconciliation."
+    ],
+    "rows": [
+      [
+        "Точная область",
+        "Exact scope",
+        "ROUTE-DEMO-01 / OBJ-1 / CHECK-1",
+        "ROUTE-DEMO-01 / OBJ-1 / CHECK-1",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Подтверждающие данные",
+        "Evidence",
+        "Два согласия не равны выполненному восстановлению",
+        "Two approvals do not prove completed recovery",
+        "Только чтение статуса REC-ROUTE-1; неизвестность не снимает запрет",
+        "Only REC-ROUTE-1 status reads; unknown does not lift denial"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Проверить статус: учебный результат",
+        "Read status: synthetic result",
+        "scope-route-restored"
+      ],
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ]
+  },
+  {
+    "key": "scope-staff-waiting",
+    "section": "ADM-17",
+    "title": [
+      "Сотрудник: ожидается второй участник",
+      "Staff: waiting for independent actor"
+    ],
+    "body": [
+      "Первое согласие владельца A записано. Ограничение RST-STAFF-1 сохраняется. Второй участник должен открыть REC-STAFF-1 из своей действующей учётной записи; первого согласия недостаточно.",
+      "Owner A approval recorded. RST-STAFF-1 remains active. The independent actor must open REC-STAFF-1 under their own current account; first approval is insufficient."
+    ],
+    "rows": [
+      [
+        "Область / запрос",
+        "Scope / request",
+        "STAFF-203 / REC-STAFF-1",
+        "STAFF-203 / REC-STAFF-1",
+        "Polymarket / Paper Alpha / OBJ-1 / CHECK-1",
+        "Polymarket / Paper Alpha / OBJ-1 / CHECK-1"
+      ],
+      [
+        "Подтверждения",
+        "Approvals",
+        "1 из 2: владелец A",
+        "1 of 2: Owner A",
+        "Нужна независимая уполномоченная личность",
+        "Independent authorized identity required"
+      ],
+      [
+        "Уведомление",
+        "Notification",
+        "Отправлено второму участнику в учебном примере",
+        "Submitted to independent actor in fixture",
+        "Отправка не равна доставке, прочтению или согласию",
+        "Submission is not delivery, reading or approval"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "actorLabel": [
+      "Запрос восстановления · контекст текущего сотрудника",
+      "Recovery request · current staff context"
+    ],
+    "hideAccount": true,
+    "scenarios": [
+      [
+        "Открыть пример второго участника",
+        "Open independent-actor fixture",
+        "scope-staff-second"
+      ]
+    ]
+  },
+  {
+    "key": "scope-user-waiting",
+    "section": "ADM-17",
+    "title": [
+      "Пользователь: ожидается второй участник",
+      "User: waiting for independent actor"
+    ],
+    "body": [
+      "Первое согласие владельца A записано. Ограничение RST-USER-1 сохраняется. Второй участник должен открыть REC-USER-1 из своей действующей учётной записи; первого согласия недостаточно.",
+      "Owner A approval recorded. RST-USER-1 remains active. The independent actor must open REC-USER-1 under their own current account; first approval is insufficient."
+    ],
+    "rows": [
+      [
+        "Область / запрос",
+        "Scope / request",
+        "U-DEMO-002 / REC-USER-1",
+        "U-DEMO-002 / REC-USER-1",
+        "Polymarket / Paper Alpha / OBJ-1 / CHECK-1",
+        "Polymarket / Paper Alpha / OBJ-1 / CHECK-1"
+      ],
+      [
+        "Подтверждения",
+        "Approvals",
+        "1 из 2: владелец A",
+        "1 of 2: Owner A",
+        "Нужна независимая уполномоченная личность",
+        "Independent authorized identity required"
+      ],
+      [
+        "Уведомление",
+        "Notification",
+        "Отправлено второму участнику в учебном примере",
+        "Submitted to independent actor in fixture",
+        "Отправка не равна доставке, прочтению или согласию",
+        "Submission is not delivery, reading or approval"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "actorLabel": [
+      "Запрос восстановления · контекст текущего сотрудника",
+      "Recovery request · current staff context"
+    ],
+    "hideAccount": true,
+    "scenarios": [
+      [
+        "Открыть пример второго участника",
+        "Open independent-actor fixture",
+        "scope-user-second"
+      ]
+    ]
+  },
+  {
+    "key": "scope-data-source-waiting",
+    "section": "ADM-17",
+    "title": [
+      "Источник рыночных данных: ожидается второй участник",
+      "Market data source: waiting for independent actor"
+    ],
+    "body": [
+      "Первое согласие владельца A записано. Ограничение RST-DATA-SOURCE-1 сохраняется. Второй участник должен открыть REC-DATA-SOURCE-1 из своей действующей учётной записи; первого согласия недостаточно.",
+      "Owner A approval recorded. RST-DATA-SOURCE-1 remains active. The independent actor must open REC-DATA-SOURCE-1 under their own current account; first approval is insufficient."
+    ],
+    "rows": [
+      [
+        "Область / запрос",
+        "Scope / request",
+        "SRC-PM-CAT / REC-DATA-SOURCE-1",
+        "SRC-PM-CAT / REC-DATA-SOURCE-1",
+        "Polymarket / Paper Alpha / OBJ-1 / CHECK-1",
+        "Polymarket / Paper Alpha / OBJ-1 / CHECK-1"
+      ],
+      [
+        "Подтверждения",
+        "Approvals",
+        "1 из 2: владелец A",
+        "1 of 2: Owner A",
+        "Нужна независимая уполномоченная личность",
+        "Independent authorized identity required"
+      ],
+      [
+        "Уведомление",
+        "Notification",
+        "Отправлено второму участнику в учебном примере",
+        "Submitted to independent actor in fixture",
+        "Отправка не равна доставке, прочтению или согласию",
+        "Submission is not delivery, reading or approval"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "actorLabel": [
+      "Запрос восстановления · контекст текущего сотрудника",
+      "Recovery request · current staff context"
+    ],
+    "hideAccount": true,
+    "scenarios": [
+      [
+        "Открыть пример второго участника",
+        "Open independent-actor fixture",
+        "scope-data-source-second"
+      ]
+    ]
+  },
+  {
+    "key": "scope-treasury-source-waiting",
+    "section": "ADM-17",
+    "title": [
+      "Собственный денежный источник: ожидается второй участник",
+      "Owned treasury source: waiting for independent actor"
+    ],
+    "body": [
+      "Первое согласие владельца A записано. Ограничение RST-TREASURY-SOURCE-1 сохраняется. Второй участник должен открыть REC-TREASURY-SOURCE-1 из своей действующей учётной записи; первого согласия недостаточно.",
+      "Owner A approval recorded. RST-TREASURY-SOURCE-1 remains active. The independent actor must open REC-TREASURY-SOURCE-1 under their own current account; first approval is insufficient."
+    ],
+    "rows": [
+      [
+        "Область / запрос",
+        "Scope / request",
+        "SRC-SERVICE-01 / REC-TREASURY-SOURCE-1",
+        "SRC-SERVICE-01 / REC-TREASURY-SOURCE-1",
+        "Polymarket / Paper Alpha / OBJ-1 / CHECK-1",
+        "Polymarket / Paper Alpha / OBJ-1 / CHECK-1"
+      ],
+      [
+        "Подтверждения",
+        "Approvals",
+        "1 из 2: владелец A",
+        "1 of 2: Owner A",
+        "Нужен другой владелец",
+        "Another owner required"
+      ],
+      [
+        "Уведомление",
+        "Notification",
+        "Отправлено второму участнику в учебном примере",
+        "Submitted to independent actor in fixture",
+        "Отправка не равна доставке, прочтению или согласию",
+        "Submission is not delivery, reading or approval"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "actorLabel": [
+      "Запрос восстановления · контекст текущего сотрудника",
+      "Recovery request · current staff context"
+    ],
+    "hideAccount": true,
+    "scenarios": [
+      [
+        "Открыть пример второго участника",
+        "Open independent-actor fixture",
+        "scope-treasury-source-second"
+      ]
+    ]
+  },
+  {
+    "key": "scope-signer-waiting",
+    "section": "ADM-17",
+    "title": [
+      "Подписант: ожидается второй участник",
+      "Signer: waiting for independent actor"
+    ],
+    "body": [
+      "Первое согласие владельца A записано. Ограничение RST-SIGNER-1 сохраняется. Второй участник должен открыть REC-SIGNER-1 из своей действующей учётной записи; первого согласия недостаточно.",
+      "Owner A approval recorded. RST-SIGNER-1 remains active. The independent actor must open REC-SIGNER-1 under their own current account; first approval is insufficient."
+    ],
+    "rows": [
+      [
+        "Область / запрос",
+        "Scope / request",
+        "SIGNER-DEMO-01 / REC-SIGNER-1",
+        "SIGNER-DEMO-01 / REC-SIGNER-1",
+        "Polymarket / Paper Alpha / OBJ-1 / CHECK-1",
+        "Polymarket / Paper Alpha / OBJ-1 / CHECK-1"
+      ],
+      [
+        "Подтверждения",
+        "Approvals",
+        "1 из 2: владелец A",
+        "1 of 2: Owner A",
+        "Нужна независимая уполномоченная личность",
+        "Independent authorized identity required"
+      ],
+      [
+        "Уведомление",
+        "Notification",
+        "Отправлено второму участнику в учебном примере",
+        "Submitted to independent actor in fixture",
+        "Отправка не равна доставке, прочтению или согласию",
+        "Submission is not delivery, reading or approval"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "actorLabel": [
+      "Запрос восстановления · контекст текущего сотрудника",
+      "Recovery request · current staff context"
+    ],
+    "hideAccount": true,
+    "scenarios": [
+      [
+        "Открыть пример второго участника",
+        "Open independent-actor fixture",
+        "scope-signer-second"
+      ]
+    ]
+  },
+  {
+    "key": "scope-network-waiting",
+    "section": "ADM-17",
+    "title": [
+      "Сеть: ожидается второй участник",
+      "Network: waiting for independent actor"
+    ],
+    "body": [
+      "Первое согласие владельца A записано. Ограничение RST-NETWORK-1 сохраняется. Второй участник должен открыть REC-NETWORK-1 из своей действующей учётной записи; первого согласия недостаточно.",
+      "Owner A approval recorded. RST-NETWORK-1 remains active. The independent actor must open REC-NETWORK-1 under their own current account; first approval is insufficient."
+    ],
+    "rows": [
+      [
+        "Область / запрос",
+        "Scope / request",
+        "NET-DEMO-01 / REC-NETWORK-1",
+        "NET-DEMO-01 / REC-NETWORK-1",
+        "Polymarket / Paper Alpha / OBJ-1 / CHECK-1",
+        "Polymarket / Paper Alpha / OBJ-1 / CHECK-1"
+      ],
+      [
+        "Подтверждения",
+        "Approvals",
+        "1 из 2: владелец A",
+        "1 of 2: Owner A",
+        "Нужна независимая уполномоченная личность",
+        "Independent authorized identity required"
+      ],
+      [
+        "Уведомление",
+        "Notification",
+        "Отправлено второму участнику в учебном примере",
+        "Submitted to independent actor in fixture",
+        "Отправка не равна доставке, прочтению или согласию",
+        "Submission is not delivery, reading or approval"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "actorLabel": [
+      "Запрос восстановления · контекст текущего сотрудника",
+      "Recovery request · current staff context"
+    ],
+    "hideAccount": true,
+    "scenarios": [
+      [
+        "Открыть пример второго участника",
+        "Open independent-actor fixture",
+        "scope-network-second"
+      ]
+    ]
+  },
+  {
+    "key": "scope-asset-waiting",
+    "section": "ADM-17",
+    "title": [
+      "Точный актив: ожидается второй участник",
+      "Exact asset: waiting for independent actor"
+    ],
+    "body": [
+      "Первое согласие владельца A записано. Ограничение RST-ASSET-1 сохраняется. Второй участник должен открыть REC-ASSET-1 из своей действующей учётной записи; первого согласия недостаточно.",
+      "Owner A approval recorded. RST-ASSET-1 remains active. The independent actor must open REC-ASSET-1 under their own current account; first approval is insufficient."
+    ],
+    "rows": [
+      [
+        "Область / запрос",
+        "Scope / request",
+        "ASSET-DEMO-01 / REC-ASSET-1",
+        "ASSET-DEMO-01 / REC-ASSET-1",
+        "Polymarket / Paper Alpha / OBJ-1 / CHECK-1",
+        "Polymarket / Paper Alpha / OBJ-1 / CHECK-1"
+      ],
+      [
+        "Подтверждения",
+        "Approvals",
+        "1 из 2: владелец A",
+        "1 of 2: Owner A",
+        "Нужна независимая уполномоченная личность",
+        "Independent authorized identity required"
+      ],
+      [
+        "Уведомление",
+        "Notification",
+        "Отправлено второму участнику в учебном примере",
+        "Submitted to independent actor in fixture",
+        "Отправка не равна доставке, прочтению или согласию",
+        "Submission is not delivery, reading or approval"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "actorLabel": [
+      "Запрос восстановления · контекст текущего сотрудника",
+      "Recovery request · current staff context"
+    ],
+    "hideAccount": true,
+    "scenarios": [
+      [
+        "Открыть пример второго участника",
+        "Open independent-actor fixture",
+        "scope-asset-second"
+      ]
+    ]
+  },
+  {
+    "key": "scope-route-waiting",
+    "section": "ADM-17",
+    "title": [
+      "Маршрут: ожидается второй участник",
+      "Route: waiting for independent actor"
+    ],
+    "body": [
+      "Первое согласие владельца A записано. Ограничение RST-ROUTE-1 сохраняется. Второй участник должен открыть REC-ROUTE-1 из своей действующей учётной записи; первого согласия недостаточно.",
+      "Owner A approval recorded. RST-ROUTE-1 remains active. The independent actor must open REC-ROUTE-1 under their own current account; first approval is insufficient."
+    ],
+    "rows": [
+      [
+        "Область / запрос",
+        "Scope / request",
+        "ROUTE-DEMO-01 / REC-ROUTE-1",
+        "ROUTE-DEMO-01 / REC-ROUTE-1",
+        "Polymarket / Paper Alpha / OBJ-1 / CHECK-1",
+        "Polymarket / Paper Alpha / OBJ-1 / CHECK-1"
+      ],
+      [
+        "Подтверждения",
+        "Approvals",
+        "1 из 2: владелец A",
+        "1 of 2: Owner A",
+        "Нужна независимая уполномоченная личность",
+        "Independent authorized identity required"
+      ],
+      [
+        "Уведомление",
+        "Notification",
+        "Отправлено второму участнику в учебном примере",
+        "Submitted to independent actor in fixture",
+        "Отправка не равна доставке, прочтению или согласию",
+        "Submission is not delivery, reading or approval"
+      ]
+    ],
+    "headers": [
+      [
+        "Параметр / объект",
+        "Setting / object"
+      ],
+      [
+        "Состояние / значение",
+        "State / value"
+      ],
+      [
+        "Последствие / проверка",
+        "Effect / check"
+      ]
+    ],
+    "actions": [
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "actorLabel": [
+      "Запрос восстановления · контекст текущего сотрудника",
+      "Recovery request · current staff context"
+    ],
+    "hideAccount": true,
+    "scenarios": [
+      [
+        "Открыть пример второго участника",
+        "Open independent-actor fixture",
+        "scope-route-second"
+      ]
+    ]
+  }
+]

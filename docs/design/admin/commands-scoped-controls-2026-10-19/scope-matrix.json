@@ -1,0 +1,202 @@
+[
+  {
+    "key": "staff",
+    "label": [
+      "Сотрудник",
+      "Staff"
+    ],
+    "object": "STAFF-203",
+    "old": "restriction-staff",
+    "kind": [
+      "Блокировка служебной учётной записи",
+      "Block staff account"
+    ],
+    "effect": [
+      "Запрет новых действий от имени STAFF-203; отзыв сеансов и неиспользованных подтверждений.",
+      "Block new STAFF-203 actions; revoke sessions and unused approvals."
+    ],
+    "keep": [
+      "Отправленные внешние операции только сверяются; история сохраняется.",
+      "Submitted external operations only reconciled; history retained."
+    ],
+    "restore": [
+      "Возвращается только разрешённый доступ. Старые сеансы и подтверждения не восстанавливаются.",
+      "Only allowed access returns. Old sessions and approvals are not restored."
+    ]
+  },
+  {
+    "key": "user",
+    "label": [
+      "Пользователь",
+      "User"
+    ],
+    "object": "U-DEMO-002",
+    "old": "restriction-user",
+    "kind": [
+      "Запрет новых действий выбранного клиента",
+      "Block selected client’s new actions"
+    ],
+    "effect": [
+      "Новые торговые и денежные запросы U-DEMO-002 через Shadow запрещены.",
+      "New U-DEMO-002 trading and money requests through Shadow blocked."
+    ],
+    "keep": [
+      "Другие клиенты и прямые действия вне Shadow не блокируются; отправленное сверяется.",
+      "Other clients and direct actions outside Shadow unaffected; submitted operations reconciled."
+    ],
+    "restore": [
+      "Новые запросы снова проходят обычные права и риск-проверки; пропущенные действия не повторяются.",
+      "New requests undergo normal grants and risk checks; skipped actions are not replayed."
+    ]
+  },
+  {
+    "key": "data-source",
+    "label": [
+      "Источник рыночных данных",
+      "Market data source"
+    ],
+    "object": "SRC-PM-CAT",
+    "old": "restriction-scope",
+    "kind": [
+      "Остановка чтений выбранного источника",
+      "Stop selected source reads"
+    ],
+    "effect": [
+      "Запрет новых заданий каталога SRC-PM-CAT. Собранные снимки становятся прошлыми по времени.",
+      "Block new SRC-PM-CAT catalog jobs. Collected snapshots age normally."
+    ],
+    "keep": [
+      "Не останавливает торговые сигналы или денежные источники; пропуск не считается заполненным.",
+      "Does not stop trading signals or treasury sources; gap is not declared filled."
+    ],
+    "restore": [
+      "Будущие чтения разрешены после проверок; свежесть и полнота подтверждаются отдельно.",
+      "Future reads allowed after checks; freshness and completeness verified separately."
+    ]
+  },
+  {
+    "key": "treasury-source",
+    "label": [
+      "Собственный денежный источник",
+      "Owned treasury source"
+    ],
+    "object": "SRC-SERVICE-01",
+    "kind": [
+      "Отключение собственного денежного источника",
+      "Disable owned treasury source"
+    ],
+    "effect": [
+      "Новые отправки из SRC-SERVICE-01 запрещены. Адрес остаётся наблюдаемым.",
+      "New SRC-SERVICE-01 submissions blocked. Address remains observable."
+    ],
+    "keep": [
+      "Долги, резервы и сверка сохраняются; внешнее поступление нельзя физически остановить.",
+      "Debts, reserves and reconciliation retained; external deposits cannot be physically stopped."
+    ],
+    "restore": [
+      "Повторная активация собственного источника требует двух разных владельцев.",
+      "Reactivation of an owned source requires two distinct owners."
+    ],
+    "treasury": true
+  },
+  {
+    "key": "signer",
+    "label": [
+      "Подписант",
+      "Signer"
+    ],
+    "object": "SIGNER-DEMO-01",
+    "old": "restriction-signer",
+    "kind": [
+      "Запрет новых подписей",
+      "Block new signatures"
+    ],
+    "effect": [
+      "Shadow не поручает новые подписи профилю SIGNER-DEMO-01.",
+      "Shadow requests no new SIGNER-DEMO-01 signatures."
+    ],
+    "keep": [
+      "Это не отзыв ключа у площадки и не защита от прямого внешнего использования украденного ключа.",
+      "Not venue-side key revocation or protection against direct use of a stolen key."
+    ],
+    "restore": [
+      "Нужны проверка компрометации и подтверждённый профиль без раскрытия секрета.",
+      "Compromise check and verified profile required; no secret disclosure."
+    ]
+  },
+  {
+    "key": "network",
+    "label": [
+      "Сеть",
+      "Network"
+    ],
+    "object": "NET-DEMO-01",
+    "old": "restriction-network",
+    "kind": [
+      "Запрет новых денежных отправок в сеть",
+      "Block new money submissions on network"
+    ],
+    "effect": [
+      "Все соответствующие новые отправки Shadow в NET-DEMO-01 запрещены.",
+      "All matching new Shadow submissions on NET-DEMO-01 blocked."
+    ],
+    "keep": [
+      "Не останавливает блокчейн или уже отправленные транзакции; другие сети не затронуты.",
+      "Does not stop blockchain or submitted transactions; other networks unaffected."
+    ],
+    "restore": [
+      "Сеть, подключения и наблюдение проверены; прочие ограничения проверяются заново.",
+      "Network, connections and observation checked; re-evaluate all other restrictions."
+    ]
+  },
+  {
+    "key": "asset",
+    "label": [
+      "Точный актив",
+      "Exact asset"
+    ],
+    "object": "ASSET-DEMO-01",
+    "old": "restriction-asset",
+    "kind": [
+      "Запрет отправок точного актива",
+      "Block exact-asset submissions"
+    ],
+    "effect": [
+      "USDT в NET-DEMO-01 с указанным контрактом запрещён для новых отправок Shadow.",
+      "New Shadow submissions of USDT on NET-DEMO-01 with the specified contract blocked."
+    ],
+    "keep": [
+      "Одинаковый тикер в другой сети или контракте не объединяется; прямые переводы не блокируются.",
+      "Same ticker on another network or contract remains distinct; direct transfers not blocked."
+    ],
+    "restore": [
+      "Проверяются точные сеть и контракт; курс и прежние обязательства не пересчитываются.",
+      "Exact network and contract checked; no repricing of past obligations."
+    ]
+  },
+  {
+    "key": "route",
+    "label": [
+      "Маршрут",
+      "Route"
+    ],
+    "object": "ROUTE-DEMO-01",
+    "old": "restriction-route",
+    "kind": [
+      "Запрет новых отправок по маршруту",
+      "Block new route submissions"
+    ],
+    "effect": [
+      "Запрещена одна точная цепочка источник → подписант → сеть → актив → получатель.",
+      "Block one exact source → signer → network → asset → recipient chain."
+    ],
+    "keep": [
+      "Смена любого звена требует нового просмотра; запрет не переносится на неизвестные маршруты.",
+      "Changing any link requires new review; no expansion to unknown routes."
+    ],
+    "restore": [
+      "Восстановление маршрута не подтверждает перевод и не обходит глобальные запреты.",
+      "Route recovery does not authorize a transfer or bypass global blocks."
+    ]
+  }
+]

@@ -1,0 +1,1211 @@
+{
+  "scope": "Expected design conditions, not executed runtime authorization tests",
+  "cases": [
+    {
+      "command": "collector-apply",
+      "id": "CMD-P2",
+      "condition": "missing_grant",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "collector-apply",
+      "id": "CMD-P2",
+      "condition": "revoked_grant",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "collector-apply",
+      "id": "CMD-P2",
+      "condition": "wrong_venue",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "collector-apply",
+      "id": "CMD-P2",
+      "condition": "wrong_environment",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "collector-apply",
+      "id": "CMD-P2",
+      "condition": "version_conflict",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-conflict"
+    },
+    {
+      "command": "collector-apply",
+      "id": "CMD-P2",
+      "condition": "technical_shutdown",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-stopped"
+    },
+    {
+      "command": "collector-apply",
+      "id": "CMD-P2",
+      "condition": "duplicate_intent",
+      "expected": "same_command_no_second_effect",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "collector-apply",
+      "id": "CMD-P2",
+      "condition": "accepted_unknown",
+      "expected": "keep_exact_command_no_resubmit",
+      "evidenceKey": "command-collector-apply-unknown"
+    },
+    {
+      "command": "collector-apply",
+      "id": "CMD-P2",
+      "condition": "confirmed_failure",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-failed"
+    },
+    {
+      "command": "collector-apply",
+      "id": "CMD-P2",
+      "condition": "confirmed_success",
+      "expected": "confirmed_exact_effect",
+      "evidenceKey": "command-collector-apply-result"
+    },
+    {
+      "command": "collector-pause",
+      "id": "CMD-PAUSE",
+      "condition": "missing_grant",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "collector-pause",
+      "id": "CMD-PAUSE",
+      "condition": "revoked_grant",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "collector-pause",
+      "id": "CMD-PAUSE",
+      "condition": "wrong_venue",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "collector-pause",
+      "id": "CMD-PAUSE",
+      "condition": "wrong_environment",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "collector-pause",
+      "id": "CMD-PAUSE",
+      "condition": "version_conflict",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-conflict"
+    },
+    {
+      "command": "collector-pause",
+      "id": "CMD-PAUSE",
+      "condition": "technical_shutdown",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-stopped"
+    },
+    {
+      "command": "collector-pause",
+      "id": "CMD-PAUSE",
+      "condition": "duplicate_intent",
+      "expected": "same_command_no_second_effect",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "collector-pause",
+      "id": "CMD-PAUSE",
+      "condition": "accepted_unknown",
+      "expected": "keep_exact_command_no_resubmit",
+      "evidenceKey": "command-collector-pause-unknown"
+    },
+    {
+      "command": "collector-pause",
+      "id": "CMD-PAUSE",
+      "condition": "confirmed_failure",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-failed"
+    },
+    {
+      "command": "collector-pause",
+      "id": "CMD-PAUSE",
+      "condition": "confirmed_success",
+      "expected": "confirmed_exact_effect",
+      "evidenceKey": "command-collector-pause-result"
+    },
+    {
+      "command": "collector-resume",
+      "id": "CMD-RESUME",
+      "condition": "missing_grant",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "collector-resume",
+      "id": "CMD-RESUME",
+      "condition": "revoked_grant",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "collector-resume",
+      "id": "CMD-RESUME",
+      "condition": "wrong_venue",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "collector-resume",
+      "id": "CMD-RESUME",
+      "condition": "wrong_environment",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "collector-resume",
+      "id": "CMD-RESUME",
+      "condition": "version_conflict",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-conflict"
+    },
+    {
+      "command": "collector-resume",
+      "id": "CMD-RESUME",
+      "condition": "technical_shutdown",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-stopped"
+    },
+    {
+      "command": "collector-resume",
+      "id": "CMD-RESUME",
+      "condition": "duplicate_intent",
+      "expected": "same_command_no_second_effect",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "collector-resume",
+      "id": "CMD-RESUME",
+      "condition": "accepted_unknown",
+      "expected": "keep_exact_command_no_resubmit",
+      "evidenceKey": "command-collector-resume-unknown"
+    },
+    {
+      "command": "collector-resume",
+      "id": "CMD-RESUME",
+      "condition": "confirmed_failure",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-failed"
+    },
+    {
+      "command": "collector-resume",
+      "id": "CMD-RESUME",
+      "condition": "confirmed_success",
+      "expected": "confirmed_exact_effect",
+      "evidenceKey": "command-collector-resume-result"
+    },
+    {
+      "command": "validator-apply",
+      "id": "CMD-V2",
+      "condition": "missing_grant",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "validator-apply",
+      "id": "CMD-V2",
+      "condition": "revoked_grant",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "validator-apply",
+      "id": "CMD-V2",
+      "condition": "wrong_venue",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "validator-apply",
+      "id": "CMD-V2",
+      "condition": "wrong_environment",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "validator-apply",
+      "id": "CMD-V2",
+      "condition": "version_conflict",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-conflict"
+    },
+    {
+      "command": "validator-apply",
+      "id": "CMD-V2",
+      "condition": "technical_shutdown",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-stopped"
+    },
+    {
+      "command": "validator-apply",
+      "id": "CMD-V2",
+      "condition": "duplicate_intent",
+      "expected": "same_command_no_second_effect",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "validator-apply",
+      "id": "CMD-V2",
+      "condition": "accepted_unknown",
+      "expected": "keep_exact_command_no_resubmit",
+      "evidenceKey": "command-validator-apply-unknown"
+    },
+    {
+      "command": "validator-apply",
+      "id": "CMD-V2",
+      "condition": "confirmed_failure",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-failed"
+    },
+    {
+      "command": "validator-apply",
+      "id": "CMD-V2",
+      "condition": "confirmed_success",
+      "expected": "confirmed_exact_effect",
+      "evidenceKey": "command-validator-apply-result"
+    },
+    {
+      "command": "validator-run",
+      "id": "CMD-CHECK",
+      "condition": "missing_grant",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "validator-run",
+      "id": "CMD-CHECK",
+      "condition": "revoked_grant",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "validator-run",
+      "id": "CMD-CHECK",
+      "condition": "wrong_venue",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "validator-run",
+      "id": "CMD-CHECK",
+      "condition": "wrong_environment",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "validator-run",
+      "id": "CMD-CHECK",
+      "condition": "version_conflict",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-conflict"
+    },
+    {
+      "command": "validator-run",
+      "id": "CMD-CHECK",
+      "condition": "technical_shutdown",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-stopped"
+    },
+    {
+      "command": "validator-run",
+      "id": "CMD-CHECK",
+      "condition": "duplicate_intent",
+      "expected": "same_command_no_second_effect",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "validator-run",
+      "id": "CMD-CHECK",
+      "condition": "accepted_unknown",
+      "expected": "keep_exact_command_no_resubmit",
+      "evidenceKey": "command-validator-run-unknown"
+    },
+    {
+      "command": "validator-run",
+      "id": "CMD-CHECK",
+      "condition": "confirmed_failure",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-failed"
+    },
+    {
+      "command": "validator-run",
+      "id": "CMD-CHECK",
+      "condition": "confirmed_success",
+      "expected": "confirmed_exact_effect",
+      "evidenceKey": "command-validator-run-result"
+    },
+    {
+      "command": "rating-simulate",
+      "id": "CMD-SIM-R2",
+      "condition": "missing_grant",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "rating-simulate",
+      "id": "CMD-SIM-R2",
+      "condition": "revoked_grant",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "rating-simulate",
+      "id": "CMD-SIM-R2",
+      "condition": "wrong_venue",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "rating-simulate",
+      "id": "CMD-SIM-R2",
+      "condition": "wrong_environment",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "rating-simulate",
+      "id": "CMD-SIM-R2",
+      "condition": "version_conflict",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-conflict"
+    },
+    {
+      "command": "rating-simulate",
+      "id": "CMD-SIM-R2",
+      "condition": "technical_shutdown",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-stopped"
+    },
+    {
+      "command": "rating-simulate",
+      "id": "CMD-SIM-R2",
+      "condition": "duplicate_intent",
+      "expected": "same_command_no_second_effect",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "rating-simulate",
+      "id": "CMD-SIM-R2",
+      "condition": "accepted_unknown",
+      "expected": "keep_exact_command_no_resubmit",
+      "evidenceKey": "command-rating-simulate-unknown"
+    },
+    {
+      "command": "rating-simulate",
+      "id": "CMD-SIM-R2",
+      "condition": "confirmed_failure",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-failed"
+    },
+    {
+      "command": "rating-simulate",
+      "id": "CMD-SIM-R2",
+      "condition": "confirmed_success",
+      "expected": "confirmed_exact_effect",
+      "evidenceKey": "command-rating-simulate-result"
+    },
+    {
+      "command": "rating-publish",
+      "id": "CMD-PUB-R2",
+      "condition": "missing_grant",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "rating-publish",
+      "id": "CMD-PUB-R2",
+      "condition": "revoked_grant",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "rating-publish",
+      "id": "CMD-PUB-R2",
+      "condition": "wrong_venue",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "rating-publish",
+      "id": "CMD-PUB-R2",
+      "condition": "wrong_environment",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "rating-publish",
+      "id": "CMD-PUB-R2",
+      "condition": "version_conflict",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-conflict"
+    },
+    {
+      "command": "rating-publish",
+      "id": "CMD-PUB-R2",
+      "condition": "technical_shutdown",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-stopped"
+    },
+    {
+      "command": "rating-publish",
+      "id": "CMD-PUB-R2",
+      "condition": "duplicate_intent",
+      "expected": "same_command_no_second_effect",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "rating-publish",
+      "id": "CMD-PUB-R2",
+      "condition": "accepted_unknown",
+      "expected": "keep_exact_command_no_resubmit",
+      "evidenceKey": "command-rating-publish-unknown"
+    },
+    {
+      "command": "rating-publish",
+      "id": "CMD-PUB-R2",
+      "condition": "confirmed_failure",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-failed"
+    },
+    {
+      "command": "rating-publish",
+      "id": "CMD-PUB-R2",
+      "condition": "confirmed_success",
+      "expected": "confirmed_exact_effect",
+      "evidenceKey": "command-rating-publish-result"
+    },
+    {
+      "command": "rating-calculate",
+      "id": "CMD-CALC-R2",
+      "condition": "missing_grant",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "rating-calculate",
+      "id": "CMD-CALC-R2",
+      "condition": "revoked_grant",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "rating-calculate",
+      "id": "CMD-CALC-R2",
+      "condition": "wrong_venue",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "rating-calculate",
+      "id": "CMD-CALC-R2",
+      "condition": "wrong_environment",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "rating-calculate",
+      "id": "CMD-CALC-R2",
+      "condition": "version_conflict",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-conflict"
+    },
+    {
+      "command": "rating-calculate",
+      "id": "CMD-CALC-R2",
+      "condition": "technical_shutdown",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-stopped"
+    },
+    {
+      "command": "rating-calculate",
+      "id": "CMD-CALC-R2",
+      "condition": "duplicate_intent",
+      "expected": "same_command_no_second_effect",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "rating-calculate",
+      "id": "CMD-CALC-R2",
+      "condition": "accepted_unknown",
+      "expected": "keep_exact_command_no_resubmit",
+      "evidenceKey": "command-rating-calculate-unknown"
+    },
+    {
+      "command": "rating-calculate",
+      "id": "CMD-CALC-R2",
+      "condition": "confirmed_failure",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-failed"
+    },
+    {
+      "command": "rating-calculate",
+      "id": "CMD-CALC-R2",
+      "condition": "confirmed_success",
+      "expected": "confirmed_exact_effect",
+      "evidenceKey": "command-rating-calculate-result"
+    },
+    {
+      "command": "rating-restore",
+      "id": "CMD-RESTORE-R3",
+      "condition": "missing_grant",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "rating-restore",
+      "id": "CMD-RESTORE-R3",
+      "condition": "revoked_grant",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "rating-restore",
+      "id": "CMD-RESTORE-R3",
+      "condition": "wrong_venue",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "rating-restore",
+      "id": "CMD-RESTORE-R3",
+      "condition": "wrong_environment",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "rating-restore",
+      "id": "CMD-RESTORE-R3",
+      "condition": "version_conflict",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-conflict"
+    },
+    {
+      "command": "rating-restore",
+      "id": "CMD-RESTORE-R3",
+      "condition": "technical_shutdown",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-stopped"
+    },
+    {
+      "command": "rating-restore",
+      "id": "CMD-RESTORE-R3",
+      "condition": "duplicate_intent",
+      "expected": "same_command_no_second_effect",
+      "evidenceKey": "command-permissions"
+    },
+    {
+      "command": "rating-restore",
+      "id": "CMD-RESTORE-R3",
+      "condition": "accepted_unknown",
+      "expected": "keep_exact_command_no_resubmit",
+      "evidenceKey": "command-rating-restore-unknown"
+    },
+    {
+      "command": "rating-restore",
+      "id": "CMD-RESTORE-R3",
+      "condition": "confirmed_failure",
+      "expected": "no_new_execution",
+      "evidenceKey": "command-failed"
+    },
+    {
+      "command": "rating-restore",
+      "id": "CMD-RESTORE-R3",
+      "condition": "confirmed_success",
+      "expected": "confirmed_exact_effect",
+      "evidenceKey": "command-rating-restore-result"
+    },
+    {
+      "scope": "staff",
+      "condition": "stop_authority",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "staff",
+      "condition": "exact_object_version",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "staff",
+      "condition": "matching_relationships",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "staff",
+      "condition": "all_executors_ack",
+      "expected": "may_show_confirmed_stop",
+      "evidenceKey": "scope-staff-active"
+    },
+    {
+      "scope": "staff",
+      "condition": "incomplete_ack",
+      "expected": "do_not_claim_full_application",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "staff",
+      "condition": "unknown_stop",
+      "expected": "keep_local_denial_read_same_command",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "staff",
+      "condition": "distinct_recovery_actors",
+      "expected": "owner_plus_independent_authorized_staff",
+      "evidenceKey": "scope-staff-second"
+    },
+    {
+      "scope": "staff",
+      "condition": "same_snapshot",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "staff",
+      "condition": "expired_approval",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "staff",
+      "condition": "other_hard_block",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "staff",
+      "condition": "unknown_recovery",
+      "expected": "keep_local_denial_read_same_command",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "staff",
+      "condition": "no_automatic_replay",
+      "expected": "do_not_replay",
+      "evidenceKey": "scope-staff-restored"
+    },
+    {
+      "scope": "user",
+      "condition": "stop_authority",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "user",
+      "condition": "exact_object_version",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "user",
+      "condition": "matching_relationships",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "user",
+      "condition": "all_executors_ack",
+      "expected": "may_show_confirmed_stop",
+      "evidenceKey": "scope-user-active"
+    },
+    {
+      "scope": "user",
+      "condition": "incomplete_ack",
+      "expected": "do_not_claim_full_application",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "user",
+      "condition": "unknown_stop",
+      "expected": "keep_local_denial_read_same_command",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "user",
+      "condition": "distinct_recovery_actors",
+      "expected": "owner_plus_independent_authorized_staff",
+      "evidenceKey": "scope-user-second"
+    },
+    {
+      "scope": "user",
+      "condition": "same_snapshot",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "user",
+      "condition": "expired_approval",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "user",
+      "condition": "other_hard_block",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "user",
+      "condition": "unknown_recovery",
+      "expected": "keep_local_denial_read_same_command",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "user",
+      "condition": "no_automatic_replay",
+      "expected": "do_not_replay",
+      "evidenceKey": "scope-user-restored"
+    },
+    {
+      "scope": "data-source",
+      "condition": "stop_authority",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "data-source",
+      "condition": "exact_object_version",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "data-source",
+      "condition": "matching_relationships",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "data-source",
+      "condition": "all_executors_ack",
+      "expected": "may_show_confirmed_stop",
+      "evidenceKey": "scope-data-source-active"
+    },
+    {
+      "scope": "data-source",
+      "condition": "incomplete_ack",
+      "expected": "do_not_claim_full_application",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "data-source",
+      "condition": "unknown_stop",
+      "expected": "keep_local_denial_read_same_command",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "data-source",
+      "condition": "distinct_recovery_actors",
+      "expected": "owner_plus_independent_authorized_staff",
+      "evidenceKey": "scope-data-source-second"
+    },
+    {
+      "scope": "data-source",
+      "condition": "same_snapshot",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "data-source",
+      "condition": "expired_approval",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "data-source",
+      "condition": "other_hard_block",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "data-source",
+      "condition": "unknown_recovery",
+      "expected": "keep_local_denial_read_same_command",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "data-source",
+      "condition": "no_automatic_replay",
+      "expected": "do_not_replay",
+      "evidenceKey": "scope-data-source-restored"
+    },
+    {
+      "scope": "treasury-source",
+      "condition": "stop_authority",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "treasury-source",
+      "condition": "exact_object_version",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "treasury-source",
+      "condition": "matching_relationships",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "treasury-source",
+      "condition": "all_executors_ack",
+      "expected": "may_show_confirmed_stop",
+      "evidenceKey": "scope-treasury-source-active"
+    },
+    {
+      "scope": "treasury-source",
+      "condition": "incomplete_ack",
+      "expected": "do_not_claim_full_application",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "treasury-source",
+      "condition": "unknown_stop",
+      "expected": "keep_local_denial_read_same_command",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "treasury-source",
+      "condition": "distinct_recovery_actors",
+      "expected": "two_distinct_owners",
+      "evidenceKey": "scope-treasury-source-second"
+    },
+    {
+      "scope": "treasury-source",
+      "condition": "same_snapshot",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "treasury-source",
+      "condition": "expired_approval",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "treasury-source",
+      "condition": "other_hard_block",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "treasury-source",
+      "condition": "unknown_recovery",
+      "expected": "keep_local_denial_read_same_command",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "treasury-source",
+      "condition": "no_automatic_replay",
+      "expected": "do_not_replay",
+      "evidenceKey": "scope-treasury-source-restored"
+    },
+    {
+      "scope": "signer",
+      "condition": "stop_authority",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "signer",
+      "condition": "exact_object_version",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "signer",
+      "condition": "matching_relationships",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "signer",
+      "condition": "all_executors_ack",
+      "expected": "may_show_confirmed_stop",
+      "evidenceKey": "scope-signer-active"
+    },
+    {
+      "scope": "signer",
+      "condition": "incomplete_ack",
+      "expected": "do_not_claim_full_application",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "signer",
+      "condition": "unknown_stop",
+      "expected": "keep_local_denial_read_same_command",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "signer",
+      "condition": "distinct_recovery_actors",
+      "expected": "owner_plus_independent_authorized_staff",
+      "evidenceKey": "scope-signer-second"
+    },
+    {
+      "scope": "signer",
+      "condition": "same_snapshot",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "signer",
+      "condition": "expired_approval",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "signer",
+      "condition": "other_hard_block",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "signer",
+      "condition": "unknown_recovery",
+      "expected": "keep_local_denial_read_same_command",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "signer",
+      "condition": "no_automatic_replay",
+      "expected": "do_not_replay",
+      "evidenceKey": "scope-signer-restored"
+    },
+    {
+      "scope": "network",
+      "condition": "stop_authority",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "network",
+      "condition": "exact_object_version",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "network",
+      "condition": "matching_relationships",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "network",
+      "condition": "all_executors_ack",
+      "expected": "may_show_confirmed_stop",
+      "evidenceKey": "scope-network-active"
+    },
+    {
+      "scope": "network",
+      "condition": "incomplete_ack",
+      "expected": "do_not_claim_full_application",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "network",
+      "condition": "unknown_stop",
+      "expected": "keep_local_denial_read_same_command",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "network",
+      "condition": "distinct_recovery_actors",
+      "expected": "owner_plus_independent_authorized_staff",
+      "evidenceKey": "scope-network-second"
+    },
+    {
+      "scope": "network",
+      "condition": "same_snapshot",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "network",
+      "condition": "expired_approval",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "network",
+      "condition": "other_hard_block",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "network",
+      "condition": "unknown_recovery",
+      "expected": "keep_local_denial_read_same_command",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "network",
+      "condition": "no_automatic_replay",
+      "expected": "do_not_replay",
+      "evidenceKey": "scope-network-restored"
+    },
+    {
+      "scope": "asset",
+      "condition": "stop_authority",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "asset",
+      "condition": "exact_object_version",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "asset",
+      "condition": "matching_relationships",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "asset",
+      "condition": "all_executors_ack",
+      "expected": "may_show_confirmed_stop",
+      "evidenceKey": "scope-asset-active"
+    },
+    {
+      "scope": "asset",
+      "condition": "incomplete_ack",
+      "expected": "do_not_claim_full_application",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "asset",
+      "condition": "unknown_stop",
+      "expected": "keep_local_denial_read_same_command",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "asset",
+      "condition": "distinct_recovery_actors",
+      "expected": "owner_plus_independent_authorized_staff",
+      "evidenceKey": "scope-asset-second"
+    },
+    {
+      "scope": "asset",
+      "condition": "same_snapshot",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "asset",
+      "condition": "expired_approval",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "asset",
+      "condition": "other_hard_block",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "asset",
+      "condition": "unknown_recovery",
+      "expected": "keep_local_denial_read_same_command",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "asset",
+      "condition": "no_automatic_replay",
+      "expected": "do_not_replay",
+      "evidenceKey": "scope-asset-restored"
+    },
+    {
+      "scope": "route",
+      "condition": "stop_authority",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "route",
+      "condition": "exact_object_version",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "route",
+      "condition": "matching_relationships",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "route",
+      "condition": "all_executors_ack",
+      "expected": "may_show_confirmed_stop",
+      "evidenceKey": "scope-route-active"
+    },
+    {
+      "scope": "route",
+      "condition": "incomplete_ack",
+      "expected": "do_not_claim_full_application",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "route",
+      "condition": "unknown_stop",
+      "expected": "keep_local_denial_read_same_command",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "route",
+      "condition": "distinct_recovery_actors",
+      "expected": "owner_plus_independent_authorized_staff",
+      "evidenceKey": "scope-route-second"
+    },
+    {
+      "scope": "route",
+      "condition": "same_snapshot",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "route",
+      "condition": "expired_approval",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "route",
+      "condition": "other_hard_block",
+      "expected": "require_current_verified_condition",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "route",
+      "condition": "unknown_recovery",
+      "expected": "keep_local_denial_read_same_command",
+      "evidenceKey": "scope-exceptions"
+    },
+    {
+      "scope": "route",
+      "condition": "no_automatic_replay",
+      "expected": "do_not_replay",
+      "evidenceKey": "scope-route-restored"
+    }
+  ]
+}

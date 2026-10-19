@@ -1,6 +1,6 @@
 {
-  "revision": "0.23",
-  "updatedAt": "2026-10-18",
+  "revision": "0.24",
+  "updatedAt": "2026-10-19",
   "purpose": "Living design sitemap; not a production capability inventory or final design acceptance.",
   "figma": {
     "fileKey": "lxPP2um7FvIbt02K8eeH4T",
@@ -14,8 +14,8 @@
     "current Figma RU/EN root frame inventory"
   ],
   "counts": {
-    "ru": 689,
-    "en": 689
+    "ru": 776,
+    "en": 776
   },
   "sections": [
     {
@@ -1625,7 +1625,7 @@
       "id": "ADM-07",
       "title": "Данные и рейтинг",
       "group": "Управление",
-      "description": "Сборщики, внутренний валидатор, методика рейтинга, проверка адреса и результаты.",
+      "description": "Девять команд сбора, проверки и рейтинга; раздельные права, принятие/выполнение/результат, отказы, неизвестность и отдельное переключение полного каталога.",
       "screens": [
         {
           "id": "2395:34055",
@@ -2347,6 +2347,413 @@
             "id": "3097:198779",
             "title": "EN · source-settings-failed · Change rejected",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198779"
+          }
+        },
+        {
+          "id": "3142:69734",
+          "key": "command-collector-apply",
+          "title": "Применить настройки сборщика",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69734",
+          "english": {
+            "id": "3142:202729",
+            "title": "EN · command-collector-apply · Apply collector settings",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202729"
+          }
+        },
+        {
+          "id": "3142:69762",
+          "key": "command-collector-apply-result",
+          "title": "Применить настройки сборщика: результат",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69762",
+          "english": {
+            "id": "3142:202757",
+            "title": "EN · command-collector-apply-result · Apply collector settings: result",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202757"
+          }
+        },
+        {
+          "id": "3142:69790",
+          "key": "command-collector-apply-unknown",
+          "title": "Применить настройки сборщика: результат неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69790",
+          "english": {
+            "id": "3142:202785",
+            "title": "EN · command-collector-apply-unknown · Apply collector settings: outcome unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202785"
+          }
+        },
+        {
+          "id": "3142:69818",
+          "key": "command-collector-pause",
+          "title": "Приостановить сбор",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69818",
+          "english": {
+            "id": "3142:202813",
+            "title": "EN · command-collector-pause · Pause collection",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202813"
+          }
+        },
+        {
+          "id": "3142:69846",
+          "key": "command-collector-pause-result",
+          "title": "Приостановить сбор: результат",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69846",
+          "english": {
+            "id": "3142:202841",
+            "title": "EN · command-collector-pause-result · Pause collection: result",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202841"
+          }
+        },
+        {
+          "id": "3142:69874",
+          "key": "command-collector-pause-unknown",
+          "title": "Приостановить сбор: результат неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69874",
+          "english": {
+            "id": "3142:202869",
+            "title": "EN · command-collector-pause-unknown · Pause collection: outcome unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202869"
+          }
+        },
+        {
+          "id": "3142:69902",
+          "key": "command-collector-resume",
+          "title": "Возобновить сбор",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69902",
+          "english": {
+            "id": "3142:202897",
+            "title": "EN · command-collector-resume · Resume collection",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202897"
+          }
+        },
+        {
+          "id": "3142:69930",
+          "key": "command-collector-resume-result",
+          "title": "Возобновить сбор: результат",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69930",
+          "english": {
+            "id": "3142:202925",
+            "title": "EN · command-collector-resume-result · Resume collection: result",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202925"
+          }
+        },
+        {
+          "id": "3142:69958",
+          "key": "command-collector-resume-unknown",
+          "title": "Возобновить сбор: результат неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69958",
+          "english": {
+            "id": "3142:202953",
+            "title": "EN · command-collector-resume-unknown · Resume collection: outcome unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202953"
+          }
+        },
+        {
+          "id": "3142:69986",
+          "key": "command-validator-apply",
+          "title": "Применить правила проверки",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69986",
+          "english": {
+            "id": "3142:202981",
+            "title": "EN · command-validator-apply · Apply validation rules",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202981"
+          }
+        },
+        {
+          "id": "3142:70014",
+          "key": "command-validator-apply-result",
+          "title": "Применить правила проверки: результат",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-70014",
+          "english": {
+            "id": "3142:203009",
+            "title": "EN · command-validator-apply-result · Apply validation rules: result",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-203009"
+          }
+        },
+        {
+          "id": "3142:70042",
+          "key": "command-validator-apply-unknown",
+          "title": "Применить правила проверки: результат неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-70042",
+          "english": {
+            "id": "3142:203037",
+            "title": "EN · command-validator-apply-unknown · Apply validation rules: outcome unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-203037"
+          }
+        },
+        {
+          "id": "3142:70070",
+          "key": "command-validator-run",
+          "title": "Запустить проверку данных",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-70070",
+          "english": {
+            "id": "3142:203065",
+            "title": "EN · command-validator-run · Run data validation",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-203065"
+          }
+        },
+        {
+          "id": "3142:70098",
+          "key": "command-validator-run-result",
+          "title": "Запустить проверку данных: результат",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-70098",
+          "english": {
+            "id": "3142:203093",
+            "title": "EN · command-validator-run-result · Run data validation: result",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-203093"
+          }
+        },
+        {
+          "id": "3142:204577",
+          "key": "command-validator-run-unknown",
+          "title": "Запустить проверку данных: результат неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204577",
+          "english": {
+            "id": "3142:206425",
+            "title": "EN · command-validator-run-unknown · Run data validation: outcome unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206425"
+          }
+        },
+        {
+          "id": "3142:204605",
+          "key": "command-rating-simulate",
+          "title": "Сравнить методики",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204605",
+          "english": {
+            "id": "3142:206453",
+            "title": "EN · command-rating-simulate · Compare methodologies",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206453"
+          }
+        },
+        {
+          "id": "3142:204633",
+          "key": "command-rating-simulate-result",
+          "title": "Сравнить методики: результат",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204633",
+          "english": {
+            "id": "3142:206481",
+            "title": "EN · command-rating-simulate-result · Compare methodologies: result",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206481"
+          }
+        },
+        {
+          "id": "3142:204661",
+          "key": "command-rating-simulate-unknown",
+          "title": "Сравнить методики: результат неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204661",
+          "english": {
+            "id": "3142:206509",
+            "title": "EN · command-rating-simulate-unknown · Compare methodologies: outcome unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206509"
+          }
+        },
+        {
+          "id": "3142:204689",
+          "key": "command-rating-publish",
+          "title": "Опубликовать версию методики",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204689",
+          "english": {
+            "id": "3142:206537",
+            "title": "EN · command-rating-publish · Publish methodology version",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206537"
+          }
+        },
+        {
+          "id": "3142:204717",
+          "key": "command-rating-publish-result",
+          "title": "Опубликовать версию методики: результат",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204717",
+          "english": {
+            "id": "3142:206565",
+            "title": "EN · command-rating-publish-result · Publish methodology version: result",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206565"
+          }
+        },
+        {
+          "id": "3142:204745",
+          "key": "command-rating-publish-unknown",
+          "title": "Опубликовать версию методики: результат неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204745",
+          "english": {
+            "id": "3142:206593",
+            "title": "EN · command-rating-publish-unknown · Publish methodology version: outcome unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206593"
+          }
+        },
+        {
+          "id": "3142:204773",
+          "key": "command-rating-calculate",
+          "title": "Рассчитать опубликованную версию",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204773",
+          "english": {
+            "id": "3142:206621",
+            "title": "EN · command-rating-calculate · Calculate published version",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206621"
+          }
+        },
+        {
+          "id": "3142:204801",
+          "key": "command-rating-calculate-result",
+          "title": "Рассчитать опубликованную версию: результат",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204801",
+          "english": {
+            "id": "3142:206649",
+            "title": "EN · command-rating-calculate-result · Calculate published version: result",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206649"
+          }
+        },
+        {
+          "id": "3142:204829",
+          "key": "command-rating-calculate-unknown",
+          "title": "Рассчитать опубликованную версию: результат неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204829",
+          "english": {
+            "id": "3142:206677",
+            "title": "EN · command-rating-calculate-unknown · Calculate published version: outcome unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206677"
+          }
+        },
+        {
+          "id": "3142:204857",
+          "key": "command-rating-restore",
+          "title": "Восстановить прежние правила",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204857",
+          "english": {
+            "id": "3142:206705",
+            "title": "EN · command-rating-restore · Restore previous rules",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206705"
+          }
+        },
+        {
+          "id": "3142:204885",
+          "key": "command-rating-restore-result",
+          "title": "Восстановить прежние правила: результат",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204885",
+          "english": {
+            "id": "3142:206733",
+            "title": "EN · command-rating-restore-result · Restore previous rules: result",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206733"
+          }
+        },
+        {
+          "id": "3142:204913",
+          "key": "command-rating-restore-unknown",
+          "title": "Восстановить прежние правила: результат неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204913",
+          "english": {
+            "id": "3142:206761",
+            "title": "EN · command-rating-restore-unknown · Restore previous rules: outcome unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206761"
+          }
+        },
+        {
+          "id": "3142:204941",
+          "key": "commands-hub",
+          "title": "Команды данных и рейтинга",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204941",
+          "english": {
+            "id": "3142:206789",
+            "title": "EN · commands-hub · Data and rating commands",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206789"
+          }
+        },
+        {
+          "id": "3142:208273",
+          "key": "command-permissions",
+          "title": "Права и условия команд",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208273",
+          "english": {
+            "id": "3142:210121",
+            "title": "EN · command-permissions · Command permissions and gates",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210121"
+          }
+        },
+        {
+          "id": "3142:208301",
+          "key": "command-conflict",
+          "title": "Конфликт версии команды",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208301",
+          "english": {
+            "id": "3142:210149",
+            "title": "EN · command-conflict · Command version conflict",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210149"
+          }
+        },
+        {
+          "id": "3142:208329",
+          "key": "command-stale",
+          "title": "Снимок больше не пригоден",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208329",
+          "english": {
+            "id": "3142:210177",
+            "title": "EN · command-stale · Snapshot no longer eligible",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210177"
+          }
+        },
+        {
+          "id": "3142:208357",
+          "key": "command-denied",
+          "title": "Команда запрещена по правам",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208357",
+          "english": {
+            "id": "3142:210205",
+            "title": "EN · command-denied · Command permission denied",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210205"
+          }
+        },
+        {
+          "id": "3142:208385",
+          "key": "command-failed",
+          "title": "Подтверждённый отказ команды",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208385",
+          "english": {
+            "id": "3142:210233",
+            "title": "EN · command-failed · Confirmed command rejection",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210233"
+          }
+        },
+        {
+          "id": "3142:208413",
+          "key": "command-stopped",
+          "title": "Действующее ограничение запрещает команду",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208413",
+          "english": {
+            "id": "3142:210261",
+            "title": "EN · command-stopped · Active restriction blocks command",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210261"
+          }
+        },
+        {
+          "id": "3142:208441",
+          "key": "command-limitless",
+          "title": "Limitless: команда пока недоступна",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208441",
+          "english": {
+            "id": "3142:210289",
+            "title": "EN · command-limitless · Limitless: command unavailable",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210289"
+          }
+        },
+        {
+          "id": "3142:208469",
+          "key": "command-exceptions",
+          "title": "Общие отказы команд: примеры",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208469",
+          "english": {
+            "id": "3142:210317",
+            "title": "EN · command-exceptions · Common command failures: examples",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210317"
+          }
+        },
+        {
+          "id": "3143:77742",
+          "key": "command-pending",
+          "title": "Расчёт выполняется",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3143-77742",
+          "english": {
+            "id": "3143:217161",
+            "title": "EN · command-pending · Calculation in progress",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3143-217161"
           }
         }
       ],
@@ -6915,7 +7322,7 @@
       "id": "ADM-17",
       "title": "Аварийное управление",
       "group": "Аварийное управление",
-      "description": "GLOBAL_STOP и четыре отдельных ограничения: область, применение, независимое восстановление.",
+      "description": "Точные области, восемь семейств объектов, применение всеми исполнителями, независимое восстановление, неизвестность/неполное применение и приоритет глобальных запретов.",
       "screens": [
         {
           "id": "2110:52505",
@@ -7404,11 +7811,11 @@
         {
           "id": "3097:66458",
           "key": "restriction-scope",
-          "title": "Область ограничения",
+          "title": "Источник рыночных данных: подтверждение ограничения",
           "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66458",
           "english": {
             "id": "3097:199031",
-            "title": "EN · restriction-scope · Restriction scope",
+            "title": "EN · restriction-scope · Market data source: confirm restriction",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199031"
           }
         },
@@ -7470,67 +7877,617 @@
         {
           "id": "3097:66626",
           "key": "restriction-staff",
-          "title": "Сотрудник: проверка области",
+          "title": "Сотрудник: подтверждение ограничения",
           "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66626",
           "english": {
             "id": "3097:199199",
-            "title": "EN · restriction-staff · Staff: review scope",
+            "title": "EN · restriction-staff · Staff: confirm restriction",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199199"
           }
         },
         {
           "id": "3097:66654",
           "key": "restriction-user",
-          "title": "Пользователь: проверка области",
+          "title": "Пользователь: подтверждение ограничения",
           "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66654",
           "english": {
             "id": "3097:199227",
-            "title": "EN · restriction-user · User: review scope",
+            "title": "EN · restriction-user · User: confirm restriction",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199227"
           }
         },
         {
           "id": "3097:66682",
           "key": "restriction-signer",
-          "title": "Подписант: проверка области",
+          "title": "Подписант: подтверждение ограничения",
           "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66682",
           "english": {
             "id": "3097:199255",
-            "title": "EN · restriction-signer · Signer: review scope",
+            "title": "EN · restriction-signer · Signer: confirm restriction",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199255"
           }
         },
         {
           "id": "3097:66710",
           "key": "restriction-network",
-          "title": "Сеть: проверка области",
+          "title": "Сеть: подтверждение ограничения",
           "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66710",
           "english": {
             "id": "3097:199283",
-            "title": "EN · restriction-network · Network: review scope",
+            "title": "EN · restriction-network · Network: confirm restriction",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199283"
           }
         },
         {
           "id": "3097:66738",
           "key": "restriction-asset",
-          "title": "Актив: проверка области",
+          "title": "Точный актив: подтверждение ограничения",
           "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66738",
           "english": {
             "id": "3097:199311",
-            "title": "EN · restriction-asset · Asset: review scope",
+            "title": "EN · restriction-asset · Exact asset: confirm restriction",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199311"
           }
         },
         {
           "id": "3097:66766",
           "key": "restriction-route",
-          "title": "Маршрут: проверка области",
+          "title": "Маршрут: подтверждение ограничения",
           "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66766",
           "english": {
             "id": "3097:199339",
-            "title": "EN · restriction-route · Route: review scope",
+            "title": "EN · restriction-route · Route: confirm restriction",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199339"
+          }
+        },
+        {
+          "id": "3142:208497",
+          "key": "scope-staff-active",
+          "title": "Сотрудник: ограничение подтверждено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208497",
+          "english": {
+            "id": "3142:210345",
+            "title": "EN · scope-staff-active · Staff: restriction confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210345"
+          }
+        },
+        {
+          "id": "3142:208525",
+          "key": "scope-staff-recover",
+          "title": "Сотрудник: проверка восстановления",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208525",
+          "english": {
+            "id": "3142:210373",
+            "title": "EN · scope-staff-recover · Staff: review recovery",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210373"
+          }
+        },
+        {
+          "id": "3142:208553",
+          "key": "scope-staff-second",
+          "title": "Сотрудник: независимое подтверждение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208553",
+          "english": {
+            "id": "3142:210401",
+            "title": "EN · scope-staff-second · Staff: independent approval",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210401"
+          }
+        },
+        {
+          "id": "3142:208581",
+          "key": "scope-staff-restored",
+          "title": "Сотрудник: восстановление подтверждено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208581",
+          "english": {
+            "id": "3142:210429",
+            "title": "EN · scope-staff-restored · Staff: recovery confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210429"
+          }
+        },
+        {
+          "id": "3142:208609",
+          "key": "scope-user-active",
+          "title": "Пользователь: ограничение подтверждено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208609",
+          "english": {
+            "id": "3142:210457",
+            "title": "EN · scope-user-active · User: restriction confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210457"
+          }
+        },
+        {
+          "id": "3142:208637",
+          "key": "scope-user-recover",
+          "title": "Пользователь: проверка восстановления",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208637",
+          "english": {
+            "id": "3142:210485",
+            "title": "EN · scope-user-recover · User: review recovery",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210485"
+          }
+        },
+        {
+          "id": "3142:211969",
+          "key": "scope-user-second",
+          "title": "Пользователь: независимое подтверждение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-211969",
+          "english": {
+            "id": "3142:213817",
+            "title": "EN · scope-user-second · User: independent approval",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213817"
+          }
+        },
+        {
+          "id": "3142:211997",
+          "key": "scope-user-restored",
+          "title": "Пользователь: восстановление подтверждено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-211997",
+          "english": {
+            "id": "3142:213845",
+            "title": "EN · scope-user-restored · User: recovery confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213845"
+          }
+        },
+        {
+          "id": "3142:212025",
+          "key": "scope-data-source-active",
+          "title": "Источник рыночных данных: ограничение подтверждено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212025",
+          "english": {
+            "id": "3142:213873",
+            "title": "EN · scope-data-source-active · Market data source: restriction confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213873"
+          }
+        },
+        {
+          "id": "3142:212053",
+          "key": "scope-data-source-recover",
+          "title": "Источник рыночных данных: проверка восстановления",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212053",
+          "english": {
+            "id": "3142:213901",
+            "title": "EN · scope-data-source-recover · Market data source: review recovery",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213901"
+          }
+        },
+        {
+          "id": "3142:212081",
+          "key": "scope-data-source-second",
+          "title": "Источник рыночных данных: независимое подтверждение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212081",
+          "english": {
+            "id": "3142:213929",
+            "title": "EN · scope-data-source-second · Market data source: independent approval",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213929"
+          }
+        },
+        {
+          "id": "3142:212109",
+          "key": "scope-data-source-restored",
+          "title": "Источник рыночных данных: восстановление подтверждено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212109",
+          "english": {
+            "id": "3142:213957",
+            "title": "EN · scope-data-source-restored · Market data source: recovery confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213957"
+          }
+        },
+        {
+          "id": "3142:212137",
+          "key": "scope-treasury-source-review",
+          "title": "Собственный денежный источник: подтверждение ограничения",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212137",
+          "english": {
+            "id": "3142:213985",
+            "title": "EN · scope-treasury-source-review · Owned treasury source: confirm restriction",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213985"
+          }
+        },
+        {
+          "id": "3142:212165",
+          "key": "scope-treasury-source-active",
+          "title": "Собственный денежный источник: ограничение подтверждено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212165",
+          "english": {
+            "id": "3142:214013",
+            "title": "EN · scope-treasury-source-active · Owned treasury source: restriction confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214013"
+          }
+        },
+        {
+          "id": "3142:212193",
+          "key": "scope-treasury-source-recover",
+          "title": "Собственный денежный источник: проверка восстановления",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212193",
+          "english": {
+            "id": "3142:214041",
+            "title": "EN · scope-treasury-source-recover · Owned treasury source: review recovery",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214041"
+          }
+        },
+        {
+          "id": "3142:212221",
+          "key": "scope-treasury-source-second",
+          "title": "Собственный денежный источник: независимое подтверждение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212221",
+          "english": {
+            "id": "3142:214069",
+            "title": "EN · scope-treasury-source-second · Owned treasury source: independent approval",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214069"
+          }
+        },
+        {
+          "id": "3142:212249",
+          "key": "scope-treasury-source-restored",
+          "title": "Собственный денежный источник: восстановление подтверждено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212249",
+          "english": {
+            "id": "3142:214097",
+            "title": "EN · scope-treasury-source-restored · Owned treasury source: recovery confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214097"
+          }
+        },
+        {
+          "id": "3142:212277",
+          "key": "scope-signer-active",
+          "title": "Подписант: ограничение подтверждено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212277",
+          "english": {
+            "id": "3142:214125",
+            "title": "EN · scope-signer-active · Signer: restriction confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214125"
+          }
+        },
+        {
+          "id": "3142:212305",
+          "key": "scope-signer-recover",
+          "title": "Подписант: проверка восстановления",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212305",
+          "english": {
+            "id": "3142:214153",
+            "title": "EN · scope-signer-recover · Signer: review recovery",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214153"
+          }
+        },
+        {
+          "id": "3142:212333",
+          "key": "scope-signer-second",
+          "title": "Подписант: независимое подтверждение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212333",
+          "english": {
+            "id": "3142:214181",
+            "title": "EN · scope-signer-second · Signer: independent approval",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214181"
+          }
+        },
+        {
+          "id": "3142:215665",
+          "key": "scope-signer-restored",
+          "title": "Подписант: восстановление подтверждено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215665",
+          "english": {
+            "id": "3142:217513",
+            "title": "EN · scope-signer-restored · Signer: recovery confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217513"
+          }
+        },
+        {
+          "id": "3142:215693",
+          "key": "scope-network-active",
+          "title": "Сеть: ограничение подтверждено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215693",
+          "english": {
+            "id": "3142:217541",
+            "title": "EN · scope-network-active · Network: restriction confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217541"
+          }
+        },
+        {
+          "id": "3142:215721",
+          "key": "scope-network-recover",
+          "title": "Сеть: проверка восстановления",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215721",
+          "english": {
+            "id": "3142:217569",
+            "title": "EN · scope-network-recover · Network: review recovery",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217569"
+          }
+        },
+        {
+          "id": "3142:215749",
+          "key": "scope-network-second",
+          "title": "Сеть: независимое подтверждение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215749",
+          "english": {
+            "id": "3142:217597",
+            "title": "EN · scope-network-second · Network: independent approval",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217597"
+          }
+        },
+        {
+          "id": "3142:215777",
+          "key": "scope-network-restored",
+          "title": "Сеть: восстановление подтверждено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215777",
+          "english": {
+            "id": "3142:217625",
+            "title": "EN · scope-network-restored · Network: recovery confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217625"
+          }
+        },
+        {
+          "id": "3142:215805",
+          "key": "scope-asset-active",
+          "title": "Точный актив: ограничение подтверждено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215805",
+          "english": {
+            "id": "3142:217653",
+            "title": "EN · scope-asset-active · Exact asset: restriction confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217653"
+          }
+        },
+        {
+          "id": "3142:215833",
+          "key": "scope-asset-recover",
+          "title": "Точный актив: проверка восстановления",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215833",
+          "english": {
+            "id": "3142:217681",
+            "title": "EN · scope-asset-recover · Exact asset: review recovery",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217681"
+          }
+        },
+        {
+          "id": "3142:215861",
+          "key": "scope-asset-second",
+          "title": "Точный актив: независимое подтверждение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215861",
+          "english": {
+            "id": "3142:217709",
+            "title": "EN · scope-asset-second · Exact asset: independent approval",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217709"
+          }
+        },
+        {
+          "id": "3142:215889",
+          "key": "scope-asset-restored",
+          "title": "Точный актив: восстановление подтверждено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215889",
+          "english": {
+            "id": "3142:217737",
+            "title": "EN · scope-asset-restored · Exact asset: recovery confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217737"
+          }
+        },
+        {
+          "id": "3142:215917",
+          "key": "scope-route-active",
+          "title": "Маршрут: ограничение подтверждено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215917",
+          "english": {
+            "id": "3142:217765",
+            "title": "EN · scope-route-active · Route: restriction confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217765"
+          }
+        },
+        {
+          "id": "3142:215945",
+          "key": "scope-route-recover",
+          "title": "Маршрут: проверка восстановления",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215945",
+          "english": {
+            "id": "3142:217793",
+            "title": "EN · scope-route-recover · Route: review recovery",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217793"
+          }
+        },
+        {
+          "id": "3142:215973",
+          "key": "scope-route-second",
+          "title": "Маршрут: независимое подтверждение",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215973",
+          "english": {
+            "id": "3142:217821",
+            "title": "EN · scope-route-second · Route: independent approval",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217821"
+          }
+        },
+        {
+          "id": "3142:216001",
+          "key": "scope-route-restored",
+          "title": "Маршрут: восстановление подтверждено",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-216001",
+          "english": {
+            "id": "3142:217849",
+            "title": "EN · scope-route-restored · Route: recovery confirmed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217849"
+          }
+        },
+        {
+          "id": "3142:216029",
+          "key": "scopes-hub",
+          "title": "Применение ограничений по объектам",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-216029",
+          "english": {
+            "id": "3142:217877",
+            "title": "EN · scopes-hub · Apply restrictions by object",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217877"
+          }
+        },
+        {
+          "id": "3142:219361",
+          "key": "scope-apply-unknown",
+          "title": "Маршрут: результат остановки неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219361",
+          "english": {
+            "id": "3142:220285",
+            "title": "EN · scope-apply-unknown · Route: stop outcome unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220285"
+          }
+        },
+        {
+          "id": "3142:219389",
+          "key": "scope-apply-partial",
+          "title": "Сеть: не все исполнители подтвердили",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219389",
+          "english": {
+            "id": "3142:220313",
+            "title": "EN · scope-apply-partial · Network: incomplete acknowledgements",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220313"
+          }
+        },
+        {
+          "id": "3142:219417",
+          "key": "scope-recovery-blocked",
+          "title": "Восстановление заблокировано другим запретом",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219417",
+          "english": {
+            "id": "3142:220341",
+            "title": "EN · scope-recovery-blocked · Recovery blocked by another restriction",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220341"
+          }
+        },
+        {
+          "id": "3142:219445",
+          "key": "scope-approval-denied",
+          "title": "Второе согласие не принято",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219445",
+          "english": {
+            "id": "3142:220369",
+            "title": "EN · scope-approval-denied · Second approval rejected",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220369"
+          }
+        },
+        {
+          "id": "3142:219473",
+          "key": "scope-conflict",
+          "title": "Объект или версия изменились",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219473",
+          "english": {
+            "id": "3142:220397",
+            "title": "EN · scope-conflict · Object or version changed",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220397"
+          }
+        },
+        {
+          "id": "3142:219501",
+          "key": "scope-denied",
+          "title": "Нет права на эту область",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219501",
+          "english": {
+            "id": "3142:220425",
+            "title": "EN · scope-denied · No authority for this scope",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220425"
+          }
+        },
+        {
+          "id": "3142:219529",
+          "key": "scope-exceptions",
+          "title": "Отказы применения и восстановления: примеры",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219529",
+          "english": {
+            "id": "3142:220453",
+            "title": "EN · scope-exceptions · Application and recovery failures: examples",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220453"
+          }
+        },
+        {
+          "id": "3143:77770",
+          "key": "scope-recovery-unknown",
+          "title": "Восстановление маршрута: результат неизвестен",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3143-77770",
+          "english": {
+            "id": "3143:217189",
+            "title": "EN · scope-recovery-unknown · Route recovery: outcome unknown",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3143-217189"
+          }
+        },
+        {
+          "id": "3154:77944",
+          "key": "scope-staff-waiting",
+          "title": "Сотрудник: ожидается второй участник",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-77944",
+          "english": {
+            "id": "3154:218357",
+            "title": "EN · scope-staff-waiting · Staff: waiting for independent actor",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218357"
+          }
+        },
+        {
+          "id": "3154:77972",
+          "key": "scope-user-waiting",
+          "title": "Пользователь: ожидается второй участник",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-77972",
+          "english": {
+            "id": "3154:218385",
+            "title": "EN · scope-user-waiting · User: waiting for independent actor",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218385"
+          }
+        },
+        {
+          "id": "3154:78000",
+          "key": "scope-data-source-waiting",
+          "title": "Источник рыночных данных: ожидается второй участник",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-78000",
+          "english": {
+            "id": "3154:218413",
+            "title": "EN · scope-data-source-waiting · Market data source: waiting for independent actor",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218413"
+          }
+        },
+        {
+          "id": "3154:78028",
+          "key": "scope-treasury-source-waiting",
+          "title": "Собственный денежный источник: ожидается второй участник",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-78028",
+          "english": {
+            "id": "3154:218441",
+            "title": "EN · scope-treasury-source-waiting · Owned treasury source: waiting for independent actor",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218441"
+          }
+        },
+        {
+          "id": "3154:78056",
+          "key": "scope-signer-waiting",
+          "title": "Подписант: ожидается второй участник",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-78056",
+          "english": {
+            "id": "3154:218469",
+            "title": "EN · scope-signer-waiting · Signer: waiting for independent actor",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218469"
+          }
+        },
+        {
+          "id": "3154:78084",
+          "key": "scope-network-waiting",
+          "title": "Сеть: ожидается второй участник",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-78084",
+          "english": {
+            "id": "3154:218497",
+            "title": "EN · scope-network-waiting · Network: waiting for independent actor",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218497"
+          }
+        },
+        {
+          "id": "3154:78112",
+          "key": "scope-asset-waiting",
+          "title": "Точный актив: ожидается второй участник",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-78112",
+          "english": {
+            "id": "3154:218525",
+            "title": "EN · scope-asset-waiting · Exact asset: waiting for independent actor",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218525"
+          }
+        },
+        {
+          "id": "3154:78140",
+          "key": "scope-route-waiting",
+          "title": "Маршрут: ожидается второй участник",
+          "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-78140",
+          "english": {
+            "id": "3154:218553",
+            "title": "EN · scope-route-waiting · Route: waiting for independent actor",
+            "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218553"
           }
         }
       ],

@@ -1,10 +1,10 @@
 # Живая карта админки
 
-Текущий срез 18.10.2026: **689 RU +689 EN корневых макетов**, из них 684 основных состояния и 5 служебных оболочек на язык. Карта 0.23, набор компонентов 0.4.21 (28 наборов /168 вариантов).
+Текущий срез 19.10.2026: **776 RU +776 EN корневых макетов**, из них 771 основное состояние и 5 служебных оболочек на язык. Карта 0.24, набор компонентов 0.4.21 (28 наборов /168 вариантов).
 
-Полный индекс из [sitemap.json](sitemap.json). Статус — покрытие дизайном, не реализация или полная приёмка.
+Покрытие дизайном, не реализация или полная приёмка. [Машиночитаемая карта](sitemap.json).
 
-[Последние изменения](market-source-settings-2026-10-18/README.md)
+[Последние изменения](commands-scoped-controls-2026-10-19/README.md)
 
 ## ADM-01 · Обзор
 
@@ -199,9 +199,9 @@
 
 ## ADM-07 · Данные и рейтинг
 
-На вычитке. Сборщики, внутренний валидатор, методика рейтинга, проверка адреса и результаты.
+На вычитке. Девять команд сбора, проверки и рейтинга; раздельные права, принятие/выполнение/результат, отказы, неизвестность и отдельное переключение полного каталога.
 
-Состояний: 47.
+Состояний: 84.
 
 | Состояние | RU | EN |
 | --- | --- | --- |
@@ -252,6 +252,43 @@
 | Настройки уже изменены | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66150) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198723) |
 | Недостаточно прав для применения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66178) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198751) |
 | Изменение отклонено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66206) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198779) |
+| Применить настройки сборщика | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69734) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202729) |
+| Применить настройки сборщика: результат | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69762) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202757) |
+| Применить настройки сборщика: результат неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69790) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202785) |
+| Приостановить сбор | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69818) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202813) |
+| Приостановить сбор: результат | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69846) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202841) |
+| Приостановить сбор: результат неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69874) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202869) |
+| Возобновить сбор | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69902) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202897) |
+| Возобновить сбор: результат | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69930) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202925) |
+| Возобновить сбор: результат неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69958) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202953) |
+| Применить правила проверки | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69986) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202981) |
+| Применить правила проверки: результат | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-70014) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-203009) |
+| Применить правила проверки: результат неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-70042) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-203037) |
+| Запустить проверку данных | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-70070) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-203065) |
+| Запустить проверку данных: результат | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-70098) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-203093) |
+| Запустить проверку данных: результат неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204577) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206425) |
+| Сравнить методики | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204605) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206453) |
+| Сравнить методики: результат | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204633) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206481) |
+| Сравнить методики: результат неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204661) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206509) |
+| Опубликовать версию методики | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204689) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206537) |
+| Опубликовать версию методики: результат | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204717) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206565) |
+| Опубликовать версию методики: результат неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204745) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206593) |
+| Рассчитать опубликованную версию | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204773) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206621) |
+| Рассчитать опубликованную версию: результат | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204801) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206649) |
+| Рассчитать опубликованную версию: результат неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204829) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206677) |
+| Восстановить прежние правила | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204857) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206705) |
+| Восстановить прежние правила: результат | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204885) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206733) |
+| Восстановить прежние правила: результат неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204913) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206761) |
+| Команды данных и рейтинга | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204941) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206789) |
+| Права и условия команд | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208273) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210121) |
+| Конфликт версии команды | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208301) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210149) |
+| Снимок больше не пригоден | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208329) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210177) |
+| Команда запрещена по правам | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208357) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210205) |
+| Подтверждённый отказ команды | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208385) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210233) |
+| Действующее ограничение запрещает команду | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208413) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210261) |
+| Limitless: команда пока недоступна | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208441) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210289) |
+| Общие отказы команд: примеры | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208469) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210317) |
+| Расчёт выполняется | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3143-77742) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3143-217161) |
 
 ## ADM-08 · Тарифы и рефералы
 
@@ -742,9 +779,9 @@
 
 ## ADM-17 · Аварийное управление
 
-Частично. GLOBAL_STOP и четыре отдельных ограничения: область, применение, независимое восстановление.
+Частично. Точные области, восемь семейств объектов, применение всеми исполнителями, независимое восстановление, неизвестность/неполное применение и приоритет глобальных запретов.
 
-Состояний: 56.
+Состояний: 106.
 
 | Состояние | RU | EN |
 | --- | --- | --- |
@@ -792,18 +829,68 @@
 | После остановки · очередь операций | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-158785) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-48800) |
 | Старое задание требует новой проверки | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-158923) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2904-48938) |
 | Аварийные права сотрудника | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64610) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-193069) |
-| Область ограничения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66458) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199031) |
+| Источник рыночных данных: подтверждение ограничения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66458) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199031) |
 | Допустимые типы объектов | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66486) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199059) |
 | Проверка области ограничения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66514) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199087) |
 | Ограничение применено: пример | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66542) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199115) |
 | Объекты несовместимы | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66570) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199143) |
 | Область устарела | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66598) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199171) |
-| Сотрудник: проверка области | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66626) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199199) |
-| Пользователь: проверка области | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66654) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199227) |
-| Подписант: проверка области | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66682) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199255) |
-| Сеть: проверка области | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66710) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199283) |
-| Актив: проверка области | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66738) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199311) |
-| Маршрут: проверка области | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66766) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199339) |
+| Сотрудник: подтверждение ограничения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66626) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199199) |
+| Пользователь: подтверждение ограничения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66654) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199227) |
+| Подписант: подтверждение ограничения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66682) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199255) |
+| Сеть: подтверждение ограничения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66710) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199283) |
+| Точный актив: подтверждение ограничения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66738) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199311) |
+| Маршрут: подтверждение ограничения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66766) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199339) |
+| Сотрудник: ограничение подтверждено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208497) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210345) |
+| Сотрудник: проверка восстановления | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208525) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210373) |
+| Сотрудник: независимое подтверждение | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208553) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210401) |
+| Сотрудник: восстановление подтверждено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208581) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210429) |
+| Пользователь: ограничение подтверждено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208609) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210457) |
+| Пользователь: проверка восстановления | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208637) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210485) |
+| Пользователь: независимое подтверждение | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-211969) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213817) |
+| Пользователь: восстановление подтверждено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-211997) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213845) |
+| Источник рыночных данных: ограничение подтверждено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212025) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213873) |
+| Источник рыночных данных: проверка восстановления | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212053) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213901) |
+| Источник рыночных данных: независимое подтверждение | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212081) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213929) |
+| Источник рыночных данных: восстановление подтверждено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212109) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213957) |
+| Собственный денежный источник: подтверждение ограничения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212137) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213985) |
+| Собственный денежный источник: ограничение подтверждено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212165) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214013) |
+| Собственный денежный источник: проверка восстановления | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212193) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214041) |
+| Собственный денежный источник: независимое подтверждение | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212221) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214069) |
+| Собственный денежный источник: восстановление подтверждено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212249) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214097) |
+| Подписант: ограничение подтверждено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212277) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214125) |
+| Подписант: проверка восстановления | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212305) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214153) |
+| Подписант: независимое подтверждение | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212333) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214181) |
+| Подписант: восстановление подтверждено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215665) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217513) |
+| Сеть: ограничение подтверждено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215693) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217541) |
+| Сеть: проверка восстановления | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215721) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217569) |
+| Сеть: независимое подтверждение | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215749) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217597) |
+| Сеть: восстановление подтверждено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215777) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217625) |
+| Точный актив: ограничение подтверждено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215805) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217653) |
+| Точный актив: проверка восстановления | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215833) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217681) |
+| Точный актив: независимое подтверждение | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215861) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217709) |
+| Точный актив: восстановление подтверждено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215889) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217737) |
+| Маршрут: ограничение подтверждено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215917) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217765) |
+| Маршрут: проверка восстановления | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215945) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217793) |
+| Маршрут: независимое подтверждение | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215973) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217821) |
+| Маршрут: восстановление подтверждено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-216001) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217849) |
+| Применение ограничений по объектам | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-216029) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217877) |
+| Маршрут: результат остановки неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219361) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220285) |
+| Сеть: не все исполнители подтвердили | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219389) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220313) |
+| Восстановление заблокировано другим запретом | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219417) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220341) |
+| Второе согласие не принято | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219445) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220369) |
+| Объект или версия изменились | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219473) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220397) |
+| Нет права на эту область | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219501) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220425) |
+| Отказы применения и восстановления: примеры | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219529) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220453) |
+| Восстановление маршрута: результат неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3143-77770) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3143-217189) |
+| Сотрудник: ожидается второй участник | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-77944) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218357) |
+| Пользователь: ожидается второй участник | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-77972) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218385) |
+| Источник рыночных данных: ожидается второй участник | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-78000) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218413) |
+| Собственный денежный источник: ожидается второй участник | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-78028) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218441) |
+| Подписант: ожидается второй участник | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-78056) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218469) |
+| Сеть: ожидается второй участник | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-78084) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218497) |
+| Точный актив: ожидается второй участник | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-78112) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218525) |
+| Маршрут: ожидается второй участник | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-78140) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218553) |
 
 ## ADM-18 · Маркетинг
 

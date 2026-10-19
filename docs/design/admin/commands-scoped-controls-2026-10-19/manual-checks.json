@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-19",
+  "method": "Manual clicks in Figma Present via background in-app browser; screenshot and node-id after each transition",
+  "scope": "10 selected transitions only, no full X01/X04 or live authorization acceptance",
+  "checks": [
+    {
+      "locale": "ru",
+      "from": "commands-hub",
+      "to": "command-collector-apply",
+      "result": "pass"
+    },
+    {
+      "locale": "ru",
+      "from": "command-collector-apply",
+      "to": "command-collector-apply-unknown",
+      "result": "pass"
+    },
+    {
+      "locale": "ru",
+      "from": "command-collector-apply-unknown",
+      "to": "command-collector-apply-result",
+      "result": "pass"
+    },
+    {
+      "locale": "ru",
+      "from": "scope-treasury-source-recover",
+      "to": "scope-treasury-source-waiting",
+      "result": "pass"
+    },
+    {
+      "locale": "ru",
+      "from": "scope-treasury-source-waiting",
+      "to": "scope-treasury-source-second",
+      "result": "pass"
+    },
+    {
+      "locale": "ru",
+      "from": "scope-treasury-source-second",
+      "to": "scope-treasury-source-restored",
+      "result": "pass"
+    },
+    {
+      "locale": "en",
+      "from": "scope-route-recover",
+      "to": "scope-route-waiting",
+      "result": "pass"
+    },
+    {
+      "locale": "en",
+      "from": "scope-route-waiting",
+      "to": "scope-route-second",
+      "result": "pass"
+    },
+    {
+      "locale": "en",
+      "from": "scope-route-second",
+      "to": "scope-route-restored",
+      "result": "pass"
+    },
+    {
+      "locale": "en",
+      "from": "scope-route-restored",
+      "to": "scopes-hub",
+      "result": "pass"
+    }
+  ]
+}

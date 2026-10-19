@@ -2103,66 +2103,345 @@
     "id": "T05",
     "area": "ADM-07",
     "requirement": "Права новых команд и сбои/устаревание/конкурентное изменение конфигураций",
-    "status": "частично",
+    "status": "готово",
     "keys": [
-      "ADM-07/source-settings",
-      "ADM-07/source-settings-review",
-      "ADM-07/source-settings-applied",
-      "ADM-07/source-settings-conflict",
-      "ADM-07/source-settings-denied",
-      "ADM-07/source-settings-failed"
+      "ADM-07/command-collector-apply",
+      "ADM-07/command-collector-apply-result",
+      "ADM-07/command-collector-apply-unknown",
+      "ADM-07/command-collector-pause",
+      "ADM-07/command-collector-pause-result",
+      "ADM-07/command-collector-pause-unknown",
+      "ADM-07/command-collector-resume",
+      "ADM-07/command-collector-resume-result",
+      "ADM-07/command-collector-resume-unknown",
+      "ADM-07/command-validator-apply",
+      "ADM-07/command-validator-apply-result",
+      "ADM-07/command-validator-apply-unknown",
+      "ADM-07/command-validator-run",
+      "ADM-07/command-validator-run-result",
+      "ADM-07/command-validator-run-unknown",
+      "ADM-07/command-rating-simulate",
+      "ADM-07/command-rating-simulate-result",
+      "ADM-07/command-rating-simulate-unknown",
+      "ADM-07/command-rating-publish",
+      "ADM-07/command-rating-publish-result",
+      "ADM-07/command-rating-publish-unknown",
+      "ADM-07/command-rating-calculate",
+      "ADM-07/command-rating-calculate-result",
+      "ADM-07/command-rating-calculate-unknown",
+      "ADM-07/command-rating-restore",
+      "ADM-07/command-rating-restore-result",
+      "ADM-07/command-rating-restore-unknown",
+      "ADM-07/commands-hub",
+      "ADM-07/command-permissions",
+      "ADM-07/command-conflict",
+      "ADM-07/command-stale",
+      "ADM-07/command-denied",
+      "ADM-07/command-failed",
+      "ADM-07/command-stopped",
+      "ADM-07/command-limitless",
+      "ADM-07/command-exceptions",
+      "ADM-07/command-pending"
     ],
-    "gap": "Добавлены отдельные поля сборщика, владелец/отказ, проверка версии, конфликт, подтверждённый отказ и связь с неизвестным исходом. Полная матрица всех команд валидатора/рейтинга, конкурентность и серверная проверка остаются на вычитке.",
-    "priority": "P1",
+    "gap": "Покрыты матрица девяти команд/полномочий, точные версии и входы, принятие/выполнение/подтверждённый результат, неизвестность, отказ, конфликт, отзыв права и ограничения. Публикация методики отделена от полного расчёта и переключения каталога. Это дизайн и ожидаемые условия; серверная авторизация/конкурентность и полный X01/X04 открыты.",
+    "priority": "—",
     "source": "ADR-0044; ADR-0046",
     "evidence": [
       {
-        "key": "source-settings",
+        "key": "command-collector-apply",
         "section": "ADM-07",
-        "ru": "3097:66066",
-        "en": "3097:198639",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66066",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198639"
+        "ru": "3142:69734",
+        "en": "3142:202729",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69734",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202729"
       },
       {
-        "key": "source-settings-review",
+        "key": "command-collector-apply-result",
         "section": "ADM-07",
-        "ru": "3097:66094",
-        "en": "3097:198667",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66094",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198667"
+        "ru": "3142:69762",
+        "en": "3142:202757",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69762",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202757"
       },
       {
-        "key": "source-settings-applied",
+        "key": "command-collector-apply-unknown",
         "section": "ADM-07",
-        "ru": "3097:66122",
-        "en": "3097:198695",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66122",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198695"
+        "ru": "3142:69790",
+        "en": "3142:202785",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69790",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202785"
       },
       {
-        "key": "source-settings-conflict",
+        "key": "command-collector-pause",
         "section": "ADM-07",
-        "ru": "3097:66150",
-        "en": "3097:198723",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66150",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198723"
+        "ru": "3142:69818",
+        "en": "3142:202813",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69818",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202813"
       },
       {
-        "key": "source-settings-denied",
+        "key": "command-collector-pause-result",
         "section": "ADM-07",
-        "ru": "3097:66178",
-        "en": "3097:198751",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66178",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198751"
+        "ru": "3142:69846",
+        "en": "3142:202841",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69846",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202841"
       },
       {
-        "key": "source-settings-failed",
+        "key": "command-collector-pause-unknown",
         "section": "ADM-07",
-        "ru": "3097:66206",
-        "en": "3097:198779",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66206",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-198779"
+        "ru": "3142:69874",
+        "en": "3142:202869",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69874",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202869"
+      },
+      {
+        "key": "command-collector-resume",
+        "section": "ADM-07",
+        "ru": "3142:69902",
+        "en": "3142:202897",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69902",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202897"
+      },
+      {
+        "key": "command-collector-resume-result",
+        "section": "ADM-07",
+        "ru": "3142:69930",
+        "en": "3142:202925",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69930",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202925"
+      },
+      {
+        "key": "command-collector-resume-unknown",
+        "section": "ADM-07",
+        "ru": "3142:69958",
+        "en": "3142:202953",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69958",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202953"
+      },
+      {
+        "key": "command-validator-apply",
+        "section": "ADM-07",
+        "ru": "3142:69986",
+        "en": "3142:202981",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-69986",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-202981"
+      },
+      {
+        "key": "command-validator-apply-result",
+        "section": "ADM-07",
+        "ru": "3142:70014",
+        "en": "3142:203009",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-70014",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-203009"
+      },
+      {
+        "key": "command-validator-apply-unknown",
+        "section": "ADM-07",
+        "ru": "3142:70042",
+        "en": "3142:203037",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-70042",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-203037"
+      },
+      {
+        "key": "command-validator-run",
+        "section": "ADM-07",
+        "ru": "3142:70070",
+        "en": "3142:203065",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-70070",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-203065"
+      },
+      {
+        "key": "command-validator-run-result",
+        "section": "ADM-07",
+        "ru": "3142:70098",
+        "en": "3142:203093",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-70098",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-203093"
+      },
+      {
+        "key": "command-validator-run-unknown",
+        "section": "ADM-07",
+        "ru": "3142:204577",
+        "en": "3142:206425",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204577",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206425"
+      },
+      {
+        "key": "command-rating-simulate",
+        "section": "ADM-07",
+        "ru": "3142:204605",
+        "en": "3142:206453",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204605",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206453"
+      },
+      {
+        "key": "command-rating-simulate-result",
+        "section": "ADM-07",
+        "ru": "3142:204633",
+        "en": "3142:206481",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204633",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206481"
+      },
+      {
+        "key": "command-rating-simulate-unknown",
+        "section": "ADM-07",
+        "ru": "3142:204661",
+        "en": "3142:206509",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204661",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206509"
+      },
+      {
+        "key": "command-rating-publish",
+        "section": "ADM-07",
+        "ru": "3142:204689",
+        "en": "3142:206537",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204689",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206537"
+      },
+      {
+        "key": "command-rating-publish-result",
+        "section": "ADM-07",
+        "ru": "3142:204717",
+        "en": "3142:206565",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204717",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206565"
+      },
+      {
+        "key": "command-rating-publish-unknown",
+        "section": "ADM-07",
+        "ru": "3142:204745",
+        "en": "3142:206593",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204745",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206593"
+      },
+      {
+        "key": "command-rating-calculate",
+        "section": "ADM-07",
+        "ru": "3142:204773",
+        "en": "3142:206621",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204773",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206621"
+      },
+      {
+        "key": "command-rating-calculate-result",
+        "section": "ADM-07",
+        "ru": "3142:204801",
+        "en": "3142:206649",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204801",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206649"
+      },
+      {
+        "key": "command-rating-calculate-unknown",
+        "section": "ADM-07",
+        "ru": "3142:204829",
+        "en": "3142:206677",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204829",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206677"
+      },
+      {
+        "key": "command-rating-restore",
+        "section": "ADM-07",
+        "ru": "3142:204857",
+        "en": "3142:206705",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204857",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206705"
+      },
+      {
+        "key": "command-rating-restore-result",
+        "section": "ADM-07",
+        "ru": "3142:204885",
+        "en": "3142:206733",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204885",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206733"
+      },
+      {
+        "key": "command-rating-restore-unknown",
+        "section": "ADM-07",
+        "ru": "3142:204913",
+        "en": "3142:206761",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204913",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206761"
+      },
+      {
+        "key": "commands-hub",
+        "section": "ADM-07",
+        "ru": "3142:204941",
+        "en": "3142:206789",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-204941",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-206789"
+      },
+      {
+        "key": "command-permissions",
+        "section": "ADM-07",
+        "ru": "3142:208273",
+        "en": "3142:210121",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208273",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210121"
+      },
+      {
+        "key": "command-conflict",
+        "section": "ADM-07",
+        "ru": "3142:208301",
+        "en": "3142:210149",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208301",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210149"
+      },
+      {
+        "key": "command-stale",
+        "section": "ADM-07",
+        "ru": "3142:208329",
+        "en": "3142:210177",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208329",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210177"
+      },
+      {
+        "key": "command-denied",
+        "section": "ADM-07",
+        "ru": "3142:208357",
+        "en": "3142:210205",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208357",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210205"
+      },
+      {
+        "key": "command-failed",
+        "section": "ADM-07",
+        "ru": "3142:208385",
+        "en": "3142:210233",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208385",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210233"
+      },
+      {
+        "key": "command-stopped",
+        "section": "ADM-07",
+        "ru": "3142:208413",
+        "en": "3142:210261",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208413",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210261"
+      },
+      {
+        "key": "command-limitless",
+        "section": "ADM-07",
+        "ru": "3142:208441",
+        "en": "3142:210289",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208441",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210289"
+      },
+      {
+        "key": "command-exceptions",
+        "section": "ADM-07",
+        "ru": "3142:208469",
+        "en": "3142:210317",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208469",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210317"
+      },
+      {
+        "key": "command-pending",
+        "section": "ADM-07",
+        "ru": "3143:77742",
+        "en": "3143:217161",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3143-77742",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3143-217161"
       }
     ]
   },
@@ -5365,72 +5644,470 @@
     "id": "E04",
     "area": "ADM-17",
     "requirement": "Точная область staff/user/source/signer/network/asset/route",
-    "status": "частично",
+    "status": "готово",
     "keys": [
-      "ADM-17/restriction-scope",
-      "ADM-17/restriction-type-options",
-      "ADM-17/restriction-preview",
-      "ADM-17/restriction-applied",
-      "ADM-17/restriction-invalid",
-      "ADM-17/restriction-conflict",
+      "ADM-17/scope-staff-active",
+      "ADM-17/scope-staff-recover",
+      "ADM-17/scope-staff-second",
+      "ADM-17/scope-staff-restored",
+      "ADM-17/scope-user-active",
+      "ADM-17/scope-user-recover",
+      "ADM-17/scope-user-second",
+      "ADM-17/scope-user-restored",
+      "ADM-17/scope-data-source-active",
+      "ADM-17/scope-data-source-recover",
+      "ADM-17/scope-data-source-second",
+      "ADM-17/scope-data-source-restored",
+      "ADM-17/scope-treasury-source-review",
+      "ADM-17/scope-treasury-source-active",
+      "ADM-17/scope-treasury-source-recover",
+      "ADM-17/scope-treasury-source-second",
+      "ADM-17/scope-treasury-source-restored",
+      "ADM-17/scope-signer-active",
+      "ADM-17/scope-signer-recover",
+      "ADM-17/scope-signer-second",
+      "ADM-17/scope-signer-restored",
+      "ADM-17/scope-network-active",
+      "ADM-17/scope-network-recover",
+      "ADM-17/scope-network-second",
+      "ADM-17/scope-network-restored",
+      "ADM-17/scope-asset-active",
+      "ADM-17/scope-asset-recover",
+      "ADM-17/scope-asset-second",
+      "ADM-17/scope-asset-restored",
+      "ADM-17/scope-route-active",
+      "ADM-17/scope-route-recover",
+      "ADM-17/scope-route-second",
+      "ADM-17/scope-route-restored",
+      "ADM-17/scopes-hub",
+      "ADM-17/scope-apply-unknown",
+      "ADM-17/scope-apply-partial",
+      "ADM-17/scope-recovery-blocked",
+      "ADM-17/scope-approval-denied",
+      "ADM-17/scope-conflict",
+      "ADM-17/scope-denied",
+      "ADM-17/scope-exceptions",
+      "ADM-17/scope-recovery-unknown",
+      "ADM-17/scope-staff-waiting",
+      "ADM-17/scope-user-waiting",
+      "ADM-17/scope-data-source-waiting",
+      "ADM-17/scope-treasury-source-waiting",
+      "ADM-17/scope-signer-waiting",
+      "ADM-17/scope-network-waiting",
+      "ADM-17/scope-asset-waiting",
+      "ADM-17/scope-route-waiting",
       "ADM-17/restriction-staff",
       "ADM-17/restriction-user",
+      "ADM-17/restriction-scope",
       "ADM-17/restriction-signer",
       "ADM-17/restriction-network",
       "ADM-17/restriction-asset",
-      "ADM-17/restriction-route"
+      "ADM-17/restriction-route",
+      "ADM-17/restriction-type-options"
     ],
-    "gap": "Добавлены выбор семи типов, точные учебные объекты и связи, запрет несовместимых площадок, конфликт и проверка последствий. Полный проход применения и восстановления каждого типа по всем ограничениям ещё открыт; новые полномочия не утверждены.",
-    "priority": "P2",
+    "gap": "Покрыты точные типы staff/user/source/signer/network/asset/route: источник данных и собственный денежный источник разделены. Семь существующих подтверждений обновлены; восемь семейств имеют применение и независимое восстановление, полные реквизиты, версии/связи, неполноту/неизвестность и запреты. Полный технический и денежный запреты сохраняют приоритет. Это дизайн, не приёмка реального исполнения.",
+    "priority": "—",
     "source": "118",
     "evidence": [
       {
-        "key": "restriction-scope",
+        "key": "scope-staff-active",
         "section": "ADM-17",
-        "ru": "3097:66458",
-        "en": "3097:199031",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66458",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199031"
+        "ru": "3142:208497",
+        "en": "3142:210345",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208497",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210345"
       },
       {
-        "key": "restriction-type-options",
+        "key": "scope-staff-recover",
         "section": "ADM-17",
-        "ru": "3097:66486",
-        "en": "3097:199059",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66486",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199059"
+        "ru": "3142:208525",
+        "en": "3142:210373",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208525",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210373"
       },
       {
-        "key": "restriction-preview",
+        "key": "scope-staff-second",
         "section": "ADM-17",
-        "ru": "3097:66514",
-        "en": "3097:199087",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66514",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199087"
+        "ru": "3142:208553",
+        "en": "3142:210401",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208553",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210401"
       },
       {
-        "key": "restriction-applied",
+        "key": "scope-staff-restored",
         "section": "ADM-17",
-        "ru": "3097:66542",
-        "en": "3097:199115",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66542",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199115"
+        "ru": "3142:208581",
+        "en": "3142:210429",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208581",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210429"
       },
       {
-        "key": "restriction-invalid",
+        "key": "scope-user-active",
         "section": "ADM-17",
-        "ru": "3097:66570",
-        "en": "3097:199143",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66570",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199143"
+        "ru": "3142:208609",
+        "en": "3142:210457",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208609",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210457"
       },
       {
-        "key": "restriction-conflict",
+        "key": "scope-user-recover",
         "section": "ADM-17",
-        "ru": "3097:66598",
-        "en": "3097:199171",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66598",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199171"
+        "ru": "3142:208637",
+        "en": "3142:210485",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-208637",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-210485"
+      },
+      {
+        "key": "scope-user-second",
+        "section": "ADM-17",
+        "ru": "3142:211969",
+        "en": "3142:213817",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-211969",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213817"
+      },
+      {
+        "key": "scope-user-restored",
+        "section": "ADM-17",
+        "ru": "3142:211997",
+        "en": "3142:213845",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-211997",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213845"
+      },
+      {
+        "key": "scope-data-source-active",
+        "section": "ADM-17",
+        "ru": "3142:212025",
+        "en": "3142:213873",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212025",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213873"
+      },
+      {
+        "key": "scope-data-source-recover",
+        "section": "ADM-17",
+        "ru": "3142:212053",
+        "en": "3142:213901",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212053",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213901"
+      },
+      {
+        "key": "scope-data-source-second",
+        "section": "ADM-17",
+        "ru": "3142:212081",
+        "en": "3142:213929",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212081",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213929"
+      },
+      {
+        "key": "scope-data-source-restored",
+        "section": "ADM-17",
+        "ru": "3142:212109",
+        "en": "3142:213957",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212109",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213957"
+      },
+      {
+        "key": "scope-treasury-source-review",
+        "section": "ADM-17",
+        "ru": "3142:212137",
+        "en": "3142:213985",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212137",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-213985"
+      },
+      {
+        "key": "scope-treasury-source-active",
+        "section": "ADM-17",
+        "ru": "3142:212165",
+        "en": "3142:214013",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212165",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214013"
+      },
+      {
+        "key": "scope-treasury-source-recover",
+        "section": "ADM-17",
+        "ru": "3142:212193",
+        "en": "3142:214041",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212193",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214041"
+      },
+      {
+        "key": "scope-treasury-source-second",
+        "section": "ADM-17",
+        "ru": "3142:212221",
+        "en": "3142:214069",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212221",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214069"
+      },
+      {
+        "key": "scope-treasury-source-restored",
+        "section": "ADM-17",
+        "ru": "3142:212249",
+        "en": "3142:214097",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212249",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214097"
+      },
+      {
+        "key": "scope-signer-active",
+        "section": "ADM-17",
+        "ru": "3142:212277",
+        "en": "3142:214125",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212277",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214125"
+      },
+      {
+        "key": "scope-signer-recover",
+        "section": "ADM-17",
+        "ru": "3142:212305",
+        "en": "3142:214153",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212305",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214153"
+      },
+      {
+        "key": "scope-signer-second",
+        "section": "ADM-17",
+        "ru": "3142:212333",
+        "en": "3142:214181",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-212333",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-214181"
+      },
+      {
+        "key": "scope-signer-restored",
+        "section": "ADM-17",
+        "ru": "3142:215665",
+        "en": "3142:217513",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215665",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217513"
+      },
+      {
+        "key": "scope-network-active",
+        "section": "ADM-17",
+        "ru": "3142:215693",
+        "en": "3142:217541",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215693",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217541"
+      },
+      {
+        "key": "scope-network-recover",
+        "section": "ADM-17",
+        "ru": "3142:215721",
+        "en": "3142:217569",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215721",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217569"
+      },
+      {
+        "key": "scope-network-second",
+        "section": "ADM-17",
+        "ru": "3142:215749",
+        "en": "3142:217597",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215749",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217597"
+      },
+      {
+        "key": "scope-network-restored",
+        "section": "ADM-17",
+        "ru": "3142:215777",
+        "en": "3142:217625",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215777",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217625"
+      },
+      {
+        "key": "scope-asset-active",
+        "section": "ADM-17",
+        "ru": "3142:215805",
+        "en": "3142:217653",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215805",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217653"
+      },
+      {
+        "key": "scope-asset-recover",
+        "section": "ADM-17",
+        "ru": "3142:215833",
+        "en": "3142:217681",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215833",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217681"
+      },
+      {
+        "key": "scope-asset-second",
+        "section": "ADM-17",
+        "ru": "3142:215861",
+        "en": "3142:217709",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215861",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217709"
+      },
+      {
+        "key": "scope-asset-restored",
+        "section": "ADM-17",
+        "ru": "3142:215889",
+        "en": "3142:217737",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215889",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217737"
+      },
+      {
+        "key": "scope-route-active",
+        "section": "ADM-17",
+        "ru": "3142:215917",
+        "en": "3142:217765",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215917",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217765"
+      },
+      {
+        "key": "scope-route-recover",
+        "section": "ADM-17",
+        "ru": "3142:215945",
+        "en": "3142:217793",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215945",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217793"
+      },
+      {
+        "key": "scope-route-second",
+        "section": "ADM-17",
+        "ru": "3142:215973",
+        "en": "3142:217821",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-215973",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217821"
+      },
+      {
+        "key": "scope-route-restored",
+        "section": "ADM-17",
+        "ru": "3142:216001",
+        "en": "3142:217849",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-216001",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217849"
+      },
+      {
+        "key": "scopes-hub",
+        "section": "ADM-17",
+        "ru": "3142:216029",
+        "en": "3142:217877",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-216029",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-217877"
+      },
+      {
+        "key": "scope-apply-unknown",
+        "section": "ADM-17",
+        "ru": "3142:219361",
+        "en": "3142:220285",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219361",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220285"
+      },
+      {
+        "key": "scope-apply-partial",
+        "section": "ADM-17",
+        "ru": "3142:219389",
+        "en": "3142:220313",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219389",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220313"
+      },
+      {
+        "key": "scope-recovery-blocked",
+        "section": "ADM-17",
+        "ru": "3142:219417",
+        "en": "3142:220341",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219417",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220341"
+      },
+      {
+        "key": "scope-approval-denied",
+        "section": "ADM-17",
+        "ru": "3142:219445",
+        "en": "3142:220369",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219445",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220369"
+      },
+      {
+        "key": "scope-conflict",
+        "section": "ADM-17",
+        "ru": "3142:219473",
+        "en": "3142:220397",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219473",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220397"
+      },
+      {
+        "key": "scope-denied",
+        "section": "ADM-17",
+        "ru": "3142:219501",
+        "en": "3142:220425",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219501",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220425"
+      },
+      {
+        "key": "scope-exceptions",
+        "section": "ADM-17",
+        "ru": "3142:219529",
+        "en": "3142:220453",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-219529",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3142-220453"
+      },
+      {
+        "key": "scope-recovery-unknown",
+        "section": "ADM-17",
+        "ru": "3143:77770",
+        "en": "3143:217189",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3143-77770",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3143-217189"
+      },
+      {
+        "key": "scope-staff-waiting",
+        "section": "ADM-17",
+        "ru": "3154:77944",
+        "en": "3154:218357",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-77944",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218357"
+      },
+      {
+        "key": "scope-user-waiting",
+        "section": "ADM-17",
+        "ru": "3154:77972",
+        "en": "3154:218385",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-77972",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218385"
+      },
+      {
+        "key": "scope-data-source-waiting",
+        "section": "ADM-17",
+        "ru": "3154:78000",
+        "en": "3154:218413",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-78000",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218413"
+      },
+      {
+        "key": "scope-treasury-source-waiting",
+        "section": "ADM-17",
+        "ru": "3154:78028",
+        "en": "3154:218441",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-78028",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218441"
+      },
+      {
+        "key": "scope-signer-waiting",
+        "section": "ADM-17",
+        "ru": "3154:78056",
+        "en": "3154:218469",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-78056",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218469"
+      },
+      {
+        "key": "scope-network-waiting",
+        "section": "ADM-17",
+        "ru": "3154:78084",
+        "en": "3154:218497",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-78084",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218497"
+      },
+      {
+        "key": "scope-asset-waiting",
+        "section": "ADM-17",
+        "ru": "3154:78112",
+        "en": "3154:218525",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-78112",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218525"
+      },
+      {
+        "key": "scope-route-waiting",
+        "section": "ADM-17",
+        "ru": "3154:78140",
+        "en": "3154:218553",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-78140",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3154-218553"
       },
       {
         "key": "restriction-staff",
@@ -5447,6 +6124,14 @@
         "en": "3097:199227",
         "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66654",
         "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199227"
+      },
+      {
+        "key": "restriction-scope",
+        "section": "ADM-17",
+        "ru": "3097:66458",
+        "en": "3097:199031",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66458",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199031"
       },
       {
         "key": "restriction-signer",
@@ -5479,6 +6164,14 @@
         "en": "3097:199339",
         "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66766",
         "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199339"
+      },
+      {
+        "key": "restriction-type-options",
+        "section": "ADM-17",
+        "ru": "3097:66486",
+        "en": "3097:199059",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-66486",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3097-199059"
       }
     ]
   },

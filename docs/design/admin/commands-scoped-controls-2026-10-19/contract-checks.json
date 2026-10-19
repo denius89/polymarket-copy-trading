@@ -1,0 +1,299 @@
+{
+  "scope": "Static design contract; expected-case coverage is not runtime authorization or safety acceptance",
+  "checks": [
+    {
+      "name": "87 new and eight updated unique bilingual states",
+      "pass": true
+    },
+    {
+      "name": "all rows have three bilingual semantic columns",
+      "pass": true
+    },
+    {
+      "name": "all action and scenario destinations resolve",
+      "pass": true
+    },
+    {
+      "name": "all row destinations resolve",
+      "pass": true
+    },
+    {
+      "name": "nine distinct commands and intents",
+      "pass": true
+    },
+    {
+      "name": "collector-apply preserves exact command in result and unknown state",
+      "pass": true
+    },
+    {
+      "name": "collector-apply unknown offers only status read and list",
+      "pass": true
+    },
+    {
+      "name": "collector-pause preserves exact command in result and unknown state",
+      "pass": true
+    },
+    {
+      "name": "collector-pause unknown offers only status read and list",
+      "pass": true
+    },
+    {
+      "name": "collector-resume preserves exact command in result and unknown state",
+      "pass": true
+    },
+    {
+      "name": "collector-resume unknown offers only status read and list",
+      "pass": true
+    },
+    {
+      "name": "validator-apply preserves exact command in result and unknown state",
+      "pass": true
+    },
+    {
+      "name": "validator-apply unknown offers only status read and list",
+      "pass": true
+    },
+    {
+      "name": "validator-run preserves exact command in result and unknown state",
+      "pass": true
+    },
+    {
+      "name": "validator-run unknown offers only status read and list",
+      "pass": true
+    },
+    {
+      "name": "rating-simulate preserves exact command in result and unknown state",
+      "pass": true
+    },
+    {
+      "name": "rating-simulate unknown offers only status read and list",
+      "pass": true
+    },
+    {
+      "name": "rating-publish preserves exact command in result and unknown state",
+      "pass": true
+    },
+    {
+      "name": "rating-publish unknown offers only status read and list",
+      "pass": true
+    },
+    {
+      "name": "rating-calculate preserves exact command in result and unknown state",
+      "pass": true
+    },
+    {
+      "name": "rating-calculate unknown offers only status read and list",
+      "pass": true
+    },
+    {
+      "name": "rating-restore preserves exact command in result and unknown state",
+      "pass": true
+    },
+    {
+      "name": "rating-restore unknown offers only status read and list",
+      "pass": true
+    },
+    {
+      "name": "calculation acceptance is distinct from completion",
+      "pass": true
+    },
+    {
+      "name": "publishing rules does not switch catalog",
+      "pass": true
+    },
+    {
+      "name": "full calculation switches catalog atomically",
+      "pass": true
+    },
+    {
+      "name": "rollback creates R3 without rewriting trades",
+      "pass": true
+    },
+    {
+      "name": "eligible old snapshot only; no score on stale data",
+      "pass": true
+    },
+    {
+      "name": "resume does not bypass emergency block",
+      "pass": true
+    },
+    {
+      "name": "diagnostics does not edit events or publish rating",
+      "pass": true
+    },
+    {
+      "name": "simulation leaves publication unchanged",
+      "pass": true
+    },
+    {
+      "name": "Limitless remains unverified and separate",
+      "pass": true
+    },
+    {
+      "name": "eight scope families, two distinct source types",
+      "pass": true
+    },
+    {
+      "name": "staff application and independent recovery chain",
+      "pass": true
+    },
+    {
+      "name": "staff pins object in every critical phase",
+      "pass": true
+    },
+    {
+      "name": "staff recovery approval has distinct identity",
+      "pass": true
+    },
+    {
+      "name": "user application and independent recovery chain",
+      "pass": true
+    },
+    {
+      "name": "user pins object in every critical phase",
+      "pass": true
+    },
+    {
+      "name": "user recovery approval has distinct identity",
+      "pass": true
+    },
+    {
+      "name": "data-source application and independent recovery chain",
+      "pass": true
+    },
+    {
+      "name": "data-source pins object in every critical phase",
+      "pass": true
+    },
+    {
+      "name": "data-source recovery approval has distinct identity",
+      "pass": true
+    },
+    {
+      "name": "treasury-source application and independent recovery chain",
+      "pass": true
+    },
+    {
+      "name": "treasury-source pins object in every critical phase",
+      "pass": true
+    },
+    {
+      "name": "treasury-source recovery approval has distinct identity",
+      "pass": true
+    },
+    {
+      "name": "signer application and independent recovery chain",
+      "pass": true
+    },
+    {
+      "name": "signer pins object in every critical phase",
+      "pass": true
+    },
+    {
+      "name": "signer recovery approval has distinct identity",
+      "pass": true
+    },
+    {
+      "name": "network application and independent recovery chain",
+      "pass": true
+    },
+    {
+      "name": "network pins object in every critical phase",
+      "pass": true
+    },
+    {
+      "name": "network recovery approval has distinct identity",
+      "pass": true
+    },
+    {
+      "name": "asset application and independent recovery chain",
+      "pass": true
+    },
+    {
+      "name": "asset pins object in every critical phase",
+      "pass": true
+    },
+    {
+      "name": "asset recovery approval has distinct identity",
+      "pass": true
+    },
+    {
+      "name": "route application and independent recovery chain",
+      "pass": true
+    },
+    {
+      "name": "route pins object in every critical phase",
+      "pass": true
+    },
+    {
+      "name": "route recovery approval has distinct identity",
+      "pass": true
+    },
+    {
+      "name": "first actor has no product action to second actor",
+      "pass": true
+    },
+    {
+      "name": "treasury activation requires two owners",
+      "pass": true
+    },
+    {
+      "name": "other recoveries allow independent authorized staff",
+      "pass": true
+    },
+    {
+      "name": "preparation does not create approval",
+      "pass": true
+    },
+    {
+      "name": "staff recovery does not restore sessions or approvals",
+      "pass": true
+    },
+    {
+      "name": "staff stop records revocation and owner alerts",
+      "pass": true
+    },
+    {
+      "name": "signer isolation is not provider key revocation",
+      "pass": true
+    },
+    {
+      "name": "unknown recovery retains denial and blocks duplicates",
+      "pass": true
+    },
+    {
+      "name": "partial application cannot claim full stop",
+      "pass": true
+    },
+    {
+      "name": "route recovery does not authorize transfer",
+      "pass": true
+    },
+    {
+      "name": "two approvals do not bypass global blocks",
+      "pass": true
+    },
+    {
+      "name": "same identity cannot confirm twice",
+      "pass": true
+    },
+    {
+      "name": "denied role has no route to owner data",
+      "pass": true
+    },
+    {
+      "name": "all shown hex addresses are full synthetic addresses",
+      "pass": true
+    },
+    {
+      "name": "186 expected conditions have design witnesses",
+      "pass": true
+    },
+    {
+      "name": "expected matrix is not labeled runtime tests",
+      "pass": true
+    }
+  ],
+  "passed": 73,
+  "expectedCases": 186
+}

@@ -1,0 +1,695 @@
+[
+  {
+    "key": "restriction-staff",
+    "section": "ADM-17",
+    "title": [
+      "Сотрудник: подтверждение ограничения",
+      "Staff: confirm restriction"
+    ],
+    "body": [
+      "Перед применением фиксируются причина, точная область и версия объекта. Команда STAFF-203 не расширяет область и не меняет состояние площадки вне Shadow.",
+      "Pin reason, exact scope and object version before application. Command STAFF-203 does not expand scope or affect venue state outside Shadow."
+    ],
+    "headers": [
+      [
+        "Объект / проверка",
+        "Object / check"
+      ],
+      [
+        "Точное значение",
+        "Exact value"
+      ],
+      [
+        "Последствие / граница",
+        "Effect / boundary"
+      ]
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Блокировка служебной учётной записи",
+        "Block staff account",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "STAFF-203",
+        "STAFF-203",
+        "Служебная личность; не клиент",
+        "Staff identity, not client"
+      ],
+      [
+        "Полномочие",
+        "Authority",
+        "Остановка — действующее право в точной области",
+        "Stop: current grant for exact scope",
+        "Запрет новых действий от имени STAFF-203; отзыв сеансов и неиспользованных подтверждений.",
+        "Block new STAFF-203 actions; revoke sessions and unused approvals."
+      ],
+      [
+        "Версия / причина",
+        "Version / reason",
+        "OBJ-1 · контроль RST-STAFF-1",
+        "OBJ-1 · control RST-STAFF-1",
+        "Учебный инцидент INC-SCOPE-01; версия проверяется повторно",
+        "Synthetic incident INC-SCOPE-01; recheck version"
+      ]
+    ],
+    "actions": [
+      [
+        "Применить ограничение в примере",
+        "Apply restriction in fixture",
+        "scope-staff-active"
+      ],
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "primaryTo": "scope-staff-active",
+    "scenarios": [
+      [
+        "Общие отказы: пример",
+        "Common failures: example",
+        "scope-exceptions"
+      ]
+    ]
+  },
+  {
+    "key": "restriction-user",
+    "section": "ADM-17",
+    "title": [
+      "Пользователь: подтверждение ограничения",
+      "User: confirm restriction"
+    ],
+    "body": [
+      "Перед применением фиксируются причина, точная область и версия объекта. Команда U-DEMO-002 не расширяет область и не меняет состояние площадки вне Shadow.",
+      "Pin reason, exact scope and object version before application. Command U-DEMO-002 does not expand scope or affect venue state outside Shadow."
+    ],
+    "headers": [
+      [
+        "Объект / проверка",
+        "Object / check"
+      ],
+      [
+        "Точное значение",
+        "Exact value"
+      ],
+      [
+        "Последствие / граница",
+        "Effect / boundary"
+      ]
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет новых действий выбранного клиента",
+        "Block selected client’s new actions",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "U-DEMO-002",
+        "U-DEMO-002",
+        "Клиент; не сотрудник",
+        "Client, not staff"
+      ],
+      [
+        "Полномочие",
+        "Authority",
+        "Остановка — действующее право в точной области",
+        "Stop: current grant for exact scope",
+        "Новые торговые и денежные запросы U-DEMO-002 через Shadow запрещены.",
+        "New U-DEMO-002 trading and money requests through Shadow blocked."
+      ],
+      [
+        "Версия / причина",
+        "Version / reason",
+        "OBJ-1 · контроль RST-USER-1",
+        "OBJ-1 · control RST-USER-1",
+        "Учебный инцидент INC-SCOPE-01; версия проверяется повторно",
+        "Synthetic incident INC-SCOPE-01; recheck version"
+      ]
+    ],
+    "actions": [
+      [
+        "Применить ограничение в примере",
+        "Apply restriction in fixture",
+        "scope-user-active"
+      ],
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "primaryTo": "scope-user-active",
+    "scenarios": [
+      [
+        "Общие отказы: пример",
+        "Common failures: example",
+        "scope-exceptions"
+      ]
+    ]
+  },
+  {
+    "key": "restriction-scope",
+    "section": "ADM-17",
+    "title": [
+      "Источник рыночных данных: подтверждение ограничения",
+      "Market data source: confirm restriction"
+    ],
+    "body": [
+      "Перед применением фиксируются причина, точная область и версия объекта. Команда SRC-PM-CAT не расширяет область и не меняет состояние площадки вне Shadow.",
+      "Pin reason, exact scope and object version before application. Command SRC-PM-CAT does not expand scope or affect venue state outside Shadow."
+    ],
+    "headers": [
+      [
+        "Объект / проверка",
+        "Object / check"
+      ],
+      [
+        "Точное значение",
+        "Exact value"
+      ],
+      [
+        "Последствие / граница",
+        "Effect / boundary"
+      ]
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Остановка чтений выбранного источника",
+        "Stop selected source reads",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "SRC-PM-CAT",
+        "SRC-PM-CAT",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Полномочие",
+        "Authority",
+        "Остановка — действующее право в точной области",
+        "Stop: current grant for exact scope",
+        "Запрет новых заданий каталога SRC-PM-CAT. Собранные снимки становятся прошлыми по времени.",
+        "Block new SRC-PM-CAT catalog jobs. Collected snapshots age normally."
+      ],
+      [
+        "Версия / причина",
+        "Version / reason",
+        "OBJ-1 · контроль RST-DATA-SOURCE-1",
+        "OBJ-1 · control RST-DATA-SOURCE-1",
+        "Учебный инцидент INC-SCOPE-01; версия проверяется повторно",
+        "Synthetic incident INC-SCOPE-01; recheck version"
+      ]
+    ],
+    "actions": [
+      [
+        "Применить ограничение в примере",
+        "Apply restriction in fixture",
+        "scope-data-source-active"
+      ],
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "primaryTo": "scope-data-source-active",
+    "scenarios": [
+      [
+        "Общие отказы: пример",
+        "Common failures: example",
+        "scope-exceptions"
+      ]
+    ]
+  },
+  {
+    "key": "restriction-signer",
+    "section": "ADM-17",
+    "title": [
+      "Подписант: подтверждение ограничения",
+      "Signer: confirm restriction"
+    ],
+    "body": [
+      "Перед применением фиксируются причина, точная область и версия объекта. Команда SIGNER-DEMO-01 не расширяет область и не меняет состояние площадки вне Shadow.",
+      "Pin reason, exact scope and object version before application. Command SIGNER-DEMO-01 does not expand scope or affect venue state outside Shadow."
+    ],
+    "headers": [
+      [
+        "Объект / проверка",
+        "Object / check"
+      ],
+      [
+        "Точное значение",
+        "Exact value"
+      ],
+      [
+        "Последствие / граница",
+        "Effect / boundary"
+      ]
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет новых подписей",
+        "Block new signatures",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "SIGNER-DEMO-01",
+        "SIGNER-DEMO-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Полномочие",
+        "Authority",
+        "Остановка — действующее право в точной области",
+        "Stop: current grant for exact scope",
+        "Shadow не поручает новые подписи профилю SIGNER-DEMO-01.",
+        "Shadow requests no new SIGNER-DEMO-01 signatures."
+      ],
+      [
+        "Версия / причина",
+        "Version / reason",
+        "OBJ-1 · контроль RST-SIGNER-1",
+        "OBJ-1 · control RST-SIGNER-1",
+        "Учебный инцидент INC-SCOPE-01; версия проверяется повторно",
+        "Synthetic incident INC-SCOPE-01; recheck version"
+      ]
+    ],
+    "actions": [
+      [
+        "Применить ограничение в примере",
+        "Apply restriction in fixture",
+        "scope-signer-active"
+      ],
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "primaryTo": "scope-signer-active",
+    "scenarios": [
+      [
+        "Общие отказы: пример",
+        "Common failures: example",
+        "scope-exceptions"
+      ]
+    ]
+  },
+  {
+    "key": "restriction-network",
+    "section": "ADM-17",
+    "title": [
+      "Сеть: подтверждение ограничения",
+      "Network: confirm restriction"
+    ],
+    "body": [
+      "Перед применением фиксируются причина, точная область и версия объекта. Команда NET-DEMO-01 не расширяет область и не меняет состояние площадки вне Shadow.",
+      "Pin reason, exact scope and object version before application. Command NET-DEMO-01 does not expand scope or affect venue state outside Shadow."
+    ],
+    "headers": [
+      [
+        "Объект / проверка",
+        "Object / check"
+      ],
+      [
+        "Точное значение",
+        "Exact value"
+      ],
+      [
+        "Последствие / граница",
+        "Effect / boundary"
+      ]
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет новых денежных отправок в сеть",
+        "Block new money submissions on network",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "NET-DEMO-01",
+        "NET-DEMO-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Полномочие",
+        "Authority",
+        "Остановка — действующее право в точной области",
+        "Stop: current grant for exact scope",
+        "Все соответствующие новые отправки Shadow в NET-DEMO-01 запрещены.",
+        "All matching new Shadow submissions on NET-DEMO-01 blocked."
+      ],
+      [
+        "Версия / причина",
+        "Version / reason",
+        "OBJ-1 · контроль RST-NETWORK-1",
+        "OBJ-1 · control RST-NETWORK-1",
+        "Учебный инцидент INC-SCOPE-01; версия проверяется повторно",
+        "Synthetic incident INC-SCOPE-01; recheck version"
+      ]
+    ],
+    "actions": [
+      [
+        "Применить ограничение в примере",
+        "Apply restriction in fixture",
+        "scope-network-active"
+      ],
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "primaryTo": "scope-network-active",
+    "scenarios": [
+      [
+        "Общие отказы: пример",
+        "Common failures: example",
+        "scope-exceptions"
+      ]
+    ]
+  },
+  {
+    "key": "restriction-asset",
+    "section": "ADM-17",
+    "title": [
+      "Точный актив: подтверждение ограничения",
+      "Exact asset: confirm restriction"
+    ],
+    "body": [
+      "Перед применением фиксируются причина, точная область и версия объекта. Команда ASSET-DEMO-01 не расширяет область и не меняет состояние площадки вне Shadow.",
+      "Pin reason, exact scope and object version before application. Command ASSET-DEMO-01 does not expand scope or affect venue state outside Shadow."
+    ],
+    "headers": [
+      [
+        "Объект / проверка",
+        "Object / check"
+      ],
+      [
+        "Точное значение",
+        "Exact value"
+      ],
+      [
+        "Последствие / граница",
+        "Effect / boundary"
+      ]
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет отправок точного актива",
+        "Block exact-asset submissions",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "ASSET-DEMO-01",
+        "ASSET-DEMO-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Полномочие",
+        "Authority",
+        "Остановка — действующее право в точной области",
+        "Stop: current grant for exact scope",
+        "USDT в NET-DEMO-01 с указанным контрактом запрещён для новых отправок Shadow.",
+        "New Shadow submissions of USDT on NET-DEMO-01 with the specified contract blocked."
+      ],
+      [
+        "Сеть / точный контракт",
+        "Network / exact contract",
+        "0x5555555555555555555555555555555555555555",
+        "0x5555555555555555555555555555555555555555",
+        "NET-DEMO-01 · USDT · учебный контракт",
+        "NET-DEMO-01 · USDT · synthetic contract"
+      ],
+      [
+        "Версия / причина",
+        "Version / reason",
+        "OBJ-1 · контроль RST-ASSET-1",
+        "OBJ-1 · control RST-ASSET-1",
+        "Учебный инцидент INC-SCOPE-01; версия проверяется повторно",
+        "Synthetic incident INC-SCOPE-01; recheck version"
+      ]
+    ],
+    "actions": [
+      [
+        "Применить ограничение в примере",
+        "Apply restriction in fixture",
+        "scope-asset-active"
+      ],
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "primaryTo": "scope-asset-active",
+    "scenarios": [
+      [
+        "Общие отказы: пример",
+        "Common failures: example",
+        "scope-exceptions"
+      ]
+    ]
+  },
+  {
+    "key": "restriction-route",
+    "section": "ADM-17",
+    "title": [
+      "Маршрут: подтверждение ограничения",
+      "Route: confirm restriction"
+    ],
+    "body": [
+      "Перед применением фиксируются причина, точная область и версия объекта. Команда ROUTE-DEMO-01 не расширяет область и не меняет состояние площадки вне Shadow.",
+      "Pin reason, exact scope and object version before application. Command ROUTE-DEMO-01 does not expand scope or affect venue state outside Shadow."
+    ],
+    "headers": [
+      [
+        "Объект / проверка",
+        "Object / check"
+      ],
+      [
+        "Точное значение",
+        "Exact value"
+      ],
+      [
+        "Последствие / граница",
+        "Effect / boundary"
+      ]
+    ],
+    "rows": [
+      [
+        "Ограничение / область",
+        "Restriction / scope",
+        "Запрет новых отправок по маршруту",
+        "Block new route submissions",
+        "Polymarket / Paper Alpha",
+        "Polymarket / Paper Alpha"
+      ],
+      [
+        "Точный объект",
+        "Exact object",
+        "ROUTE-DEMO-01",
+        "ROUTE-DEMO-01",
+        "Только подтверждённые связи справочника",
+        "Verified registry relationships only"
+      ],
+      [
+        "Полномочие",
+        "Authority",
+        "Остановка — действующее право в точной области",
+        "Stop: current grant for exact scope",
+        "Запрещена одна точная цепочка источник → подписант → сеть → актив → получатель.",
+        "Block one exact source → signer → network → asset → recipient chain."
+      ],
+      [
+        "Сеть / точный контракт",
+        "Network / exact contract",
+        "0x5555555555555555555555555555555555555555",
+        "0x5555555555555555555555555555555555555555",
+        "NET-DEMO-01 · USDT · учебный контракт",
+        "NET-DEMO-01 · USDT · synthetic contract"
+      ],
+      [
+        "Источник / подписант",
+        "Source / signer",
+        "SRC-SERVICE-01 / SIGNER-DEMO-01",
+        "SRC-SERVICE-01 / SIGNER-DEMO-01",
+        "0x7777777777777777777777777777777777777777",
+        "0x7777777777777777777777777777777777777777"
+      ],
+      [
+        "Версия / причина",
+        "Version / reason",
+        "OBJ-1 · контроль RST-ROUTE-1",
+        "OBJ-1 · control RST-ROUTE-1",
+        "Учебный инцидент INC-SCOPE-01; версия проверяется повторно",
+        "Synthetic incident INC-SCOPE-01; recheck version"
+      ]
+    ],
+    "actions": [
+      [
+        "Применить ограничение в примере",
+        "Apply restriction in fixture",
+        "scope-route-active"
+      ],
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "primaryTo": "scope-route-active",
+    "scenarios": [
+      [
+        "Общие отказы: пример",
+        "Common failures: example",
+        "scope-exceptions"
+      ]
+    ]
+  },
+  {
+    "key": "restriction-type-options",
+    "section": "ADM-17",
+    "title": [
+      "Допустимые типы объектов",
+      "Allowed object types"
+    ],
+    "body": [
+      "Выберите точную область. Источник рыночных данных и собственный денежный источник разделены: повторная активация собственного денежного источника требует двух разных владельцев. Все объекты учебные.",
+      "Select the exact scope. Market-data and owned treasury sources are separate: reactivating an owned treasury source requires two distinct owners. All objects are synthetic."
+    ],
+    "rows": [
+      [
+        "Сотрудник",
+        "Staff",
+        "STAFF-203",
+        "STAFF-203",
+        "Остановка по праву; восстановление независимо",
+        "Stop under grant; independent recovery"
+      ],
+      [
+        "Пользователь",
+        "User",
+        "U-DEMO-002",
+        "U-DEMO-002",
+        "Остановка по праву; восстановление независимо",
+        "Stop under grant; independent recovery"
+      ],
+      [
+        "Источник рыночных данных",
+        "Market data source",
+        "SRC-PM-CAT",
+        "SRC-PM-CAT",
+        "Остановка по праву; восстановление независимо",
+        "Stop under grant; independent recovery"
+      ],
+      [
+        "Собственный денежный источник",
+        "Owned treasury source",
+        "SRC-SERVICE-01",
+        "SRC-SERVICE-01",
+        "Остановка: один владелец; возврат: два владельца",
+        "Stop: one owner; reactivate: two owners"
+      ],
+      [
+        "Подписант",
+        "Signer",
+        "SIGNER-DEMO-01",
+        "SIGNER-DEMO-01",
+        "Остановка по праву; восстановление независимо",
+        "Stop under grant; independent recovery"
+      ],
+      [
+        "Сеть",
+        "Network",
+        "NET-DEMO-01",
+        "NET-DEMO-01",
+        "Остановка по праву; восстановление независимо",
+        "Stop under grant; independent recovery"
+      ],
+      [
+        "Точный актив",
+        "Exact asset",
+        "ASSET-DEMO-01",
+        "ASSET-DEMO-01",
+        "Остановка по праву; восстановление независимо",
+        "Stop under grant; independent recovery"
+      ],
+      [
+        "Маршрут",
+        "Route",
+        "ROUTE-DEMO-01",
+        "ROUTE-DEMO-01",
+        "Остановка по праву; восстановление независимо",
+        "Stop under grant; independent recovery"
+      ]
+    ],
+    "headers": [
+      [
+        "Тип объекта",
+        "Object type"
+      ],
+      [
+        "Точный объект",
+        "Exact object"
+      ],
+      [
+        "Полномочия",
+        "Authority"
+      ]
+    ],
+    "actions": [
+      [
+        "Все области",
+        "All scopes",
+        "scopes-hub"
+      ]
+    ],
+    "rowTargets": [
+      "restriction-staff",
+      "restriction-user",
+      "restriction-scope",
+      "scope-treasury-source-review",
+      "restriction-signer",
+      "restriction-network",
+      "restriction-asset",
+      "restriction-route"
+    ]
+  }
+]

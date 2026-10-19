@@ -1,0 +1,245 @@
+[
+  {
+    "key": "collector-apply",
+    "title": [
+      "Применить настройки сборщика",
+      "Apply collector settings"
+    ],
+    "id": "CMD-P2",
+    "object": "SRC-PM-CAT",
+    "from": "P-1",
+    "to": "P-2",
+    "grant": [
+      "Владелец · применение численных настроек",
+      "Owner · apply numeric settings"
+    ],
+    "effect": [
+      "Интервал 5 → 10 минут; окно 90 дней. Только учебные значения.",
+      "Interval 5 → 10 minutes; 90-day window. Synthetic values only."
+    ],
+    "result": "command-collector-apply-result",
+    "keep": [
+      "История, контрольные точки и торговая политика сохранены.",
+      "History, checkpoints and trading policy retained."
+    ],
+    "section": "ADM-07",
+    "review": "command-collector-apply",
+    "unknown": "command-collector-apply-unknown"
+  },
+  {
+    "key": "collector-pause",
+    "title": [
+      "Приостановить сбор",
+      "Pause collection"
+    ],
+    "id": "CMD-PAUSE",
+    "object": "SRC-PM-CAT",
+    "from": "P-2 · запущен / running",
+    "to": "P-2 · пауза / paused",
+    "grant": [
+      "Отдельное право управления сбором в этой области",
+      "Separate collection-control grant for this scope"
+    ],
+    "effect": [
+      "Запретить новые задания каталога; текущие чтения завершить безопасно.",
+      "Block new catalog jobs; settle current reads safely."
+    ],
+    "result": "command-collector-pause-result",
+    "keep": [
+      "События и контрольные точки сохранены; торговые сессии не закрыты.",
+      "Events and checkpoints retained; trading sessions not closed."
+    ],
+    "section": "ADM-07",
+    "review": "command-collector-pause",
+    "unknown": "command-collector-pause-unknown"
+  },
+  {
+    "key": "collector-resume",
+    "title": [
+      "Возобновить сбор",
+      "Resume collection"
+    ],
+    "id": "CMD-RESUME",
+    "object": "SRC-PM-CAT",
+    "from": "P-2 · пауза / paused",
+    "to": "P-2 · запущен / running",
+    "grant": [
+      "Отдельное право управления сбором; нет аварийной блокировки",
+      "Collection-control grant; no emergency block"
+    ],
+    "effect": [
+      "Продолжить с подтверждённой контрольной точки в пределах профиля.",
+      "Continue from verified checkpoint within profile limits."
+    ],
+    "result": "command-collector-resume-result",
+    "keep": [
+      "Не выполняет аварийное восстановление, не снимает ограничения.",
+      "Does not perform emergency recovery or lift restrictions."
+    ],
+    "section": "ADM-07",
+    "review": "command-collector-resume",
+    "unknown": "command-collector-resume-unknown"
+  },
+  {
+    "key": "validator-apply",
+    "title": [
+      "Применить правила проверки",
+      "Apply validation rules"
+    ],
+    "id": "CMD-V2",
+    "object": "VALIDATOR-PM",
+    "from": "V-1",
+    "to": "V-2",
+    "grant": [
+      "Владелец · применение численных правил",
+      "Owner · apply numeric rules"
+    ],
+    "effect": [
+      "Учебный срок актуальности рейтинговых данных 10 → 15 минут.",
+      "Synthetic rating-data freshness 10 → 15 minutes."
+    ],
+    "result": "command-validator-apply-result",
+    "keep": [
+      "Проверки личности, дублей и расхождений обязательны; сделки не пересчитываются.",
+      "Identity, duplicate and discrepancy checks stay mandatory; no trade recalculation."
+    ],
+    "section": "ADM-07",
+    "review": "command-validator-apply",
+    "unknown": "command-validator-apply-unknown"
+  },
+  {
+    "key": "validator-run",
+    "title": [
+      "Запустить проверку данных",
+      "Run data validation"
+    ],
+    "id": "CMD-CHECK",
+    "object": "DS-DEMO-01",
+    "from": "V-2",
+    "to": "CHECK-DEMO-02",
+    "grant": [
+      "Отдельное право диагностики и чтения выбранных данных",
+      "Separate diagnostics grant and read access to selected data"
+    ],
+    "effect": [
+      "Проверить личность, качество и допуск раздельно на закреплённом снимке.",
+      "Check identity, quality and eligibility separately on pinned snapshot."
+    ],
+    "result": "command-validator-run-result",
+    "keep": [
+      "Не исправляет исходные события, не назначает баллы и не публикует рейтинг.",
+      "Does not edit source events, assign scores or publish ratings."
+    ],
+    "section": "ADM-07",
+    "review": "command-validator-run",
+    "unknown": "command-validator-run-unknown"
+  },
+  {
+    "key": "rating-simulate",
+    "title": [
+      "Сравнить методики",
+      "Compare methodologies"
+    ],
+    "id": "CMD-SIM-R2",
+    "object": "DS-DEMO-01",
+    "from": "R-1",
+    "to": "R-2 · черновик / draft",
+    "grant": [
+      "Отдельное право симуляции и чтения снимка",
+      "Separate simulation grant and snapshot read access"
+    ],
+    "effect": [
+      "Сравнить R-1/R-2 на одном снимке: в R-2 профиль C не проходит минимум действий.",
+      "Compare R-1/R-2 on one snapshot: C fails the R-2 activity minimum."
+    ],
+    "result": "command-rating-simulate-result",
+    "keep": [
+      "Пользовательский каталог и действующая методика не меняются.",
+      "User catalog and active methodology stay unchanged."
+    ],
+    "section": "ADM-07",
+    "review": "command-rating-simulate",
+    "unknown": "command-rating-simulate-unknown"
+  },
+  {
+    "key": "rating-publish",
+    "title": [
+      "Опубликовать версию методики",
+      "Publish methodology version"
+    ],
+    "id": "CMD-PUB-R2",
+    "object": "RATING-PM",
+    "from": "R-1",
+    "to": "R-2",
+    "grant": [
+      "Владелец · публикация методики",
+      "Owner · publish methodology"
+    ],
+    "effect": [
+      "Зафиксировать R-2; новый каталог ожидает отдельного полного расчёта.",
+      "Record R-2; new catalog waits for a separate complete calculation."
+    ],
+    "result": "command-rating-publish-result",
+    "keep": [
+      "R-1 видна только пока её данные пригодны; иначе статус без числа.",
+      "R-1 visible only while its data is eligible; otherwise show status without score."
+    ],
+    "section": "ADM-07",
+    "review": "command-rating-publish",
+    "unknown": "command-rating-publish-unknown"
+  },
+  {
+    "key": "rating-calculate",
+    "title": [
+      "Рассчитать опубликованную версию",
+      "Calculate published version"
+    ],
+    "id": "CMD-CALC-R2",
+    "object": "DS-DEMO-01 / RATING-PM",
+    "from": "R-2 · опубликована / published",
+    "to": "RS-DEMO-R2",
+    "grant": [
+      "Отдельное право запуска расчёта выбранной опубликованной версии",
+      "Separate grant to calculate selected published version"
+    ],
+    "effect": [
+      "Полный расчёт кандидата R-2; проверка качества и атомарное переключение.",
+      "Calculate complete R-2 candidate; validate quality and switch atomically."
+    ],
+    "result": "command-rating-calculate-result",
+    "keep": [
+      "Нет смеси R-1/R-2. A — 79; C — недостаточно данных. Это учебные результаты.",
+      "No R-1/R-2 mix. A 79; C insufficient data. Synthetic results only."
+    ],
+    "section": "ADM-07",
+    "review": "command-rating-calculate",
+    "unknown": "command-rating-calculate-unknown"
+  },
+  {
+    "key": "rating-restore",
+    "title": [
+      "Восстановить прежние правила",
+      "Restore previous rules"
+    ],
+    "id": "CMD-RESTORE-R3",
+    "object": "RATING-PM",
+    "from": "R-2",
+    "to": "R-3 · значения R-1 / R-1 values",
+    "grant": [
+      "Владелец · восстановление новой версией",
+      "Owner · restore as new version"
+    ],
+    "effect": [
+      "Создать R-3 со значениями R-1; прежние версии не удаляются.",
+      "Create R-3 with R-1 values; retain previous versions."
+    ],
+    "result": "command-rating-restore-result",
+    "keep": [
+      "Сделки и прежние решения не переписываются; каталог не переключён преждевременно.",
+      "Trades and prior decisions unchanged; no premature catalog switch."
+    ],
+    "section": "ADM-07",
+    "review": "command-rating-restore",
+    "unknown": "command-rating-restore-unknown"
+  }
+]
