@@ -1,0 +1,48 @@
+{
+  "root": "/private/tmp/cct-independent-iufaonwy/round2",
+  "skill_sha256": {
+    "S21": "41c33acfab7e78d44d35eadf60b508f130e6e68c85fa984e5ed1fc1dcbd2eb0b",
+    "S10": "66d171201393cf4eb40da6cf38c514317cf37d04a903e5a6993c7c1123f21035",
+    "S01": "990b3b77d2c2e51fc899930b94ab3c7c8e0fab662f44604eb58e60d57e7bbeb6"
+  },
+  "new_cases": [
+    [
+      "N10",
+      "S21",
+      "Подготовь готовую запись проектного реестра по source.md. Используй предоставленный GUIDE и существующую структуру sources.json. Сохрани results/registry.json с оболочкой schema_version/sources. Другие источники и рабочий реестр не менять.",
+      "Publisher: Training Team. Document v3. Accepted: sample records preserve event_time and observed_at separately. This is a local teaching note, not an API observation."
+    ],
+    [
+      "N11",
+      "S10",
+      "Оцени именно независимость выполнения задания по trace.json. Оценщик после ответа прочитал rubric: является ли это нарушением? Отдельно скажи, доказан ли автоматический discovery.",
+      ""
+    ],
+    [
+      "N12",
+      "S01",
+      "Подготовь рамку подготовки KB. В workspace два кандидата с разными локальными изменениями и нет подтверждения, какой текущий. Не выбирай за меня случайный. Что можно сделать сейчас? Выходы только results/.",
+      {
+        "candidates": [
+          "shadow-a",
+          "shadow-b"
+        ],
+        "current_checkout": null,
+        "shadow-a": "dirty notes.md",
+        "shadow-b": "dirty plan.md"
+      }
+    ]
+  ],
+  "replay_cases": [
+    "N04",
+    "N05",
+    "N06",
+    "N07",
+    "N08",
+    "N09",
+    "N01",
+    "N02",
+    "N03"
+  ],
+  "change": "full KB schema provided; results isolated; executor/grader roles clarified"
+}

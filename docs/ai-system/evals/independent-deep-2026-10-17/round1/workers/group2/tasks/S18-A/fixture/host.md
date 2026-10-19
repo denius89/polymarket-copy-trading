@@ -1,0 +1,1 @@
+Target fixture Ubuntu 24.04, Docker engine version unknown, staging only. Admin path current SSH 22 from office CIDR; intended new SSH 2222 via VPN. Provider console access grant pending; VPN route tested only from server itself. Certificates expire in 7 days; renewal timer state not captured.

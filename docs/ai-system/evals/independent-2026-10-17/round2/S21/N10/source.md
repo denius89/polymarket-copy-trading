@@ -1,0 +1,1 @@
+Publisher: Training Team. Document v3. Accepted: sample records preserve event_time and observed_at separately. This is a local teaching note, not an API observation.

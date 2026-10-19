@@ -1,0 +1,7 @@
+venue,capability,evidence
+P,marketlist,public GET 200 Oct10
+P,ownfills,docs authenticatedown account paginated retention 7 days
+P,leaderfills,export page1 ids 1 to 3 next cursor=p2 then request timeout
+L,marketlist,public GET 200 Oct12
+L,leaderfills,docs partner required; account request 403 Oct12
+L,cashflows,no excerpt or request

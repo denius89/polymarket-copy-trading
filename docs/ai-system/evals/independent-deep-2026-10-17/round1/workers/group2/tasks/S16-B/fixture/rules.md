@@ -1,0 +1,1 @@
+Fixture: null означает insufficient evidence, не loss и не index 0. Active session control отдельно. Ranking не вычисляется из win rate. Предлагаемые тексты «Рейтинг упал 64→0, копирование остановлено» и «90% безопасных сделок». Нужен локальный text review, не UI edit.

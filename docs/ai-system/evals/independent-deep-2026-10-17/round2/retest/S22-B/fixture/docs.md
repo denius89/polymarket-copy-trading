@@ -1,0 +1,1 @@
+VenueQ snapshot: WS account feed events include seq, resumeFrom supported only within 60 seconds; REST fills paginated own account. Idempotency key for orders documented, fee precision not supplied. SDK example internally calls createOrder when client starts.

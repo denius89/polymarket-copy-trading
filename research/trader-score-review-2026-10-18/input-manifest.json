@@ -1,0 +1,919 @@
+{
+  "review_date": "2026-10-18",
+  "baseline_branch": "main",
+  "baseline_head": "041b9ca5dac1d262908a6e72763aaca73c51703d",
+  "dirty_checkout": true,
+  "scope": "Local working snapshot, includes uncommitted research; Git HEAD alone does not identify these files.",
+  "inputs": [
+    {
+      "file": "docs/TRADER_SCORE_MODEL_DRAFT.md",
+      "bytes": 22126,
+      "sha256": "7c7adcc46b4f0390ad81e2a30824c847418e95719b4c1ecfcc2cde2a4f4d637d"
+    },
+    {
+      "file": "docs/TRADER_SCORE_REAL_DATA_AND_RELEASE_PROPOSAL_2026-10-16.md",
+      "bytes": 25626,
+      "sha256": "c637c65dc1e44d5e0f927ea56621dda959787d77d1697b1c6f3681ca18823656"
+    },
+    {
+      "file": "docs/TRADER_SCORE_RESEARCH_AND_RECOMMENDATION_2026-10-16.md",
+      "bytes": 47139,
+      "sha256": "474a36683d006a9511a89196a436ba2799725d90bd43db3d3c1e308ab83e6990"
+    },
+    {
+      "file": "docs/decisions/0011_shadow_controls_rating_admin_and_ui_foundation.md",
+      "bytes": 9893,
+      "sha256": "a6b02c23cb06a6a3f376aa2070cc414a2850cdc890bfad5cf31b9ead1a6d05df"
+    },
+    {
+      "file": "docs/decisions/0044_data_ingestion_validator_and_rating_controls.md",
+      "bytes": 3587,
+      "sha256": "bed8ad16238fff706c4756f6704ba0f4df99b30e6d218ac76788449d626719d8"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/README.md",
+      "bytes": 24659,
+      "sha256": "7dba9d2ec18bc1112a92492b6596ce9bd6dc232ea800cb30b6ced686556dab59"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/alignment-results.json",
+      "bytes": 14863,
+      "sha256": "38fd2bec4d86f8347823b23935745ef725da7a1e4d36a072d5bfa64b1cc2588c"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/analysis-run.log",
+      "bytes": 7455,
+      "sha256": "1a2619969cb92fe669255bd3c149ea8e6080426d15e345985957d8ec1ba2cf18"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/analyze_alignment.py",
+      "bytes": 14046,
+      "sha256": "185d75bb71acb093d5abae6ecbe482366d9cecb9d113acee5d70500c6a43d3bc"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/coverage-by-token.csv",
+      "bytes": 39672,
+      "sha256": "dcf9f32bf1774afaa82cfe1e27aa97253800b990a8b6e9ee7ce55759ef56cc73"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/data/date=2026-02-28.parquet",
+      "bytes": 7206853,
+      "sha256": "599cf18ab034edcf8849a7dc3e386f3435b584b8447da2c7ac11271ed17aa49a"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/data/date=2026-03-01.parquet",
+      "bytes": 2974212,
+      "sha256": "d2616342728545ed7b66e10addd09bf3404c5668ac6e6174ed3a2d435d1a0db8"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/data/date=2026-03-02.parquet",
+      "bytes": 6813914,
+      "sha256": "48a198c0cd96f6cb6729c3277bd3766f315244c4fa998fe4ab9106688fad4e92"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/data/date=2026-03-03.parquet",
+      "bytes": 5675495,
+      "sha256": "bf9e1e450b42afebd0a337facb736737fd20d51cc9ff8dc7e08db520b7f95fde"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/data/trades-2026-03-01.parquet",
+      "bytes": 1093322,
+      "sha256": "1fdcdc71a592c19b83aec52f356795c183601ff98acc24850a83371dcfb5917c"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/data/trades-2026-03-02.parquet",
+      "bytes": 1228172,
+      "sha256": "7ff53414429cfc41d4200ad0d2c25ccc213cf56bf1d05afdc0853a57aab6d1d8"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/data/trades-2026-03-03.parquet",
+      "bytes": 2057211,
+      "sha256": "62829d536cd5b7d78f54d139418ebe6151b99b4a2df371512e29062b96680549"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/data/trades-2026-03-04.parquet",
+      "bytes": 567,
+      "sha256": "0cc18c8c4d54eb870ab715f1773ae7de614e507200ff1ea721b45edc1820e766"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/data/unpartitioned.parquet",
+      "bytes": 427173,
+      "sha256": "6b6ea2969b5744240a8681bdb9992b01856346e71a9d196e680d91f8a76900b5"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/diagnostic-examples.csv",
+      "bytes": 2822,
+      "sha256": "b01a7b8cdbe19614a97d8ad4edd097a77893efa5478abfbb881063c80e3ec3ce"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/extract_trades.py",
+      "bytes": 2078,
+      "sha256": "27980f0be23f6c37c1476e28c9b386c236be99db299084f2f337d0e1284a3bb2"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/fetch_quotes.py",
+      "bytes": 1267,
+      "sha256": "df91fc121a7cfc9ddf03e058f0a80e26d702147dac36ed39c1553a63caa5e9aa"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/ledger-audit/ANALYZER_REVIEW.md",
+      "bytes": 4220,
+      "sha256": "d3a12aed01d02f303dcb3ea49e83a29c6b429301faa4d3393e835e467afe457f"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/ledger-audit/COLLECTION_CONTRACT.md",
+      "bytes": 5302,
+      "sha256": "70b7a56b6b7108ee4a876fac70dbeb2da85765b3fc1572250a082d25b70fbacc"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/ledger-audit/README.md",
+      "bytes": 14271,
+      "sha256": "bc01f385db1fd61b35e447adc1fbd4ed5ac60db0b80b00f1e933fa2a9e22b53c"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/ledger-audit/blockscout-transfer-sample.json",
+      "bytes": 6024,
+      "sha256": "c9276bb61d769d5fe9beb222e461fb8b7a67af4d8417d80331bfc7a46f58f506"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/ledger-audit/hf-filter-march-10-retry.json",
+      "bytes": 755,
+      "sha256": "9542cfc05d606c7cea528e99c08126df1fe519117ae98267abaa77471c4f3197"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/ledger-audit/hf-filter-march-10.json",
+      "bytes": 755,
+      "sha256": "457dc85a6c7dad12e225d09cb3194c5a980078e5c62f286b29c705705d84e32d"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/ledger-audit/hf-filter-march.json",
+      "bytes": 756,
+      "sha256": "69c704d29b2f3c65a116248149484f14c2d932c18b6f106bc9e66676944b593b"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/ledger-audit/hf-splits.json",
+      "bytes": 750,
+      "sha256": "6ade25fbe676b221082c198a0155f07dfe5eb0a40ea5fc0f8088909899c5b275"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/ledger-audit/ledger-completeness.json",
+      "bytes": 10327,
+      "sha256": "a240bc4a3622efb85c42c5b97d26562ffbb85985e23cc25254c5063f62532bcf"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/ledger-audit/quant-desk-.env.example",
+      "bytes": 3026,
+      "sha256": "97ed92b8bc23ec4f1ec1443ac17c121daf089713e6fc4a8e55dceb054db814e6"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/ledger-audit/quant-desk-derived_data-fills_v1-README.md.txt",
+      "bytes": 1332,
+      "sha256": "79a46c99ff35a730ab0ad4892293fe15c40007747fa2fe0976d94c0571b2a72c"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/ledger-audit/quant-desk-docs-Data_catalog.md.txt",
+      "bytes": 5231,
+      "sha256": "0cd7a3324f2d7cc17bebac2410ad16cd7f3b58f3fcf2ffae2541f539576c4b49"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/ledger-audit/quant-desk-manifest.json",
+      "bytes": 1733,
+      "sha256": "4aa9b15520de940440e14c9ccfd7a17c1fc6dcccf5b0cff84123af3b50274453"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/ledger-audit/quant-desk-raw_data-polygon_contract_events_v3-README.md.txt",
+      "bytes": 4653,
+      "sha256": "27796c1984068ce79d5f49ecc32ad09b94568073e88d471fad64644fb4c00af1"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/ledger-audit/quant-desk-tree.json",
+      "bytes": 119341,
+      "sha256": "aa01794784b733d28d55436df88050d3e147d5570ea7b204b1132bbddbdf8bdf"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/ledger-audit/rpc-probe.json",
+      "bytes": 943,
+      "sha256": "8c00bec5fab75cd47f3815ab206272582063582ea1edb61708b2c6e27946e208"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/model-readiness.json",
+      "bytes": 1149,
+      "sha256": "b9ddbf09a94f4513395d720f4b81c27e266a03820f8314a6842c787370a65395"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/partial-trade-legs.csv",
+      "bytes": 9718773,
+      "sha256": "b69c395d01bdd07387b8408b2a7457272091ce1dade4f6019e7af8823c762cf4"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/quotes-manifest.json",
+      "bytes": 2035,
+      "sha256": "a794df6d6803728fe497cbc6b9252f0deb11396b297c6f46b4a0e1b4deae91ac"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/AUDIT.md",
+      "bytes": 9213,
+      "sha256": "d4d9f1d0f352bb0409e860336a9a14fa7c7a3a3af4de8a880511171c089e4d06"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/PMXT_RESULT.md",
+      "bytes": 9516,
+      "sha256": "105f7e7e3474ccabd0180bfd27a4eeea01debb9c209c5d59431cad080535a94e"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/analyze_pmxt.py",
+      "bytes": 4387,
+      "sha256": "c7174714bc6f2fa72f4e82eae0325500212d5ba1336dc530efc8f715f3a2b318"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/analyze_pmxt_target.py",
+      "bytes": 6958,
+      "sha256": "2d61101cf4f37a7139982c9a7ec7813243169390c7e70ff5661f59c6381eb3cd"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/audit-summary.json",
+      "bytes": 7518,
+      "sha256": "1ff0e624829c21d839caa57ed99deeb6ccfdaae0dcb76df943090c1adf4a92f2"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/cache-cleanup.json",
+      "bytes": 639,
+      "sha256": "9b14be0efd2f714caedcba9dd103dcc2012c0e47bdfa1b1eae51c29d3c456204"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/daily-partitions-complete.json",
+      "bytes": 409822,
+      "sha256": "e6a16e16dcbb49e15434c6f5c266f8e9e04e0db106771908806ca9451e06f4e1"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/daily-partitions.json",
+      "bytes": 310499,
+      "sha256": "54478fcc139367d8b93b768e738ff560c2b14f42ae0bfa7042562e93eb696c7d"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/db.rs",
+      "bytes": 10296,
+      "sha256": "39324cdc9179dda2a8473ba858a56ee56c79a906f6713f0bd038c7e663479670"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/download-manifest.json",
+      "bytes": 2019,
+      "sha256": "7bf753c02d521f6792896bfe96a8181fec3310c3f3b0a39899e3cc1129ef4044"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/export_snapshot_to_parquet.py",
+      "bytes": 11746,
+      "sha256": "41efb8d00b63b83cb7a35d4b0c832dc87df92d2ddb29371cadb2bb63f985b879"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/ingest.rs",
+      "bytes": 19177,
+      "sha256": "dfc63fabd03d749368ba71d95b61c536b5bb440770819d61fc538f150b1a7a09"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/models.rs",
+      "bytes": 1116,
+      "sha256": "1653476d08c34cfd5a10a4bd5908b2d8727b847621f3e41d61b9bf3627e6361a"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/normalize.rs",
+      "bytes": 5292,
+      "sha256": "fe8a4e1a433a2cc8485e2cc1784dc047a8d34199114072db967a2808e3413996"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/openmarket-source-tree.json",
+      "bytes": 169783,
+      "sha256": "c5f6f99ce49b7c58a6abc59324c470feb082e209197988505bf29f690cea9164"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/pmxt-access-probe.json",
+      "bytes": 1365,
+      "sha256": "cf46a775db2125202c06016990eaf91ecd126ed2a75f94509bfe5939f61e41f5"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/pmxt-final-artifacts.json",
+      "bytes": 960,
+      "sha256": "22e5f69a496a11183bc3995d1c7bacb4a272a0bfd98a5cafd8a22b29576198d2"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/pmxt-hf/pmxt-bounded-rowgroup.parquet",
+      "bytes": 12555877,
+      "sha256": "f677be0e4ad656ead34c7a56d3e3ffe9524d1123e322cacdad629dd579fbb884"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/pmxt-hf/pmxt-bounded-summary.json",
+      "bytes": 25938,
+      "sha256": "65cc8d641750b03b6b4397535f3734751939d683b0aeddd510082172e17afbdf"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/pmxt-hf/pmxt-capacity-audit.json",
+      "bytes": 1615,
+      "sha256": "650efb5b50e868d379c963bec4841e3e93323ad908440f6e829c03e773d65c9f"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/pmxt-hf/pmxt-conditional-trade-snapshot-joins.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/pmxt-hf/pmxt-parquet-metadata.json",
+      "bytes": 127942,
+      "sha256": "bcdfd3677c0530a25e23b63510cf1fc9616fd27991e156f1146ede5071042acc"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/pmxt-hf/pmxt-token-ids.json",
+      "bytes": 974109,
+      "sha256": "18d1f4ab82ee93616cb7fef1030250bb3821feafe9e4a4affd819f2b9bfb28d0"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/pmxt-hf-march1-tree.json",
+      "bytes": 9962,
+      "sha256": "d6d691b76d9996c7bfe99e247814b823010294342408ac73c2d83a98ca9b1ff4"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/pmxt-hf-metadata.json",
+      "bytes": 126299,
+      "sha256": "d9a928eefa059cc846a055a004bf3786b00f33b778f5245ec2554e5120810851"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/pmxt-parquet-metadata.json",
+      "bytes": 116307,
+      "sha256": "305765399250655db8ac078332b62c131c32ffb5566dbbf0eeb10d722ff8dbf8"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/pmxt-target/candidate-rowgroups.json",
+      "bytes": 4522,
+      "sha256": "a391dadceed9b1d00fb6aaa95c7fd9c0db1b4fabbe6844acf8bc4586818415cc"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/pmxt-target/capacity-tests.json",
+      "bytes": 207,
+      "sha256": "14802dca66a55f2e2ebfd36d21b5a1aa9d91ee71111b72bc6e48896ed947a72e"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/pmxt-target/fresh-snapshot-trade-joins.json",
+      "bytes": 688216,
+      "sha256": "e48e2d9f7ff12c1a1f554bb3a581c3c62f302202be485893e64d114cabaa484f"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/pmxt-target/target-capacity-audit.json",
+      "bytes": 9966,
+      "sha256": "3dbd5da1abb87900e91b1ed5ca76806ea445f97640847f9356c33d1cc03f392d"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/pmxt-target/target-events.parquet",
+      "bytes": 18123862,
+      "sha256": "eb988845f6b0c1bd2ce33ef009be80316e0d59708e191b8cc271233cb2272bf8"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/pmxt-target/target-inventory.json",
+      "bytes": 493,
+      "sha256": "adf117f0dd1dad635b1287d0253606eaa8d53b626fe234bf010ab8b6a45c7eee"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/pmxt-target/target-manifest.json",
+      "bytes": 4921,
+      "sha256": "7df7968c604c6dc86bf737199776c2cb22a4bd5331f8cd493f0f43538224bb3e"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/polymarket.rs",
+      "bytes": 23615,
+      "sha256": "6f14c296ec094ee546c6fa8a5cfb2ae05f386bdfc62821522c430adc012efd97"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/probe_pmxt.py",
+      "bytes": 3268,
+      "sha256": "88f7581735f07e303338a79d884a9a70998405e3b7ed7aa7fe1a67f511632b69"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/probe_pmxt_hf.py",
+      "bytes": 3398,
+      "sha256": "65f857786080f2d547d34d92600fc9c505c7a799ea5a7120e67ddb75522e6226"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/probe_pmxt_target.py",
+      "bytes": 2795,
+      "sha256": "f2b377f8198848189fa6c87ea6a343592902833361b62b1bc27ce02b5c4e80b2"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/quote-partitions.json",
+      "bytes": 25819,
+      "sha256": "6ade8f196797d1949a9aece315a07d26e8e1b9862cc2493f9283b8ec7e7913e8"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/quotes-tree.json",
+      "bytes": 224999,
+      "sha256": "a4aba2ce531fac3f17f70835462c73c19b0a7b28dbe446bc39dc6af040f2a25c"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/source-code-manifest.json",
+      "bytes": 1523,
+      "sha256": "64dcb0b10377dc1d2140fc2c518c5b55557aeca52c1af2a4e23ad91195330951"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/source-audit/trades-tree.json",
+      "bytes": 309039,
+      "sha256": "96acfb4d78d832cc919475b1f4123ce8381fa5f8b984757cfa030ce27704989f"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/test_alignment.py",
+      "bytes": 4229,
+      "sha256": "94af2d008d9680b7fb838c9e7801fadd411b6c82dadb474ad4247d9348ab6fab"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/trades-manifest.json",
+      "bytes": 16378,
+      "sha256": "f599048e2b75bbd8b9b5918e78a6c453cc9823de522a33c78b0d97153577f22b"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/validation-protocol.md",
+      "bytes": 36043,
+      "sha256": "436764165f82237ce7900de8ffe58f28945eb55acc713eed3d0c3e0566812e01"
+    },
+    {
+      "file": "research/trader-score-aligned-2026-10-16/validation-semantics.md",
+      "bytes": 22746,
+      "sha256": "47a9f84ce949de5623a6c5543323a6f1899b451edb5a861db63a631f49718bfe"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/README.md",
+      "bytes": 16660,
+      "sha256": "3d72407771878ed99fc9229ff5b96b885cf9d76ada89ada812c87e16a9f18e99"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/analyze_public.py",
+      "bytes": 6793,
+      "sha256": "14a864f497b926983e03101ea8cc396e1c4145618f73db924c7c31ba73a79263"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/fetch_public.py",
+      "bytes": 2612,
+      "sha256": "4c6a80c448151e9ffbbfed09bf18a0483ae36daea91228614002b2dd0d0d3a63"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/limitless/probe.py",
+      "bytes": 1830,
+      "sha256": "324bb420e67cf6aa3e354d3bd886bbac42fe8a5d227f33c96ee6522800a65c3c"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/limitless/raw/20261016T155801007596Z/feed.body",
+      "bytes": 17,
+      "sha256": "2938e9f1284180959e33ab1718d0793a72ff6e4cdb8108c34dcd14e69446de5c"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/limitless/raw/20261016T155801007596Z/manifest.json",
+      "bytes": 1678,
+      "sha256": "61f183779e028b456e430c83f45b3d68054c42862667689c08f3dc2859b35e8f"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/limitless/raw/20261016T155801007596Z/markets.body",
+      "bytes": 17,
+      "sha256": "2938e9f1284180959e33ab1718d0793a72ff6e4cdb8108c34dcd14e69446de5c"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/limitless/summary.json",
+      "bytes": 6686,
+      "sha256": "15d13f307d2d39b24168abcadbb2dc9a01951988dd8d8f30cba92abb652cef92"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/manifest.json",
+      "bytes": 30453,
+      "sha256": "328c7186e17eac7c036e13bd5d78f069d837fbffa23eb59cda941a71b8c614f7"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/quote_sample/README.md",
+      "bytes": 11594,
+      "sha256": "d9deec418d02e3aa2fe9a5524eeb67af61ba95b6d3aaef4cb17f59821b6bf646"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/quote_sample/market_meta.parquet",
+      "bytes": 17721,
+      "sha256": "2b3af7a85825004b925b04d9fcce32dd9de5ccd30b2348f04e1cce281d0ba6e9"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/quote_sample/polymarket_ticks_ms.parquet",
+      "bytes": 22935,
+      "sha256": "3222066f06ea960a8681b74762ba5de4068fa2b4548fa3624e8299a0c094e1b2"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/quote_sample-tree.json",
+      "bytes": 4183,
+      "sha256": "72e3980bc6bd1cbcd4d894f8a2c4c082e6d8ffb63818ff2246c4888c6af88a61"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_01.parquet",
+      "bytes": 50729,
+      "sha256": "ef94e9930d6ad52d876daee43e80f73d11bcf5339bc08567dfcab148ad6e15bd"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_02.parquet",
+      "bytes": 57975,
+      "sha256": "1229f984da7b965de4647de1314d111a36456524d8ad5df540efbce47901482b"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_03.parquet",
+      "bytes": 70177,
+      "sha256": "db587b921207264229b984d96182be530ac5c973988baaefbc5dde92b93fe18e"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_04.parquet",
+      "bytes": 69828,
+      "sha256": "86e44f44da0a2e6c7f3e4d690f95dfdd954441d07d3bd3b42cb497e3aa349ed4"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_05.parquet",
+      "bytes": 74615,
+      "sha256": "00050cf0e195683b4ad64d391d67a67c315a06f8ab4f9ed87c38dd9b7f0c9eed"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_06.parquet",
+      "bytes": 57182,
+      "sha256": "c560e92d74bc87cf3e38c86c6b924c5c80a53f49752bdcd6c676768ab5333f53"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_07.parquet",
+      "bytes": 58006,
+      "sha256": "51c27826483c7771aafc09480ab00c5a6504d41267516a05cd783ca7f4a6b788"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_08.parquet",
+      "bytes": 69265,
+      "sha256": "41394ce9dc9edd310b8e6e5d47d4888a6627bd6747693cc33189cac90ad3ad05"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_09.parquet",
+      "bytes": 82117,
+      "sha256": "426e0bf6f2637a339a39d89e1d0bd9a26d7d847afd208aca5fe4b785f3260931"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_10.parquet",
+      "bytes": 108354,
+      "sha256": "a3e9c777c00af262a7ae2df1772c6ff291d59d6287fc046737370448ddddf489"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_11.parquet",
+      "bytes": 57070,
+      "sha256": "df182ac3ef554ec96ab8ca5f92ec064c3c28b173c4739b018158723d60ea6986"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_12.parquet",
+      "bytes": 64668,
+      "sha256": "55700879a4cc241f01aa6b41129c3cc75d6caa958a4e8732277dc6e306cb9e0a"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_13.parquet",
+      "bytes": 64487,
+      "sha256": "b7da3bd44d310ab8f410083ed1a65300cb961f8b0c165fae624c5ba0e33150d7"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_14.parquet",
+      "bytes": 44768,
+      "sha256": "9b1fa38deab55ea6ae6ae62d6cc7827976d6293f63732c82e5ae2bf657eb5a8c"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_15.parquet",
+      "bytes": 39818,
+      "sha256": "1317b9f0f48867bc6c817c0ad09cc8d19ed3ae53de9cc94bbbf86daf3c9452e8"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_16.parquet",
+      "bytes": 45969,
+      "sha256": "339d6e225e8b8854d9bdebd0c103dcc0bd3df0a1938b139723866d163ae43cf4"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_17.parquet",
+      "bytes": 43260,
+      "sha256": "63feaab3f8cdd0251055ba5025742fb9460103940deca0763abc9698f77ffbf3"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_18.parquet",
+      "bytes": 47531,
+      "sha256": "24bb6ba7a94d0ce712b345d4b04cf99c248a2c26d4f064b57fc86bca47ad7fb2"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_19.parquet",
+      "bytes": 44294,
+      "sha256": "b4f0df84fc553577968698d1c2b130a66996418071b6323e944295cf9224ac4c"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_20.parquet",
+      "bytes": 38787,
+      "sha256": "8f881f81b1c9b54a35536373840d82e2143b1b7ab12e2ae3cd32e12de615f091"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_21.parquet",
+      "bytes": 48027,
+      "sha256": "f4ec0b00d597a85b0401521625dce1229b3ae3a99d1776f3bd7da25aad1423d7"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_22.parquet",
+      "bytes": 42286,
+      "sha256": "3a66e93f5ebf524bce0e2670fec611595c94401f3fc185495f44f8e04c49590a"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_23.parquet",
+      "bytes": 38555,
+      "sha256": "91f4232f703e9ac2551ad4deacc62f9688d18df30fa9324b1b764652ff374223"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_24.parquet",
+      "bytes": 49637,
+      "sha256": "db2f5ec63eecfa8fcc3e098270f950b28d21643909c790be13b848c317735d7f"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_25.parquet",
+      "bytes": 45508,
+      "sha256": "e5d7ad7c9e38ded256e2f7a65eed11a485912917ef9bcc0e5172593ac29caea8"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_26.parquet",
+      "bytes": 46486,
+      "sha256": "0c0f40a0eaa707991b2740fd528a3f240010fba8e3366760fd6b4d64fa8cef74"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_27.parquet",
+      "bytes": 40230,
+      "sha256": "3626e41e9735baecc1a0cc2cffabafd421894ffdce55fefe54370c3c21f78ba1"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_28.parquet",
+      "bytes": 49910,
+      "sha256": "d7c318eb1d208b8b850539baa77e3ab169fcfa4f3cfa008f24814c13edc4bbb9"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_29.parquet",
+      "bytes": 45028,
+      "sha256": "bc7c299c1345d626d74ab113e5c1680a30d6ca0a70506026a5ae8beccc4b6afb"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_30.parquet",
+      "bytes": 50706,
+      "sha256": "2c8bf1a844dd1e51821b56f3aa9aca1320afe5e7f04fab5598ced0e397fbde4a"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_01_31.parquet",
+      "bytes": 53531,
+      "sha256": "f6a569bfef299b83ece4a5ba7125a1bcd129600c813e4c3d613a35dea7fb65e4"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_01.parquet",
+      "bytes": 54342,
+      "sha256": "760010c9fe13d57997581f5bd7df67c3c29116fe26a2a2b312de01d57154c644"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_02.parquet",
+      "bytes": 46973,
+      "sha256": "48f145f87ad0902d3b50caf222fb15487e31f451e3ed0a6722cddc1f14d4d733"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_03.parquet",
+      "bytes": 42326,
+      "sha256": "e5792b6ade77d7852ec6b314bea5f9064a1bcaabc14821673b28547a57776199"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_04.parquet",
+      "bytes": 39085,
+      "sha256": "1836c24609302d9b86be9926dbcc161441f41ff6d71eaf8d99e0f5ce1a06201b"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_05.parquet",
+      "bytes": 47953,
+      "sha256": "9a6c3bbfe2630b533ccce1117a0cb6615d8b6880acba7a0f605d2b7befa266b2"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_06.parquet",
+      "bytes": 44738,
+      "sha256": "b5bd21bf8f37bad638ea92d6ee7521740e54040ba011c1acd09372e3735cd947"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_07.parquet",
+      "bytes": 58977,
+      "sha256": "741c32a2509ea835594abf3e87141004432cd1d20197e269f7a07ed3aee351a1"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_08.parquet",
+      "bytes": 74746,
+      "sha256": "8a27e28d43844ab84a587526125170f5446a176665948a3594f1ab8d91d4f128"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_09.parquet",
+      "bytes": 68346,
+      "sha256": "e337d2c048f2ebaf2e456d10de457d00e4d00206bc00fdfd48ff74df51950a4c"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_10.parquet",
+      "bytes": 54619,
+      "sha256": "cab728b2f0f40ecb6fe545bf392ee18e29ebb03c9108cb5b1c3b3663b26cc6be"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_11.parquet",
+      "bytes": 61637,
+      "sha256": "a10e05e07a1af873678613157de2c1df318365df173f9e965d176abeb8185836"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_12.parquet",
+      "bytes": 70232,
+      "sha256": "e3eb00cdb0af452cb0d1cc6de3e52e0c1f1f33c35738a51962322294211af9b7"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_13.parquet",
+      "bytes": 68016,
+      "sha256": "a44af096f4a03e805547e6775f603c32f986b2aa0beabe640ed63573d74a724b"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_14.parquet",
+      "bytes": 63600,
+      "sha256": "9341e789aaa9fddd3b55075ecdf1c034cf3fe85efbc5fa937d1cff07d92f05fe"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_15.parquet",
+      "bytes": 60591,
+      "sha256": "4b14475bcf921450eff244f5230102d9d03ecad108485f167ae4ebaa887bfd12"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_16.parquet",
+      "bytes": 62245,
+      "sha256": "bcfd4dc1e9b398c06a937a83d2927d8d09222e56301ec697cd47ece808337b90"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_17.parquet",
+      "bytes": 55714,
+      "sha256": "2e58131f25ae8e2f928291050a15dc7b2fdcb3c3886f152e55bb70f6cd24e959"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_18.parquet",
+      "bytes": 54243,
+      "sha256": "362779ebb1eb1d55c03ae751dbc24aa3232d516a12d026f04f1ab04631136346"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_19.parquet",
+      "bytes": 51852,
+      "sha256": "f58d70b8183600163bb568dec9aace6cb6f8bf7cfe53935467447985ec9ea7d6"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_20.parquet",
+      "bytes": 61449,
+      "sha256": "cfce48a7e50f705c22c54ced6a617d4892a6fb3ece0b2977159a46464c4bc556"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_21.parquet",
+      "bytes": 57196,
+      "sha256": "d3b66bda3157d8268f003b6795c8d76a582047f52ab0c799912be9a003660cce"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_22.parquet",
+      "bytes": 56760,
+      "sha256": "a24aafc7d4c2b6047dfa0345d815bacfd695e66fb1b90a891a7e6f40931bce14"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_23.parquet",
+      "bytes": 61204,
+      "sha256": "d83cb322a5420336e014f4923d88fd2167caa43715b0d3d8ad92545fd597fb80"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_24.parquet",
+      "bytes": 60159,
+      "sha256": "53a19588251ae5e41efa66a8e0eb641128d3143c69e4d3a5f8b08a3ea5414314"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_25.parquet",
+      "bytes": 54835,
+      "sha256": "50237cfcd997f87cf0ebdbf2ed29fbe05c3ff23c9ab7d07fbdcb53443ceedef7"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_26.parquet",
+      "bytes": 64201,
+      "sha256": "ef85056733e296083e5ff6d3a214e6775eef3901ab83d7328742a3a22967e4a1"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_27.parquet",
+      "bytes": 67648,
+      "sha256": "618f47a576273de843f2fe96d5490d6506de4486598c1edad79885947b36f2de"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_28.parquet",
+      "bytes": 65996,
+      "sha256": "947dc054d9755e296ae96b09ee7fc82e532b9d33101d4d9c40136b6c33f20526"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/2024_02_29.parquet",
+      "bytes": 56558,
+      "sha256": "a8ed82049cae7d174d187d92cda215c6d5f5bc4cecb9b8f6ecd4f463ba0e1946"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive/README.md",
+      "bytes": 24460,
+      "sha256": "617f19d07415bcc4c4e06ad30a86bac703affd03a805c57f87c3432a1b699f36"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/polymarket/trade_archive-tree.json",
+      "bytes": 310499,
+      "sha256": "54478fcc139367d8b93b768e738ff560c2b14f42ae0bfa7042562e93eb696c7d"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/real-data-audit.json",
+      "bytes": 3193,
+      "sha256": "a99cc4e1424d0f45a425c91b3f09eca2d260bfdab2211d0f5cdd6d03ac30b524"
+    },
+    {
+      "file": "research/trader-score-real-2026-10-16/wallet-evidence.csv",
+      "bytes": 52530,
+      "sha256": "8f9ff660d587a051496f6b344315fb25506fca201f37191f9aec55801e3fdff7"
+    },
+    {
+      "file": "research/trader-score-simulation-2026-10-16/CE_REVIEW.md",
+      "bytes": 19124,
+      "sha256": "abf61021abe6436c2ee8981f7d981092ea6ddb4e2ad4e2215e402d5c72afcc7d"
+    },
+    {
+      "file": "research/trader-score-simulation-2026-10-16/README.md",
+      "bytes": 8504,
+      "sha256": "d925bd3dbdd8c8a052e507b41841ad9ebd03fa651591dd097891abf025819180"
+    },
+    {
+      "file": "research/trader-score-simulation-2026-10-16/V2_REVIEW.md",
+      "bytes": 10141,
+      "sha256": "a17e3017278337035e9c0d1275143105352d9b4680fa0047488e56025e68c693"
+    },
+    {
+      "file": "research/trader-score-simulation-2026-10-16/ce-frozen-selections.json",
+      "bytes": 4641,
+      "sha256": "d1c8b9a2f4f186f145229b1bf8f1837f97a57b2646f390a734bfea80b532c1ea"
+    },
+    {
+      "file": "research/trader-score-simulation-2026-10-16/ce-pilot/ce-frozen-selections.json",
+      "bytes": 4673,
+      "sha256": "c0a4c3eb6f8c8f480af5d083db33c0d8c94874c2f6fad687d5c6fd4d8958f7e9"
+    },
+    {
+      "file": "research/trader-score-simulation-2026-10-16/ce-pilot/ce-selections.csv",
+      "bytes": 152690,
+      "sha256": "d5a49140bcc5519f6d84c4b142048b7a1805751b6834f404a39db40bd51a8b0f"
+    },
+    {
+      "file": "research/trader-score-simulation-2026-10-16/ce-pilot/ce-summary.json",
+      "bytes": 8815,
+      "sha256": "ce4bd57e9030a833edecf1674c172aad3210d29b725035e9fa9f1310c9edbba4"
+    },
+    {
+      "file": "research/trader-score-simulation-2026-10-16/ce-pilot/ce-wallets.csv",
+      "bytes": 226440,
+      "sha256": "ac3a930439cb4671396df318762b5d8c58a47119506d0cd52941f153b2b9ebd0"
+    },
+    {
+      "file": "research/trader-score-simulation-2026-10-16/ce-pilot/compare_ce.py",
+      "bytes": 10428,
+      "sha256": "dacc2b7f48c261b97d776e89169a459fb9c9d1ffd96ad98715935fff7face89c"
+    },
+    {
+      "file": "research/trader-score-simulation-2026-10-16/ce-selections.csv",
+      "bytes": 150804,
+      "sha256": "abc1e73da93df22f983bd2a4312c36314912b45b307a44cdd81f701ad61aff9d"
+    },
+    {
+      "file": "research/trader-score-simulation-2026-10-16/ce-summary.json",
+      "bytes": 8780,
+      "sha256": "708c0cf6324e325c5493b8e3b2b9ec752140e8bdb4a0ff114c5438361441094d"
+    },
+    {
+      "file": "research/trader-score-simulation-2026-10-16/ce-wallets.csv",
+      "bytes": 242376,
+      "sha256": "64efde6a6a75d3d0a115402720dde3a837e794ec24c391f4da2c94ec860a6814"
+    },
+    {
+      "file": "research/trader-score-simulation-2026-10-16/compare_ce.py",
+      "bytes": 11449,
+      "sha256": "3dcba7683c12078fb1dacf4482785963920ce4d835872f75944fe73dc616c3ff"
+    },
+    {
+      "file": "research/trader-score-simulation-2026-10-16/run.py",
+      "bytes": 4269,
+      "sha256": "9bf654fa758340c7a55c2b9deba6895805d7e1a60702a877b48610ebfdc75b5c"
+    },
+    {
+      "file": "research/trader-score-simulation-2026-10-16/runs.csv",
+      "bytes": 93440,
+      "sha256": "f3d89f5a97c0cfcf3027da63cb144e73199cf5a79877339bdf891e8c1ed243a0"
+    },
+    {
+      "file": "research/trader-score-simulation-2026-10-16/summary.json",
+      "bytes": 2239,
+      "sha256": "67af03c47ff9daceec5b2d019554239a62350636742a8054a8304bf439a6b1c0"
+    },
+    {
+      "file": "research/trader-score-simulation-2026-10-16/v2-runs.csv",
+      "bytes": 105009,
+      "sha256": "8323085d5731a6ff736206ed65c3653c73bb94eb7925fc86db01fd0af058e135"
+    },
+    {
+      "file": "research/trader-score-simulation-2026-10-16/v2-summary.json",
+      "bytes": 1616,
+      "sha256": "e3f0b300d22e427ae9a9639828635007e85759a7a24d53c4c559b71a627105d6"
+    },
+    {
+      "file": "research/trader-score-simulation-2026-10-16/validate_v2.py",
+      "bytes": 5129,
+      "sha256": "bcdf13b165f1d8ec3d810b3f992efe308064258104a6e360abde8194813dc356"
+    }
+  ]
+}

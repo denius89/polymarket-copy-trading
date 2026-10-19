@@ -1,0 +1,1 @@
+Outage 11:00. Consistent backup recovery point 10:40. Restore DB finished 11:30. Controls+read-only external reconciliation finished 11:50; only then service considered recovered. Targets RPO<=15min, RTO<=45min accepted for fixture.

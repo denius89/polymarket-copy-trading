@@ -1,0 +1,31 @@
+{
+  "case_id": "S01-C",
+  "evaluation_kind": "self_pilot",
+  "oracle_visible": true,
+  "same_author": true,
+  "observed_at": "2026-10-17T21:10:02+00:00",
+  "response_file": "S01-C.md",
+  "response_sha256": "7e71e25a4cda40a54d6fc2398929fab382dd20b5cf551e3b42a7e6b89028c170",
+  "trace": [
+    "Author explicitly read three SKILL.md files through local file tool in this session.",
+    "Author reviewed supplied raw fixtures and produced this response in the same session; oracle was already visible.",
+    "Only local skill/evaluation artifacts were written. No independent model execution, automatic skill discovery or external action was performed."
+  ],
+  "tokens": null,
+  "cost_usd": null,
+  "latency_seconds": null,
+  "checks": {
+    "C1": {
+      "status": "pass",
+      "evidence": "Ответ отвергает вывод о реализации по proposed и screenshot."
+    },
+    "C2": {
+      "status": "pass",
+      "evidence": "Оба чужих файла названы сохраняемыми; fixture файлы не изменялись."
+    },
+    "C3": {
+      "status": "pass",
+      "evidence": "Перечислено недостающее runtime evidence без выполнения deploy."
+    }
+  }
+}

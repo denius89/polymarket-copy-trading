@@ -1,0 +1,40 @@
+{
+  "source_url": "https://huggingface.co/datasets/SamuelTinnerholm/pmxt-data-archive/resolve/45bb9f1f8725ba7c7b433ff64424ca13bda180b2/hours/2026/03/01/polymarket_orderbook_2026-03-01T00.parquet",
+  "source_rowgroup": 29,
+  "raw_rows": 252822,
+  "events": {
+    "price_change": 251630,
+    "book_snapshot": 1192
+  },
+  "tokens": 11730,
+  "snapshot_tokens": 250,
+  "received_min": "2026-03-01T00:54:39.522000+00:00",
+  "received_max": "2026-03-01T00:59:59.995000+00:00",
+  "created_minus_received_seconds": {
+    "min": 0.004,
+    "median": 0.041,
+    "max": 1.691,
+    "negative": 0
+  },
+  "snapshot_levels": {
+    "median_bids": 22.0,
+    "median_asks": 22.0
+  },
+  "crossed_snapshots": 0,
+  "snapshots_fit_5_usd": 1109,
+  "snapshot_count": 1192,
+  "trade_subset_rows": 193045,
+  "trade_subset_matching_asset_rows": 0,
+  "buys_with_preceding_snapshot_age_lte180s": 0,
+  "primary_age1s_delay_and_clock_sensitivity": {},
+  "conditional_snapshot_capacity_pass": 0,
+  "local_parquet_bytes": 12555877,
+  "local_parquet_sha256": "f677be0e4ad656ead34c7a56d3e3ffe9524d1123e322cacdad629dd579fbb884",
+  "limitations": [
+    "One row group chosen for minimum byte size, not a random sample or complete time window.",
+    "Snapshot price/capacity does not prove execution; unobserved updates/latency and one rowgroup omit other groups.",
+    "180 seconds is diagnostic join only, not an execution staleness rule.",
+    "No inter-snapshot reconstruction admitted: sample contains gaps and excludes other rowgroups.",
+    "timestamp_created_at source meaning requires collector verification; do not assume exchange time."
+  ]
+}

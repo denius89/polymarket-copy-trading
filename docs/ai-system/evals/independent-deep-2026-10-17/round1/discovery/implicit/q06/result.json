@@ -1,0 +1,34 @@
+{
+  "id": "q06",
+  "returncode": 0,
+  "status": "pass",
+  "expected_any": [
+    "cct-frontend-quality"
+  ],
+  "should_activate": true,
+  "observed_skill_file_reads": [
+    "cct-frontend-quality"
+  ],
+  "commands": [
+    {
+      "command": "/bin/bash -lc 'cat .agents/skills/cct-frontend-quality/SKILL.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S06.md docs/ai-system/knowledge/domains/engineering.md'",
+      "exit_code": 0
+    }
+  ],
+  "usage": [
+    {
+      "input_tokens": 51077,
+      "cached_input_tokens": 40960,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 422,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "seconds": 12.39,
+  "observed_at": "2026-10-17T21:41:09.741251+00:00",
+  "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+}

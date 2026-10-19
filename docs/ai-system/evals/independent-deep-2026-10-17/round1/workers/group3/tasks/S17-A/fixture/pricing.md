@@ -1,0 +1,1 @@
+USD/month, ops rate 25 USD/h scenario. VPS uses same host for DB/app/signer; Managed separates DB failure domain but signer remains app process. Quote excludes restore drill/data/API/support/egress; no residency attestation. Budget ceiling not given. Не текущие облачные цены.

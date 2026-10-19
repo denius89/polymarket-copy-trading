@@ -1,0 +1,97 @@
+"""Exact-market snapshot diagnostics; no execution, fee or profit claim."""
+import json,hashlib,bisect,statistics,math
+from pathlib import Path
+from collections import Counter,defaultdict
+import pyarrow.parquet as pq
+P=Path(__file__).resolve().parent/'pmxt-target';manifest=json.loads((P/'target-manifest.json').read_text());condition=manifest['target_condition']
+rows=pq.read_table(P/'target-events.parquet').to_pylist();events=[]
+for i,row in enumerate(rows):
+ x=json.loads(row['data']);events.append((row['timestamp_received'].timestamp(),row['timestamp_created_at'].timestamp(),i,x))
+events.sort(key=lambda x:(x[0],x[1],x[2]));counts=Counter();snaps=defaultdict(list);state={};comp=Counter();sample=[];same_clock=Counter();tokens=set()
+def book(x):return {side:{float(p):float(q) for p,q in x.get(side,[]) if float(q)>0} for side in ['bids','asks']}
+def validate_snapshot(x):
+ errors=[]
+ for side in ['bids','asks']:
+  seen=set()
+  for pair in x.get(side,[]):
+   if not isinstance(pair,list) or len(pair)!=2:errors.append('malformed_level');continue
+   try:p,q=map(float,pair)
+   except (TypeError,ValueError):errors.append('nonnumeric_level');continue
+   if not (math.isfinite(p) and math.isfinite(q)):errors.append('nonfinite_level');continue
+   if p<0 or p>1 or (side=='asks' and p==0):errors.append('invalid_price')
+   if q<0:errors.append('negative_size')
+   if p in seen:errors.append('duplicate_price')
+   seen.add(p)
+ if not errors:
+  b=book(x);bid,ask=top(b)
+  if bid is not None and ask is not None and bid>ask:errors.append('crossed')
+ return sorted(set(errors))
+def top(b):return (max(b['bids'],default=None),min(b['asks'],default=None))
+def capacity(b):
+ asks=sorted(b['asks'].items());left=5.;qty=0.
+ for price,size in asks:
+  if price<=0:continue
+  use=min(left,price*size);qty+=use/price;left-=use
+  if left<=1e-9:break
+ return {'ask_notional':sum(p*q for p,q in asks),'fits_5_usd':left<=1e-9,'vwap_5_usd':5/qty if qty and left<=1e-9 else None,'best_ask':asks[0][0] if asks else None,'ask_levels':len(asks),'bid_levels':len(b['bids'])}
+snapshot_qa=Counter()
+for received,created,i,x in events:
+ token=x['token_id'];tokens.add(token);typ=x['update_type'];counts[typ]+=1;same_clock[(token,received,created)]+=1
+ if typ=='book_snapshot':
+  errors=validate_snapshot(x)
+  for error in errors:snapshot_qa[error]+=1
+  snapshot_qa['invalid_snapshots']+=int(bool(errors))
+  b=book(x)
+  if token in state and not errors:
+   old=state[token];comp['next_snapshot_comparisons']+=1;comp['same_top']+=top(old)==top(b);comp['same_all_levels']+=old==b
+  if errors:state.pop(token,None)
+  else:state[token]=b
+  snap={'received':received,'created':created,'available':max(received,created),'invalid':bool(errors),'book_signature':hashlib.sha256(json.dumps(b,sort_keys=True).encode()).hexdigest(),**capacity(b)};snaps[token].append(snap)
+ elif typ=='price_change' and token in state:
+  side={'BUY':'bids','SELL':'asks'}.get(x.get('change_side'));p=float(x.get('change_price',0));q=float(x.get('change_size',0))
+  if side:
+   if q>0:state[token][side][p]=q
+   else:state[token][side].pop(p,None)
+update_times=defaultdict(list)
+for received,created,i,x in events:
+ if x['update_type']=='price_change':update_times[x['token_id']].append(max(received,created))
+for times in update_times.values():times.sort()
+snapshot_groups=defaultdict(list);conflicting_snapshot_groups=0;equivalent_snapshot_tie_groups=0
+for token,ss in snaps.items():
+ groups=defaultdict(list)
+ for snap in ss:groups[snap['available']].append(snap)
+ for available,gg in sorted(groups.items()):
+  conflict=len({s['book_signature'] for s in gg})>1
+  conflicting_snapshot_groups+=int(conflict);equivalent_snapshot_tie_groups+=int(len(gg)>1 and not conflict)
+  snapshot_groups[token].append({**gg[0],'conflicting':conflict})
+trades=[]
+for f in sorted((P.parent.parent/'data').glob('trades-*.parquet')):
+ trades += [r for r in pq.read_table(f,columns=['asset_id','block_timestamp','taker_direction','price','condition_id']).to_pylist() if r['condition_id']==condition]
+lo=min(e[0] for e in events);hi=max(e[0] for e in events);available_hi=max(max(e[0],e[1]) for e in events);in_window=[t for t in trades if lo<=t['block_timestamp']<=hi];allcounts={};joins=[]
+for delay in [.5,2,5]:
+ for shift in [-1,0,1]:
+  cc=Counter()
+  for t in in_window:
+   if t['taker_direction']!='BUY':continue
+   cc['buy_trades']+=1;ss=snapshot_groups.get(t['asset_id'],[]);times=[s['available'] for s in ss];target=t['block_timestamp']+delay+shift
+   if target>available_hi:continue
+   j=bisect.bisect_right(times,target)-1
+   if j<0:continue
+   s=ss[j]
+   if s['available']==target:
+    cc['exact_timestamp_ties']+=1;continue
+   if s['invalid']:
+    cc['invalid_latest_snapshot']+=1;continue
+   if s['conflicting']:
+    cc['conflicting_latest_snapshot']+=1;continue
+   age=target-s['available']
+   if age<=1:
+    cc['fresh_snapshot_matches']+=1;cc['fits_5_usd']+=int(s['fits_5_usd'])
+    changes=update_times[t['asset_id']];updates=bisect.bisect_right(changes,target)-bisect.bisect_left(changes,s['available'])
+    if updates:cc['intervening_or_tied_updates']+=1
+    else:
+     cc['snapshot_without_intervening_updates']+=1;cc['snapshot_without_intervening_updates_fits_5_usd']+=int(s['fits_5_usd'])
+    if delay==2 and shift==0:joins.append({**t,**s,'assumed_arrival':target,'snapshot_age_seconds':age,'intervening_or_tied_price_change_count':updates})
+  allcounts[f'delay={delay},clock_shift={shift}']=dict(cc)
+result={'source':manifest,'period_received_min':lo,'period_received_max':hi,'target_rows':len(events),'tokens':sorted(tokens),'events':dict(counts),'snapshot_qa':dict(snapshot_qa),'conflicting_snapshot_availability_groups':conflicting_snapshot_groups,'equivalent_snapshot_availability_tie_groups':equivalent_snapshot_tie_groups,'same_received_and_created_tie_groups':sum(v>1 for v in same_clock.values()),'next_snapshot_replay_diagnostic':dict(comp),'matched_trade_rows_all_times':len(trades),'matched_trade_rows_in_event_interval':len(in_window),'fresh_snapshot_capacity_1s':allcounts,'limitations':['Snapshot-only displayed capacity is unknown at arrival if any intervening or tied price_change exists; strict secondary counts exclude these. No execution, fee deduction, observedAt or PnL claim.','Availability=max(received,created) is conservative within collector clocks, not validated exchange-clock synchronization.','Single row group extraction excludes prior target segment. Replay diagnostic begins after first included snapshot.','Any all-level mismatch at next snapshot forbids claiming reconstructed L2 as complete without investigation.','A matching next snapshot does not prove intermediate ordering/completeness; same-time events can lack sequence IDs.']}
+(P/'target-capacity-audit.json').write_text(json.dumps(result,indent=2)+'\n');(P/'fresh-snapshot-trade-joins.json').write_text(json.dumps(joins,indent=2)+'\n');print(json.dumps({k:v for k,v in result.items() if k!='source'},indent=2))

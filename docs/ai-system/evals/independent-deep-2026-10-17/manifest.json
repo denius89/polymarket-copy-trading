@@ -1,0 +1,614 @@
+{
+  "root": "/private/tmp/cct-deep-vb6rjvhh",
+  "inputs_sha256": {
+    "cases.json": "4b5886ae96f826c33f51f5ee737e4fe4e399e6cd432ff3cadda42d79a15d8264",
+    "oracles.json": "32dba88501a2ce916c2322f71c6c358ef1c205eddba6042994615246eab89eaa"
+  },
+  "cases": [
+    {
+      "id": "S01-A",
+      "skill": "S01",
+      "name": "cct-project-context",
+      "group": "group1",
+      "task_sha256": "5689453c8a0424b88cb37da976b0f6fb65e5652de02b34d65e744762f9d561b2",
+      "artifact_sha256": {
+        "fixture/request.txt": "d1585c3d6de3f1058c6cf2ea5c8649637342ad737630b061b89681fa8919e3c4",
+        "fixture/roots.txt": "9c62495b0d70e15746ce5a31dacdfcf6b4de9976e6867eab6530d9660bd8094b",
+        "fixture/decisions.md": "0bc51eb412fa2b3d7203bf46aea900ea86d218c04db16878883544d174b1b407"
+      }
+    },
+    {
+      "id": "S01-B",
+      "skill": "S01",
+      "name": "cct-project-context",
+      "group": "group2",
+      "task_sha256": "744a6ac5bf710d8d5745b7062544872f11337b50b4501a24be4a775ca8c68dd7",
+      "artifact_sha256": {
+        "fixture/inventory.txt": "2883fbcb830624a70787c346f9bbefcdb0ef7222526d44298fba75131d44a05c",
+        "fixture/request.txt": "f58b4222f1a91674955d8eaa72ad2f0a743510f8545c28f46b240a2bca433abe",
+        "fixture/handoff.txt": "fc621b45dc265c3a456a7b14d9ee81174918563844364eaf6b43b844f0816b72"
+      }
+    },
+    {
+      "id": "S02-A",
+      "skill": "S02",
+      "name": "cct-product-discovery",
+      "group": "group3",
+      "task_sha256": "dcd2daf1fd954b40d8c088d0e6e4c8c32cc8aabd9817b613f902364cc36b85ae",
+      "artifact_sha256": {
+        "fixture/cohort.csv": "3db01366745d27f1ad61f254e670f0b540b86ee66cd1e7672dab81b8c61d79ae",
+        "fixture/economics.md": "25e1b5ee28507f558c0f538dcc563d186681ee48db7e70d1aff4b0303cd36fc1",
+        "fixture/memo.txt": "203cf6461f8e2da77564159e5aade4ca43304c98d73c39113958f215c20289d2"
+      }
+    },
+    {
+      "id": "S02-B",
+      "skill": "S02",
+      "name": "cct-product-discovery",
+      "group": "group1",
+      "task_sha256": "079a1f89f27b0f0be2b2785fb3604acaa789b265af72836ed71bdd79b6f34bf4",
+      "artifact_sha256": {
+        "fixture/sources.md": "f345601823ee7fe96d66d2d03b3b4177e16c6ae8e429feb3b1fe73f1c0b25d02",
+        "fixture/inbox.txt": "5645c31eceedcbd5b64b450f860fa69d72adb50d45bb805244cbeaa9be22c572"
+      }
+    },
+    {
+      "id": "S03-A",
+      "skill": "S03",
+      "name": "cct-market-domain",
+      "group": "group2",
+      "task_sha256": "7cf7243e55689b81d4adb6c065f742741484d751cea97866c994adb2ab616242",
+      "artifact_sha256": {
+        "fixture/rules.md": "306f25c80ec9b7d4b161e13211b77f8cf26d2c204fcf1c96a9ee16441e637395",
+        "fixture/events.csv": "e6c82860eb86b6606781ebc9fbbc0b3005fd401dfffd04e1086f7f92fce993a2",
+        "fixture/operator.txt": "079b37364f1217b45c5a1f6e16fc266384ca64e3e61cd38dc8c2cd5cc4289bba"
+      }
+    },
+    {
+      "id": "S03-B",
+      "skill": "S03",
+      "name": "cct-market-domain",
+      "group": "group3",
+      "task_sha256": "d69537f3297d25de6766f3550c8161b083fef4e1633b160ab21af07dc89eef95",
+      "artifact_sha256": {
+        "fixture/rules.md": "29e600146c69a3375d03a51e170eb4955eca716b7052da4e1e50c9866c6da2d0",
+        "fixture/trace.csv": "efc16c5477140d7b3684ef6ba364fd6cf89c1dd7022f306f31e59239f9ba59ce",
+        "fixture/note.txt": "1dc6916734cafb8b88b534c5b2953373d7d9d82074ba940ee7d4b9d18beddd54"
+      }
+    },
+    {
+      "id": "S04-A",
+      "skill": "S04",
+      "name": "cct-financial-ux",
+      "group": "group1",
+      "task_sha256": "b57fdd3c77c4898f679e66016df3d7bf6c381734f899b353783e18199111c6de",
+      "artifact_sha256": {
+        "fixture/state.json": "bb643c0b327da45bbd1a728260cdd825a0f29b8830c1edf5ce3c50db2653edc5",
+        "fixture/exports.txt": "2d7c9046173c1b94c641d27de5f62587972044c69b73bec560b32bce80269e40",
+        "fixture/limits.txt": "95f93f5339586c616a525cb3e5ec0d14751877e13477c5ee73954f84a1f178ea"
+      }
+    },
+    {
+      "id": "S04-B",
+      "skill": "S04",
+      "name": "cct-financial-ux",
+      "group": "group2",
+      "task_sha256": "e09d56f9d102c1a7b4680db4d0cd02dfc261c5fab6d80ac3744b60e9bffff9e5",
+      "artifact_sha256": {
+        "fixture/decision.md": "ea1c921df308be2afa2823b53060def813ee60ba8b86245361eeee080ad76dc0",
+        "fixture/dialog.txt": "3075de8bc0f9ecb4c9a1bfbbb8d2f3b8c1321c018d4fd06214c68b95f3e8a44e"
+      }
+    },
+    {
+      "id": "S05-A",
+      "skill": "S05",
+      "name": "cct-figma-handoff",
+      "group": "group3",
+      "task_sha256": "861ddd802f1ee8643d72c11e4ec0f2627382d3c6920a0f71061c2eff3681f289",
+      "artifact_sha256": {
+        "fixture/handoff.md": "af609e641edbe1701ffa5919f550880f0e4215d20c5de4719544207af6898fbf",
+        "fixture/node-export.json": "26263e1c097734046fc86c12b4b0fb872f2710297f452a27ebbff96e0e4dd628",
+        "fixture/claim.txt": "234ef79edd00cec16bf1749ed947b2e1d09459bed1a9d99f7270b9472e7bae64"
+      }
+    },
+    {
+      "id": "S05-B",
+      "skill": "S05",
+      "name": "cct-figma-handoff",
+      "group": "group1",
+      "task_sha256": "c158712528558a7c665e1d9df1c8ab510e2d468014dbf3934c545a8192fe8722",
+      "artifact_sha256": {
+        "fixture/read-log.txt": "23744eecb5dd3edf30f6ad840b7bfa5acf0515e2a9265f9c59ffafbb0f560452",
+        "fixture/request.txt": "4a162988b0a980d9e968bd5423b4707d2ce622ac9fc0ea3404b99a7957eca1f7"
+      }
+    },
+    {
+      "id": "S06-A",
+      "skill": "S06",
+      "name": "cct-frontend-quality",
+      "group": "group2",
+      "task_sha256": "7e77eb1f82cc66dac922edc4e29ad1c502535a19e407aeacc28bcd98c6f6b31b",
+      "artifact_sha256": {
+        "fixture/runtime.txt": "a0fda2e8b94abb21db347545d5a2ae84aa7139da99ba177da2923513d51786f2",
+        "fixture/client-state.txt": "67b35f681ede0364b42f8388e20c1e1f163956b40d3daa9aa7c1a1d88832f3a8",
+        "fixture/author.txt": "b0ae1a719555fb11135fe6b09ea79782dee0507abdac708bc5a5e065c9d17a2e"
+      }
+    },
+    {
+      "id": "S06-B",
+      "skill": "S06",
+      "name": "cct-frontend-quality",
+      "group": "group3",
+      "task_sha256": "d3f8ef9b3dfc87d0d3546dbdf7d49086f9310855abfb642142906d6c7b0d3db6",
+      "artifact_sha256": {
+        "fixture/excerpt.txt": "fcdbf411f0fc889e84043b26d92d08cda7ffc90622d44a30032ccd4c39b3071f",
+        "fixture/requirements.md": "059776e6cce6978fd4ef755c78d5c09e15ba36105438a9b67a7de435f27c0891"
+      }
+    },
+    {
+      "id": "S07-A",
+      "skill": "S07",
+      "name": "cct-backend-data",
+      "group": "group1",
+      "task_sha256": "c53426ea9be3858bbd8fc0a22b212ebbd8cabad4b2dd83b706e45da1343966b6",
+      "artifact_sha256": {
+        "fixture/rules.md": "4725756e5f5540909beb85d03866f98caf3a9733800e3837266e15c04d54fe58",
+        "fixture/incoming.csv": "c89d0240800865e17d2ec2e57d7f5f119a02ba55fdcc126ef11c4cb436e61a3e",
+        "fixture/code.txt": "ae6c168e9339b3481c0db10d976dc8cea083812cce514541ad8fabc8f126f428"
+      }
+    },
+    {
+      "id": "S07-B",
+      "skill": "S07",
+      "name": "cct-backend-data",
+      "group": "group2",
+      "task_sha256": "6a8285669c9a37575d88df699089b718c79f601f3c1b4b474eb654d667ab336f",
+      "artifact_sha256": {
+        "fixture/excerpt.txt": "0cefbe29fcc4de47cd20c329cd6d70302955d961656129a2733f7a54df2ae6f5",
+        "fixture/context.txt": "239e9525a392889a4b4c8d0068e3761116eb3f41cb40d42f05cbee21e1dc0396"
+      }
+    },
+    {
+      "id": "S08-A",
+      "skill": "S08",
+      "name": "cct-wallet-security",
+      "group": "group3",
+      "task_sha256": "80cf9d559ad9ca6dffe197cc03a531d29177567bcb0fd853ab6b8485491d25e6",
+      "artifact_sha256": {
+        "fixture/roles.md": "d8c93c633031d6eb81802c997a1c9ed85b15b263002871d94b0764ad0803539f",
+        "fixture/revocation.txt": "acae00fe9bed708148251ae340f33006bd27a13015475efdae7bf7b8db39d9e2"
+      }
+    },
+    {
+      "id": "S08-B",
+      "skill": "S08",
+      "name": "cct-wallet-security",
+      "group": "group1",
+      "task_sha256": "ff6393517a7efe90c2f3bd262acbe9c2953dc5e4a98536a196ba4763dd77f8b0",
+      "artifact_sha256": {
+        "fixture/ticket.txt": "4c2af78dea6b0d96500f4735fdd2e300a7b08ff43ffc02233e08cc0e2eac0fe5",
+        "fixture/policy.md": "dab6aa068dcc27b0076609cb949f4cd7470658122073a0d85c3b5a92c7549371"
+      }
+    },
+    {
+      "id": "S09-A",
+      "skill": "S09",
+      "name": "cct-reliability-operations",
+      "group": "group2",
+      "task_sha256": "54896cbba3d06435e2e1d10494712c08f2de71f497e9b66bad27e15e1983045f",
+      "artifact_sha256": {
+        "fixture/sli.md": "9afb2ca7fe74254bf43c131032c3d62ab8ef89f469683ae597f2d35d80a40ccb",
+        "fixture/metrics.csv": "a0d09b3605c2fcd9fe243e5e77991fbb96f0ed0084714e0096e4c83639edf057",
+        "fixture/incident.txt": "67c61caf1b436252ef9817bedc82dc462b11e1d1fcbf13d22fd45cb8fb93a1e0"
+      }
+    },
+    {
+      "id": "S09-B",
+      "skill": "S09",
+      "name": "cct-reliability-operations",
+      "group": "group3",
+      "task_sha256": "250d093bdf05f5f561daa67499b08615b679afc7d25e4d1209fe6506227a3e1f",
+      "artifact_sha256": {
+        "fixture/topology.txt": "b539a8b5a3c8bc725ac849b0bec6a2fde135db88bc7851a57c9bff346f8e095c",
+        "fixture/proposal.txt": "baa33ad287ec5b61608153dda0496520c22a1562852157417601ade609453a7f"
+      }
+    },
+    {
+      "id": "S10-A",
+      "skill": "S10",
+      "name": "cct-ai-quality",
+      "group": "group1",
+      "task_sha256": "d1a4569eeb7e00b0ad86ef8b52df233571b6116f2c20012a533271a8d5a97f8b",
+      "artifact_sha256": {
+        "fixture/claim.txt": "2f951c9f998526955512537d970c1abde211f04b0b2b230a5788cb90dbb2cc41",
+        "fixture/evidence.json": "3527c14df5fd367bf4dcbc3a847bfff4ead7a14c43852ce541a0a1442de71b7f",
+        "fixture/reviewer.txt": "332143240830328ccd24aeabe5043b48904ab7ead0ad2a25432a25ef397ee43a"
+      }
+    },
+    {
+      "id": "S10-B",
+      "skill": "S10",
+      "name": "cct-ai-quality",
+      "group": "group2",
+      "task_sha256": "226f3718eae22bec9233021896f69b2a55190dbcba995d45bec84ae7a4167f22",
+      "artifact_sha256": {
+        "fixture/work.md": "5b966bb91bb4bd3c3ee35a061cbe7828edb852f842deae51c75cea19899eaa46",
+        "fixture/policy.md": "1e34fc4e92614dde6f415f13ad76aad4a4d9c646f99be2e6f3f975332e81d3ed"
+      }
+    },
+    {
+      "id": "S11-A",
+      "skill": "S11",
+      "name": "cct-score-data-audit",
+      "group": "group3",
+      "task_sha256": "f1f13c5c85c4956a57bd3e2a0f91e7ae5a28d0a8555ab2ac124fa9e4cddc597c",
+      "artifact_sha256": {
+        "fixture/rules.md": "612b635df14ee3e5a321d9c0ad74dc896548d24f79993241ff7a5a3a44e617c8",
+        "fixture/fills.csv": "47fb0c3766b95affb149dce48afe4649216d1e399387f0c1240173701bc0aa6d",
+        "fixture/manifest.txt": "f5e51f67163bf5fec0d1c0169a6047832d9d5b622af20d3809676ea710a5d202"
+      }
+    },
+    {
+      "id": "S11-B",
+      "skill": "S11",
+      "name": "cct-score-data-audit",
+      "group": "group1",
+      "task_sha256": "5dd7c51fe432bdd7fd45c035c965845ae48790998ef997a0d2e34bb804d307b9",
+      "artifact_sha256": {
+        "fixture/manifest.md": "be60651f0240f45a057595ed84bce2563952e7310c17504ac3ba56b12b3daeab",
+        "fixture/rows.csv": "5ac833dea53a55df20baa4a6d619d0a1829812e549cb30e833a1da2bc0311640",
+        "fixture/pressure.txt": "cffd109f166291d9ed3b80cc8dee20d17678250928d80b3216ee89f647cd37ff"
+      }
+    },
+    {
+      "id": "S12-A",
+      "skill": "S12",
+      "name": "cct-copy-replay",
+      "group": "group2",
+      "task_sha256": "30926dc31800022b7c2cb1276a7b2619dbdc946d8afb8eae883d2f2bea1b9cea",
+      "artifact_sha256": {
+        "fixture/standard.md": "ee8e8c6cd8f4a2680fc0961540c6c2ce1c68e421c9f2b786477a5937d649eff1",
+        "fixture/signal.csv": "97cb2d6c02b997c0fce99e7b1ced16a20d659b101b7c637831fdb0af8fc7cc43",
+        "fixture/books.csv": "eba331e4a49ba45d08637ae0e133da22cb9d4484ae8c05f3568d2d132dbc81c1",
+        "fixture/replay.txt": "1efee15d760bebaa58a9e5f5453c90cb80895ecf325bec9658f72b0079a66760"
+      }
+    },
+    {
+      "id": "S12-B",
+      "skill": "S12",
+      "name": "cct-copy-replay",
+      "group": "group3",
+      "task_sha256": "8df8caa4551f9300a8f001be4da04670f779e2ad040b3c996f664b9df2210c51",
+      "artifact_sha256": {
+        "fixture/rules.md": "5aab5d7a272904b72c68d85d8c985602386ed2159cac1ef01806f40afa34e08d",
+        "fixture/data.csv": "88cd9b7c7be14307c76b8f95ea95397922a1507c5729c84864707ebdc827c4b2",
+        "fixture/outcomes.txt": "2a598e66de1e6cdfec57d854f88a9b1585c9107f90261d6dc84fd919c1c3efd8"
+      }
+    },
+    {
+      "id": "S13-A",
+      "skill": "S13",
+      "name": "cct-score-methodology",
+      "group": "group1",
+      "task_sha256": "369363c7de1f61c6e0c52099d69b26ec06dd9728a9c42a309189c0d0e02b5ae5",
+      "artifact_sha256": {
+        "fixture/target.md": "8b3f42506c1209b50d1c77561e25941f2f05e68e930b1878a3adc171eacd3326",
+        "fixture/sample.csv": "81b8ac17282e42495013832e44b10b6219405a08e7100e18cb7417ec0cdbc03b",
+        "fixture/search-log.txt": "d9153eeba694327effa6127f45516381b48c5d0f0ca5286ba7f30f25a3ef6ca7"
+      }
+    },
+    {
+      "id": "S13-B",
+      "skill": "S13",
+      "name": "cct-score-methodology",
+      "group": "group2",
+      "task_sha256": "04935066bd8cfca49f90a6e0821e37db7f6e9919d86f5be5293be7238860a758",
+      "artifact_sha256": {
+        "fixture/evidence.md": "3ba3944c545b0220c4d539b7297c53892da95bf632463abd85f277f152580632",
+        "fixture/paper-excerpt.txt": "5ee2e7314fc617a2b9fa9a28167ab2cac0301642fa61846ce0eba775eb9b77a1"
+      }
+    },
+    {
+      "id": "S14-A",
+      "skill": "S14",
+      "name": "cct-score-validation",
+      "group": "group3",
+      "task_sha256": "270a7e305566a7a0aa39eb830f4effd63aa33cae21ef655711555339dcbfcb25",
+      "artifact_sha256": {
+        "fixture/protocol.md": "7093ac517d2e994372b19f244f25f86ee907f28e5fc644ed7bdc6bc68c1d83f0",
+        "fixture/holdout.csv": "6b94e5043149948d59496d1225d87a530ee04449af8ae8719fb15e5aaba5e99b",
+        "fixture/log.txt": "e300c413f01a9cdfb68b5dcca79b953081f976c6dc4be2463b11047584738bf0"
+      }
+    },
+    {
+      "id": "S14-B",
+      "skill": "S14",
+      "name": "cct-score-validation",
+      "group": "group1",
+      "task_sha256": "6376b66f0842eeabb20f24a0cb96cf8d95400a25b8bf4b1928289d810d62d6e9",
+      "artifact_sha256": {
+        "fixture/report.md": "7478c8b06a76a139076ef4e57803d38700160b25705bd706220f08f5ab2f2328",
+        "fixture/marketing.txt": "57f96bd22aedbc44e99c4429c29232a277cb32b3faf4c9ece434ed3a96cca6de"
+      }
+    },
+    {
+      "id": "S15-A",
+      "skill": "S15",
+      "name": "cct-score-governance",
+      "group": "group2",
+      "task_sha256": "5c9028fa98fc084d337b6875aceb8aed802cdced20d2abeefb9d3d6f3ed29f89",
+      "artifact_sha256": {
+        "fixture/releases.csv": "8ab5cb7cc36bc55bc4ff045e00114c129521652505d9754aa5efd1ae2f91ee37",
+        "fixture/incident.md": "de516b7ca34d9177a522b81cab6284630dfac474d0d3bb6ae6acabb4794de7da"
+      }
+    },
+    {
+      "id": "S15-B",
+      "skill": "S15",
+      "name": "cct-score-governance",
+      "group": "group3",
+      "task_sha256": "44565870f040dca702f13ae9a74abdad4c38cef8ef10616c41c555f3f9805ca0",
+      "artifact_sha256": {
+        "fixture/records.md": "77c8f2b1762b0beeaeeb987b42de322c4714af8a25878579acbe4d013dd01981"
+      }
+    },
+    {
+      "id": "S16-A",
+      "skill": "S16",
+      "name": "cct-score-explanation",
+      "group": "group1",
+      "task_sha256": "c421bb98d8e9f622662f9e4f4e06126b791f082973fad9338f4061f0cbc69a8e",
+      "artifact_sha256": {
+        "fixture/method.md": "ae014ab55238c0b92b7759c049bf54571e3e53685fafa18b6d1e0cba1889f0e2",
+        "fixture/ui.txt": "9e2f22d3ace263b8f011ef44575cb007fede74795217485eb6adbba97fa511b6"
+      }
+    },
+    {
+      "id": "S16-B",
+      "skill": "S16",
+      "name": "cct-score-explanation",
+      "group": "group2",
+      "task_sha256": "7f59efb6c4379f04462bf614e50b288fceb8311bc16b6a34d9b38d16877e4924",
+      "artifact_sha256": {
+        "fixture/states.json": "c45c9fb81096fd9f7b261c5264c51a88c329fa73b6f34f1468dbc4b2beaabf8e",
+        "fixture/rules.md": "939c09e23d07738b94684bfe8d054d83b0d66ad2f3d83f25031b479f8902baa4"
+      }
+    },
+    {
+      "id": "S17-A",
+      "skill": "S17",
+      "name": "cct-infrastructure-plan",
+      "group": "group3",
+      "task_sha256": "9a40f707086ada0b780b3a299bf36f7b9643d41dc338b6bad72b9c41ff695398",
+      "artifact_sha256": {
+        "fixture/requirements.md": "8f61da35b6e5fcaf13447c26d23fa338801c531b4b0ca0127792259e9bd23cc8",
+        "fixture/options.csv": "b452bb9f4c2316582bc0f7527f8f624bd3cdbdc128779b2f9900f4c20ce0d883",
+        "fixture/pricing.md": "39476ebcf6c4afe0d7a8f40ce7dc4ce168a4fc4333b26283a784a0d50925fe77"
+      }
+    },
+    {
+      "id": "S17-B",
+      "skill": "S17",
+      "name": "cct-infrastructure-plan",
+      "group": "group1",
+      "task_sha256": "0d0467d1e5d6152e1c6b27ed46b0156aa830510d2a415b1c0703f9796a85b504",
+      "artifact_sha256": {
+        "fixture/offers.md": "36d11960c94c1805b89d8419583ef9ce55d2092559ade222966975f2c5e33dc6",
+        "fixture/request.txt": "0281680612d812bb8c4fd4dd0c78ea89047c6fa77f4f8eb73e3cedc1aae936c4"
+      }
+    },
+    {
+      "id": "S18-A",
+      "skill": "S18",
+      "name": "cct-server-hardening",
+      "group": "group2",
+      "task_sha256": "2fe2f2d3932de0555a0f535f9c97377ce88e811a7dfadc0d8c054eca7b843131",
+      "artifact_sha256": {
+        "fixture/host.md": "1a51ad3d790130f1a4cf6f303ac7cbc0c9066fbf8ff17d12265aed29afea90aa",
+        "fixture/runbook.txt": "c9f0e1f84f3f24990a872ebe8816dd9c3858eac79b2e44fb48327d6fa5e7759c"
+      }
+    },
+    {
+      "id": "S18-B",
+      "skill": "S18",
+      "name": "cct-server-hardening",
+      "group": "group3",
+      "task_sha256": "fd94a504abcbc76f82602b643681376f0866877f78a47dab22a9ba981a0f10f6",
+      "artifact_sha256": {
+        "fixture/source.txt": "6ada551f9afc8009e2d2aa5ff6a8c9f58238a2dfc8632d0cd6c11620d550b055",
+        "fixture/requirements.md": "8fc6dcf8ff73465c330a2e3c02215783b9a65845832d798f1888764d47e18d18"
+      }
+    },
+    {
+      "id": "S19-A",
+      "skill": "S19",
+      "name": "cct-deployment-data-ops",
+      "group": "group1",
+      "task_sha256": "734be0551d95fd59bc6ac437c60ad837d54db4896e63ffc768da283a628d7984",
+      "artifact_sha256": {
+        "fixture/timeline.md": "c3e2e71e728c2376b426391540437a88ec17cd8f9f7e79996cfd28ce8490f0f5",
+        "fixture/releases.md": "fb6f33d7714aa22a925793431da192558acc16cfc5a55a7061ffa21cc04da51a",
+        "fixture/scope.txt": "3f953230475886ac2af35ff5ced8506be3e6890b98d8da084f3ee957ab6052bc"
+      }
+    },
+    {
+      "id": "S19-B",
+      "skill": "S19",
+      "name": "cct-deployment-data-ops",
+      "group": "group2",
+      "task_sha256": "d2affa55a2a6e09498bb6a889ea918a63e0ef2208bbf7c22dbaed0d480183a2a",
+      "artifact_sha256": {
+        "fixture/evidence.md": "86f18aab00848a1cd307cf7bde7dd0bd6c3a9380bf709a5dbbe33069ab518131",
+        "fixture/request.txt": "4bc6eb043dabb5a47186b42502f19dbd129df85e2b6bdb61997df4443b236a0c"
+      }
+    },
+    {
+      "id": "S20-A",
+      "skill": "S20",
+      "name": "cct-git-collaboration",
+      "group": "group3",
+      "task_sha256": "6447ac92fb398e4f0c3289cfc89fa948d0db84d46343c662a6e103191070f7c2",
+      "artifact_sha256": {
+        "fixture/status.txt": "81bfb90c7ce25f9cf5fac7a2fe84ef70beb1a35c8cebb1d5d71e7bb03d33a293",
+        "fixture/conflict.txt": "0fed9f3bd3649862a7d435d096ad88377debccde91bbfa3dd3867fd30e4ece5b",
+        "fixture/contributing.md": "9c4191228d394acf564eafd72fb52e10a2ab44757cc5ad3f43dff3038c847f88"
+      }
+    },
+    {
+      "id": "S20-B",
+      "skill": "S20",
+      "name": "cct-git-collaboration",
+      "group": "group1",
+      "task_sha256": "d437ee6b427a28f6e8d24f044bfc3cee23e89980e9edd990f1b68e000738cb22",
+      "artifact_sha256": {
+        "fixture/diff.txt": "451ac193e1bee525b6b75b4f4f18c4d4a051c24b39fc0f58c719a613721ce482",
+        "fixture/request.txt": "aa37fe106ea7a881daa0e38eaa0127f8a9896af640c4fd2bd984e83b90a9dfd4"
+      }
+    },
+    {
+      "id": "S21-A",
+      "skill": "S21",
+      "name": "cct-knowledge-curation",
+      "group": "group2",
+      "task_sha256": "8f644487b0d66339da9d2ec2a6181316bb58f3976b1e51c48ad16394dee16eda",
+      "artifact_sha256": {
+        "fixture/schema.md": "62d869e0f6624f28f2943f783cf9bc35c0c6a32372a54901df6d710be658caae",
+        "fixture/card.json": "b0a8e4bb2f00f07ad1fc9cce339b91edf79d5f8ccc541c5e1db9d7db61bde6ab",
+        "fixture/new-excerpt.md": "d0bbdb598b6807cc87bcd4573e401e7c0eac5a587673fc11566a3f0eaeded01b"
+      }
+    },
+    {
+      "id": "S21-B",
+      "skill": "S21",
+      "name": "cct-knowledge-curation",
+      "group": "group3",
+      "task_sha256": "e50bf82653cdf7e30248d24a2367ca803640986337fc6c27af5219df183b88ee",
+      "artifact_sha256": {
+        "fixture/material.txt": "484fe9dc17a293e9eacdba2aaf2b684090dc66aaaf11f7477162ad3dc5df12d4",
+        "fixture/inserted-note.txt": "97202db45ea3d9e927ebb319d3d24f672a056cc7ce212419fa3b7d24389028d4"
+      }
+    },
+    {
+      "id": "S22-A",
+      "skill": "S22",
+      "name": "cct-venue-api-review",
+      "group": "group1",
+      "task_sha256": "616db62f1d7dee45723aa1a70bd7bd6d3403c350eddc9123e758b9d1f7505ac6",
+      "artifact_sha256": {
+        "fixture/packages.md": "2da484a7ff214bf6ca29b7f9ffeb4cdf881d7672dcc7df210dff34f4fab3e925",
+        "fixture/evidence.csv": "17c8a047d2d3e354a4e0b61cd9e9aeddae5a946ef9c4c5f410e52a7c880c459d",
+        "fixture/memo.txt": "dc77ac6db97d041db4e3fc8f7cde6c7aafee2ce65124df65a9961a72844eb536"
+      }
+    },
+    {
+      "id": "S22-B",
+      "skill": "S22",
+      "name": "cct-venue-api-review",
+      "group": "group2",
+      "task_sha256": "fce8063d755ad519bc24f9a830e9ae9d5288ecacc64ed60cdfc5391ba8834c49",
+      "artifact_sha256": {
+        "fixture/docs.md": "6d7b07bdcd4f6d35d23aa9d5c52caa6bc17c537f72e04a3caa92f8c3aa3e1cb0",
+        "fixture/log.csv": "dddca0ceebd27367c1f1f4083f9b1e58e5f2ab69bb1062cfde724d7cf521af3a",
+        "fixture/claim.txt": "9619cd6ca6816c0051bdcabfa33d0cd23c42e1598f4e6db384ffe91551acbb41"
+      }
+    },
+    {
+      "id": "S23-A",
+      "skill": "S23",
+      "name": "cct-product-qa",
+      "group": "group3",
+      "task_sha256": "ce9850e57ce5ca0ae80b451f0c4264b040886f1eabf9a51533aade252a40a808",
+      "artifact_sha256": {
+        "fixture/rules.md": "1bc8777ca8d6035de18b480de87c34237f8b1b7959c50c2d9e5036103c6be433",
+        "fixture/trace.txt": "0d6ae1759b5e2e809f53212a33fd9d1618a722fd72cd2bb8491ac0c9ca188061",
+        "fixture/scope.txt": "0b5b2a4353230563a0e75218e10d0eca67d989b6d057906d43d3a4cf6b02b40f"
+      }
+    },
+    {
+      "id": "S23-B",
+      "skill": "S23",
+      "name": "cct-product-qa",
+      "group": "group1",
+      "task_sha256": "8eb90826260973a69d0a724a8b2025d2bbdfbaa0ddecd325eebad54d5180761a",
+      "artifact_sha256": {
+        "fixture/evidence.md": "3c05b22d8128991742fa44341f614c3b3072fedc8914c3c5bc22f91d4ae5d32d",
+        "fixture/policy.md": "956be49fca34b73218583974d67d83641ae0f31425f9455f43ef1a0a55eb4983"
+      }
+    }
+  ],
+  "skills_sha256": {
+    "S01": "990b3b77d2c2e51fc899930b94ab3c7c8e0fab662f44604eb58e60d57e7bbeb6",
+    "S02": "e87570e6125b0c45dcb4d4a9ffe2a17bc1c2f66f464d7405007a0f0c90f1f9cc",
+    "S03": "9004b78bbcbd39f8f5cbf5579477e93d06155a68dc242d4b43c6135ad35fcc88",
+    "S04": "5b529ab56ecb2167d765778e3738e9c74e5030817bb6ce4d7a3f75414a4f8b70",
+    "S05": "8dd74107f97676d3a52eca9203776952357e19440d2989b61b37419506f369e8",
+    "S06": "5c8f4df1aae2c4e8a536d97390c5d78e3af9c4385774e454f3c5b45d47dc10c9",
+    "S07": "c80132c9bdd2241744596c83887892df7e12cdcdb7cc193c3626e606e5ec8d17",
+    "S08": "2b96711c393f2911daab35cc2c77a67968baf8f6209038f8a73f63b877f102fe",
+    "S09": "9908a8a5104aecbd5b8db16952bbd685e144cc42350f5dc64f97a2a7d6ac743f",
+    "S10": "66d171201393cf4eb40da6cf38c514317cf37d04a903e5a6993c7c1123f21035",
+    "S11": "dcde258ee5a5e2aa57490cc0fdb4e1072be21d49794f1296e12421a1f7cfa8ee",
+    "S12": "b5ff0434e6a675630d31cd6a9617094689964cc40ab781fed8d7e31d142d0c16",
+    "S13": "e434dce2baa94f2cb38adc921e0333a397115084d099c7af3a9cd361560ce03c",
+    "S14": "2da36cffaf63e6f2f5b88ae18ca160befee4f3de1edf43948490b5fc873dd870",
+    "S15": "29cd876f4dbab5f8e457d944d26e3f140a51434808448616737b2de0360e5dee",
+    "S16": "20b7ef43835bd6873256f29e4a68a6a9c3b31c6f5d71db9ea2047e2c7fa3a9b8",
+    "S17": "84c175e7dfef5a28695fae835e2b9b77fc94bece5052b945c511050edd897812",
+    "S18": "5cb3ff44059265e243bfa218ffa8aef16d8a21ae47519c1c675d1a6cfde2648f",
+    "S19": "630614c71e69f9c546ca7ce689f035812d5a68006670dad80ab56b1a5003bb3a",
+    "S20": "5c144ba899eea81b6690d74db4ec19d18996726a3f9c71b6ddb7ebe92df2e516",
+    "S21": "41c33acfab7e78d44d35eadf60b508f130e6e68c85fa984e5ed1fc1dcbd2eb0b",
+    "S22": "346a9d121a22d17c0584fef46be668d717f0c5e0eca3e6c9dc96928fcccfa40e",
+    "S23": "c9b324cec010fddf350af1f351f7559faf68a8a431720a18aae65297cc519755"
+  },
+  "retest_skill_hashes": {
+    "cct-financial-ux": "5b529ab56ecb2167d765778e3738e9c74e5030817bb6ce4d7a3f75414a4f8b70",
+    "cct-infrastructure-plan": "84c175e7dfef5a28695fae835e2b9b77fc94bece5052b945c511050edd897812",
+    "cct-score-governance": "173c3fc23d9ea2b222f68fc2ab0e58952ffd91557e7c8a55ab1ea6d91dc309f6",
+    "cct-venue-api-review": "80700990b326fd0ce31732a3d8f26fff555c2f12717faa8ec3728f9f2e97e43d",
+    "cct-deployment-data-ops": "630614c71e69f9c546ca7ce689f035812d5a68006670dad80ab56b1a5003bb3a",
+    "cct-score-methodology": "e434dce2baa94f2cb38adc921e0333a397115084d099c7af3a9cd361560ce03c",
+    "cct-figma-handoff": "8dd74107f97676d3a52eca9203776952357e19440d2989b61b37419506f369e8",
+    "cct-backend-data": "c80132c9bdd2241744596c83887892df7e12cdcdb7cc193c3626e606e5ec8d17",
+    "cct-product-discovery": "e87570e6125b0c45dcb4d4a9ffe2a17bc1c2f66f464d7405007a0f0c90f1f9cc",
+    "cct-knowledge-curation": "41c33acfab7e78d44d35eadf60b508f130e6e68c85fa984e5ed1fc1dcbd2eb0b",
+    "cct-copy-replay": "60f78abf642869d68f6d9d4c30ce0e9bcbff7f69a4fa4f4a3e0f575ce875eb72",
+    "cct-score-data-audit": "dcde258ee5a5e2aa57490cc0fdb4e1072be21d49794f1296e12421a1f7cfa8ee",
+    "cct-score-validation": "2da36cffaf63e6f2f5b88ae18ca160befee4f3de1edf43948490b5fc873dd870",
+    "cct-project-context": "990b3b77d2c2e51fc899930b94ab3c7c8e0fab662f44604eb58e60d57e7bbeb6",
+    "cct-market-domain": "9004b78bbcbd39f8f5cbf5579477e93d06155a68dc242d4b43c6135ad35fcc88",
+    "cct-server-hardening": "5cb3ff44059265e243bfa218ffa8aef16d8a21ae47519c1c675d1a6cfde2648f",
+    "cct-score-explanation": "20b7ef43835bd6873256f29e4a68a6a9c3b31c6f5d71db9ea2047e2c7fa3a9b8",
+    "cct-wallet-security": "2b96711c393f2911daab35cc2c77a67968baf8f6209038f8a73f63b877f102fe",
+    "cct-product-qa": "e80e10f8095b35330f104f333a617bfe4763c53676760d01b3b03b6db1662ed6",
+    "cct-git-collaboration": "5c144ba899eea81b6690d74db4ec19d18996726a3f9c71b6ddb7ebe92df2e516",
+    "cct-reliability-operations": "e5ee9fbefcd3c9f3a612f4d99c30c8f6f086945b1951f051814bd4d07495eddf",
+    "cct-ai-quality": "66d171201393cf4eb40da6cf38c514317cf37d04a903e5a6993c7c1123f21035",
+    "cct-frontend-quality": "69a96d3b2076b5ea23865d66f2f12a3d4739d55858c184a501fc66bee1746d33"
+  },
+  "retest2_skill_hashes": {
+    "cct-financial-ux": "5b529ab56ecb2167d765778e3738e9c74e5030817bb6ce4d7a3f75414a4f8b70",
+    "cct-infrastructure-plan": "84c175e7dfef5a28695fae835e2b9b77fc94bece5052b945c511050edd897812",
+    "cct-score-governance": "c99dcd5a22a19fe8b0508fbf533f9546915d0e751e388bacdd85b169750700af",
+    "cct-venue-api-review": "c5a43a3ed705f23bf283cb092c2d8f44dac9d42bb11f8d389c302149be0e8ed7",
+    "cct-deployment-data-ops": "630614c71e69f9c546ca7ce689f035812d5a68006670dad80ab56b1a5003bb3a",
+    "cct-score-methodology": "e434dce2baa94f2cb38adc921e0333a397115084d099c7af3a9cd361560ce03c",
+    "cct-figma-handoff": "8dd74107f97676d3a52eca9203776952357e19440d2989b61b37419506f369e8",
+    "cct-backend-data": "c80132c9bdd2241744596c83887892df7e12cdcdb7cc193c3626e606e5ec8d17",
+    "cct-product-discovery": "e87570e6125b0c45dcb4d4a9ffe2a17bc1c2f66f464d7405007a0f0c90f1f9cc",
+    "cct-knowledge-curation": "41c33acfab7e78d44d35eadf60b508f130e6e68c85fa984e5ed1fc1dcbd2eb0b",
+    "cct-copy-replay": "60f78abf642869d68f6d9d4c30ce0e9bcbff7f69a4fa4f4a3e0f575ce875eb72",
+    "cct-score-data-audit": "dcde258ee5a5e2aa57490cc0fdb4e1072be21d49794f1296e12421a1f7cfa8ee",
+    "cct-score-validation": "2da36cffaf63e6f2f5b88ae18ca160befee4f3de1edf43948490b5fc873dd870",
+    "cct-project-context": "990b3b77d2c2e51fc899930b94ab3c7c8e0fab662f44604eb58e60d57e7bbeb6",
+    "cct-market-domain": "9004b78bbcbd39f8f5cbf5579477e93d06155a68dc242d4b43c6135ad35fcc88",
+    "cct-server-hardening": "5cb3ff44059265e243bfa218ffa8aef16d8a21ae47519c1c675d1a6cfde2648f",
+    "cct-score-explanation": "20b7ef43835bd6873256f29e4a68a6a9c3b31c6f5d71db9ea2047e2c7fa3a9b8",
+    "cct-wallet-security": "2b96711c393f2911daab35cc2c77a67968baf8f6209038f8a73f63b877f102fe",
+    "cct-product-qa": "e80e10f8095b35330f104f333a617bfe4763c53676760d01b3b03b6db1662ed6",
+    "cct-git-collaboration": "5c144ba899eea81b6690d74db4ec19d18996726a3f9c71b6ddb7ebe92df2e516",
+    "cct-reliability-operations": "e5ee9fbefcd3c9f3a612f4d99c30c8f6f086945b1951f051814bd4d07495eddf",
+    "cct-ai-quality": "66d171201393cf4eb40da6cf38c514317cf37d04a903e5a6993c7c1123f21035",
+    "cct-frontend-quality": "69a96d3b2076b5ea23865d66f2f12a3d4739d55858c184a501fc66bee1746d33"
+  }
+}

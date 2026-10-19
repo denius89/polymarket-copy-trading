@@ -1,0 +1,71 @@
+{
+  "id": "N04-vendor-capabilities",
+  "publisher_owner": "Vendor (точное имя не предоставлено)",
+  "read_date": "2026-10-17",
+  "reading_conditions": "Только supplied локальные fixtures; без сети, ключей и account-specific запросов",
+  "access": "read",
+  "scope": "Полный короткий vendor.md и supplied JSON; внешняя документация не читалась",
+  "sources": [
+    {
+      "path": "vendor.md",
+      "section": "GET /public/markets; partner cashflows",
+      "version": "snapshot 2026-10-17",
+      "sha256": "54bbc26000694883886e532b7f23fa22d849beb8a762162f1d8a2370baa30934"
+    },
+    {
+      "path": "observation.json",
+      "section": "request/result",
+      "sha256": "2bf36f37dbacd836126b3a8bc56267d72d585d7069cfe32680cfcc3009991f9c"
+    },
+    {
+      "path": "old-card.json",
+      "section": "claim/access/read_at",
+      "sha256": "77d02176a92d307817622ddb7770ebd948a95a2b7ca8bf3bf386c81453163d06"
+    }
+  ],
+  "claims": [
+    {
+      "id": "market-documentation",
+      "claim": "Документация описывает GET /public/markets с пагинацией",
+      "evidence": "vendor.md",
+      "status": "current_at_observation",
+      "as_of": "snapshot 2026-10-17",
+      "limits": "Свежесть действующего endpoint на текущий момент не проверена"
+    },
+    {
+      "id": "market-observation",
+      "claim": "GET /public/markets вернул 200 для первой страницы",
+      "evidence": "observation.json",
+      "observed_at": "2026-10-01T10:00:00Z",
+      "status": "needs_recheck",
+      "limits": "Историческое наблюдение; не доказывает получение всех страниц или работоспособность сейчас; аккаунт и параметры не указаны"
+    },
+    {
+      "id": "partner-requirement",
+      "claim": "Доступ partner к all-wallet cashflows требует соглашения",
+      "evidence": "vendor.md",
+      "status": "current_at_observation",
+      "as_of": "snapshot 2026-10-17",
+      "limits": "Документированное условие; наличие соглашения и фактического доступа нашего аккаунта неизвестно"
+    },
+    {
+      "id": "our-cashflows",
+      "claim": "all-wallet cashflows доступны нашему аккаунту",
+      "evidence": "old-card.json",
+      "status": "unknown",
+      "conflict": "Старая карточка утверждает доступ без первичного подтверждения; новый snapshot содержит условие соглашения. Это пробел доказательств, а не доказанный отказ доступа",
+      "limits": "read_at 2026-10-16 и access=read относятся к записи, а не доказывают entitlement аккаунта"
+    }
+  ],
+  "related_packages": [],
+  "refresh_reason": "Сверка старой карточки с supplied vendor snapshot и историческим наблюдением",
+  "verification_route": [
+    "Проверить наличие partner agreement и entitlement через уполномоченного владельца аккаунта",
+    "В отдельной разрешённой задаче выполнить account-specific проверку и проверку пагинации; сохранить время, условия и результат"
+  ],
+  "limitations": [
+    "Нет данных о полной истории чужого трейдера",
+    "Новых API наблюдений и failed requests нет",
+    "Связанные пакеты не предоставлены"
+  ]
+}

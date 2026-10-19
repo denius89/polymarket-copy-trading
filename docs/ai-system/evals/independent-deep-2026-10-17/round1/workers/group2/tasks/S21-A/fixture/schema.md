@@ -1,0 +1,1 @@
+Обязательные поля: id,title,publisher,locator,section,access,observed_at,currency,version,sha256,supports,limits,tags,used_by,refresh_when,usage. access read/partial/index_only/unavailable/candidate. currency current_at_observation/needs_recheck/superseded/conflict/unknown. URL hash может null. Добавления вложенно; исходные поля сохранять.

@@ -1,0 +1,8 @@
+seq,event
+1,copy buy reserve 21
+2,copy fill qty=30 price=0.50 fee=0.30
+3,copy order cancel remainder confirmed
+4,manual buy qty=10 price=0.60 fee=0
+5,copy sell qty=12 price=0.70 fee=0.12
+6,stop-copy
+7,withdrawal reserve=20 status=unknown

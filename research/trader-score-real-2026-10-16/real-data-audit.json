@@ -1,0 +1,129 @@
+{
+  "scope": "Jan-Feb2024 Standard Binary archive; descriptive data audit only",
+  "cutoff_utc": "2024-02-01T00:00:00Z",
+  "archive": {
+    "row_count": 72977,
+    "conditions": 539,
+    "takers": 4975,
+    "makers": 1314,
+    "first_timestamp": 1704067555,
+    "last_timestamp": 1709250975,
+    "missing_resolution_time": 1967,
+    "missing_winner": 170,
+    "boundary_or_invalid_prices": 1,
+    "after_resolution_rows": 76,
+    "nonzero_fee_rows": 0,
+    "distinct_addresses": 5118
+  },
+  "identical_rows": {
+    "group_count": 454,
+    "extra_rows": 516
+  },
+  "categories": [
+    {
+      "category": "Politics",
+      "row_count": 27385
+    },
+    {
+      "category": "Crypto",
+      "row_count": 22436
+    },
+    {
+      "category": "Other",
+      "row_count": 6833
+    },
+    {
+      "category": "Sci-Tech",
+      "row_count": 6199
+    },
+    {
+      "category": "Finance",
+      "row_count": 4259
+    },
+    {
+      "category": "Sports",
+      "row_count": 3294
+    },
+    {
+      "category": "Culture",
+      "row_count": 2563
+    },
+    {
+      "category": "Price Action",
+      "row_count": 8
+    }
+  ],
+  "resolution_status": [
+    {
+      "resolution_status": "resolved",
+      "row_count": 72977
+    }
+  ],
+  "january_buys": {
+    "row_count": 10193,
+    "buyers": 2176,
+    "outcome_not_known_by_cutoff": 4359,
+    "resolution_before_cutoff": 5209,
+    "resolution_time_unknown": 625
+  },
+  "evidence_counts": {
+    "january_buyers": 2176,
+    "at_least_20_fills": 80,
+    "at_least_20_conditions": 10,
+    "at_least_20_known_conditions": 3,
+    "median_fills": 2.0,
+    "median_conditions": 1.0
+  },
+  "hindsight_odds_diagnostic": [
+    {
+      "price_band": "0.00-0.10",
+      "wallet_market_first_buys": 1441,
+      "conditions": 259,
+      "mean_price": 0.04365992988539743,
+      "win_fraction": 0.01457321304649549,
+      "payoff_minus_price_per_share": -0.02908671683890192
+    },
+    {
+      "price_band": "0.10-0.50",
+      "wallet_market_first_buys": 3344,
+      "conditions": 280,
+      "mean_price": 0.2649260325325762,
+      "win_fraction": 0.2673444976076555,
+      "payoff_minus_price_per_share": 0.0024184650750791663
+    },
+    {
+      "price_band": "0.50-0.90",
+      "wallet_market_first_buys": 2963,
+      "conditions": 268,
+      "mean_price": 0.7217079761296361,
+      "win_fraction": 0.684441444481944,
+      "payoff_minus_price_per_share": -0.03726653164769192
+    },
+    {
+      "price_band": "0.90-1.00",
+      "wallet_market_first_buys": 1637,
+      "conditions": 295,
+      "mean_price": 0.9616872067248015,
+      "win_fraction": 0.9804520464263897,
+      "payoff_minus_price_per_share": 0.018764839701588435
+    }
+  ],
+  "quotes": {
+    "row_count": 2000,
+    "tokens": 8,
+    "markets": 4,
+    "first_source_ms": 1778770707235,
+    "last_source_ms": 1778770764567,
+    "price_outside_best_quotes": 1904,
+    "crossed_best_quotes": 0,
+    "median_source_to_ingest_ms": 9.0,
+    "max_source_to_ingest_ms": 38,
+    "negative_source_to_ingest": 0
+  },
+  "checks": {
+    "all_download_hashes_match": true,
+    "label_time_partitions_cover_january": true,
+    "distinct_evidence_never_exceeds_fills": true,
+    "all_60_calendar_files_present": true
+  }
+}

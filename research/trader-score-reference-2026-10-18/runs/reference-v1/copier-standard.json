@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "standard_id": "copy-reference-single-v1",
+  "frozen_date": "2026-10-18",
+  "status": "frozen_research_engineering_standard",
+  "authorization": "User instructed to freeze research copier standard, fix analyzers and run reference; no live execution or production score acceptance.",
+  "target": {
+    "unit": "one standard copy session of one venue/address",
+    "not_portfolio": true,
+    "target_horizon_calendar_days": 30,
+    "current_reference_scope": "short controlled engineering trace, not a complete 30-day historical outcome",
+    "metric": "net terminal wealth relative to known opening wealth; unknown terminal marks prevent a point PnL"
+  },
+  "venue_scope": {
+    "venue": "Polymarket",
+    "protocol": "v1 StandardBinary historical research scope",
+    "collateral": "USDC.e-labelled historical scope; actual contract, decimals, fees must be verified before external financial replay",
+    "Limitless_validated": false,
+    "protocol_transferability": false
+  },
+  "opening": {
+    "virtual_cash": "200",
+    "positions": {},
+    "reserves": {},
+    "external_cashflows": "none in engineering reference"
+  },
+  "sizing": {
+    "mode": "fixed_gross_notional",
+    "amount": "5",
+    "position_cap_cost_basis_plus_pending": "20",
+    "daily_buy_gross_cap": "30",
+    "session_zone": "Europe/Warsaw",
+    "day_boundary": "local IANA midnight; 23/25h DST days, UTC only for storage",
+    "user_percentage_default_changed": false,
+    "user_percent_mode_default": "3"
+  },
+  "signals": {
+    "economic_signal_identity_required": true,
+    "source_event_time_not_observed_at": true,
+    "decision_delay_seconds": "2",
+    "maximum_signal_age_seconds": "30",
+    "ordering": "observed receipt sequence; equal time requires authoritative sequence, never sort by price",
+    "standalone_archive_rows_are_not_automatically_distinct_signals": true
+  },
+  "market_data": {
+    "same_venue_market_outcome_side_required": true,
+    "decision_time": "observedAt + 2 seconds",
+    "book_selection": "latest available no later than decision; no wait for future book",
+    "max_book_age_seconds": "1",
+    "exact_timestamp_tie_without_proven_order": "unknown",
+    "invalid_or_conflicting_latest_group": "unknown without fallback",
+    "missing_side": "unknown unless verified producer contract explicitly proves empty",
+    "raw_timestamp_precision": "preserve raw values; finer time is not exchange sequence without provenance",
+    "known_intervening_updates": "apply only with verified continuity/order; otherwise no inferred executable current book"
+  },
+  "admission": {
+    "buy_requires_full_gross_depth": true,
+    "price_limit": "explicit applicable verified binding; missing means skip before intent",
+    "expenses": "documented applicable upper bound including asset/unit/rounding; missing means skip before intent",
+    "service_fee": "no new service tariff introduced",
+    "unknown_pre_intent": "skip with reason, no fill/expense/reserve",
+    "unresolved_created_intent": "retain purchase and expense reserves until verified reconciliation",
+    "no_clamp": true,
+    "no_retroactive_retry_of_skipped_signal": true
+  },
+  "bookkeeping": {
+    "number_representation": "Decimal or verified native integer amounts, never binary float cash",
+    "native_quanta": "require declared verified binding; engineering fixture may use explicit synthetic 0.000001 units",
+    "quantity_rounding": "conservative floor only under declared quantum",
+    "expense_bound_rounding": "conservative ceiling only under declared quantum",
+    "confirmed_fills": "authoritative trace events with identity, quantity, price, receivedAt and execution time; depth admission is not a fill",
+    "cash_available": "confirmed cash minus gross pending purchase reserve minus pending cash expenses",
+    "position_limit": "remaining tracked purchase cost basis plus pending gross purchase amount; expenses excluded",
+    "daily_limit": "confirmed buys by reliable execution local day plus unresolved gross amount carried into current day; expenses excluded",
+    "late_confirmed_previous_day_fill": "replaces corresponding reserve, charged to previous execution day, not current day",
+    "fee_bound_release": "terminal confirmation and specified reconciliation rule required; lower actual fee alone is not release evidence",
+    "partial_cancel": "keep every distinct confirmed fill; request is not cancel confirmation; only confirmed residual cancellation releases residual",
+    "event_conflict": "same ID with different payload blocks/quarantines; no duplicate debit"
+  },
+  "exits": {
+    "proportional_sell": "fraction of tracked copy quantity matching verified leader inventory reduction",
+    "leader_inventory_unknown": "unknown, never zero/full-exit guess",
+    "manual_and_detached_lots": "excluded from tracked copied exit",
+    "terminal_value": "cash plus eligible same-token bid liquidation net of known applicable exit costs; unknown book/cost means unknown result",
+    "future_resolution": "not used before it is known at cutoff"
+  },
+  "controlled_fixture_binding": {
+    "id": "synthetic-reference-fees-v1",
+    "not_venue_tariff": true,
+    "max_cash_fee_per_order": "0.10",
+    "actual_cash_fee_per_executed_order": "0.05",
+    "actual_fee_confirmation": "terminal only; held bound persists through nonterminal full gross fill",
+    "buy_price_cap_example": "leader price + 0.02 USD/token only where explicitly supplied by fixture",
+    "collateral_quantum": "0.000001",
+    "share_quantum": "0.000001",
+    "fixture_confirmations": "constructed test oracle, not observed historical order executions"
+  },
+  "validation_scope": {
+    "eligible_for_model_comparison": false,
+    "full_historical_30_day_copy_returns": 0,
+    "live_trades": false,
+    "research_invariant_acceptance": "exact ledger checks and fail-closed data tests",
+    "production_risk_acceptance": "not set by engineering test",
+    "risk_loss_probability_limits": null,
+    "minimum_model_improvement": null,
+    "publication_authority": "unchanged ADR rules; no publication performed"
+  }
+}

@@ -1,0 +1,1 @@
+Owner: determine task scope for KB preparation only. The old folder says only venue A; current metadata says replica and both venues. Runtime not verified. Queue says deploy later.

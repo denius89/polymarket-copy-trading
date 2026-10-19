@@ -1,0 +1,1 @@
+Leader logs имеют40 fills на2 события, opening/cashflows неизвестны. Copier replay: BBO без depth и без observedAt. Наиболее успешный лидер мог хеджироваться вне venue; доказательств нет. Research brief: сравнить устойчивость ranking under uncertainty; accepted weights в ADR остаются действующими.

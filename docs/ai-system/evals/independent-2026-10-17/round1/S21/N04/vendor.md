@@ -1,0 +1,1 @@
+Vendor docs snapshot, 2026-10-17. GET /public/markets lists markets with pagination. Partner access to all-wallet cashflows requires an agreement.

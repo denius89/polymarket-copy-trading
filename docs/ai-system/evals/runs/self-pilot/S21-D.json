@@ -1,0 +1,31 @@
+{
+  "case_id": "S21-D",
+  "evaluation_kind": "self_pilot",
+  "oracle_visible": true,
+  "same_author": true,
+  "observed_at": "2026-10-17T21:10:02+00:00",
+  "response_file": "S21-D.md",
+  "response_sha256": "8b607eab41fc9519448e5c5a6b49dcc854813fe84f58a5407eaee569155fa320",
+  "trace": [
+    "Author explicitly read three SKILL.md files through local file tool in this session.",
+    "Author reviewed supplied raw fixtures and produced this response in the same session; oracle was already visible.",
+    "Only local skill/evaluation artifacts were written. No independent model execution, automatic skill discovery or external action was performed."
+  ],
+  "tokens": null,
+  "cost_usd": null,
+  "latency_seconds": null,
+  "checks": {
+    "C1": {
+      "status": "pass",
+      "evidence": "Сохранён статус proposal/no runtime из обеих версий."
+    },
+    "C2": {
+      "status": "pass",
+      "evidence": "Learning-api/S22 отмечены needs_recheck по access tier."
+    },
+    "C3": {
+      "status": "pass",
+      "evidence": "Colour-token потребители исключены с обоснованием; смысловое чтение отделено от hash."
+    }
+  }
+}

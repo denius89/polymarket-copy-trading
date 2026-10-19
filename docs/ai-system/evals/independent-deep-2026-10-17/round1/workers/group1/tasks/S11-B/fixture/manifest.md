@@ -1,0 +1,1 @@
+Файл называется utc-30days.csv, export filter: local date Europe/Warsaw 2026-10-01..2026-10-02 inclusive; UTC границы не указаны. Universe: only accounts still active at export date. API cursor next=p2; p2 download timeout. Transfers endpoint403.

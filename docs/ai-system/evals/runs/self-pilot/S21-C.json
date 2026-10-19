@@ -1,0 +1,31 @@
+{
+  "case_id": "S21-C",
+  "evaluation_kind": "self_pilot",
+  "oracle_visible": true,
+  "same_author": true,
+  "observed_at": "2026-10-17T21:10:02+00:00",
+  "response_file": "S21-C.md",
+  "response_sha256": "94b21037b20b93692f1ea176f6ee6cff98789e93113355f6a5c1b4f74b587ca2",
+  "trace": [
+    "Author explicitly read three SKILL.md files through local file tool in this session.",
+    "Author reviewed supplied raw fixtures and produced this response in the same session; oracle was already visible.",
+    "Only local skill/evaluation artifacts were written. No independent model execution, automatic skill discovery or external action was performed."
+  ],
+  "tokens": null,
+  "cost_usd": null,
+  "latency_seconds": null,
+  "checks": {
+    "C1": {
+      "status": "pass",
+      "evidence": "Own-account WS и чужая полная история явно различены."
+    },
+    "C2": {
+      "status": "pass",
+      "evidence": "Дата исторического GET приведена; потребность не названа capability."
+    },
+    "C3": {
+      "status": "pass",
+      "evidence": "План проверки полноты/прав задан без account calls."
+    }
+  }
+}

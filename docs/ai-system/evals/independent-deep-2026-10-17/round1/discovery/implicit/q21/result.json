@@ -1,0 +1,30 @@
+{
+  "id": "q21",
+  "returncode": 0,
+  "status": "pass",
+  "expected_any": [
+    "cct-knowledge-curation"
+  ],
+  "should_activate": true,
+  "observed_skill_file_reads": [
+    "cct-knowledge-curation"
+  ],
+  "commands": [
+    {
+      "command": "/bin/bash -lc 'cat .agents/skills/cct-knowledge-curation/SKILL.md'",
+      "exit_code": 0
+    }
+  ],
+  "usage": [
+    {
+      "input_tokens": 32966,
+      "cached_input_tokens": 28032,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 350,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "seconds": 14.84,
+  "observed_at": "2026-10-17T21:43:08.685368+00:00",
+  "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+}

@@ -1,0 +1,40 @@
+{
+  "scope": "N13 only",
+  "skill": "Same previously read .agents/skills/cct-ai-quality/SKILL.md; no reread needed",
+  "reads": [
+    "N13/task.md",
+    "N13/trace.json",
+    "N13/response.md"
+  ],
+  "visible_actions": [
+    {
+      "action": "read_supplied_fixtures",
+      "paths": [
+        "N13/task.md",
+        "N13/trace.json",
+        "N13/response.md"
+      ]
+    },
+    {
+      "action": "write_assessment",
+      "path": "N13/results/assessment.md"
+    },
+    {
+      "action": "write_visible_log",
+      "path": "N13/results/trace.json"
+    }
+  ],
+  "created_files": [
+    "N13/results/assessment.md",
+    "N13/results/trace.json"
+  ],
+  "limitations": [
+    "Assessment uses supplied trace; completeness was not externally audited.",
+    "Files hidden-key.json and reference-answer.md were named in the supplied trace and were not opened."
+  ],
+  "network_used": false,
+  "external_actions": false,
+  "prior_results_modified": false,
+  "fixtures_modified": false,
+  "oracle_read": false
+}

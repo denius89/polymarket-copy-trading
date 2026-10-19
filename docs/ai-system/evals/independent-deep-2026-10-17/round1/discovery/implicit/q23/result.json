@@ -1,0 +1,34 @@
+{
+  "id": "q23",
+  "returncode": 0,
+  "status": "pass",
+  "expected_any": [
+    "cct-product-qa"
+  ],
+  "should_activate": true,
+  "observed_skill_file_reads": [
+    "cct-product-qa"
+  ],
+  "commands": [
+    {
+      "command": "/bin/bash -lc 'cat .agents/skills/cct-product-qa/SKILL.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S23.md docs/ai-system/knowledge/domains/engineering.md'",
+      "exit_code": 0
+    }
+  ],
+  "usage": [
+    {
+      "input_tokens": 95875,
+      "cached_input_tokens": 79360,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 496,
+      "reasoning_output_tokens": 17
+    }
+  ],
+  "seconds": 16.83,
+  "observed_at": "2026-10-17T21:43:25.512202+00:00",
+  "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+}

@@ -1,0 +1,1 @@
+Fixture intent: support can read case status, trader worker can place/cancel trades, withdrawal requires owner approval bound to recipient+amount+network. Service treasury separate. Actual signer report: worker credential trade+withdraw; support API can edit recipient after approval; owner session checked only when UI opens.

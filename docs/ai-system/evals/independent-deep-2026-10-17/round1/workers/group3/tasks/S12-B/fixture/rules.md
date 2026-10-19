@@ -1,0 +1,1 @@
+Fixture: budget20, целевой buy10 shares на сигнал, required full depth before admission, limit0.60. Предполагаемая fee0. Нет принятого правила восстанавливать depth из last trade. На дату оценки незакрытые позиции оцениваются только contemporaneous observable mark, если есть.

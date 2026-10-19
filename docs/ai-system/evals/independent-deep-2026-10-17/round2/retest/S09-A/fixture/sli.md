@@ -1,0 +1,1 @@
+Окно 10 минут. Принятый SLI: доля admitted intents, получивших correct terminal status в2s. Duplicate request не новый intent. Unknown after2s — bad. Предложение команды target99% на это окно ещё не принято.

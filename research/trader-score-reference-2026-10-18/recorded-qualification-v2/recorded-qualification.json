@@ -1,0 +1,179 @@
+{
+  "diagnostic_version": "recorded-qualification-v2-2026-10-18",
+  "result_kind": "recorded_source_qualification_not_execution",
+  "events": {
+    "price_change": 360596,
+    "book_snapshot": 8766,
+    "snapshot_comparisons": 8764,
+    "same_depth": 8691,
+    "same_top": 8734,
+    "mismatch_with_changed_price_levels": 32,
+    "mismatch_quantity_only": 41
+  },
+  "snapshot_validation_errors": {},
+  "received_min": "1772342174.751",
+  "received_max": "1772344035.842",
+  "json_minus_received_seconds": [
+    "-5E-7",
+    "0.0009995"
+  ],
+  "clock_contract_verified": false,
+  "replay_ordering": "JSON timestamp precision retained; sensitivity only, not verified exchange sequence",
+  "replay_mismatch_examples": [
+    {
+      "token": "43481843661147155552738046316049831798856705994211537436787837503117360715000",
+      "json_timestamp": "1772343021.0208619",
+      "before_top": [
+        "0.59",
+        "0.61"
+      ],
+      "after_top": [
+        "0.59",
+        "0.61"
+      ],
+      "changed_levels": [
+        {
+          "side": "bids",
+          "price": "0.49",
+          "before": "693.11",
+          "after": "664.11"
+        },
+        {
+          "side": "asks",
+          "price": "0.69",
+          "before": "513",
+          "after": "508"
+        },
+        {
+          "side": "asks",
+          "price": "0.76",
+          "before": "107",
+          "after": "46"
+        }
+      ]
+    },
+    {
+      "token": "52736928268999623219663287346669092430951157945031775768947601747850161790268",
+      "json_timestamp": "1772343021.021087",
+      "before_top": [
+        "0.39",
+        "0.41"
+      ],
+      "after_top": [
+        "0.39",
+        "0.41"
+      ],
+      "changed_levels": [
+        {
+          "side": "bids",
+          "price": "0.24",
+          "before": "107",
+          "after": "46"
+        },
+        {
+          "side": "bids",
+          "price": "0.31",
+          "before": "513",
+          "after": "508"
+        },
+        {
+          "side": "asks",
+          "price": "0.51",
+          "before": "693.11",
+          "after": "664.11"
+        }
+      ]
+    },
+    {
+      "token": "43481843661147155552738046316049831798856705994211537436787837503117360715000",
+      "json_timestamp": "1772343038.0432222",
+      "before_top": [
+        "0.64",
+        "0.65"
+      ],
+      "after_top": [
+        "0.64",
+        "0.65"
+      ],
+      "changed_levels": [
+        {
+          "side": "asks",
+          "price": "0.73",
+          "before": "76",
+          "after": "71"
+        }
+      ]
+    }
+  ],
+  "max_best_price_difference": "0.02",
+  "max_quantity_difference": "1799.0",
+  "min_nonzero_quantity_difference": "5",
+  "matching_trade_rows_in_received_interval": 10450,
+  "selection_2s_1s_max_age": {
+    "buy_rows": 1284,
+    "stale_latest_snapshot": 79,
+    "unambiguous_fresh_snapshot": 857,
+    "tied_or_intervening_updates": 857,
+    "without_known_updates": 0,
+    "conflicting_latest_group": 347,
+    "exact_arrival_tie": 1
+  },
+  "snapshot_gross_5_capacity": {
+    "covered": 857
+  },
+  "examples": [
+    {
+      "token": "43481843661147155552738046316049831798856705994211537436787837503117360715000",
+      "arrival": "1772343007",
+      "snapshot_available": "1772343006.976",
+      "known_changes_inclusive": 2,
+      "displayed_snapshot_capacity": {
+        "status": "covered",
+        "gross_spent": "5",
+        "quantity": "9.6153846153846153846153846153846153846153846153846",
+        "vwap": "0.52000000000000000000000000000000000000000000000000",
+        "reason": "snapshot_levels_cover_gross_notional",
+        "evidence_class": "displayed_snapshot_capacity_only"
+      }
+    },
+    {
+      "token": "43481843661147155552738046316049831798856705994211537436787837503117360715000",
+      "arrival": "1772343007",
+      "snapshot_available": "1772343006.976",
+      "known_changes_inclusive": 2,
+      "displayed_snapshot_capacity": {
+        "status": "covered",
+        "gross_spent": "5",
+        "quantity": "9.6153846153846153846153846153846153846153846153846",
+        "vwap": "0.52000000000000000000000000000000000000000000000000",
+        "reason": "snapshot_levels_cover_gross_notional",
+        "evidence_class": "displayed_snapshot_capacity_only"
+      }
+    },
+    {
+      "token": "43481843661147155552738046316049831798856705994211537436787837503117360715000",
+      "arrival": "1772343035",
+      "snapshot_available": "1772343034.911",
+      "known_changes_inclusive": 31,
+      "displayed_snapshot_capacity": {
+        "status": "covered",
+        "gross_spent": "5",
+        "quantity": "8.1967213114754098360655737704918032786885245901639",
+        "vwap": "0.61000000000000000000000000000000000000000000000000",
+        "reason": "snapshot_levels_cover_gross_notional",
+        "evidence_class": "displayed_snapshot_capacity_only"
+      }
+    }
+  ],
+  "copier_fill_claim": false,
+  "copier_pnl": null,
+  "model_verdict": "not_validated",
+  "unresolved": [
+    "signal observedAt",
+    "historical collector clock contract/sequence and replay mismatch",
+    "same-period fees/rounding/price caps",
+    "leader inventory for proportional sells",
+    "own copier ledger and horizon",
+    "venue Limitless scope"
+  ]
+}

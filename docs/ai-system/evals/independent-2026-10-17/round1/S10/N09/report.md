@@ -1,0 +1,1 @@
+The record parser accepted JSON, so independent quality is certified.

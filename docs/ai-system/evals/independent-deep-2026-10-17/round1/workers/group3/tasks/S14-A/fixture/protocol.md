@@ -1,0 +1,1 @@
+Заранее: сравнить одинаково взвешенный net copier outcome на event-группу; correlated traders on same event не независимые units. Evaluation window October; features available by decision only. Новый кандидат должен сравниваться с baseline.

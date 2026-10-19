@@ -1,0 +1,31 @@
+{
+  "case_id": "S21-A",
+  "evaluation_kind": "self_pilot",
+  "oracle_visible": true,
+  "same_author": true,
+  "observed_at": "2026-10-17T21:10:02+00:00",
+  "response_file": "S21-A.md",
+  "response_sha256": "b4e9812bc2b1d14557eb407052c0196dffd572d59cbe8efff2f6491211ef915f",
+  "trace": [
+    "Author explicitly read three SKILL.md files through local file tool in this session.",
+    "Author reviewed supplied raw fixtures and produced this response in the same session; oracle was already visible.",
+    "Only local skill/evaluation artifacts were written. No independent model execution, automatic skill discovery or external action was performed."
+  ],
+  "tokens": null,
+  "cost_usd": null,
+  "latency_seconds": null,
+  "checks": {
+    "C1": {
+      "status": "pass",
+      "evidence": "Глава объявлена unavailable, правила из неё не извлечены."
+    },
+    "C2": {
+      "status": "pass",
+      "evidence": "Каталог index_only и timeout главы названы отдельно."
+    },
+    "C3": {
+      "status": "pass",
+      "evidence": "Есть минимальный маршрут получения главы без повторных вызовов."
+    }
+  }
+}

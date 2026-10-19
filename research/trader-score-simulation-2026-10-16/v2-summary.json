@@ -1,0 +1,74 @@
+{
+  "settings": {
+    "seed": 2026101602,
+    "repetitions": 100,
+    "train_days": 60,
+    "check_days": 30,
+    "copy_lower_min": 0.8,
+    "drawdown_max": 0.15
+  },
+  "unchanged_component_parameters": {
+    "seed": 20261016,
+    "days": 90,
+    "repetitions": 100,
+    "bootstrap": 160,
+    "block": 7,
+    "alpha": 0.1,
+    "T_ref": 90,
+    "N_ref": 60,
+    "d_ref": 0.1,
+    "r_ref": 0.001
+  },
+  "regression_checks": 6,
+  "summary": [
+    {
+      "profile": "stable",
+      "runs": 100,
+      "candidates": 65,
+      "median_diagnostic_score": 84.26844984671598,
+      "negative_candidates": 0
+    },
+    {
+      "profile": "losing",
+      "runs": 100,
+      "candidates": 0,
+      "median_diagnostic_score": 67.60191898461511,
+      "negative_candidates": 0
+    },
+    {
+      "profile": "no_edge",
+      "runs": 100,
+      "candidates": 1,
+      "median_diagnostic_score": 64.01875105657217,
+      "negative_candidates": 0
+    },
+    {
+      "profile": "illiquid",
+      "runs": 100,
+      "candidates": 0,
+      "median_diagnostic_score": 66.35258971666805,
+      "negative_candidates": 0
+    },
+    {
+      "profile": "one_lucky_event",
+      "runs": 100,
+      "candidates": 0,
+      "median_diagnostic_score": 73.94982055643155,
+      "negative_candidates": 0
+    },
+    {
+      "profile": "tail_loss",
+      "runs": 100,
+      "candidates": 0,
+      "median_diagnostic_score": 55.1269093838558,
+      "negative_candidates": 0
+    },
+    {
+      "profile": "one_market_many_fills",
+      "runs": 100,
+      "candidates": 0,
+      "median_diagnostic_score": null,
+      "negative_candidates": 0
+    }
+  ]
+}

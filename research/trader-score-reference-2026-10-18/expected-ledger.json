@@ -1,0 +1,449 @@
+{
+  "oracle_version": "manual-independent-v1",
+  "evidence_class": "controlled_fixture_expected_states_not_historical_results",
+  "independence": "Expected arithmetic written by a separate evaluator before reading the engine output. Author supplied inputs and some proposed end balances during coordination; not a blind holdout. No engine function is imported to derive these expectations.",
+  "fee_policy": "Fixture-only: reserve cash 0.10 per admitted order; charge actual cash 0.05 only on terminal confirmation; no fee charged at partial/full gross fill alone.",
+  "numeric_unit": "USD cash and gross cost; token shares for quantity. Decimal strings.",
+  "primary_checkpoints": [
+    {
+      "stage": "missing_fee",
+      "cash": "200",
+      "reserve": "0",
+      "available": "200",
+      "quantity": "0",
+      "cost": "0",
+      "daily_spent": "0",
+      "daily_pending": "0",
+      "positions": {},
+      "current_day": "2026-03-28"
+    },
+    {
+      "stage": "missing_book",
+      "cash": "200",
+      "reserve": "0",
+      "available": "200",
+      "quantity": "0",
+      "cost": "0",
+      "daily_spent": "0",
+      "daily_pending": "0",
+      "positions": {},
+      "current_day": "2026-03-28"
+    },
+    {
+      "stage": "thin_book",
+      "cash": "200",
+      "reserve": "0",
+      "available": "200",
+      "quantity": "0",
+      "cost": "0",
+      "daily_spent": "0",
+      "daily_pending": "0",
+      "positions": {},
+      "current_day": "2026-03-28"
+    },
+    {
+      "stage": "initial",
+      "cash": "200",
+      "reserve": "0",
+      "available": "200",
+      "quantity": "0",
+      "cost": "0",
+      "daily_spent": "0",
+      "daily_pending": "0",
+      "positions": {},
+      "current_day": "2026-03-28"
+    },
+    {
+      "stage": "A_intent",
+      "cash": "200",
+      "reserve": "5.10",
+      "available": "194.90",
+      "quantity": "0",
+      "cost": "0",
+      "daily_spent": "0",
+      "daily_pending": "5",
+      "positions": {},
+      "current_day": "2026-03-28"
+    },
+    {
+      "stage": "A_fill_1",
+      "cash": "198",
+      "reserve": "3.10",
+      "available": "194.90",
+      "quantity": "4",
+      "cost": "2",
+      "daily_spent": "2",
+      "daily_pending": "3",
+      "positions": {
+        "A": {
+          "quantity": "4",
+          "cost_basis": "2"
+        }
+      },
+      "current_day": "2026-03-28"
+    },
+    {
+      "stage": "A_unknown",
+      "cash": "198",
+      "reserve": "3.10",
+      "available": "194.90",
+      "quantity": "4",
+      "cost": "2",
+      "daily_spent": "2",
+      "daily_pending": "3",
+      "positions": {
+        "A": {
+          "quantity": "4",
+          "cost_basis": "2"
+        }
+      },
+      "current_day": "2026-03-28"
+    },
+    {
+      "stage": "midnight",
+      "cash": "198",
+      "reserve": "3.10",
+      "available": "194.90",
+      "quantity": "4",
+      "cost": "2",
+      "daily_spent": "0",
+      "daily_pending": "3",
+      "positions": {
+        "A": {
+          "quantity": "4",
+          "cost_basis": "2"
+        }
+      },
+      "current_day": "2026-03-29"
+    },
+    {
+      "stage": "A_fill_2",
+      "cash": "197",
+      "reserve": "2.10",
+      "available": "194.90",
+      "quantity": "6",
+      "cost": "3",
+      "daily_spent": "0",
+      "daily_pending": "2",
+      "prior_day_spent": "3",
+      "positions": {
+        "A": {
+          "quantity": "6",
+          "cost_basis": "3"
+        }
+      },
+      "current_day": "2026-03-29"
+    },
+    {
+      "stage": "A_cancel",
+      "cash": "196.95",
+      "reserve": "0",
+      "available": "196.95",
+      "quantity": "6",
+      "cost": "3",
+      "daily_spent": "0",
+      "daily_pending": "0",
+      "positions": {
+        "A": {
+          "quantity": "6",
+          "cost_basis": "3"
+        }
+      },
+      "current_day": "2026-03-29"
+    },
+    {
+      "stage": "S_intent",
+      "cash": "196.95",
+      "reserve": "0.10",
+      "available": "196.85",
+      "quantity": "6",
+      "cost": "3",
+      "daily_spent": "0",
+      "daily_pending": "0",
+      "sell_reserved_quantity": "1.5",
+      "positions": {
+        "A": {
+          "quantity": "6",
+          "cost_basis": "3"
+        }
+      },
+      "current_day": "2026-03-29"
+    },
+    {
+      "stage": "S_fill",
+      "cash": "197.85",
+      "reserve": "0.10",
+      "available": "197.75",
+      "quantity": "4.5",
+      "cost": "2.25",
+      "daily_spent": "0",
+      "daily_pending": "0",
+      "positions": {
+        "A": {
+          "quantity": "4.5",
+          "cost_basis": "2.25"
+        }
+      },
+      "current_day": "2026-03-29"
+    },
+    {
+      "stage": "S_terminal",
+      "cash": "197.80",
+      "reserve": "0",
+      "available": "197.80",
+      "quantity": "4.5",
+      "cost": "2.25",
+      "daily_spent": "0",
+      "daily_pending": "0",
+      "positions": {
+        "A": {
+          "quantity": "4.5",
+          "cost_basis": "2.25"
+        }
+      },
+      "current_day": "2026-03-29"
+    },
+    {
+      "stage": "B_intent",
+      "cash": "197.80",
+      "reserve": "5.10",
+      "available": "192.70",
+      "quantity": "4.5",
+      "cost": "2.25",
+      "daily_spent": "0",
+      "daily_pending": "5",
+      "positions": {
+        "A": {
+          "quantity": "4.5",
+          "cost_basis": "2.25"
+        }
+      },
+      "current_day": "2026-03-29"
+    },
+    {
+      "stage": "B_fill",
+      "cash": "192.80",
+      "reserve": "0.10",
+      "available": "192.70",
+      "quantity": "14.5",
+      "cost": "7.25",
+      "daily_spent": "5",
+      "daily_pending": "0",
+      "positions": {
+        "A": {
+          "quantity": "4.5",
+          "cost_basis": "2.25"
+        },
+        "B": {
+          "quantity": "10",
+          "cost_basis": "5"
+        }
+      },
+      "current_day": "2026-03-29"
+    },
+    {
+      "stage": "B_terminal",
+      "cash": "192.75",
+      "reserve": "0",
+      "available": "192.75",
+      "quantity": "14.5",
+      "cost": "7.25",
+      "daily_spent": "5",
+      "daily_pending": "0",
+      "positions": {
+        "A": {
+          "quantity": "4.5",
+          "cost_basis": "2.25"
+        },
+        "B": {
+          "quantity": "10",
+          "cost_basis": "5"
+        }
+      },
+      "current_day": "2026-03-29"
+    },
+    {
+      "stage": "full_before_terminal",
+      "cash": "192.80",
+      "reserve": "0.10",
+      "available": "192.70",
+      "quantity": "14.5",
+      "cost": "7.25",
+      "daily_spent": "5",
+      "daily_pending": "0",
+      "positions": {
+        "A": {
+          "quantity": "4.5",
+          "cost_basis": "2.25"
+        },
+        "B": {
+          "quantity": "10",
+          "cost_basis": "5"
+        }
+      },
+      "current_day": "2026-03-29"
+    },
+    {
+      "stage": "valuation_missing_B",
+      "cash": "192.75",
+      "reserve": "0",
+      "available": "192.75",
+      "quantity": "14.5",
+      "cost": "7.25",
+      "daily_spent": "5",
+      "daily_pending": "0",
+      "positions": {
+        "A": {
+          "quantity": "4.5",
+          "cost_basis": "2.25"
+        },
+        "B": {
+          "quantity": "10",
+          "cost_basis": "5"
+        }
+      },
+      "current_day": "2026-03-29"
+    },
+    {
+      "stage": "future_resolution_rejected",
+      "cash": "192.75",
+      "reserve": "0",
+      "available": "192.75",
+      "quantity": "14.5",
+      "cost": "7.25",
+      "daily_spent": "5",
+      "daily_pending": "0",
+      "positions": {
+        "A": {
+          "quantity": "4.5",
+          "cost_basis": "2.25"
+        },
+        "B": {
+          "quantity": "10",
+          "cost_basis": "5"
+        }
+      },
+      "current_day": "2026-03-29"
+    },
+    {
+      "stage": "B_settlement",
+      "cash": "202.75",
+      "reserve": "0",
+      "available": "202.75",
+      "quantity": "4.5",
+      "cost": "2.25",
+      "daily_spent": "5",
+      "daily_pending": "0",
+      "current_day": "2026-03-29",
+      "positions": {
+        "A": {
+          "quantity": "4.5",
+          "cost_basis": "2.25"
+        },
+        "B": {
+          "quantity": "0",
+          "cost_basis": "0"
+        }
+      }
+    },
+    {
+      "stage": "valuation_known",
+      "cash": "202.75",
+      "reserve": "0",
+      "available": "202.75",
+      "quantity": "4.5",
+      "cost": "2.25",
+      "daily_spent": "5",
+      "daily_pending": "0",
+      "current_day": "2026-03-29",
+      "positions": {
+        "A": {
+          "quantity": "4.5",
+          "cost_basis": "2.25"
+        },
+        "B": {
+          "quantity": "0",
+          "cost_basis": "0"
+        }
+      }
+    },
+    {
+      "stage": "dst_jump",
+      "cash": "202.75",
+      "reserve": "0",
+      "available": "202.75",
+      "quantity": "4.5",
+      "cost": "2.25",
+      "daily_spent": "5",
+      "daily_pending": "0",
+      "current_day": "2026-03-29",
+      "positions": {
+        "A": {
+          "quantity": "4.5",
+          "cost_basis": "2.25"
+        },
+        "B": {
+          "quantity": "0",
+          "cost_basis": "0"
+        }
+      }
+    },
+    {
+      "stage": "dst_next_midnight",
+      "cash": "202.75",
+      "reserve": "0",
+      "available": "202.75",
+      "quantity": "4.5",
+      "cost": "2.25",
+      "daily_spent": "0",
+      "daily_pending": "0",
+      "current_day": "2026-03-30",
+      "positions": {
+        "A": {
+          "quantity": "4.5",
+          "cost_basis": "2.25"
+        },
+        "B": {
+          "quantity": "0",
+          "cost_basis": "0"
+        }
+      }
+    }
+  ],
+  "manual_derivation": [
+    "Initial BUY A: full gross5 plus fee cap0.10 reserves5.10; no fill means cash stays200.",
+    "First fill2 at price0.50 creates4shares and cash198. Remaininggross3 plus fee0.10 staysreserved.",
+    "Local midnight2026-03-29T00:00Europe/Warsaw is2026-03-28T23:00Z; unresolvedgross3 carries into newday.",
+    "Second fill1 atprice0.50 receivedafter midnight but executedbefore midnight adds2shares and prior-daygross1. Cash197, newday spent0,pending2.",
+    "Terminal cancellation releasesgross2 plusfee cap; actualfee0.05 leavescash196.95 and6shares cost3.",
+    "Knownleader sale25/100 reduces copied6shares by1.5. Bid0.60 yields0.90 cash. Terminalfee0.05 givescash197.80 and4.5shares cost2.25.",
+    "Second BUY B5 atprice0.50 adds10shares: cash192.80 beforeterminal, fee reserve0.10 remains. Terminalfee0.05 leavescash192.75, quantity14.5,cost7.25.",
+    "B is a separate token. Settlement pays10USD for10Bshares only when known_at<=received_at: cash202.75, Bquantity0, Aquantity4.5. LiquidationA4.5*0.60 minus knownfixtureexitfee0.05 yields2.65; total205.40,pnl5.40."
+  ],
+  "planned_adversarial_properties": [
+    "No-data preintent leaves cash200 reserve0 position0.",
+    "Duplicate deliveries anywhere after the first application do not change economic state.",
+    "Conflicting payload under an existing event ID records an incident and does not apply additional money/token changes.",
+    "Pending and unknown retain fullremaininggross plusfee reserve until confirmed terminal; timeout/cancelrequest never release.",
+    "A fill whose execution time is after midnight consumes newday gross; late-observed pre-midnight fill consumes previous day only.",
+    "Repeated buys consume position cap and pending; a fifth5USD buy at20USD position is skipped whole.",
+    "Daily gross cap30 excludes expense cap; six separate5USD buys consume30 and seventh cannot reserve.",
+    "Warsaw days spanning2026-03-29 and2026-10-25 are23 and25hours respectively, with local midnight resets.",
+    "A full BUYgrossfill retainsfee cap untilterminal, with available unchanged by convertingreservedgross tospentcash.",
+    "Partial fill duringcancel recordsconfirmedadditionalfill once; finalcancellation releasesonly remaininggross.",
+    "Unknownleaderinventory creates no invented proportionalSELL; validknownfraction scalesonly trackedquantity.",
+    "Capacity/admission never creates a fill; positions change only through independently supplied confirmed events."
+  ],
+  "valuations": {
+    "valuation_missing_B": {
+      "status": "unknown",
+      "equity": null,
+      "pnl": null
+    },
+    "valuation_known": {
+      "status": "known",
+      "equity": "205.40",
+      "pnl": "5.40"
+    }
+  }
+}

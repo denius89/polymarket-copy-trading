@@ -1,0 +1,1 @@
+Провайдер A: «free forever», EU edge, DB storage region unspecified, egress quota 1 GB/month. Провайдер B: quoted 50 USD/month, DB in EU, backup region unspecified. Both offer Docker runtime; ни у одного нет evidence restore time. Expected export:2GB/day for 30 days; compression unknown.

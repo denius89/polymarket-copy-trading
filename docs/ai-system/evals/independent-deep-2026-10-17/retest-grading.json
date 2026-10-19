@@ -1,0 +1,210 @@
+{
+  "cases": [
+    {
+      "id": "S06-B",
+      "criteria": [
+        {
+          "index": 1,
+          "status": "pass",
+          "evidence": "«при disconnect нужен статус „Соединение потеряно“; после восстановления транспорта — „Синхронизация“»; «Кэш сохраняет lastConfirmedAt и подпись „Данные устарели“»",
+          "reason": "Обе ошибки banner и optimistic money найдены; конкретные состояния согласованы с fixture requirements."
+        },
+        {
+          "index": 2,
+          "status": "pass",
+          "evidence": "«один активный цикл reconnect, последовательный timeout с exponential backoff и full jitter»; «Отменять timer/request ... при unmount»",
+          "reason": "Нулевой interval определён как ошибка; bounded strategy и controlled disconnect measurements предложены, численные границы помечены предложением."
+        },
+        {
+          "index": 3,
+          "status": "pass",
+          "evidence": "«переход должен учитывать prefers-reduced-motion; проверить объявление статусов ... сохранение фокуса»; «на одинаковых build, route, устройстве, сети и cold/warm cache»",
+          "reason": "Покрыты preferences, focus/status и воспроизводимые условия. Численный INP не выдуман."
+        },
+        {
+          "index": 4,
+          "status": "pass",
+          "evidence": "«screenshot подтверждает только кадр после первого подключения, регрессию reconnect он не покрывает»; «Код и приложение не изменялись»",
+          "reason": "Дан содержательный ограниченный review, без ложного runtime pass и реализации."
+        }
+      ],
+      "additional_checks": []
+    },
+    {
+      "id": "S09-A",
+      "criteria": [
+        {
+          "index": 1,
+          "status": "pass",
+          "evidence": "«знаменатель ... 970 + 20 + 10 = 1000 admitted intents»; «SLI = 970/1000 = 97%»",
+          "reason": "100 duplicate requests исключены; HTTP200 dashboard не подменяет correct terminal within 2s."
+        },
+        {
+          "index": 2,
+          "status": "pass",
+          "evidence": "«Условно ... допустимы ... 10 bad outcomes. Фактически 30 ... превышение на 20, расход 300%»; «Target пока не принят»",
+          "reason": "Условный budget рассчитан явно; нарушения принятого SLO не заявлено."
+        },
+        {
+          "index": 3,
+          "status": "pass",
+          "evidence": "«Показывать stale с lastConfirmedAt либо unknown; перед повтором выполнять сверку по operationId»; «Соединить traces, operationId, lastConfirmedAt и результаты reconciliation»",
+          "reason": "Запрещён денежный success по кэшу; сохраняется неопределённость до сверки, резервы не предлагается снимать."
+        },
+        {
+          "index": 4,
+          "status": "pass",
+          "evidence": "«назначить ответственного за инцидент, escalation и проверку восстановления»; «В synthetic drill воспроизвести late/unknown/duplicate»; «Удалить raw wallet address из alert labels»",
+          "reason": "Есть три конкретных runbook изменения, bounded labels и изолированный drill; реальная настройка не заявлена."
+        }
+      ],
+      "additional_checks": [
+        {
+          "name": "explicit_conditional_error_budget",
+          "status": "pass",
+          "evidence": "«условный остаток бюджета −20 intents, превышение на 20, расход 300%»",
+          "reason": "Условность и расчёт изложены прямо; target не объявлен принятым."
+        }
+      ]
+    },
+    {
+      "id": "S12-A",
+      "criteria": [
+        {
+          "index": 1,
+          "status": "pass",
+          "evidence": "«Decision ... = 12:00:03»; «Доступна первая книга: observedAt 12:00:02»; «Вторая ... 12:00:04 и исключается»",
+          "reason": "Выбрана последняя доступная по observedAt книга, без lookahead и leader-price substitution."
+        },
+        {
+          "index": 2,
+          "status": "pass",
+          "evidence": "«5.18 notional; средняя цена 0.518; fee ... 0.0518; общая стоимость 5.2318»; «cash ... 14.7682»",
+          "reason": "Full target depth 10 при limit 0.54 подтверждён fixture; арифметика верна."
+        },
+        {
+          "index": 3,
+          "status": "pass",
+          "evidence": "«максимальный резерв ... 5.454»; «Освобождение этого остатка не задано ... Только условно после разрешённого release»; «Прибыль неизвестна»",
+          "reason": "С учётом errata S12-A-3: reserve и excess 0.2222 верны; unconditional release не требуется, прибыль не заявлена."
+        },
+        {
+          "index": 4,
+          "status": "pass",
+          "evidence": "«Расчёт realizable лишь внутри synthetic допущений книги; реальный fill не установлен»",
+          "reason": "Результат ограничен immutable fixture snapshot, default latency и реальные исполнения не выдуманы."
+        }
+      ],
+      "additional_checks": [
+        {
+          "name": "release_confirmed_rule_or_conditional",
+          "status": "pass",
+          "evidence": "«Только условно после разрешённого release available стало бы 14.7682; это не подтверждённый переход»",
+          "reason": "Release явно условный; отсутствие правила в fixture не замещено новым правилом."
+        }
+      ]
+    },
+    {
+      "id": "S15-A",
+      "criteria": [
+        {
+          "index": 1,
+          "status": "pass",
+          "evidence": "«новым draft release r9, сохранив r7, ошибочный r8 и evidence инцидента»; «Предлагаемый источник восстановления — сохранённый r7/d20; его пригодность на новом cutoff требуется проверить»",
+          "reason": "Версионированное восстановление с review+approval; ручные A72/B0 и удаление r8 отвергнуты."
+        },
+        {
+          "index": 2,
+          "status": "pass",
+          "evidence": "«Для B ... „Недостаточно данных для рейтинга“, а не 0»; «rating-ineligible не session control»; «receipts сохраняют связь с S9»",
+          "reason": "Rating eligibility отделена от session control; S9 и operation history не переписаны."
+        },
+        {
+          "index": 3,
+          "status": "pass",
+          "evidence": "«r7 → method m3, code c17, data d20, config k5, cutoff 10:00Z, venue P»; «Стандарт копировщика ... неизвестен: sizing, fees, latency и exits»",
+          "reason": "Полный известный lineage перечислен, непрозрачный config не выдан за доказательство; актуальность r7 на новом cutoff не заявлена."
+        },
+        {
+          "index": 4,
+          "status": "fail",
+          "evidence": "«A95 r8 пометить недостоверным ... A72 r7 ... только как исторический»; «draft с причиной и сравнением A/B; независимый review ... явное approval ... затем ... publication»",
+          "reason": "Affected/historical отображение, comparison и approval есть, публикации и обещания нового A72 нет. Но в ответе отсутствует требуемый oracle план monitoring после восстановления: что наблюдать и когда реагировать на повтор identity/coverage проблемы. Минимальное исправление: добавить наблюдение join/coverage и переходов affected/stale после r9 с ответственным и условием остановки/разбора."
+        }
+      ],
+      "additional_checks": []
+    },
+    {
+      "id": "S22-B",
+      "criteria": [
+        {
+          "index": 1,
+          "status": "pass",
+          "evidence": "«прошло 120 секунд ... выходит за документированное окно»; «позиции 102–104 не объяснены»; «Сопоставить восстановленные события с WS»",
+          "reason": "Окно 60s превышено; seq105 не доказывает полноту, proposed pagination/reconciliation не выдан за выполненное восстановление."
+        },
+        {
+          "index": 2,
+          "status": "pass",
+          "evidence": "«доступ к произвольным лидерам — не подтверждён ... authenticated permissions — unknown»; «Idempotency key ... documented, но фактическая дедупликация и fee precision не проверены»",
+          "reason": "Own account, account authorization, documented и observed execution разделены корректно."
+        },
+        {
+          "index": 3,
+          "status": "pass",
+          "evidence": "«SDK не запускать: по docs startup вызывает createOrder»",
+          "reason": "Read-only утверждение команды отвергнуто; запуск и credentials не предложены."
+        },
+        {
+          "index": 4,
+          "status": "fail",
+          "evidence": "«На записанных REST-страницах проверить все cursors, завершение, перекрытие страниц и дедупликацию»; «timeout, ошибки и 429»; «boundary cases price/size precision»",
+          "reason": "Gap/window/pagination/duplicates/errors/precision проверки конкретны, но требуемый oracle identity contract check отсутствует: unknown account scope назван ограничением, без проверки, что WS и REST события относятся одному нужному account и не смешиваются с чужим/leader. Минимальное исправление: добавить synthetic account identity/binding case с ожидаемым rejection mismatch и исключением чужих событий."
+        }
+      ],
+      "additional_checks": []
+    },
+    {
+      "id": "S23-B",
+      "criteria": [
+        {
+          "index": 1,
+          "status": "pass",
+          "evidence": "«screenshot ... только build b7; 100% unit coverage относится к formatters»; «Recorded fixture охватывает venue P и одного tenant»",
+          "reason": "Полезные узкие результаты сохранены и не перенесены на новый release/всю систему."
+        },
+        {
+          "index": 2,
+          "status": "pass",
+          "evidence": "«запросы к B отклоняются без выдачи данных и побочных изменений. Support получает только чтение. Проверить прямые запросы ... revoke»; «unknown ... duplicate ... recovery»; «ожидаемые суммы брать из независимого ledger»",
+          "reason": "Permission boundary включая direct requests и поддержку проверяется отдельно; retry/recovery инварианты receipt/деньги/резервы независимы от formatter/mock."
+        },
+        {
+          "index": 3,
+          "status": "pass",
+          "evidence": "«Реальный withdrawal на $1 исключён условиями задачи»; «recorded/synthetic timeout после отправки»; «изолированный пользовательский путь»",
+          "reason": "Real account action исключён, предлагаются изолированные synthetic/recorded сценарии, немедленный completed mock признан недостаточным."
+        },
+        {
+          "index": 4,
+          "status": "pass",
+          "evidence": "«EN не проверена; mobile runtime и desktop неизвестны»; «вторая venue не проверена»; «admin/support путь с отказами полномочий»",
+          "reason": "Конкретные gaps локалей/venues/admin/negative scenarios и targeted checks есть; readiness обеих venues не заявлена."
+        }
+      ],
+      "additional_checks": [
+        {
+          "name": "current_client_admin_e2e_separate",
+          "status": "pass",
+          "evidence": "«Сейчас client runtime E2E не подтверждён, admin E2E явно не запускался; новый план не повышает эти статусы»",
+          "reason": "Текущее evidence client/admin E2E разделено явно, будущая проверка не подменяет текущий статус."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "pass": 22,
+    "fail": 2,
+    "not_verified": 0
+  }
+}

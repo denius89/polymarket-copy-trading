@@ -1,0 +1,36 @@
+{
+  "id": "q14",
+  "returncode": 0,
+  "status": "pass",
+  "expected_any": [
+    "cct-score-validation"
+  ],
+  "should_activate": true,
+  "observed_skill_file_reads": [
+    "cct-ai-quality",
+    "cct-project-context",
+    "cct-score-validation"
+  ],
+  "commands": [
+    {
+      "command": "/bin/bash -lc 'cat .agents/skills/cct-score-validation/SKILL.md .agents/skills/cct-ai-quality/SKILL.md .agents/skills/cct-project-context/SKILL.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S14.md docs/ai-system/knowledge/domains/score.md'",
+      "exit_code": 0
+    }
+  ],
+  "usage": [
+    {
+      "input_tokens": 66720,
+      "cached_input_tokens": 52224,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 472,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "seconds": 14.24,
+  "observed_at": "2026-10-17T21:42:13.610886+00:00",
+  "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+}

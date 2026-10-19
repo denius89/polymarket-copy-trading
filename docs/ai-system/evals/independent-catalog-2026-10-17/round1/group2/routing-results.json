@@ -1,0 +1,36 @@
+{
+  "method": "manual_metadata_classification",
+  "runtime_discovery": false,
+  "results": [
+    {
+      "id": "R02",
+      "primary_skill": "S10",
+      "name": "cct-ai-quality",
+      "reason": "Проверка AI deliverable на соответствие evidence прямо относится к AI quality. S21 уместен при отдельной задаче сверки источников и актуальности знаний."
+    },
+    {
+      "id": "R05",
+      "primary_skill": "S18",
+      "name": "cct-server-hardening",
+      "reason": "Предмет запроса — environment-specific hardening runbook SSH/firewall до настройки. S19 пересекается по операционным runbooks, но выпуск и восстановление здесь не основной предмет."
+    },
+    {
+      "id": "R08",
+      "primary_skill": "S11",
+      "name": "cct-score-data-audit",
+      "reason": "Temporal availability и полнота ledger/cashflows — прямой предмет аудита исходного dataset. S12 нужен далее при проверке исполнимости replay, которая здесь не запрошена."
+    },
+    {
+      "id": "R11",
+      "primary_skill": "S13",
+      "name": "cct-score-methodology",
+      "reason": "Target и baseline до выбора формулы непосредственно описаны в score methodology. S11 и S12 могут дать prerequisites данных и replay, но не заменяют исследование метода."
+    },
+    {
+      "id": "R14",
+      "primary_skill": "S22",
+      "name": "cct-venue-api-review",
+      "reason": "Запрос различает observed public read и account capabilities/scopes, что относится к venue API review. S08 пересекается при анализе authorization/trust, но первична доказанность возможностей API."
+    }
+  ]
+}

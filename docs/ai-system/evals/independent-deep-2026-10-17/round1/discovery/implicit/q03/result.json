@@ -1,0 +1,42 @@
+{
+  "id": "q03",
+  "returncode": 0,
+  "status": "pass",
+  "expected_any": [
+    "cct-market-domain"
+  ],
+  "should_activate": true,
+  "observed_skill_file_reads": [
+    "cct-market-domain"
+  ],
+  "commands": [
+    {
+      "command": "/bin/bash -lc 'cat .agents/skills/cct-market-domain/SKILL.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S03.md docs/ai-system/knowledge/domains/engineering.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc \"rg -n 'ADR-0028|виртуаль|комисси|лот' docs/adr references --glob '*.md'\"",
+      "exit_code": 2
+    },
+    {
+      "command": "/bin/bash -lc \"rg --files -g '*0028*' -g '*ADR*' -g '*sources*' -g '*KB07*'\"",
+      "exit_code": 0
+    }
+  ],
+  "usage": [
+    {
+      "input_tokens": 122571,
+      "cached_input_tokens": 111488,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 650,
+      "reasoning_output_tokens": 54
+    }
+  ],
+  "seconds": 19.29,
+  "observed_at": "2026-10-17T21:40:57.349203+00:00",
+  "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+}

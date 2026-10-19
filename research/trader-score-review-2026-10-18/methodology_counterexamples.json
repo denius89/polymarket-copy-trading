@@ -1,0 +1,63 @@
+{
+  "posterior_quantile_vs_predictive_ce": {
+    "q10_conditional_ce": 0.10000000000000009,
+    "posterior_predictive_ce": -0.8294573643410853,
+    "not_market_estimates": true
+  },
+  "scenario_ordering": {
+    "min_q10": 0.1,
+    "q10_min": -0.99
+  },
+  "estimand_ranking_reversal": {
+    "single_slot_a": -0.10000000000000009,
+    "single_slot_b": -0.010000000000000231,
+    "portfolio_a": 0.0,
+    "portfolio_b": -0.010000000000000009
+  },
+  "bootstrap_support_counterexample": {
+    "all_conditional_mu_and_ce_approx": 0.01,
+    "true_example_ce": -0.495,
+    "chance_three_observations_miss_tail": 0.970299,
+    "chance_ten_observations_miss_tail": 0.9043820750088044,
+    "not_market_estimates": true
+  },
+  "ce_below_same_draw_mean": "2000 checks passed; no relation to integrated predictive CE claimed",
+  "minimum_effect_rule": {
+    "point": 0.0101,
+    "ci95": [
+      0.0001,
+      0.0201
+    ],
+    "passes_written_rule": true,
+    "lower_bound_reaches_minimum_effect": false
+  },
+  "calendar_preflight": {
+    "150": {
+      "days": [
+        90,
+        30,
+        30
+      ],
+      "complete_30d_windows": [
+        3,
+        1,
+        1
+      ]
+    },
+    "500": {
+      "days": [
+        300,
+        100,
+        100
+      ],
+      "complete_30d_windows": [
+        10,
+        3,
+        3
+      ]
+    }
+  },
+  "existing_regression_assertions": 14,
+  "frozen_compare_ce_sha256_unchanged": "3dcba7683c12078fb1dacf4482785963920ce4d835872f75944fe73dc616c3ff",
+  "audit_check_groups": 8
+}

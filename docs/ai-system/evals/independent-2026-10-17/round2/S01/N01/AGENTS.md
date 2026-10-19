@@ -1,0 +1,1 @@
+Use actual checkout metadata. Sources read-only.

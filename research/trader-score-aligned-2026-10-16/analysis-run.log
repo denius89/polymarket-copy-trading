@@ -1,0 +1,245 @@
+{
+  "trades": {
+    "rows": 193045,
+    "assets": 38,
+    "conditions": 19,
+    "takers": 5777,
+    "makers": 2921,
+    "first_ms": 1772340367000,
+    "last_ms": 1772568985000,
+    "invalid_semantics": 0
+  },
+  "quotes": {
+    "rows": 1607524,
+    "assets": 38,
+    "negative_ingest_lag_rows": 0,
+    "missing_bbo_rows": 4,
+    "invalid_bbo_rows": 4
+  },
+  "funnels": [
+    {
+      "lag_ms": 500,
+      "all_subset_rows": 193045,
+      "supported_semantics": 193045,
+      "asof_present": 50059,
+      "fresh": 49918,
+      "fresh_valid": 49918,
+      "eligible": 39550,
+      "conflicting_bbo": 0,
+      "exact_timestamp_ties": 10368,
+      "eligible_ingested_after_arrival": 18914,
+      "eligible_any_ingested_after_arrival": 18914
+    },
+    {
+      "lag_ms": 2000,
+      "all_subset_rows": 193045,
+      "supported_semantics": 193045,
+      "asof_present": 50377,
+      "fresh": 50227,
+      "fresh_valid": 50227,
+      "eligible": 36560,
+      "conflicting_bbo": 46,
+      "exact_timestamp_ties": 13621,
+      "eligible_ingested_after_arrival": 19657,
+      "eligible_any_ingested_after_arrival": 19680
+    },
+    {
+      "lag_ms": 5000,
+      "all_subset_rows": 193045,
+      "supported_semantics": 193045,
+      "asof_present": 50846,
+      "fresh": 50589,
+      "fresh_valid": 50589,
+      "eligible": 38883,
+      "conflicting_bbo": 29,
+      "exact_timestamp_ties": 11706,
+      "eligible_ingested_after_arrival": 18670,
+      "eligible_any_ingested_after_arrival": 18687
+    }
+  ],
+  "common_complete_case_rows": 23804,
+  "comparisons": [
+    {
+      "cohort": "per_lag",
+      "groups": [
+        {
+          "lag_ms": 500,
+          "taker_direction": "BUY",
+          "rows": 5136,
+          "assets": 33,
+          "conditions": 17,
+          "adverse_cents_p10": -2.0995024875621935,
+          "adverse_cents_median": 0.900497512437809,
+          "adverse_cents_p90": 5.000000000000004,
+          "adverse_bps_median": 101.01010101009997,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 14.0
+        },
+        {
+          "lag_ms": 500,
+          "taker_direction": "SELL",
+          "rows": 34414,
+          "assets": 36,
+          "conditions": 19,
+          "adverse_cents_p10": -3.099502487562189,
+          "adverse_cents_median": 0.0,
+          "adverse_cents_p90": 4.0000021719137395,
+          "adverse_bps_median": 0.0,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 12.0
+        },
+        {
+          "lag_ms": 2000,
+          "taker_direction": "BUY",
+          "rows": 4919,
+          "assets": 33,
+          "conditions": 17,
+          "adverse_cents_p10": -3.9999999999999925,
+          "adverse_cents_median": 0.9004975124378034,
+          "adverse_cents_p90": 6.040419690942743,
+          "adverse_bps_median": 101.01010101009997,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 11.0
+        },
+        {
+          "lag_ms": 2000,
+          "taker_direction": "SELL",
+          "rows": 31641,
+          "assets": 36,
+          "conditions": 19,
+          "adverse_cents_p10": -4.0999999999999925,
+          "adverse_cents_median": 0.0,
+          "adverse_cents_p90": 4.999999999999999,
+          "adverse_bps_median": 0.0,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 10.0
+        },
+        {
+          "lag_ms": 5000,
+          "taker_direction": "BUY",
+          "rows": 5263,
+          "assets": 33,
+          "conditions": 17,
+          "adverse_cents_p10": -4.999999999999993,
+          "adverse_cents_median": 0.9004975124378145,
+          "adverse_cents_p90": 7.9999999999999964,
+          "adverse_bps_median": 101.0101010101011,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 14.0
+        },
+        {
+          "lag_ms": 5000,
+          "taker_direction": "SELL",
+          "rows": 33620,
+          "assets": 36,
+          "conditions": 19,
+          "adverse_cents_p10": -5.999987674729238,
+          "adverse_cents_median": 5.551115123125783e-15,
+          "adverse_cents_p90": 6.000000000000005,
+          "adverse_bps_median": 1.1214373986112692e-12,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 12.0
+        }
+      ]
+    },
+    {
+      "cohort": "common_all_lags",
+      "groups": [
+        {
+          "lag_ms": 500,
+          "taker_direction": "BUY",
+          "rows": 3283,
+          "assets": 33,
+          "conditions": 17,
+          "adverse_cents_p10": -2.079307046381822,
+          "adverse_cents_median": 0.900497512437809,
+          "adverse_cents_p90": 5.999999999999995,
+          "adverse_bps_median": 101.01010101009997,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 16.0
+        },
+        {
+          "lag_ms": 500,
+          "taker_direction": "SELL",
+          "rows": 20521,
+          "assets": 36,
+          "conditions": 19,
+          "adverse_cents_p10": -3.0000000000000027,
+          "adverse_cents_median": 0.0,
+          "adverse_cents_p90": 4.000000494061872,
+          "adverse_bps_median": 0.0,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 14.0
+        },
+        {
+          "lag_ms": 2000,
+          "taker_direction": "BUY",
+          "rows": 3283,
+          "assets": 33,
+          "conditions": 17,
+          "adverse_cents_p10": -2.9999999999999973,
+          "adverse_cents_median": 0.9004975124378145,
+          "adverse_cents_p90": 6.000000000000005,
+          "adverse_bps_median": 101.01010101009997,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 14.0
+        },
+        {
+          "lag_ms": 2000,
+          "taker_direction": "SELL",
+          "rows": 20521,
+          "assets": 36,
+          "conditions": 19,
+          "adverse_cents_p10": -4.000000000000001,
+          "adverse_cents_median": 0.0,
+          "adverse_cents_p90": 4.999999999999999,
+          "adverse_bps_median": 0.0,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 11.0
+        },
+        {
+          "lag_ms": 5000,
+          "taker_direction": "BUY",
+          "rows": 3283,
+          "assets": 33,
+          "conditions": 17,
+          "adverse_cents_p10": -4.0000000000000036,
+          "adverse_cents_median": 0.9004975124378145,
+          "adverse_cents_p90": 6.580000000000017,
+          "adverse_bps_median": 101.01010101009997,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 18.0
+        },
+        {
+          "lag_ms": 5000,
+          "taker_direction": "SELL",
+          "rows": 20521,
+          "assets": 36,
+          "conditions": 19,
+          "adverse_cents_p10": -5.0,
+          "adverse_cents_median": 1.1102230246251565e-14,
+          "adverse_cents_p90": 6.0,
+          "adverse_bps_median": 1.1214373986112692e-12,
+          "spread_cents_median": 1.0000000000000009,
+          "age_ms_median": 15.0
+        }
+      ]
+    }
+  ],
+  "partial_trade_legs": [
+    {
+      "taker_direction": "BUY",
+      "source_rows": 20597,
+      "archive_gross_notional_usd": 202354.78706899966,
+      "archive_fee_field_usd": 7495.922675999959,
+      "unknown_or_invalid_fee_rows": 0
+    },
+    {
+      "taker_direction": "SELL",
+      "source_rows": 172448,
+      "archive_gross_notional_usd": 1238564.6678209903,
+      "archive_fee_field_usd": 164667.57856000063,
+      "unknown_or_invalid_fee_rows": 0
+    }
+  ]
+}

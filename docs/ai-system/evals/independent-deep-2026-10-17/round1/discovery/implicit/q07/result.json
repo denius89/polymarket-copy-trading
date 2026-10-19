@@ -1,0 +1,34 @@
+{
+  "id": "q07",
+  "returncode": 0,
+  "status": "pass",
+  "expected_any": [
+    "cct-backend-data"
+  ],
+  "should_activate": true,
+  "observed_skill_file_reads": [
+    "cct-backend-data"
+  ],
+  "commands": [
+    {
+      "command": "/bin/bash -lc 'cat .agents/skills/cct-backend-data/SKILL.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S07.md docs/ai-system/knowledge/domains/engineering.md'",
+      "exit_code": 0
+    }
+  ],
+  "usage": [
+    {
+      "input_tokens": 97103,
+      "cached_input_tokens": 80128,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 469,
+      "reasoning_output_tokens": 22
+    }
+  ],
+  "seconds": 17.86,
+  "observed_at": "2026-10-17T21:41:25.805061+00:00",
+  "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+}

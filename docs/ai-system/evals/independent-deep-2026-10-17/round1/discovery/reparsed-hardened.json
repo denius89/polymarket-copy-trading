@@ -1,0 +1,761 @@
+{
+  "results": [
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-project-context"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-project-context/SKILL.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 32822,
+          "cached_input_tokens": 28032,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 315,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q01"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-product-discovery"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-product-discovery/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S02.md docs/ai-system/knowledge/domains/product.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 50913,
+          "cached_input_tokens": 44416,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 377,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q02"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-market-domain"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-market-domain/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S03.md docs/ai-system/knowledge/domains/engineering.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc \"rg -n 'ADR-0028|виртуаль|комисси|лот' docs/adr references --glob '*.md'\"",
+          "exit_code": 2
+        },
+        {
+          "command": "/bin/bash -lc \"rg --files -g '*0028*' -g '*ADR*' -g '*sources*' -g '*KB07*'\"",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 122571,
+          "cached_input_tokens": 111488,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 650,
+          "reasoning_output_tokens": 54
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q03"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-financial-ux"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-financial-ux/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S04.md docs/ai-system/knowledge/domains/design.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 51117,
+          "cached_input_tokens": 40960,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 423,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q04"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-figma-handoff"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-figma-handoff/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S05.md docs/ai-system/knowledge/domains/collaboration.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 50814,
+          "cached_input_tokens": 44416,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 381,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q05"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-frontend-quality"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-frontend-quality/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S06.md docs/ai-system/knowledge/domains/engineering.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 51077,
+          "cached_input_tokens": 40960,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 422,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q06"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-backend-data"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-backend-data/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S07.md docs/ai-system/knowledge/domains/engineering.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 97103,
+          "cached_input_tokens": 80128,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 469,
+          "reasoning_output_tokens": 22
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q07"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-wallet-security"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-wallet-security/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S08.md docs/ai-system/knowledge/domains/engineering.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 51077,
+          "cached_input_tokens": 44416,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 393,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q08"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-reliability-operations"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-reliability-operations/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S09.md docs/ai-system/knowledge/domains/operations.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 51013,
+          "cached_input_tokens": 44416,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 400,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q09"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-ai-quality"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-ai-quality/SKILL.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 32833,
+          "cached_input_tokens": 24576,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 343,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q10"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-score-data-audit"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-score-data-audit/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S11.md docs/ai-system/knowledge/domains/score.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 78455,
+          "cached_input_tokens": 69248,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 467,
+          "reasoning_output_tokens": 22
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q11"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-copy-replay"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-copy-replay/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S12.md docs/ai-system/knowledge/domains/score.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 51057,
+          "cached_input_tokens": 40320,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 398,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q12"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-score-methodology"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-score-methodology/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S13.md docs/ai-system/knowledge/domains/score.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 79614,
+          "cached_input_tokens": 68608,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 471,
+          "reasoning_output_tokens": 20
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q13"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-ai-quality",
+        "cct-project-context",
+        "cct-score-validation"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-score-validation/SKILL.md .agents/skills/cct-ai-quality/SKILL.md .agents/skills/cct-project-context/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S14.md docs/ai-system/knowledge/domains/score.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 66720,
+          "cached_input_tokens": 52224,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 472,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q14"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-project-context",
+        "cct-score-governance"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-score-governance/SKILL.md .agents/skills/cct-project-context/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S15.md docs/ai-system/knowledge/domains/score.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 52607,
+          "cached_input_tokens": 40448,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 444,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q15"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-score-explanation"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-score-explanation/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S16.md docs/ai-system/knowledge/domains/design.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 50859,
+          "cached_input_tokens": 44288,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 409,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q16"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-infrastructure-plan",
+        "cct-project-context"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-infrastructure-plan/SKILL.md .agents/skills/cct-project-context/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S17.md docs/ai-system/knowledge/domains/operations.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 52971,
+          "cached_input_tokens": 48000,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 409,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q17"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-server-hardening"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-server-hardening/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S18.md docs/ai-system/knowledge/domains/operations.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 78269,
+          "cached_input_tokens": 67584,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 475,
+          "reasoning_output_tokens": 25
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q18"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-deployment-data-ops"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-deployment-data-ops/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S19.md docs/ai-system/knowledge/domains/operations.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 50971,
+          "cached_input_tokens": 46848,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 405,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q19"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-git-collaboration"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-git-collaboration/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S20.md docs/ai-system/knowledge/domains/collaboration.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 50855,
+          "cached_input_tokens": 44416,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 391,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q20"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-knowledge-curation"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-knowledge-curation/SKILL.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 32966,
+          "cached_input_tokens": 28032,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 350,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q21"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-venue-api-review"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-venue-api-review/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S22.md docs/ai-system/knowledge/domains/engineering.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 51192,
+          "cached_input_tokens": 44416,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 407,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q22"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [
+        "cct-product-qa"
+      ],
+      "commands": [
+        {
+          "command": "/bin/bash -lc 'cat .agents/skills/cct-product-qa/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S23.md docs/ai-system/knowledge/domains/engineering.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": [
+        {
+          "input_tokens": 95875,
+          "cached_input_tokens": 79360,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 496,
+          "reasoning_output_tokens": 17
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q23"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [],
+      "commands": [],
+      "usage": [
+        {
+          "input_tokens": 15814,
+          "cached_input_tokens": 12288,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 242,
+          "reasoning_output_tokens": 40
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q24"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [],
+      "commands": [],
+      "usage": [
+        {
+          "input_tokens": 15819,
+          "cached_input_tokens": 12288,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 208,
+          "reasoning_output_tokens": 25
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q25"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [],
+      "commands": [],
+      "usage": [
+        {
+          "input_tokens": 15814,
+          "cached_input_tokens": 12288,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 197,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q26"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [],
+      "commands": [],
+      "usage": [
+        {
+          "input_tokens": 15821,
+          "cached_input_tokens": 14720,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 182,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q27"
+    },
+    {
+      "status": "pass",
+      "observed_skill_file_reads": [],
+      "commands": [],
+      "usage": [
+        {
+          "input_tokens": 15824,
+          "cached_input_tokens": 12288,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 219,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "turn_completed": true,
+      "uncertain_read": false,
+      "limits": "Native command trace file-read evidence; not semantic quality, causal benefit, or Desktop parity",
+      "id": "q28"
+    }
+  ]
+}

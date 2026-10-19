@@ -1,0 +1,1 @@
+CDN/WAF -> public origin /history. Origin также доступен напрямую. /history запрос может читать весь архив без page limit. 5000 WS clients reconnect каждые100ms без jitter. Provider quota=200 requests/s; каждый reconnect делает2 requests.

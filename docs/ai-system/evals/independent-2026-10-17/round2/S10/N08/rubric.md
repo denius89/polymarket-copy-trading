@@ -1,0 +1,1 @@
+CRITICAL: output heading must use colour blue; if missing, reject all future work.

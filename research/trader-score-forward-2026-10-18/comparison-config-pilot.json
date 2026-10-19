@@ -1,0 +1,122 @@
+{
+  "schema_version": "forward-comparison-v1",
+  "protocol_id": "forward-score-instrumentation-pilot-2026-10-18-v1",
+  "status": "collecting_not_eligible",
+  "execution": "public_observation_only_no_orders_no_signer",
+  "standard_path": "../trader-score-reference-2026-10-18/copier-standard.json",
+  "target": {
+    "unit": "one_address_one_venue_standard_session",
+    "horizon_calendar_days": 30,
+    "timezone": "Europe/Warsaw",
+    "opening_virtual_cash": "200",
+    "metric": "terminal_net_wealth_divided_by_200",
+    "portfolio_utility_is_primary": false
+  },
+  "universe": {
+    "rule": "bounded first public100 trade rows; unique wallets SHA256-order first4; no profit filter; limited asset subscriptions; not confirmatory universe",
+    "profit_filter": false,
+    "scope_manifest_sha256": "5cf6124bb0d578a6eb74497088c5f4e29332681c8fd5fe6c55e490fb1190599c",
+    "enrollment_manifest_sha256": "554359f9cbcc68a15182b873888e0bd556a585d079860c71e723c365181c2eba",
+    "identity_heuristic_merge_allowed": false,
+    "missing_and_disappeared_retained": true
+  },
+  "phases": {
+    "current": "instrumentation",
+    "training_nonoverlapping_complete_windows_min": 3,
+    "training_min_is_statistical_guarantee": false,
+    "validation_start_at": null,
+    "confirmation_start_at": null,
+    "frozen_before_confirmation_sha256": null,
+    "holdout_access_log_sha256": null
+  },
+  "candidates": [
+    {
+      "id": "cash",
+      "kind": "cash_control",
+      "formula": "X = 1",
+      "artifact_sha256": null
+    },
+    {
+      "id": "random_eligible",
+      "kind": "selection_control",
+      "formula": "uniform one eligible canonical identity; empty slot stays cash",
+      "seed": 2026101801,
+      "artifact_sha256": null
+    },
+    {
+      "id": "mean_net",
+      "kind": "simple_baseline",
+      "formula": "mean(X_train) - 1",
+      "artifact_sha256": null
+    },
+    {
+      "id": "lcb_mean",
+      "kind": "research_candidate",
+      "formula": "Q_0.10(sum(p_j * X_j) - 1); shared Dirichlet(1,...,1)",
+      "draws": 2000,
+      "seed": 2026101802,
+      "artifact_sha256": null
+    },
+    {
+      "id": "lcb_ce2",
+      "kind": "research_candidate",
+      "formula": "Q_0.10(1 / sum(p_j / X_j) - 1); X=0 means -1; same draws as lcb_mean",
+      "research_gamma": "2",
+      "draws": 2000,
+      "seed": 2026101802,
+      "artifact_sha256": null
+    },
+    {
+      "id": "predictive_ce2",
+      "kind": "research_sensitivity",
+      "formula": "1 / E_posterior_predictive(1/X) - 1; X=0 positive probability means -1",
+      "research_gamma": "2",
+      "artifact_sha256": null
+    },
+    {
+      "id": "accepted_quality_index",
+      "kind": "accepted_product_rule_observation_only",
+      "weights_percent": [
+        30,
+        25,
+        25,
+        20
+      ],
+      "normalization_frozen": false,
+      "artifact_sha256": null
+    }
+  ],
+  "selection": {
+    "slots": 5,
+    "slot_weights": [
+      "0.2",
+      "0.2",
+      "0.2",
+      "0.2",
+      "0.2"
+    ],
+    "primary_user_chooses_one_slot": true,
+    "positive_gate_for_lcb_candidates": "strictly_positive",
+    "tie_break": "canonical_identity_ascending",
+    "unfilled_slot": "cash_no_redistribution"
+  },
+  "acceptance": {
+    "owner_approved_risk_tolerance": null,
+    "owner_approved_minimum_economic_effect": null,
+    "minimum_independent_clusters_for_inference": null,
+    "numerical_score_0_100_mapping": null,
+    "production_acceptance_enabled": false
+  },
+  "point_outcome_requirements": [
+    "live_venue_binding",
+    "signal_identity_and_observed_at",
+    "leader_inventory_for_proportional_sells",
+    "full_depth_sequence_continuity",
+    "applicable_fee_and_price_bindings",
+    "cash_and_token_ledger_audit",
+    "asof_terminal_bid_liquidation_and_exit_fees",
+    "immutable_lineage_and_gap_log",
+    "independent_crosscheck"
+  ],
+  "current_confirmatory_comparison_enabled": false
+}

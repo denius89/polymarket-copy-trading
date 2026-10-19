@@ -1,0 +1,34 @@
+{
+  "id": "q16",
+  "returncode": 0,
+  "status": "pass",
+  "expected_any": [
+    "cct-score-explanation"
+  ],
+  "should_activate": true,
+  "observed_skill_file_reads": [
+    "cct-score-explanation"
+  ],
+  "commands": [
+    {
+      "command": "/bin/bash -lc 'cat .agents/skills/cct-score-explanation/SKILL.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S16.md docs/ai-system/knowledge/domains/design.md'",
+      "exit_code": 0
+    }
+  ],
+  "usage": [
+    {
+      "input_tokens": 50859,
+      "cached_input_tokens": 44288,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 409,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "seconds": 13.19,
+  "observed_at": "2026-10-17T21:42:26.801683+00:00",
+  "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+}

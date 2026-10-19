@@ -1,0 +1,1 @@
+POST /operations/:id/retry checks user logged in, loads operation by id, no tenant filter; sends if local status != completed. Worker: commit outbox intent -> send -> process crashes before response saved. Venue guarantees idempotency only for same account+clientKey within 5 minutes; last attempt was 8 minutes ago. Another note: «outbox = exactly once, можно retry всё».

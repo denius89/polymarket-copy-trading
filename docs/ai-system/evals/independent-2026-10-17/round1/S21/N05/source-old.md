@@ -1,0 +1,1 @@
+Version 1: metadata endpoint public. Account trading requires scope T.

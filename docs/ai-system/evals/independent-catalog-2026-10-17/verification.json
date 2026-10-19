@@ -1,0 +1,233 @@
+{
+  "observed_at": "2026-10-17T21:33:31.047253+00:00",
+  "checks": [
+    {
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "docs/ai-system/evals/checks.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "output": "{\n  \"check\": \"validate\",\n  \"status\": \"pass\",\n  \"problems\": []\n}\n"
+    },
+    {
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "docs/ai-system/evals",
+        "-p",
+        "test_checks.py"
+      ],
+      "exit_code": 0,
+      "output": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.067s\n\nOK\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        "AGENTS.md",
+        "docs/PROJECT_STATE.md"
+      ],
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "bundled_skill_validation": {
+    "count": 23,
+    "passed": 23,
+    "source": "structural-results.json"
+  },
+  "catalog_count": 23,
+  "learning_packs": 23,
+  "source_cards": 43,
+  "fingerprints": {
+    ".agents/skills/cct-project-context/SKILL.md": "990b3b77d2c2e51fc899930b94ab3c7c8e0fab662f44604eb58e60d57e7bbeb6",
+    "docs/ai-system/learning/S01.md": "1512e7fcc0ad2b9aa02c2f7edb6c5c1b3ff9abd2324145aa92e565636caeb06b",
+    ".agents/skills/cct-product-discovery/SKILL.md": "e87570e6125b0c45dcb4d4a9ffe2a17bc1c2f66f464d7405007a0f0c90f1f9cc",
+    "docs/ai-system/learning/S02.md": "80918d551cfed3c2add31c6098b181ae3a0f2707862b61974e4422c6f38167ff",
+    ".agents/skills/cct-market-domain/SKILL.md": "9004b78bbcbd39f8f5cbf5579477e93d06155a68dc242d4b43c6135ad35fcc88",
+    "docs/ai-system/learning/S03.md": "8e4b9466d12e03fa2e1b2747355b50326fa7d401cd3fbe5ac97dfcc1f5e296be",
+    ".agents/skills/cct-financial-ux/SKILL.md": "5b529ab56ecb2167d765778e3738e9c74e5030817bb6ce4d7a3f75414a4f8b70",
+    "docs/ai-system/learning/S04.md": "6c66d1ab5c024231e74f47a5679bedda97493499b43e5d713851db9368b08563",
+    ".agents/skills/cct-figma-handoff/SKILL.md": "8dd74107f97676d3a52eca9203776952357e19440d2989b61b37419506f369e8",
+    "docs/ai-system/learning/S05.md": "122d1533f1425ce209cfe209d1d69565c194c8f7121101812d18c09a5492b7a8",
+    ".agents/skills/cct-frontend-quality/SKILL.md": "5c8f4df1aae2c4e8a536d97390c5d78e3af9c4385774e454f3c5b45d47dc10c9",
+    "docs/ai-system/learning/S06.md": "f44f312ec7005180adfca7c1988cd5cb289bb9b473b8abe6b2e141df1712dde2",
+    ".agents/skills/cct-backend-data/SKILL.md": "c80132c9bdd2241744596c83887892df7e12cdcdb7cc193c3626e606e5ec8d17",
+    "docs/ai-system/learning/S07.md": "5678b090ac99e52638d50531f6964da33891c5e925bcffb84a3c9cfced828c86",
+    ".agents/skills/cct-wallet-security/SKILL.md": "2b96711c393f2911daab35cc2c77a67968baf8f6209038f8a73f63b877f102fe",
+    "docs/ai-system/learning/S08.md": "e2a7f526c5554b5b5eac4af04b2ddec8e09da0bc89892e906d6ceb8220d8ce67",
+    ".agents/skills/cct-reliability-operations/SKILL.md": "9908a8a5104aecbd5b8db16952bbd685e144cc42350f5dc64f97a2a7d6ac743f",
+    "docs/ai-system/learning/S09.md": "4cd72d6e083845281a7ac19d89cf67295c1fb818ef5b662208fb1f1179b4965f",
+    ".agents/skills/cct-ai-quality/SKILL.md": "66d171201393cf4eb40da6cf38c514317cf37d04a903e5a6993c7c1123f21035",
+    "docs/ai-system/learning/S10.md": "d1f3d9c1bf5b0d1983cc09b387d64b2bae4f1e3b2ab7711180c079b4911d1c34",
+    ".agents/skills/cct-score-data-audit/SKILL.md": "dcde258ee5a5e2aa57490cc0fdb4e1072be21d49794f1296e12421a1f7cfa8ee",
+    "docs/ai-system/learning/S11.md": "b688bfdae5c236346b90e0e791d820d1bf68724a1c42ddb198035f4f952eb835",
+    ".agents/skills/cct-copy-replay/SKILL.md": "b5ff0434e6a675630d31cd6a9617094689964cc40ab781fed8d7e31d142d0c16",
+    "docs/ai-system/learning/S12.md": "cb093d05ffae0ca4cb060f8ae68cdfa731da3b931dfcc1d0b761499687c6e304",
+    ".agents/skills/cct-score-methodology/SKILL.md": "e434dce2baa94f2cb38adc921e0333a397115084d099c7af3a9cd361560ce03c",
+    "docs/ai-system/learning/S13.md": "05215cbbdfd7b712be318d88c0bae396490272a8402e529d430367ff18077680",
+    ".agents/skills/cct-score-validation/SKILL.md": "2da36cffaf63e6f2f5b88ae18ca160befee4f3de1edf43948490b5fc873dd870",
+    "docs/ai-system/learning/S14.md": "999f071daf1deb32b8c64c9e0199377e726ebf4ad2dc5e3298810d5056b9fcbf",
+    ".agents/skills/cct-score-governance/SKILL.md": "29cd876f4dbab5f8e457d944d26e3f140a51434808448616737b2de0360e5dee",
+    "docs/ai-system/learning/S15.md": "93428d1d190a61d42177462d580d15fcf94d128c116baf77aeb30da36bf52b8a",
+    ".agents/skills/cct-score-explanation/SKILL.md": "20b7ef43835bd6873256f29e4a68a6a9c3b31c6f5d71db9ea2047e2c7fa3a9b8",
+    "docs/ai-system/learning/S16.md": "cb1c965378e59b9ebcd5c44d2998fe3acc708980abf24894e81779b1006f2b48",
+    ".agents/skills/cct-infrastructure-plan/SKILL.md": "84c175e7dfef5a28695fae835e2b9b77fc94bece5052b945c511050edd897812",
+    "docs/ai-system/learning/S17.md": "3607843a9954e9f27a491a1e92c74170ad4771021582f3bc0bbbe2e9f1bec3ca",
+    ".agents/skills/cct-server-hardening/SKILL.md": "5cb3ff44059265e243bfa218ffa8aef16d8a21ae47519c1c675d1a6cfde2648f",
+    "docs/ai-system/learning/S18.md": "85262201a155939d2ad4bf8ed604ad88a30d1c7b8b5941226884fa2c052076d4",
+    ".agents/skills/cct-deployment-data-ops/SKILL.md": "630614c71e69f9c546ca7ce689f035812d5a68006670dad80ab56b1a5003bb3a",
+    "docs/ai-system/learning/S19.md": "499cd97f781db94f54e94406e5e3c26c21339ff6dea821400dd11e70884e0a5f",
+    ".agents/skills/cct-git-collaboration/SKILL.md": "5c144ba899eea81b6690d74db4ec19d18996726a3f9c71b6ddb7ebe92df2e516",
+    "docs/ai-system/learning/S20.md": "3f99f62924561441ade91df07944fcd217444c706314c99b46469e10fa76f84b",
+    ".agents/skills/cct-knowledge-curation/SKILL.md": "41c33acfab7e78d44d35eadf60b508f130e6e68c85fa984e5ed1fc1dcbd2eb0b",
+    "docs/ai-system/learning/S21.md": "392c1c0692ef0f2e915e5d765c679c11e8a8212595305ca34e234e646f4aeeac",
+    ".agents/skills/cct-venue-api-review/SKILL.md": "346a9d121a22d17c0584fef46be668d717f0c5e0eca3e6c9dc96928fcccfa40e",
+    "docs/ai-system/learning/S22.md": "3c8a6e7c9d8185e46428a55edda699884c6755b6637e32072c776158b78b7e74",
+    ".agents/skills/cct-product-qa/SKILL.md": "c9b324cec010fddf350af1f351f7559faf68a8a431720a18aae65297cc519755",
+    "docs/ai-system/learning/S23.md": "9d0d9bd68ca483b5f0d76734e436171dd51df653963b9364bd5532ab2135b4d7"
+  },
+  "input_integrity": [
+    {
+      "case": "C-S02",
+      "skill_matches_active": true,
+      "common_and_domain_match": true,
+      "raw_task_unchanged": true
+    },
+    {
+      "case": "C-S03",
+      "skill_matches_active": true,
+      "common_and_domain_match": true,
+      "raw_task_unchanged": true
+    },
+    {
+      "case": "C-S04",
+      "skill_matches_active": true,
+      "common_and_domain_match": true,
+      "raw_task_unchanged": true
+    },
+    {
+      "case": "C-S05",
+      "skill_matches_active": true,
+      "common_and_domain_match": true,
+      "raw_task_unchanged": true
+    },
+    {
+      "case": "C-S06",
+      "skill_matches_active": true,
+      "common_and_domain_match": true,
+      "raw_task_unchanged": true
+    },
+    {
+      "case": "C-S07",
+      "skill_matches_active": true,
+      "common_and_domain_match": true,
+      "raw_task_unchanged": true
+    },
+    {
+      "case": "C-S08",
+      "skill_matches_active": true,
+      "common_and_domain_match": true,
+      "raw_task_unchanged": true
+    },
+    {
+      "case": "C-S09",
+      "skill_matches_active": true,
+      "common_and_domain_match": true,
+      "raw_task_unchanged": true
+    },
+    {
+      "case": "C-S11",
+      "skill_matches_active": true,
+      "common_and_domain_match": true,
+      "raw_task_unchanged": true
+    },
+    {
+      "case": "C-S12",
+      "skill_matches_active": true,
+      "common_and_domain_match": true,
+      "raw_task_unchanged": true
+    },
+    {
+      "case": "C-S13",
+      "skill_matches_active": true,
+      "common_and_domain_match": true,
+      "raw_task_unchanged": true
+    },
+    {
+      "case": "C-S14",
+      "skill_matches_active": true,
+      "common_and_domain_match": true,
+      "raw_task_unchanged": true
+    },
+    {
+      "case": "C-S15",
+      "skill_matches_active": true,
+      "common_and_domain_match": true,
+      "raw_task_unchanged": true
+    },
+    {
+      "case": "C-S16",
+      "skill_matches_active": true,
+      "common_and_domain_match": true,
+      "raw_task_unchanged": true
+    },
+    {
+      "case": "C-S17",
+      "skill_matches_active": true,
+      "common_and_domain_match": true,
+      "raw_task_unchanged": true
+    },
+    {
+      "case": "C-S18",
+      "skill_matches_active": true,
+      "common_and_domain_match": true,
+      "raw_task_unchanged": true
+    },
+    {
+      "case": "C-S19",
+      "skill_matches_active": true,
+      "common_and_domain_match": true,
+      "raw_task_unchanged": true
+    },
+    {
+      "case": "C-S20",
+      "skill_matches_active": true,
+      "common_and_domain_match": true,
+      "raw_task_unchanged": true
+    },
+    {
+      "case": "C-S22",
+      "skill_matches_active": true,
+      "common_and_domain_match": true,
+      "raw_task_unchanged": true
+    },
+    {
+      "case": "C-S23",
+      "skill_matches_active": true,
+      "common_and_domain_match": true,
+      "raw_task_unchanged": true
+    }
+  ],
+  "new_skill_cases": 20,
+  "behavior_criteria": {
+    "pass": 40,
+    "fail": 0
+  },
+  "manual_metadata_routing": {
+    "pass": 15,
+    "fail": 0
+  },
+  "first_three_independent_evidence": "../independent-2026-10-17/REPORT.md",
+  "automatic_discovery": "not_verified",
+  "skill_causality_vs_baseline": "not_measured",
+  "tokens": null,
+  "cost_usd": null,
+  "limits": "One supplied synthetic case per new skill; manual metadata routing, not live product or full competency validation."
+}

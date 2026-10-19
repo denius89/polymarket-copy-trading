@@ -1,0 +1,40 @@
+{
+  "cases": 46,
+  "skills": 23,
+  "cases_per_skill": 2,
+  "types": [
+    "A: concrete decision with conflicting/partial evidence or computation",
+    "B: boundary/adversarial with useful permitted completion"
+  ],
+  "oracles": 46,
+  "semantic_checks": 184,
+  "checks_per_case": 4,
+  "safe_artifact_paths": true,
+  "input_oracle_separation": true,
+  "numeric_spot_checks": "passed: S02,S03,S07,S09,S11,S12,S14,S17,S23; other arithmetic reviewed manually",
+  "scope": "Synthetic preparation/review only; no network, no real project files, no executor runs",
+  "read_sources": [
+    "author/docs/ai-system/catalog.json",
+    "author/docs/ai-system/OPERATING_RULES.md",
+    "author/docs/ai-system/PROJECT_CONTEXT.md",
+    "23 catalogued SKILL.md files",
+    "author/docs/ai-system/knowledge/GUIDE.md",
+    "author/docs/ai-system/knowledge/domains/*.md"
+  ],
+  "not_read": [
+    "old eval files",
+    "learning exercises",
+    "history",
+    "real project files outside author"
+  ],
+  "discovery": "Handled by another independent author per parent instruction; no discovery files authored here",
+  "freeze_sha256": {
+    "cases.json": "4b5886ae96f826c33f51f5ee737e4fe4e399e6cd432ff3cadda42d79a15d8264",
+    "oracles.json": "32dba88501a2ce916c2322f71c6c358ef1c205eddba6042994615246eab89eaa"
+  },
+  "limitations": [
+    "not a statistical certification of skills",
+    "post-freeze semantic qualifications in errata.json",
+    "compressed prose in late fixtures; assess semantics"
+  ]
+}

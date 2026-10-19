@@ -1,0 +1,42 @@
+{
+  "classification": "manual_metadata_only",
+  "runtime_discovery": false,
+  "results": [
+    {
+      "id": "R01",
+      "primary_skill": "S21",
+      "reason": "Карточки источников и выявление устаревших глав относятся к curation/refresh knowledge с provenance и applicability.",
+      "overlap": []
+    },
+    {
+      "id": "R04",
+      "primary_skill": "S17",
+      "reason": "Сравнение инфраструктуры managed/VPS, recovery требований и total cost. Неопределённые RPO/RTO и бюджет должны остаться ограничениями сравнения.",
+      "overlap": [
+        "S09 может уточнять capacity/SLO требования; S18 относится к последующему hardening, а не выбору вариантов."
+      ]
+    },
+    {
+      "id": "R07",
+      "primary_skill": "S09",
+      "reason": "SLO, ownership оповещений, capacity и incident response напрямую входят в reliability operations.",
+      "overlap": []
+    },
+    {
+      "id": "R10",
+      "primary_skill": "S14",
+      "reason": "Независимая temporal/group leakage проверка итоговой оценки — methodological validation, а не подбор формулы.",
+      "overlap": [
+        "S11 помогает проверить temporal availability входных данных, но основной запрос относится к итоговой валидации."
+      ]
+    },
+    {
+      "id": "R13",
+      "primary_skill": "S04",
+      "reason": "Понятность финансовых состояний и типографики RU mobile прежде всего относится к financial UX и существующей design system.",
+      "overlap": [
+        "S06 нужен для runtime accessibility/responsive/performance evidence, если такая проверка отдельно входит в scope."
+      ]
+    }
+  ]
+}

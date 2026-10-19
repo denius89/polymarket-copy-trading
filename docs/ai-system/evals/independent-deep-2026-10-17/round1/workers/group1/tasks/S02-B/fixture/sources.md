@@ -1,0 +1,1 @@
+Snapshot 10 октября. FalconCopy landing: «copy top traders», нет оператора/Terms/цен. RelayHub docs §2: hosted signing infrastructure, copy signals не предоставляет. Venue-X Terms §4: execution venue, не копировщик; тестовый тариф 0.4% относится только к этим условиям. Сообщение в чате: «FalconCopy крадёт депозиты», доказательств нет.

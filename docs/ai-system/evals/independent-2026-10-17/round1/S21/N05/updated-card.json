@@ -1,0 +1,65 @@
+{
+  "id": "N05-metadata",
+  "publisher_owner": "Не указан в fixtures",
+  "access": "read",
+  "read_date": "2026-10-17",
+  "reading_conditions": "Оба supplied локальных snapshot прочитаны полностью; без сети и API",
+  "source": {
+    "path": "source-new.md",
+    "section": "metadata endpoint; account trading",
+    "version": "Version 2",
+    "sha256": "e6683e3c171e16555436c3d42bba70a98e372348b98a98fdc61ffa4f2e6a2c8c"
+  },
+  "historical_evidence": {
+    "source": "source-old.md",
+    "version": "Version 1",
+    "computed_sha256": "de04ab3d976903bdc8e7dcf967b8c3e3379c64173386f0723a743abfb3bb8879",
+    "original_card": {
+      "path": "card.json",
+      "observed_at": "2026-10-01T12:00:00Z",
+      "section": "metadata endpoint",
+      "sha256": "old-snapshot",
+      "supports": [
+        "metadata endpoint public"
+      ],
+      "used_by": [
+        "metadata-basics"
+      ]
+    },
+    "limits": "old-snapshot сохранён как исходная метка; это не вычисленный SHA-256. Тип исходного наблюдения не уточнён; API доступ оно само по себе не доказывает"
+  },
+  "new_verification": {
+    "date": "2026-10-17",
+    "kind": "Локальное чтение и смысловая сверка Version 1 и Version 2",
+    "claims": [
+      {
+        "claim": "metadata endpoint public",
+        "evidence": "source-new.md, sentence 1",
+        "status": "current_at_observation",
+        "limits": "Только утверждение snapshot; реальный endpoint не запрашивался"
+      },
+      {
+        "claim": "account trading requires scope T",
+        "evidence": "source-new.md, sentence 2",
+        "status": "current_at_observation",
+        "limits": "Документированное требование; scope нашего аккаунта не проверен"
+      }
+    ],
+    "semantic_diff": "Версия и оформление изменились; оба содержательных утверждения сохранены. Новая строка сообщает о добавленном заголовке; фактическая типографика из иных файлов не проверялась"
+  },
+  "supports": [
+    "metadata endpoint public"
+  ],
+  "related_packages": [
+    "metadata-basics"
+  ],
+  "related_reviewed_consumers": [
+    "wallet-auth"
+  ],
+  "refresh_reason": "Изменение source snapshot; новый хеш подтверждает изменение байтов, смысл проверен отдельно",
+  "invalidation_resolution": "Связанные правила требовали сверки при изменении; после локальной сверки изменение поведения не найдено. Новая API проверка не проводилась",
+  "limitations": [
+    "Оригиналы пакетов не предоставлены; отдельные файлы пакетов содержат минимальные локальные обновления по consumers.json, а не выдуманный полный исходный текст",
+    "Project ADR и продукт не менялись"
+  ]
+}

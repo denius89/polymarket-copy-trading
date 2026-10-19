@@ -1,0 +1,1 @@
+No tools, no writes or outgoing messages.

@@ -1,0 +1,2 @@
+Составь capability matrix по этим fixtures: public market list 200 yesterday; partner endpoint 403; docs показывают own-account WS; нужны all-wallet histories и полные cashflows. Новых запросов делать не нужно.
+Только supplied fixtures. Общие правила — OPERATING_RULES.md, предметные опоры — domain.md; остальные ссылки вне этой папки не открывать. Все входы read-only, результат только results/answer.md.

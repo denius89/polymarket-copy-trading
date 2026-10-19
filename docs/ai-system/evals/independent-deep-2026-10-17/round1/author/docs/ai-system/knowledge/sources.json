@@ -1,0 +1,1243 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "id": "KB01",
+      "title": "Project instructions",
+      "publisher": "Project owner / repository",
+      "locator": "../AGENTS.md",
+      "section": "Полный файл",
+      "access": "read",
+      "observed_at": "2026-10-17T21:07:03+00:00",
+      "currency": "current_at_observation",
+      "version": "local working-copy snapshot",
+      "sha256": "1f3d53d96d9757658833851ecc79f56e38cc513bb6305a0fba51520b5ccb4537",
+      "supports": [
+        "Synced sources read-only"
+      ],
+      "limits": [
+        "Не задаёт свежие продуктовые решения"
+      ],
+      "tags": [
+        "policy",
+        "KB01",
+        "project"
+      ],
+      "used_by": [
+        "S01",
+        "S21",
+        "S10"
+      ],
+      "refresh_when": "Source diff or a task depending on a newer decision/observation",
+      "usage": "Local project reference; no secrets or wholesale external republication"
+    },
+    {
+      "id": "KB02",
+      "title": "Repository instructions",
+      "publisher": "Project owner / repository",
+      "locator": "AGENTS.md",
+      "section": "Полный файл",
+      "access": "read",
+      "observed_at": "2026-10-17T21:33:03+00:00",
+      "currency": "current_at_observation",
+      "version": "Local source after catalog v0.3 routes/journal; changed section reread, history preserved",
+      "sha256": "2a51ecb2d16b1b53c814272d4f10091b1d4a7a0903fe35314a6d1945b492c433",
+      "supports": [
+        "Правила чтения контекста, безопасности и проектные границы"
+      ],
+      "limits": [
+        "Не доказывает runtime"
+      ],
+      "tags": [
+        "policy",
+        "KB02",
+        "project"
+      ],
+      "used_by": [
+        "S01",
+        "S10",
+        "S21"
+      ],
+      "refresh_when": "Source diff or a task depending on a newer decision/observation",
+      "usage": "Local project reference; no secrets or wholesale external republication",
+      "reading_history": [
+        {
+          "observed_at": "2026-10-17T21:11:18+00:00",
+          "sha256": "0426e0ff8da164e3b787c326741ccaec27595797460488e46c2dac7b86b95137",
+          "section": "Полный файл"
+        }
+      ]
+    },
+    {
+      "id": "KB03",
+      "title": "Project queue",
+      "publisher": "Project owner / repository",
+      "locator": "docs/ROADMAP.md",
+      "section": "Вводные записи 16.10.2026",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:07:03+00:00",
+      "currency": "current_at_observation",
+      "version": "local working-copy snapshot",
+      "sha256": "c630deebe97a07ae98705319923edaf2fb12c5adb3bd2e81b07c2429253bdc0a",
+      "supports": [
+        "Очередь и ограничения по историческим записям"
+      ],
+      "limits": [
+        "Не подтверждает собственную повторную приёмку"
+      ],
+      "tags": [
+        "queue",
+        "KB03",
+        "project"
+      ],
+      "used_by": [
+        "S01"
+      ],
+      "refresh_when": "Source diff or a task depending on a newer decision/observation",
+      "usage": "Local project reference; no secrets or wholesale external republication"
+    },
+    {
+      "id": "KB04",
+      "title": "Project state",
+      "publisher": "Project owner / repository",
+      "locator": "docs/PROJECT_STATE.md",
+      "section": "Вводные записи 17.10.2026, включая расширение всего каталога",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:33:03+00:00",
+      "currency": "current_at_observation",
+      "version": "Local source after catalog v0.3 routes/journal; changed section reread, history preserved",
+      "sha256": "e2be50dcb9a98ed9b832b9fb94d71dcfdd5d5e03a609e9f18029ff43b247cfa8",
+      "supports": [
+        "Журнал подготовки и сделанных локальных работ"
+      ],
+      "limits": [
+        "Исторические отчёты не являются повторёнными проверками"
+      ],
+      "tags": [
+        "journal",
+        "KB04",
+        "project"
+      ],
+      "used_by": [
+        "S01",
+        "S10"
+      ],
+      "refresh_when": "Source diff or a task depending on a newer decision/observation",
+      "usage": "Local project reference; no secrets or wholesale external republication",
+      "reading_history": [
+        {
+          "observed_at": "2026-10-17T21:11:18+00:00",
+          "sha256": "b2cf1570d1c6ede67f322d91a522402d062184803dd8e653467c60e1f44186e1",
+          "section": "Вводные записи 17.10.2026"
+        },
+        {
+          "observed_at": "2026-10-17T21:20:27+00:00",
+          "sha256": "d430b8d9187abe19478db372fa2e73c8b73544962fa1deca400a83bcec2faa99",
+          "section": "Вводные записи 17.10.2026, включая отдельную независимую проверку"
+        }
+      ]
+    },
+    {
+      "id": "KB05",
+      "title": "Pause of application delivery",
+      "publisher": "Project owner / repository",
+      "locator": "docs/decisions/0002_pause_implementation_for_review.md",
+      "section": "Полный ADR-0002",
+      "access": "read",
+      "observed_at": "2026-10-17T21:07:03+00:00",
+      "currency": "current_at_observation",
+      "version": "local working-copy snapshot",
+      "sha256": "0aa76f639beb93ce58b3dec85804ad826421baae4ea78c1bb73dcbe32c8d6448",
+      "supports": [
+        "Разработка приложения требует отдельного решения; дизайн уточнён отдельно"
+      ],
+      "limits": [
+        "Не запрещает новую явно разрешённую подготовку навыков"
+      ],
+      "tags": [
+        "scope",
+        "KB05",
+        "project"
+      ],
+      "used_by": [
+        "S01"
+      ],
+      "refresh_when": "Source diff or a task depending on a newer decision/observation",
+      "usage": "Local project reference; no secrets or wholesale external republication"
+    },
+    {
+      "id": "KB06",
+      "title": "Limitless first spike",
+      "publisher": "Project owner / repository",
+      "locator": "docs/decisions/0007_limitless_first_integration.md",
+      "section": "Полный ADR-0007",
+      "access": "read",
+      "observed_at": "2026-10-17T21:07:03+00:00",
+      "currency": "current_at_observation",
+      "version": "local working-copy snapshot",
+      "sha256": "9aa7917aa740b882df133ba0fff0d4114590640bdb77c85ae17dd33e1f3b1a1b",
+      "supports": [
+        "Limitless первый партнёрский spike; optional Polymarket заменён ADR-0008"
+      ],
+      "limits": [
+        "Текст о возможностях/партнёрстве не заменяет текущую API/account проверку"
+      ],
+      "tags": [
+        "venues",
+        "KB06",
+        "project"
+      ],
+      "used_by": [
+        "S01",
+        "S21"
+      ],
+      "refresh_when": "Source diff or a task depending on a newer decision/observation",
+      "usage": "Local project reference; no secrets or wholesale external republication"
+    },
+    {
+      "id": "KB07",
+      "title": "Two mandatory venues",
+      "publisher": "Project owner / repository",
+      "locator": "docs/decisions/0008_dual_venue_product_scope.md",
+      "section": "Полный ADR-0008",
+      "access": "read",
+      "observed_at": "2026-10-17T21:07:03+00:00",
+      "currency": "current_at_observation",
+      "version": "local working-copy snapshot",
+      "sha256": "af7a5b7ea87a734315a5acb1aeac542f2833f386591e34c7f9264be3b8609cce",
+      "supports": [
+        "Две обязательные площадки и отдельные live gates"
+      ],
+      "limits": [
+        "Не доказывает наличие двух работающих adapters"
+      ],
+      "tags": [
+        "venues",
+        "KB07",
+        "project"
+      ],
+      "used_by": [
+        "S01",
+        "S21",
+        "S03"
+      ],
+      "refresh_when": "Source diff or a task depending on a newer decision/observation",
+      "usage": "Local project reference; no secrets or wholesale external republication"
+    },
+    {
+      "id": "KB08",
+      "title": "Proposed backend",
+      "publisher": "Project owner / repository",
+      "locator": "docs/decisions/0042_admin_modular_backend_and_shared_projections_proposal.md",
+      "section": "Полный ADR-0042",
+      "access": "read",
+      "observed_at": "2026-10-17T21:07:03+00:00",
+      "currency": "current_at_observation",
+      "version": "local working-copy snapshot",
+      "sha256": "77aac995b5cb3d0fed047c9b7f2a1978ecb72a625bf1c8d544f59bc963ba1ed1",
+      "supports": [
+        "Модульный backend/PostgreSQL предложены"
+      ],
+      "limits": [
+        "Не утверждено/не развёрнуто данным документом"
+      ],
+      "tags": [
+        "proposal",
+        "KB08",
+        "project"
+      ],
+      "used_by": [
+        "S01",
+        "S21",
+        "S07",
+        "S17"
+      ],
+      "refresh_when": "Source diff or a task depending on a newer decision/observation",
+      "usage": "Local project reference; no secrets or wholesale external republication"
+    },
+    {
+      "id": "KB09",
+      "title": "Rating design scope",
+      "publisher": "Project owner / repository",
+      "locator": "docs/decisions/0044_data_ingestion_validator_and_rating_controls.md",
+      "section": "Полный ADR-0044",
+      "access": "read",
+      "observed_at": "2026-10-17T21:07:03+00:00",
+      "currency": "current_at_observation",
+      "version": "local working-copy snapshot",
+      "sha256": "bed8ad16238fff706c4756f6704ba0f4df99b30e6d218ac76788449d626719d8",
+      "supports": [
+        "Область дизайна принята; новые права и API-specific параметры предлагаются отдельно"
+      ],
+      "limits": [
+        "Не принимает новые score числа; за действующими числами требуется ADR-0011"
+      ],
+      "tags": [
+        "score",
+        "KB09",
+        "project"
+      ],
+      "used_by": [
+        "S01",
+        "S10",
+        "S21",
+        "S13",
+        "S15",
+        "S16"
+      ],
+      "refresh_when": "Source diff or a task depending on a newer decision/observation",
+      "usage": "Local project reference; no secrets or wholesale external republication"
+    },
+    {
+      "id": "KB10",
+      "title": "Legacy parent state",
+      "publisher": "Project owner / repository",
+      "locator": "../docs/PROJECT_STATE.md",
+      "section": "Начальные разделы до очереди от 23.09.2026",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:07:03+00:00",
+      "currency": "superseded",
+      "version": "local working-copy snapshot",
+      "sha256": "1d62d59d1928826e2609a41e958e16c563815e5cee6d9fb8a2eb8b29d1454fb4",
+      "supports": [
+        "Исторический контекст одной первой площадки"
+      ],
+      "limits": [
+        "Не заменяет принятые ADR-0007/0008 текущего checkout"
+      ],
+      "tags": [
+        "historical",
+        "KB10",
+        "project"
+      ],
+      "used_by": [
+        "S01",
+        "S21"
+      ],
+      "refresh_when": "Source diff or a task depending on a newer decision/observation",
+      "usage": "Local project reference; no secrets or wholesale external republication"
+    },
+    {
+      "id": "EXT01",
+      "title": "OpenAI Build skills",
+      "publisher": "OpenAI",
+      "locator": "https://developers.openai.com/plugins/build/skills",
+      "section": "Manifest, progressive disclosure and testing guidance",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:07:03+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page read 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Структура навыка и подготовка проверяемого workflow"
+      ],
+      "limits": [
+        "Методологическая опора; не доказывает качество нашего навыка и доступность конкретного runtime"
+      ],
+      "tags": [
+        "skills",
+        "evaluation",
+        "EXT01"
+      ],
+      "used_by": [
+        "S21",
+        "S10"
+      ],
+      "refresh_when": "Skill packaging/runtime change or observed application failure",
+      "usage": "Link and original summary only; no full-page copies"
+    },
+    {
+      "id": "EXT02",
+      "title": "OpenAI Skills concepts",
+      "publisher": "OpenAI",
+      "locator": "https://developers.openai.com/plugins/concepts/skills",
+      "section": "Skills vs tools and discoverable instructions",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:07:03+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page read 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Навык задаёт процедуру; доступ инструмента не равен навыку"
+      ],
+      "limits": [
+        "Методологическая опора; не доказывает качество нашего навыка и доступность конкретного runtime"
+      ],
+      "tags": [
+        "skills",
+        "evaluation",
+        "EXT02"
+      ],
+      "used_by": [
+        "S21",
+        "S10"
+      ],
+      "refresh_when": "Skill packaging/runtime change or observed application failure",
+      "usage": "Link and original summary only; no full-page copies"
+    },
+    {
+      "id": "EXT03",
+      "title": "OpenAI Testing skills with evals",
+      "publisher": "OpenAI",
+      "locator": "https://developers.openai.com/blog/eval-skills",
+      "section": "Define success and prompt → captured run → checks",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:07:03+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page read 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Проверять наблюдаемое поведение и различать структуру/результат/затраты"
+      ],
+      "limits": [
+        "Методологическая опора; не доказывает качество нашего навыка и доступность конкретного runtime"
+      ],
+      "tags": [
+        "skills",
+        "evaluation",
+        "EXT03"
+      ],
+      "used_by": [
+        "S21",
+        "S10"
+      ],
+      "refresh_when": "Skill packaging/runtime change or observed application failure",
+      "usage": "Link and original summary only; no full-page copies"
+    },
+    {
+      "id": "D01",
+      "title": "Polymarket overview",
+      "publisher": "Polymarket",
+      "locator": "https://docs.polymarket.com/",
+      "section": "Навигация Core Concepts, Market Data и Trading; introduction",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page observation 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Маршрут к отдельным concepts/API; actual capability требует чтения конкретной страницы"
+      ],
+      "limits": [
+        "Прочитан указанный фрагмент/обзор; полный профессиональный курс не пройден. Не доказывает реализацию, права аккаунта или пригодность без контекста."
+      ],
+      "tags": [
+        "catalog",
+        "D01"
+      ],
+      "used_by": [
+        "S02",
+        "S22"
+      ],
+      "refresh_when": "Перед зависящим решением, изменением версии/условий или при ошибке применения",
+      "usage": "Ссылка и авторское краткое резюме; без полного копирования страницы"
+    },
+    {
+      "id": "D02",
+      "title": "Limitless introduction",
+      "publisher": "Limitless",
+      "locator": "https://docs.limitless.exchange/",
+      "section": "Introduction / API reference route",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page observation 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Вводные market concepts и маршрут REST/WS; не account-specific проверка"
+      ],
+      "limits": [
+        "Прочитан указанный фрагмент/обзор; полный профессиональный курс не пройден. Не доказывает реализацию, права аккаунта или пригодность без контекста."
+      ],
+      "tags": [
+        "catalog",
+        "D02"
+      ],
+      "used_by": [
+        "S02",
+        "S22"
+      ],
+      "refresh_when": "Перед зависящим решением, изменением версии/условий или при ошибке применения",
+      "usage": "Ссылка и авторское краткое резюме; без полного копирования страницы"
+    },
+    {
+      "id": "D03",
+      "title": "W3C WCAG 2.2",
+      "publisher": "W3C",
+      "locator": "https://www.w3.org/TR/WCAG22/",
+      "section": "Abstract, status and testable criteria structure",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page observation 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Основа проверки accessibility; конкретные success criteria читать под задачу"
+      ],
+      "limits": [
+        "Прочитан указанный фрагмент/обзор; полный профессиональный курс не пройден. Не доказывает реализацию, права аккаунта или пригодность без контекста."
+      ],
+      "tags": [
+        "catalog",
+        "D03"
+      ],
+      "used_by": [
+        "S04",
+        "S06"
+      ],
+      "refresh_when": "Перед зависящим решением, изменением версии/условий или при ошибке применения",
+      "usage": "Ссылка и авторское краткое резюме; без полного копирования страницы"
+    },
+    {
+      "id": "D04",
+      "title": "Web Vitals",
+      "publisher": "Web",
+      "locator": "https://web.dev/articles/vitals",
+      "section": "Core Web Vitals overview",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page observation 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Разделение метрик frontend quality и контекста измерений"
+      ],
+      "limits": [
+        "Прочитан указанный фрагмент/обзор; полный профессиональный курс не пройден. Не доказывает реализацию, права аккаунта или пригодность без контекста."
+      ],
+      "tags": [
+        "catalog",
+        "D04"
+      ],
+      "used_by": [
+        "S06"
+      ],
+      "refresh_when": "Перед зависящим решением, изменением версии/условий или при ошибке применения",
+      "usage": "Ссылка и авторское краткое резюме; без полного копирования страницы"
+    },
+    {
+      "id": "D05",
+      "title": "PostgreSQL transaction isolation",
+      "publisher": "PostgreSQL",
+      "locator": "https://www.postgresql.org/docs/current/transaction-iso.html",
+      "section": "Transaction Isolation overview and modes",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page observation 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Isolation semantics; применимость к конкретному concurrent invariant требует проверки"
+      ],
+      "limits": [
+        "Прочитан указанный фрагмент/обзор; полный профессиональный курс не пройден. Не доказывает реализацию, права аккаунта или пригодность без контекста."
+      ],
+      "tags": [
+        "catalog",
+        "D05"
+      ],
+      "used_by": [
+        "S07"
+      ],
+      "refresh_when": "Перед зависящим решением, изменением версии/условий или при ошибке применения",
+      "usage": "Ссылка и авторское краткое резюме; без полного копирования страницы"
+    },
+    {
+      "id": "D06",
+      "title": "OWASP Threat Modeling",
+      "publisher": "OWASP",
+      "locator": "https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html",
+      "section": "Threat modeling process",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page observation 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Моделирование угроз и trust boundaries как процедура, не security certificate"
+      ],
+      "limits": [
+        "Прочитан указанный фрагмент/обзор; полный профессиональный курс не пройден. Не доказывает реализацию, права аккаунта или пригодность без контекста."
+      ],
+      "tags": [
+        "catalog",
+        "D06"
+      ],
+      "used_by": [
+        "S08"
+      ],
+      "refresh_when": "Перед зависящим решением, изменением версии/условий или при ошибке применения",
+      "usage": "Ссылка и авторское краткое резюме; без полного копирования страницы"
+    },
+    {
+      "id": "D07",
+      "title": "scikit-learn data leakage",
+      "publisher": "scikit-learn",
+      "locator": "https://scikit-learn.org/stable/common_pitfalls.html#data-leakage",
+      "section": "12.2 Data leakage / train-test preprocessing",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page observation 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Нельзя обучать preprocessing/feature selection на данных evaluation"
+      ],
+      "limits": [
+        "Прочитан указанный фрагмент/обзор; полный профессиональный курс не пройден. Не доказывает реализацию, права аккаунта или пригодность без контекста."
+      ],
+      "tags": [
+        "catalog",
+        "D07"
+      ],
+      "used_by": [
+        "S11",
+        "S13",
+        "S14"
+      ],
+      "refresh_when": "Перед зависящим решением, изменением версии/условий или при ошибке применения",
+      "usage": "Ссылка и авторское краткое резюме; без полного копирования страницы"
+    },
+    {
+      "id": "D08",
+      "title": "scikit-learn cross validation",
+      "publisher": "scikit-learn",
+      "locator": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "section": "Cross-validation overview; temporal/group split routes",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page observation 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Выбор split зависит от структуры данных; это не готовая статистическая методика скора"
+      ],
+      "limits": [
+        "Прочитан указанный фрагмент/обзор; полный профессиональный курс не пройден. Не доказывает реализацию, права аккаунта или пригодность без контекста."
+      ],
+      "tags": [
+        "catalog",
+        "D08"
+      ],
+      "used_by": [
+        "S13",
+        "S14"
+      ],
+      "refresh_when": "Перед зависящим решением, изменением версии/условий или при ошибке применения",
+      "usage": "Ссылка и авторское краткое резюме; без полного копирования страницы"
+    },
+    {
+      "id": "D09",
+      "title": "Google SRE SLO",
+      "publisher": "Google",
+      "locator": "https://sre.google/sre-book/service-level-objectives/",
+      "section": "Service Level Objectives chapter overview",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page observation 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "SLI/SLO как измерение и целевой уровень, не автоматически достигнутая надёжность"
+      ],
+      "limits": [
+        "Прочитан указанный фрагмент/обзор; полный профессиональный курс не пройден. Не доказывает реализацию, права аккаунта или пригодность без контекста."
+      ],
+      "tags": [
+        "catalog",
+        "D09"
+      ],
+      "used_by": [
+        "S09",
+        "S17"
+      ],
+      "refresh_when": "Перед зависящим решением, изменением версии/условий или при ошибке применения",
+      "usage": "Ссылка и авторское краткое резюме; без полного копирования страницы"
+    },
+    {
+      "id": "D10",
+      "title": "PostgreSQL Backup and Restore",
+      "publisher": "PostgreSQL",
+      "locator": "https://www.postgresql.org/docs/current/backup.html",
+      "section": "Chapter 25 introduction and methods",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page observation 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Различные backup approaches и необходимость version-specific recovery procedure"
+      ],
+      "limits": [
+        "Прочитан указанный фрагмент/обзор; полный профессиональный курс не пройден. Не доказывает реализацию, права аккаунта или пригодность без контекста."
+      ],
+      "tags": [
+        "catalog",
+        "D10"
+      ],
+      "used_by": [
+        "S07",
+        "S17",
+        "S19"
+      ],
+      "refresh_when": "Перед зависящим решением, изменением версии/условий или при ошибке применения",
+      "usage": "Ссылка и авторское краткое резюме; без полного копирования страницы"
+    },
+    {
+      "id": "D11",
+      "title": "Playwright Best Practices",
+      "publisher": "Playwright",
+      "locator": "https://playwright.dev/docs/best-practices",
+      "section": "Best-practices overview",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page observation 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Изоляция и проверка наблюдаемого поведения; не доказательство свойств без запуска"
+      ],
+      "limits": [
+        "Прочитан указанный фрагмент/обзор; полный профессиональный курс не пройден. Не доказывает реализацию, права аккаунта или пригодность без контекста."
+      ],
+      "tags": [
+        "catalog",
+        "D11"
+      ],
+      "used_by": [
+        "S06",
+        "S23"
+      ],
+      "refresh_when": "Перед зависящим решением, изменением версии/условий или при ошибке применения",
+      "usage": "Ссылка и авторское краткое резюме; без полного копирования страницы"
+    },
+    {
+      "id": "D12",
+      "title": "GitHub rulesets",
+      "publisher": "GitHub",
+      "locator": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets",
+      "section": "About rulesets",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page observation 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Rulesets — отдельный механизм repository controls, не вывод из branch protected flag"
+      ],
+      "limits": [
+        "Прочитан указанный фрагмент/обзор; полный профессиональный курс не пройден. Не доказывает реализацию, права аккаунта или пригодность без контекста."
+      ],
+      "tags": [
+        "catalog",
+        "D12"
+      ],
+      "used_by": [
+        "S20"
+      ],
+      "refresh_when": "Перед зависящим решением, изменением версии/условий или при ошибке применения",
+      "usage": "Ссылка и авторское краткое резюме; без полного копирования страницы"
+    },
+    {
+      "id": "D13",
+      "title": "Docker Engine security",
+      "publisher": "Docker",
+      "locator": "https://docs.docker.com/engine/security/",
+      "section": "Namespaces/cgroups, daemon attack surface and capabilities",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page observation 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Docker daemon/config/mounts/capabilities влияют на isolation; контейнер не абсолютная граница"
+      ],
+      "limits": [
+        "Прочитан указанный фрагмент/обзор; полный профессиональный курс не пройден. Не доказывает реализацию, права аккаунта или пригодность без контекста."
+      ],
+      "tags": [
+        "catalog",
+        "D13"
+      ],
+      "used_by": [
+        "S17",
+        "S18"
+      ],
+      "refresh_when": "Перед зависящим решением, изменением версии/условий или при ошибке применения",
+      "usage": "Ссылка и авторское краткое резюме; без полного копирования страницы"
+    },
+    {
+      "id": "D14",
+      "title": "Ubuntu server security candidate",
+      "publisher": "Ubuntu",
+      "locator": "https://ubuntu.com/server/docs/security/",
+      "section": "Недостаточный ответ текущего чтения",
+      "access": "unavailable",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "unknown",
+      "version": "Live page observation 2026-10-17",
+      "sha256": null,
+      "supports": [],
+      "limits": [
+        "Прочитан указанный фрагмент/обзор; полный профессиональный курс не пройден. Не доказывает реализацию, права аккаунта или пригодность без контекста."
+      ],
+      "tags": [
+        "catalog",
+        "D14"
+      ],
+      "used_by": [
+        "S18"
+      ],
+      "refresh_when": "Перед зависящим решением, изменением версии/условий или при ошибке применения",
+      "usage": "Ссылка и авторское краткое резюме; без полного копирования страницы"
+    },
+    {
+      "id": "D15",
+      "title": "OpenTelemetry signals",
+      "publisher": "OpenTelemetry",
+      "locator": "https://opentelemetry.io/docs/concepts/signals/",
+      "section": "Signals overview",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page observation 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Маршрут к traces/metrics/logs, не настроенная observability проекта"
+      ],
+      "limits": [
+        "Прочитан указанный фрагмент/обзор; полный профессиональный курс не пройден. Не доказывает реализацию, права аккаунта или пригодность без контекста."
+      ],
+      "tags": [
+        "catalog",
+        "D15"
+      ],
+      "used_by": [
+        "S09"
+      ],
+      "refresh_when": "Перед зависящим решением, изменением версии/условий или при ошибке применения",
+      "usage": "Ссылка и авторское краткое резюме; без полного копирования страницы"
+    },
+    {
+      "id": "D16",
+      "title": "OWASP Denial of Service",
+      "publisher": "OWASP",
+      "locator": "https://cheatsheetseries.owasp.org/cheatsheets/Denial_of_Service_Cheat_Sheet.html",
+      "section": "DoS controls overview",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page observation 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Многоуровневые ограничения и план защиты; не проверка устойчивости реального сервиса"
+      ],
+      "limits": [
+        "Прочитан указанный фрагмент/обзор; полный профессиональный курс не пройден. Не доказывает реализацию, права аккаунта или пригодность без контекста."
+      ],
+      "tags": [
+        "catalog",
+        "D16"
+      ],
+      "used_by": [
+        "S09",
+        "S18"
+      ],
+      "refresh_when": "Перед зависящим решением, изменением версии/условий или при ошибке применения",
+      "usage": "Ссылка и авторское краткое резюме; без полного копирования страницы"
+    },
+    {
+      "id": "D17",
+      "title": "USWDS Typography",
+      "publisher": "USWDS",
+      "locator": "https://designsystem.digital.gov/components/typography/",
+      "section": "Font size/alignment/measure/line height/whitespace",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page observation 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Принципы читаемости и типографики, без автоматического переноса значений в наш kit"
+      ],
+      "limits": [
+        "Прочитан указанный фрагмент/обзор; полный профессиональный курс не пройден. Не доказывает реализацию, права аккаунта или пригодность без контекста."
+      ],
+      "tags": [
+        "catalog",
+        "D17"
+      ],
+      "used_by": [
+        "S04"
+      ],
+      "refresh_when": "Перед зависящим решением, изменением версии/условий или при ошибке применения",
+      "usage": "Ссылка и авторское краткое резюме; без полного копирования страницы"
+    },
+    {
+      "id": "D18",
+      "title": "Figma publish library",
+      "publisher": "Figma",
+      "locator": "https://help.figma.com/hc/en-us/articles/360025508373-Publish-a-library",
+      "section": "Publishing a library",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page observation 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Library publishing — отдельный workflow; не подтверждает состояние наших instances"
+      ],
+      "limits": [
+        "Прочитан указанный фрагмент/обзор; полный профессиональный курс не пройден. Не доказывает реализацию, права аккаунта или пригодность без контекста."
+      ],
+      "tags": [
+        "catalog",
+        "D18"
+      ],
+      "used_by": [
+        "S05"
+      ],
+      "refresh_when": "Перед зависящим решением, изменением версии/условий или при ошибке применения",
+      "usage": "Ссылка и авторское краткое резюме; без полного копирования страницы"
+    },
+    {
+      "id": "D19",
+      "title": "NN/g User Interviews",
+      "publisher": "NN/g",
+      "locator": "https://www.nngroup.com/articles/user-interviews/",
+      "section": "User Interviews overview",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page observation 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Качественный метод изучения пользовательского опыта, не самостоятельное доказательство PMF"
+      ],
+      "limits": [
+        "Прочитан указанный фрагмент/обзор; полный профессиональный курс не пройден. Не доказывает реализацию, права аккаунта или пригодность без контекста."
+      ],
+      "tags": [
+        "catalog",
+        "D19"
+      ],
+      "used_by": [
+        "S02"
+      ],
+      "refresh_when": "Перед зависящим решением, изменением версии/условий или при ошибке применения",
+      "usage": "Ссылка и авторское краткое резюме; без полного копирования страницы"
+    },
+    {
+      "id": "D20",
+      "title": "ONS Data visualisation",
+      "publisher": "ONS",
+      "locator": "https://service-manual.ons.gov.uk/data-visualisation",
+      "section": "Landing page: guidance/charts/colour/build sections",
+      "access": "index_only",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Live page observation 2026-10-17",
+      "sha256": null,
+      "supports": [
+        "Маршрут выбора конкретного руководства; главы о chart choice ещё читать под задачу"
+      ],
+      "limits": [
+        "Прочитан указанный фрагмент/обзор; полный профессиональный курс не пройден. Не доказывает реализацию, права аккаунта или пригодность без контекста."
+      ],
+      "tags": [
+        "catalog",
+        "D20"
+      ],
+      "used_by": [
+        "S04",
+        "S16"
+      ],
+      "refresh_when": "Перед зависящим решением, изменением версии/условий или при ошибке применения",
+      "usage": "Ссылка и авторское краткое резюме; без полного копирования страницы"
+    },
+    {
+      "id": "P01",
+      "title": "Contribution workflow",
+      "publisher": "Project owner / repository",
+      "locator": "CONTRIBUTING.md",
+      "section": "Вводные разделы и начало рабочего процесса",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Local working-copy snapshot; scoped reading",
+      "sha256": "f462b86bf24fc5730f4cb3edadba5a37aaf18871a12e1390a3c7943742ae86a8",
+      "supports": [
+        "Правила scoped collaboration и gates"
+      ],
+      "limits": [
+        "Прочитаны выбранные части; перед финансовым/дизайн решением читать актуальный полный относящийся раздел и superseding ADR. Не новая runtime проверка."
+      ],
+      "tags": [
+        "project",
+        "P01"
+      ],
+      "used_by": [
+        "S20"
+      ],
+      "refresh_when": "Source diff, новая задача в данной области или новая замена ADR",
+      "usage": "Локальная проектная ссылка; не содержит secrets или разрешения на внешнюю публикацию"
+    },
+    {
+      "id": "P02",
+      "title": "Client kit handoff",
+      "publisher": "Project owner / repository",
+      "locator": "design/client-ui-kit/HANDOFF.md",
+      "section": "Вводный маршрут источников/реестров и границы передачи",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Local working-copy snapshot; scoped reading",
+      "sha256": "324afe63116d229c772463d076b4fc0eb1405912cc6129f8ffa9279383754a79",
+      "supports": [
+        "Mapping Figma/kit/docs и разделение prototype/runtime"
+      ],
+      "limits": [
+        "Прочитаны выбранные части; перед финансовым/дизайн решением читать актуальный полный относящийся раздел и superseding ADR. Не новая runtime проверка."
+      ],
+      "tags": [
+        "project",
+        "P02"
+      ],
+      "used_by": [
+        "S05"
+      ],
+      "refresh_when": "Source diff, новая задача в данной области или новая замена ADR",
+      "usage": "Локальная проектная ссылка; не содержит secrets или разрешения на внешнюю публикацию"
+    },
+    {
+      "id": "P03",
+      "title": "UI/frontend standard",
+      "publisher": "Project owner / repository",
+      "locator": "docs/41_product_design_and_frontend_standards.md",
+      "section": "Начальные принципы и приоритеты",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Local working-copy snapshot; scoped reading",
+      "sha256": "be937031a1e6a577e4d2d2b9a3101c23b25184a5597eefe6fd9c925d18ceaa0e",
+      "supports": [
+        "Финансовые состояния и проверяемая доступность/локализация"
+      ],
+      "limits": [
+        "Прочитаны выбранные части; перед финансовым/дизайн решением читать актуальный полный относящийся раздел и superseding ADR. Не новая runtime проверка."
+      ],
+      "tags": [
+        "project",
+        "P03"
+      ],
+      "used_by": [
+        "S04",
+        "S06",
+        "S16"
+      ],
+      "refresh_when": "Source diff, новая задача в данной области или новая замена ADR",
+      "usage": "Локальная проектная ссылка; не содержит secrets или разрешения на внешнюю публикацию"
+    },
+    {
+      "id": "P04",
+      "title": "Score research proposal",
+      "publisher": "Project owner / repository",
+      "locator": "docs/TRADER_SCORE_REAL_DATA_AND_RELEASE_PROPOSAL_2026-10-16.md",
+      "section": "Начальные разделы: status/data/meaning/replay constraints",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Local working-copy snapshot; scoped reading",
+      "sha256": "c637c65dc1e44d5e0f927ea56621dda959787d77d1697b1c6f3681ca18823656",
+      "supports": [
+        "Research proposal не принятие нового score; ограниченные данные и execution assumptions"
+      ],
+      "limits": [
+        "Прочитаны выбранные части; перед финансовым/дизайн решением читать актуальный полный относящийся раздел и superseding ADR. Не новая runtime проверка."
+      ],
+      "tags": [
+        "project",
+        "P04"
+      ],
+      "used_by": [
+        "S11",
+        "S13",
+        "S14",
+        "S15"
+      ],
+      "refresh_when": "Source diff, новая задача в данной области или новая замена ADR",
+      "usage": "Локальная проектная ссылка; не содержит secrets или разрешения на внешнюю публикацию"
+    },
+    {
+      "id": "P05",
+      "title": "Aligned data limitations",
+      "publisher": "Project owner / repository",
+      "locator": "research/trader-score-aligned-2026-10-16/README.md",
+      "section": "Вводный результат, интервал и таблица ограничений",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Local working-copy snapshot; scoped reading",
+      "sha256": "7dba9d2ec18bc1112a92492b6596ce9bd6dc232ea800cb30b6ced686556dab59",
+      "supports": [
+        "Полный денежный ledger и 30-day copier outcomes не подтверждены"
+      ],
+      "limits": [
+        "Прочитаны выбранные части; перед финансовым/дизайн решением читать актуальный полный относящийся раздел и superseding ADR. Не новая runtime проверка."
+      ],
+      "tags": [
+        "project",
+        "P05"
+      ],
+      "used_by": [
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "refresh_when": "Source diff, новая задача в данной области или новая замена ADR",
+      "usage": "Локальная проектная ссылка; не содержит secrets или разрешения на внешнюю публикацию"
+    },
+    {
+      "id": "P06",
+      "title": "Paper execution evidence",
+      "publisher": "Project owner / repository",
+      "locator": "docs/decisions/0028_paper_quote_depth_and_expense_evidence.md",
+      "section": "ADR-0028: решение/ограничения",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Local working-copy snapshot; scoped reading",
+      "sha256": "20c2f1deaebb47dab3691824ef02b57732b0135a323b4ad0f4cb0b338e90ce37",
+      "supports": [
+        "Цена/depth/расходы требуют подтверждений; unknown не нулевой расход"
+      ],
+      "limits": [
+        "Прочитаны выбранные части; перед финансовым/дизайн решением читать актуальный полный относящийся раздел и superseding ADR. Не новая runtime проверка."
+      ],
+      "tags": [
+        "project",
+        "P06"
+      ],
+      "used_by": [
+        "S03",
+        "S12",
+        "S22",
+        "S23"
+      ],
+      "refresh_when": "Source diff, новая задача в данной области или новая замена ADR",
+      "usage": "Локальная проектная ссылка; не содержит secrets или разрешения на внешнюю публикацию"
+    },
+    {
+      "id": "P07",
+      "title": "Money security and recovery",
+      "publisher": "Project owner / repository",
+      "locator": "docs/decisions/0043_admin_money_security_and_incident_recovery.md",
+      "section": "Статус и фрагменты recovery/control requirements; замены проверять отдельно",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Local working-copy snapshot; scoped reading",
+      "sha256": "0b2a9518cf11c69c50c860ba5290b09bb310c455037af3b445a7c612f3831d87",
+      "supports": [
+        "Денежные полномочия и recovery требуют отдельных controls; часть уточнена ADR-0047"
+      ],
+      "limits": [
+        "Прочитаны выбранные части; перед финансовым/дизайн решением читать актуальный полный относящийся раздел и superseding ADR. Не новая runtime проверка."
+      ],
+      "tags": [
+        "project",
+        "P07"
+      ],
+      "used_by": [
+        "S08",
+        "S19",
+        "S23"
+      ],
+      "refresh_when": "Source diff, новая задача в данной области или новая замена ADR",
+      "usage": "Локальная проектная ссылка; не содержит secrets или разрешения на внешнюю публикацию"
+    },
+    {
+      "id": "P08",
+      "title": "Treasury and recipient delay",
+      "publisher": "Project owner / repository",
+      "locator": "docs/decisions/0047_service_treasury_and_recipient_delay.md",
+      "section": "Заголовок/статус и раздел 1: деньги/доход/обязательства",
+      "access": "partial",
+      "observed_at": "2026-10-17T21:27:15+00:00",
+      "currency": "current_at_observation",
+      "version": "Local working-copy snapshot; scoped reading",
+      "sha256": "434191a84dc2c56fcc1b7c7f45099587c3ecda2c3f490ba0000681a442da957a",
+      "supports": [
+        "Принятый учёт/дизайн не разрешает реальные переводы; деньги пользователя отделены"
+      ],
+      "limits": [
+        "Прочитаны выбранные части; перед финансовым/дизайн решением читать актуальный полный относящийся раздел и superseding ADR. Не новая runtime проверка."
+      ],
+      "tags": [
+        "project",
+        "P08"
+      ],
+      "used_by": [
+        "S02",
+        "S03",
+        "S07",
+        "S08",
+        "S19"
+      ],
+      "refresh_when": "Source diff, новая задача в данной области или новая замена ADR",
+      "usage": "Локальная проектная ссылка; не содержит secrets или разрешения на внешнюю публикацию"
+    },
+    {
+      "id": "P09",
+      "title": "Polymarket project API package",
+      "publisher": "Project repository",
+      "locator": "https://github.com/denius89/polymarket-copy-trading/tree/7518051d95eef93225cf005fecc485d273bba0e1/docs/api/polymarket",
+      "section": "Locator закреплённого пакета из прежнего аудита; в этой партии заново не прочитан",
+      "access": "candidate",
+      "observed_at": "2026-10-17T21:30:43+00:00",
+      "currency": "needs_recheck",
+      "version": "7518051d95eef93225cf005fecc485d273bba0e1",
+      "sha256": null,
+      "supports": [],
+      "limits": [
+        "Locator не подтверждает current PR status, merge или актуальную capability; прочитать пакет и verification перед предметной работой."
+      ],
+      "tags": [
+        "api",
+        "project",
+        "P09"
+      ],
+      "used_by": [
+        "S22"
+      ],
+      "refresh_when": "Перед venue-specific capability review; сверить branch/head/verification и нужную страницу API",
+      "usage": "Проектная ссылка; без account secrets"
+    },
+    {
+      "id": "P10",
+      "title": "Limitless project API package",
+      "publisher": "Project repository",
+      "locator": "https://github.com/denius89/polymarket-copy-trading/tree/954a0fb70f1fd0aaee24f1601821c27147f4cabd/docs/api/limitless",
+      "section": "Locator закреплённого пакета из прежнего аудита; в этой партии заново не прочитан",
+      "access": "candidate",
+      "observed_at": "2026-10-17T21:30:43+00:00",
+      "currency": "needs_recheck",
+      "version": "954a0fb70f1fd0aaee24f1601821c27147f4cabd",
+      "sha256": null,
+      "supports": [],
+      "limits": [
+        "Locator не подтверждает current PR status, merge или актуальную capability; прочитать пакет и verification перед предметной работой."
+      ],
+      "tags": [
+        "api",
+        "project",
+        "P10"
+      ],
+      "used_by": [
+        "S22"
+      ],
+      "refresh_when": "Перед venue-specific capability review; сверить branch/head/verification и нужную страницу API",
+      "usage": "Проектная ссылка; без account secrets"
+    }
+  ]
+}

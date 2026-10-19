@@ -1,0 +1,44 @@
+{
+  "retrieved_at": "2026-10-16T16:14:20.405301+00:00",
+  "results": [
+    {
+      "endpoint": "https://polygon.drpc.org",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_getBlockByNumber",
+        "params": [
+          "0x31c4de0",
+          false
+        ]
+      },
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "endpoint": "https://polygon-bor-rpc.publicnode.com",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_getBlockByNumber",
+        "params": [
+          "0x31c4de0",
+          false
+        ]
+      },
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "endpoint": "https://polygon-rpc.com",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_getBlockByNumber",
+        "params": [
+          "0x31c4de0",
+          false
+        ]
+      },
+      "error": "HTTP Error 401: Unauthorized"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "q11",
+  "returncode": 0,
+  "status": "pass",
+  "expected_any": [
+    "cct-score-data-audit"
+  ],
+  "should_activate": true,
+  "observed_skill_file_reads": [
+    "cct-score-data-audit"
+  ],
+  "commands": [
+    {
+      "command": "/bin/bash -lc 'cat .agents/skills/cct-score-data-audit/SKILL.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'cat docs/ai-system/OPERATING_RULES.md docs/ai-system/learning/S11.md docs/ai-system/knowledge/domains/score.md'",
+      "exit_code": 0
+    }
+  ],
+  "usage": [
+    {
+      "input_tokens": 78455,
+      "cached_input_tokens": 69248,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 467,
+      "reasoning_output_tokens": 22
+    }
+  ],
+  "seconds": 20.97,
+  "observed_at": "2026-10-17T21:41:59.368929+00:00",
+  "meaning": "Observed native implicit SKILL.md read, not semantic quality or Desktop UI parity"
+}

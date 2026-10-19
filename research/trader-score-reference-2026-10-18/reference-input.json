@@ -1,0 +1,429 @@
+{
+  "fixture_version": "reference-v1",
+  "evidence_class": "controlled_synthetic_accounting_fixture_not_historical_backtest",
+  "config": {
+    "venue": "PolymarketV1",
+    "trader": "fixture-trader",
+    "initial_cash": "200",
+    "initial_positions": {},
+    "fixed_buy": "5",
+    "position_cap": "20",
+    "daily_cap": "30",
+    "timezone": "Europe/Warsaw",
+    "latency_seconds": "2",
+    "max_book_age_seconds": "1",
+    "max_signal_age_seconds": "30",
+    "cash_quantum": "0.000001",
+    "share_quantum": "0.000001",
+    "target_horizon_days": 30,
+    "fixture_only_fee_cap": "0.10",
+    "fixture_only_actual_terminal_fee": "0.05",
+    "quantity_rounding": "floor_to_known_fixture_quantum",
+    "cost_basis_rounding": "half_even_to_known_fixture_cash_quantum",
+    "policy_scope": "Explicit supplied fixture values; absent fee/price bound skips; these values are not venue facts or production defaults."
+  },
+  "events": [
+    {
+      "event_id": "missing_fee",
+      "kind": "intent",
+      "received_at": "2026-03-28T22:59:42Z",
+      "sequence": 1,
+      "order_id": "missing_fee",
+      "token": "X",
+      "side": "BUY",
+      "observed_at": "2026-03-28T22:59:40Z",
+      "source_at": "2026-03-28T22:59:39Z",
+      "fee_cap": null,
+      "fee_evidence": "controlled_fixture_cash_expense_cap_not_venue_fee",
+      "max_price": "0.52",
+      "min_price": null,
+      "books": [
+        {
+          "token": "X",
+          "available_at": "2026-03-28T22:59:41.500000Z",
+          "source_at": "2026-03-28T22:59:41.400000Z",
+          "payload": {
+            "asks": [
+              [
+                "0.50",
+                "100"
+              ]
+            ],
+            "bids": [
+              [
+                "0.49",
+                "100"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "missing_book",
+      "kind": "intent",
+      "received_at": "2026-03-28T22:59:44Z",
+      "sequence": 2,
+      "order_id": "missing_book",
+      "token": "X",
+      "side": "BUY",
+      "observed_at": "2026-03-28T22:59:42Z",
+      "source_at": "2026-03-28T22:59:41Z",
+      "fee_cap": "0.10",
+      "fee_evidence": "controlled_fixture_cash_expense_cap_not_venue_fee",
+      "max_price": "0.52",
+      "min_price": null,
+      "books": []
+    },
+    {
+      "event_id": "thin_book",
+      "kind": "intent",
+      "received_at": "2026-03-28T22:59:46Z",
+      "sequence": 3,
+      "order_id": "thin_book",
+      "token": "X",
+      "side": "BUY",
+      "observed_at": "2026-03-28T22:59:44Z",
+      "source_at": "2026-03-28T22:59:43Z",
+      "fee_cap": "0.10",
+      "fee_evidence": "controlled_fixture_cash_expense_cap_not_venue_fee",
+      "max_price": "0.52",
+      "min_price": null,
+      "books": [
+        {
+          "token": "X",
+          "available_at": "2026-03-28T22:59:45.500000Z",
+          "source_at": "2026-03-28T22:59:45.400000Z",
+          "payload": {
+            "asks": [
+              [
+                "0.50",
+                "4"
+              ]
+            ],
+            "bids": [
+              [
+                "0.49",
+                "4"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "A_intent",
+      "kind": "intent",
+      "received_at": "2026-03-28T22:59:52Z",
+      "sequence": 4,
+      "order_id": "A_intent",
+      "token": "A",
+      "side": "BUY",
+      "observed_at": "2026-03-28T22:59:50Z",
+      "source_at": "2026-03-28T22:59:49Z",
+      "fee_cap": "0.10",
+      "fee_evidence": "controlled_fixture_cash_expense_cap_not_venue_fee",
+      "max_price": "0.52",
+      "min_price": null,
+      "books": [
+        {
+          "token": "A",
+          "available_at": "2026-03-28T22:59:51.500000Z",
+          "source_at": "2026-03-28T22:59:51.400000Z",
+          "payload": {
+            "asks": [
+              [
+                "0.50",
+                "100"
+              ]
+            ],
+            "bids": [
+              [
+                "0.49",
+                "100"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "A_fill_1",
+      "kind": "fill",
+      "received_at": "2026-03-28T22:59:54Z",
+      "sequence": 5,
+      "order_id": "A_intent",
+      "executed_at": "2026-03-28T22:59:53Z",
+      "quantity": "4",
+      "price": "0.50",
+      "gross": "2.00",
+      "confirmation": "authoritative_controlled_fixture"
+    },
+    {
+      "event_id": "A_unknown",
+      "kind": "unknown",
+      "received_at": "2026-03-28T22:59:55Z",
+      "sequence": 6,
+      "order_id": "A_intent"
+    },
+    {
+      "event_id": "midnight",
+      "kind": "tick",
+      "received_at": "2026-03-28T23:00:00Z",
+      "sequence": 7
+    },
+    {
+      "event_id": "A_fill_2",
+      "kind": "fill",
+      "received_at": "2026-03-28T23:00:02Z",
+      "sequence": 8,
+      "order_id": "A_intent",
+      "executed_at": "2026-03-28T22:59:58Z",
+      "quantity": "2",
+      "price": "0.50",
+      "gross": "1.00",
+      "confirmation": "authoritative_controlled_fixture"
+    },
+    {
+      "event_id": "A_cancel",
+      "kind": "terminal",
+      "received_at": "2026-03-28T23:00:03Z",
+      "sequence": 9,
+      "order_id": "A_intent",
+      "outcome": "cancelled_remainder",
+      "fee_actual": "0.05",
+      "confirmed_gross_total": "3.00",
+      "confirmation": "authoritative_controlled_fixture"
+    },
+    {
+      "event_id": "S_intent",
+      "kind": "intent",
+      "received_at": "2026-03-28T23:00:06Z",
+      "sequence": 10,
+      "order_id": "S_intent",
+      "token": "A",
+      "side": "SELL",
+      "observed_at": "2026-03-28T23:00:04Z",
+      "source_at": "2026-03-28T23:00:03Z",
+      "fee_cap": "0.10",
+      "fee_evidence": "controlled_fixture_cash_expense_cap_not_venue_fee",
+      "max_price": null,
+      "min_price": "0.58",
+      "books": [
+        {
+          "token": "A",
+          "available_at": "2026-03-28T23:00:05.500000Z",
+          "source_at": "2026-03-28T23:00:05.400000Z",
+          "payload": {
+            "asks": [
+              [
+                "0.62",
+                "100"
+              ]
+            ],
+            "bids": [
+              [
+                "0.60",
+                "100"
+              ]
+            ]
+          }
+        }
+      ],
+      "leader_before": "100",
+      "leader_sold": "25"
+    },
+    {
+      "event_id": "S_fill",
+      "kind": "fill",
+      "received_at": "2026-03-28T23:00:07Z",
+      "sequence": 11,
+      "order_id": "S_intent",
+      "executed_at": "2026-03-28T23:00:06.5Z",
+      "quantity": "1.5",
+      "price": "0.60",
+      "gross": "0.90",
+      "confirmation": "authoritative_controlled_fixture"
+    },
+    {
+      "event_id": "S_terminal",
+      "kind": "terminal",
+      "received_at": "2026-03-28T23:00:08Z",
+      "sequence": 12,
+      "order_id": "S_intent",
+      "outcome": "filled",
+      "fee_actual": "0.05",
+      "confirmed_gross_total": "0.90",
+      "confirmation": "authoritative_controlled_fixture"
+    },
+    {
+      "event_id": "B_intent",
+      "kind": "intent",
+      "received_at": "2026-03-28T23:00:11Z",
+      "sequence": 13,
+      "order_id": "B_intent",
+      "token": "B",
+      "side": "BUY",
+      "observed_at": "2026-03-28T23:00:09Z",
+      "source_at": "2026-03-28T23:00:08Z",
+      "fee_cap": "0.10",
+      "fee_evidence": "controlled_fixture_cash_expense_cap_not_venue_fee",
+      "max_price": "0.52",
+      "min_price": null,
+      "books": [
+        {
+          "token": "B",
+          "available_at": "2026-03-28T23:00:10.500000Z",
+          "source_at": "2026-03-28T23:00:10.400000Z",
+          "payload": {
+            "asks": [
+              [
+                "0.50",
+                "100"
+              ]
+            ],
+            "bids": [
+              [
+                "0.49",
+                "100"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "event_id": "B_fill",
+      "kind": "fill",
+      "received_at": "2026-03-28T23:00:12Z",
+      "sequence": 14,
+      "order_id": "B_intent",
+      "executed_at": "2026-03-28T23:00:11.5Z",
+      "quantity": "10",
+      "price": "0.50",
+      "gross": "5.00",
+      "confirmation": "authoritative_controlled_fixture"
+    },
+    {
+      "event_id": "B_fill",
+      "kind": "fill",
+      "received_at": "2026-03-28T23:00:12.2Z",
+      "sequence": 15,
+      "order_id": "B_intent",
+      "executed_at": "2026-03-28T23:00:11.5Z",
+      "quantity": "10",
+      "price": "0.50",
+      "gross": "5.00",
+      "confirmation": "authoritative_controlled_fixture"
+    },
+    {
+      "event_id": "full_before_terminal",
+      "kind": "tick",
+      "received_at": "2026-03-28T23:00:12.5Z",
+      "sequence": 16
+    },
+    {
+      "event_id": "B_terminal",
+      "kind": "terminal",
+      "received_at": "2026-03-28T23:00:13Z",
+      "sequence": 17,
+      "order_id": "B_intent",
+      "outcome": "filled",
+      "fee_actual": "0.05",
+      "confirmed_gross_total": "5.00",
+      "confirmation": "authoritative_controlled_fixture"
+    },
+    {
+      "event_id": "valuation_missing_B",
+      "kind": "valuation",
+      "received_at": "2026-03-28T23:00:14Z",
+      "sequence": 18,
+      "books": [
+        {
+          "token": "A",
+          "available_at": "2026-03-28T23:00:13.500000Z",
+          "source_at": "2026-03-28T23:00:13.400000Z",
+          "payload": {
+            "asks": [
+              [
+                "0.62",
+                "100"
+              ]
+            ],
+            "bids": [
+              [
+                "0.60",
+                "100"
+              ]
+            ]
+          }
+        }
+      ],
+      "exit_fee_per_position": "0.05",
+      "fee_evidence": "controlled_fixture_not_venue_tariff"
+    },
+    {
+      "event_id": "future_resolution_rejected",
+      "kind": "settlement",
+      "received_at": "2026-03-28T23:00:15Z",
+      "sequence": 19,
+      "token": "B",
+      "payout_per_token": "1",
+      "known_at": "2026-03-28T23:00:16Z",
+      "fee_actual": "0",
+      "confirmation": "authoritative_controlled_fixture"
+    },
+    {
+      "event_id": "B_settlement",
+      "kind": "settlement",
+      "received_at": "2026-03-28T23:00:16Z",
+      "sequence": 20,
+      "token": "B",
+      "payout_per_token": "1",
+      "known_at": "2026-03-28T23:00:15.5Z",
+      "fee_actual": "0",
+      "confirmation": "authoritative_controlled_fixture"
+    },
+    {
+      "event_id": "valuation_known",
+      "kind": "valuation",
+      "received_at": "2026-03-28T23:00:17Z",
+      "sequence": 21,
+      "books": [
+        {
+          "token": "A",
+          "available_at": "2026-03-28T23:00:16.500000Z",
+          "source_at": "2026-03-28T23:00:16.400000Z",
+          "payload": {
+            "asks": [
+              [
+                "0.62",
+                "100"
+              ]
+            ],
+            "bids": [
+              [
+                "0.60",
+                "100"
+              ]
+            ]
+          }
+        }
+      ],
+      "exit_fee_per_position": "0.05",
+      "fee_evidence": "controlled_fixture_not_venue_tariff"
+    },
+    {
+      "event_id": "dst_jump",
+      "kind": "tick",
+      "received_at": "2026-03-29T01:30:00Z",
+      "sequence": 22
+    },
+    {
+      "event_id": "dst_next_midnight",
+      "kind": "tick",
+      "received_at": "2026-03-29T22:00:00Z",
+      "sequence": 23
+    }
+  ]
+}

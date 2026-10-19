@@ -1,0 +1,1 @@
+Synthetic fixture. Current repo is replica, both venues mandatory. No deployed runtime.

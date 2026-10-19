@@ -1,5 +1,7 @@
 # Полный каталог документов
 
+Публикация навыков и исследований: [каталог S01–S23](ai-system/CATALOG.md), [Copy Score](../research/TRADER_SCORE_README.md), [реестр крупных исходных данных](../research/DATA_ARCHIVE_2026-10-19.json).
+
 Актуальные входы 19.10.2026: [навигатор](README.md), [состояние Git и PR](REPOSITORY_MAINTENANCE_2026-10-19.md), [API Polymarket](api/polymarket/README.md), [API Limitless](api/limitless/README.md), [единый первый вход](decisions/0048_unified_registration_and_first_entry.md), [лендинг v2](design/landing/hero-2026-10-19/v2/README.md). Исторический каталог ниже сохраняет прежние пути.
 
 12.10.2026: текущая админка пересобрана на месте в едином стиле по Monty с палитрой Shadow. 184 состояния на двух страницах RU/EN, общий UI kit, иконки и сохранённый прототип. Новые итерации ведём в существующих экранах. Работа только над дизайном. [Актуальный дизайн и правила работы](design/admin/STYLE_GUIDE.md).

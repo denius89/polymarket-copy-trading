@@ -1,0 +1,34 @@
+{
+  "checked_at": "2026-10-17T21:16:43.143257+00:00",
+  "packages": [
+    {
+      "id": "metadata-basics",
+      "version": "local-revision-2",
+      "previous_state": "Не предоставлены версия и полный текст пакета",
+      "initial_status": "needs_recheck",
+      "dependency": "metadata public availability",
+      "source": "N05/source-new.md",
+      "source_sha256": "e6683e3c171e16555436c3d42bba70a98e372348b98a98fdc61ffa4f2e6a2c8c",
+      "review": "Зависимое утверждение при сравнении текста не изменилось.",
+      "content_update_required": false,
+      "status": "source_checked",
+      "status_scope": "Только проверка зависимости по supplied текстам; не оценка всего пакета",
+      "patch": "Ссылку на источник обновить до Version 2 и нового SHA-256; сохранить прежнюю историю.",
+      "validation": "Сравнены оба утверждения Version 1/2; API не проверялся."
+    },
+    {
+      "id": "wallet-auth",
+      "version": "local-review-1",
+      "dependency": "scope T",
+      "review": "Упоминание scope T не изменилось; пакет отсутствует в used_by старой карточки, но найден через consumers.json.",
+      "content_update_required": false,
+      "status": "source_checked",
+      "status_scope": "Только проверка зависимости scope T",
+      "patch": "Добавить/сохранить связь с Version 2, сохранив историю; семантическое правило прежнее."
+    }
+  ],
+  "limits": [
+    "Полные пакеты не предоставлены, поэтому подготовлены локальные сведения о зависимостях и патчи, а не выдуманные полные пакеты.",
+    "Независимая практика и оценка не проводились; до independently_evaluated/accepted_for_scope пакеты не повышаются."
+  ]
+}

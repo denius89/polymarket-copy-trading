@@ -1,0 +1,1 @@
+Snapshot v2 read 2026-10-15T09:00Z §account feed: authenticated own account fills only, retention 7 days. Arbitrary leader history not described. Old v1 text not provided. Accepted project expectation needs longer leader history; no ADR change requested.
