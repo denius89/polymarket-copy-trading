@@ -128,3 +128,7 @@
 | [0052](0052_late_fills_follow_ownership_and_exit_target.md) | Поздние fills и цель сокращения | Принято владельцем для paper MVP |
 | [0053](0053_serialize_sells_and_preserve_exit_targets.md) | Один незавершённый SELL на исход | Принято владельцем для paper MVP |
 | [0054](0054_round_down_without_limit_bypass_and_keep_dust.md) | Округление вниз, без обхода допуска и списания dust | Принято владельцем для paper MVP |
+
+## Точная арифметика · 19.10.2026
+
+[ADR-0055](0055_exact_rational_position_attribution.md) — предложено: точные рациональные части, стоимость/атрибуция и перенос хвоста; ожидаются два решения владельца. Детали — [133](../133_exact_position_arithmetic_contract_2026-10-19.md).
