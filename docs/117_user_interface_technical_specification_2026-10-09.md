@@ -1,5 +1,7 @@
 # Пользовательский интерфейс Shadow: техническая спецификация
 
+Уточнение 19.10.2026: [ADR-0058](decisions/0058_paper_mvp_numeric_settings_policy.md) принимает [числовую политику 130](130_paper_copy_settings_numeric_policy_proposal_2026-10-18.md): B=$100–$1 000/шаг $10; новый F от $5/шаг $1 до целого доллара min(P,D); q=1–20%/шаг 0,5 п.п.; p=5–20% и d=10–30%/шаг 1 п.п.; сигнал 30 с без редактирования. $5 — минимум только фиксированного поля, не процентного BUY. Неизменённый активный F при снижении B/p/d сохраняется с предупреждением по ADR-0056. Профили рынка/расходов и runtime отдельно; Figma не менялась.
+
 Уточнение 19.10.2026: [ADR-0057](decisions/0057_effective_limits_and_rejection_reason_priority.md)/[контракт 135](135_effective_limits_and_rejection_reasons_2026-10-19.md) закрывают способ совмещения лимитов и главной причины BL-08. Все применимые правила обязательны; min максимумов допустим только одной квоте, разные области имеют собственные остатки. Причины упорядочены от режима/сверки и данных до денег/экспозиции/дня, остальные доказанные препятствия сохраняются в деталях. Неизвестное/непроверенное отдельно от нарушенного. Числовые thresholds и runtime этим не принимаются.
 
 Уточнение 19.10.2026: [ADR-0056](decisions/0056_active_session_budget_flows_and_settings_revisions.md) и [контракт 134](134_active_session_budget_and_settings_versions_2026-10-19.md) принимают версии активной конфигурации и ΔB как отдельный виртуальный flow. Старые обязательства всех версий учитываются текущими лимитами; снижение ниже занятого допускается с предупреждением без ликвидации. sizingRevision сохраняет размер полученного сигнала, admissionRevision проверяет текущие ограничения перед резервом. Принято для paper MVP, без изменения Figma/приложения.
@@ -369,12 +371,12 @@ Logs используют correlationId/commandId/resourceId без auth codes, 
 
 | ID | Что требует решения/проверки | Когда блокирует |
 | --- | --- | --- |
-| UI-01 | Видимые Low/Medium/High заменены ручными полями 18.10; принят один starter preset. Диапазоны из 130 остаются предложением | Утверждение числовой политики и серверная валидация |
-| UI-02 | Процент: диапазон, шаг, precision, venue minima и expense bound | Admission/формы и adapters |
+| UI-01 | Видимые Low/Medium/High заменены ручными полями 18.10; принят один starter preset. Диапазоны/шаги приняты ADR-0058/130 | Серверная валидация и UI/RU/EN-проверка |
+| UI-02 | Процент 1–20%/0,5 п.п. принят ADR-0058; точная арифметика ADR-0055; venue minima и expense bound открыты | Admission/формы и adapters |
 | UI-03 | ADR-0049/0052–0055: части, late, очередь, шаг/dust и точная арифметика/раскладка приняты; физический ledger, транзакции и внешняя сверка открыты | Manual/close и ledger |
 | UI-04 | BL-06: freshness, depth, rounding, unknown evidence/timeout, SELL liquidity | Paper engine и venue integration |
 | UI-05 | ADR-0050/0051 приняты: max14/только сокращения и строгий финал/reset; детали времени/отчёта и реализация открыты | Stop/report/restart |
-| UI-06 | ADR-0057/135: способ BL-08 принят; полнота policy/counters, числовые границы, UI и runtime-проверки открыты | Effective policy/admission |
+| UI-06 | ADR-0057/135: способ BL-08 принят; диапазоны формы приняты ADR-0058; полнота policy/counters, системные/global границы, UI и runtime-проверки открыты | Effective policy/admission |
 | UI-07 | Rating formulas/quality sources и report benchmark | Вычисляемые ratings/reports |
 | UI-08 | Auth provider/TTL/rate limits/2FA/recovery | Production auth, не Figma-клик |
 | UI-09 | Emergency/VIP/announcements добавлены и тексты/действия прочитаны 19.10; полный ручной маршрут X01/X04 и loading/error матрица остаются открыты | Сквозная UI/runtime-приёмка соответствующих функций |

@@ -1,0 +1,61 @@
+{
+  "policyId": "paper-mvp-settings-v1",
+  "status": "accepted",
+  "decision": "ADR-0058",
+  "environment": "paper",
+  "currency": "USD",
+  "fields": {
+    "budgetUsd": {
+      "min": "100",
+      "max": "1000",
+      "step": "10",
+      "origin": "100",
+      "default": "200",
+      "unit": "USD"
+    },
+    "fixedCopyUsd": {
+      "min": "5",
+      "max": "200",
+      "step": "1",
+      "origin": "5",
+      "default": "20",
+      "unit": "USD",
+      "newSelectionLimitRule": "floor_min_session_position_and_day_usd",
+      "retainUnchangedActiveValueOnCapReduction": true
+    },
+    "copyPercent": {
+      "min": "1",
+      "max": "20",
+      "step": "0.5",
+      "origin": "1",
+      "default": "3",
+      "unit": "percentage_points",
+      "basis": "confirmed_individual_trader_buy_notional"
+    },
+    "positionPercent": {
+      "min": "5",
+      "max": "20",
+      "step": "1",
+      "origin": "5",
+      "default": "10",
+      "unit": "percentage_points",
+      "basis": "session_budget_usd"
+    },
+    "dailyPercent": {
+      "min": "10",
+      "max": "30",
+      "step": "1",
+      "origin": "10",
+      "default": "15",
+      "unit": "percentage_points",
+      "basis": "session_budget_usd"
+    },
+    "signalMaxAgeSeconds": {
+      "value": "30",
+      "editable": false,
+      "unit": "seconds",
+      "appliesTo": "signal_not_orderbook"
+    }
+  },
+  "percentNotionalProductMinimumUsd": null
+}
