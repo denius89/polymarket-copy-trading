@@ -54,8 +54,11 @@ class ModelChecks(unittest.TestCase):
         target = 20 * (1-F(1, 4))
         actual = 20 - 2
         self.assertEqual(actual-target, 3)
-        target *= 1-F(1, 2)
-        self.assertEqual(actual-target, F(21, 2))
+        # Resolve the first target before admitting the next queued reduction.
+        actual -= actual-target
+        self.assertEqual(actual, 15)
+        next_target = actual * (1-F(1, 2))
+        self.assertEqual(actual-next_target, F(15, 2))
 
     def test_cumulative_cost_independent_of_fill_partition(self):
         for quantity in range(1, 25):
