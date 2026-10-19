@@ -56,6 +56,59 @@
     .tap:focus-visible, .next:focus-visible, .replay:focus-visible, .skip:focus-visible, .language:focus-visible { outline: 3px solid #bda5ff; outline-offset: 3px; }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
     .hint { margin: 0; color: #989cad; font-size: 12px; text-align: center; }
+    .desktop-intro { display: none; }
+    @media (min-width: 900px) {
+      body { display: block; background: #080b14; }
+      .preview { display: none; }
+      .desktop-intro { display: flex; flex-direction: column; min-height: 100dvh; max-width: 1600px; margin: auto; padding: 32px clamp(36px, 5vw, 80px) 40px; }
+      .desktop-top { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+      .desktop-brand { font-size: 19px; font-weight: 750; letter-spacing: -.025em; }
+      .desktop-language { min-width: 56px; min-height: 44px; border: 1px solid #42465c; border-radius: 12px; background: #161a2a; color: #f3f3fb; font-weight: 650; }
+      .desktop-grid { flex: 1; display: grid; grid-template-columns: minmax(390px, .9fr) minmax(540px, 1.1fr); align-items: center; gap: clamp(44px, 5vw, 88px); padding: 42px 0 28px; }
+      .desktop-copy { max-width: 610px; }
+      .desktop-copy h1 { max-width: 12ch; margin: 0; font-size: clamp(48px, 4.3vw, 70px); font-weight: 740; line-height: 1.04; letter-spacing: -.035em; text-wrap: balance; }
+      .desktop-lead { max-width: 54ch; margin: 28px 0 0; color: #d3d7e8; font-size: clamp(17px, 1.3vw, 19px); line-height: 1.55; }
+      .desktop-steps { display: grid; gap: 4px; margin: 42px 0 34px; }
+      .desktop-step { display: grid; grid-template-columns: 30px 1fr; gap: 14px; align-items: start; width: 100%; padding: 14px 16px 14px 12px; border: 0; border-radius: 12px; background: transparent; color: #aeb4ca; text-align: left; transition: color .18s, background .18s; }
+      .desktop-step:hover { background: #13182a; color: #f3f3fb; }
+      .desktop-step[aria-current="step"] { color: #f6f4ff; background: #19162d; }
+      .desktop-step-number { margin-top: 3px; color: #a482ff; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+      .desktop-step strong { display: block; margin-bottom: 5px; font-size: 16px; font-weight: 680; }
+      .desktop-step small { display: block; max-width: 51ch; font-size: 14px; line-height: 1.45; }
+      .desktop-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; }
+      .desktop-cta { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 25px; border-radius: 14px; background: #7541e5; color: #fff; font-size: 16px; font-weight: 660; text-decoration: none; transition: background .2s, transform .2s; }
+      .desktop-cta:hover { background: #8050e8; }
+      .desktop-cta:active { transform: scale(.985); }
+      .desktop-demo { color: #b7bed4; font-size: 14px; }
+      .desktop-scene { position: relative; align-self: center; width: 100%; aspect-ratio: 1.02; max-height: min(68dvh, 690px); overflow: hidden; border: 1px solid #262c44; border-radius: 28px; background: #080d1d; isolation: isolate; box-shadow: 0 30px 68px rgba(0, 0, 0, .32); }
+      .desktop-poster, .desktop-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 48%; }
+      .desktop-video { z-index: 1; }
+      .desktop-scene::after { content: ""; position: absolute; z-index: 2; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(6,9,22,.06) 46%, rgba(6,9,22,.78) 100%); }
+      .desktop-scene-caption { position: absolute; z-index: 3; right: 32px; bottom: 32px; left: 32px; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+      .desktop-scene-caption strong { display: block; max-width: 18ch; font-size: clamp(25px, 2.2vw, 34px); line-height: 1.1; letter-spacing: -.025em; }
+      .desktop-scene-caption small { display: block; margin-top: 9px; color: #d0d7ed; font-size: 14px; }
+      .desktop-replay { flex: 0 0 44px; width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #657092; border-radius: 12px; background: rgba(10, 14, 29, .68); color: #fff; }
+      .desktop-replay svg { width: 19px; height: 19px; }
+      .desktop-note { color: #aeb5cb; font-size: 13px; line-height: 1.4; }
+      .desktop-step:focus-visible, .desktop-language:focus-visible, .desktop-cta:focus-visible, .desktop-replay:focus-visible { outline: 3px solid #baa1ff; outline-offset: 3px; }
+    }
+    @media (min-width: 900px) and (max-width: 1180px) {
+      .desktop-grid { grid-template-columns: minmax(340px, .9fr) minmax(420px, 1.1fr); gap: 34px; }
+      .desktop-copy h1 { font-size: 50px; }
+      .desktop-scene { aspect-ratio: 1; }
+    }
+    @media (min-width: 900px) and (max-height: 800px) {
+      .desktop-intro { padding-top: 20px; padding-bottom: 20px; }
+      .desktop-grid { padding: 20px 0; }
+      .desktop-copy h1 { font-size: clamp(42px, 3.8vw, 56px); }
+      .desktop-lead { margin-top: 18px; }
+      .desktop-steps { margin: 20px 0; }
+      .desktop-step { padding-top: 9px; padding-bottom: 9px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .desktop-video { display: none; }
+      .desktop-step, .desktop-cta { transition: none; }
+    }
     @media (max-width: 600px) {
       .preview { width: 100%; height: 100dvh; padding: 0; }
       .story { width: 100%; height: 100dvh; aspect-ratio: auto; box-shadow: none; }
@@ -69,6 +122,27 @@
   </style>
 </head>
 <body>
+  <main class="desktop-intro" aria-label="Знакомство с Shadow">
+    <header class="desktop-top"><span class="desktop-brand">shadow</span><button class="desktop-language" type="button" aria-label="Switch to English">EN</button></header>
+    <div class="desktop-grid">
+      <section class="desktop-copy" aria-labelledby="desktop-title">
+        <h1 id="desktop-title">Проверьте копирование без реальных денег</h1>
+        <p class="desktop-lead">Выберите трейдера. Его новые покупки станут сигналами; Shadow проверит ваши лимиты и покажет результат на виртуальном счёте.</p>
+        <div class="desktop-steps" aria-label="Как работает Shadow">
+          <button class="desktop-step" type="button" data-scene="0" aria-current="step"><span class="desktop-step-number">01</span><span><strong>Вы выбираете трейдера</strong><small>Смотрите площадку, историю и доступность данных.</small></span></button>
+          <button class="desktop-step" type="button" data-scene="1"><span class="desktop-step-number">02</span><span><strong>Ваши правила решают</strong><small>Задаёте размер покупки и лимиты; неподходящие сигналы пропускаются с причиной.</small></span></button>
+          <button class="desktop-step" type="button" data-scene="2"><span class="desktop-step-number">03</span><span><strong>Следите за демо-счётом</strong><small>Прошедшие покупки и позиции видны отдельно от реальных денег.</small></span></button>
+        </div>
+        <div class="desktop-actions"><a class="desktop-cta" href="https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T/Controlled-Copy-Trading-%E2%80%94-Paper-MVP?node-id=2525-134441&page-id=2477%3A529&scaling=scale-down">Выбрать трейдера</a><span class="desktop-demo">Демо · без реальных денег</span></div>
+      </section>
+      <div class="desktop-scene" aria-label="Визуальное объяснение процесса">
+        <img class="desktop-poster" src="../videos/01-signal-poster.jpg" alt="" fetchpriority="high">
+        <video class="desktop-video" muted playsinline preload="none" poster="../videos/01-signal-poster.jpg" aria-hidden="true"></video>
+        <div class="desktop-scene-caption"><span><strong>Покупка трейдера — это сигнал</strong><small>Учебная визуализация · сделки ещё не запускаются</small></span><button class="desktop-replay" type="button" aria-label="Повторить видео"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 1-2.2-5.5"/><path d="M20 4v5h-5"/></svg></button></div>
+      </div>
+    </div>
+    <footer class="desktop-note">Результаты демо не гарантируют реальный доход.</footer>
+  </main>
   <main class="preview" aria-label="Интерактивный концепт знакомства">
     <span class="sr-only" id="step-announcement" role="status" aria-live="polite"></span>
     <div class="story" id="story">
@@ -164,7 +238,7 @@
     }
     function play() {
       const video = videoFor(current);
-      if (reducedMotion.matches || document.hidden) return;
+      if (reducedMotion.matches || document.hidden || matchMedia('(min-width: 900px)').matches) return;
       prepare(video);
       video.currentTime = 0;
       updateProgress(video);
@@ -207,6 +281,69 @@
     reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) videoFor(current).pause(); else play(); });
     applyLocale();
     play();
+  </script>
+  <script>
+    const desktopMedia = matchMedia('(min-width: 900px)');
+    const desktopVideo = document.querySelector('.desktop-video');
+    const desktopPoster = document.querySelector('.desktop-poster');
+    const desktopSteps = [...document.querySelectorAll('.desktop-step')];
+    const desktopText = {
+      ru: {
+        main: 'Знакомство с Shadow', title: 'Проверьте копирование без реальных денег', lead: 'Выберите трейдера. Его новые покупки станут сигналами; Shadow проверит ваши лимиты и покажет результат на виртуальном счёте.',
+        steps: [['Вы выбираете трейдера', 'Смотрите площадку, историю и доступность данных.'], ['Ваши правила решают', 'Задаёте размер покупки и лимиты; неподходящие сигналы пропускаются с причиной.'], ['Следите за демо-счётом', 'Прошедшие покупки и позиции видны отдельно от реальных денег.']],
+        scenes: [['Покупка трейдера — это сигнал', 'Учебная визуализация · сделки ещё не запускаются'], ['Сигнал проходит проверку правил', 'Неподходящая покупка пропускается с причиной'], ['Прошедшая покупка → демо-позиция', 'Виртуальный счёт · без реальных денег']],
+        cta: 'Выбрать трейдера', demo: 'Демо · без реальных денег', note: 'Результаты демо не гарантируют реальный доход.', replay: 'Повторить видео', language: 'Switch to English', nextLanguage: 'EN', stepsLabel: 'Как работает Shadow', sceneLabel: 'Визуальное объяснение процесса', destination: 'https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T/Controlled-Copy-Trading-%E2%80%94-Paper-MVP?node-id=2525-134441&page-id=2477%3A529&scaling=scale-down'
+      },
+      en: {
+        main: 'Introduction to Shadow', title: 'Explore copy trading without real money', lead: 'Choose a trader. Their new buys become signals; Shadow checks your limits and shows the outcome in a virtual account.',
+        steps: [['Choose a trader', 'Review their venue, history and data coverage.'], ['Your rules decide', 'Set the buy size and limits; unsuitable signals are skipped with a reason.'], ['Watch your demo account', 'Approved buys and positions stay separate from real money.']],
+        scenes: [['A trader buy becomes a signal', 'Learning visual · no orders are placed yet'], ['The signal passes your rules', 'An unsuitable buy is skipped with a reason'], ['Approved buy → demo position', 'Virtual account · no real money']],
+        cta: 'Choose a trader', demo: 'Demo · no real money', note: 'Demo results do not guarantee real returns.', replay: 'Replay video', language: 'Переключить на русский', nextLanguage: 'RU', stepsLabel: 'How Shadow works', sceneLabel: 'Visual explanation of the process', destination: 'https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T/Controlled-Copy-Trading-%E2%80%94-Paper-MVP?node-id=2525-3700&page-id=2499%3A3&scaling=scale-down'
+      }
+    };
+    let desktopScene = 0;
+    function desktopLocale() { return new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'ru'; }
+    function desktopApplyCopy() {
+      const c = desktopText[desktopLocale()];
+      document.querySelector('.desktop-intro').setAttribute('aria-label', c.main);
+      document.querySelector('#desktop-title').textContent = c.title;
+      document.querySelector('.desktop-lead').textContent = c.lead;
+      document.querySelector('.desktop-steps').setAttribute('aria-label', c.stepsLabel);
+      document.querySelector('.desktop-scene').setAttribute('aria-label', c.sceneLabel);
+      desktopSteps.forEach((step, i) => { step.querySelector('strong').textContent = c.steps[i][0]; step.querySelector('small').textContent = c.steps[i][1]; });
+      document.querySelector('.desktop-scene-caption strong').textContent = c.scenes[desktopScene][0];
+      document.querySelector('.desktop-scene-caption small').textContent = c.scenes[desktopScene][1];
+      document.querySelector('.desktop-cta').textContent = c.cta;
+      document.querySelector('.desktop-cta').href = c.destination;
+      document.querySelector('.desktop-demo').textContent = c.demo;
+      document.querySelector('.desktop-note').textContent = c.note;
+      document.querySelector('.desktop-replay').setAttribute('aria-label', c.replay);
+      document.querySelector('.desktop-language').textContent = c.nextLanguage;
+      document.querySelector('.desktop-language').setAttribute('aria-label', c.language);
+    }
+    function desktopPlay() {
+      if (!desktopMedia.matches || reducedMotion.matches || document.hidden) return;
+      if (!desktopVideo.src) desktopVideo.src = `../videos/0${desktopScene + 1}-${['signal','rules','demo'][desktopScene]}.mp4`;
+      desktopVideo.currentTime = 0;
+      desktopVideo.play().catch(() => {});
+    }
+    function desktopShow(scene) {
+      desktopScene = scene;
+      desktopSteps.forEach((step, i) => { if (i === scene) step.setAttribute('aria-current', 'step'); else step.removeAttribute('aria-current'); });
+      const poster = `../videos/0${scene + 1}-${['signal','rules','demo'][scene]}-poster.jpg`;
+      desktopVideo.pause(); desktopVideo.poster = poster; desktopPoster.src = poster;
+      desktopVideo.src = `../videos/0${scene + 1}-${['signal','rules','demo'][scene]}.mp4`;
+      desktopVideo.style.display = ''; desktopVideo.load();
+      desktopApplyCopy(); desktopPlay();
+    }
+    desktopSteps.forEach(step => step.addEventListener('click', () => desktopShow(Number(step.dataset.scene))));
+    document.querySelector('.desktop-replay').addEventListener('click', desktopPlay);
+    document.querySelector('.desktop-language').addEventListener('click', () => { document.querySelector('.language').click(); desktopApplyCopy(); document.querySelector('.desktop-language').focus(); });
+    desktopVideo.addEventListener('error', () => { desktopVideo.style.display = 'none'; });
+    desktopMedia.addEventListener('change', () => { if (desktopMedia.matches) { videoFor(current).pause(); desktopApplyCopy(); desktopPlay(); } else { desktopVideo.pause(); play(); } });
+    document.addEventListener('visibilitychange', () => { if (document.hidden) desktopVideo.pause(); else desktopPlay(); });
+    reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) desktopVideo.pause(); else desktopPlay(); });
+    desktopApplyCopy(); desktopPlay();
   </script>
 </body>
 </html>

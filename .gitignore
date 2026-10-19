@@ -39,3 +39,12 @@ local-data/
 # Local source material; public documents must stand on their own
 references/*
 !references/README.md
+
+# Local document-session exports, never canonical project documents
+/bridge/trusted-read-*/
+
+# Large research captures and generated upload bundles; retain manifests/reports
+/research/trader-score-*/**/*.parquet
+/research/trader-score-*/cloud-package.tar.gz
+/research/trader-score-forward-2026-10-18/observations/
+/research/trader-score-forward-2026-10-18/smoke-*/events.jsonl*
