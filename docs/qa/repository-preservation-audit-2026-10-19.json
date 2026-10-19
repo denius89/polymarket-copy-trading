@@ -1,0 +1,313 @@
+{
+  "date": "2026-10-19",
+  "baseline_main": "a526c166514f73f363ecd68176094f8066533e5e",
+  "scope": "Project repository, all 5 registered worktrees, local/remote refs and stash, original 4099-file checkpoint, selected supporting project workspace files; synced sources and runtime dependencies excluded",
+  "open_prs_at_audit": 0,
+  "dirty_worktrees_at_audit": 0,
+  "worktree_count": 5,
+  "original_snapshot_files": 4099,
+  "original_snapshot_coverage": {
+    "git_recovery_bundle_current_tree": 3710,
+    "original_version_in_support_archive": 13,
+    "support_recovery_archive": 36,
+    "regenerable_cache": 25,
+    "score_drive_archive": 315
+  },
+  "unaccounted_original_files": 0,
+  "raw_score_files": 315,
+  "raw_score_bytes": 337084314,
+  "score_archive_folder_url": "https://drive.google.com/drive/folders/1XIzMZ-kpPqVn2j67iY7DbDlTh-zZJARC",
+  "recovery_folder_url": "https://drive.google.com/drive/folders/1u-iBU2tx1GtVVqz4ioDAwHottieqjq-x",
+  "recovery_archives": [
+    {
+      "name": "project-support-recovery-2026-10-19.tar.gz",
+      "bytes": 69112259,
+      "sha256": "0cb1520d27006d3446de6ec108b196b544f77f9ee77fa365821fd91a09078d70"
+    },
+    {
+      "name": "project-git-recovery-2026-10-19.bundle",
+      "bytes": 43434279,
+      "sha256": "7c164b33255804cc4f56a6136963fab7c4cf39d8854197afd8b92ccfac10093a"
+    }
+  ],
+  "supplemental_files": 419,
+  "original_versions_retained": 13,
+  "bundle_refs": 36,
+  "checks": {
+    "archive_payload_sha256": "432 payloads verified before upload",
+    "raw_score_sha256": "315 live originals match published manifest",
+    "git_recovery": "bundle verify + isolated mirror clone + git fsck --full passed",
+    "drive": "uploads completed; remote listings and sizes matched; one raw score part successfully fetched as a file reference",
+    "remote_byte_hashes": "not independently materialized and hashed after download",
+    "primary_checkout": "main, synchronized and clean before final audit documentation commit"
+  },
+  "branch_dispositions": [
+    {
+      "ref": "refs/heads/backup/oct05-local-snapshot",
+      "head": "18809b52a10aafe1dc7fc9b1304ae43800a58bf8",
+      "own_change_path_count": 334,
+      "comparison": {
+        "different_main": 13,
+        "identical_main": 321
+      },
+      "disposition": "historical_snapshot_superseded_or_integrated_in_main"
+    },
+    {
+      "ref": "refs/heads/design/client-manual-copy-settings",
+      "head": "6116e8d5ea6d028478c4821bc247b2fe5455f4bc",
+      "own_change_path_count": 9,
+      "comparison": {
+        "different_main": 5,
+        "identical_main": 4
+      },
+      "disposition": "historical_snapshot_superseded_or_integrated_in_main"
+    },
+    {
+      "ref": "refs/heads/design/desktop-introduction",
+      "head": "7e80d64e62f90059b4817bfe6dc71c516dd1a504",
+      "own_change_path_count": 7,
+      "comparison": {
+        "different_main": 5,
+        "identical_main": 2
+      },
+      "disposition": "historical_snapshot_superseded_or_integrated_in_main"
+    },
+    {
+      "ref": "refs/heads/docs/client-final-audit-2026-10-18",
+      "head": "fb80c742127d6ccc08580e524126ebe178eca2ea",
+      "own_change_path_count": 15,
+      "comparison": {
+        "different_main": 5,
+        "identical_main": 10
+      },
+      "disposition": "historical_snapshot_superseded_or_integrated_in_main"
+    },
+    {
+      "ref": "refs/heads/docs/close-historical-pr13-2026-10-19",
+      "head": "fe9dc82651b75d4caf52ac208e8d8299abb307c5",
+      "own_change_path_count": 3,
+      "comparison": {
+        "different_main": 2,
+        "identical_main": 1
+      },
+      "disposition": "historical_snapshot_superseded_or_integrated_in_main"
+    },
+    {
+      "ref": "refs/heads/docs/local-ai-preparation-2026-10-19",
+      "head": "4f64291c585c10cde81f6262de49d77b0673cbf5",
+      "own_change_path_count": 2067,
+      "comparison": {
+        "identical_main": 2060,
+        "different_main": 3,
+        "absent_main": 4
+      },
+      "disposition": "historical_snapshot_superseded_or_integrated_in_main"
+    },
+    {
+      "ref": "refs/heads/docs/repository-maintenance-2026-10-19",
+      "head": "51c2e9b0ad47c75db4c162462061abb5f14f6f15",
+      "own_change_path_count": 75,
+      "comparison": {
+        "different_main": 6,
+        "identical_main": 69
+      },
+      "disposition": "historical_snapshot_superseded_or_integrated_in_main"
+    },
+    {
+      "ref": "refs/heads/docs/score-data-drive-2026-10-19",
+      "head": "241aa8fa5930b30ba69b6a221916f4ab3d774476",
+      "own_change_path_count": 0,
+      "comparison": {},
+      "disposition": "identical_content_with_different_history"
+    },
+    {
+      "ref": "refs/heads/main",
+      "head": "a526c166514f73f363ecd68176094f8066533e5e",
+      "own_change_path_count": 0,
+      "comparison": {},
+      "disposition": "already_in_main"
+    },
+    {
+      "ref": "refs/heads/publish/strategy-review",
+      "head": "7b3bd7e4747f78528d3c9f44a42a323f38d3b50e",
+      "own_change_path_count": 12,
+      "comparison": {
+        "different_main": 12
+      },
+      "disposition": "historical_snapshot_superseded_or_integrated_in_main"
+    },
+    {
+      "ref": "refs/heads/research/publish-skills-score-2026-10-19",
+      "head": "1c95ddf9b60354ed8448255bfa5612b608e92657",
+      "own_change_path_count": 2997,
+      "comparison": {
+        "identical_main": 2994,
+        "different_main": 3
+      },
+      "disposition": "historical_snapshot_superseded_or_integrated_in_main"
+    },
+    {
+      "ref": "refs/heads/work/local-research-and-ai-2026-10-19",
+      "head": "f3e736603c45a7886f82dc1ffc515969243d5769",
+      "own_change_path_count": 49,
+      "comparison": {
+        "absent_main": 49
+      },
+      "disposition": "local_motion_and_cache_archive"
+    },
+    {
+      "ref": "refs/remotes/origin/client-final-acceptance-2026-10-16",
+      "head": "725aa485972d724687a0b1d26615451c9bdc0447",
+      "own_change_path_count": 0,
+      "comparison": {},
+      "disposition": "already_in_main"
+    },
+    {
+      "ref": "refs/remotes/origin/client-final-impeccable-fixes-2026-10-16",
+      "head": "cb464b1b3ef0ec4ab89198d7284ceb2b174b8073",
+      "own_change_path_count": 0,
+      "comparison": {},
+      "disposition": "already_in_main"
+    },
+    {
+      "ref": "refs/remotes/origin/codex/client-final-acceptance-fixes-20261016",
+      "head": "7e5ab0fa10e66f05ef834daee88c39782073bb83",
+      "own_change_path_count": 7,
+      "comparison": {
+        "different_main": 5,
+        "identical_main": 2
+      },
+      "disposition": "historical_snapshot_superseded_or_integrated_in_main"
+    },
+    {
+      "ref": "refs/remotes/origin/codex/client-final-cleanup-2026-10-15",
+      "head": "b4006743df98aea3ecb8c2e2d9aa67a28eef4fba",
+      "own_change_path_count": 30,
+      "comparison": {
+        "different_main": 6,
+        "identical_main": 24
+      },
+      "disposition": "historical_snapshot_superseded_or_integrated_in_main"
+    },
+    {
+      "ref": "refs/remotes/origin/design/client-manual-copy-settings",
+      "head": "6116e8d5ea6d028478c4821bc247b2fe5455f4bc",
+      "own_change_path_count": 9,
+      "comparison": {
+        "different_main": 5,
+        "identical_main": 4
+      },
+      "disposition": "historical_snapshot_superseded_or_integrated_in_main"
+    },
+    {
+      "ref": "refs/remotes/origin/design/desktop-introduction",
+      "head": "7e80d64e62f90059b4817bfe6dc71c516dd1a504",
+      "own_change_path_count": 7,
+      "comparison": {
+        "different_main": 5,
+        "identical_main": 2
+      },
+      "disposition": "historical_snapshot_superseded_or_integrated_in_main"
+    },
+    {
+      "ref": "refs/remotes/origin/docs/client-final-audit-2026-10-18",
+      "head": "ba6b7ae6f1dbe889abfa17dcd118c0c4e24824f7",
+      "own_change_path_count": 15,
+      "comparison": {
+        "different_main": 5,
+        "identical_main": 10
+      },
+      "disposition": "historical_snapshot_superseded_or_integrated_in_main"
+    },
+    {
+      "ref": "refs/remotes/origin/docs/client-final-release-2026-10-16",
+      "head": "700c4dbe2a7e915acfcc7711686e5522ab6ccd44",
+      "own_change_path_count": 9,
+      "comparison": {
+        "different_main": 7,
+        "identical_main": 2
+      },
+      "disposition": "historical_snapshot_superseded_or_integrated_in_main"
+    },
+    {
+      "ref": "refs/remotes/origin/docs/close-historical-pr13-2026-10-19",
+      "head": "92e00d25bc319700e0a3d476d56f35973e2a56cd",
+      "own_change_path_count": 0,
+      "comparison": {},
+      "disposition": "already_in_main"
+    },
+    {
+      "ref": "refs/remotes/origin/docs/consolidated-plan-2026-10-02",
+      "head": "793cf33caf3d9b055dfee6a1dbcc7fa9f491f711",
+      "own_change_path_count": 191,
+      "comparison": {
+        "different_main": 29,
+        "identical_main": 162
+      },
+      "disposition": "historical_snapshot_superseded_or_integrated_in_main"
+    },
+    {
+      "ref": "refs/remotes/origin/docs/final-client-ui-kit-patterns-2026-10-16",
+      "head": "c0d6eb1b23c5b0c13e036d13b857d2885528c9f7",
+      "own_change_path_count": 7,
+      "comparison": {
+        "different_main": 5,
+        "identical_main": 2
+      },
+      "disposition": "historical_snapshot_superseded_or_integrated_in_main"
+    },
+    {
+      "ref": "refs/remotes/origin/docs/limitless-api-reference",
+      "head": "954a0fb70f1fd0aaee24f1601821c27147f4cabd",
+      "own_change_path_count": 9,
+      "comparison": {
+        "identical_main": 9
+      },
+      "disposition": "identical_content_with_different_history"
+    },
+    {
+      "ref": "refs/remotes/origin/docs/polymarket-api-reference",
+      "head": "7518051d95eef93225cf005fecc485d273bba0e1",
+      "own_change_path_count": 28,
+      "comparison": {
+        "identical_main": 28
+      },
+      "disposition": "identical_content_with_different_history"
+    },
+    {
+      "ref": "refs/remotes/origin/docs/repository-maintenance-2026-10-19",
+      "head": "f83a73c8956844f8d5ee3a6921c5d25ddce6ec90",
+      "own_change_path_count": 0,
+      "comparison": {},
+      "disposition": "already_in_main"
+    },
+    {
+      "ref": "refs/remotes/origin/docs/score-data-drive-2026-10-19",
+      "head": "97a5e70fdf9a167dae013639143210758d53acbe",
+      "own_change_path_count": 0,
+      "comparison": {},
+      "disposition": "already_in_main"
+    },
+    {
+      "ref": "refs/remotes/origin/main",
+      "head": "a526c166514f73f363ecd68176094f8066533e5e",
+      "own_change_path_count": 0,
+      "comparison": {},
+      "disposition": "already_in_main"
+    },
+    {
+      "ref": "refs/remotes/origin/research/publish-skills-score-2026-10-19",
+      "head": "cb94cca9f4a9a8dc892d9ecc837c40f10e178dcb",
+      "own_change_path_count": 0,
+      "comparison": {},
+      "disposition": "already_in_main"
+    }
+  ],
+  "historical_local_extra_paths": {
+    "motion_experiment_files": 23,
+    "python_caches": 25,
+    "local_manifest": 1,
+    "disposition": "Preserved in private Git recovery bundle; primary checkout switched to main; no automatic promotion to accepted design"
+  },
+  "stash": "Original tracked pre-cleanup work retained in bundle and local stash; no pending work to apply"
+}
