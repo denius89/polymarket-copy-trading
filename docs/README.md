@@ -10,6 +10,7 @@
 | Последние изменения и история | [PROJECT_STATE](PROJECT_STATE.md) |
 | Согласованные правила | [Бизнес-логика MVP](MVP_BUSINESS_LOGIC.md), [ADR](decisions/README.md) |
 | Сверка правил и актуальных макетов | [Бизнес-аудит 19.10.2026: замечания, открытые решения и evidence](qa/business-logic-2026-10-19/README.md) |
+| BL-08: лимиты и причина отказа · принято | [ADR-0057](decisions/0057_effective_limits_and_rejection_reason_priority.md), [контракт 135](135_effective_limits_and_rejection_reasons_2026-10-19.md), [проверка](qa/effective-limits-reasons-2026-10-19/README.md) |
 | Бюджет/настройки активной сессии · принято | [ADR-0056](decisions/0056_active_session_budget_flows_and_settings_revisions.md), [контракт 134](134_active_session_budget_and_settings_versions_2026-10-19.md), [проверка](qa/session-settings-revisions-2026-10-19/README.md) |
 | Точная арифметика частей · принято | [Контракт 133](133_exact_position_arithmetic_contract_2026-10-19.md), [принятый ADR-0055](decisions/0055_exact_rational_position_attribution.md), [проверка](qa/exact-position-arithmetic-2026-10-19/README.md) |
 | Поздние исполнения, продажи и округление | [ADR-0052](decisions/0052_late_fills_follow_ownership_and_exit_target.md), [ADR-0053](decisions/0053_serialize_sells_and_preserve_exit_targets.md), [ADR-0054](decisions/0054_round_down_without_limit_bypass_and_keep_dust.md); [модель и предел проверки](qa/late-fill-sell-rounding-2026-10-19/README.md) |

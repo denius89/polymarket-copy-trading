@@ -1,5 +1,7 @@
 # Полный каталог документов
 
+- [135 — BL-08: совмещение лимитов и причины отказа](135_effective_limits_and_rejection_reasons_2026-10-19.md): нормативный контракт ADR-0057 и reference-проверки, без runtime.
+
 - [134 — бюджет и версии активной сессии](134_active_session_budget_and_settings_versions_2026-10-19.md): нормативный контракт ADR-0056 и reference-проверки, без runtime.
 
 - [133 — точная арифметика частей позиции](133_exact_position_arithmetic_contract_2026-10-19.md): принятый владельцем контракт ADR-0055 с reference-проверкой; реализация отдельно.
