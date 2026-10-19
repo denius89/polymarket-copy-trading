@@ -132,3 +132,7 @@
 ## Точная арифметика · 19.10.2026
 
 [ADR-0055](0055_exact_rational_position_attribution.md) — принято владельцем для paper MVP: точные рациональные части, стоимость/атрибуция и перенос хвоста с зачётом продаж. Детали — [133](../133_exact_position_arithmetic_contract_2026-10-19.md).
+
+## Бюджет/версии активной сессии · 19.10.2026
+
+[ADR-0056](0056_active_session_budget_flows_and_settings_revisions.md) — принято владельцем: виртуальный flow разницы B, текущие лимиты по обязательствам всех версий, sizingRevision/admissionRevision и неизменность допущенных заявок. Детализация — [134](../134_active_session_budget_and_settings_versions_2026-10-19.md).
