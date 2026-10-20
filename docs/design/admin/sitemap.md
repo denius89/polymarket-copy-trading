@@ -1,4 +1,6 @@
-# Карта админки · 0.25
+# Карта админки · 0.26
+
+20.10.2026: [EN, ролевые переходы, замена и восстановление ключей](roles-keys-completion-2026-10-20/README.md). Карта 0.26: **819 основных пар, 824 корня на язык** с сохранёнными пятью оболочками. Добавлены 17 пар, проверены 80 ролевых контекстов и 20 состояний ключей на язык. Полная ручная приёмка открыта; UI kit 0.4.21 без изменений.
 
 20.10.2026: [первый RU-срез L01/L02](roles-account-clarity-2026-10-20/README.md). ID экранов и число корней сохранены. Изменены 66 входов в ролевые профили и четыре экрана безопасности; EN ещё не синхронизирована.
 
@@ -593,8 +595,8 @@
 | Проверка ключей безопасности | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-76988) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81137) |
 | Оба ключа проверены | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-77104) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81253) |
 | Заменить ключ | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-77215) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81364) |
-| Проверить новые ключи | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-77336) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81485) |
-| Ключ заменён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-77452) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81601) |
+| Проверить новую пару ключей | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-77336) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81485) |
+| Новые ключи проверены | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-77452) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81601) |
 | Резервные коды | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-77558) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81707) |
 | Подтвердить новый набор | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-77671) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81820) |
 | Сохраните резервные коды | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-77787) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-81936) |
@@ -608,8 +610,8 @@
 | Результат завершения не подтверждён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-78708) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-82857) |
 | Изменить аватар | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-78814) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-82963) |
 | Предпросмотр аватара | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-78927) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2155-83076) |
-| RU · mfa-recovery-setup · Настроить защиту входа после восстановления | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2170-21469) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2170-79468) |
-| RU · mfa-recovery-complete · Ключи восстановлены | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2170-21586) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2170-79585) |
+| Настроить новые ключи | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2170-21469) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2170-79468) |
+| Защита восстановлена | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2170-21586) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2170-79585) |
 | Язык интерфейса · список раскрыт | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2258-92779) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2258-92949) |
 | Подтвердите основной ключ | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3005-57155) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3007-57147) |
 | Основной ключ не проверен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3005-57184) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3007-57176) |
@@ -646,6 +648,24 @@
 | Личный профиль | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3182-78837) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3182-221821) |
 | Вы вышли из админки | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3182-78865) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3182-221849) |
 | Ожидается независимый участник | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3182-79145) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3182-222129) |
+
+| Подтвердите основной ключ | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-71606) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-208251) |
+| Подтвердите основной ключ | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-71847) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-208492) |
+| Теперь проверьте запасной ключ | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-71668) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-208313) |
+| Основной ключ не проверен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-71639) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-208284) |
+| Проверку нужно начать заново | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-71818) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-208463) |
+| Теперь проверьте запасной ключ | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-71909) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-208554) |
+| Основной ключ не проверен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-71880) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-208525) |
+| Проверку нужно начать заново | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-72059) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-208704) |
+| Подтвердите запасной ключ | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-71697) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-208342) |
+| Подтвердите запасной ключ | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-71938) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-208583) |
+| Проверка запасного отменена | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-71760) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-208405) |
+| Запасной ключ не проверен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-71731) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-208376) |
+| Нужен другой физический ключ | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-71789) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-208434) |
+| Проверка запасного отменена | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-72001) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-208646) |
+| Запасной ключ не проверен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-71972) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-208617) |
+| Нужен другой физический ключ | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-72030) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-208675) |
+| Личный профиль Норы · операционная роль | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3326-72674) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3326-209998) |
 
 ## ADM-15 — Подключения и безопасность
 
