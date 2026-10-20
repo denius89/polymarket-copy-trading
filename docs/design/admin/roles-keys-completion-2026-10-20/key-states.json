@@ -1,0 +1,806 @@
+[
+  {
+    "key": "mfa-replace-confirm",
+    "existing": [
+      "2155:77336",
+      "2155:81485"
+    ],
+    "title": [
+      "Проверить новую пару ключей",
+      "Verify replacement keys"
+    ],
+    "primary": [
+      "Не проверен",
+      "Not verified"
+    ],
+    "backup": [
+      "Ожидает основной ключ",
+      "Waiting for primary key"
+    ],
+    "message": [
+      "Сначала зарегистрируйте и проверьте новый основной ключ. Затем отдельно проверьте другой физический запасной ключ. Прежний ключ остаётся действующим до завершения обоих шагов.",
+      "Register and verify the new primary key first. Then verify a distinct physical backup key separately. The old key remains active until both steps finish."
+    ],
+    "actions": [
+      [
+        "Проверить основной ключ",
+        "Verify primary key",
+        "account-key-replace-primary-prompt"
+      ],
+      [
+        "Отмена",
+        "Cancel",
+        "account-security"
+      ]
+    ],
+    "sourceKey": "mfa-confirm",
+    "mode": "replace",
+    "context": [
+      "Замена ключей · прежний ключ действует до завершения обеих проверок · учебный пример",
+      "Key replacement · old key remains active until both checks complete · demo"
+    ]
+  },
+  {
+    "key": "account-key-replace-primary-prompt",
+    "title": [
+      "Подтвердите основной ключ",
+      "Confirm primary key"
+    ],
+    "primary": [
+      "Ожидается ответ браузера",
+      "Waiting for browser response"
+    ],
+    "backup": [
+      "Пока недоступен",
+      "Not available yet"
+    ],
+    "message": [
+      "Завершите проверку основного ключа в системном окне браузера. Закрытие окна или отказ не подтверждает ключ. В прототипе результат выбирается ниже отдельно от рабочих действий.",
+      "Complete the primary-key check in the browser system dialog. Closing or rejecting the request does not verify the key. Prototype outcomes are separate from product actions below."
+    ],
+    "actions": [
+      [
+        "Отменить проверку",
+        "Cancel verification",
+        "mfa-replace-confirm"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Успех основного",
+        "Primary succeeds",
+        "account-key-replace-backup-ready"
+      ],
+      [
+        "Ошибка основного",
+        "Primary fails",
+        "account-key-replace-primary-error"
+      ],
+      [
+        "Срок истёк",
+        "Verification expires",
+        "account-key-replace-proof-expired"
+      ]
+    ],
+    "sourceKey": "key-primary-prompt",
+    "mode": "replace",
+    "context": [
+      "Замена ключей · прежний ключ действует до завершения обеих проверок · учебный пример",
+      "Key replacement · old key remains active until both checks complete · demo"
+    ]
+  },
+  {
+    "key": "account-key-replace-primary-error",
+    "title": [
+      "Основной ключ не проверен",
+      "Primary key not verified"
+    ],
+    "primary": [
+      "Ошибка проверки",
+      "Verification failed"
+    ],
+    "backup": [
+      "Пока недоступен",
+      "Not available yet"
+    ],
+    "message": [
+      "Основной ключ не подтверждён. Подключите физический ключ для этой настройки и повторите запрос. Ни один новый ключ ещё не засчитан.",
+      "The primary key has not passed. Connect the physical key for this setup and retry. Neither new key is accepted yet."
+    ],
+    "actions": [
+      [
+        "Повторить основной ключ",
+        "Retry primary key",
+        "account-key-replace-primary-prompt"
+      ],
+      [
+        "В безопасность",
+        "Back to security",
+        "account-security"
+      ]
+    ],
+    "sourceKey": "key-primary-error",
+    "mode": "replace",
+    "context": [
+      "Замена ключей · прежний ключ действует до завершения обеих проверок · учебный пример",
+      "Key replacement · old key remains active until both checks complete · demo"
+    ]
+  },
+  {
+    "key": "account-key-replace-backup-ready",
+    "title": [
+      "Теперь проверьте запасной ключ",
+      "Verify the backup key next"
+    ],
+    "primary": [
+      "Проверен отдельно",
+      "Verified separately"
+    ],
+    "backup": [
+      "Не проверен",
+      "Not verified"
+    ],
+    "message": [
+      "Основной ключ подтверждён. Отключите его и используйте другой физический ключ для отдельного запроса. Запасной ключ нельзя заменить повторной проверкой основного.",
+      "The primary key passed. Disconnect it and use a different physical key for a separate request. Checking the primary key again cannot count as the backup."
+    ],
+    "actions": [
+      [
+        "Проверить запасной ключ",
+        "Verify backup key",
+        "account-key-replace-backup-prompt"
+      ],
+      [
+        "В безопасность",
+        "Back to security",
+        "account-security"
+      ]
+    ],
+    "sourceKey": "key-backup-ready",
+    "mode": "replace",
+    "context": [
+      "Замена ключей · прежний ключ действует до завершения обеих проверок · учебный пример",
+      "Key replacement · old key remains active until both checks complete · demo"
+    ]
+  },
+  {
+    "key": "account-key-replace-backup-prompt",
+    "title": [
+      "Подтвердите запасной ключ",
+      "Confirm backup key"
+    ],
+    "primary": [
+      "Проверен · результат сохранён",
+      "Verified · result retained"
+    ],
+    "backup": [
+      "Ожидается ответ браузера",
+      "Waiting for browser response"
+    ],
+    "message": [
+      "Завершите отдельную проверку запасного ключа в окне браузера. При ошибке или отмене результат основного сохраняется, пока он действителен. Ни кнопка, ни переход сами по себе не являются подтверждением.",
+      "Complete the separate backup-key check in the browser. A failed or cancelled request keeps the primary result while valid. A button or navigation alone is not verification."
+    ],
+    "actions": [
+      [
+        "Отменить второй шаг",
+        "Cancel second step",
+        "account-key-replace-backup-cancelled"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Успех запасного",
+        "Backup succeeds",
+        "mfa-replaced"
+      ],
+      [
+        "Ошибка запасного",
+        "Backup fails",
+        "account-key-replace-backup-error"
+      ],
+      [
+        "Тот же ключ",
+        "Same key used",
+        "account-key-replace-backup-duplicate"
+      ],
+      [
+        "Срок истёк",
+        "Verification expires",
+        "account-key-replace-proof-expired"
+      ]
+    ],
+    "sourceKey": "key-backup-prompt",
+    "mode": "replace",
+    "context": [
+      "Замена ключей · прежний ключ действует до завершения обеих проверок · учебный пример",
+      "Key replacement · old key remains active until both checks complete · demo"
+    ]
+  },
+  {
+    "key": "account-key-replace-backup-error",
+    "title": [
+      "Запасной ключ не проверен",
+      "Backup key not verified"
+    ],
+    "primary": [
+      "Проверен · результат сохранён",
+      "Verified · result retained"
+    ],
+    "backup": [
+      "Ошибка проверки",
+      "Verification failed"
+    ],
+    "message": [
+      "Запасной ключ не подтверждён. Повторите второй шаг с другим физическим ключом. Первый результат сохраняется, пока действителен; если он истёк, начните обе проверки заново.",
+      "The backup key has not passed. Retry the second step with a different physical key. The primary result remains valid until it expires; after expiry, restart both checks."
+    ],
+    "actions": [
+      [
+        "Повторить запасной ключ",
+        "Retry backup key",
+        "account-key-replace-backup-prompt"
+      ],
+      [
+        "В безопасность",
+        "Back to security",
+        "account-security"
+      ]
+    ],
+    "sourceKey": "key-backup-error",
+    "mode": "replace",
+    "context": [
+      "Замена ключей · прежний ключ действует до завершения обеих проверок · учебный пример",
+      "Key replacement · old key remains active until both checks complete · demo"
+    ]
+  },
+  {
+    "key": "account-key-replace-backup-cancelled",
+    "title": [
+      "Проверка запасного отменена",
+      "Backup check cancelled"
+    ],
+    "primary": [
+      "Проверен · результат сохранён",
+      "Verified · result retained"
+    ],
+    "backup": [
+      "Проверка отменена",
+      "Check cancelled"
+    ],
+    "message": [
+      "Второй запрос отменён; запасной ключ не засчитан. Продолжите второй шаг, пока первый результат действителен. Отмена не завершает настройку новой пары и не подтверждает денежные действия.",
+      "The second request was cancelled; the backup key has not passed. Resume while the primary result is valid. Cancellation does not finish the new-key setup or approve money actions."
+    ],
+    "actions": [
+      [
+        "Продолжить второй шаг",
+        "Resume second step",
+        "account-key-replace-backup-prompt"
+      ],
+      [
+        "В безопасность",
+        "Back to security",
+        "account-security"
+      ]
+    ],
+    "sourceKey": "key-backup-cancelled",
+    "mode": "replace",
+    "context": [
+      "Замена ключей · прежний ключ действует до завершения обеих проверок · учебный пример",
+      "Key replacement · old key remains active until both checks complete · demo"
+    ]
+  },
+  {
+    "key": "account-key-replace-backup-duplicate",
+    "title": [
+      "Нужен другой физический ключ",
+      "Use a different physical key"
+    ],
+    "primary": [
+      "Проверен · результат сохранён",
+      "Verified · result retained"
+    ],
+    "backup": [
+      "Повтор основного отклонён",
+      "Primary-key reuse rejected"
+    ],
+    "message": [
+      "Ответ получен от уже проверенного основного ключа. Он не считается запасным. Отключите его и используйте другой физический ключ для второго шага. Первый результат сохраняется, пока действителен.",
+      "The response came from the verified primary key and cannot count as backup. Disconnect it and use a different physical key for the second step. The primary result remains valid until it expires."
+    ],
+    "actions": [
+      [
+        "Проверить другой ключ",
+        "Verify different key",
+        "account-key-replace-backup-prompt"
+      ],
+      [
+        "В безопасность",
+        "Back to security",
+        "account-security"
+      ]
+    ],
+    "sourceKey": "key-backup-duplicate",
+    "mode": "replace",
+    "context": [
+      "Замена ключей · прежний ключ действует до завершения обеих проверок · учебный пример",
+      "Key replacement · old key remains active until both checks complete · demo"
+    ]
+  },
+  {
+    "key": "account-key-replace-proof-expired",
+    "title": [
+      "Проверку нужно начать заново",
+      "Start verification again"
+    ],
+    "primary": [
+      "Результат устарел",
+      "Result expired"
+    ],
+    "backup": [
+      "Не засчитан",
+      "Not accepted"
+    ],
+    "message": [
+      "Проверка истекла или состав ключей изменился. Результаты обоих новых ключей не засчитаны. Сначала заново подтвердите личность действующим ключом; прежний ключ остаётся активным.",
+      "Verification expired or the key set changed. Neither new-key result is accepted. Authenticate again with a current key first; the old key remains active."
+    ],
+    "actions": [
+      [
+        "Подтвердить личность заново",
+        "Verify identity again",
+        "mfa-replace"
+      ],
+      [
+        "В безопасность",
+        "Back to security",
+        "account-security"
+      ]
+    ],
+    "sourceKey": "key-proof-expired",
+    "mode": "replace",
+    "context": [
+      "Замена ключей · прежний ключ действует до завершения обеих проверок · учебный пример",
+      "Key replacement · old key remains active until both checks complete · demo"
+    ]
+  },
+  {
+    "key": "mfa-replaced",
+    "existing": [
+      "2155:77452",
+      "2155:81601"
+    ],
+    "title": [
+      "Новые ключи проверены",
+      "Replacement keys verified"
+    ],
+    "primary": [
+      "Проверен · основной",
+      "Verified · primary"
+    ],
+    "backup": [
+      "Проверен · отдельный ключ",
+      "Verified · distinct key"
+    ],
+    "message": [
+      "Новый основной и другой запасной физические ключи прошли отдельные проверки. Прежний заменяемый ключ отключён в этом учебном результате. Это не согласие на денежную операцию: перед ней потребуется новая проверка личности.",
+      "The new primary and a distinct backup physical key passed separate checks. The replaced key is disabled in this demo result. This is not money approval; a sensitive action requires fresh authentication."
+    ],
+    "actions": [
+      [
+        "В безопасность",
+        "Back to security",
+        "account-security"
+      ]
+    ],
+    "sourceKey": "mfa-enabled",
+    "mode": "replace",
+    "context": [
+      "Замена завершена · учебный пример · реальные запросы не выполнялись",
+      "Replacement complete · demo · no real requests were made"
+    ]
+  },
+  {
+    "key": "mfa-recovery-setup",
+    "existing": [
+      "2170:21469",
+      "2170:79468"
+    ],
+    "title": [
+      "Настроить новые ключи",
+      "Set up new security keys"
+    ],
+    "primary": [
+      "Не проверен",
+      "Not verified"
+    ],
+    "backup": [
+      "Ожидает основной ключ",
+      "Waiting for primary key"
+    ],
+    "message": [
+      "Личность подтверждена для ограниченного восстановления. Зарегистрируйте и отдельно проверьте новый основной и другой запасной физические ключи. Резервный код не открывает рабочую админку.",
+      "Identity has been confirmed for restricted recovery. Register and separately verify a new primary key and a distinct backup physical key. A recovery code does not unlock the workspace."
+    ],
+    "actions": [
+      [
+        "Проверить основной ключ",
+        "Verify primary key",
+        "account-key-recovery-primary-prompt"
+      ],
+      [
+        "Отменить восстановление",
+        "Cancel recovery",
+        "admin-login"
+      ]
+    ],
+    "sourceKey": "mfa-confirm",
+    "mode": "recovery",
+    "context": [
+      "Только восстановление защиты · рабочая админка и денежные действия недоступны",
+      "Protection recovery only · workspace and money actions unavailable"
+    ]
+  },
+  {
+    "key": "account-key-recovery-primary-prompt",
+    "title": [
+      "Подтвердите основной ключ",
+      "Confirm primary key"
+    ],
+    "primary": [
+      "Ожидается ответ браузера",
+      "Waiting for browser response"
+    ],
+    "backup": [
+      "Пока недоступен",
+      "Not available yet"
+    ],
+    "message": [
+      "Завершите проверку основного ключа в системном окне браузера. Закрытие окна или отказ не подтверждает ключ. В прототипе результат выбирается ниже отдельно от рабочих действий.",
+      "Complete the primary-key check in the browser system dialog. Closing or rejecting the request does not verify the key. Prototype outcomes are separate from product actions below."
+    ],
+    "actions": [
+      [
+        "Отменить проверку",
+        "Cancel verification",
+        "mfa-recovery-setup"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Успех основного",
+        "Primary succeeds",
+        "account-key-recovery-backup-ready"
+      ],
+      [
+        "Ошибка основного",
+        "Primary fails",
+        "account-key-recovery-primary-error"
+      ],
+      [
+        "Срок истёк",
+        "Verification expires",
+        "account-key-recovery-proof-expired"
+      ]
+    ],
+    "sourceKey": "key-primary-prompt",
+    "mode": "recovery",
+    "context": [
+      "Только восстановление защиты · рабочая админка и денежные действия недоступны",
+      "Protection recovery only · workspace and money actions unavailable"
+    ]
+  },
+  {
+    "key": "account-key-recovery-primary-error",
+    "title": [
+      "Основной ключ не проверен",
+      "Primary key not verified"
+    ],
+    "primary": [
+      "Ошибка проверки",
+      "Verification failed"
+    ],
+    "backup": [
+      "Пока недоступен",
+      "Not available yet"
+    ],
+    "message": [
+      "Основной ключ не подтверждён. Подключите физический ключ для этой настройки и повторите запрос. Ни один новый ключ ещё не засчитан.",
+      "The primary key has not passed. Connect the physical key for this setup and retry. Neither new key is accepted yet."
+    ],
+    "actions": [
+      [
+        "Повторить основной ключ",
+        "Retry primary key",
+        "account-key-recovery-primary-prompt"
+      ],
+      [
+        "К экрану входа",
+        "Back to sign-in",
+        "admin-login"
+      ]
+    ],
+    "sourceKey": "key-primary-error",
+    "mode": "recovery",
+    "context": [
+      "Только восстановление защиты · рабочая админка и денежные действия недоступны",
+      "Protection recovery only · workspace and money actions unavailable"
+    ]
+  },
+  {
+    "key": "account-key-recovery-backup-ready",
+    "title": [
+      "Теперь проверьте запасной ключ",
+      "Verify the backup key next"
+    ],
+    "primary": [
+      "Проверен отдельно",
+      "Verified separately"
+    ],
+    "backup": [
+      "Не проверен",
+      "Not verified"
+    ],
+    "message": [
+      "Основной ключ подтверждён. Отключите его и используйте другой физический ключ для отдельного запроса. Запасной ключ нельзя заменить повторной проверкой основного.",
+      "The primary key passed. Disconnect it and use a different physical key for a separate request. Checking the primary key again cannot count as the backup."
+    ],
+    "actions": [
+      [
+        "Проверить запасной ключ",
+        "Verify backup key",
+        "account-key-recovery-backup-prompt"
+      ],
+      [
+        "К экрану входа",
+        "Back to sign-in",
+        "admin-login"
+      ]
+    ],
+    "sourceKey": "key-backup-ready",
+    "mode": "recovery",
+    "context": [
+      "Только восстановление защиты · рабочая админка и денежные действия недоступны",
+      "Protection recovery only · workspace and money actions unavailable"
+    ]
+  },
+  {
+    "key": "account-key-recovery-backup-prompt",
+    "title": [
+      "Подтвердите запасной ключ",
+      "Confirm backup key"
+    ],
+    "primary": [
+      "Проверен · результат сохранён",
+      "Verified · result retained"
+    ],
+    "backup": [
+      "Ожидается ответ браузера",
+      "Waiting for browser response"
+    ],
+    "message": [
+      "Завершите отдельную проверку запасного ключа в окне браузера. При ошибке или отмене результат основного сохраняется, пока он действителен. Ни кнопка, ни переход сами по себе не являются подтверждением.",
+      "Complete the separate backup-key check in the browser. A failed or cancelled request keeps the primary result while valid. A button or navigation alone is not verification."
+    ],
+    "actions": [
+      [
+        "Отменить второй шаг",
+        "Cancel second step",
+        "account-key-recovery-backup-cancelled"
+      ]
+    ],
+    "scenarios": [
+      [
+        "Успех запасного",
+        "Backup succeeds",
+        "mfa-recovery-complete"
+      ],
+      [
+        "Ошибка запасного",
+        "Backup fails",
+        "account-key-recovery-backup-error"
+      ],
+      [
+        "Тот же ключ",
+        "Same key used",
+        "account-key-recovery-backup-duplicate"
+      ],
+      [
+        "Срок истёк",
+        "Verification expires",
+        "account-key-recovery-proof-expired"
+      ]
+    ],
+    "sourceKey": "key-backup-prompt",
+    "mode": "recovery",
+    "context": [
+      "Только восстановление защиты · рабочая админка и денежные действия недоступны",
+      "Protection recovery only · workspace and money actions unavailable"
+    ]
+  },
+  {
+    "key": "account-key-recovery-backup-error",
+    "title": [
+      "Запасной ключ не проверен",
+      "Backup key not verified"
+    ],
+    "primary": [
+      "Проверен · результат сохранён",
+      "Verified · result retained"
+    ],
+    "backup": [
+      "Ошибка проверки",
+      "Verification failed"
+    ],
+    "message": [
+      "Запасной ключ не подтверждён. Повторите второй шаг с другим физическим ключом. Первый результат сохраняется, пока действителен; если он истёк, начните обе проверки заново.",
+      "The backup key has not passed. Retry the second step with a different physical key. The primary result remains valid until it expires; after expiry, restart both checks."
+    ],
+    "actions": [
+      [
+        "Повторить запасной ключ",
+        "Retry backup key",
+        "account-key-recovery-backup-prompt"
+      ],
+      [
+        "К экрану входа",
+        "Back to sign-in",
+        "admin-login"
+      ]
+    ],
+    "sourceKey": "key-backup-error",
+    "mode": "recovery",
+    "context": [
+      "Только восстановление защиты · рабочая админка и денежные действия недоступны",
+      "Protection recovery only · workspace and money actions unavailable"
+    ]
+  },
+  {
+    "key": "account-key-recovery-backup-cancelled",
+    "title": [
+      "Проверка запасного отменена",
+      "Backup check cancelled"
+    ],
+    "primary": [
+      "Проверен · результат сохранён",
+      "Verified · result retained"
+    ],
+    "backup": [
+      "Проверка отменена",
+      "Check cancelled"
+    ],
+    "message": [
+      "Второй запрос отменён; запасной ключ не засчитан. Продолжите второй шаг, пока первый результат действителен. Отмена не завершает настройку новой пары и не подтверждает денежные действия.",
+      "The second request was cancelled; the backup key has not passed. Resume while the primary result is valid. Cancellation does not finish the new-key setup or approve money actions."
+    ],
+    "actions": [
+      [
+        "Продолжить второй шаг",
+        "Resume second step",
+        "account-key-recovery-backup-prompt"
+      ],
+      [
+        "К экрану входа",
+        "Back to sign-in",
+        "admin-login"
+      ]
+    ],
+    "sourceKey": "key-backup-cancelled",
+    "mode": "recovery",
+    "context": [
+      "Только восстановление защиты · рабочая админка и денежные действия недоступны",
+      "Protection recovery only · workspace and money actions unavailable"
+    ]
+  },
+  {
+    "key": "account-key-recovery-backup-duplicate",
+    "title": [
+      "Нужен другой физический ключ",
+      "Use a different physical key"
+    ],
+    "primary": [
+      "Проверен · результат сохранён",
+      "Verified · result retained"
+    ],
+    "backup": [
+      "Повтор основного отклонён",
+      "Primary-key reuse rejected"
+    ],
+    "message": [
+      "Ответ получен от уже проверенного основного ключа. Он не считается запасным. Отключите его и используйте другой физический ключ для второго шага. Первый результат сохраняется, пока действителен.",
+      "The response came from the verified primary key and cannot count as backup. Disconnect it and use a different physical key for the second step. The primary result remains valid until it expires."
+    ],
+    "actions": [
+      [
+        "Проверить другой ключ",
+        "Verify different key",
+        "account-key-recovery-backup-prompt"
+      ],
+      [
+        "К экрану входа",
+        "Back to sign-in",
+        "admin-login"
+      ]
+    ],
+    "sourceKey": "key-backup-duplicate",
+    "mode": "recovery",
+    "context": [
+      "Только восстановление защиты · рабочая админка и денежные действия недоступны",
+      "Protection recovery only · workspace and money actions unavailable"
+    ]
+  },
+  {
+    "key": "account-key-recovery-proof-expired",
+    "title": [
+      "Проверку нужно начать заново",
+      "Start verification again"
+    ],
+    "primary": [
+      "Результат устарел",
+      "Result expired"
+    ],
+    "backup": [
+      "Не засчитан",
+      "Not accepted"
+    ],
+    "message": [
+      "Срок проверки истёк или состав зарегистрированных ключей изменился. Старые результаты нельзя использовать. Начните с основного ключа. Конкретный срок задаётся политикой безопасности при реализации, здесь численное значение не утверждается.",
+      "Verification expired or registered keys changed. Previous results cannot be reused. Start with the primary key. The security policy sets the validity period during implementation; no numeric value is approved here."
+    ],
+    "actions": [
+      [
+        "Начать заново",
+        "Start again",
+        "mfa-recovery-setup"
+      ],
+      [
+        "К экрану входа",
+        "Back to sign-in",
+        "admin-login"
+      ]
+    ],
+    "sourceKey": "key-proof-expired",
+    "mode": "recovery",
+    "context": [
+      "Только восстановление защиты · рабочая админка и денежные действия недоступны",
+      "Protection recovery only · workspace and money actions unavailable"
+    ]
+  },
+  {
+    "key": "mfa-recovery-complete",
+    "existing": [
+      "2170:21586",
+      "2170:79585"
+    ],
+    "title": [
+      "Защита восстановлена",
+      "Protection restored"
+    ],
+    "primary": [
+      "Проверен · основной",
+      "Verified · primary"
+    ],
+    "backup": [
+      "Проверен · отдельный ключ",
+      "Verified · distinct key"
+    ],
+    "message": [
+      "Оба новых физических ключа прошли отдельные проверки. Войдите заново защищённым способом. Отозванные сеансы и прежние денежные подтверждения не восстановлены.",
+      "Both new physical keys passed separate checks. Sign in again with a protected method. Revoked sessions and previous money approvals are not restored."
+    ],
+    "actions": [
+      [
+        "Войти заново",
+        "Sign in again",
+        "admin-login"
+      ]
+    ],
+    "sourceKey": "mfa-enabled",
+    "mode": "recovery",
+    "context": [
+      "Защита восстановлена · нужен новый защищённый вход · учебный пример",
+      "Protection restored · fresh protected sign-in required · demo"
+    ]
+  }
+]

@@ -1,0 +1,708 @@
+[
+  {
+    "id": "2155:81485",
+    "name": "EN · mfa-replace-confirm · Verify replacement keys",
+    "links": [
+      {
+        "id": "3323:208758",
+        "name": "Action · account-key-replace-primary-prompt",
+        "to": [
+          "3323:208251"
+        ]
+      },
+      {
+        "id": "3323:208759",
+        "name": "Action · account-security",
+        "to": [
+          "2155:79959"
+        ]
+      }
+    ],
+    "results": [
+      "Key",
+      "Result",
+      "Condition",
+      "New primary key",
+      "Not verified",
+      "Separate browser request",
+      "Distinct backup key",
+      "Waiting for primary key",
+      "Different key, separate request"
+    ]
+  },
+  {
+    "id": "2170:79468",
+    "name": "EN · mfa-recovery-setup · Set up new security keys",
+    "links": [
+      {
+        "id": "3323:210050",
+        "name": "Action · account-key-recovery-primary-prompt",
+        "to": [
+          "3323:208492"
+        ]
+      },
+      {
+        "id": "3323:210051",
+        "name": "Action · admin-login",
+        "to": [
+          "2138:67538"
+        ]
+      }
+    ],
+    "results": [
+      "Key",
+      "Result",
+      "Condition",
+      "New primary key",
+      "Not verified",
+      "Separate browser request",
+      "Distinct backup key",
+      "Waiting for primary key",
+      "Different key, separate request"
+    ],
+    "recoveryNavigation": [
+      "Main content"
+    ]
+  },
+  {
+    "id": "3323:208251",
+    "name": "EN · account-key-replace-primary-prompt · Confirm primary key",
+    "links": [
+      {
+        "id": "3323:208895",
+        "name": "Action · mfa-replace-confirm",
+        "to": [
+          "2155:81485"
+        ]
+      },
+      {
+        "id": "3323:208898",
+        "name": "Prototype outcome · account-key-replace-backup-ready",
+        "to": [
+          "3323:208313"
+        ]
+      },
+      {
+        "id": "3323:208899",
+        "name": "Prototype outcome · account-key-replace-primary-error",
+        "to": [
+          "3323:208284"
+        ]
+      },
+      {
+        "id": "3323:208900",
+        "name": "Prototype outcome · account-key-replace-proof-expired",
+        "to": [
+          "3323:208463"
+        ]
+      }
+    ],
+    "results": [
+      "Key",
+      "Result",
+      "Condition",
+      "New primary key",
+      "Waiting for browser response",
+      "Separate browser request",
+      "Distinct backup key",
+      "Not available yet",
+      "Different key, separate request"
+    ]
+  },
+  {
+    "id": "3323:208492",
+    "name": "EN · account-key-recovery-primary-prompt · Confirm primary key",
+    "links": [
+      {
+        "id": "3323:210190",
+        "name": "Action · mfa-recovery-setup",
+        "to": [
+          "2170:79468"
+        ]
+      },
+      {
+        "id": "3323:210193",
+        "name": "Prototype outcome · account-key-recovery-backup-ready",
+        "to": [
+          "3323:208554"
+        ]
+      },
+      {
+        "id": "3323:210194",
+        "name": "Prototype outcome · account-key-recovery-primary-error",
+        "to": [
+          "3323:208525"
+        ]
+      },
+      {
+        "id": "3323:210195",
+        "name": "Prototype outcome · account-key-recovery-proof-expired",
+        "to": [
+          "3323:208704"
+        ]
+      }
+    ],
+    "results": [
+      "Key",
+      "Result",
+      "Condition",
+      "New primary key",
+      "Waiting for browser response",
+      "Separate browser request",
+      "Distinct backup key",
+      "Not available yet",
+      "Different key, separate request"
+    ],
+    "recoveryNavigation": [
+      "Main content"
+    ]
+  },
+  {
+    "id": "3323:208313",
+    "name": "EN · account-key-replace-backup-ready · Verify the backup key next",
+    "links": [
+      {
+        "id": "3323:209181",
+        "name": "Action · account-key-replace-backup-prompt",
+        "to": [
+          "3323:208342"
+        ]
+      },
+      {
+        "id": "3323:209182",
+        "name": "Action · account-security",
+        "to": [
+          "2155:79959"
+        ]
+      }
+    ],
+    "results": [
+      "Key",
+      "Result",
+      "Condition",
+      "New primary key",
+      "Verified separately",
+      "Separate browser request",
+      "Distinct backup key",
+      "Not verified",
+      "Different key, separate request"
+    ]
+  },
+  {
+    "id": "3323:208284",
+    "name": "EN · account-key-replace-primary-error · Primary key not verified",
+    "links": [
+      {
+        "id": "3323:209044",
+        "name": "Action · account-key-replace-primary-prompt",
+        "to": [
+          "3323:208251"
+        ]
+      },
+      {
+        "id": "3323:209045",
+        "name": "Action · account-security",
+        "to": [
+          "2155:79959"
+        ]
+      }
+    ],
+    "results": [
+      "Key",
+      "Result",
+      "Condition",
+      "New primary key",
+      "Verification failed",
+      "Separate browser request",
+      "Distinct backup key",
+      "Not available yet",
+      "Different key, separate request"
+    ]
+  },
+  {
+    "id": "3323:208463",
+    "name": "EN · account-key-replace-proof-expired · Start verification again",
+    "links": [
+      {
+        "id": "3323:209883",
+        "name": "Action · mfa-replace",
+        "to": [
+          "2155:81364"
+        ]
+      },
+      {
+        "id": "3323:209884",
+        "name": "Action · account-security",
+        "to": [
+          "2155:79959"
+        ]
+      }
+    ],
+    "results": [
+      "Key",
+      "Result",
+      "Condition",
+      "New primary key",
+      "Result expired",
+      "Separate browser request",
+      "Distinct backup key",
+      "Not accepted",
+      "Different key, separate request"
+    ]
+  },
+  {
+    "id": "3323:208554",
+    "name": "EN · account-key-recovery-backup-ready · Verify the backup key next",
+    "links": [
+      {
+        "id": "3323:210482",
+        "name": "Action · account-key-recovery-backup-prompt",
+        "to": [
+          "3323:208583"
+        ]
+      },
+      {
+        "id": "3323:210483",
+        "name": "Action · admin-login",
+        "to": [
+          "2138:67538"
+        ]
+      }
+    ],
+    "results": [
+      "Key",
+      "Result",
+      "Condition",
+      "New primary key",
+      "Verified separately",
+      "Separate browser request",
+      "Distinct backup key",
+      "Not verified",
+      "Different key, separate request"
+    ],
+    "recoveryNavigation": [
+      "Main content"
+    ]
+  },
+  {
+    "id": "3323:208525",
+    "name": "EN · account-key-recovery-primary-error · Primary key not verified",
+    "links": [
+      {
+        "id": "3323:210342",
+        "name": "Action · account-key-recovery-primary-prompt",
+        "to": [
+          "3323:208492"
+        ]
+      },
+      {
+        "id": "3323:210343",
+        "name": "Action · admin-login",
+        "to": [
+          "2138:67538"
+        ]
+      }
+    ],
+    "results": [
+      "Key",
+      "Result",
+      "Condition",
+      "New primary key",
+      "Verification failed",
+      "Separate browser request",
+      "Distinct backup key",
+      "Not available yet",
+      "Different key, separate request"
+    ],
+    "recoveryNavigation": [
+      "Main content"
+    ]
+  },
+  {
+    "id": "3323:208704",
+    "name": "EN · account-key-recovery-proof-expired · Start verification again",
+    "links": [
+      {
+        "id": "3323:211199",
+        "name": "Action · mfa-recovery-setup",
+        "to": [
+          "2170:79468"
+        ]
+      },
+      {
+        "id": "3323:211200",
+        "name": "Action · admin-login",
+        "to": [
+          "2138:67538"
+        ]
+      }
+    ],
+    "results": [
+      "Key",
+      "Result",
+      "Condition",
+      "New primary key",
+      "Result expired",
+      "Separate browser request",
+      "Distinct backup key",
+      "Not accepted",
+      "Different key, separate request"
+    ],
+    "recoveryNavigation": [
+      "Main content"
+    ]
+  },
+  {
+    "id": "3323:208342",
+    "name": "EN · account-key-replace-backup-prompt · Confirm backup key",
+    "links": [
+      {
+        "id": "3323:209318",
+        "name": "Action · account-key-replace-backup-cancelled",
+        "to": [
+          "3323:208405"
+        ]
+      },
+      {
+        "id": "3323:209321",
+        "name": "Prototype outcome · mfa-replaced",
+        "to": [
+          "2155:81601"
+        ]
+      },
+      {
+        "id": "3323:209322",
+        "name": "Prototype outcome · account-key-replace-backup-error",
+        "to": [
+          "3323:208376"
+        ]
+      },
+      {
+        "id": "3323:209323",
+        "name": "Prototype outcome · account-key-replace-backup-duplicate",
+        "to": [
+          "3323:208434"
+        ]
+      },
+      {
+        "id": "3323:209324",
+        "name": "Prototype outcome · account-key-replace-proof-expired",
+        "to": [
+          "3323:208463"
+        ]
+      }
+    ],
+    "results": [
+      "Key",
+      "Result",
+      "Condition",
+      "New primary key",
+      "Verified · result retained",
+      "Separate browser request",
+      "Distinct backup key",
+      "Waiting for browser response",
+      "Different key, separate request"
+    ]
+  },
+  {
+    "id": "3323:208583",
+    "name": "EN · account-key-recovery-backup-prompt · Confirm backup key",
+    "links": [
+      {
+        "id": "3323:210622",
+        "name": "Action · account-key-recovery-backup-cancelled",
+        "to": [
+          "3323:208646"
+        ]
+      },
+      {
+        "id": "3323:210625",
+        "name": "Prototype outcome · mfa-recovery-complete",
+        "to": [
+          "2170:79585"
+        ]
+      },
+      {
+        "id": "3323:210626",
+        "name": "Prototype outcome · account-key-recovery-backup-error",
+        "to": [
+          "3323:208617"
+        ]
+      },
+      {
+        "id": "3323:210627",
+        "name": "Prototype outcome · account-key-recovery-backup-duplicate",
+        "to": [
+          "3323:208675"
+        ]
+      },
+      {
+        "id": "3323:210628",
+        "name": "Prototype outcome · account-key-recovery-proof-expired",
+        "to": [
+          "3323:208704"
+        ]
+      }
+    ],
+    "results": [
+      "Key",
+      "Result",
+      "Condition",
+      "New primary key",
+      "Verified · result retained",
+      "Separate browser request",
+      "Distinct backup key",
+      "Waiting for browser response",
+      "Different key, separate request"
+    ],
+    "recoveryNavigation": [
+      "Main content"
+    ]
+  },
+  {
+    "id": "3323:208405",
+    "name": "EN · account-key-replace-backup-cancelled · Backup check cancelled",
+    "links": [
+      {
+        "id": "3323:209609",
+        "name": "Action · account-key-replace-backup-prompt",
+        "to": [
+          "3323:208342"
+        ]
+      },
+      {
+        "id": "3323:209610",
+        "name": "Action · account-security",
+        "to": [
+          "2155:79959"
+        ]
+      }
+    ],
+    "results": [
+      "Key",
+      "Result",
+      "Condition",
+      "New primary key",
+      "Verified · result retained",
+      "Separate browser request",
+      "Distinct backup key",
+      "Check cancelled",
+      "Different key, separate request"
+    ]
+  },
+  {
+    "id": "2155:81601",
+    "name": "EN · mfa-replaced · Replacement keys verified",
+    "links": [
+      {
+        "id": "3323:209969",
+        "name": "Action · account-security",
+        "to": [
+          "2155:79959"
+        ]
+      }
+    ],
+    "results": [
+      "Key",
+      "Result",
+      "Condition",
+      "New primary key",
+      "Verified · primary",
+      "Separate browser request",
+      "Distinct backup key",
+      "Verified · distinct key",
+      "Different key, separate request"
+    ]
+  },
+  {
+    "id": "3323:208376",
+    "name": "EN · account-key-replace-backup-error · Backup key not verified",
+    "links": [
+      {
+        "id": "3323:209472",
+        "name": "Action · account-key-replace-backup-prompt",
+        "to": [
+          "3323:208342"
+        ]
+      },
+      {
+        "id": "3323:209473",
+        "name": "Action · account-security",
+        "to": [
+          "2155:79959"
+        ]
+      }
+    ],
+    "results": [
+      "Key",
+      "Result",
+      "Condition",
+      "New primary key",
+      "Verified · result retained",
+      "Separate browser request",
+      "Distinct backup key",
+      "Verification failed",
+      "Different key, separate request"
+    ]
+  },
+  {
+    "id": "3323:208434",
+    "name": "EN · account-key-replace-backup-duplicate · Use a different physical key",
+    "links": [
+      {
+        "id": "3323:209746",
+        "name": "Action · account-key-replace-backup-prompt",
+        "to": [
+          "3323:208342"
+        ]
+      },
+      {
+        "id": "3323:209747",
+        "name": "Action · account-security",
+        "to": [
+          "2155:79959"
+        ]
+      }
+    ],
+    "results": [
+      "Key",
+      "Result",
+      "Condition",
+      "New primary key",
+      "Verified · result retained",
+      "Separate browser request",
+      "Distinct backup key",
+      "Primary-key reuse rejected",
+      "Different key, separate request"
+    ]
+  },
+  {
+    "id": "3323:208646",
+    "name": "EN · account-key-recovery-backup-cancelled · Backup check cancelled",
+    "links": [
+      {
+        "id": "3323:210919",
+        "name": "Action · account-key-recovery-backup-prompt",
+        "to": [
+          "3323:208583"
+        ]
+      },
+      {
+        "id": "3323:210920",
+        "name": "Action · admin-login",
+        "to": [
+          "2138:67538"
+        ]
+      }
+    ],
+    "results": [
+      "Key",
+      "Result",
+      "Condition",
+      "New primary key",
+      "Verified · result retained",
+      "Separate browser request",
+      "Distinct backup key",
+      "Check cancelled",
+      "Different key, separate request"
+    ],
+    "recoveryNavigation": [
+      "Main content"
+    ]
+  },
+  {
+    "id": "2170:79585",
+    "name": "EN · mfa-recovery-complete · Protection restored",
+    "links": [
+      {
+        "id": "3323:211288",
+        "name": "Action · admin-login",
+        "to": [
+          "2138:67538"
+        ]
+      }
+    ],
+    "results": [
+      "Key",
+      "Result",
+      "Condition",
+      "New primary key",
+      "Verified · primary",
+      "Separate browser request",
+      "Distinct backup key",
+      "Verified · distinct key",
+      "Different key, separate request"
+    ],
+    "recoveryNavigation": [
+      "Main content"
+    ]
+  },
+  {
+    "id": "3323:208617",
+    "name": "EN · account-key-recovery-backup-error · Backup key not verified",
+    "links": [
+      {
+        "id": "3323:210779",
+        "name": "Action · account-key-recovery-backup-prompt",
+        "to": [
+          "3323:208583"
+        ]
+      },
+      {
+        "id": "3323:210780",
+        "name": "Action · admin-login",
+        "to": [
+          "2138:67538"
+        ]
+      }
+    ],
+    "results": [
+      "Key",
+      "Result",
+      "Condition",
+      "New primary key",
+      "Verified · result retained",
+      "Separate browser request",
+      "Distinct backup key",
+      "Verification failed",
+      "Different key, separate request"
+    ],
+    "recoveryNavigation": [
+      "Main content"
+    ]
+  },
+  {
+    "id": "3323:208675",
+    "name": "EN · account-key-recovery-backup-duplicate · Use a different physical key",
+    "links": [
+      {
+        "id": "3323:211059",
+        "name": "Action · account-key-recovery-backup-prompt",
+        "to": [
+          "3323:208583"
+        ]
+      },
+      {
+        "id": "3323:211060",
+        "name": "Action · admin-login",
+        "to": [
+          "2138:67538"
+        ]
+      }
+    ],
+    "results": [
+      "Key",
+      "Result",
+      "Condition",
+      "New primary key",
+      "Verified · result retained",
+      "Separate browser request",
+      "Distinct backup key",
+      "Primary-key reuse rejected",
+      "Different key, separate request"
+    ],
+    "recoveryNavigation": [
+      "Main content"
+    ]
+  }
+]
