@@ -1,0 +1,1806 @@
+{
+  "locale": "en",
+  "rootFrames": 888,
+  "roots": [
+    {
+      "key": "users-current-empty",
+      "id": "3484:71520",
+      "title": "No matching users",
+      "context": "No matches for the applied values below. This is distinct from read failure or no access.",
+      "actor": "Elena Morozova · STAFF-201 · Owner A",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 103,
+      "imagePaintCount": 0,
+      "headers": [],
+      "rows": [],
+      "fields": [
+        {
+          "label": "User / ID",
+          "value": "U-DEMO-002"
+        },
+        {
+          "label": "VIP",
+          "value": "No VIP"
+        },
+        {
+          "label": "Status",
+          "value": "Needs attention"
+        },
+        {
+          "label": "Venue",
+          "value": "Polymarket"
+        },
+        {
+          "label": "Period",
+          "value": "All time"
+        }
+      ],
+      "actions": [
+        {
+          "id": "3484:71710",
+          "label": "Edit filters",
+          "types": [
+            "SET_VARIABLE",
+            "NODE"
+          ],
+          "targets": [
+            "3445:202451"
+          ],
+          "topLevelActions": 6
+        },
+        {
+          "id": "3484:71715",
+          "label": "Reset filters",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "1982:38611"
+          ],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "users-current-stale",
+      "id": "3484:71719",
+      "title": "User selection is stale",
+      "context": "Prior confirmed snapshot. Applied filters are shown below. Refresh does not clear them.",
+      "actor": "Elena Morozova · STAFF-201 · Owner A",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 110,
+      "imagePaintCount": 0,
+      "headers": [
+        "State / freshness",
+        "Venue and VIP",
+        "User"
+      ],
+      "rows": [
+        [
+          "Last snapshot: order result unknown; not a fresh check",
+          "Polymarket · no VIP",
+          "U-DEMO-002 · Demo Noor"
+        ]
+      ],
+      "fields": [
+        {
+          "label": "User / ID",
+          "value": "U-DEMO-002"
+        },
+        {
+          "label": "VIP",
+          "value": "No VIP"
+        },
+        {
+          "label": "Status",
+          "value": "Needs attention"
+        },
+        {
+          "label": "Venue",
+          "value": "Polymarket"
+        },
+        {
+          "label": "Period",
+          "value": "All time"
+        }
+      ],
+      "actions": [
+        {
+          "id": "3484:71913",
+          "label": "Refresh this selection",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3445:202693"
+          ],
+          "topLevelActions": 1
+        },
+        {
+          "id": "3484:71917",
+          "label": "Edit filters",
+          "types": [
+            "SET_VARIABLE",
+            "NODE"
+          ],
+          "targets": [
+            "3445:202451"
+          ],
+          "topLevelActions": 6
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "users-period-invalid",
+      "id": "3484:71921",
+      "title": "Check the date range",
+      "context": "Start 20 Oct 2026 is later than end 13 Oct 2026. Filters were not applied. Correct the range; the previous selection is not replaced with an empty result.",
+      "actor": "Elena Morozova · STAFF-201 · Owner A",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 65,
+      "imagePaintCount": 0,
+      "headers": [],
+      "rows": [],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3484:72111",
+          "label": "Correct period",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3445:202451"
+          ],
+          "topLevelActions": 1
+        },
+        {
+          "id": "3484:72115",
+          "label": "Back to previous selection",
+          "types": [
+            "SET_VARIABLE",
+            "NODE"
+          ],
+          "targets": [
+            "3445:202693",
+            "3484:71520"
+          ],
+          "topLevelActions": 15
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "sessions-page-1",
+      "id": "3484:72119",
+      "title": "Sessions · page 1",
+      "context": "All venues · Alpha / Paper · ID ascending · 1 of 2 · one row per page in this synthetic example. Sort and position survive return.",
+      "actor": "Elena Morozova · STAFF-201 · Owner A",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 76,
+      "imagePaintCount": 0,
+      "headers": [
+        "State",
+        "Venue",
+        "Session / user"
+      ],
+      "rows": [
+        [
+          "Active · no positions or orders",
+          "Limitless",
+          "S-DEMO-001 · U-DEMO-001"
+        ]
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3484:72248",
+          "label": "Open S-DEMO-001",
+          "types": [
+            "SET_VARIABLE",
+            "NODE"
+          ],
+          "targets": [
+            "1982:38913"
+          ],
+          "topLevelActions": 2
+        },
+        {
+          "id": "3484:72252",
+          "label": "Next page",
+          "types": [
+            "SET_VARIABLE",
+            "NODE"
+          ],
+          "targets": [
+            "3484:72260"
+          ],
+          "topLevelActions": 2
+        },
+        {
+          "id": "3484:72256",
+          "label": "Stale snapshot · example",
+          "types": [
+            "SET_VARIABLE",
+            "NODE"
+          ],
+          "targets": [
+            "3484:72667"
+          ],
+          "topLevelActions": 6
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "sessions-page-2",
+      "id": "3484:72260",
+      "title": "Sessions · page 2",
+      "context": "All venues · Alpha / Paper · ID ascending · 2 of 2 · one row per page in this synthetic example. Sort and position survive return.",
+      "actor": "Elena Morozova · STAFF-201 · Owner A",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 74,
+      "imagePaintCount": 0,
+      "headers": [
+        "State",
+        "Venue",
+        "Session / user"
+      ],
+      "rows": [
+        [
+          "Order result unknown · $20 reserved",
+          "Polymarket",
+          "S-DEMO-002 · U-DEMO-002"
+        ]
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3484:72389",
+          "label": "Open S-DEMO-002",
+          "types": [
+            "SET_VARIABLE",
+            "NODE"
+          ],
+          "targets": [
+            "1982:39215"
+          ],
+          "topLevelActions": 2
+        },
+        {
+          "id": "3484:72393",
+          "label": "Previous page",
+          "types": [
+            "SET_VARIABLE",
+            "NODE"
+          ],
+          "targets": [
+            "3484:72119"
+          ],
+          "topLevelActions": 2
+        },
+        {
+          "id": "3484:72397",
+          "label": "Stale snapshot · example",
+          "types": [
+            "SET_VARIABLE",
+            "NODE"
+          ],
+          "targets": [
+            "3484:72667"
+          ],
+          "topLevelActions": 6
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "sessions-loading",
+      "id": "3484:72401",
+      "title": "Loading sessions",
+      "context": "All venues · Alpha / Paper · ID ascending · page 2 of 2. New results have not arrived.",
+      "actor": "Elena Morozova · STAFF-201 · Owner A",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 65,
+      "imagePaintCount": 0,
+      "headers": [],
+      "rows": [],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3484:72526",
+          "label": "Read completed · example",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3484:72119",
+            "3484:72260",
+            "3484:72260",
+            "3525:73164"
+          ],
+          "topLevelActions": 4
+        },
+        {
+          "id": "3484:72530",
+          "label": "Read failure · example",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3484:72534"
+          ],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "sessions-error",
+      "id": "3484:72534",
+      "title": "Session refresh failed",
+      "context": "All venues · Alpha / Paper · ID ascending · page 2 of 2. New results have not arrived.",
+      "actor": "Elena Morozova · STAFF-201 · Owner A",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 65,
+      "imagePaintCount": 0,
+      "headers": [],
+      "rows": [],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3484:72659",
+          "label": "Retry this page",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3484:72401"
+          ],
+          "topLevelActions": 1
+        },
+        {
+          "id": "3484:72663",
+          "label": "No matches · example",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3484:72808"
+          ],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "sessions-stale",
+      "id": "3484:72667",
+      "title": "Sessions · stale snapshot",
+      "context": "All venues · Alpha / Paper · ID ascending · page 2 of 2. New results have not arrived.",
+      "actor": "Elena Morozova · STAFF-201 · Owner A",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 74,
+      "imagePaintCount": 0,
+      "headers": [
+        "State / freshness",
+        "Venue",
+        "Session / user"
+      ],
+      "rows": [
+        [
+          "S-DEMO-002 · U-DEMO-002",
+          "Polymarket",
+          "Last snapshot · order result unknown · $20 reserved"
+        ]
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3484:72796",
+          "label": "Back to previous page",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3484:72119",
+            "3484:72260",
+            "3484:72260",
+            "3525:73164"
+          ],
+          "topLevelActions": 4
+        },
+        {
+          "id": "3484:72800",
+          "label": "No matches · example",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3484:72808"
+          ],
+          "topLevelActions": 1
+        },
+        {
+          "id": "3484:72804",
+          "label": "Refresh without reset",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3484:72401"
+          ],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "sessions-empty",
+      "id": "3484:72808",
+      "title": "No sessions match",
+      "context": "Filters: all venues · Alpha / Paper · ID ascending · page 2. Independent example: search S-NOT-FOUND. Original page 2 is retained until reset.",
+      "actor": "Elena Morozova · STAFF-201 · Owner A",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 65,
+      "imagePaintCount": 0,
+      "headers": [],
+      "rows": [],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3484:72933",
+          "label": "Back to previous page",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3484:72119",
+            "3484:72260",
+            "3484:72260",
+            "3525:73164"
+          ],
+          "topLevelActions": 4
+        },
+        {
+          "id": "3484:72937",
+          "label": "Reset filters",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3484:72119"
+          ],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "reconciliation-selected",
+      "id": "3484:208767",
+      "title": "Reconciliation · unknown result",
+      "context": "Polymarket · unknown result · CASE-DEMO-03 / ORD-DEMO-03 · page 1. Read and verify only. Orders and partner payouts are not combined by this filter.",
+      "actor": "Oleg Smirnov · STAFF-206 · scoped access",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 57,
+      "imagePaintCount": 0,
+      "headers": [
+        "Result / verification",
+        "Venue / object",
+        "Case"
+      ],
+      "rows": [
+        [
+          "Verification needed · snapshot 13 Oct 12:00 UTC",
+          "Polymarket · ORD-DEMO-03",
+          "CASE-DEMO-03"
+        ]
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3484:208903",
+          "label": "Open CASE-DEMO-03",
+          "types": [
+            "SET_VARIABLE",
+            "NODE"
+          ],
+          "targets": [
+            "2414:122334"
+          ],
+          "topLevelActions": 2
+        },
+        {
+          "id": "3484:208907",
+          "label": "Refresh selected cases",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3484:208935"
+          ],
+          "topLevelActions": 1
+        },
+        {
+          "id": "3484:208911",
+          "label": "Stale snapshot · example",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3484:209255"
+          ],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "reconciliation-loading",
+      "id": "3484:208935",
+      "title": "Loading selected cases",
+      "context": "Polymarket · unknown result · CASE-DEMO-03 / ORD-DEMO-03 · page 1. Read and verify only. Orders and partner payouts are not combined by this filter.",
+      "actor": "Oleg Smirnov · STAFF-206 · scoped access",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 48,
+      "imagePaintCount": 0,
+      "headers": [],
+      "rows": [],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3484:209067",
+          "label": "Read completed · example",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3484:208767"
+          ],
+          "topLevelActions": 1
+        },
+        {
+          "id": "3484:209071",
+          "label": "Read failure · example",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3484:209095"
+          ],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "reconciliation-error",
+      "id": "3484:209095",
+      "title": "Reconciliation selection unavailable",
+      "context": "Polymarket · unknown result · CASE-DEMO-03 / ORD-DEMO-03 · page 1. Read and verify only. Orders and partner payouts are not combined by this filter.",
+      "actor": "Oleg Smirnov · STAFF-206 · scoped access",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 48,
+      "imagePaintCount": 0,
+      "headers": [],
+      "rows": [],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3484:209227",
+          "label": "Retry this selection",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3484:208935"
+          ],
+          "topLevelActions": 1
+        },
+        {
+          "id": "3484:209231",
+          "label": "Back to prior snapshot",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3484:208767"
+          ],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "reconciliation-stale",
+      "id": "3484:209255",
+      "title": "Reconciliation · stale snapshot",
+      "context": "Polymarket · unknown result · CASE-DEMO-03 / ORD-DEMO-03 · page 1. Read and verify only. Orders and partner payouts are not combined by this filter.",
+      "actor": "Oleg Smirnov · STAFF-206 · scoped access",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 55,
+      "imagePaintCount": 0,
+      "headers": [
+        "Result / verification",
+        "Venue / object",
+        "Case"
+      ],
+      "rows": [
+        [
+          "Verification needed · snapshot 13 Oct 12:00 UTC",
+          "Polymarket · ORD-DEMO-03",
+          "CASE-DEMO-03"
+        ]
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3484:209391",
+          "label": "Retry this selection",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3484:208935"
+          ],
+          "topLevelActions": 1
+        },
+        {
+          "id": "3484:209395",
+          "label": "Back to prior snapshot",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3484:208767"
+          ],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "support-page2-1060",
+      "id": "3484:209419",
+      "title": "TKT-1060 · How do I use demo mode?",
+      "context": "Support queue page 2 · all statuses · 13 Oct 2026. Permitted read only; TKT-1042 conversation is not substituted.",
+      "actor": "Oleg Smirnov · STAFF-206 · scoped access",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 61,
+      "imagePaintCount": 0,
+      "headers": [
+        "Meaning and consequences",
+        "State / value",
+        "Object / condition"
+      ],
+      "rows": [
+        [
+          "How do I use demo mode?",
+          "TKT-1060 · Open",
+          "Ticket"
+        ],
+        [
+          "General question",
+          "Mina Ali",
+          "Client"
+        ],
+        [
+          "No invented messages or linked session",
+          "Details not connected",
+          "Conversation"
+        ]
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3484:209563",
+          "label": "Back to original support page",
+          "types": [
+            "BACK"
+          ],
+          "targets": [],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "support-page2-1027",
+      "id": "3484:209587",
+      "title": "TKT-1027 · Question about the trader list",
+      "context": "Support queue page 2 · all statuses · 13 Oct 2026. Permitted read only; TKT-1042 conversation is not substituted.",
+      "actor": "Oleg Smirnov · STAFF-206 · scoped access",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 61,
+      "imagePaintCount": 0,
+      "headers": [
+        "Meaning and consequences",
+        "State / value",
+        "Object / condition"
+      ],
+      "rows": [
+        [
+          "Question about the trader list",
+          "TKT-1027 · Closed",
+          "Ticket"
+        ],
+        [
+          "Limitless",
+          "Karim Said",
+          "Client"
+        ],
+        [
+          "No invented messages or linked session",
+          "Details not connected",
+          "Conversation"
+        ]
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3484:209731",
+          "label": "Back to original support page",
+          "types": [
+            "BACK"
+          ],
+          "targets": [],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "incident-feed-detail",
+      "id": "3485:208427",
+      "title": "INC-DEMO-04 · data feed",
+      "context": "Separate data-feed case. Incident changes do not change money, orders, permissions or project restrictions.",
+      "actor": "Oleg Smirnov · STAFF-206 · scoped access",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 63,
+      "imagePaintCount": 0,
+      "headers": [
+        "Meaning and consequences",
+        "State / value",
+        "Object / condition"
+      ],
+      "rows": [
+        [
+          "Medium severity · CONN-LL-01 · no monetary operation",
+          "INC-DEMO-04 · Limitless · data feed",
+          "Incident"
+        ],
+        [
+          "Diagnostic observation in a synthetic snapshot; not a real API response",
+          "FEED-DEMO-04 · checkpoint not advancing",
+          "Observation"
+        ],
+        [
+          "Oleg Smirnov · STAFF-206. Feed is not restored yet",
+          "Investigating · revision 2",
+          "State"
+        ]
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3485:208571",
+          "label": "Check closure eligibility",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3485:208599"
+          ],
+          "topLevelActions": 1
+        },
+        {
+          "id": "3485:208575",
+          "label": "Limitless diagnostics",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3182:222269"
+          ],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "incident-feed-blocked",
+      "id": "3485:208599",
+      "title": "INC-DEMO-04 cannot be closed",
+      "context": "Separate data-feed case. Incident changes do not change money, orders, permissions or project restrictions.",
+      "actor": "Oleg Smirnov · STAFF-206 · scoped access",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 67,
+      "imagePaintCount": 0,
+      "headers": [
+        "Meaning and consequences",
+        "State / value",
+        "Object / condition"
+      ],
+      "rows": [
+        [
+          "Medium severity · CONN-LL-01 · no monetary operation",
+          "INC-DEMO-04 · Limitless · data feed",
+          "Incident"
+        ],
+        [
+          "Diagnostic observation in a synthetic snapshot; not a real API response",
+          "FEED-DEMO-04 · checkpoint not advancing",
+          "Observation"
+        ],
+        [
+          "A status edit alone cannot close the incident",
+          "Feed recovery is not confirmed",
+          "Reason"
+        ],
+        [
+          "Does not enable trading, withdrawals or service recovery",
+          "Obtain new evidence",
+          "Permitted next step"
+        ]
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3485:208747",
+          "label": "New evidence · example",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3485:208775"
+          ],
+          "topLevelActions": 1
+        },
+        {
+          "id": "3485:208751",
+          "label": "Back to incident",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3485:208427"
+          ],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "incident-feed-confirmed",
+      "id": "3485:208775",
+      "title": "INC-DEMO-04 · evidence received",
+      "context": "Separate data-feed case. Incident changes do not change money, orders, permissions or project restrictions.",
+      "actor": "Oleg Smirnov · STAFF-206 · scoped access",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 67,
+      "imagePaintCount": 0,
+      "headers": [
+        "Meaning and consequences",
+        "State / value",
+        "Object / condition"
+      ],
+      "rows": [
+        [
+          "Medium severity · CONN-LL-01 · no monetary operation",
+          "INC-DEMO-04 · Limitless · data feed",
+          "Incident"
+        ],
+        [
+          "Diagnostic observation in a synthetic snapshot; not a real API response",
+          "FEED-DEMO-04 · checkpoint not advancing",
+          "Observation"
+        ],
+        [
+          "Independent synthetic read result; not automatic after a click",
+          "EVID-FEED-DEMO-04 · checkpoint advanced",
+          "Evidence"
+        ],
+        [
+          "Does not confirm trading or monetary connections",
+          "None found in this snapshot",
+          "Remaining discrepancies"
+        ]
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3485:208923",
+          "label": "Prepare closure",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3485:208951"
+          ],
+          "topLevelActions": 1
+        },
+        {
+          "id": "3485:208927",
+          "label": "Revision conflict · example",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3485:209303"
+          ],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "incident-feed-close",
+      "id": "3485:208951",
+      "title": "Close INC-DEMO-04?",
+      "context": "Separate data-feed case. Incident changes do not change money, orders, permissions or project restrictions.",
+      "actor": "Oleg Smirnov · STAFF-206 · scoped access",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 69,
+      "imagePaintCount": 0,
+      "headers": [
+        "Meaning and consequences",
+        "State / value",
+        "Object / condition"
+      ],
+      "rows": [
+        [
+          "Medium severity · CONN-LL-01 · no monetary operation",
+          "INC-DEMO-04 · Limitless · data feed",
+          "Incident"
+        ],
+        [
+          "Diagnostic observation in a synthetic snapshot; not a real API response",
+          "FEED-DEMO-04 · checkpoint not advancing",
+          "Observation"
+        ],
+        [
+          "Reason is retained in history",
+          "Feed restored per EVID-FEED-DEMO-04",
+          "Reason"
+        ],
+        [
+          "Permissions, revision and evidence checked before saving",
+          "INC-DEMO-04 · expected revision 3",
+          "Recheck"
+        ]
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3485:209099",
+          "label": "Close · demo",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3485:209131"
+          ],
+          "topLevelActions": 1
+        },
+        {
+          "id": "3485:209103",
+          "label": "Cancel",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3485:208775"
+          ],
+          "topLevelActions": 1
+        },
+        {
+          "id": "3485:209107",
+          "label": "Changed by another staff member · example",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3485:209303"
+          ],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "incident-feed-closed",
+      "id": "3485:209131",
+      "title": "INC-DEMO-04 · closed",
+      "context": "Separate data-feed case. Incident changes do not change money, orders, permissions or project restrictions.",
+      "actor": "Oleg Smirnov · STAFF-206 · scoped access",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 65,
+      "imagePaintCount": 0,
+      "headers": [
+        "Meaning and consequences",
+        "State / value",
+        "Object / condition"
+      ],
+      "rows": [
+        [
+          "Medium severity · CONN-LL-01 · no monetary operation",
+          "INC-DEMO-04 · Limitless · data feed",
+          "Incident"
+        ],
+        [
+          "Diagnostic observation in a synthetic snapshot; not a real API response",
+          "FEED-DEMO-04 · checkpoint not advancing",
+          "Observation"
+        ],
+        [
+          "Oleg Smirnov · reason and EVID-FEED-DEMO-04 retained",
+          "Closed · revision 4",
+          "State"
+        ],
+        [
+          "Does not lift emergency restrictions or enable connections",
+          "Only incident workflow changed",
+          "Result boundary"
+        ]
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3485:209279",
+          "label": "Back to current queue",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3485:209479"
+          ],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "incident-feed-conflict",
+      "id": "3485:209303",
+      "title": "INC-DEMO-04 changed by another staff member",
+      "context": "Separate data-feed case. Incident changes do not change money, orders, permissions or project restrictions.",
+      "actor": "Oleg Smirnov · STAFF-206 · scoped access",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 67,
+      "imagePaintCount": 0,
+      "headers": [
+        "Meaning and consequences",
+        "State / value",
+        "Object / condition"
+      ],
+      "rows": [
+        [
+          "Medium severity · CONN-LL-01 · no monetary operation",
+          "INC-DEMO-04 · Limitless · data feed",
+          "Incident"
+        ],
+        [
+          "Diagnostic observation in a synthetic snapshot; not a real API response",
+          "FEED-DEMO-04 · checkpoint not advancing",
+          "Observation"
+        ],
+        [
+          "Another staff member already closed the case; this edit was not saved",
+          "Expected revision 3 · current revision 4",
+          "Conflict"
+        ],
+        [
+          "Do not overwrite the newer revision with stale state",
+          "EVID-FEED-DEMO-04 retained",
+          "Evidence"
+        ]
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3485:209451",
+          "label": "Read current revision",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3485:209131"
+          ],
+          "topLevelActions": 1
+        },
+        {
+          "id": "3485:209455",
+          "label": "Back to current queue",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3485:209479"
+          ],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "incident-feed-closed-queue",
+      "id": "3485:209479",
+      "title": "Incidents · feed case closed",
+      "context": "Limitless · all states · page 1 · current snapshot after INC-DEMO-04 closure.",
+      "actor": "Oleg Smirnov · STAFF-206 · scoped access",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 53,
+      "imagePaintCount": 0,
+      "headers": [
+        "State / assignee",
+        "Venue / object",
+        "Incident / type"
+      ],
+      "rows": [
+        [
+          "Closed · revision 4 · Oleg Smirnov",
+          "Limitless · CONN-LL-01",
+          "INC-DEMO-04 · data feed"
+        ]
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3485:209615",
+          "label": "Open INC-DEMO-04",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3485:209131"
+          ],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "incident-order-close-blocked",
+      "id": "3485:209639",
+      "title": "INC-DEMO-03 · closure blocked",
+      "context": "Reopened INC-DEMO-03 · revision 8 · ORD-DEMO-03. A status edit does not resolve the discrepancy.",
+      "actor": "Oleg Smirnov · STAFF-206 · scoped access",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 59,
+      "imagePaintCount": 0,
+      "headers": [
+        "Meaning and consequences",
+        "State / value",
+        "Object / condition"
+      ],
+      "rows": [
+        [
+          "Confirmed fact is not erased",
+          "$12 · EVID-DEMO-04",
+          "Known fill"
+        ],
+        [
+          "Resubmission prohibited; reservation not released",
+          "Discrepancy remains unresolved",
+          "Blocker"
+        ]
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3485:209779",
+          "label": "Back to current incident",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3445:206576"
+          ],
+          "topLevelActions": 1
+        },
+        {
+          "id": "3485:209783",
+          "label": "Back to confirmed reconciliation",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3363:137917"
+          ],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "incident-order-close-conflict",
+      "id": "3485:209807",
+      "title": "INC-DEMO-03 · closure conflict",
+      "context": "Expected revision 7; current revision 8: another staff member reopened the case. Closure was not saved.",
+      "actor": "Oleg Smirnov · STAFF-206 · scoped access",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 59,
+      "imagePaintCount": 0,
+      "headers": [
+        "Meaning and consequences",
+        "State / value",
+        "Object / condition"
+      ],
+      "rows": [
+        [
+          "Read the newer revision; no automatic retry",
+          "Not applied",
+          "Edit"
+        ],
+        [
+          "Incident revision does not replace order result",
+          "$12 · EVID-DEMO-04 retained",
+          "Monetary facts"
+        ]
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3485:209947",
+          "label": "Read current revision",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3445:206576"
+          ],
+          "topLevelActions": 1
+        },
+        {
+          "id": "3485:209951",
+          "label": "Back to current queue",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "3447:204802"
+          ],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "support-refresh-loading",
+      "id": "3489:208299",
+      "title": "Refreshing support queue",
+      "context": "Original selection: all statuses · page 1 · 13 Oct 2026. New data is not confirmed yet.",
+      "actor": "Oleg Smirnov · STAFF-206 · scoped access",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 48,
+      "imagePaintCount": 0,
+      "headers": [],
+      "rows": [],
+      "fields": [],
+      "actions": [
+        {
+          "id": "3489:208431",
+          "label": "Read completed · example",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "2188:84494",
+            "2188:85045",
+            "2188:84282",
+            "2188:84282"
+          ],
+          "topLevelActions": 4
+        },
+        {
+          "id": "3489:208435",
+          "label": "Read failure · example",
+          "types": [
+            "NODE"
+          ],
+          "targets": [
+            "2188:84865"
+          ],
+          "topLevelActions": 1
+        }
+      ],
+      "ownerNavigationLeaks": []
+    },
+    {
+      "key": "sessions-needs-attention",
+      "id": "3525:73164",
+      "title": "Sessions · need attention",
+      "context": "Exact selection for the Needs attention: 1 counter. Polymarket · order outcome unknown · S-DEMO-002 · page 1 of 1. Synthetic values; this is not a trading command.",
+      "actor": "Elena Morozova · STAFF-201 · Owner A",
+      "width": 1440,
+      "height": 1120,
+      "mainWithinFrame": true,
+      "fonts": [
+        "Inter"
+      ],
+      "bindings": 97,
+      "imagePaintCount": 0,
+      "headers": [
+        "Attention reason",
+        "Venue",
+        "Session / user"
+      ],
+      "rows": [
+        [
+          "Order outcome unknown · $20 reserved",
+          "Polymarket",
+          "S-DEMO-002 · U-DEMO-002"
+        ]
+      ],
+      "fields": [
+        {
+          "label": "Session / ID",
+          "value": "S-DEMO-002"
+        },
+        {
+          "label": "Venue",
+          "value": "Polymarket"
+        },
+        {
+          "label": "Attention reason",
+          "value": "Order outcome unknown"
+        }
+      ],
+      "actions": [
+        {
+          "id": "3525:73319",
+          "label": "Open S-DEMO-002",
+          "types": [
+            "SET_VARIABLE",
+            "NODE"
+          ],
+          "targets": [
+            "1982:39215"
+          ],
+          "topLevelActions": 2
+        },
+        {
+          "id": "3525:73324",
+          "label": "Reset filters",
+          "types": [
+            "SET_VARIABLE",
+            "NODE"
+          ],
+          "targets": [
+            "3484:72119"
+          ],
+          "topLevelActions": 2
+        },
+        {
+          "id": "3525:73328",
+          "label": "Stale snapshot · example",
+          "types": [
+            "SET_VARIABLE",
+            "NODE"
+          ],
+          "targets": [
+            "3484:72667"
+          ],
+          "topLevelActions": 6
+        }
+      ],
+      "ownerNavigationLeaks": []
+    }
+  ],
+  "menus": [
+    {
+      "id": "3486:208110",
+      "name": "EN · user-filter-menu-0",
+      "panelId": "3486:208119",
+      "width": 365.3333435058594,
+      "height": 248,
+      "x": 272,
+      "y": 402,
+      "buttons": [
+        {
+          "id": "3486:208121",
+          "label": "U-DEMO-002",
+          "types": [
+            "SET_VARIABLE",
+            "CLOSE"
+          ]
+        },
+        {
+          "id": "3486:208126",
+          "label": "Demo Noor",
+          "types": [
+            "SET_VARIABLE",
+            "CLOSE"
+          ]
+        },
+        {
+          "id": "3486:208131",
+          "label": "U-NOT-FOUND",
+          "types": [
+            "SET_VARIABLE",
+            "CLOSE"
+          ]
+        },
+        {
+          "id": "3486:208136",
+          "label": "Cancel",
+          "types": [
+            "CLOSE"
+          ]
+        }
+      ],
+      "dismiss": [
+        {
+          "action": {
+            "type": "CLOSE"
+          },
+          "actions": [
+            {
+              "type": "CLOSE"
+            }
+          ],
+          "trigger": {
+            "type": "ON_CLICK"
+          }
+        }
+      ]
+    },
+    {
+      "id": "3486:208142",
+      "name": "EN · user-filter-menu-1",
+      "panelId": "3486:208151",
+      "width": 365.33331298828125,
+      "height": 248,
+      "x": 661.33203125,
+      "y": 402,
+      "buttons": [
+        {
+          "id": "3486:208153",
+          "label": "All",
+          "types": [
+            "SET_VARIABLE",
+            "CLOSE"
+          ]
+        },
+        {
+          "id": "3486:208158",
+          "label": "No VIP",
+          "types": [
+            "SET_VARIABLE",
+            "CLOSE"
+          ]
+        },
+        {
+          "id": "3486:208163",
+          "label": "VIP",
+          "types": [
+            "SET_VARIABLE",
+            "CLOSE"
+          ]
+        },
+        {
+          "id": "3486:208168",
+          "label": "Cancel",
+          "types": [
+            "CLOSE"
+          ]
+        }
+      ],
+      "dismiss": [
+        {
+          "action": {
+            "type": "CLOSE"
+          },
+          "actions": [
+            {
+              "type": "CLOSE"
+            }
+          ],
+          "trigger": {
+            "type": "ON_CLICK"
+          }
+        }
+      ]
+    },
+    {
+      "id": "3486:208174",
+      "name": "EN · user-filter-menu-2",
+      "panelId": "3486:208183",
+      "width": 365.33331298828125,
+      "height": 248,
+      "x": 1042.666748046875,
+      "y": 402,
+      "buttons": [
+        {
+          "id": "3486:208185",
+          "label": "All states",
+          "types": [
+            "SET_VARIABLE",
+            "CLOSE"
+          ]
+        },
+        {
+          "id": "3486:208190",
+          "label": "Needs attention",
+          "types": [
+            "SET_VARIABLE",
+            "CLOSE"
+          ]
+        },
+        {
+          "id": "3486:208195",
+          "label": "Active",
+          "types": [
+            "SET_VARIABLE",
+            "CLOSE"
+          ]
+        },
+        {
+          "id": "3486:208200",
+          "label": "Cancel",
+          "types": [
+            "CLOSE"
+          ]
+        }
+      ],
+      "dismiss": [
+        {
+          "action": {
+            "type": "CLOSE"
+          },
+          "actions": [
+            {
+              "type": "CLOSE"
+            }
+          ],
+          "trigger": {
+            "type": "ON_CLICK"
+          }
+        }
+      ]
+    },
+    {
+      "id": "3486:208206",
+      "name": "EN · user-filter-menu-3",
+      "panelId": "3486:208215",
+      "width": 560,
+      "height": 248,
+      "x": 272,
+      "y": 522,
+      "buttons": [
+        {
+          "id": "3486:208217",
+          "label": "All venues",
+          "types": [
+            "SET_VARIABLE",
+            "CLOSE"
+          ]
+        },
+        {
+          "id": "3486:208222",
+          "label": "Polymarket",
+          "types": [
+            "SET_VARIABLE",
+            "CLOSE"
+          ]
+        },
+        {
+          "id": "3486:208227",
+          "label": "Limitless",
+          "types": [
+            "SET_VARIABLE",
+            "CLOSE"
+          ]
+        },
+        {
+          "id": "3486:208232",
+          "label": "Cancel",
+          "types": [
+            "CLOSE"
+          ]
+        }
+      ],
+      "dismiss": [
+        {
+          "action": {
+            "type": "CLOSE"
+          },
+          "actions": [
+            {
+              "type": "CLOSE"
+            }
+          ],
+          "trigger": {
+            "type": "ON_CLICK"
+          }
+        }
+      ]
+    },
+    {
+      "id": "3486:208238",
+      "name": "EN · user-filter-menu-4",
+      "panelId": "3486:208247",
+      "width": 560,
+      "height": 248,
+      "x": 848,
+      "y": 522,
+      "buttons": [
+        {
+          "id": "3486:208249",
+          "label": "All time",
+          "types": [
+            "SET_VARIABLE",
+            "CLOSE"
+          ]
+        },
+        {
+          "id": "3486:208254",
+          "label": "13–20 Oct 2026",
+          "types": [
+            "SET_VARIABLE",
+            "CLOSE"
+          ]
+        },
+        {
+          "id": "3486:208259",
+          "label": "20–13 Oct 2026 · invalid",
+          "types": [
+            "SET_VARIABLE",
+            "CLOSE"
+          ]
+        },
+        {
+          "id": "3486:208264",
+          "label": "Cancel",
+          "types": [
+            "CLOSE"
+          ]
+        }
+      ],
+      "dismiss": [
+        {
+          "action": {
+            "type": "CLOSE"
+          },
+          "actions": [
+            {
+              "type": "CLOSE"
+            }
+          ],
+          "trigger": {
+            "type": "ON_CLICK"
+          }
+        }
+      ]
+    }
+  ],
+  "mapCards": []
+}

@@ -1,0 +1,1360 @@
+{
+  "priorSelection": {
+    "id": "VariableID:3539:208367",
+    "name": "Admin lists/EN/prior selection"
+  },
+  "hasApplied": {
+    "id": "VariableID:3539:208368",
+    "name": "Admin lists/EN/selection applied"
+  },
+  "previousActions": [
+    {
+      "type": "CONDITIONAL",
+      "conditionalBlocks": [
+        {
+          "condition": {
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN",
+            "value": {
+              "expressionFunction": "EQUALS",
+              "expressionArguments": [
+                {
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "STRING",
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3539:208367"
+                  }
+                },
+                {
+                  "type": "STRING",
+                  "resolvedType": "STRING",
+                  "value": "users"
+                }
+              ]
+            }
+          },
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "1982:38611",
+              "navigation": "NAVIGATE",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "actions": []
+        }
+      ]
+    },
+    {
+      "type": "CONDITIONAL",
+      "conditionalBlocks": [
+        {
+          "condition": {
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN",
+            "value": {
+              "expressionFunction": "EQUALS",
+              "expressionArguments": [
+                {
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "STRING",
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3539:208367"
+                  }
+                },
+                {
+                  "type": "STRING",
+                  "resolvedType": "STRING",
+                  "value": "users-filter-result"
+                }
+              ]
+            }
+          },
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "3445:202693",
+              "navigation": "NAVIGATE",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "actions": []
+        }
+      ]
+    },
+    {
+      "type": "CONDITIONAL",
+      "conditionalBlocks": [
+        {
+          "condition": {
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN",
+            "value": {
+              "expressionFunction": "EQUALS",
+              "expressionArguments": [
+                {
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "STRING",
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3539:208367"
+                  }
+                },
+                {
+                  "type": "STRING",
+                  "resolvedType": "STRING",
+                  "value": "users-current-empty"
+                }
+              ]
+            }
+          },
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "3484:71520",
+              "navigation": "NAVIGATE",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "actions": []
+        }
+      ]
+    },
+    {
+      "type": "CONDITIONAL",
+      "conditionalBlocks": [
+        {
+          "condition": {
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN",
+            "value": {
+              "expressionFunction": "EQUALS",
+              "expressionArguments": [
+                {
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "STRING",
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3539:208367"
+                  }
+                },
+                {
+                  "type": "STRING",
+                  "resolvedType": "STRING",
+                  "value": "users-current-stale"
+                }
+              ]
+            }
+          },
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "3484:71719",
+              "navigation": "NAVIGATE",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "actions": []
+        }
+      ]
+    },
+    {
+      "type": "CONDITIONAL",
+      "conditionalBlocks": [
+        {
+          "condition": {
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN",
+            "value": {
+              "expressionFunction": "EQUALS",
+              "expressionArguments": [
+                {
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "STRING",
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3539:208367"
+                  }
+                },
+                {
+                  "type": "STRING",
+                  "resolvedType": "STRING",
+                  "value": "users-filter-loading"
+                }
+              ]
+            }
+          },
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "3445:208512",
+              "navigation": "NAVIGATE",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "actions": []
+        }
+      ]
+    },
+    {
+      "type": "CONDITIONAL",
+      "conditionalBlocks": [
+        {
+          "condition": {
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN",
+            "value": {
+              "expressionFunction": "EQUALS",
+              "expressionArguments": [
+                {
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "STRING",
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3539:208367"
+                  }
+                },
+                {
+                  "type": "STRING",
+                  "resolvedType": "STRING",
+                  "value": "users-filter-error"
+                }
+              ]
+            }
+          },
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "3445:208715",
+              "navigation": "NAVIGATE",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "actions": []
+        }
+      ]
+    }
+  ],
+  "cancelReactions": [
+    {
+      "action": {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3486:208100",
+        "variableValue": {
+          "value": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:3486:208105"
+          },
+          "type": "VARIABLE_ALIAS",
+          "resolvedType": "STRING"
+        }
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3486:208100",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3486:208105"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3486:208101",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3486:208106"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3486:208102",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3486:208107"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3486:208103",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3486:208108"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3486:208104",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3486:208109"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "NODE",
+                  "destinationId": "1982:38611",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3539:208367"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "users",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "NODE",
+                  "destinationId": "3445:202693",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3539:208367"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "users-filter-result",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "NODE",
+                  "destinationId": "3484:71520",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3539:208367"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "users-current-empty",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "NODE",
+                  "destinationId": "3484:71719",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3539:208367"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "users-current-stale",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "NODE",
+                  "destinationId": "3445:208512",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3539:208367"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "users-filter-loading",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "NODE",
+                  "destinationId": "3445:208715",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3539:208367"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "users-filter-error",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        }
+      ],
+      "trigger": {
+        "type": "ON_CLICK"
+      }
+    }
+  ],
+  "locale": "en",
+  "menus": [
+    {
+      "id": "3486:208110",
+      "key": "user-filter-menu-0",
+      "field": "3445:202643",
+      "options": [
+        "U-DEMO-002",
+        "Demo Noor",
+        "U-NOT-FOUND"
+      ],
+      "variableId": "VariableID:3486:208100",
+      "appliedVariableId": "VariableID:3486:208105"
+    },
+    {
+      "id": "3486:208142",
+      "key": "user-filter-menu-1",
+      "field": "3445:202651",
+      "options": [
+        "All",
+        "No VIP",
+        "VIP"
+      ],
+      "variableId": "VariableID:3486:208101",
+      "appliedVariableId": "VariableID:3486:208106"
+    },
+    {
+      "id": "3486:208174",
+      "key": "user-filter-menu-2",
+      "field": "3445:202659",
+      "options": [
+        "All states",
+        "Needs attention",
+        "Active"
+      ],
+      "variableId": "VariableID:3486:208102",
+      "appliedVariableId": "VariableID:3486:208107"
+    },
+    {
+      "id": "3486:208206",
+      "key": "user-filter-menu-3",
+      "field": "3445:202668",
+      "options": [
+        "All venues",
+        "Polymarket",
+        "Limitless"
+      ],
+      "variableId": "VariableID:3486:208103",
+      "appliedVariableId": "VariableID:3486:208108"
+    },
+    {
+      "id": "3486:208238",
+      "key": "user-filter-menu-4",
+      "field": "3445:202676",
+      "options": [
+        "All time",
+        "13–20 Oct 2026",
+        "20–13 Oct 2026 · invalid"
+      ],
+      "variableId": "VariableID:3486:208104",
+      "appliedVariableId": "VariableID:3486:208109"
+    }
+  ],
+  "variables": {
+    "draft": [
+      {
+        "id": "VariableID:3486:208100",
+        "name": "Admin lists/EN/draft/0"
+      },
+      {
+        "id": "VariableID:3486:208101",
+        "name": "Admin lists/EN/draft/1"
+      },
+      {
+        "id": "VariableID:3486:208102",
+        "name": "Admin lists/EN/draft/2"
+      },
+      {
+        "id": "VariableID:3486:208103",
+        "name": "Admin lists/EN/draft/3"
+      },
+      {
+        "id": "VariableID:3486:208104",
+        "name": "Admin lists/EN/draft/4"
+      }
+    ],
+    "applied": [
+      {
+        "id": "VariableID:3486:208105",
+        "name": "Admin lists/EN/applied/0"
+      },
+      {
+        "id": "VariableID:3486:208106",
+        "name": "Admin lists/EN/applied/1"
+      },
+      {
+        "id": "VariableID:3486:208107",
+        "name": "Admin lists/EN/applied/2"
+      },
+      {
+        "id": "VariableID:3486:208108",
+        "name": "Admin lists/EN/applied/3"
+      },
+      {
+        "id": "VariableID:3486:208109",
+        "name": "Admin lists/EN/applied/4"
+      }
+    ]
+  },
+  "mutatedNodeIds": [
+    "3445:202643",
+    "I3445:202643;2081:232",
+    "3445:202651",
+    "I3445:202651;2081:184",
+    "3445:202659",
+    "I3445:202659;2081:184",
+    "3445:202668",
+    "I3445:202668;2081:184",
+    "3445:202676",
+    "I3445:202676;2081:184",
+    "3445:202693",
+    "3484:71520",
+    "3484:71719",
+    "3445:208512",
+    "3445:208715"
+  ],
+  "formId": "3445:202451",
+  "applyReactions": [
+    {
+      "action": {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3497:208642",
+        "variableValue": {
+          "value": {
+            "expressionArguments": [
+              {
+                "value": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:3486:208104"
+                },
+                "type": "VARIABLE_ALIAS",
+                "resolvedType": "STRING"
+              },
+              {
+                "value": "20–13 Oct 2026 · invalid",
+                "type": "STRING",
+                "resolvedType": "STRING"
+              }
+            ],
+            "expressionFunction": "NOT_EQUAL"
+          },
+          "type": "EXPRESSION",
+          "resolvedType": "BOOLEAN"
+        }
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3497:208642",
+          "variableValue": {
+            "value": {
+              "expressionArguments": [
+                {
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3486:208104"
+                  },
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "STRING"
+                },
+                {
+                  "value": "20–13 Oct 2026 · invalid",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              ],
+              "expressionFunction": "NOT_EQUAL"
+            },
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3497:208643",
+          "variableValue": {
+            "value": {
+              "expressionArguments": [
+                {
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3486:208100"
+                  },
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "STRING"
+                },
+                {
+                  "value": "U-NOT-FOUND",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              ],
+              "expressionFunction": "NOT_EQUAL"
+            },
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3497:208644",
+          "variableValue": {
+            "value": {
+              "expressionArguments": [
+                {
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3486:208101"
+                  },
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "STRING"
+                },
+                {
+                  "value": "VIP",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              ],
+              "expressionFunction": "NOT_EQUAL"
+            },
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3497:208645",
+          "variableValue": {
+            "value": {
+              "expressionArguments": [
+                {
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3486:208102"
+                  },
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "STRING"
+                },
+                {
+                  "value": "Active",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              ],
+              "expressionFunction": "NOT_EQUAL"
+            },
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3497:208646",
+          "variableValue": {
+            "value": {
+              "expressionArguments": [
+                {
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3486:208103"
+                  },
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "STRING"
+                },
+                {
+                  "value": "Limitless",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              ],
+              "expressionFunction": "NOT_EQUAL"
+            },
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3497:208647",
+          "variableValue": {
+            "value": {
+              "expressionArguments": [
+                {
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3486:208104"
+                  },
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "STRING"
+                },
+                {
+                  "value": "All time",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              ],
+              "expressionFunction": "EQUALS"
+            },
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3497:208648",
+          "variableValue": {
+            "value": {
+              "expressionArguments": [
+                {
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3497:208643"
+                  },
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "BOOLEAN"
+                },
+                {
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3497:208644"
+                  },
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "BOOLEAN"
+                }
+              ],
+              "expressionFunction": "AND"
+            },
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3497:208649",
+          "variableValue": {
+            "value": {
+              "expressionArguments": [
+                {
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3497:208648"
+                  },
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "BOOLEAN"
+                },
+                {
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3497:208645"
+                  },
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "BOOLEAN"
+                }
+              ],
+              "expressionFunction": "AND"
+            },
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3497:208650",
+          "variableValue": {
+            "value": {
+              "expressionArguments": [
+                {
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3497:208649"
+                  },
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "BOOLEAN"
+                },
+                {
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3497:208646"
+                  },
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "BOOLEAN"
+                }
+              ],
+              "expressionFunction": "AND"
+            },
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3497:208651",
+          "variableValue": {
+            "value": {
+              "expressionArguments": [
+                {
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3497:208650"
+                  },
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "BOOLEAN"
+                },
+                {
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3497:208647"
+                  },
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "BOOLEAN"
+                }
+              ],
+              "expressionFunction": "AND"
+            },
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3497:208652",
+          "variableValue": {
+            "value": {
+              "expressionArguments": [
+                {
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3497:208651"
+                  },
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "BOOLEAN"
+                },
+                {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              ],
+              "expressionFunction": "EQUALS"
+            },
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3497:208653",
+          "variableValue": {
+            "value": {
+              "expressionArguments": [
+                {
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3497:208642"
+                  },
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "BOOLEAN"
+                },
+                {
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3497:208651"
+                  },
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "BOOLEAN"
+                }
+              ],
+              "expressionFunction": "AND"
+            },
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3497:208654",
+          "variableValue": {
+            "value": {
+              "expressionArguments": [
+                {
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3497:208642"
+                  },
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "BOOLEAN"
+                },
+                {
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3497:208652"
+                  },
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "BOOLEAN"
+                }
+              ],
+              "expressionFunction": "AND"
+            },
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3497:208655",
+          "variableValue": {
+            "value": {
+              "expressionArguments": [
+                {
+                  "value": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:3497:208642"
+                  },
+                  "type": "VARIABLE_ALIAS",
+                  "resolvedType": "BOOLEAN"
+                },
+                {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              ],
+              "expressionFunction": "EQUALS"
+            },
+            "type": "EXPRESSION",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "NODE",
+                  "destinationId": "3484:71921",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false
+                }
+              ],
+              "condition": {
+                "value": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:3497:208655"
+                },
+                "type": "VARIABLE_ALIAS",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208105",
+                  "variableValue": {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3486:208100"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208106",
+                  "variableValue": {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3486:208101"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208107",
+                  "variableValue": {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3486:208102"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208108",
+                  "variableValue": {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3486:208103"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208109",
+                  "variableValue": {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3486:208104"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3539:208368",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3539:208367",
+                  "variableValue": {
+                    "value": "users-filter-result",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "3445:202693",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false
+                }
+              ],
+              "condition": {
+                "value": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:3497:208653"
+                },
+                "type": "VARIABLE_ALIAS",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208105",
+                  "variableValue": {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3486:208100"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208106",
+                  "variableValue": {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3486:208101"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208107",
+                  "variableValue": {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3486:208102"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208108",
+                  "variableValue": {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3486:208103"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208109",
+                  "variableValue": {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3486:208104"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3539:208368",
+                  "variableValue": {
+                    "value": true,
+                    "type": "BOOLEAN",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3539:208367",
+                  "variableValue": {
+                    "value": "users-current-empty",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "3484:71520",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false
+                }
+              ],
+              "condition": {
+                "value": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:3497:208654"
+                },
+                "type": "VARIABLE_ALIAS",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        }
+      ],
+      "trigger": {
+        "type": "ON_CLICK"
+      }
+    }
+  ]
+}

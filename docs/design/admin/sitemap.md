@@ -1,4 +1,6 @@
-# Карта админки · 0.28
+# Карта админки · 0.29
+
+20.10.2026: [Фильтры, списки и инциденты](lists-incidents-2026-10-20/README.md): **878 основных пар, 888 корней на язык**, карта 0.29. Добавлены 26 пар и пять меню выбора на язык; набор компонентов 0.4.21 сохранён. Проверены подготовленные переходы, полная приёмка всех сочетаний остаётся открытой.
 
 20.10.2026: [Продолжение по отчёту](report-gaps-2026-10-20/README.md): карта **0.28 — 852 основные пары, 857 корней на язык**. Добавлены 27 связанных состояний; четыре подробные подсказки получили проверяемую область закрытия. Набор компонентов 0.4.21 сохранён. Это дизайн и ограниченная проверка маршрутов, не реализация или приёмка всех комбинаций.
 
@@ -55,6 +57,11 @@
 | История Demo Noor | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-203322) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-204458) |
 | Загружаем выбранных пользователей | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-207870) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-208512) |
 | Не удалось загрузить выбранных пользователей | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-208073) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-208715) |
+
+| По отбору нет пользователей | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-206359) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-71520) |
+| Выборка пользователей устарела | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-206557) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-71719) |
+| Проверьте период | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-206759) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-71921) |
+
 
 ## ADM-03 — Сессии
 
@@ -121,6 +128,15 @@
 | Размер сигнала и текущие ограничения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-69905) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-202301) |
 | S-DEMO-002 · баланс изменён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3448-71416) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3448-204871) |
 
+| Сессии · страница 1 | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-206957) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-72119) |
+| Сессии · страница 2 | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-207098) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-72260) |
+| Загружаем сессии | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-207239) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-72401) |
+| Не удалось обновить сессии | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-207372) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-72534) |
+| Сессии · устаревший снимок | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-207505) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-72667) |
+| Сессий по отбору нет | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-207646) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-72808) |
+| Сессии · требуют внимания | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3525-208394) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3525-73164) |
+
+
 ## ADM-04 — Инциденты
 
 | Экран | RU | EN |
@@ -143,6 +159,17 @@
 | INC-DEMO-03 · возобновлён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-205345) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-206576) |
 | Инцидент изменён другим сотрудником | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-205514) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-206745) |
 | Инциденты · актуальная выборка | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3447-71258) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3447-204802) |
+
+| INC-DEMO-04 · поток данных | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3485-72493) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3485-208427) |
+| Закрытие INC-DEMO-04 недоступно | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3485-72666) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3485-208599) |
+| INC-DEMO-04 · подтверждения получены | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3485-72842) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3485-208775) |
+| Закрыть INC-DEMO-04? | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3485-73018) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3485-208951) |
+| INC-DEMO-04 · закрыт | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3485-73198) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3485-209131) |
+| INC-DEMO-04 изменён другим сотрудником | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3485-73370) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3485-209303) |
+| Инциденты · поток закрыт | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3485-73546) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3485-209479) |
+| INC-DEMO-03 · закрытие заблокировано | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3485-73706) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3485-209639) |
+| INC-DEMO-03 · конфликт закрытия | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3485-73874) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3485-209807) |
+
 
 ## ADM-05 — Сверка
 
@@ -179,6 +206,11 @@
 | Вывод клиента · данных недостаточно | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3014-58854) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3016-58841) |
 | Повторная сверка после частичного исполнения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3363-68678) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3363-137828) |
 | Последний подтверждённый результат сохранён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3363-68767) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3363-137917) |
+
+| Сверка · результат неизвестен | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-207779) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-208767) |
+| Загружаем выбранные случаи | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-207947) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-208935) |
+| Выборка сверки недоступна | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-208107) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-209095) |
+| Сверка · устаревший снимок | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-208267) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-209255) |
 
 
 ## ADM-06 — Площадки и данные
@@ -387,6 +419,11 @@
 | Связанная позиция | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-203529) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-204665) |
 | Связанная заявка | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-203698) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-204834) |
 | Связанное событие | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-203867) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-205003) |
+
+| TKT-1060 · Как пользоваться демо? | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-208431) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-209419) |
+| TKT-1027 · Вопрос о списке трейдеров | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-208599) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-209587) |
+| Обновляем очередь поддержки | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3489-73123) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3489-208299) |
+
 
 ## ADM-10 — Уведомления
 
