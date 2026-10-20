@@ -1,5 +1,7 @@
 # Карта админки · 0.25
 
+20.10.2026: [Уточнение финансов и P-14](finance-clarity-2026-10-20/README.md). Вход в финансы сгруппирован по задачам; P-14 ведёт в заполненный пример выплаты. Количество корневых экранов и UI kit не изменились.
+
 Срез 19.10.2026: 807 корневых макетов на язык, 802 основные пары RU/EN и 5 служебных оболочек. Набор компонентов 0.4.21. [Текущая проверка](role-scenario-pass-2026-10-19/README.md). Это дизайн, а не работающий сервис.
 
 ## ADM-01 — Обзор
@@ -420,7 +422,7 @@
 
 | Экран | RU | EN |
 | --- | --- | --- |
-| Финансы сервиса | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-2) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-2) |
+| Финансы | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-2) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-2) |
 | Источники не подключены | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-77) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-77) |
 | Сводка неполная | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-115) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-115) |
 | Поступления и расходы | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-153) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-153) |
@@ -454,10 +456,10 @@
 | Владелец B · новые реквизиты | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1021) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-811) |
 | Новый адрес · ожидание 24 часов | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1056) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-846) |
 | Предложение отклонено | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1089) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-879) |
-| Защитные пороги выплат | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1122) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-912) |
-| Новая защитная policy | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1160) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-950) |
+| Когда выплату проверяют двое | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1122) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-912) |
+| Дополнительные настройки защиты | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1160) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-950) |
 | Policy не готова | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2004-1208) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-998) |
-| Owner B · проверка policy | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-767) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1034) |
+| Проверка новой версии правил | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-767) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1034) |
 | Выплата принята · комиссия партнёра | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-1417) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1684) |
 | Проверяется · комиссия партнёра | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-1450) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1717) |
 | Полная выплата · комиссия партнёра | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2005-1483) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2008-1750) |
