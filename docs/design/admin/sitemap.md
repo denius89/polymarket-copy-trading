@@ -929,4 +929,3 @@
 | Сохранено без публикации | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-101968) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-107482) |
 | Доставка до паузы | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2385-33206) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2385-105089) |
 | Маркетинг и тексты по правам | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64582) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-193041) |
-
