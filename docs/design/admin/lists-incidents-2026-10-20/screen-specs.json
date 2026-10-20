@@ -1,0 +1,1522 @@
+[
+  {
+    "key": "users-current-empty",
+    "section": "ADM-02",
+    "role": "owner",
+    "title": {
+      "ru": "По отбору нет пользователей",
+      "en": "No matching users"
+    },
+    "context": {
+      "ru": "Параметры отбора сохранены. В учебном наборе Demo Noor не подходит выбранному сочетанию; отсутствие совпадений не означает отсутствие данных или отсутствие доступа.",
+      "en": "Filter values retained. Demo Noor does not match this combination in the synthetic dataset; no matches is distinct from no data or no access."
+    },
+    "rows": {
+      "ru": [],
+      "en": []
+    },
+    "actions": [
+      {
+        "target": "users-filter-form",
+        "label": {
+          "ru": "Изменить отбор",
+          "en": "Edit filters"
+        }
+      },
+      {
+        "target": "users",
+        "label": {
+          "ru": "Сбросить отбор",
+          "en": "Reset filters"
+        }
+      }
+    ],
+    "stateProjection": "Separate draft and applied values; invalid drafts do not change applied selection"
+  },
+  {
+    "key": "users-current-stale",
+    "section": "ADM-02",
+    "role": "owner",
+    "title": {
+      "ru": "Выборка пользователей устарела",
+      "en": "User selection is stale"
+    },
+    "context": {
+      "ru": "U-DEMO-002 · Polymarket · без VIP · требует внимания · за всё время · страница 1. Последний подтверждённый снимок остаётся видимым. Обновление не снимает отбор.",
+      "en": "U-DEMO-002 · Polymarket · no VIP · needs attention · all time · page 1. Last confirmed snapshot retained; refresh keeps filters."
+    },
+    "rows": {
+      "ru": [
+        [
+          "U-DEMO-002 · Demo Noor",
+          "Polymarket · без VIP",
+          "Последний снимок: результат заявки неизвестен; не актуальная проверка"
+        ]
+      ],
+      "en": [
+        [
+          "U-DEMO-002 · Demo Noor",
+          "Polymarket · no VIP",
+          "Last snapshot: order result unknown; not a fresh check"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "target": "users-filter-result",
+        "label": {
+          "ru": "Обновить эту выборку",
+          "en": "Refresh this selection"
+        }
+      },
+      {
+        "target": "users-filter-form",
+        "label": {
+          "ru": "Изменить отбор",
+          "en": "Edit filters"
+        }
+      }
+    ],
+    "columns": {
+      "ru": [
+        "Пользователь",
+        "Площадка и VIP",
+        "Состояние / актуальность"
+      ],
+      "en": [
+        "User",
+        "Venue and VIP",
+        "State / freshness"
+      ]
+    },
+    "stateProjection": "Separate draft and applied values; invalid drafts do not change applied selection"
+  },
+  {
+    "key": "users-period-invalid",
+    "section": "ADM-02",
+    "role": "owner",
+    "title": {
+      "ru": "Проверьте период",
+      "en": "Check the date range"
+    },
+    "context": {
+      "ru": "Дата начала 20.10.2026 позже даты окончания 13.10.2026. Отбор не применён. Исправьте период; прежняя выборка не заменена пустым результатом.",
+      "en": "Start 20 Oct 2026 is later than end 13 Oct 2026. Filters were not applied. Correct the range; the previous selection is not replaced with an empty result."
+    },
+    "rows": {
+      "ru": [],
+      "en": []
+    },
+    "actions": [
+      {
+        "target": "users-filter-form",
+        "label": {
+          "ru": "Исправить период",
+          "en": "Correct period"
+        }
+      },
+      {
+        "target": "users-filter-result",
+        "label": {
+          "ru": "К прежней выборке",
+          "en": "Back to previous selection"
+        }
+      }
+    ],
+    "stateProjection": "Separate draft and applied values; invalid drafts do not change applied selection"
+  },
+  {
+    "key": "sessions-page-1",
+    "section": "ADM-03",
+    "role": "owner",
+    "title": {
+      "ru": "Сессии · страница 1",
+      "en": "Sessions · page 1"
+    },
+    "context": {
+      "ru": "Все площадки · Alpha / Paper · ID ↑ · 1 из 2 · по одной записи на страницу в этом учебном примере. Сортировка и позиция сохраняются при возврате.",
+      "en": "All venues · Alpha / Paper · ID ascending · 1 of 2 · one row per page in this synthetic example. Sort and position survive return."
+    },
+    "rows": {
+      "ru": [
+        [
+          "S-DEMO-001 · U-DEMO-001",
+          "Limitless",
+          "Активна · нет позиций и заявок"
+        ]
+      ],
+      "en": [
+        [
+          "S-DEMO-001 · U-DEMO-001",
+          "Limitless",
+          "Active · no positions or orders"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "target": "session",
+        "label": {
+          "ru": "Открыть S-DEMO-001",
+          "en": "Open S-DEMO-001"
+        }
+      },
+      {
+        "target": "sessions-page-2",
+        "label": {
+          "ru": "Следующая страница",
+          "en": "Next page"
+        }
+      },
+      {
+        "target": "sessions-stale",
+        "label": {
+          "ru": "Устаревший снимок · пример",
+          "en": "Stale snapshot · example"
+        }
+      }
+    ],
+    "columns": {
+      "ru": [
+        "Сессия / пользователь",
+        "Площадка",
+        "Состояние"
+      ],
+      "en": [
+        "Session / user",
+        "Venue",
+        "State"
+      ]
+    },
+    "stateProjection": "origin/sessions and session snapshot; page 1 and 2 are preserved"
+  },
+  {
+    "key": "sessions-page-2",
+    "section": "ADM-03",
+    "role": "owner",
+    "title": {
+      "ru": "Сессии · страница 2",
+      "en": "Sessions · page 2"
+    },
+    "context": {
+      "ru": "Все площадки · Alpha / Paper · ID ↑ · 2 из 2 · по одной записи на страницу в этом учебном примере. Сортировка и позиция сохраняются при возврате.",
+      "en": "All venues · Alpha / Paper · ID ascending · 2 of 2 · one row per page in this synthetic example. Sort and position survive return."
+    },
+    "rows": {
+      "ru": [
+        [
+          "S-DEMO-002 · U-DEMO-002",
+          "Polymarket",
+          "Результат заявки неизвестен · резерв $20"
+        ]
+      ],
+      "en": [
+        [
+          "S-DEMO-002 · U-DEMO-002",
+          "Polymarket",
+          "Order result unknown · $20 reserved"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "target": "session-unknown",
+        "label": {
+          "ru": "Открыть S-DEMO-002",
+          "en": "Open S-DEMO-002"
+        }
+      },
+      {
+        "target": "sessions-page-1",
+        "label": {
+          "ru": "Предыдущая страница",
+          "en": "Previous page"
+        }
+      },
+      {
+        "target": "sessions-stale",
+        "label": {
+          "ru": "Устаревший снимок · пример",
+          "en": "Stale snapshot · example"
+        }
+      }
+    ],
+    "columns": {
+      "ru": [
+        "Сессия / пользователь",
+        "Площадка",
+        "Состояние"
+      ],
+      "en": [
+        "Session / user",
+        "Venue",
+        "State"
+      ]
+    },
+    "stateProjection": "origin/sessions and session snapshot; page 1 and 2 are preserved"
+  },
+  {
+    "key": "sessions-loading",
+    "section": "ADM-03",
+    "role": "owner",
+    "title": {
+      "ru": "Загружаем сессии",
+      "en": "Loading sessions"
+    },
+    "context": {
+      "ru": "Отбор: все площадки · Alpha / Paper · ID ↑ · страница 2. Прежняя запись остаётся справочной, новые значения не подтверждены.",
+      "en": "Filters: all venues · Alpha / Paper · ID ascending · page 2. Old record is reference only; new values are not confirmed."
+    },
+    "rows": {
+      "ru": [],
+      "en": []
+    },
+    "actions": [
+      {
+        "target": "sessions-page-2",
+        "label": {
+          "ru": "Чтение завершено · пример",
+          "en": "Read completed · example"
+        }
+      },
+      {
+        "target": "sessions-error",
+        "label": {
+          "ru": "Ошибка чтения · пример",
+          "en": "Read failure · example"
+        }
+      }
+    ],
+    "columns": {
+      "ru": [
+        "Сессия / пользователь",
+        "Площадка",
+        "Состояние / актуальность"
+      ],
+      "en": [
+        "Session / user",
+        "Venue",
+        "State / freshness"
+      ]
+    },
+    "stateProjection": "origin/sessions and session snapshot; page 1 and 2 are preserved"
+  },
+  {
+    "key": "sessions-error",
+    "section": "ADM-03",
+    "role": "owner",
+    "title": {
+      "ru": "Не удалось обновить сессии",
+      "en": "Session refresh failed"
+    },
+    "context": {
+      "ru": "Отбор: все площадки · Alpha / Paper · ID ↑ · страница 2. Прежняя запись остаётся справочной, новые значения не подтверждены.",
+      "en": "Filters: all venues · Alpha / Paper · ID ascending · page 2. Old record is reference only; new values are not confirmed."
+    },
+    "rows": {
+      "ru": [],
+      "en": []
+    },
+    "actions": [
+      {
+        "target": "sessions-loading",
+        "label": {
+          "ru": "Повторить чтение этой страницы",
+          "en": "Retry this page"
+        }
+      },
+      {
+        "target": "sessions-empty",
+        "label": {
+          "ru": "Нет совпадений · пример",
+          "en": "No matches · example"
+        }
+      }
+    ],
+    "columns": {
+      "ru": [
+        "Сессия / пользователь",
+        "Площадка",
+        "Состояние / актуальность"
+      ],
+      "en": [
+        "Session / user",
+        "Venue",
+        "State / freshness"
+      ]
+    },
+    "stateProjection": "origin/sessions and session snapshot; page 1 and 2 are preserved"
+  },
+  {
+    "key": "sessions-stale",
+    "section": "ADM-03",
+    "role": "owner",
+    "title": {
+      "ru": "Сессии · устаревший снимок",
+      "en": "Sessions · stale snapshot"
+    },
+    "context": {
+      "ru": "Отбор: все площадки · Alpha / Paper · ID ↑ · страница 2. Прежняя запись остаётся справочной, новые значения не подтверждены.",
+      "en": "Filters: all venues · Alpha / Paper · ID ascending · page 2. Old record is reference only; new values are not confirmed."
+    },
+    "rows": {
+      "ru": [
+        [
+          "S-DEMO-002 · U-DEMO-002",
+          "Polymarket",
+          "Последний снимок · результат заявки неизвестен · резерв $20"
+        ]
+      ],
+      "en": [
+        [
+          "S-DEMO-002 · U-DEMO-002",
+          "Polymarket",
+          "Last snapshot · order result unknown · $20 reserved"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "target": "sessions-page-2",
+        "label": {
+          "ru": "К прежней странице",
+          "en": "Back to previous page"
+        }
+      },
+      {
+        "target": "sessions-empty",
+        "label": {
+          "ru": "Нет совпадений · пример",
+          "en": "No matches · example"
+        }
+      },
+      {
+        "target": "sessions-loading",
+        "label": {
+          "ru": "Обновить без сброса",
+          "en": "Refresh without reset"
+        }
+      }
+    ],
+    "columns": {
+      "ru": [
+        "Сессия / пользователь",
+        "Площадка",
+        "Состояние / актуальность"
+      ],
+      "en": [
+        "Session / user",
+        "Venue",
+        "State / freshness"
+      ]
+    },
+    "stateProjection": "origin/sessions and session snapshot; page 1 and 2 are preserved"
+  },
+  {
+    "key": "sessions-empty",
+    "section": "ADM-03",
+    "role": "owner",
+    "title": {
+      "ru": "Сессий по отбору нет",
+      "en": "No sessions match"
+    },
+    "context": {
+      "ru": "Отбор: все площадки · Alpha / Paper · ID ↑ · страница 2. Независимый пример: поиск S-NOT-FOUND. Исходная страница 2 сохраняется до сброса.",
+      "en": "Filters: all venues · Alpha / Paper · ID ascending · page 2. Independent example: search S-NOT-FOUND. Original page 2 is retained until reset."
+    },
+    "rows": {
+      "ru": [],
+      "en": []
+    },
+    "actions": [
+      {
+        "target": "sessions-page-2",
+        "label": {
+          "ru": "К прежней странице",
+          "en": "Back to previous page"
+        }
+      },
+      {
+        "target": "sessions-page-1",
+        "label": {
+          "ru": "Сбросить отбор",
+          "en": "Reset filters"
+        }
+      }
+    ],
+    "columns": {
+      "ru": [
+        "Сессия / пользователь",
+        "Площадка",
+        "Состояние / актуальность"
+      ],
+      "en": [
+        "Session / user",
+        "Venue",
+        "State / freshness"
+      ]
+    },
+    "stateProjection": "origin/sessions and session snapshot; page 1 and 2 are preserved"
+  },
+  {
+    "key": "reconciliation-selected",
+    "section": "ADM-05",
+    "role": "ops",
+    "title": {
+      "ru": "Сверка · результат неизвестен",
+      "en": "Reconciliation · unknown result"
+    },
+    "context": {
+      "ru": "Polymarket · результат неизвестен · CASE-DEMO-03 / ORD-DEMO-03 · страница 1. Только чтение и проверка. Фильтр не объединяет заявки и партнёрские выплаты.",
+      "en": "Polymarket · unknown result · CASE-DEMO-03 / ORD-DEMO-03 · page 1. Read and verify only. Orders and partner payouts are not combined by this filter."
+    },
+    "rows": {
+      "ru": [
+        [
+          "CASE-DEMO-03",
+          "Polymarket · ORD-DEMO-03",
+          "Нужна проверка · снимок 13 Oct 12:00 UTC"
+        ]
+      ],
+      "en": [
+        [
+          "CASE-DEMO-03",
+          "Polymarket · ORD-DEMO-03",
+          "Verification needed · snapshot 13 Oct 12:00 UTC"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "target": "ops-case",
+        "label": {
+          "ru": "Открыть CASE-DEMO-03",
+          "en": "Open CASE-DEMO-03"
+        }
+      },
+      {
+        "target": "reconciliation-loading",
+        "label": {
+          "ru": "Обновить выбранные случаи",
+          "en": "Refresh selected cases"
+        }
+      },
+      {
+        "target": "reconciliation-stale",
+        "label": {
+          "ru": "Устаревший снимок · пример",
+          "en": "Stale snapshot · example"
+        }
+      }
+    ],
+    "columns": {
+      "ru": [
+        "Случай",
+        "Площадка / объект",
+        "Результат / проверка"
+      ],
+      "en": [
+        "Case",
+        "Venue / object",
+        "Result / verification"
+      ]
+    }
+  },
+  {
+    "key": "reconciliation-loading",
+    "section": "ADM-05",
+    "role": "ops",
+    "title": {
+      "ru": "Загружаем выбранные случаи",
+      "en": "Loading selected cases"
+    },
+    "context": {
+      "ru": "Polymarket · результат неизвестен · CASE-DEMO-03 / ORD-DEMO-03 · страница 1. Только чтение и проверка. Фильтр не объединяет заявки и партнёрские выплаты.",
+      "en": "Polymarket · unknown result · CASE-DEMO-03 / ORD-DEMO-03 · page 1. Read and verify only. Orders and partner payouts are not combined by this filter."
+    },
+    "rows": {
+      "ru": [],
+      "en": []
+    },
+    "actions": [
+      {
+        "target": "reconciliation-selected",
+        "label": {
+          "ru": "Чтение завершено · пример",
+          "en": "Read completed · example"
+        }
+      },
+      {
+        "target": "reconciliation-error",
+        "label": {
+          "ru": "Ошибка чтения · пример",
+          "en": "Read failure · example"
+        }
+      }
+    ],
+    "columns": {
+      "ru": [
+        "Случай",
+        "Площадка / объект",
+        "Результат / проверка"
+      ],
+      "en": [
+        "Case",
+        "Venue / object",
+        "Result / verification"
+      ]
+    }
+  },
+  {
+    "key": "reconciliation-error",
+    "section": "ADM-05",
+    "role": "ops",
+    "title": {
+      "ru": "Выборка сверки недоступна",
+      "en": "Reconciliation selection unavailable"
+    },
+    "context": {
+      "ru": "Polymarket · результат неизвестен · CASE-DEMO-03 / ORD-DEMO-03 · страница 1. Только чтение и проверка. Фильтр не объединяет заявки и партнёрские выплаты.",
+      "en": "Polymarket · unknown result · CASE-DEMO-03 / ORD-DEMO-03 · page 1. Read and verify only. Orders and partner payouts are not combined by this filter."
+    },
+    "rows": {
+      "ru": [],
+      "en": []
+    },
+    "actions": [
+      {
+        "target": "reconciliation-loading",
+        "label": {
+          "ru": "Повторить чтение выборки",
+          "en": "Retry this selection"
+        }
+      },
+      {
+        "target": "reconciliation-selected",
+        "label": {
+          "ru": "К прежнему снимку",
+          "en": "Back to prior snapshot"
+        }
+      }
+    ],
+    "columns": {
+      "ru": [
+        "Случай",
+        "Площадка / объект",
+        "Результат / проверка"
+      ],
+      "en": [
+        "Case",
+        "Venue / object",
+        "Result / verification"
+      ]
+    }
+  },
+  {
+    "key": "reconciliation-stale",
+    "section": "ADM-05",
+    "role": "ops",
+    "title": {
+      "ru": "Сверка · устаревший снимок",
+      "en": "Reconciliation · stale snapshot"
+    },
+    "context": {
+      "ru": "Polymarket · результат неизвестен · CASE-DEMO-03 / ORD-DEMO-03 · страница 1. Только чтение и проверка. Фильтр не объединяет заявки и партнёрские выплаты.",
+      "en": "Polymarket · unknown result · CASE-DEMO-03 / ORD-DEMO-03 · page 1. Read and verify only. Orders and partner payouts are not combined by this filter."
+    },
+    "rows": {
+      "ru": [
+        [
+          "CASE-DEMO-03",
+          "Polymarket · ORD-DEMO-03",
+          "Нужна проверка · снимок 13 Oct 12:00 UTC"
+        ]
+      ],
+      "en": [
+        [
+          "CASE-DEMO-03",
+          "Polymarket · ORD-DEMO-03",
+          "Verification needed · snapshot 13 Oct 12:00 UTC"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "target": "reconciliation-loading",
+        "label": {
+          "ru": "Повторить чтение выборки",
+          "en": "Retry this selection"
+        }
+      },
+      {
+        "target": "reconciliation-selected",
+        "label": {
+          "ru": "К прежнему снимку",
+          "en": "Back to prior snapshot"
+        }
+      }
+    ],
+    "columns": {
+      "ru": [
+        "Случай",
+        "Площадка / объект",
+        "Результат / проверка"
+      ],
+      "en": [
+        "Case",
+        "Venue / object",
+        "Result / verification"
+      ]
+    }
+  },
+  {
+    "key": "support-page2-1060",
+    "section": "ADM-09",
+    "role": "ops",
+    "title": {
+      "ru": "TKT-1060 · Как пользоваться демо?",
+      "en": "TKT-1060 · How do I use demo mode?"
+    },
+    "context": {
+      "ru": "Страница 2 очереди поддержки · все статусы · 13 октября 2026. Только разрешённое чтение; не подставляем переписку TKT-1042.",
+      "en": "Support queue page 2 · all statuses · 13 Oct 2026. Permitted read only; TKT-1042 conversation is not substituted."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Обращение",
+          "TKT-1060 · Новое",
+          "Как пользоваться демо?"
+        ],
+        [
+          "Клиент",
+          "Мина Али",
+          "Общий вопрос"
+        ],
+        [
+          "Переписка",
+          "Подробности не подключены",
+          "Не выдумываем сообщения или связанную сессию"
+        ]
+      ],
+      "en": [
+        [
+          "Ticket",
+          "TKT-1060 · Open",
+          "How do I use demo mode?"
+        ],
+        [
+          "Client",
+          "Mina Ali",
+          "General question"
+        ],
+        [
+          "Conversation",
+          "Details not connected",
+          "No invented messages or linked session"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "target": "@back",
+        "label": {
+          "ru": "К исходной странице поддержки",
+          "en": "Back to original support page"
+        }
+      }
+    ]
+  },
+  {
+    "key": "support-page2-1027",
+    "section": "ADM-09",
+    "role": "ops",
+    "title": {
+      "ru": "TKT-1027 · Вопрос о списке трейдеров",
+      "en": "TKT-1027 · Question about the trader list"
+    },
+    "context": {
+      "ru": "Страница 2 очереди поддержки · все статусы · 13 октября 2026. Только разрешённое чтение; не подставляем переписку TKT-1042.",
+      "en": "Support queue page 2 · all statuses · 13 Oct 2026. Permitted read only; TKT-1042 conversation is not substituted."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Обращение",
+          "TKT-1027 · Закрыто",
+          "Вопрос о списке трейдеров"
+        ],
+        [
+          "Клиент",
+          "Карим Саид",
+          "Limitless"
+        ],
+        [
+          "Переписка",
+          "Подробности не подключены",
+          "Не выдумываем сообщения или связанную сессию"
+        ]
+      ],
+      "en": [
+        [
+          "Ticket",
+          "TKT-1027 · Closed",
+          "Question about the trader list"
+        ],
+        [
+          "Client",
+          "Karim Said",
+          "Limitless"
+        ],
+        [
+          "Conversation",
+          "Details not connected",
+          "No invented messages or linked session"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "target": "@back",
+        "label": {
+          "ru": "К исходной странице поддержки",
+          "en": "Back to original support page"
+        }
+      }
+    ]
+  },
+  {
+    "key": "incident-feed-detail",
+    "section": "ADM-04",
+    "role": "ops",
+    "title": {
+      "ru": "INC-DEMO-04 · поток данных",
+      "en": "INC-DEMO-04 · data feed"
+    },
+    "context": {
+      "ru": "Отдельный сценарий потока данных. Изменение инцидента не меняет деньги, заявки, права или ограничения проекта.",
+      "en": "Separate data-feed case. Incident changes do not change money, orders, permissions or project restrictions."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Инцидент",
+          "INC-DEMO-04 · Limitless · поток данных",
+          "Средняя важность · CONN-LL-01 · без денежной операции"
+        ],
+        [
+          "Наблюдение",
+          "FEED-DEMO-04 · контрольная точка не обновляется",
+          "Диагностическое наблюдение в учебном снимке; не реальный ответ API"
+        ],
+        [
+          "Состояние",
+          "В работе · версия 2",
+          "Олег Смирнов · STAFF-206. Поток ещё не восстановлен"
+        ]
+      ],
+      "en": [
+        [
+          "Incident",
+          "INC-DEMO-04 · Limitless · data feed",
+          "Medium severity · CONN-LL-01 · no monetary operation"
+        ],
+        [
+          "Observation",
+          "FEED-DEMO-04 · checkpoint not advancing",
+          "Diagnostic observation in a synthetic snapshot; not a real API response"
+        ],
+        [
+          "State",
+          "Investigating · revision 2",
+          "Oleg Smirnov · STAFF-206. Feed is not restored yet"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "target": "incident-feed-blocked",
+        "label": {
+          "ru": "Проверить возможность закрытия",
+          "en": "Check closure eligibility"
+        }
+      },
+      {
+        "target": "ops-connection-ll",
+        "label": {
+          "ru": "Диагностика Limitless",
+          "en": "Limitless diagnostics"
+        }
+      }
+    ]
+  },
+  {
+    "key": "incident-feed-blocked",
+    "section": "ADM-04",
+    "role": "ops",
+    "title": {
+      "ru": "Закрытие INC-DEMO-04 недоступно",
+      "en": "INC-DEMO-04 cannot be closed"
+    },
+    "context": {
+      "ru": "Отдельный сценарий потока данных. Изменение инцидента не меняет деньги, заявки, права или ограничения проекта.",
+      "en": "Separate data-feed case. Incident changes do not change money, orders, permissions or project restrictions."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Инцидент",
+          "INC-DEMO-04 · Limitless · поток данных",
+          "Средняя важность · CONN-LL-01 · без денежной операции"
+        ],
+        [
+          "Наблюдение",
+          "FEED-DEMO-04 · контрольная точка не обновляется",
+          "Диагностическое наблюдение в учебном снимке; не реальный ответ API"
+        ],
+        [
+          "Причина",
+          "Восстановление потока не подтверждено",
+          "Нельзя закрыть инцидент одним изменением статуса"
+        ],
+        [
+          "Разрешённый шаг",
+          "Получить новые подтверждения",
+          "Не включает торговлю, выводы или восстановление сервиса"
+        ]
+      ],
+      "en": [
+        [
+          "Incident",
+          "INC-DEMO-04 · Limitless · data feed",
+          "Medium severity · CONN-LL-01 · no monetary operation"
+        ],
+        [
+          "Observation",
+          "FEED-DEMO-04 · checkpoint not advancing",
+          "Diagnostic observation in a synthetic snapshot; not a real API response"
+        ],
+        [
+          "Reason",
+          "Feed recovery is not confirmed",
+          "A status edit alone cannot close the incident"
+        ],
+        [
+          "Permitted next step",
+          "Obtain new evidence",
+          "Does not enable trading, withdrawals or service recovery"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "target": "incident-feed-confirmed",
+        "label": {
+          "ru": "Новые подтверждения · пример",
+          "en": "New evidence · example"
+        }
+      },
+      {
+        "target": "incident-feed-detail",
+        "label": {
+          "ru": "К инциденту",
+          "en": "Back to incident"
+        }
+      }
+    ]
+  },
+  {
+    "key": "incident-feed-confirmed",
+    "section": "ADM-04",
+    "role": "ops",
+    "title": {
+      "ru": "INC-DEMO-04 · подтверждения получены",
+      "en": "INC-DEMO-04 · evidence received"
+    },
+    "context": {
+      "ru": "Отдельный сценарий потока данных. Изменение инцидента не меняет деньги, заявки, права или ограничения проекта.",
+      "en": "Separate data-feed case. Incident changes do not change money, orders, permissions or project restrictions."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Инцидент",
+          "INC-DEMO-04 · Limitless · поток данных",
+          "Средняя важность · CONN-LL-01 · без денежной операции"
+        ],
+        [
+          "Наблюдение",
+          "FEED-DEMO-04 · контрольная точка не обновляется",
+          "Диагностическое наблюдение в учебном снимке; не реальный ответ API"
+        ],
+        [
+          "Подтверждение",
+          "EVID-FEED-DEMO-04 · контрольная точка продвинулась",
+          "Отдельный учебный исход после чтения; не автоматически после нажатия"
+        ],
+        [
+          "Остаточные расхождения",
+          "Не обнаружены в этом снимке",
+          "Это не подтверждает торговые и денежные подключения"
+        ]
+      ],
+      "en": [
+        [
+          "Incident",
+          "INC-DEMO-04 · Limitless · data feed",
+          "Medium severity · CONN-LL-01 · no monetary operation"
+        ],
+        [
+          "Observation",
+          "FEED-DEMO-04 · checkpoint not advancing",
+          "Diagnostic observation in a synthetic snapshot; not a real API response"
+        ],
+        [
+          "Evidence",
+          "EVID-FEED-DEMO-04 · checkpoint advanced",
+          "Independent synthetic read result; not automatic after a click"
+        ],
+        [
+          "Remaining discrepancies",
+          "None found in this snapshot",
+          "Does not confirm trading or monetary connections"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "target": "incident-feed-close",
+        "label": {
+          "ru": "Подготовить закрытие",
+          "en": "Prepare closure"
+        }
+      },
+      {
+        "target": "incident-feed-conflict",
+        "label": {
+          "ru": "Конфликт версии · пример",
+          "en": "Revision conflict · example"
+        }
+      }
+    ]
+  },
+  {
+    "key": "incident-feed-close",
+    "section": "ADM-04",
+    "role": "ops",
+    "title": {
+      "ru": "Закрыть INC-DEMO-04?",
+      "en": "Close INC-DEMO-04?"
+    },
+    "context": {
+      "ru": "Отдельный сценарий потока данных. Изменение инцидента не меняет деньги, заявки, права или ограничения проекта.",
+      "en": "Separate data-feed case. Incident changes do not change money, orders, permissions or project restrictions."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Инцидент",
+          "INC-DEMO-04 · Limitless · поток данных",
+          "Средняя важность · CONN-LL-01 · без денежной операции"
+        ],
+        [
+          "Наблюдение",
+          "FEED-DEMO-04 · контрольная точка не обновляется",
+          "Диагностическое наблюдение в учебном снимке; не реальный ответ API"
+        ],
+        [
+          "Основание",
+          "Поток восстановлен по EVID-FEED-DEMO-04",
+          "Причина сохраняется в истории"
+        ],
+        [
+          "Повторная проверка",
+          "INC-DEMO-04 · ожидаемая версия 3",
+          "Права, версия и подтверждения проверяются перед сохранением"
+        ]
+      ],
+      "en": [
+        [
+          "Incident",
+          "INC-DEMO-04 · Limitless · data feed",
+          "Medium severity · CONN-LL-01 · no monetary operation"
+        ],
+        [
+          "Observation",
+          "FEED-DEMO-04 · checkpoint not advancing",
+          "Diagnostic observation in a synthetic snapshot; not a real API response"
+        ],
+        [
+          "Reason",
+          "Feed restored per EVID-FEED-DEMO-04",
+          "Reason is retained in history"
+        ],
+        [
+          "Recheck",
+          "INC-DEMO-04 · expected revision 3",
+          "Permissions, revision and evidence checked before saving"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "target": "incident-feed-closed",
+        "label": {
+          "ru": "Закрыть · учебный пример",
+          "en": "Close · demo"
+        }
+      },
+      {
+        "target": "incident-feed-confirmed",
+        "label": {
+          "ru": "Отмена",
+          "en": "Cancel"
+        }
+      },
+      {
+        "target": "incident-feed-conflict",
+        "label": {
+          "ru": "Изменено другим сотрудником · пример",
+          "en": "Changed by another staff member · example"
+        }
+      }
+    ]
+  },
+  {
+    "key": "incident-feed-closed",
+    "section": "ADM-04",
+    "role": "ops",
+    "title": {
+      "ru": "INC-DEMO-04 · закрыт",
+      "en": "INC-DEMO-04 · closed"
+    },
+    "context": {
+      "ru": "Отдельный сценарий потока данных. Изменение инцидента не меняет деньги, заявки, права или ограничения проекта.",
+      "en": "Separate data-feed case. Incident changes do not change money, orders, permissions or project restrictions."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Инцидент",
+          "INC-DEMO-04 · Limitless · поток данных",
+          "Средняя важность · CONN-LL-01 · без денежной операции"
+        ],
+        [
+          "Наблюдение",
+          "FEED-DEMO-04 · контрольная точка не обновляется",
+          "Диагностическое наблюдение в учебном снимке; не реальный ответ API"
+        ],
+        [
+          "Состояние",
+          "Закрыт · версия 4",
+          "Олег Смирнов · причина и EVID-FEED-DEMO-04 сохранены"
+        ],
+        [
+          "Границы результата",
+          "Изменён только процесс инцидента",
+          "Не снимает аварийные ограничения и не включает подключения"
+        ]
+      ],
+      "en": [
+        [
+          "Incident",
+          "INC-DEMO-04 · Limitless · data feed",
+          "Medium severity · CONN-LL-01 · no monetary operation"
+        ],
+        [
+          "Observation",
+          "FEED-DEMO-04 · checkpoint not advancing",
+          "Diagnostic observation in a synthetic snapshot; not a real API response"
+        ],
+        [
+          "State",
+          "Closed · revision 4",
+          "Oleg Smirnov · reason and EVID-FEED-DEMO-04 retained"
+        ],
+        [
+          "Result boundary",
+          "Only incident workflow changed",
+          "Does not lift emergency restrictions or enable connections"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "target": "incident-feed-closed-queue",
+        "label": {
+          "ru": "К актуальной очереди",
+          "en": "Back to current queue"
+        }
+      }
+    ]
+  },
+  {
+    "key": "incident-feed-conflict",
+    "section": "ADM-04",
+    "role": "ops",
+    "title": {
+      "ru": "INC-DEMO-04 изменён другим сотрудником",
+      "en": "INC-DEMO-04 changed by another staff member"
+    },
+    "context": {
+      "ru": "Отдельный сценарий потока данных. Изменение инцидента не меняет деньги, заявки, права или ограничения проекта.",
+      "en": "Separate data-feed case. Incident changes do not change money, orders, permissions or project restrictions."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Инцидент",
+          "INC-DEMO-04 · Limitless · поток данных",
+          "Средняя важность · CONN-LL-01 · без денежной операции"
+        ],
+        [
+          "Наблюдение",
+          "FEED-DEMO-04 · контрольная точка не обновляется",
+          "Диагностическое наблюдение в учебном снимке; не реальный ответ API"
+        ],
+        [
+          "Конфликт",
+          "Ожидалась версия 3 · актуальна версия 4",
+          "Другой сотрудник уже закрыл инцидент; текущая правка не сохранена"
+        ],
+        [
+          "Подтверждения",
+          "EVID-FEED-DEMO-04 сохраняются",
+          "Не перезаписываем новую версию старым состоянием"
+        ]
+      ],
+      "en": [
+        [
+          "Incident",
+          "INC-DEMO-04 · Limitless · data feed",
+          "Medium severity · CONN-LL-01 · no monetary operation"
+        ],
+        [
+          "Observation",
+          "FEED-DEMO-04 · checkpoint not advancing",
+          "Diagnostic observation in a synthetic snapshot; not a real API response"
+        ],
+        [
+          "Conflict",
+          "Expected revision 3 · current revision 4",
+          "Another staff member already closed the case; this edit was not saved"
+        ],
+        [
+          "Evidence",
+          "EVID-FEED-DEMO-04 retained",
+          "Do not overwrite the newer revision with stale state"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "target": "incident-feed-closed",
+        "label": {
+          "ru": "Прочитать актуальную версию",
+          "en": "Read current revision"
+        }
+      },
+      {
+        "target": "incident-feed-closed-queue",
+        "label": {
+          "ru": "К актуальной очереди",
+          "en": "Back to current queue"
+        }
+      }
+    ]
+  },
+  {
+    "key": "incident-feed-closed-queue",
+    "section": "ADM-04",
+    "role": "ops",
+    "title": {
+      "ru": "Инциденты · поток закрыт",
+      "en": "Incidents · feed case closed"
+    },
+    "context": {
+      "ru": "Limitless · все состояния · страница 1 · актуальный снимок после закрытия INC-DEMO-04.",
+      "en": "Limitless · all states · page 1 · current snapshot after INC-DEMO-04 closure."
+    },
+    "rows": {
+      "ru": [
+        [
+          "INC-DEMO-04 · поток данных",
+          "Limitless · CONN-LL-01",
+          "Закрыт · версия 4 · Олег Смирнов"
+        ]
+      ],
+      "en": [
+        [
+          "INC-DEMO-04 · data feed",
+          "Limitless · CONN-LL-01",
+          "Closed · revision 4 · Oleg Smirnov"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "target": "incident-feed-closed",
+        "label": {
+          "ru": "Открыть INC-DEMO-04",
+          "en": "Open INC-DEMO-04"
+        }
+      }
+    ],
+    "columns": {
+      "ru": [
+        "Инцидент / тип",
+        "Площадка / объект",
+        "Состояние / ответственный"
+      ],
+      "en": [
+        "Incident / type",
+        "Venue / object",
+        "State / assignee"
+      ]
+    }
+  },
+  {
+    "key": "incident-order-close-blocked",
+    "section": "ADM-04",
+    "role": "ops",
+    "title": {
+      "ru": "INC-DEMO-03 · закрытие заблокировано",
+      "en": "INC-DEMO-03 · closure blocked"
+    },
+    "context": {
+      "ru": "Возобновлённый INC-DEMO-03 · версия 8 · ORD-DEMO-03. Неразрешённое расхождение не устраняется изменением статуса.",
+      "en": "Reopened INC-DEMO-03 · revision 8 · ORD-DEMO-03. A status edit does not resolve the discrepancy."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Известное исполнение",
+          "$12 · EVID-DEMO-04",
+          "Подтверждённый факт не стирается"
+        ],
+        [
+          "Препятствие",
+          "Расхождение ещё не устранено",
+          "Повторная отправка запрещена; резерв не освобождён"
+        ]
+      ],
+      "en": [
+        [
+          "Known fill",
+          "$12 · EVID-DEMO-04",
+          "Confirmed fact is not erased"
+        ],
+        [
+          "Blocker",
+          "Discrepancy remains unresolved",
+          "Resubmission prohibited; reservation not released"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "target": "incident-reopened",
+        "label": {
+          "ru": "К актуальному инциденту",
+          "en": "Back to current incident"
+        }
+      },
+      {
+        "target": "ops-partial-rechecked",
+        "label": {
+          "ru": "К подтверждённой сверке",
+          "en": "Back to confirmed reconciliation"
+        }
+      }
+    ]
+  },
+  {
+    "key": "incident-order-close-conflict",
+    "section": "ADM-04",
+    "role": "ops",
+    "title": {
+      "ru": "INC-DEMO-03 · конфликт закрытия",
+      "en": "INC-DEMO-03 · closure conflict"
+    },
+    "context": {
+      "ru": "Ожидалась версия 7, актуальна версия 8: инцидент возобновлён другим сотрудником. Закрытие не сохранено.",
+      "en": "Expected revision 7; current revision 8: another staff member reopened the case. Closure was not saved."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Правка",
+          "Не применена",
+          "Нужно прочитать новую версию; автоматического повторения нет"
+        ],
+        [
+          "Денежная истина",
+          "$12 · EVID-DEMO-04 сохраняются",
+          "Версия инцидента не заменяет результат заявки"
+        ]
+      ],
+      "en": [
+        [
+          "Edit",
+          "Not applied",
+          "Read the newer revision; no automatic retry"
+        ],
+        [
+          "Monetary facts",
+          "$12 · EVID-DEMO-04 retained",
+          "Incident revision does not replace order result"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "target": "incident-reopened",
+        "label": {
+          "ru": "Прочитать актуальную версию",
+          "en": "Read current revision"
+        }
+      },
+      {
+        "target": "incident-reopened-queue",
+        "label": {
+          "ru": "К актуальной очереди",
+          "en": "Back to current queue"
+        }
+      }
+    ]
+  },
+  {
+    "key": "support-refresh-loading",
+    "section": "ADM-09",
+    "role": "ops",
+    "title": {
+      "ru": "Обновляем очередь поддержки",
+      "en": "Refreshing support queue"
+    },
+    "context": {
+      "ru": "Повторное чтение сохраняет исходные фильтры и страницу. Новый результат ещё не получен; прежняя выборка не заменена общей очередью.",
+      "en": "Refresh retains the original filters and page. New results have not arrived; the prior selection is not replaced with the general queue."
+    },
+    "rows": {
+      "ru": [],
+      "en": []
+    },
+    "actions": [
+      {
+        "target": "support-filtered",
+        "label": {
+          "ru": "Чтение завершено · пример",
+          "en": "Read completed · example"
+        }
+      },
+      {
+        "target": "support-load-error",
+        "label": {
+          "ru": "Ошибка чтения · пример",
+          "en": "Read failure · example"
+        }
+      }
+    ],
+    "stateProjection": "origin/support and support status/context"
+  },
+  {
+    "key": "sessions-needs-attention",
+    "section": "ADM-03",
+    "role": "owner",
+    "title": {
+      "ru": "Сессии · требуют внимания",
+      "en": "Sessions · need attention"
+    },
+    "context": {
+      "ru": "Точная выборка счётчика «Требуют внимания: 1». Polymarket · результат заявки неизвестен · S-DEMO-002 · страница 1 из 1. Все значения учебные; это не новая торговая команда.",
+      "en": "Exact selection for the Needs attention: 1 counter. Polymarket · order outcome unknown · S-DEMO-002 · page 1 of 1. Synthetic values; this is not a trading command."
+    },
+    "fields": [
+      {
+        "kind": "Search",
+        "label": {
+          "ru": "Сессия / ID",
+          "en": "Session / ID"
+        },
+        "value": {
+          "ru": "S-DEMO-002",
+          "en": "S-DEMO-002"
+        }
+      },
+      {
+        "kind": "Select",
+        "label": {
+          "ru": "Площадка",
+          "en": "Venue"
+        },
+        "value": {
+          "ru": "Polymarket",
+          "en": "Polymarket"
+        }
+      },
+      {
+        "kind": "Select",
+        "label": {
+          "ru": "Причина внимания",
+          "en": "Attention reason"
+        },
+        "value": {
+          "ru": "Результат заявки неизвестен",
+          "en": "Order outcome unknown"
+        }
+      }
+    ],
+    "columns": {
+      "ru": [
+        "Сессия / пользователь",
+        "Площадка",
+        "Причина внимания"
+      ],
+      "en": [
+        "Session / user",
+        "Venue",
+        "Attention reason"
+      ]
+    },
+    "rows": {
+      "ru": [
+        [
+          "S-DEMO-002 · U-DEMO-002",
+          "Polymarket",
+          "Результат заявки неизвестен · резерв $20"
+        ]
+      ],
+      "en": [
+        [
+          "S-DEMO-002 · U-DEMO-002",
+          "Polymarket",
+          "Order outcome unknown · $20 reserved"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "target": "session-unknown",
+        "label": {
+          "ru": "Открыть S-DEMO-002",
+          "en": "Open S-DEMO-002"
+        }
+      },
+      {
+        "target": "sessions-page-1",
+        "label": {
+          "ru": "Сбросить отбор",
+          "en": "Reset filters"
+        }
+      },
+      {
+        "target": "sessions-stale",
+        "label": {
+          "ru": "Устаревший снимок · пример",
+          "en": "Stale snapshot · example"
+        }
+      }
+    ],
+    "stateProjection": "origin/sessions; exact attention selection retained through detail, loading and error"
+  }
+]
