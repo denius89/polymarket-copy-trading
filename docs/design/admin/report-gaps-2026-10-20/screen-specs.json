@@ -1,0 +1,1960 @@
+[
+  {
+    "key": "connection-diagnostics-pm",
+    "section": "ADM-15",
+    "title": {
+      "ru": "Polymarket · подробности подключения",
+      "en": "Polymarket · connection diagnostics"
+    },
+    "context": {
+      "ru": "CONN-PM-01 · Alpha / Paper · учебный снимок, без запросов к площадке. Диагностика не включает торговлю и выплаты.",
+      "en": "CONN-PM-01 · Alpha / Paper · synthetic snapshot; no venue requests. Diagnostics do not enable trading or payouts."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Среда и профиль",
+          "Alpha · Paper · Polymarket",
+          "Публичное чтение без аккаунта; торговый профиль не подключён"
+        ],
+        [
+          "Доступ по функциям",
+          "Каталог: учебные данные",
+          "Торговля, подпись и денежные маршруты не подключены"
+        ],
+        [
+          "Поток обновлений",
+          "Не подключён",
+          "Состояние WebSocket не получено; переподключение не подтверждено"
+        ],
+        [
+          "Задержка и пропуски",
+          "Нет данных",
+          "Возраст последнего сообщения и пропуски не измерены; это не ноль"
+        ],
+        [
+          "Лимит запросов",
+          "Не предоставлен",
+          "Остаток и время сброса неизвестны; это не безлимит"
+        ],
+        [
+          "Очередь и проверка подписи",
+          "Не подключены",
+          "Подписание неприменимо к публичному чтению; для торговли не проверено"
+        ]
+      ],
+      "en": [
+        [
+          "Environment / profile",
+          "Alpha · Paper · Polymarket",
+          "Public reads without an account; trading profile disconnected"
+        ],
+        [
+          "Function access",
+          "Catalog: synthetic data",
+          "Trading, signing and monetary routes disconnected"
+        ],
+        [
+          "Update stream",
+          "Disconnected",
+          "WebSocket state unavailable; reconnect not confirmed"
+        ],
+        [
+          "Latency / gaps",
+          "Unknown",
+          "Last-message age and gaps not measured; unknown is not zero"
+        ],
+        [
+          "Request limits",
+          "Not provided",
+          "Remaining quota and reset time unknown; not unlimited"
+        ],
+        [
+          "Queue / signing check",
+          "Disconnected",
+          "Signing not applicable to public reads; unverified for trading"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "К подключению",
+          "en": "Back to connection"
+        },
+        "target": "connection-pm"
+      },
+      {
+        "label": {
+          "ru": "Источник каталога",
+          "en": "Catalog source"
+        },
+        "target": "source-detail"
+      }
+    ],
+    "role": "owner",
+    "fields": []
+  },
+  {
+    "key": "connection-diagnostics-ll",
+    "section": "ADM-15",
+    "title": {
+      "ru": "Limitless · подробности подключения",
+      "en": "Limitless · connection diagnostics"
+    },
+    "context": {
+      "ru": "CONN-LL-01 · Alpha / Paper · учебный снимок, без запросов к площадке. Диагностика не включает торговлю и выплаты.",
+      "en": "CONN-LL-01 · Alpha / Paper · synthetic snapshot; no venue requests. Diagnostics do not enable trading or payouts."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Среда и профиль",
+          "Alpha · Paper · Limitless",
+          "Публичное чтение без аккаунта; торговый профиль не подключён"
+        ],
+        [
+          "Доступ по функциям",
+          "Каталог: учебные данные",
+          "Торговля, подпись и денежные маршруты не подключены"
+        ],
+        [
+          "Поток обновлений",
+          "Не подключён",
+          "Состояние WebSocket не получено; переподключение не подтверждено"
+        ],
+        [
+          "Задержка и пропуски",
+          "Нет данных",
+          "Возраст последнего сообщения и пропуски не измерены; это не ноль"
+        ],
+        [
+          "Лимит запросов",
+          "Не предоставлен",
+          "Остаток и время сброса неизвестны; это не безлимит"
+        ],
+        [
+          "Очередь и проверка подписи",
+          "Не подключены",
+          "Подписание неприменимо к публичному чтению; для торговли не проверено"
+        ]
+      ],
+      "en": [
+        [
+          "Environment / profile",
+          "Alpha · Paper · Limitless",
+          "Public reads without an account; trading profile disconnected"
+        ],
+        [
+          "Function access",
+          "Catalog: synthetic data",
+          "Trading, signing and monetary routes disconnected"
+        ],
+        [
+          "Update stream",
+          "Disconnected",
+          "WebSocket state unavailable; reconnect not confirmed"
+        ],
+        [
+          "Latency / gaps",
+          "Unknown",
+          "Last-message age and gaps not measured; unknown is not zero"
+        ],
+        [
+          "Request limits",
+          "Not provided",
+          "Remaining quota and reset time unknown; not unlimited"
+        ],
+        [
+          "Queue / signing check",
+          "Disconnected",
+          "Signing not applicable to public reads; unverified for trading"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "К подключению",
+          "en": "Back to connection"
+        },
+        "target": "connection-ll"
+      },
+      {
+        "label": {
+          "ru": "Источник каталога",
+          "en": "Catalog source"
+        },
+        "target": "source-limitless"
+      }
+    ],
+    "role": "owner",
+    "fields": []
+  },
+  {
+    "key": "session-period-ended",
+    "section": "ADM-03",
+    "title": {
+      "ru": "Период завершён · только сокращения",
+      "en": "Assessment ended · reductions only"
+    },
+    "context": {
+      "ru": "S-DEMO-002 · U-DEMO-002 · Polymarket · отдельный учебный исход после границы периода. Время границы здесь не рассчитывается.",
+      "en": "S-DEMO-002 · U-DEMO-002 · Polymarket · independent post-boundary fixture. Boundary time is not calculated here."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Оценка",
+          "Период 14 дней завершён",
+          "Новые события не продлевают оценку; при нехватке данных — «Недостаточно данных»"
+        ],
+        [
+          "Новые покупки",
+          "Запрещены",
+          "Остатки BUY запрошены к отмене; запрос не равен подтверждённой отмене"
+        ],
+        [
+          "Позиции",
+          "Только сокращения вслед за трейдером",
+          "До явного отключения копирования; без принудительной продажи по таймеру"
+        ],
+        [
+          "Неизвестная заявка",
+          "Резерв остаётся до сверки",
+          "Нельзя повторно отправлять или освобождать резерв по истечению времени"
+        ],
+        [
+          "Окончательный итог",
+          "Учёт ещё не завершён",
+          "Отчёт за период не означает разрешение новой сессии или сброса"
+        ]
+      ],
+      "en": [
+        [
+          "Assessment",
+          "14-day assessment ended",
+          "New events do not extend it; insufficient coverage means Insufficient data"
+        ],
+        [
+          "New buys",
+          "Blocked",
+          "Remaining BUY cancellation requested; request is not final confirmation"
+        ],
+        [
+          "Positions",
+          "Trader-led reductions only",
+          "Until explicit copy disconnect; no forced timed liquidation"
+        ],
+        [
+          "Unknown order",
+          "Reserve retained for reconciliation",
+          "No resend or reserve release merely because time elapsed"
+        ],
+        [
+          "Final accounting",
+          "Not complete",
+          "Assessment report does not allow a new session or reset"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "Пример после отключения копирования",
+          "en": "Example after copy disconnect"
+        },
+        "target": "session-final-blocked"
+      },
+      {
+        "label": {
+          "ru": "Версии решения",
+          "en": "Decision revisions"
+        },
+        "target": "session-signal-revisions"
+      },
+      {
+        "label": {
+          "ru": "Отдельный исходный снимок 42",
+          "en": "Separate original snapshot 42"
+        },
+        "target": "session-inspection"
+      }
+    ],
+    "role": "owner",
+    "fields": []
+  },
+  {
+    "key": "session-final-blocked",
+    "section": "ADM-03",
+    "title": {
+      "ru": "Копирование отключено · учёт не завершён",
+      "en": "Copy disconnected · accounting incomplete"
+    },
+    "context": {
+      "ru": "S-DEMO-002 · отдельный учебный исход. Отключение копирования не закрывает учёт и не удаляет историю.",
+      "en": "S-DEMO-002 · independent fixture. Copy disconnect does not finish accounting or remove history."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Позиции",
+          "Остались части, включая ручные",
+          "Все части должны быть подтверждённо закрыты или погашены"
+        ],
+        [
+          "Заявки и резервы",
+          "Есть незавершённая проверка",
+          "Исполнимый остаток, резерв, неизвестность или расхождение блокируют итог"
+        ],
+        [
+          "Новая сессия / сброс",
+          "Недоступны",
+          "Нет обхода через отключение, отчёт или ручное закрытие инцидента"
+        ],
+        [
+          "После строгого завершения",
+          "История сохраняется",
+          "Сброс Paper возвращает начальные $200, не создаёт прибыль"
+        ],
+        [
+          "Следующий шаг",
+          "Проверить конкретные препятствия",
+          "Сотрудник просматривает причины; клиентские риск-настройки не меняет"
+        ]
+      ],
+      "en": [
+        [
+          "Positions",
+          "Parts remain, including manual parts",
+          "Every part must be confirmed closed or redeemed"
+        ],
+        [
+          "Orders / reserves",
+          "Reconciliation incomplete",
+          "Executable remainder, reserve, unknown outcome or mismatch blocks finality"
+        ],
+        [
+          "New session / reset",
+          "Unavailable",
+          "Disconnect, a report or incident closure cannot bypass this gate"
+        ],
+        [
+          "After strict completion",
+          "History retained",
+          "Paper reset restores initial $200, without creating profit"
+        ],
+        [
+          "Next step",
+          "Inspect exact blockers",
+          "Staff inspect reasons; client risk settings are not changed"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "Малый остаток",
+          "en": "Small residual"
+        },
+        "target": "session-dust"
+      },
+      {
+        "label": {
+          "ru": "История бюджета",
+          "en": "Budget history"
+        },
+        "target": "session-budget-history"
+      },
+      {
+        "label": {
+          "ru": "Отдельный исходный снимок 42",
+          "en": "Separate original snapshot 42"
+        },
+        "target": "session-inspection"
+      }
+    ],
+    "role": "owner",
+    "fields": []
+  },
+  {
+    "key": "session-dust",
+    "section": "ADM-03",
+    "title": {
+      "ru": "Малый остаток остаётся в учёте",
+      "en": "Small residual remains accounted"
+    },
+    "context": {
+      "ru": "S-DEMO-002 · LOT-TAIL-DEMO-01 · отдельный синтетический пример, не параметры рынка Polymarket или Limitless.",
+      "en": "S-DEMO-002 · LOT-TAIL-DEMO-01 · independent synthetic example, not venue market parameters."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Количество",
+          "0.003",
+          "Не ноль; сохраняются количество, стоимость и расходы"
+        ],
+        [
+          "Учебный шаг",
+          "0.01",
+          "Продажа ниже шага недоступна в этом примере; это не минимум всех рынков"
+        ],
+        [
+          "Завершение / новая сессия / сброс",
+          "Заблокированы остатком",
+          "До подтверждённого закрытия или погашения"
+        ],
+        [
+          "Автоматические действия",
+          "Списания и докупки нет",
+          "Нельзя захватить другую группу частей или продать сверх выбранного остатка"
+        ],
+        [
+          "Повтор сокращения",
+          "Сохраняет прежнюю цель",
+          "Процент не применяется заново к каждому повтору"
+        ]
+      ],
+      "en": [
+        [
+          "Quantity",
+          "0.003",
+          "Not zero; quantity, cost and expenses remain accounted"
+        ],
+        [
+          "Synthetic step",
+          "0.01",
+          "Below-step sale unavailable in this example; not a universal minimum"
+        ],
+        [
+          "Finality / new session / reset",
+          "Blocked by residual",
+          "Until confirmed closure or redemption"
+        ],
+        [
+          "Automatic actions",
+          "No write-off or top-up buy",
+          "No capture of other parts or sale beyond the selected remainder"
+        ],
+        [
+          "Repeated reduction",
+          "Preserves the prior target",
+          "Does not apply the percentage again on each retry"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "К препятствиям завершения",
+          "en": "Back to blockers"
+        },
+        "target": "session-final-blocked"
+      }
+    ],
+    "role": "owner",
+    "fields": []
+  },
+  {
+    "key": "session-budget-history",
+    "section": "ADM-03",
+    "title": {
+      "ru": "История бюджета · баланс изменён",
+      "en": "Budget history · balance changed"
+    },
+    "context": {
+      "ru": "S-DEMO-002 · отдельное продолжение снимка 42. Виртуальное движение — не пополнение кошелька и не прибыль. Сотрудник только просматривает.",
+      "en": "S-DEMO-002 · independent continuation of snapshot 42. Virtual funding is not a wallet deposit or profit. Staff view only."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Версия 12 → 13",
+          "B: $200 → $250 · ΔB +$50",
+          "FLOW-DEMO-01; свободно $165 → $215, исполненный расход $35 без изменений"
+        ],
+        [
+          "Версия 13 → 14",
+          "B: $250 → $200 · ΔB −$50",
+          "FLOW-DEMO-02; свободно $215 → $165; повтор команды не создаёт второе движение"
+        ],
+        [
+          "Маркер отчёта",
+          "Баланс изменён",
+          "Остаётся после возврата B к $200; ввод и изъятие не PnL"
+        ],
+        [
+          "Фиксированный размер / история",
+          "$20 · не изменены",
+          "Старые позиции, дневной расход и резервы не обнуляются"
+        ],
+        [
+          "Недостаточно свободных денег",
+          "Вся правка отклоняется",
+          "Без продажи активов и снятия резервов; устаревшая версия требует перечитать"
+        ]
+      ],
+      "en": [
+        [
+          "Revision 12 → 13",
+          "B: $200 → $250 · ΔB +$50",
+          "FLOW-DEMO-01; free $165 → $215, executed cost $35 unchanged"
+        ],
+        [
+          "Revision 13 → 14",
+          "B: $250 → $200 · ΔB −$50",
+          "FLOW-DEMO-02; free $215 → $165; duplicate command adds no flow"
+        ],
+        [
+          "Report marker",
+          "Balance changed",
+          "Persists after B returns to $200; funding is not PnL"
+        ],
+        [
+          "Fixed size / history",
+          "$20 · unchanged",
+          "Prior positions, daily usage and reserves are not reset"
+        ],
+        [
+          "Insufficient free funds",
+          "Entire edit rejected",
+          "No liquidation or reserve release; stale revision requires reread"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "Версии решения",
+          "en": "Decision revisions"
+        },
+        "target": "session-signal-revisions"
+      },
+      {
+        "label": {
+          "ru": "К актуальному снимку сессии",
+          "en": "Back to current session snapshot"
+        },
+        "target": "session-budget-summary"
+      }
+    ],
+    "role": "owner",
+    "fields": []
+  },
+  {
+    "key": "session-signal-revisions",
+    "section": "ADM-03",
+    "title": {
+      "ru": "Размер сигнала и текущие ограничения",
+      "en": "Signal size and current limits"
+    },
+    "context": {
+      "ru": "S-DEMO-002 · SIG-TAIL-DEMO-01 · учебное решение. Две версии сохраняются отдельно, без повторной отправки.",
+      "en": "S-DEMO-002 · SIG-TAIL-DEMO-01 · synthetic decision. Both revisions retained separately, without resend."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Размер полученного сигнала",
+          "Версия размера: 12 · $20",
+          "Размер фиксируется при получении; новая настройка его не переписывает"
+        ],
+        [
+          "Допуск перед резервом",
+          "Версия ограничений: 14",
+          "Проверяются текущие остатки, позиции и резервы всех старых версий"
+        ],
+        [
+          "Главная причина пропуска",
+          "Новые покупки запрещены",
+          "Пример после окончания периода; остальные доказанные препятствия — в деталях"
+        ],
+        [
+          "Неизвестные условия",
+          "Не превращаются в нули",
+          "Неизвестное и неприменимое отделены от доказанного нарушения"
+        ],
+        [
+          "Повтор / позднее исполнение",
+          "История исходной заявки сохраняется",
+          "Пропуск не догоняется; поздний факт учитывается в исходной заявке"
+        ]
+      ],
+      "en": [
+        [
+          "Received signal size",
+          "Sizing revision: 12 · $20",
+          "Fixed on receipt; later settings do not rewrite it"
+        ],
+        [
+          "Admission before reserve",
+          "Admission revision: 14",
+          "Checks current headroom and positions/reserves from every older revision"
+        ],
+        [
+          "Primary skip reason",
+          "New buys prohibited",
+          "Post-assessment fixture; other proven blockers remain in details"
+        ],
+        [
+          "Unknown conditions",
+          "Not converted to zero",
+          "Unknown and not applicable differ from a proven violation"
+        ],
+        [
+          "Duplicate / late execution",
+          "Original order history retained",
+          "Skipped signals are not caught up; late facts belong to the original order"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "История бюджета",
+          "en": "Budget history"
+        },
+        "target": "session-budget-history"
+      },
+      {
+        "label": {
+          "ru": "Только сокращения",
+          "en": "Reductions only"
+        },
+        "target": "session-period-ended"
+      }
+    ],
+    "role": "owner",
+    "fields": []
+  },
+  {
+    "key": "users-filter-form",
+    "section": "ADM-02",
+    "title": {
+      "ru": "Поиск и отбор пользователей",
+      "en": "Search and filter users"
+    },
+    "context": {
+      "ru": "Найдите пользователя по ID или имени и уточните выборку. Заполненные поля показывают учебный пример; результат открывается кнопкой ниже.",
+      "en": "Find a user by ID or name and refine the selection. Prefilled controls show a synthetic example; use the button below to view its result."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Поиск",
+          "Точный ID или имя",
+          "Учебный пример ниже уже заполнен; произвольный ввод не реализован"
+        ]
+      ],
+      "en": [
+        [
+          "Search",
+          "Exact ID or name",
+          "The example is prefilled; arbitrary input is not implemented"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "Показать пример результата",
+          "en": "Show example result"
+        },
+        "target": "users-filter-result"
+      },
+      {
+        "label": {
+          "ru": "Сбросить отбор",
+          "en": "Clear filters"
+        },
+        "target": "users"
+      }
+    ],
+    "role": "owner",
+    "fields": [
+      {
+        "kind": "Search",
+        "label": {
+          "ru": "Пользователь / ID",
+          "en": "User / ID"
+        },
+        "value": {
+          "ru": "U-DEMO-002",
+          "en": "U-DEMO-002"
+        }
+      },
+      {
+        "kind": "Select",
+        "label": {
+          "ru": "VIP",
+          "en": "VIP"
+        },
+        "value": {
+          "ru": "Не назначен",
+          "en": "Not assigned"
+        }
+      },
+      {
+        "kind": "Select",
+        "label": {
+          "ru": "Состояние",
+          "en": "Status"
+        },
+        "value": {
+          "ru": "Требует внимания",
+          "en": "Needs attention"
+        }
+      },
+      {
+        "kind": "Select",
+        "label": {
+          "ru": "Площадка",
+          "en": "Venue"
+        },
+        "value": {
+          "ru": "Polymarket",
+          "en": "Polymarket"
+        }
+      },
+      {
+        "kind": "Select",
+        "label": {
+          "ru": "Период",
+          "en": "Period"
+        },
+        "value": {
+          "ru": "За всё время",
+          "en": "All time"
+        }
+      }
+    ]
+  },
+  {
+    "key": "users-filter-result",
+    "section": "ADM-02",
+    "title": {
+      "ru": "Найден 1 пользователь",
+      "en": "1 user found"
+    },
+    "context": {
+      "ru": "Отбор сохранён: U-DEMO-002 · Polymarket · без VIP · требует внимания · за всё время · страница 1.",
+      "en": "Selection retained: U-DEMO-002 · Polymarket · no VIP · needs attention · all time · page 1."
+    },
+    "rows": {
+      "ru": [
+        [
+          "U-DEMO-002 · Demo Noor",
+          "Polymarket · без VIP",
+          "Требует внимания: результат заявки неизвестен; последняя активность не получена"
+        ]
+      ],
+      "en": [
+        [
+          "U-DEMO-002 · Demo Noor",
+          "Polymarket · no VIP",
+          "Needs attention: unknown order outcome; last activity unavailable"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "Открыть Demo Noor",
+          "en": "Open Demo Noor"
+        },
+        "target": "user-filter-context"
+      },
+      {
+        "label": {
+          "ru": "Изменить отбор",
+          "en": "Edit filters"
+        },
+        "target": "users-filter-form"
+      },
+      {
+        "label": {
+          "ru": "Независимый пример: нет совпадений",
+          "en": "Independent example: no matches"
+        },
+        "target": "user-empty"
+      }
+    ],
+    "role": "owner",
+    "fields": []
+  },
+  {
+    "key": "user-filter-context",
+    "section": "ADM-02",
+    "title": {
+      "ru": "Demo Noor · карточка из выборки",
+      "en": "Demo Noor · selected user"
+    },
+    "context": {
+      "ru": "U-DEMO-002 · Polymarket · Alpha / Paper · владелец A. Отбор U-DEMO-002, без VIP, требует внимания, всё время, страница 1 сохранён.",
+      "en": "U-DEMO-002 · Polymarket · Alpha / Paper · Owner A. User/no-VIP/needs-attention/all-time/page-1 selection retained."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Пользователь",
+          "U-DEMO-002 · Demo Noor",
+          "Без VIP; комиссия Paper Alpha 0%"
+        ],
+        [
+          "Сессия",
+          "S-DEMO-002",
+          "Результат заявки неизвестен; повтор запрещён до сверки"
+        ],
+        [
+          "Связанные записи",
+          "Обращения и история по правам",
+          "Содержимое ниже — отдельный синтетический пример"
+        ],
+        [
+          "Возврат",
+          "К сохранённой выборке",
+          "Не к общему списку и не к другому пользователю"
+        ]
+      ],
+      "en": [
+        [
+          "User",
+          "U-DEMO-002 · Demo Noor",
+          "No VIP; Paper Alpha fee 0%"
+        ],
+        [
+          "Session",
+          "S-DEMO-002",
+          "Unknown order outcome; no resend before reconciliation"
+        ],
+        [
+          "Related records",
+          "Tickets and history within access",
+          "Linked content is a separate synthetic example"
+        ],
+        [
+          "Return",
+          "Back to saved selection",
+          "Not the unfiltered list or another user"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "Обращения пользователя",
+          "en": "User tickets"
+        },
+        "target": "user-related-support"
+      },
+      {
+        "label": {
+          "ru": "История пользователя",
+          "en": "User history"
+        },
+        "target": "user-related-history"
+      },
+      {
+        "label": {
+          "ru": "К сохранённой выборке",
+          "en": "Back to saved selection"
+        },
+        "target": "users-filter-result"
+      }
+    ],
+    "role": "owner",
+    "fields": []
+  },
+  {
+    "key": "user-related-support",
+    "section": "ADM-02",
+    "title": {
+      "ru": "Обращения Demo Noor",
+      "en": "Demo Noor tickets"
+    },
+    "context": {
+      "ru": "U-DEMO-002 · Polymarket · владелец A · отдельный набор NOOR. Возврат к исходной карточке сохраняет её выборку.",
+      "en": "U-DEMO-002 · Polymarket · Owner A · independent NOOR fixture. Returning to the source card preserves its selection."
+    },
+    "rows": {
+      "ru": [
+        [
+          "TKT-NOOR-DEMO-01",
+          "U-DEMO-002 · S-DEMO-002",
+          "Общий вопрос о статусе; отдельное учебное обращение, не TKT-1042"
+        ],
+        [
+          "Переписка",
+          "MSG-NOOR-DEMO-01 · клиент",
+          "«Почему состояние заявки уточняется?» · учебный текст"
+        ],
+        [
+          "Доступ",
+          "Просмотр в разрешённой области",
+          "Внутренние заметки не публикуются клиенту"
+        ]
+      ],
+      "en": [
+        [
+          "TKT-NOOR-DEMO-01",
+          "U-DEMO-002 · S-DEMO-002",
+          "Status question; independent synthetic ticket, not TKT-1042"
+        ],
+        [
+          "Conversation",
+          "MSG-NOOR-DEMO-01 · client",
+          "“Why is the order outcome being checked?” · synthetic text"
+        ],
+        [
+          "Access",
+          "Read within allowed scope",
+          "Internal notes are not published to the client"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "К карточке Demo Noor",
+          "en": "Back to Demo Noor"
+        },
+        "target": "@back"
+      },
+      {
+        "label": {
+          "ru": "Пример сохранённой выборки",
+          "en": "Saved selection example"
+        },
+        "target": "users-filter-result"
+      }
+    ],
+    "role": "owner",
+    "fields": []
+  },
+  {
+    "key": "user-related-history",
+    "section": "ADM-02",
+    "title": {
+      "ru": "История Demo Noor",
+      "en": "Demo Noor history"
+    },
+    "context": {
+      "ru": "U-DEMO-002 · Polymarket · владелец A · отдельный набор NOOR. Возврат к исходной карточке сохраняет её выборку.",
+      "en": "U-DEMO-002 · Polymarket · Owner A · independent NOOR fixture. Returning to the source card preserves its selection."
+    },
+    "rows": {
+      "ru": [
+        [
+          "EVT-NOOR-DEMO-01",
+          "U-DEMO-002 · S-DEMO-002",
+          "Состояние заявки требует проверки; это не подтверждение исполнения"
+        ],
+        [
+          "Права",
+          "Просмотр истории пользователя",
+          "Экспорт требует отдельного разрешения"
+        ],
+        [
+          "Нет данных / ошибка доступа",
+          "Отдельные состояния",
+          "Пустой ответ не означает отсутствие событий"
+        ]
+      ],
+      "en": [
+        [
+          "EVT-NOOR-DEMO-01",
+          "U-DEMO-002 · S-DEMO-002",
+          "Order outcome needs reconciliation; not execution proof"
+        ],
+        [
+          "Access",
+          "User history read scope",
+          "Export requires separate permission"
+        ],
+        [
+          "No data / access failure",
+          "Separate states",
+          "An empty response does not prove no events"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "К карточке Demo Noor",
+          "en": "Back to Demo Noor"
+        },
+        "target": "@back"
+      },
+      {
+        "label": {
+          "ru": "Пример сохранённой выборки",
+          "en": "Saved selection example"
+        },
+        "target": "users-filter-result"
+      }
+    ],
+    "role": "owner",
+    "fields": []
+  },
+  {
+    "key": "support-position-context",
+    "section": "ADM-09",
+    "title": {
+      "ru": "Связанная позиция",
+      "en": "Related position"
+    },
+    "context": {
+      "ru": "TKT-1042 · USR-1007 · S-CP-041 · Олег Смирнов · STAFF-206 · синтетические данные; просмотр по правам.",
+      "en": "TKT-1042 · USR-1007 · S-CP-041 · Oleg Smirnov · STAFF-206 · synthetic scoped read."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Позиция",
+          "LOT-CP-040 · USR-1007",
+          "S-CP-041 · Polymarket · более ранняя подтверждённая часть"
+        ],
+        [
+          "Заявка происхождения",
+          "ORD-CP-040",
+          "Не создана пропущенным сигналом BUY-SKIP-041"
+        ],
+        [
+          "Доступ",
+          "Только просмотр",
+          "Объём и стоимость источником не предоставлены; не подставлять ноль"
+        ]
+      ],
+      "en": [
+        [
+          "Position",
+          "LOT-CP-040 · USR-1007",
+          "S-CP-041 · Polymarket · earlier confirmed part"
+        ],
+        [
+          "Originating order",
+          "ORD-CP-040",
+          "Not created by skipped signal BUY-SKIP-041"
+        ],
+        [
+          "Access",
+          "Read only",
+          "Source quantity and cost unavailable; do not substitute zero"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "К обращению TKT-1042",
+          "en": "Back to TKT-1042"
+        },
+        "target": "support-ticket"
+      },
+      {
+        "label": {
+          "ru": "Связанная сессия",
+          "en": "Related session"
+        },
+        "target": "support-session-context"
+      }
+    ],
+    "role": "ops",
+    "fields": []
+  },
+  {
+    "key": "support-order-context",
+    "section": "ADM-09",
+    "title": {
+      "ru": "Связанная заявка",
+      "en": "Related order"
+    },
+    "context": {
+      "ru": "TKT-1042 · USR-1007 · S-CP-041 · Олег Смирнов · STAFF-206 · синтетические данные; просмотр по правам.",
+      "en": "TKT-1042 · USR-1007 · S-CP-041 · Oleg Smirnov · STAFF-206 · synthetic scoped read."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Заявка",
+          "ORD-CP-040 · USR-1007",
+          "S-CP-041 · LOT-CP-040 · Polymarket"
+        ],
+        [
+          "Результат",
+          "Нет подтверждающих данных",
+          "Не является разрешением повторить, отменить или отправить деньги"
+        ],
+        [
+          "Связь с обращением",
+          "Исторический контекст TKT-1042",
+          "BUY-SKIP-041 — другой сигнал; после пропуска новой заявки нет"
+        ]
+      ],
+      "en": [
+        [
+          "Order",
+          "ORD-CP-040 · USR-1007",
+          "S-CP-041 · LOT-CP-040 · Polymarket"
+        ],
+        [
+          "Outcome",
+          "Evidence unavailable",
+          "No permission to resend, cancel or send money"
+        ],
+        [
+          "Ticket relationship",
+          "Historical context of TKT-1042",
+          "BUY-SKIP-041 is another signal; a skipped BUY creates no order"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "К обращению TKT-1042",
+          "en": "Back to TKT-1042"
+        },
+        "target": "support-ticket"
+      },
+      {
+        "label": {
+          "ru": "Связанная сессия",
+          "en": "Related session"
+        },
+        "target": "support-session-context"
+      }
+    ],
+    "role": "ops",
+    "fields": []
+  },
+  {
+    "key": "support-event-context",
+    "section": "ADM-09",
+    "title": {
+      "ru": "Связанное событие",
+      "en": "Related event"
+    },
+    "context": {
+      "ru": "TKT-1042 · USR-1007 · S-CP-041 · Олег Смирнов · STAFF-206 · синтетические данные; просмотр по правам.",
+      "en": "TKT-1042 · USR-1007 · S-CP-041 · Oleg Smirnov · STAFF-206 · synthetic scoped read."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Событие",
+          "BUY-SKIP-041 · USR-1007",
+          "S-CP-041 · Polymarket · SESSION_LIMIT"
+        ],
+        [
+          "Причина",
+          "Полная покупка не прошла лимит",
+          "Не уменьшать объём до доступного остатка"
+        ],
+        [
+          "Созданная заявка",
+          "Не создавалась",
+          "Пропуск сигнала не является неизвестным результатом отправленной заявки"
+        ]
+      ],
+      "en": [
+        [
+          "Event",
+          "BUY-SKIP-041 · USR-1007",
+          "S-CP-041 · Polymarket · SESSION_LIMIT"
+        ],
+        [
+          "Reason",
+          "Full BUY exceeds the limit",
+          "Do not resize to fit available headroom"
+        ],
+        [
+          "Created order",
+          "None created",
+          "Skipped signal is not an unknown outcome of a submitted order"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "К обращению TKT-1042",
+          "en": "Back to TKT-1042"
+        },
+        "target": "support-ticket"
+      },
+      {
+        "label": {
+          "ru": "Связанная сессия",
+          "en": "Related session"
+        },
+        "target": "support-session-context"
+      }
+    ],
+    "role": "ops",
+    "fields": []
+  },
+  {
+    "key": "incident-reopen-review",
+    "section": "ADM-04",
+    "title": {
+      "ru": "Возобновить INC-DEMO-03?",
+      "en": "Reopen INC-DEMO-03?"
+    },
+    "context": {
+      "ru": "INC-DEMO-03 · ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002 · Polymarket · Олег Смирнов.",
+      "en": "INC-DEMO-03 · ORD-DEMO-03 · S-DEMO-002 · U-DEMO-002 · Polymarket · Oleg Smirnov."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Основание",
+          "Поступили новые противоречивые данные",
+          "Не переписывать прежнее закрытие и исходную историю"
+        ],
+        [
+          "Что изменится",
+          "Инцидент снова в работе",
+          "Версия записи увеличится; причина и сотрудник попадут в журнал"
+        ],
+        [
+          "Что не изменится",
+          "Истина заявки, деньги и резервы",
+          "Возобновление не является исполнением, повтором или снятием резерва"
+        ]
+      ],
+      "en": [
+        [
+          "Reason",
+          "New conflicting evidence received",
+          "Prior closure and original history remain intact"
+        ],
+        [
+          "Changes",
+          "Incident reopened for work",
+          "Record revision advances; reason and actor are logged"
+        ],
+        [
+          "Unchanged",
+          "Order facts, money and reserves",
+          "Reopen is not execution, resend or reserve release"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "Возобновить · учебный пример",
+          "en": "Reopen · demo"
+        },
+        "target": "incident-reopened"
+      },
+      {
+        "label": {
+          "ru": "Отмена",
+          "en": "Cancel"
+        },
+        "target": "ops-closed"
+      },
+      {
+        "label": {
+          "ru": "Конфликт версии · пример",
+          "en": "Version conflict · example"
+        },
+        "target": "incident-edit-conflict"
+      }
+    ],
+    "role": "ops",
+    "fields": []
+  },
+  {
+    "key": "incident-reopened",
+    "section": "ADM-04",
+    "title": {
+      "ru": "INC-DEMO-03 · возобновлён",
+      "en": "INC-DEMO-03 · reopened"
+    },
+    "context": {
+      "ru": "Олег Смирнов · STAFF-206 · причина сохранена; прежняя история не удалена.",
+      "en": "Oleg Smirnov · STAFF-206 · reason retained; earlier history preserved."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Инцидент",
+          "INC-DEMO-03 · в работе · версия 8",
+          "Возобновлён из-за новых противоречивых подтверждений"
+        ],
+        [
+          "Операция",
+          "ORD-DEMO-03 · нужна сверка",
+          "Известное исполнение $12 и EVID-DEMO-04 сохраняются; новый конфликт не стирает факт"
+        ],
+        [
+          "Денежные действия",
+          "Повторная отправка запрещена",
+          "Изменение статуса не снимает ограничений и резервов"
+        ]
+      ],
+      "en": [
+        [
+          "Incident",
+          "INC-DEMO-03 · open · revision 8",
+          "Reopened for new conflicting evidence"
+        ],
+        [
+          "Operation",
+          "ORD-DEMO-03 · reconciliation needed",
+          "Known $12 execution and EVID-DEMO-04 retained; a new conflict does not erase facts"
+        ],
+        [
+          "Money actions",
+          "Resend prohibited",
+          "Status change releases no reserve or restriction"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "К актуальной очереди",
+          "en": "Back to current queue"
+        },
+        "target": "incident-reopened-queue"
+      },
+      {
+        "label": {
+          "ru": "Сверка исходной заявки",
+          "en": "Original order reconciliation"
+        },
+        "target": "ops-partial-rechecked"
+      }
+    ],
+    "role": "ops",
+    "fields": []
+  },
+  {
+    "key": "incident-edit-conflict",
+    "section": "ADM-04",
+    "title": {
+      "ru": "Инцидент изменён другим сотрудником",
+      "en": "Incident changed by another staff member"
+    },
+    "context": {
+      "ru": "INC-DEMO-03 · ожидалась версия 7, получена версия 8. Черновик причины не применяется автоматически.",
+      "en": "INC-DEMO-03 · expected revision 7, observed revision 8. The reason draft is not applied automatically."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Конфликт",
+          "Изменение не применено",
+          "Нельзя перезаписать новую версию старой формой"
+        ],
+        [
+          "Последняя версия",
+          "Требует перечитать",
+          "Проверить состояние, ответственного и историю перед новым действием"
+        ],
+        [
+          "Заявка / деньги",
+          "Без изменений",
+          "Конфликт инцидента не означает успех или неуспех перевода"
+        ]
+      ],
+      "en": [
+        [
+          "Conflict",
+          "Edit not applied",
+          "A stale form cannot overwrite a newer revision"
+        ],
+        [
+          "Latest revision",
+          "Reread required",
+          "Inspect state, assignee and history before a new action"
+        ],
+        [
+          "Order / money",
+          "Unchanged",
+          "Incident conflict implies neither transfer success nor failure"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "Прочитать актуальную версию",
+          "en": "Read latest revision"
+        },
+        "target": "incident-reopened"
+      },
+      {
+        "label": {
+          "ru": "К очереди",
+          "en": "Back to queue"
+        },
+        "target": "incident-reopened-queue"
+      }
+    ],
+    "role": "ops",
+    "fields": []
+  },
+  {
+    "key": "staff-invite-form",
+    "section": "ADM-14",
+    "title": {
+      "ru": "Пригласить сотрудника",
+      "en": "Invite staff"
+    },
+    "context": {
+      "ru": "Личная учётная запись STAFF-207 · учебная Мира Хасан. Поставщик входа и доставка не подключены. Владельца этим процессом создать нельзя.",
+      "en": "Personal account STAFF-207 · synthetic Mira Hassan. Sign-in provider and delivery disconnected. This process cannot create an owner."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Начальный доступ",
+          "Никаких рабочих полномочий",
+          "Роль и область назначаются отдельно после активации"
+        ],
+        [
+          "Активация",
+          "Подтверждение приглашения и защита входа",
+          "Секрет ссылки, пароли и коды в админке не показываются"
+        ]
+      ],
+      "en": [
+        [
+          "Initial access",
+          "No business permissions",
+          "Role and scope are assigned separately after activation"
+        ],
+        [
+          "Activation",
+          "Invitation confirmation and login protection",
+          "No invitation secret, password or code displayed in admin"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "Показать подготовленное приглашение",
+          "en": "Show prepared invitation"
+        },
+        "target": "staff-invite-pending"
+      },
+      {
+        "label": {
+          "ru": "К сотрудникам",
+          "en": "Back to staff"
+        },
+        "target": "staff"
+      }
+    ],
+    "role": "owner",
+    "fields": [
+      {
+        "kind": "Input",
+        "label": {
+          "ru": "Имя сотрудника",
+          "en": "Staff name"
+        },
+        "value": {
+          "ru": "Мира Хасан",
+          "en": "Mira Hassan"
+        }
+      },
+      {
+        "kind": "Input",
+        "label": {
+          "ru": "Email для приглашения",
+          "en": "Invitation email"
+        },
+        "value": {
+          "ru": "mira.staff@demo.example",
+          "en": "mira.staff@demo.example"
+        }
+      }
+    ]
+  },
+  {
+    "key": "staff-invite-pending",
+    "section": "ADM-14",
+    "title": {
+      "ru": "Приглашение ожидает активации",
+      "en": "Invitation awaiting activation"
+    },
+    "context": {
+      "ru": "INV-DEMO-207 · STAFF-207 · mira.staff@demo.example · учебное состояние; реальная отправка не выполнена.",
+      "en": "INV-DEMO-207 · STAFF-207 · mira.staff@demo.example · synthetic state; no real invitation sent."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Учётная запись",
+          "Мира Хасан · ожидает активации",
+          "Рабочий вход и права не открыты"
+        ],
+        [
+          "Доставка",
+          "Не подтверждена",
+          "Отдельный факт от активации; не показывать «доставлено» без источника"
+        ],
+        [
+          "Срок / отзыв",
+          "Проверяются при активации",
+          "Истёкшее или отозванное приглашение не открывает доступ"
+        ],
+        [
+          "Роль",
+          "Не назначена",
+          "Активация не выдаёт роль и не расширяет доступ"
+        ]
+      ],
+      "en": [
+        [
+          "Account",
+          "Mira Hassan · activation pending",
+          "Business access and permissions remain closed"
+        ],
+        [
+          "Delivery",
+          "Unconfirmed",
+          "Separate from activation; no delivered claim without evidence"
+        ],
+        [
+          "Expiry / revocation",
+          "Checked at activation",
+          "Expired or revoked invitation cannot grant access"
+        ],
+        [
+          "Role",
+          "Unassigned",
+          "Activation grants no role or privilege expansion"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "Активация завершена · пример",
+          "en": "Activation completed · example"
+        },
+        "target": "staff-invite-activated"
+      },
+      {
+        "label": {
+          "ru": "Приглашение недействительно · пример",
+          "en": "Invalid invitation · example"
+        },
+        "target": "staff-invite-invalid"
+      },
+      {
+        "label": {
+          "ru": "К приглашению",
+          "en": "Back to invitation"
+        },
+        "target": "staff-invite-form"
+      }
+    ],
+    "role": "owner",
+    "fields": []
+  },
+  {
+    "key": "staff-invite-invalid",
+    "section": "ADM-14",
+    "title": {
+      "ru": "Приглашение недействительно",
+      "en": "Invitation invalid"
+    },
+    "context": {
+      "ru": "INV-DEMO-207 · отдельный отрицательный исход. Проверка актуального состояния обязательна до настройки входа.",
+      "en": "INV-DEMO-207 · independent negative outcome. Current invitation validity is checked before login setup."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Результат",
+          "Активация заблокирована",
+          "Приглашение истекло, отозвано или уже использовано; точная причина по источнику"
+        ],
+        [
+          "Права",
+          "Не выданы",
+          "Нельзя продолжить по сохранённой странице или старой ссылке"
+        ],
+        [
+          "Восстановление",
+          "Новое приглашение уполномоченным сотрудником",
+          "Не восстанавливает старый секрет и не присваивает роль"
+        ]
+      ],
+      "en": [
+        [
+          "Outcome",
+          "Activation blocked",
+          "Expired, revoked or already used; exact reason from source"
+        ],
+        [
+          "Permissions",
+          "Not granted",
+          "A cached page or old link cannot bypass validation"
+        ],
+        [
+          "Recovery",
+          "New invitation by authorized staff",
+          "Does not restore the old secret or assign a role"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "Вернуться к приглашению",
+          "en": "Back to invitation"
+        },
+        "target": "staff-invite-form"
+      }
+    ],
+    "role": "owner",
+    "fields": []
+  },
+  {
+    "key": "staff-invite-activated",
+    "section": "ADM-14",
+    "title": {
+      "ru": "Аккаунт активирован · роль не назначена",
+      "en": "Account activated · no role assigned"
+    },
+    "context": {
+      "ru": "STAFF-207 · Мира Хасан · отдельный подтверждённый учебный исход; не результат нажатия в работающем сервисе.",
+      "en": "STAFF-207 · Mira Hassan · separate confirmed synthetic outcome; not a live service action."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Приглашение",
+          "Подтверждено в учебном исходе",
+          "Действительность и принадлежность проверены до активации"
+        ],
+        [
+          "Защита входа",
+          "Настроена и подтверждена",
+          "Поставщик и способы реализуются отдельно; проверка обязательна"
+        ],
+        [
+          "Рабочие полномочия",
+          "Нет роли и области",
+          "Нельзя открыть рабочие данные, деньги или получить права владельца"
+        ],
+        [
+          "Следующий этап",
+          "Отдельное назначение роли",
+          "Итоговый доступ, срок и область проверяются в существующем процессе"
+        ]
+      ],
+      "en": [
+        [
+          "Invitation",
+          "Confirmed in this fixture",
+          "Validity and identity checked before activation"
+        ],
+        [
+          "Login protection",
+          "Configured and verified",
+          "Provider and mechanisms are separate; verification is mandatory"
+        ],
+        [
+          "Business permissions",
+          "No role or scope",
+          "No business data, monetary actions or owner powers"
+        ],
+        [
+          "Next stage",
+          "Separate role assignment",
+          "Effective scope, duration and access reviewed in the existing process"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "К сотрудникам · актуальный снимок",
+          "en": "Back to staff · current snapshot"
+        },
+        "target": "staff-invited-list"
+      }
+    ],
+    "role": "owner",
+    "fields": []
+  },
+  {
+    "key": "users-filter-loading",
+    "section": "ADM-02",
+    "title": {
+      "ru": "Загружаем выбранных пользователей",
+      "en": "Loading selected users"
+    },
+    "context": {
+      "ru": "Состояние чтения сохранённой выборки; подготовленный пример, не настоящее сетевое ожидание.",
+      "en": "Saved-selection read state; prepared example, not a real network operation."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Отбор",
+          "U-DEMO-002 · Polymarket · без VIP",
+          "Требует внимания · всё время · страница 1"
+        ],
+        [
+          "Данные",
+          "Ожидаем ответ",
+          "Старые записи не выдаются за свежий результат"
+        ]
+      ],
+      "en": [
+        [
+          "Selection",
+          "U-DEMO-002 · Polymarket · no VIP",
+          "Needs attention · all time · page 1"
+        ],
+        [
+          "Data",
+          "Waiting for response",
+          "Previous records are not presented as a fresh result"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "Повторить чтение · пример",
+          "en": "Retry read · example"
+        },
+        "target": "users-filter-result"
+      },
+      {
+        "label": {
+          "ru": "Изменить отбор",
+          "en": "Edit filters"
+        },
+        "target": "users-filter-form"
+      }
+    ],
+    "role": "owner",
+    "fields": []
+  },
+  {
+    "key": "users-filter-error",
+    "section": "ADM-02",
+    "title": {
+      "ru": "Не удалось загрузить выбранных пользователей",
+      "en": "Could not load selected users"
+    },
+    "context": {
+      "ru": "Состояние чтения сохранённой выборки; подготовленный пример, не настоящее сетевое ожидание.",
+      "en": "Saved-selection read state; prepared example, not a real network operation."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Отбор",
+          "Сохранён без изменений",
+          "U-DEMO-002 · Polymarket · без VIP · требует внимания · всё время · страница 1"
+        ],
+        [
+          "Результат",
+          "Не получен",
+          "Это не пустая выборка и не удаление пользователя"
+        ]
+      ],
+      "en": [
+        [
+          "Selection",
+          "Retained unchanged",
+          "U-DEMO-002 · Polymarket · no VIP · needs attention · all time · page 1"
+        ],
+        [
+          "Result",
+          "Unavailable",
+          "This is not an empty result or a deleted user"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "Повторить чтение · пример",
+          "en": "Retry read · example"
+        },
+        "target": "users-filter-result"
+      },
+      {
+        "label": {
+          "ru": "Изменить отбор",
+          "en": "Edit filters"
+        },
+        "target": "users-filter-form"
+      }
+    ],
+    "role": "owner",
+    "fields": []
+  },
+  {
+    "key": "incident-reopened-queue",
+    "section": "ADM-04",
+    "role": "ops",
+    "title": {
+      "ru": "Инциденты · актуальная выборка",
+      "en": "Incidents · current selection"
+    },
+    "context": {
+      "ru": "Олег Смирнов · STAFF-206 · Polymarket · INC-DEMO-03 · страница 1. Тот же снимок после возобновления.",
+      "en": "Oleg Smirnov · STAFF-206 · Polymarket · INC-DEMO-03 · page 1. Same post-reopen snapshot."
+    },
+    "rows": {
+      "ru": [
+        [
+          "INC-DEMO-03",
+          "В работе · версия 8",
+          "Новые противоречивые данные; исполнение $12 не отменено"
+        ]
+      ],
+      "en": [
+        [
+          "INC-DEMO-03",
+          "Open · revision 8",
+          "New conflicting evidence; known $12 execution retained"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "Открыть INC-DEMO-03",
+          "en": "Open INC-DEMO-03"
+        },
+        "target": "incident-reopened"
+      }
+    ],
+    "fields": []
+  },
+  {
+    "key": "staff-invited-list",
+    "section": "ADM-14",
+    "role": "owner",
+    "title": {
+      "ru": "Сотрудники · Мира Хасан",
+      "en": "Staff · Mira Hassan"
+    },
+    "context": {
+      "ru": "Елена Морозова · STAFF-201 · поиск STAFF-207 · страница 1. Подтверждённый учебный снимок после активации. INV-DEMO-207: активация подтверждена; роль не назначена, рабочие и денежные полномочия не предоставлены.",
+      "en": "Elena Morozova · STAFF-201 · STAFF-207 search · page 1. Confirmed synthetic post-activation snapshot. INV-DEMO-207: activation confirmed; no role, business or monetary permissions granted."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Мира Хасан · STAFF-207",
+          "Аккаунт активирован · роль не назначена",
+          "mira.staff@demo.example · рабочих прав нет"
+        ]
+      ],
+      "en": [
+        [
+          "Mira Hassan · STAFF-207",
+          "Account active · no role assigned",
+          "mira.staff@demo.example · no business permissions"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "Открыть STAFF-207",
+          "en": "Open STAFF-207"
+        },
+        "target": "staff-invite-activated"
+      }
+    ],
+    "fields": []
+  },
+  {
+    "key": "session-budget-summary",
+    "section": "ADM-03",
+    "role": "owner",
+    "title": {
+      "ru": "S-DEMO-002 · баланс изменён",
+      "en": "S-DEMO-002 · balance changed"
+    },
+    "context": {
+      "ru": "U-DEMO-002 · Polymarket · снимок после FLOW-DEMO-01/02, версия настроек 14. Возврат из истории сохраняет этот снимок.",
+      "en": "U-DEMO-002 · Polymarket · snapshot after FLOW-DEMO-01/02, settings revision 14. History return preserves this snapshot."
+    },
+    "rows": {
+      "ru": [
+        [
+          "Бюджет",
+          "B $200 · свободно $165 · исполнено $35",
+          "После +$50 и −$50, не рыночная стоимость и не прибыль"
+        ],
+        [
+          "Отчёт",
+          "Баланс изменён",
+          "Маркер не исчезает после возврата B к исходному"
+        ],
+        [
+          "Позиции",
+          "2 лота · копирование отключено",
+          "Окончательный учёт не завершён; новая сессия и сброс недоступны"
+        ],
+        [
+          "Настройки",
+          "Версия 14 · фиксированный размер $20",
+          "Прежние обязательства учтены; история и дневной расход сохранены"
+        ]
+      ],
+      "en": [
+        [
+          "Budget",
+          "B $200 · free $165 · executed cost $35",
+          "After +$50 and −$50; not market value or profit"
+        ],
+        [
+          "Report",
+          "Balance changed",
+          "Marker persists after B returns to the initial value"
+        ],
+        [
+          "Positions",
+          "2 lots · copy disconnected",
+          "Final accounting incomplete; new session and reset unavailable"
+        ],
+        [
+          "Settings",
+          "Revision 14 · fixed size $20",
+          "Earlier obligations counted; history and daily usage retained"
+        ]
+      ]
+    },
+    "actions": [
+      {
+        "label": {
+          "ru": "История бюджета",
+          "en": "Budget history"
+        },
+        "target": "session-budget-history"
+      },
+      {
+        "label": {
+          "ru": "Версии решения",
+          "en": "Decision revisions"
+        },
+        "target": "session-signal-revisions"
+      }
+    ],
+    "fields": []
+  }
+]
