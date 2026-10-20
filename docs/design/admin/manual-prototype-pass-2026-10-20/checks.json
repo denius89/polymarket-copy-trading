@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-20",
+  "results": [
+    {
+      "command": "npm run check",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run test:repository",
+      "exitCode": 0
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    },
+    {
+      "command": "node docs/design/admin/manual-prototype-pass-2026-10-20/verify.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node docs/design/admin/roles-keys-completion-2026-10-20/verify.mjs",
+      "exitCode": 0
+    }
+  ],
+  "fullManualAcceptance": false,
+  "realOperationsVerified": false,
+  "notes": "First subject verification found browser JPEG bytes under PNG filenames; renamed to .jpg without changing pixels, updated references and hashes, then both subject checks passed."
+}
