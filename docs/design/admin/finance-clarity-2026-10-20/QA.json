@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-20",
+  "scope": "Captured design graph and native images; not runtime or full manual acceptance",
+  "checks": [
+    {
+      "name": "Seven task links ru",
+      "passed": true
+    },
+    {
+      "name": "Independent second approval chain ru",
+      "passed": true
+    },
+    {
+      "name": "Threshold and full payout example ru",
+      "passed": true
+    },
+    {
+      "name": "Seven task links en",
+      "passed": true
+    },
+    {
+      "name": "Independent second approval chain en",
+      "passed": true
+    },
+    {
+      "name": "Threshold and full payout example en",
+      "passed": true
+    }
+  ],
+  "visualReview": "Eight final PNGs inspected; EN overflow and container backgrounds corrected",
+  "manualBrowser": {
+    "completed": false,
+    "reason": "Page.navigate and Emulation.setFocusEmulationEnabled timed out; no account settings changed"
+  },
+  "rules": "ADR-0043/0047 preserved; 100/120/1.20/121.20 are pre-existing SEC-T2 examples only",
+  "repository": {
+    "check": "passed",
+    "testRepository": "10 Node + 5 Python passed",
+    "diffCheck": "passed"
+  },
+  "acceptance": "Colleague reviewing; open"
+}

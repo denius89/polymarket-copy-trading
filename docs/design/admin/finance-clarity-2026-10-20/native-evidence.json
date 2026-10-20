@@ -1,0 +1,1279 @@
+{
+  "date": "2026-10-20",
+  "scope": "Finance entry, protection explanation, secondary template and existing P-14 chain; no monetary-rule change",
+  "overview": {
+    "ru": {
+      "locale": "ru",
+      "stack": "3287:143075",
+      "mutatedNodeIds": [
+        "3287:143075",
+        "3287:143076",
+        "3287:143080",
+        "3287:143089",
+        "3287:143093",
+        "3287:143106",
+        "3287:143110"
+      ],
+      "buttons": [
+        {
+          "id": "3287:143081",
+          "name": "Finance task · Партнёры",
+          "to": [
+            "2003:313"
+          ]
+        },
+        {
+          "id": "3287:143085",
+          "name": "Finance task · Список выплат",
+          "to": [
+            "2003:520"
+          ]
+        },
+        {
+          "id": "3287:143094",
+          "name": "Finance task · Поступления и расходы",
+          "to": [
+            "2003:153"
+          ]
+        },
+        {
+          "id": "3287:143098",
+          "name": "Finance task · Доходы и обязательства",
+          "to": [
+            "2003:249"
+          ]
+        },
+        {
+          "id": "3287:143102",
+          "name": "Finance task · Собственные источники",
+          "to": [
+            "2003:466"
+          ]
+        },
+        {
+          "id": "3287:143111",
+          "name": "Finance task · Тарифы и рефералы",
+          "to": [
+            "2005:803"
+          ]
+        },
+        {
+          "id": "3287:143115",
+          "name": "Finance task · Защита выплат",
+          "to": [
+            "2004:1122"
+          ]
+        }
+      ],
+      "texts": [
+        {
+          "characters": "Партнёры и выплаты"
+        },
+        {
+          "characters": "Кому и сколько мы должны. Откройте партнёра, проверьте доступную сумму и выполните полную выплату."
+        },
+        {
+          "characters": "Партнёры"
+        },
+        {
+          "characters": "Список выплат"
+        },
+        {
+          "characters": "Деньги сервиса"
+        },
+        {
+          "characters": "Собственные поступления, расходы и кошельки Shadow. Деньги клиентов сюда не входят; баланс кошелька не равен доходу."
+        },
+        {
+          "characters": "Поступления и расходы"
+        },
+        {
+          "characters": "Доходы и обязательства"
+        },
+        {
+          "characters": "Собственные источники"
+        },
+        {
+          "characters": "Настройки условий и защиты"
+        },
+        {
+          "characters": "Редкие изменения: тарифы, партнёрские условия и правила проверки выплат. Эти настройки не нужны для каждой обычной выплаты."
+        },
+        {
+          "characters": "Тарифы и рефералы"
+        },
+        {
+          "characters": "Защита выплат"
+        }
+      ]
+    },
+    "en": {
+      "locale": "en",
+      "stack": "3287:71624",
+      "mutatedNodeIds": [
+        "3287:71624",
+        "3287:71625",
+        "3287:71629",
+        "3287:71638",
+        "3287:71642",
+        "3287:71655",
+        "3287:71659"
+      ],
+      "buttons": [
+        {
+          "id": "3287:71630",
+          "name": "Finance task · Partners",
+          "to": [
+            "2007:313"
+          ]
+        },
+        {
+          "id": "3287:71634",
+          "name": "Finance task · Payout list",
+          "to": [
+            "2007:520"
+          ]
+        },
+        {
+          "id": "3287:71643",
+          "name": "Finance task · Receipts and expenses",
+          "to": [
+            "2007:153"
+          ]
+        },
+        {
+          "id": "3287:71647",
+          "name": "Finance task · Income and obligations",
+          "to": [
+            "2007:249"
+          ]
+        },
+        {
+          "id": "3287:71651",
+          "name": "Finance task · Own funding sources",
+          "to": [
+            "2007:466"
+          ]
+        },
+        {
+          "id": "3287:71660",
+          "name": "Finance task · Pricing and referrals",
+          "to": [
+            "2008:1070"
+          ]
+        },
+        {
+          "id": "3287:71664",
+          "name": "Finance task · Payout protection",
+          "to": [
+            "2008:912"
+          ]
+        }
+      ],
+      "texts": [
+        {
+          "characters": "Partners and payouts"
+        },
+        {
+          "characters": "Who we owe and how much. Open a partner, check the available amount and make a full payout."
+        },
+        {
+          "characters": "Partners"
+        },
+        {
+          "characters": "Payout list"
+        },
+        {
+          "characters": "Service funds"
+        },
+        {
+          "characters": "Shadow-owned receipts, expenses and wallets. Customer funds are excluded; wallet balance is not revenue."
+        },
+        {
+          "characters": "Receipts and expenses"
+        },
+        {
+          "characters": "Income and obligations"
+        },
+        {
+          "characters": "Own funding sources"
+        },
+        {
+          "characters": "Terms and protection settings"
+        },
+        {
+          "characters": "Occasional changes to tariffs, partner terms and payout checks. These settings are not required for each ordinary payout."
+        },
+        {
+          "characters": "Pricing and referrals"
+        },
+        {
+          "characters": "Payout protection"
+        }
+      ]
+    }
+  },
+  "p14": {
+    "ru": {
+      "locale": "ru",
+      "mutatedNodeIds": [
+        "2003:2",
+        "2004:1122",
+        "2004:1160",
+        "2005:767"
+      ],
+      "chain": [
+        {
+          "id": "2004:766",
+          "texts": [
+            "Пакет 02 · макет\nOwner-only денежные действия\nБез реальных переводов",
+            "Демо-данные · Будущий платный режим · Источники не подключены",
+            "Защитный порог сработал для полной суммы выплаты. Нужен второй владелец, который проверит те же сумму, комиссию, реквизиты и версию. Сумма не уменьшается и не дробится; обычная выплата в пределах правил требует одного владельца.",
+            "PAY-022 · сработало настроенное защитное правило.\nПолный доступный баланс $120.00 не дробится и не уменьшается ради порога.",
+            "Сценарии прототипа · пример другой учётной записи; не рабочая смена личности"
+          ],
+          "links": [
+            {
+              "id": "2004:801",
+              "name": "Action · expired",
+              "to": [
+                "2004:693"
+              ]
+            },
+            {
+              "id": "2004:803",
+              "name": "Action · partner",
+              "to": [
+                "2003:367"
+              ]
+            },
+            {
+              "id": "2004:799",
+              "name": "Action · second-review",
+              "to": [
+                "2004:806"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2004:806",
+          "texts": [
+            "Учебные данные · Paper Alpha: комиссия 0% · реальные отправки выключены",
+            "Отдельный учебный порог SEC-T2: 100 USDT. Владелец A уже подтвердил точный снимок. Владелец B независимо проверяет адреса и суммы. Его подтверждение не обходит жёсткие запреты.",
+            "Дизайн-прототип · вымышленные адреса и суммы · операции не выполняются",
+            "Сценарии прототипа · отдельные учебные случаи, могут менять сотрудника"
+          ],
+          "links": [
+            {
+              "id": "2868:144030",
+              "name": "Action · second-approved",
+              "to": [
+                "2004:844"
+              ]
+            },
+            {
+              "id": "2868:144034",
+              "name": "Action · expired",
+              "to": [
+                "2004:693"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2004:844",
+          "texts": [
+            "Демо-данные · Будущий платный режим · Источники не подключены",
+            "Независимое подтверждение сохранено только для этой выплаты и версии. Это ещё не отправка и не успешная выплата. Неизвестный результат или новое ограничение блокируют отправку; изменение параметров отменяет подтверждение.",
+            "Одноразовое разрешение для PAY-022 / digest v7.\nПеред отправкой проверки выполняются снова; изменения аннулируют approval.",
+            "Сценарии прототипа · отдельные учебные случаи, могут менять сотрудника"
+          ],
+          "links": [
+            {
+              "id": "2004:874",
+              "name": "Action · payouts",
+              "to": [
+                "2003:520"
+              ]
+            },
+            {
+              "id": "2004:876",
+              "name": "Action · blocked",
+              "to": [
+                "2004:728"
+              ]
+            },
+            {
+              "id": "2906:167994",
+              "name": "Action · payout-approval-history",
+              "to": [
+                "2904:157235"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "en": {
+      "locale": "en",
+      "mutatedNodeIds": [
+        "2007:2",
+        "2008:912",
+        "2008:950",
+        "2008:1034"
+      ],
+      "chain": [
+        {
+          "id": "2007:1299",
+          "texts": [
+            "Package 02 · preview\nOwner-only money actions\nNo real transfers",
+            "A security threshold applies to the full payout. A different Owner must verify the same amount, fee, recipient and version. Do not reduce or split the amount; an ordinary payout within the rules needs one Owner.",
+            "PAY-022 · configured security rule triggered.\nFull balance $120.00 is not split or reduced to avoid a threshold.",
+            "Prototype scenarios · another-account fixture, not a product identity switch"
+          ],
+          "links": [
+            {
+              "id": "2007:1321",
+              "name": "Action · expired",
+              "to": [
+                "2007:1226"
+              ]
+            },
+            {
+              "id": "2007:1322",
+              "name": "Action · partner",
+              "to": [
+                "2007:367"
+              ]
+            },
+            {
+              "id": "2007:1320",
+              "name": "Action · second-review",
+              "to": [
+                "2008:596"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2008:596",
+          "texts": [
+            "Synthetic data · Paper Alpha: service fee 0% · real sending disabled",
+            "Separate SEC-T2 demo threshold: 100 USDT. Owner A has approved this exact snapshot. Owner B independently checks addresses and amounts. Approval cannot bypass hard blocks.",
+            "Design prototype · synthetic addresses and amounts · no operations are executed",
+            "Prototype scenarios · independent fixtures; may switch staff member"
+          ],
+          "links": [
+            {
+              "id": "2868:146695",
+              "name": "Action · second-approved",
+              "to": [
+                "2008:634"
+              ]
+            },
+            {
+              "id": "2868:146699",
+              "name": "Action · expired",
+              "to": [
+                "2007:1226"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2008:634",
+          "texts": [
+            "Independent approval is saved for this payout and version only. It is not a submitted or completed payment. An unknown outcome or new restriction blocks sending; changed parameters invalidate approval.",
+            "Single-use approval for PAY-022 / digest v7.\nChecks run again before dispatch. Changes invalidate approval.",
+            "Prototype scenarios · independent fixtures; may switch staff member"
+          ],
+          "links": [
+            {
+              "id": "2008:654",
+              "name": "Action · payouts",
+              "to": [
+                "2007:520"
+              ]
+            },
+            {
+              "id": "2008:655",
+              "name": "Action · blocked",
+              "to": [
+                "2007:1261"
+              ]
+            },
+            {
+              "id": "2906:168717",
+              "name": "Action · payout-approval-history",
+              "to": [
+                "2904:47250"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "clarificationBefore": {
+    "ru": [
+      {
+        "id": "2003:2",
+        "name": "RU · finance · Финансы сервиса",
+        "texts": [
+          {
+            "id": "2003:4",
+            "characters": "SHADOW"
+          },
+          {
+            "id": "2003:5",
+            "characters": "Управление платформой"
+          },
+          {
+            "id": "2003:18",
+            "characters": "Пакет 02 · макет\nOwner-only денежные действия\nБез реальных переводов"
+          },
+          {
+            "id": "2003:23",
+            "characters": "Рабочее пространство / Owner A"
+          },
+          {
+            "id": "2003:26",
+            "characters": "Финансы сервиса"
+          },
+          {
+            "id": "2003:27",
+            "characters": "Демо-данные · Будущий платный режим · Источники не подключены"
+          },
+          {
+            "id": "I2003:28;1981:9",
+            "characters": "Доход, поступления, финансирование, долг и выплаты учитываются отдельно. Paper Alpha: комиссия 0%, реальных выплат нет."
+          },
+          {
+            "id": "2003:76",
+            "characters": "Дизайн-прототип · Операции не выполняются"
+          }
+        ],
+        "actions": [
+          {
+            "id": "2003:70",
+            "name": "Action · partners",
+            "to": [
+              "2003:313"
+            ]
+          },
+          {
+            "id": "2003:72",
+            "name": "Action · finance-empty",
+            "to": [
+              "2003:77"
+            ]
+          },
+          {
+            "id": "2003:74",
+            "name": "Action · finance-stale",
+            "to": [
+              "2003:115"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "2004:1122",
+        "name": "RU · security-policy · Защитные пороги выплат",
+        "texts": [
+          {
+            "id": "2004:1124",
+            "characters": "SHADOW"
+          },
+          {
+            "id": "2004:1125",
+            "characters": "Управление платформой"
+          },
+          {
+            "id": "2004:1138",
+            "characters": "Пакет 02 · макет\nOwner-only денежные действия\nБез реальных переводов"
+          },
+          {
+            "id": "2004:1143",
+            "characters": "Рабочее пространство / Владелец A"
+          },
+          {
+            "id": "2004:1146",
+            "characters": "Защитные пороги выплат"
+          },
+          {
+            "id": "2004:1147",
+            "characters": "Демо-данные · Будущий платный режим · Источники не подключены"
+          },
+          {
+            "id": "I2004:1148;1981:9",
+            "characters": "Целевой остаток предупреждает; защитный порог требует второго владельца; жёсткий максимум запрещает управляемое превышение. Суточные лимиты учитывают связанные операции и часовой пояс."
+          },
+          {
+            "id": "2004:1159",
+            "characters": "Дизайн-прототип · Операции не выполняются"
+          }
+        ],
+        "actions": [
+          {
+            "id": "2004:1155",
+            "name": "Action · security-form",
+            "to": [
+              "2004:1160"
+            ]
+          },
+          {
+            "id": "2004:1157",
+            "name": "Action · security-review",
+            "to": [
+              "2005:767"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "2004:1160",
+        "name": "RU · security-form · Новая защитная policy",
+        "texts": [
+          {
+            "id": "2004:1162",
+            "characters": "SHADOW"
+          },
+          {
+            "id": "2004:1163",
+            "characters": "Управление платформой"
+          },
+          {
+            "id": "2004:1176",
+            "characters": "Пакет 02 · макет\nOwner-only денежные действия\nБез реальных переводов"
+          },
+          {
+            "id": "2004:1181",
+            "characters": "Рабочее пространство / Владелец A"
+          },
+          {
+            "id": "2004:1184",
+            "characters": "Новая защитная правило"
+          },
+          {
+            "id": "2004:1185",
+            "characters": "Демо-данные · Будущий платный режим · Источники не подключены"
+          },
+          {
+            "id": "2560:140888",
+            "characters": "Это черновик защитного правила, а не новый тариф. Автор задаёт значения, область действия и причину; другой владелец проверяет и активирует версию. Сохранение черновика не меняет действующие правила."
+          },
+          {
+            "id": "I2004:1186;1981:9",
+            "characters": "На форме задаются: одна выплата, за сутки, по партнёру, источнику и новому адресу.\nОкно/UTC, учёт расходов и база оценки обязательны."
+          },
+          {
+            "id": "2004:1207",
+            "characters": "Дизайн-прототип · Операции не выполняются"
+          }
+        ],
+        "actions": [
+          {
+            "id": "2004:1203",
+            "name": "Action · security-invalid",
+            "to": [
+              "2004:1208"
+            ]
+          },
+          {
+            "id": "2004:1205",
+            "name": "Action · security-review",
+            "to": [
+              "2005:767"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "2005:767",
+        "name": "RU · security-review · Owner B · проверка policy",
+        "texts": [
+          {
+            "id": "2005:769",
+            "characters": "SHADOW"
+          },
+          {
+            "id": "2005:770",
+            "characters": "Управление платформой"
+          },
+          {
+            "id": "2005:783",
+            "characters": "Пакет 02 · макет\nOwner-only денежные действия\nБез реальных переводов"
+          },
+          {
+            "id": "2005:788",
+            "characters": "Рабочее пространство / Владелец B"
+          },
+          {
+            "id": "2005:791",
+            "characters": "Владелец B · проверка правило"
+          },
+          {
+            "id": "2005:792",
+            "characters": "Демо-данные · Будущий платный режим · Источники не подключены"
+          },
+          {
+            "id": "2560:141092",
+            "characters": "Другой владелец повторно подтверждает личность физическим ключом и проверяет точную версию защитных порогов. Это правило не вводит второе согласование обычных тарифов, текстов или маркетинга."
+          },
+          {
+            "id": "I2005:793;1981:9",
+            "characters": "Точный diff и версия security правило · автор Владелец A.\nЭто пример маршрута согласования; значения остаются на ввод владелец."
+          },
+          {
+            "id": "2005:802",
+            "characters": "Дизайн-прототип · Операции не выполняются"
+          }
+        ],
+        "actions": [
+          {
+            "id": "2005:800",
+            "name": "Action · security-form",
+            "to": [
+              "2004:1160"
+            ]
+          }
+        ]
+      }
+    ],
+    "en": [
+      {
+        "id": "2007:2",
+        "name": "EN · finance · Service finance",
+        "texts": [
+          {
+            "id": "2007:4",
+            "characters": "SHADOW"
+          },
+          {
+            "id": "2007:5",
+            "characters": "Platform management"
+          },
+          {
+            "id": "2007:12",
+            "characters": "Package 02 · preview\nOwner-only money actions\nNo real transfers"
+          },
+          {
+            "id": "2007:16",
+            "characters": "Workspace / Owner A"
+          },
+          {
+            "id": "2007:18",
+            "characters": "Service finance"
+          },
+          {
+            "id": "2007:19",
+            "characters": "Demo data · Future paid stage · Sources disconnected"
+          },
+          {
+            "id": "I2007:20;1981:9",
+            "characters": "Income, receipts, owner financing, partner debt and payouts are separate. Paper Alpha: 0% fee, no real payouts."
+          },
+          {
+            "id": "2007:34",
+            "characters": "Design prototype · No operations executed"
+          }
+        ],
+        "actions": [
+          {
+            "id": "2007:31",
+            "name": "Action · partners",
+            "to": [
+              "2007:313"
+            ]
+          },
+          {
+            "id": "2007:32",
+            "name": "Action · finance-empty",
+            "to": [
+              "2007:77"
+            ]
+          },
+          {
+            "id": "2007:33",
+            "name": "Action · finance-stale",
+            "to": [
+              "2007:115"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "2008:912",
+        "name": "EN · security-policy · Payout security thresholds",
+        "texts": [
+          {
+            "id": "2008:914",
+            "characters": "SHADOW"
+          },
+          {
+            "id": "2008:915",
+            "characters": "Platform management"
+          },
+          {
+            "id": "2008:922",
+            "characters": "Package 02 · preview\nOwner-only money actions\nNo real transfers"
+          },
+          {
+            "id": "2008:926",
+            "characters": "Workspace / Owner A"
+          },
+          {
+            "id": "2008:928",
+            "characters": "Payout security thresholds"
+          },
+          {
+            "id": "2008:929",
+            "characters": "Demo data · Future paid stage · Sources disconnected"
+          },
+          {
+            "id": "I2008:930;1981:9",
+            "characters": "Target balance warns; approval threshold requires a second Owner; hard cap blocks managed excess funding. Daily limits include related operations and the configured timezone."
+          },
+          {
+            "id": "2008:935",
+            "characters": "Design prototype · No operations executed"
+          }
+        ],
+        "actions": [
+          {
+            "id": "2008:933",
+            "name": "Action · security-form",
+            "to": [
+              "2008:950"
+            ]
+          },
+          {
+            "id": "2008:934",
+            "name": "Action · security-review",
+            "to": [
+              "2008:1034"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "2008:950",
+        "name": "EN · security-form · New security policy",
+        "texts": [
+          {
+            "id": "2008:952",
+            "characters": "SHADOW"
+          },
+          {
+            "id": "2008:953",
+            "characters": "Platform management"
+          },
+          {
+            "id": "2008:960",
+            "characters": "Package 02 · preview\nOwner-only money actions\nNo real transfers"
+          },
+          {
+            "id": "2008:964",
+            "characters": "Workspace / Owner A"
+          },
+          {
+            "id": "2008:966",
+            "characters": "New security policy"
+          },
+          {
+            "id": "2008:967",
+            "characters": "Demo data · Future paid stage · Sources disconnected"
+          },
+          {
+            "id": "2560:42542",
+            "characters": "This is a security-rule draft, not a tariff. The author sets values, scope and reason; a different Owner reviews and activates the version. Saving does not change the active rules."
+          },
+          {
+            "id": "I2008:968;1981:9",
+            "characters": "Configure single payout, daily, partner, source and new-recipient thresholds.\nWindow/UTC, fee inclusion and valuation basis are required."
+          },
+          {
+            "id": "2008:976",
+            "characters": "Design prototype · No operations executed"
+          }
+        ],
+        "actions": [
+          {
+            "id": "2008:974",
+            "name": "Action · security-invalid",
+            "to": [
+              "2008:998"
+            ]
+          },
+          {
+            "id": "2008:975",
+            "name": "Action · security-review",
+            "to": [
+              "2008:1034"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "2008:1034",
+        "name": "EN · security-review · Owner B · policy review",
+        "texts": [
+          {
+            "id": "2008:1036",
+            "characters": "SHADOW"
+          },
+          {
+            "id": "2008:1037",
+            "characters": "Platform management"
+          },
+          {
+            "id": "2008:1044",
+            "characters": "Package 02 · preview\nOwner-only money actions\nNo real transfers"
+          },
+          {
+            "id": "2008:1048",
+            "characters": "Workspace / Owner B"
+          },
+          {
+            "id": "2008:1050",
+            "characters": "Owner B · policy review"
+          },
+          {
+            "id": "2008:1051",
+            "characters": "Demo data · Future paid stage · Sources disconnected"
+          },
+          {
+            "id": "2560:42748",
+            "characters": "A different Owner reauthenticates with a physical security key and verifies the exact threshold version. This does not add second approval to ordinary tariffs, content or marketing."
+          },
+          {
+            "id": "I2008:1052;1981:9",
+            "characters": "Exact security-policy diff and version · author Owner A.\nApproval-path illustration. Values remain for Owners to enter."
+          },
+          {
+            "id": "2008:1056",
+            "characters": "Design prototype · No operations executed"
+          }
+        ],
+        "actions": [
+          {
+            "id": "2008:1055",
+            "name": "Action · security-form",
+            "to": [
+              "2008:950"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "policyAfter": {
+    "ru": {
+      "locale": "ru",
+      "screens": [
+        {
+          "id": "2004:1122",
+          "texts": [
+            {
+              "id": "2004:1124",
+              "characters": "SHADOW"
+            },
+            {
+              "id": "2004:1125",
+              "characters": "Управление платформой"
+            },
+            {
+              "id": "2004:1138",
+              "characters": "Пакет 02 · макет\nOwner-only денежные действия\nБез реальных переводов"
+            },
+            {
+              "id": "2004:1143",
+              "characters": "Рабочее пространство / Владелец A"
+            },
+            {
+              "id": "2004:1146",
+              "characters": "Когда выплату проверяют двое"
+            },
+            {
+              "id": "2004:1147",
+              "characters": "Демо-данные · Будущий платный режим · Источники не подключены"
+            },
+            {
+              "id": "I2004:1148;1981:9",
+              "characters": "Учебный порог одной выплаты — 100 USDT. Партнёру причитается 120 USDT: всю сумму проверяет второй владелец. Долг не уменьшаем и не делим. Это защита выплаты, а не настройка комиссии."
+            },
+            {
+              "id": "I2004:1151;1981:15",
+              "characters": "В пределах правил достаточно одного владельца. Второй нужен при сработавшем пороге; жёсткий запрет его подтверждение не снимает."
+            },
+            {
+              "id": "2004:1159",
+              "characters": "Дизайн-прототип · Операции не выполняются"
+            }
+          ],
+          "actions": [
+            {
+              "id": "2004:1155",
+              "to": [
+                "2004:766"
+              ]
+            },
+            {
+              "id": "2004:1157",
+              "to": [
+                "2004:1160"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2004:1160",
+          "texts": [
+            {
+              "id": "2004:1162",
+              "characters": "SHADOW"
+            },
+            {
+              "id": "2004:1163",
+              "characters": "Управление платформой"
+            },
+            {
+              "id": "2004:1176",
+              "characters": "Пакет 02 · макет\nOwner-only денежные действия\nБез реальных переводов"
+            },
+            {
+              "id": "2004:1181",
+              "characters": "Рабочее пространство / Владелец A"
+            },
+            {
+              "id": "2004:1184",
+              "characters": "Дополнительные настройки защиты"
+            },
+            {
+              "id": "2004:1185",
+              "characters": "Демо-данные · Будущий платный режим · Источники не подключены"
+            },
+            {
+              "id": "2560:140888",
+              "characters": "Это схема будущей формы: ввод в этих полях в Figma не предусмотрен. Для проверки P-14 нажмите «К заполненному примеру». В продукте значения задают владельцы; изменение правил активирует другой владелец."
+            },
+            {
+              "id": "I2004:1186;1981:9",
+              "characters": "На форме задаются: одна выплата, за сутки, по партнёру, источнику и новому адресу.\nОкно/UTC, учёт расходов и база оценки обязательны."
+            },
+            {
+              "id": "2004:1207",
+              "characters": "Дизайн-прототип · Операции не выполняются"
+            }
+          ],
+          "actions": [
+            {
+              "id": "2004:1203",
+              "to": [
+                "2004:1208"
+              ]
+            },
+            {
+              "id": "2004:1205",
+              "to": [
+                "2004:766"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2005:767",
+          "texts": [
+            {
+              "id": "2005:769",
+              "characters": "SHADOW"
+            },
+            {
+              "id": "2005:770",
+              "characters": "Управление платформой"
+            },
+            {
+              "id": "2005:783",
+              "characters": "Пакет 02 · макет\nOwner-only денежные действия\nБез реальных переводов"
+            },
+            {
+              "id": "2005:788",
+              "characters": "Рабочее пространство / Владелец B"
+            },
+            {
+              "id": "2005:791",
+              "characters": "Проверка новой версии правил"
+            },
+            {
+              "id": "2005:792",
+              "characters": "Демо-данные · Будущий платный режим · Источники не подключены"
+            },
+            {
+              "id": "2560:141092",
+              "characters": "Другой владелец повторно подтверждает личность физическим ключом и проверяет точную версию защитных порогов. Это правило не вводит второе согласование обычных тарифов, текстов или маркетинга."
+            },
+            {
+              "id": "I2005:793;1981:9",
+              "characters": "Точный diff и версия security правило · автор Владелец A.\nЭто пример маршрута согласования; значения остаются на ввод владелец."
+            },
+            {
+              "id": "2005:802",
+              "characters": "Дизайн-прототип · Операции не выполняются"
+            }
+          ],
+          "actions": [
+            {
+              "id": "2005:800",
+              "to": [
+                "2004:1160"
+              ]
+            }
+          ]
+        }
+      ],
+      "index": [
+        {
+          "type": "NODE",
+          "destinationId": "2004:766",
+          "navigation": "NAVIGATE",
+          "transition": null,
+          "resetVideoPosition": false
+        }
+      ]
+    },
+    "en": {
+      "locale": "en",
+      "screens": [
+        {
+          "id": "2008:912",
+          "texts": [
+            {
+              "id": "2008:914",
+              "characters": "SHADOW"
+            },
+            {
+              "id": "2008:915",
+              "characters": "Platform management"
+            },
+            {
+              "id": "2008:922",
+              "characters": "Package 02 · preview\nOwner-only money actions\nNo real transfers"
+            },
+            {
+              "id": "2008:926",
+              "characters": "Workspace / Owner A"
+            },
+            {
+              "id": "2008:928",
+              "characters": "When a payout needs two Owners"
+            },
+            {
+              "id": "2008:929",
+              "characters": "Demo data · Future paid stage · Sources disconnected"
+            },
+            {
+              "id": "I2008:930;1981:9",
+              "characters": "The illustrative single-payout threshold is 100 USDT. The partner is owed 120 USDT, so a second Owner reviews the full amount. Do not reduce or split the debt. This protects payouts; it does not set the service fee."
+            },
+            {
+              "id": "2008:935",
+              "characters": "Design prototype · No operations executed"
+            }
+          ],
+          "actions": [
+            {
+              "id": "2008:933",
+              "to": [
+                "2007:1299"
+              ]
+            },
+            {
+              "id": "2008:934",
+              "to": [
+                "2008:950"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2008:950",
+          "texts": [
+            {
+              "id": "2008:952",
+              "characters": "SHADOW"
+            },
+            {
+              "id": "2008:953",
+              "characters": "Platform management"
+            },
+            {
+              "id": "2008:960",
+              "characters": "Package 02 · preview\nOwner-only money actions\nNo real transfers"
+            },
+            {
+              "id": "2008:964",
+              "characters": "Workspace / Owner A"
+            },
+            {
+              "id": "2008:966",
+              "characters": "Additional protection settings"
+            },
+            {
+              "id": "2008:967",
+              "characters": "Demo data · Future paid stage · Sources disconnected"
+            },
+            {
+              "id": "2560:42542",
+              "characters": "This is a future-form layout: these fields are not editable in Figma. To review P-14, choose the worked payout example. Owners set real values in the product; a different Owner activates rule changes."
+            },
+            {
+              "id": "I2008:968;1981:9",
+              "characters": "Configure single payout, daily, partner, source and new-recipient thresholds.\nWindow/UTC, fee inclusion and valuation basis are required."
+            },
+            {
+              "id": "2008:976",
+              "characters": "Design prototype · No operations executed"
+            }
+          ],
+          "actions": [
+            {
+              "id": "2008:974",
+              "to": [
+                "2008:998"
+              ]
+            },
+            {
+              "id": "2008:975",
+              "to": [
+                "2007:1299"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2008:1034",
+          "texts": [
+            {
+              "id": "2008:1036",
+              "characters": "SHADOW"
+            },
+            {
+              "id": "2008:1037",
+              "characters": "Platform management"
+            },
+            {
+              "id": "2008:1044",
+              "characters": "Package 02 · preview\nOwner-only money actions\nNo real transfers"
+            },
+            {
+              "id": "2008:1048",
+              "characters": "Workspace / Owner B"
+            },
+            {
+              "id": "2008:1050",
+              "characters": "Review a new rule version"
+            },
+            {
+              "id": "2008:1051",
+              "characters": "Demo data · Future paid stage · Sources disconnected"
+            },
+            {
+              "id": "2560:42748",
+              "characters": "A different Owner reauthenticates with a physical security key and verifies the exact threshold version. This does not add second approval to ordinary tariffs, content or marketing."
+            },
+            {
+              "id": "I2008:1052;1981:9",
+              "characters": "Exact security-policy diff and version · author Owner A.\nApproval-path illustration. Values remain for Owners to enter."
+            },
+            {
+              "id": "2008:1056",
+              "characters": "Design prototype · No operations executed"
+            }
+          ],
+          "actions": [
+            {
+              "id": "2008:1055",
+              "to": [
+                "2008:950"
+              ]
+            }
+          ]
+        }
+      ],
+      "index": [
+        {
+          "type": "NODE",
+          "destinationId": "2007:1299",
+          "navigation": "NAVIGATE",
+          "transition": null,
+          "resetVideoPosition": false
+        }
+      ]
+    }
+  },
+  "copyCorrections": {
+    "ru": {
+      "locale": "ru",
+      "mutatedNodeIds": [
+        "I2004:1186;1981:9",
+        "I2005:793;1981:9",
+        "2003:23",
+        "2004:1147",
+        "2004:1185",
+        "2005:792"
+      ]
+    },
+    "en": {
+      "locale": "en",
+      "mutatedNodeIds": [
+        "I2008:968;1981:9",
+        "I2008:1052;1981:9",
+        "2008:929",
+        "2008:967",
+        "2008:1051"
+      ]
+    }
+  },
+  "limits": {
+    "nativeGraphRead": true,
+    "manualBrowserCompleted": false,
+    "browserFailure": [
+      "Page.navigate timed out",
+      "Emulation.setFocusEmulationEnabled timed out"
+    ],
+    "screenshotsReviewed": [
+      "finance RU/EN",
+      "protection RU/EN",
+      "settings RU/EN",
+      "P14 wait RU/EN"
+    ],
+    "fontAndApiTimeouts": "Some Figma calls timed out; state was read before any followup. Successful native reads and snapshots supersede failed calls."
+  },
+  "p14Example": {
+    "ru": {
+      "mutatedNodeIds": [
+        "I2004:792;1981:9"
+      ],
+      "text": "PAY-022 · учебный порог SEC-T2: 100 USDT. Партнёру — 120 USDT; комиссия перевода — 1,20 USDT за счёт сервиса; общий расход — 121,20 USDT. Первый владелец уже подтвердил расчёт. Теперь нужна независимая проверка второго."
+    },
+    "en": {
+      "mutatedNodeIds": [
+        "I2007:1317;1981:9"
+      ],
+      "text": "PAY-022 · illustrative SEC-T2 threshold: 100 USDT. Partner receives 120 USDT; service pays the 1.20 USDT transfer fee; total debit is 121.20 USDT. The first Owner has approved this snapshot. Independent second approval is required."
+    }
+  },
+  "finalEnglishContext": {
+    "mutatedNodeIds": [
+      "I2008:930;1981:9"
+    ],
+    "characters": "Example: 120 USDT owed; threshold 100 USDT. A second Owner reviews the full payout. Never split the debt. This is not a fee setting."
+  },
+  "fullReferenceGuideNotice": {
+    "verified": true,
+    "date": "2026-10-20",
+    "privateDocumentMetadata": "Omitted from public handoff"
+  }
+}
