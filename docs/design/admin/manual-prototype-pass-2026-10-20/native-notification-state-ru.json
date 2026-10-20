@@ -1,0 +1,363 @@
+{
+  "createdVariableIds": [
+    "VariableID:3409:69100",
+    "VariableID:3409:69101",
+    "VariableID:3409:69102",
+    "VariableID:3409:69103",
+    "VariableID:3409:69104",
+    "VariableID:3409:69105",
+    "VariableID:3409:69106",
+    "VariableID:3409:69107"
+  ],
+  "mutatedVariableIds": [
+    "VariableID:3409:69100",
+    "VariableID:3409:69101",
+    "VariableID:3409:69102",
+    "VariableID:3409:69103",
+    "VariableID:3409:69104",
+    "VariableID:3409:69105",
+    "VariableID:3409:69106",
+    "VariableID:3409:69107"
+  ],
+  "mutatedNodeIds": [
+    "2954:167327",
+    "2954:168101",
+    "2954:169250",
+    "2954:169588",
+    "2954:169271"
+  ],
+  "collection": {
+    "id": "VariableCollectionId:134:180",
+    "name": "Prototype demo state",
+    "mode": "134:0"
+  },
+  "variables": [
+    {
+      "key": "ru/list",
+      "id": "VariableID:3409:69100",
+      "name": "Admin/Notifications/NOT-DEMO-01A/ru/list",
+      "type": "STRING",
+      "initial": "16.10 12:00 UTC · доступно; отметки прочтения нет",
+      "read": "16.10 12:03 UTC · прочитано · READ-DEMO-A",
+      "scopes": [
+        "TEXT_CONTENT"
+      ],
+      "hiddenFromPublishing": true
+    },
+    {
+      "key": "ru/status",
+      "id": "VariableID:3409:69101",
+      "name": "Admin/Notifications/NOT-DEMO-01A/ru/status",
+      "type": "STRING",
+      "initial": "Доступно / подтверждено / нет отметки",
+      "read": "Доступно / подтверждено / прочитано",
+      "scopes": [
+        "TEXT_CONTENT"
+      ],
+      "hiddenFromPublishing": true
+    },
+    {
+      "key": "ru/evidence",
+      "id": "VariableID:3409:69102",
+      "name": "Admin/Notifications/NOT-DEMO-01A/ru/evidence",
+      "type": "STRING",
+      "initial": "AV-DEMO-01 / DL-DEMO-01; отметки прочтения нет",
+      "read": "AV-DEMO-01 / DL-DEMO-01 · READ-DEMO-A · 12:03 UTC",
+      "scopes": [
+        "TEXT_CONTENT"
+      ],
+      "hiddenFromPublishing": true
+    },
+    {
+      "key": "ru/action",
+      "id": "VariableID:3409:69103",
+      "name": "Admin/Notifications/NOT-DEMO-01A/ru/action",
+      "type": "STRING",
+      "initial": "Отметить своё ознакомление · демо",
+      "read": "Запись ознакомления",
+      "scopes": [
+        "TEXT_CONTENT"
+      ],
+      "hiddenFromPublishing": true
+    },
+    {
+      "key": "en/list",
+      "id": "VariableID:3409:69104",
+      "name": "Admin/Notifications/NOT-DEMO-01A/en/list",
+      "type": "STRING",
+      "initial": "16 Oct 12:00 UTC · available; no read receipt",
+      "read": "16 Oct 12:03 UTC · read · READ-DEMO-A",
+      "scopes": [
+        "TEXT_CONTENT"
+      ],
+      "hiddenFromPublishing": true
+    },
+    {
+      "key": "en/status",
+      "id": "VariableID:3409:69105",
+      "name": "Admin/Notifications/NOT-DEMO-01A/en/status",
+      "type": "STRING",
+      "initial": "Available / confirmed / no read receipt",
+      "read": "Available / confirmed / read",
+      "scopes": [
+        "TEXT_CONTENT"
+      ],
+      "hiddenFromPublishing": true
+    },
+    {
+      "key": "en/evidence",
+      "id": "VariableID:3409:69106",
+      "name": "Admin/Notifications/NOT-DEMO-01A/en/evidence",
+      "type": "STRING",
+      "initial": "AV-DEMO-01 / DL-DEMO-01; no read receipt",
+      "read": "AV-DEMO-01 / DL-DEMO-01 · READ-DEMO-A · 12:03 UTC",
+      "scopes": [
+        "TEXT_CONTENT"
+      ],
+      "hiddenFromPublishing": true
+    },
+    {
+      "key": "en/action",
+      "id": "VariableID:3409:69107",
+      "name": "Admin/Notifications/NOT-DEMO-01A/en/action",
+      "type": "STRING",
+      "initial": "Acknowledge for myself · demo",
+      "read": "Acknowledgement record",
+      "scopes": [
+        "TEXT_CONTENT"
+      ],
+      "hiddenFromPublishing": true
+    }
+  ],
+  "bindings": [
+    {
+      "id": "2954:167327",
+      "props": {
+        "Meta#2137:2": {
+          "boundVariables": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3409:69100"
+            }
+          },
+          "type": "TEXT",
+          "value": "16.10 12:00 UTC · доступно; отметки прочтения нет"
+        },
+        "Detail#2137:1": {
+          "type": "TEXT",
+          "value": "Владелец A · аварийная админка"
+        },
+        "Title#2137:0": {
+          "type": "TEXT",
+          "value": "NOT-DEMO-01A · новые реквизиты"
+        }
+      }
+    },
+    {
+      "id": "2954:168101",
+      "props": {
+        "Meta#2137:2": {
+          "boundVariables": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3409:69100"
+            }
+          },
+          "type": "TEXT",
+          "value": "16.10 12:00 UTC · доступно; отметки прочтения нет"
+        },
+        "Detail#2137:1": {
+          "type": "TEXT",
+          "value": "Владелец A · аварийная админка"
+        },
+        "Title#2137:0": {
+          "type": "TEXT",
+          "value": "NOT-DEMO-01A · новые реквизиты"
+        }
+      }
+    },
+    {
+      "id": "2954:169250",
+      "props": {
+        "Meta#2137:2": {
+          "boundVariables": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3409:69102"
+            }
+          },
+          "type": "TEXT",
+          "value": "AV-DEMO-01 / DL-DEMO-01; отметки прочтения нет"
+        },
+        "Detail#2137:1": {
+          "boundVariables": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3409:69101"
+            }
+          },
+          "type": "TEXT",
+          "value": "Доступно / подтверждено / нет отметки"
+        },
+        "Title#2137:0": {
+          "type": "TEXT",
+          "value": "Доступность / доставка / прочтение"
+        }
+      }
+    },
+    {
+      "id": "2954:169588",
+      "props": {
+        "Meta#2137:2": {
+          "boundVariables": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3409:69102"
+            }
+          },
+          "type": "TEXT",
+          "value": "AV-DEMO-01 / DL-DEMO-01; отметки прочтения нет"
+        },
+        "Detail#2137:1": {
+          "boundVariables": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3409:69101"
+            }
+          },
+          "type": "TEXT",
+          "value": "Доступно / подтверждено / нет отметки"
+        },
+        "Title#2137:0": {
+          "type": "TEXT",
+          "value": "Доступность / доставка / прочтение"
+        }
+      }
+    },
+    {
+      "id": "2954:169271",
+      "props": {
+        "Icon#2033:5": {
+          "type": "INSTANCE_SWAP",
+          "value": "2032:44",
+          "preferredValues": []
+        },
+        "Show icon#2033:6": {
+          "type": "BOOLEAN",
+          "value": false
+        },
+        "Label#113:1": {
+          "boundVariables": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3409:69103"
+            }
+          },
+          "type": "TEXT",
+          "value": "Отметить своё ознакомление · демо"
+        }
+      }
+    }
+  ],
+  "button": {
+    "id": "2954:169271",
+    "reactions": [
+      {
+        "action": {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3409:69100",
+          "variableValue": {
+            "value": "16.10 12:03 UTC · прочитано · READ-DEMO-A",
+            "type": "STRING",
+            "resolvedType": "STRING"
+          }
+        },
+        "actions": [
+          {
+            "type": "SET_VARIABLE",
+            "variableId": "VariableID:3409:69100",
+            "variableValue": {
+              "value": "16.10 12:03 UTC · прочитано · READ-DEMO-A",
+              "type": "STRING",
+              "resolvedType": "STRING"
+            }
+          },
+          {
+            "type": "SET_VARIABLE",
+            "variableId": "VariableID:3409:69101",
+            "variableValue": {
+              "value": "Доступно / подтверждено / прочитано",
+              "type": "STRING",
+              "resolvedType": "STRING"
+            }
+          },
+          {
+            "type": "SET_VARIABLE",
+            "variableId": "VariableID:3409:69102",
+            "variableValue": {
+              "value": "AV-DEMO-01 / DL-DEMO-01 · READ-DEMO-A · 12:03 UTC",
+              "type": "STRING",
+              "resolvedType": "STRING"
+            }
+          },
+          {
+            "type": "SET_VARIABLE",
+            "variableId": "VariableID:3409:69103",
+            "variableValue": {
+              "value": "Запись ознакомления",
+              "type": "STRING",
+              "resolvedType": "STRING"
+            }
+          },
+          {
+            "type": "SET_VARIABLE",
+            "variableId": "VariableID:3409:69104",
+            "variableValue": {
+              "value": "16 Oct 12:03 UTC · read · READ-DEMO-A",
+              "type": "STRING",
+              "resolvedType": "STRING"
+            }
+          },
+          {
+            "type": "SET_VARIABLE",
+            "variableId": "VariableID:3409:69105",
+            "variableValue": {
+              "value": "Available / confirmed / read",
+              "type": "STRING",
+              "resolvedType": "STRING"
+            }
+          },
+          {
+            "type": "SET_VARIABLE",
+            "variableId": "VariableID:3409:69106",
+            "variableValue": {
+              "value": "AV-DEMO-01 / DL-DEMO-01 · READ-DEMO-A · 12:03 UTC",
+              "type": "STRING",
+              "resolvedType": "STRING"
+            }
+          },
+          {
+            "type": "SET_VARIABLE",
+            "variableId": "VariableID:3409:69107",
+            "variableValue": {
+              "value": "Acknowledgement record",
+              "type": "STRING",
+              "resolvedType": "STRING"
+            }
+          },
+          {
+            "type": "NODE",
+            "destinationId": "2954:169610",
+            "navigation": "NAVIGATE",
+            "transition": null,
+            "resetVideoPosition": false
+          }
+        ],
+        "trigger": {
+          "type": "ON_CLICK"
+        }
+      }
+    ]
+  },
+  "rootFrames": 830
+}

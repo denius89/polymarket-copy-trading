@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-20",
+  "results": [
+    {
+      "command": "npm run check",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run test:repository",
+      "exitCode": 0
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    },
+    {
+      "command": "node docs/design/admin/manual-prototype-pass-2026-10-20/verify.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node docs/design/admin/roles-keys-completion-2026-10-20/verify.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "git diff --no-index --check /dev/null <each new UTF-8 file>",
+      "exitCode": 0
+    }
+  ],
+  "fullManualAcceptance": false,
+  "realOperationsVerified": false,
+  "notes": "First subject verification found browser JPEG bytes under PNG filenames; renamed to .jpg without changing pixels, updated references and hashes, then both subject checks passed. The incomplete draft PR then exposed CRLF line endings in the new CSV and a blank EOF line in sitemap.md, which the tracked-only local diff had not covered; corrected and checked every new text file independently."
+}

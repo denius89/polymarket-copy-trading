@@ -1,0 +1,45 @@
+{
+  "id": "2454:41017",
+  "name": "RU · help-details · GLOBAL_STOP",
+  "reactions": [
+    {
+      "action": {
+        "type": "CLOSE"
+      },
+      "actions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "trigger": {
+        "type": "ON_KEY_DOWN",
+        "device": "KEYBOARD",
+        "keyCodes": [
+          27
+        ]
+      }
+    }
+  ],
+  "buttons": [
+    {
+      "id": "I2454:41019;2446:1522",
+      "name": "Help close",
+      "type": "INSTANCE",
+      "reactions": [
+        {
+          "action": {
+            "type": "CLOSE"
+          },
+          "actions": [
+            {
+              "type": "CLOSE"
+            }
+          ],
+          "trigger": {
+            "type": "ON_CLICK"
+          }
+        }
+      ]
+    }
+  ]
+}

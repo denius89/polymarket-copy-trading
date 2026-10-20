@@ -1,6 +1,6 @@
 {
   "id": "SHADOW-ADM-01",
-  "revision": "0.1",
+  "revision": "0.2",
   "synthetic": true,
   "asOf": "2026-10-12T12:00:00Z",
   "warning": "Fictional design fixtures; no live sources, identities, authentication or monetary actions. Scenario branches are independent snapshots.",
@@ -64,11 +64,12 @@
     {
       "id": "STAFF-204",
       "name": {
-        "ru": "Лео Карим",
-        "en": "Leo Karim"
+        "ru": "Ирина Волкова",
+        "en": "Irina Volkova"
       },
       "role": null,
-      "assignmentScenario": "ROLE-MKT v2"
+      "assignmentScenario": "ROLE-MKT v2",
+      "identityNote": "Same synthetic person in the pre-assignment staff snapshot and later ASG-DEMO-61 marketing snapshot; permissions differ by assignment, not identity."
     },
     {
       "id": "STAFF-205",
@@ -81,6 +82,15 @@
         "audit.view"
       ],
       "export": false
+    },
+    {
+      "id": "STAFF-206",
+      "name": {
+        "ru": "Олег Смирнов",
+        "en": "Oleg Smirnov"
+      },
+      "role": "Operations support",
+      "identityNote": "Existing synthetic actor in support and reconciliation frames; this record does not grant or define permissions."
     }
   ],
   "venues": [
