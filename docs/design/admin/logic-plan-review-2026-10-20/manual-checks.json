@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-20",
+  "surface": "Figma prototype, own audit tab 2",
+  "initialNavigationTimedOut": true,
+  "laterTabStateRecovered": true,
+  "screenReaderSupport": "disabled before and after observed transitions",
+  "userSettingsChanged": false,
+  "realOperations": false,
+  "transitions": [
+    {
+      "from": "2003:520",
+      "action": "Clicked second payout row, shown as PAY-021 unknown",
+      "toObservedInURL": "2003:976",
+      "observedRenderedTitle": "Результат выплаты неизвестен",
+      "result": "confirmed"
+    },
+    {
+      "from": "2003:976",
+      "action": "Проверить результат",
+      "toObservedInURL": "2004:481",
+      "observedRenderedTitle": "Проверка результата",
+      "observedContent": "Same PAY-021; result remains unknown; reserve and resend restriction retained",
+      "result": "confirmed"
+    },
+    {
+      "from": "2004:481",
+      "action": "К операции",
+      "toObservedInURL": "2003:976",
+      "result": "confirmed URL after click"
+    },
+    {
+      "from": "2936:48491",
+      "action": "Open own profile menu on visible Owner B review screen",
+      "toOverlay": "2314:52949",
+      "observedRenderedName": "Елена Морозова · Owner",
+      "result": "confirmed visible wrong actor menu"
+    }
+  ],
+  "subsequentOwnerBDirectNavigation": "Timed out initially; later visible Owner B review screen confirmed. Profile menu opened successfully and showed Elena, Owner A. Subsequent click to My account could not be verified after browser observation errors; not counted.",
+  "completeAcceptance": false,
+  "confirmedInteractions": 4,
+  "profileNavigationLimitation": "After clicking My account, observation failed; error page indicated the Figma exit redirect toward profile 2155:19298 timed out. Not counted as a successful profile arrival.",
+  "temporaryTabCleanup": "Close could not be confirmed after an error page triggered browser URL policy; temporary agent tab was not marked to persist."
+}

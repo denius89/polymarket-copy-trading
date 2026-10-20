@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-20",
+  "baselineRemoteMain": "0d54c326dc2df3f8cdb2b34cfdd1896cf5f776ad",
+  "localHead": "fef30015c4f3636bdb74642fb5c51f815fd4b668",
+  "registryRevision": "0.25",
+  "expectedPrimaryRURoots": 802,
+  "freshMainContentReadsRU": 802,
+  "uniqueRoots": 802,
+  "missingRoots": [],
+  "missingMainAreas": [],
+  "freshEnglishReads": 3,
+  "extraRUMenus": 3,
+  "visibleWrongActorMenusVerified": 66,
+  "mainContentActionRecords": 3416,
+  "mainContentNavigateActions": 2507,
+  "unregisteredNavigateTargets": [],
+  "navigationCheckLimit": "Registered target and stored reaction only; not browser execution, all-sidebar inspection, retained filter state or full locale parity",
+  "nativeEvidence": {
+    "path": "native-ru.json.gz",
+    "compressedBytes": 184134,
+    "uncompressedBytes": 1819654,
+    "compressedSHA256": "a693ab8d72cbd5d0cc831bd4d9a27ed0cd7ea9aee8d146e32bc150122665a941",
+    "uncompressedSHA256": "1488c46044a4d4e13847f7f1ce97bc23e0de45dcc4a9a47d38b78e88cfe89bcf"
+  },
+  "nativeReadRange": [
+    "2026-10-20T11:56:48.205Z",
+    "2026-10-20T12:18:26.995Z"
+  ],
+  "screenshots": [
+    "referrals-ru.png",
+    "partners-ru.png",
+    "payouts-ru.png",
+    "security-ru.png"
+  ],
+  "fullManualAcceptance": false,
+  "allEnglishStatesReviewed": false,
+  "figmaEdited": false,
+  "realOperations": false,
+  "userSettingsChanged": false,
+  "browserAttempt": {
+    "outcome": "Recovered after navigation timeouts; 3 payout transitions plus wrong-actor menu on Owner B screen confirmed; final profile navigation unverified",
+    "successfulClicks": 4,
+    "record": "manual-checks.json",
+    "temporaryTabCleanup": "Close could not be confirmed after an error page triggered browser URL policy; temporary agent tab was not marked to persist."
+  },
+  "knownInitialReadFailures": "Broad requests and one batch timed out; all 802 RU main areas were subsequently read successfully. Extra visibility attempt for two old Operations icons timed out and is not counted in the 66.",
+  "internalPrototypeUrlActions": 317,
+  "localChecks": {
+    "npm_run_check": "passed",
+    "npm_run_test_repository": "passed: 10 Node tests + 5 Python tests",
+    "git_diff_check": "passed",
+    "native_evidence_verifier": "passed"
+  }
+}
