@@ -1,4 +1,6 @@
-# Карта админки · 0.27
+# Карта админки · 0.28
+
+20.10.2026: [Продолжение по отчёту](report-gaps-2026-10-20/README.md): карта **0.28 — 852 основные пары, 857 корней на язык**. Добавлены 27 связанных состояний; четыре подробные подсказки получили проверяемую область закрытия. Набор компонентов 0.4.21 сохранён. Это дизайн и ограниченная проверка маршрутов, не реализация или приёмка всех комбинаций.
 
 20.10.2026: [Ручной проход прототипа и исправления](manual-prototype-pass-2026-10-20/README.md). **825 основных пар, 830 корней на язык**, UI kit 0.4.21 без изменений. Фактический охват браузерного прохода — в отчёте; полная приёмка всех сочетаний не заявляется. Ниже сохранена история срезов.
 
@@ -45,6 +47,14 @@
 | Пользовательский VIP · прекращение | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-171129) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-176899) |
 | Пользовательский VIP · прекращён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-171438) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2936-177208) |
 | Клиент · контекст инцидента | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3182-79257) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3182-222241) |
+
+| Поиск и отбор пользователей | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-70055) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-202451) |
+| Найден 1 пользователь | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-70297) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-202693) |
+| Demo Noor · карточка из выборки | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-202900) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-204036) |
+| Обращения Demo Noor | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-203115) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-204251) |
+| История Demo Noor | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-203322) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-204458) |
+| Загружаем выбранных пользователей | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-207870) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-208512) |
+| Не удалось загрузить выбранных пользователей | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-208073) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-208715) |
 
 ## ADM-03 — Сессии
 
@@ -104,6 +114,13 @@
 | Позиции · данные устарели | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62501) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187627) |
 | Limitless · источник не подключён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-62522) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3050-187648) |
 
+| Период завершён · только сокращения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3443-69597) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3443-201239) |
+| Копирование отключено · учёт не завершён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-69454) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-201851) |
+| Малый остаток остаётся в учёте | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-69609) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-202005) |
+| История бюджета · баланс изменён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-69755) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-202151) |
+| Размер сигнала и текущие ограничения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-69905) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-202301) |
+| S-DEMO-002 · баланс изменён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3448-71416) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3448-204871) |
+
 ## ADM-04 — Инциденты
 
 | Экран | RU | EN |
@@ -121,6 +138,11 @@
 | INC-DEMO-03 · закрыт | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-120059) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-123479) |
 | INC-DEMO-03 · только просмотр | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-120247) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-123667) |
 | S-DEMO-002 · контекст сессии | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-120428) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2414-123848) |
+
+| Возобновить INC-DEMO-03? | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-205172) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-206403) |
+| INC-DEMO-03 · возобновлён | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-205345) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-206576) |
+| Инцидент изменён другим сотрудником | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-205514) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-206745) |
+| Инциденты · актуальная выборка | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3447-71258) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3447-204802) |
 
 ## ADM-05 — Сверка
 
@@ -361,6 +383,10 @@
 | Заметка после ответа клиенту | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3363-68853) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3363-138003) |
 | Заметка и ответ сохранены | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3363-68958) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3363-138108) |
 
+
+| Связанная позиция | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-203529) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-204665) |
+| Связанная заявка | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-203698) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-204834) |
+| Связанное событие | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-203867) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-205003) |
 
 ## ADM-10 — Уведомления
 
@@ -679,6 +705,12 @@
 | Нужен другой физический ключ | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-72030) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3323-208675) |
 | Личный профиль Норы · операционная роль | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3326-72674) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3326-209998) |
 
+| Пригласить сотрудника | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-205683) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-206914) |
+| Приглашение ожидает активации | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-205927) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-207158) |
+| Приглашение недействительно | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-206171) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-207402) |
+| Аккаунт активирован · роль не назначена | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-207634) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-208276) |
+| Сотрудники · Мира Хасан | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3447-71420) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3447-204963) |
+
 ## ADM-15 — Подключения и безопасность
 
 | Экран | RU | EN |
@@ -723,6 +755,9 @@
 | Ожидается независимый участник | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3182-79201) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3182-222185) |
 | Ожидается независимый участник | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3182-79229) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3182-222213) |
 | Limitless · разрешённая диагностика | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3182-79285) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3182-222269) |
+
+| Polymarket · подробности подключения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3443-69100) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3443-200743) |
+| Limitless · подробности подключения | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3443-69349) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3443-200991) |
 
 ## ADM-16 — Тексты и языки
 
