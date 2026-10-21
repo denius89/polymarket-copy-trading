@@ -1,0 +1,3565 @@
+{
+  "sharedRootFrames": 1788,
+  "rows": [
+    {
+      "role": "role-profile-owner-b",
+      "locale": "ru",
+      "profile": "3182:78725",
+      "rootName": "RU · role-profile-owner-b · Личный профиль",
+      "overlay": "3623:146175",
+      "trigger": "I3623:146164;2254:1061",
+      "triggerAction": {
+        "type": "NODE",
+        "destinationId": "3623:146175",
+        "navigation": "OVERLAY",
+        "transition": null,
+        "resetVideoPosition": false
+      },
+      "hasOriginBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146168"
+      },
+      "contextBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146165"
+      },
+      "languagePrefixMatches": true,
+      "languageDestination": {
+        "type": "NODE",
+        "destinationId": "3182:221709",
+        "navigation": "NAVIGATE",
+        "transition": null,
+        "resetVideoPosition": false,
+        "resetScrollPosition": false,
+        "resetInteractiveComponents": true
+      },
+      "sameLanguageActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "dismissActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "returnContract": true,
+      "returns": [
+        [
+          "ADM-08/partner-rule-review-b",
+          "2936:48491"
+        ],
+        [
+          "ADM-08/partner-rule-approved",
+          "2936:48671"
+        ],
+        [
+          "ADM-08/partner-rule-rejected",
+          "2936:49139"
+        ],
+        [
+          "ADM-08/partner-rule-stale",
+          "2936:49287"
+        ],
+        [
+          "ADM-08/partner-rule-expired",
+          "2936:49435"
+        ],
+        [
+          "ADM-08/partner-vip-review-b",
+          "2936:50177"
+        ],
+        [
+          "ADM-08/partner-vip-approved",
+          "2936:50337"
+        ],
+        [
+          "ADM-08/partner-vip-rejected",
+          "2936:50497"
+        ],
+        [
+          "ADM-13/second-review",
+          "2004:806"
+        ],
+        [
+          "ADM-13/second-approved",
+          "2004:844"
+        ],
+        [
+          "ADM-13/recipient-review",
+          "2004:1021"
+        ],
+        [
+          "ADM-13/recipient-active",
+          "2004:1056"
+        ],
+        [
+          "ADM-13/recipient-rejected",
+          "2004:1089"
+        ],
+        [
+          "ADM-13/security-review",
+          "2005:767"
+        ],
+        [
+          "ADM-13/treasury-source-review",
+          "2827:89179"
+        ],
+        [
+          "ADM-13/treasury-recovery-route",
+          "2827:90641"
+        ],
+        [
+          "ADM-13/source-create-review",
+          "2867:45784"
+        ],
+        [
+          "ADM-13/source-created",
+          "2867:45939"
+        ],
+        [
+          "ADM-13/source-change-conflict",
+          "2867:46905"
+        ],
+        [
+          "ADM-13/source-config-saved",
+          "2867:47032"
+        ],
+        [
+          "ADM-13/source-limits-review",
+          "2867:47709"
+        ],
+        [
+          "ADM-13/source-limits-saved",
+          "2867:47864"
+        ],
+        [
+          "ADM-13/source-reactivation-review",
+          "2867:48277"
+        ],
+        [
+          "ADM-13/source-recovery-unknown",
+          "2867:49084"
+        ],
+        [
+          "ADM-13/source-recovery-confirmed",
+          "2867:49227"
+        ],
+        [
+          "ADM-13/recipient-restart-review",
+          "2904:156955"
+        ],
+        [
+          "ADM-13/recipient-restart-wait",
+          "2904:157097"
+        ],
+        [
+          "ADM-13/payout-approval-history",
+          "2904:157235"
+        ],
+        [
+          "ADM-13/payout-approval-expired",
+          "2904:157381"
+        ],
+        [
+          "ADM-13/payout-approval-invalidated",
+          "2904:157515"
+        ],
+        [
+          "ADM-13/recovery-route-revoked",
+          "2904:157649"
+        ],
+        [
+          "ADM-13/recovery-route-expired",
+          "2904:157791"
+        ],
+        [
+          "ADM-13/recovery-failure-proof",
+          "2904:157933"
+        ],
+        [
+          "ADM-13/recovery-failed-final",
+          "2904:158079"
+        ],
+        [
+          "ADM-13/recovery-stop-after-send",
+          "2904:158221"
+        ],
+        [
+          "ADM-13/source-archive-review",
+          "2904:158509"
+        ],
+        [
+          "ADM-13/source-archived",
+          "2904:158651"
+        ],
+        [
+          "ADM-13/source-catalog-archived",
+          "2906:54352"
+        ],
+        [
+          "ADM-13/recovery-route-authorized",
+          "3183:80965"
+        ],
+        [
+          "ADM-13/recovery-transfer-first",
+          "3183:80993"
+        ],
+        [
+          "ADM-13/recovery-transfer-wait",
+          "3183:81021"
+        ],
+        [
+          "ADM-14/account-recovery-review",
+          "2138:59729"
+        ],
+        [
+          "ADM-14/account-recovery-restored",
+          "2138:59844"
+        ],
+        [
+          "ADM-15/connection-pm-recovery-review",
+          "2138:58727"
+        ],
+        [
+          "ADM-15/connection-pm-recovery-restored",
+          "2138:58837"
+        ],
+        [
+          "ADM-15/connection-ll-recovery-review",
+          "2138:59288"
+        ],
+        [
+          "ADM-15/connection-ll-recovery-restored",
+          "2138:59398"
+        ],
+        [
+          "ADM-15/market-recovery-review",
+          "2138:66027"
+        ],
+        [
+          "ADM-15/market-recovery-restored",
+          "2138:66141"
+        ],
+        [
+          "ADM-17/recovery-review",
+          "2110:53061"
+        ],
+        [
+          "ADM-17/recovery-staged",
+          "2110:53171"
+        ],
+        [
+          "ADM-17/control-tech-recovery-review",
+          "2138:60653"
+        ],
+        [
+          "ADM-17/control-tech-restored",
+          "2138:60767"
+        ],
+        [
+          "ADM-17/control-deposits-recovery-review",
+          "2138:61580"
+        ],
+        [
+          "ADM-17/control-deposits-restored",
+          "2138:61694"
+        ],
+        [
+          "ADM-17/control-withdrawals-recovery-review",
+          "2138:62502"
+        ],
+        [
+          "ADM-17/control-withdrawals-restored",
+          "2138:62616"
+        ],
+        [
+          "ADM-17/control-partner-payouts-recovery-review",
+          "2138:63424"
+        ],
+        [
+          "ADM-17/control-partner-payouts-restored",
+          "2138:63538"
+        ]
+      ],
+      "identity": [
+        {
+          "id": "3185:81535",
+          "name": "Record · Сотрудник",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "STAFF-202"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Максим Орлов"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Сотрудник"
+            }
+          }
+        },
+        {
+          "id": "3185:81539",
+          "name": "Record · Права",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "Просмотр своих полномочий, без изменения назначения"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Владелец B"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Права"
+            }
+          }
+        },
+        {
+          "id": "3185:81547",
+          "name": "Record · Защита аккаунта",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "Секреты не показываются; восстановление не возвращает старые сеансы"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Два отдельных физических ключа"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Защита аккаунта"
+            }
+          }
+        }
+      ],
+      "header": [
+        "Максим Орлов · STAFF-202 · владелец B"
+      ],
+      "fontFamilies": [
+        "Inter"
+      ],
+      "rootHeight": 1120,
+      "contentBottom": 812
+    },
+    {
+      "role": "role-profile-owner-b",
+      "locale": "en",
+      "profile": "3182:221709",
+      "rootName": "EN · role-profile-owner-b · Personal profile",
+      "overlay": "3623:146211",
+      "trigger": "I3623:146200;2254:1088",
+      "triggerAction": {
+        "type": "NODE",
+        "destinationId": "3623:146211",
+        "navigation": "OVERLAY",
+        "transition": null,
+        "resetVideoPosition": false
+      },
+      "hasOriginBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146168"
+      },
+      "contextBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146167"
+      },
+      "languagePrefixMatches": true,
+      "languageDestination": {
+        "type": "NODE",
+        "destinationId": "3182:78725",
+        "navigation": "NAVIGATE",
+        "transition": null,
+        "resetVideoPosition": false,
+        "resetScrollPosition": false,
+        "resetInteractiveComponents": true
+      },
+      "sameLanguageActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "dismissActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "returnContract": true,
+      "returns": [
+        [
+          "ADM-08/partner-rule-review-b",
+          "2936:162789"
+        ],
+        [
+          "ADM-08/partner-rule-approved",
+          "2936:162969"
+        ],
+        [
+          "ADM-08/partner-rule-rejected",
+          "2936:163437"
+        ],
+        [
+          "ADM-08/partner-rule-stale",
+          "2936:163585"
+        ],
+        [
+          "ADM-08/partner-rule-expired",
+          "2936:163733"
+        ],
+        [
+          "ADM-08/partner-vip-review-b",
+          "2936:164475"
+        ],
+        [
+          "ADM-08/partner-vip-approved",
+          "2936:164635"
+        ],
+        [
+          "ADM-08/partner-vip-rejected",
+          "2936:164795"
+        ],
+        [
+          "ADM-13/second-review",
+          "2008:596"
+        ],
+        [
+          "ADM-13/second-approved",
+          "2008:634"
+        ],
+        [
+          "ADM-13/recipient-review",
+          "2008:811"
+        ],
+        [
+          "ADM-13/recipient-active",
+          "2008:846"
+        ],
+        [
+          "ADM-13/recipient-rejected",
+          "2008:879"
+        ],
+        [
+          "ADM-13/security-review",
+          "2008:1034"
+        ],
+        [
+          "ADM-13/treasury-source-review",
+          "2827:43369"
+        ],
+        [
+          "ADM-13/treasury-recovery-route",
+          "2827:44841"
+        ],
+        [
+          "ADM-13/source-create-review",
+          "2867:146307"
+        ],
+        [
+          "ADM-13/source-created",
+          "2867:146461"
+        ],
+        [
+          "ADM-13/source-change-conflict",
+          "2867:147423"
+        ],
+        [
+          "ADM-13/source-config-saved",
+          "2867:147549"
+        ],
+        [
+          "ADM-13/source-limits-review",
+          "2867:148223"
+        ],
+        [
+          "ADM-13/source-limits-saved",
+          "2867:148377"
+        ],
+        [
+          "ADM-13/source-reactivation-review",
+          "2867:148787"
+        ],
+        [
+          "ADM-13/source-recovery-unknown",
+          "2867:149589"
+        ],
+        [
+          "ADM-13/source-recovery-confirmed",
+          "2867:149731"
+        ],
+        [
+          "ADM-13/recipient-restart-review",
+          "2904:46970"
+        ],
+        [
+          "ADM-13/recipient-restart-wait",
+          "2904:47112"
+        ],
+        [
+          "ADM-13/payout-approval-history",
+          "2904:47250"
+        ],
+        [
+          "ADM-13/payout-approval-expired",
+          "2904:47396"
+        ],
+        [
+          "ADM-13/payout-approval-invalidated",
+          "2904:47530"
+        ],
+        [
+          "ADM-13/recovery-route-revoked",
+          "2904:47664"
+        ],
+        [
+          "ADM-13/recovery-route-expired",
+          "2904:47806"
+        ],
+        [
+          "ADM-13/recovery-failure-proof",
+          "2904:47948"
+        ],
+        [
+          "ADM-13/recovery-failed-final",
+          "2904:48094"
+        ],
+        [
+          "ADM-13/recovery-stop-after-send",
+          "2904:48236"
+        ],
+        [
+          "ADM-13/source-archive-review",
+          "2904:48524"
+        ],
+        [
+          "ADM-13/source-archived",
+          "2904:48666"
+        ],
+        [
+          "ADM-13/source-catalog-archived",
+          "2906:152397"
+        ],
+        [
+          "ADM-13/recovery-route-authorized",
+          "3183:224273"
+        ],
+        [
+          "ADM-13/recovery-transfer-first",
+          "3183:224301"
+        ],
+        [
+          "ADM-13/recovery-transfer-wait",
+          "3183:224329"
+        ],
+        [
+          "ADM-14/account-recovery-review",
+          "2138:70172"
+        ],
+        [
+          "ADM-14/account-recovery-restored",
+          "2138:70287"
+        ],
+        [
+          "ADM-15/connection-pm-recovery-review",
+          "2138:69170"
+        ],
+        [
+          "ADM-15/connection-pm-recovery-restored",
+          "2138:69280"
+        ],
+        [
+          "ADM-15/connection-ll-recovery-review",
+          "2138:69731"
+        ],
+        [
+          "ADM-15/connection-ll-recovery-restored",
+          "2138:69841"
+        ],
+        [
+          "ADM-15/market-recovery-review",
+          "2138:75925"
+        ],
+        [
+          "ADM-15/market-recovery-restored",
+          "2138:76039"
+        ],
+        [
+          "ADM-17/recovery-review",
+          "2110:57798"
+        ],
+        [
+          "ADM-17/recovery-staged",
+          "2110:57908"
+        ],
+        [
+          "ADM-17/control-tech-recovery-review",
+          "2138:71096"
+        ],
+        [
+          "ADM-17/control-tech-restored",
+          "2138:71210"
+        ],
+        [
+          "ADM-17/control-deposits-recovery-review",
+          "2138:72023"
+        ],
+        [
+          "ADM-17/control-deposits-restored",
+          "2138:72137"
+        ],
+        [
+          "ADM-17/control-withdrawals-recovery-review",
+          "2138:72945"
+        ],
+        [
+          "ADM-17/control-withdrawals-restored",
+          "2138:73059"
+        ],
+        [
+          "ADM-17/control-partner-payouts-recovery-review",
+          "2138:73867"
+        ],
+        [
+          "ADM-17/control-partner-payouts-restored",
+          "2138:73981"
+        ]
+      ],
+      "identity": [
+        {
+          "id": "3185:225491",
+          "name": "Record · Staff",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "STAFF-202"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Maxim Orlov"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Staff"
+            }
+          }
+        },
+        {
+          "id": "3185:225495",
+          "name": "Record · Access",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "View own grants, no assignment changes"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Owner B"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Access"
+            }
+          }
+        },
+        {
+          "id": "3185:225503",
+          "name": "Record · Account security",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "No secrets shown; recovery does not restore old sessions"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Two separate physical keys"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Account security"
+            }
+          }
+        }
+      ],
+      "header": [
+        "Maxim Orlov · STAFF-202 · Owner B"
+      ],
+      "fontFamilies": [
+        "Inter"
+      ],
+      "rootHeight": 1120,
+      "contentBottom": 804
+    },
+    {
+      "role": "role-profile-ops",
+      "locale": "ru",
+      "profile": "3182:78753",
+      "rootName": "RU · role-profile-ops · Личный профиль",
+      "overlay": "3623:146247",
+      "trigger": "I3623:146236;2254:1061",
+      "triggerAction": {
+        "type": "NODE",
+        "destinationId": "3623:146247",
+        "navigation": "OVERLAY",
+        "transition": null,
+        "resetVideoPosition": false
+      },
+      "hasOriginBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146173"
+      },
+      "contextBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146170"
+      },
+      "languagePrefixMatches": true,
+      "languageDestination": {
+        "type": "NODE",
+        "destinationId": "3182:221737",
+        "navigation": "NAVIGATE",
+        "transition": null,
+        "resetVideoPosition": false,
+        "resetScrollPosition": false,
+        "resetInteractiveComponents": true
+      },
+      "sameLanguageActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "dismissActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "returnContract": true,
+      "returns": [
+        [
+          "ADM-01/role-operations-overview",
+          "3189:230621"
+        ],
+        [
+          "ADM-02/operations",
+          "1982:37877"
+        ],
+        [
+          "ADM-02/user-ops-settings",
+          "2223:25930"
+        ],
+        [
+          "ADM-02/ops-user-context",
+          "3182:79257"
+        ],
+        [
+          "ADM-03/ops-session",
+          "1984:398"
+        ],
+        [
+          "ADM-03/ops-pause-confirm",
+          "1984:433"
+        ],
+        [
+          "ADM-03/ops-pause-pending",
+          "1984:460"
+        ],
+        [
+          "ADM-03/ops-paused",
+          "1984:485"
+        ],
+        [
+          "ADM-03/ops-risk",
+          "1984:518"
+        ],
+        [
+          "ADM-03/ops-resume-confirm",
+          "1984:552"
+        ],
+        [
+          "ADM-03/ops-resumed",
+          "1984:579"
+        ],
+        [
+          "ADM-03/ops-disconnect-confirm",
+          "1984:613"
+        ],
+        [
+          "ADM-03/ops-disconnect-pending",
+          "1984:640"
+        ],
+        [
+          "ADM-03/ops-disconnected",
+          "1984:665"
+        ],
+        [
+          "ADM-04/ops-queue",
+          "2414:117179"
+        ],
+        [
+          "ADM-04/ops-filtered",
+          "2414:117392"
+        ],
+        [
+          "ADM-04/ops-empty",
+          "2414:117599"
+        ],
+        [
+          "ADM-04/ops-error",
+          "2414:117789"
+        ],
+        [
+          "ADM-04/ops-incident",
+          "2414:117985"
+        ],
+        [
+          "ADM-04/ops-assigned",
+          "2414:118177"
+        ],
+        [
+          "ADM-04/ops-note",
+          "2414:118369"
+        ],
+        [
+          "ADM-04/ops-note-saved",
+          "2414:118558"
+        ],
+        [
+          "ADM-04/ops-resolve",
+          "2414:119859"
+        ],
+        [
+          "ADM-04/ops-closed",
+          "2414:120059"
+        ],
+        [
+          "ADM-04/ops-readonly",
+          "2414:120247"
+        ],
+        [
+          "ADM-04/ops-session",
+          "2414:120428"
+        ],
+        [
+          "ADM-04/incident-reopen-review",
+          "3445:205172"
+        ],
+        [
+          "ADM-04/incident-reopened",
+          "3445:205345"
+        ],
+        [
+          "ADM-04/incident-edit-conflict",
+          "3445:205514"
+        ],
+        [
+          "ADM-04/incident-reopened-queue",
+          "3447:71258"
+        ],
+        [
+          "ADM-04/incident-feed-detail",
+          "3485:72493"
+        ],
+        [
+          "ADM-04/incident-feed-blocked",
+          "3485:72666"
+        ],
+        [
+          "ADM-04/incident-feed-confirmed",
+          "3485:72842"
+        ],
+        [
+          "ADM-04/incident-feed-close",
+          "3485:73018"
+        ],
+        [
+          "ADM-04/incident-feed-closed",
+          "3485:73198"
+        ],
+        [
+          "ADM-04/incident-feed-conflict",
+          "3485:73370"
+        ],
+        [
+          "ADM-04/incident-feed-closed-queue",
+          "3485:73546"
+        ],
+        [
+          "ADM-04/incident-order-close-blocked",
+          "3485:73706"
+        ],
+        [
+          "ADM-04/incident-order-close-conflict",
+          "3485:73874"
+        ],
+        [
+          "ADM-05/ops-cases",
+          "2414:118751"
+        ],
+        [
+          "ADM-05/ops-case",
+          "2414:118914"
+        ],
+        [
+          "ADM-05/ops-pending",
+          "2414:119101"
+        ],
+        [
+          "ADM-05/ops-unknown",
+          "2414:119294"
+        ],
+        [
+          "ADM-05/ops-mismatch",
+          "2414:119483"
+        ],
+        [
+          "ADM-05/ops-confirmed",
+          "2414:119672"
+        ],
+        [
+          "ADM-05/ops-partial-recheck",
+          "3363:68678"
+        ],
+        [
+          "ADM-05/ops-partial-rechecked",
+          "3363:68767"
+        ],
+        [
+          "ADM-05/reconciliation-selected",
+          "3484:207779"
+        ],
+        [
+          "ADM-05/reconciliation-loading",
+          "3484:207947"
+        ],
+        [
+          "ADM-05/reconciliation-error",
+          "3484:208107"
+        ],
+        [
+          "ADM-05/reconciliation-stale",
+          "3484:208267"
+        ],
+        [
+          "ADM-09/support",
+          "2185:21070"
+        ],
+        [
+          "ADM-09/support-filtered",
+          "2185:21286"
+        ],
+        [
+          "ADM-09/support-empty",
+          "2185:21482"
+        ],
+        [
+          "ADM-09/support-load-error",
+          "2185:21662"
+        ],
+        [
+          "ADM-09/support-page2",
+          "2185:21842"
+        ],
+        [
+          "ADM-09/support-ticket",
+          "2185:22038"
+        ],
+        [
+          "ADM-09/support-general",
+          "2185:22203"
+        ],
+        [
+          "ADM-09/support-limitless",
+          "2185:22354"
+        ],
+        [
+          "ADM-09/support-reply-draft",
+          "2186:22083"
+        ],
+        [
+          "ADM-09/support-reply-sending",
+          "2186:22248"
+        ],
+        [
+          "ADM-09/support-reply-sent",
+          "2186:22424"
+        ],
+        [
+          "ADM-09/support-reply-failed",
+          "2186:22593"
+        ],
+        [
+          "ADM-09/support-reply-unknown",
+          "2186:22758"
+        ],
+        [
+          "ADM-09/support-note-draft",
+          "2186:22924"
+        ],
+        [
+          "ADM-09/support-note-saved",
+          "2186:23089"
+        ],
+        [
+          "ADM-09/support-assignment",
+          "2186:23258"
+        ],
+        [
+          "ADM-09/support-assigned",
+          "2187:22966"
+        ],
+        [
+          "ADM-09/support-conflict",
+          "2187:23135"
+        ],
+        [
+          "ADM-09/support-status",
+          "2187:23231"
+        ],
+        [
+          "ADM-09/support-waiting-user",
+          "2187:23342"
+        ],
+        [
+          "ADM-09/support-resolved",
+          "2187:23514"
+        ],
+        [
+          "ADM-09/support-closed",
+          "2187:23670"
+        ],
+        [
+          "ADM-09/support-reopened",
+          "2187:23822"
+        ],
+        [
+          "ADM-09/support-readonly",
+          "2187:23990"
+        ],
+        [
+          "ADM-09/support-no-access",
+          "2188:23792"
+        ],
+        [
+          "ADM-09/support-user-context",
+          "2188:23888"
+        ],
+        [
+          "ADM-09/support-session-context",
+          "2188:23990"
+        ],
+        [
+          "ADM-09/support-audit",
+          "2188:24088"
+        ],
+        [
+          "ADM-09/support-context-unavailable",
+          "2188:24187"
+        ],
+        [
+          "ADM-09/support-general-draft",
+          "2188:24283"
+        ],
+        [
+          "ADM-09/support-general-sent",
+          "2188:24414"
+        ],
+        [
+          "ADM-09/support-limitless-draft",
+          "2188:24552"
+        ],
+        [
+          "ADM-09/support-limitless-sent",
+          "2188:24683"
+        ],
+        [
+          "ADM-09/support-note-after-reply-draft",
+          "3363:68853"
+        ],
+        [
+          "ADM-09/support-note-after-reply-saved",
+          "3363:68958"
+        ],
+        [
+          "ADM-09/support-position-context",
+          "3445:203529"
+        ],
+        [
+          "ADM-09/support-order-context",
+          "3445:203698"
+        ],
+        [
+          "ADM-09/support-event-context",
+          "3445:203867"
+        ],
+        [
+          "ADM-09/support-page2-1060",
+          "3484:208431"
+        ],
+        [
+          "ADM-09/support-page2-1027",
+          "3484:208599"
+        ],
+        [
+          "ADM-09/support-refresh-loading",
+          "3489:73123"
+        ],
+        [
+          "ADM-15/ops-connection-ll",
+          "3182:79285"
+        ]
+      ],
+      "identity": [
+        {
+          "id": "3185:81670",
+          "name": "Record · Сотрудник",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "STAFF-206"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Олег Смирнов"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Сотрудник"
+            }
+          }
+        },
+        {
+          "id": "3185:81674",
+          "name": "Record · Права",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "Просмотр своих полномочий, без изменения назначения"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Операционная работа и поддержка"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Права"
+            }
+          }
+        },
+        {
+          "id": "3185:81682",
+          "name": "Record · Защита аккаунта",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "Секреты не показываются; восстановление не возвращает старые сеансы"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Защищённый способ по текущим полномочиям"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Защита аккаунта"
+            }
+          }
+        }
+      ],
+      "header": [
+        "Олег Смирнов · STAFF-206 · операционный руководитель"
+      ],
+      "fontFamilies": [
+        "Inter"
+      ],
+      "rootHeight": 1120,
+      "contentBottom": 812
+    },
+    {
+      "role": "role-profile-ops",
+      "locale": "en",
+      "profile": "3182:221737",
+      "rootName": "EN · role-profile-ops · Personal profile",
+      "overlay": "3623:146283",
+      "trigger": "I3623:146272;2254:1088",
+      "triggerAction": {
+        "type": "NODE",
+        "destinationId": "3623:146283",
+        "navigation": "OVERLAY",
+        "transition": null,
+        "resetVideoPosition": false
+      },
+      "hasOriginBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146173"
+      },
+      "contextBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146172"
+      },
+      "languagePrefixMatches": true,
+      "languageDestination": {
+        "type": "NODE",
+        "destinationId": "3182:78753",
+        "navigation": "NAVIGATE",
+        "transition": null,
+        "resetVideoPosition": false,
+        "resetScrollPosition": false,
+        "resetInteractiveComponents": true
+      },
+      "sameLanguageActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "dismissActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "returnContract": true,
+      "returns": [
+        [
+          "ADM-01/role-operations-overview",
+          "3189:230753"
+        ],
+        [
+          "ADM-02/operations",
+          "1982:38700"
+        ],
+        [
+          "ADM-02/user-ops-settings",
+          "2223:52047"
+        ],
+        [
+          "ADM-02/ops-user-context",
+          "3182:222241"
+        ],
+        [
+          "ADM-03/ops-session",
+          "1984:38802"
+        ],
+        [
+          "ADM-03/ops-pause-confirm",
+          "1984:38837"
+        ],
+        [
+          "ADM-03/ops-pause-pending",
+          "1984:38864"
+        ],
+        [
+          "ADM-03/ops-paused",
+          "1984:38889"
+        ],
+        [
+          "ADM-03/ops-risk",
+          "1984:38922"
+        ],
+        [
+          "ADM-03/ops-resume-confirm",
+          "1984:38956"
+        ],
+        [
+          "ADM-03/ops-resumed",
+          "1984:38983"
+        ],
+        [
+          "ADM-03/ops-disconnect-confirm",
+          "1984:39017"
+        ],
+        [
+          "ADM-03/ops-disconnect-pending",
+          "1984:39044"
+        ],
+        [
+          "ADM-03/ops-disconnected",
+          "1984:39069"
+        ],
+        [
+          "ADM-04/ops-queue",
+          "2414:120601"
+        ],
+        [
+          "ADM-04/ops-filtered",
+          "2414:120812"
+        ],
+        [
+          "ADM-04/ops-empty",
+          "2414:121019"
+        ],
+        [
+          "ADM-04/ops-error",
+          "2414:121209"
+        ],
+        [
+          "ADM-04/ops-incident",
+          "2414:121405"
+        ],
+        [
+          "ADM-04/ops-assigned",
+          "2414:121597"
+        ],
+        [
+          "ADM-04/ops-note",
+          "2414:121789"
+        ],
+        [
+          "ADM-04/ops-note-saved",
+          "2414:121978"
+        ],
+        [
+          "ADM-04/ops-resolve",
+          "2414:123279"
+        ],
+        [
+          "ADM-04/ops-closed",
+          "2414:123479"
+        ],
+        [
+          "ADM-04/ops-readonly",
+          "2414:123667"
+        ],
+        [
+          "ADM-04/ops-session",
+          "2414:123848"
+        ],
+        [
+          "ADM-04/incident-reopen-review",
+          "3445:206403"
+        ],
+        [
+          "ADM-04/incident-reopened",
+          "3445:206576"
+        ],
+        [
+          "ADM-04/incident-edit-conflict",
+          "3445:206745"
+        ],
+        [
+          "ADM-04/incident-reopened-queue",
+          "3447:204802"
+        ],
+        [
+          "ADM-04/incident-feed-detail",
+          "3485:208427"
+        ],
+        [
+          "ADM-04/incident-feed-blocked",
+          "3485:208599"
+        ],
+        [
+          "ADM-04/incident-feed-confirmed",
+          "3485:208775"
+        ],
+        [
+          "ADM-04/incident-feed-close",
+          "3485:208951"
+        ],
+        [
+          "ADM-04/incident-feed-closed",
+          "3485:209131"
+        ],
+        [
+          "ADM-04/incident-feed-conflict",
+          "3485:209303"
+        ],
+        [
+          "ADM-04/incident-feed-closed-queue",
+          "3485:209479"
+        ],
+        [
+          "ADM-04/incident-order-close-blocked",
+          "3485:209639"
+        ],
+        [
+          "ADM-04/incident-order-close-conflict",
+          "3485:209807"
+        ],
+        [
+          "ADM-05/ops-cases",
+          "2414:122171"
+        ],
+        [
+          "ADM-05/ops-case",
+          "2414:122334"
+        ],
+        [
+          "ADM-05/ops-pending",
+          "2414:122521"
+        ],
+        [
+          "ADM-05/ops-unknown",
+          "2414:122714"
+        ],
+        [
+          "ADM-05/ops-mismatch",
+          "2414:122903"
+        ],
+        [
+          "ADM-05/ops-confirmed",
+          "2414:123092"
+        ],
+        [
+          "ADM-05/ops-partial-recheck",
+          "3363:137828"
+        ],
+        [
+          "ADM-05/ops-partial-rechecked",
+          "3363:137917"
+        ],
+        [
+          "ADM-05/reconciliation-selected",
+          "3484:208767"
+        ],
+        [
+          "ADM-05/reconciliation-loading",
+          "3484:208935"
+        ],
+        [
+          "ADM-05/reconciliation-error",
+          "3484:209095"
+        ],
+        [
+          "ADM-05/reconciliation-stale",
+          "3484:209255"
+        ],
+        [
+          "ADM-09/support",
+          "2188:84282"
+        ],
+        [
+          "ADM-09/support-filtered",
+          "2188:84494"
+        ],
+        [
+          "ADM-09/support-empty",
+          "2188:84685"
+        ],
+        [
+          "ADM-09/support-load-error",
+          "2188:84865"
+        ],
+        [
+          "ADM-09/support-page2",
+          "2188:85045"
+        ],
+        [
+          "ADM-09/support-ticket",
+          "2188:85241"
+        ],
+        [
+          "ADM-09/support-general",
+          "2188:85409"
+        ],
+        [
+          "ADM-09/support-limitless",
+          "2188:85543"
+        ],
+        [
+          "ADM-09/support-reply-draft",
+          "2188:85677"
+        ],
+        [
+          "ADM-09/support-reply-sending",
+          "2188:85842"
+        ],
+        [
+          "ADM-09/support-reply-sent",
+          "2188:86018"
+        ],
+        [
+          "ADM-09/support-reply-failed",
+          "2188:86190"
+        ],
+        [
+          "ADM-09/support-reply-unknown",
+          "2188:86355"
+        ],
+        [
+          "ADM-09/support-note-draft",
+          "2188:86521"
+        ],
+        [
+          "ADM-09/support-note-saved",
+          "2188:86686"
+        ],
+        [
+          "ADM-09/support-assignment",
+          "2188:86858"
+        ],
+        [
+          "ADM-09/support-assigned",
+          "2188:86969"
+        ],
+        [
+          "ADM-09/support-conflict",
+          "2188:87137"
+        ],
+        [
+          "ADM-09/support-status",
+          "2188:87233"
+        ],
+        [
+          "ADM-09/support-waiting-user",
+          "2188:87344"
+        ],
+        [
+          "ADM-09/support-resolved",
+          "2188:87516"
+        ],
+        [
+          "ADM-09/support-closed",
+          "2188:87672"
+        ],
+        [
+          "ADM-09/support-reopened",
+          "2188:87824"
+        ],
+        [
+          "ADM-09/support-readonly",
+          "2188:87992"
+        ],
+        [
+          "ADM-09/support-no-access",
+          "2188:88157"
+        ],
+        [
+          "ADM-09/support-user-context",
+          "2188:88253"
+        ],
+        [
+          "ADM-09/support-session-context",
+          "2188:88355"
+        ],
+        [
+          "ADM-09/support-audit",
+          "2188:88453"
+        ],
+        [
+          "ADM-09/support-context-unavailable",
+          "2188:88552"
+        ],
+        [
+          "ADM-09/support-general-draft",
+          "2188:88648"
+        ],
+        [
+          "ADM-09/support-general-sent",
+          "2188:88779"
+        ],
+        [
+          "ADM-09/support-limitless-draft",
+          "2188:88917"
+        ],
+        [
+          "ADM-09/support-limitless-sent",
+          "2188:89048"
+        ],
+        [
+          "ADM-09/support-note-after-reply-draft",
+          "3363:138003"
+        ],
+        [
+          "ADM-09/support-note-after-reply-saved",
+          "3363:138108"
+        ],
+        [
+          "ADM-09/support-position-context",
+          "3445:204665"
+        ],
+        [
+          "ADM-09/support-order-context",
+          "3445:204834"
+        ],
+        [
+          "ADM-09/support-event-context",
+          "3445:205003"
+        ],
+        [
+          "ADM-09/support-page2-1060",
+          "3484:209419"
+        ],
+        [
+          "ADM-09/support-page2-1027",
+          "3484:209587"
+        ],
+        [
+          "ADM-09/support-refresh-loading",
+          "3489:208299"
+        ],
+        [
+          "ADM-15/ops-connection-ll",
+          "3182:222269"
+        ]
+      ],
+      "identity": [
+        {
+          "id": "3185:225625",
+          "name": "Record · Staff",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "STAFF-206"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Oleg Smirnov"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Staff"
+            }
+          }
+        },
+        {
+          "id": "3185:225629",
+          "name": "Record · Access",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "View own grants, no assignment changes"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Operations and support"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Access"
+            }
+          }
+        },
+        {
+          "id": "3185:225637",
+          "name": "Record · Account security",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "No secrets shown; recovery does not restore old sessions"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Strong method under current grants"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Account security"
+            }
+          }
+        }
+      ],
+      "header": [
+        "Oleg Smirnov · STAFF-206 · operations lead"
+      ],
+      "fontFamilies": [
+        "Inter"
+      ],
+      "rootHeight": 1120,
+      "contentBottom": 804
+    },
+    {
+      "role": "role-profile-limited",
+      "locale": "ru",
+      "profile": "3182:78781",
+      "rootName": "RU · role-profile-limited · Личный профиль",
+      "overlay": "3623:146319",
+      "trigger": "I3623:146308;2254:1061",
+      "triggerAction": {
+        "type": "NODE",
+        "destinationId": "3623:146319",
+        "navigation": "OVERLAY",
+        "transition": null,
+        "resetVideoPosition": false
+      },
+      "hasOriginBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146178"
+      },
+      "contextBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146175"
+      },
+      "languagePrefixMatches": true,
+      "languageDestination": {
+        "type": "NODE",
+        "destinationId": "3182:221765",
+        "navigation": "NAVIGATE",
+        "transition": null,
+        "resetVideoPosition": false,
+        "resetScrollPosition": false,
+        "resetInteractiveComponents": true
+      },
+      "sameLanguageActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "dismissActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "returnContract": true,
+      "returns": [
+        [
+          "ADM-09/limited-reply-draft",
+          "3182:78893"
+        ],
+        [
+          "ADM-09/limited-reply-sent",
+          "3182:78921"
+        ],
+        [
+          "ADM-09/limited-note-draft",
+          "3182:78949"
+        ],
+        [
+          "ADM-09/limited-note-saved",
+          "3182:78977"
+        ],
+        [
+          "ADM-14/access-operations-home",
+          "3069:64106"
+        ],
+        [
+          "ADM-14/access-user-limited",
+          "3069:64134"
+        ],
+        [
+          "ADM-14/access-session-limited",
+          "3069:64162"
+        ],
+        [
+          "ADM-14/access-support-limited",
+          "3070:66746"
+        ]
+      ],
+      "identity": [
+        {
+          "id": "3185:81804",
+          "name": "Record · Сотрудник",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "STAFF-203"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Нора Азиз"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Сотрудник"
+            }
+          }
+        },
+        {
+          "id": "3185:81808",
+          "name": "Record · Права",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "Просмотр своих полномочий, без изменения назначения"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Настраиваемая ограниченная роль"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Права"
+            }
+          }
+        },
+        {
+          "id": "3185:81816",
+          "name": "Record · Защита аккаунта",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "Секреты не показываются; восстановление не возвращает старые сеансы"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Защищённый способ по текущим полномочиям"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Защита аккаунта"
+            }
+          }
+        }
+      ],
+      "header": [
+        "Нора Азиз · STAFF-203 · ASG-DEMO-41 · ограниченный учебный снимок"
+      ],
+      "fontFamilies": [
+        "Inter"
+      ],
+      "rootHeight": 1120,
+      "contentBottom": 812
+    },
+    {
+      "role": "role-profile-limited",
+      "locale": "en",
+      "profile": "3182:221765",
+      "rootName": "EN · role-profile-limited · Personal profile",
+      "overlay": "3623:146355",
+      "trigger": "I3623:146344;2254:1088",
+      "triggerAction": {
+        "type": "NODE",
+        "destinationId": "3623:146355",
+        "navigation": "OVERLAY",
+        "transition": null,
+        "resetVideoPosition": false
+      },
+      "hasOriginBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146178"
+      },
+      "contextBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146177"
+      },
+      "languagePrefixMatches": true,
+      "languageDestination": {
+        "type": "NODE",
+        "destinationId": "3182:78781",
+        "navigation": "NAVIGATE",
+        "transition": null,
+        "resetVideoPosition": false,
+        "resetScrollPosition": false,
+        "resetInteractiveComponents": true
+      },
+      "sameLanguageActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "dismissActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "returnContract": true,
+      "returns": [
+        [
+          "ADM-09/limited-reply-draft",
+          "3182:221877"
+        ],
+        [
+          "ADM-09/limited-reply-sent",
+          "3182:221905"
+        ],
+        [
+          "ADM-09/limited-note-draft",
+          "3182:221933"
+        ],
+        [
+          "ADM-09/limited-note-saved",
+          "3182:221961"
+        ],
+        [
+          "ADM-14/access-operations-home",
+          "3069:192565"
+        ],
+        [
+          "ADM-14/access-user-limited",
+          "3069:192593"
+        ],
+        [
+          "ADM-14/access-session-limited",
+          "3069:192621"
+        ],
+        [
+          "ADM-14/access-support-limited",
+          "3070:194713"
+        ]
+      ],
+      "identity": [
+        {
+          "id": "3185:225759",
+          "name": "Record · Staff",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "STAFF-203"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Nora Aziz"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Staff"
+            }
+          }
+        },
+        {
+          "id": "3185:225763",
+          "name": "Record · Access",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "View own grants, no assignment changes"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Custom restricted role"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Access"
+            }
+          }
+        },
+        {
+          "id": "3185:225771",
+          "name": "Record · Account security",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "No secrets shown; recovery does not restore old sessions"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Strong method under current grants"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Account security"
+            }
+          }
+        }
+      ],
+      "header": [
+        "Nora Aziz · STAFF-203 · ASG-DEMO-41 · limited assignment fixture"
+      ],
+      "fontFamilies": [
+        "Inter"
+      ],
+      "rootHeight": 1120,
+      "contentBottom": 804
+    },
+    {
+      "role": "role-profile-marketing",
+      "locale": "ru",
+      "profile": "3182:78809",
+      "rootName": "RU · role-profile-marketing · Личный профиль",
+      "overlay": "3623:146391",
+      "trigger": "I3623:146380;2254:1061",
+      "triggerAction": {
+        "type": "NODE",
+        "destinationId": "3623:146391",
+        "navigation": "OVERLAY",
+        "transition": null,
+        "resetVideoPosition": false
+      },
+      "hasOriginBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146183"
+      },
+      "contextBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146180"
+      },
+      "languagePrefixMatches": true,
+      "languageDestination": {
+        "type": "NODE",
+        "destinationId": "3182:221793",
+        "navigation": "NAVIGATE",
+        "transition": null,
+        "resetVideoPosition": false,
+        "resetScrollPosition": false,
+        "resetInteractiveComponents": true
+      },
+      "sameLanguageActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "dismissActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "returnContract": true,
+      "returns": [
+        [
+          "ADM-16/content-catalog",
+          "2337:26585"
+        ],
+        [
+          "ADM-16/content-filtered",
+          "2337:26858"
+        ],
+        [
+          "ADM-16/content-empty",
+          "2337:27065"
+        ],
+        [
+          "ADM-16/content-load-error",
+          "2337:27225"
+        ],
+        [
+          "ADM-16/content-editor",
+          "2337:27385"
+        ],
+        [
+          "ADM-16/content-draft-saved",
+          "2337:27573"
+        ],
+        [
+          "ADM-16/content-missing",
+          "2339:27052"
+        ],
+        [
+          "ADM-16/content-placeholder-error",
+          "2339:27282"
+        ],
+        [
+          "ADM-16/content-length-error",
+          "2339:27473"
+        ],
+        [
+          "ADM-16/content-validated",
+          "2339:27664"
+        ],
+        [
+          "ADM-16/content-conflict",
+          "2339:27855"
+        ],
+        [
+          "ADM-16/content-preview",
+          "2339:28030"
+        ],
+        [
+          "ADM-16/content-publish-review",
+          "2339:93266"
+        ],
+        [
+          "ADM-16/content-publishing",
+          "2339:93444"
+        ],
+        [
+          "ADM-16/content-published",
+          "2339:93611"
+        ],
+        [
+          "ADM-16/content-publish-error",
+          "2339:93778"
+        ],
+        [
+          "ADM-16/content-publish-unknown",
+          "2339:93945"
+        ],
+        [
+          "ADM-16/content-history",
+          "2339:94112"
+        ],
+        [
+          "ADM-16/content-version",
+          "2340:27848"
+        ],
+        [
+          "ADM-16/content-rollback-review",
+          "2340:28060"
+        ],
+        [
+          "ADM-16/content-rollback-pending",
+          "2340:28238"
+        ],
+        [
+          "ADM-16/content-rollback-done",
+          "2340:28405"
+        ],
+        [
+          "ADM-16/content-readonly",
+          "2340:28572"
+        ],
+        [
+          "ADM-16/content-no-access",
+          "2340:28762"
+        ],
+        [
+          "ADM-16/content-locales",
+          "2340:28922"
+        ],
+        [
+          "ADM-16/content-locale-form",
+          "2340:29094"
+        ],
+        [
+          "ADM-16/content-locale-draft",
+          "2340:29285"
+        ],
+        [
+          "ADM-16/content-history-restored",
+          "2340:29460"
+        ],
+        [
+          "ADM-16/content-preview-previous",
+          "2340:29632"
+        ],
+        [
+          "ADM-16/content-view-catalog",
+          "2340:29822"
+        ],
+        [
+          "ADM-16/content-view-support",
+          "2340:29986"
+        ],
+        [
+          "ADM-16/content-view-onboarding",
+          "2340:30150"
+        ],
+        [
+          "ADM-16/content-edit-only",
+          "2340:30314"
+        ],
+        [
+          "ADM-16/content-preview-edit-only",
+          "2340:30501"
+        ],
+        [
+          "ADM-16/locale-readiness",
+          "3097:66234"
+        ],
+        [
+          "ADM-16/locale-incomplete",
+          "3097:66262"
+        ],
+        [
+          "ADM-16/locale-ready",
+          "3097:66290"
+        ],
+        [
+          "ADM-16/locale-enabled",
+          "3097:66318"
+        ],
+        [
+          "ADM-16/locale-disable-review",
+          "3097:66346"
+        ],
+        [
+          "ADM-16/locale-disabled",
+          "3097:66374"
+        ],
+        [
+          "ADM-16/locale-fallback-blocked",
+          "3097:66402"
+        ],
+        [
+          "ADM-16/locale-conflict",
+          "3097:66430"
+        ],
+        [
+          "ADM-18/marketing-list",
+          "2376:29545"
+        ],
+        [
+          "ADM-18/marketing-filtered",
+          "2376:29744"
+        ],
+        [
+          "ADM-18/marketing-empty",
+          "2376:29923"
+        ],
+        [
+          "ADM-18/marketing-load-error",
+          "2376:30044"
+        ],
+        [
+          "ADM-18/marketing-editor",
+          "2376:30165"
+        ],
+        [
+          "ADM-18/marketing-draft-saved",
+          "2376:30363"
+        ],
+        [
+          "ADM-18/marketing-invalid",
+          "2376:30564"
+        ],
+        [
+          "ADM-18/marketing-validated",
+          "2376:30765"
+        ],
+        [
+          "ADM-18/marketing-audience",
+          "2376:30966"
+        ],
+        [
+          "ADM-18/marketing-policy-blocked",
+          "2376:31133"
+        ],
+        [
+          "ADM-18/marketing-preview",
+          "2376:31273"
+        ],
+        [
+          "ADM-18/marketing-test",
+          "2376:31421"
+        ],
+        [
+          "ADM-18/marketing-publish-review",
+          "2378:30633"
+        ],
+        [
+          "ADM-18/marketing-publishing",
+          "2378:30768"
+        ],
+        [
+          "ADM-18/marketing-active",
+          "2378:30896"
+        ],
+        [
+          "ADM-18/marketing-schedule",
+          "2378:31051"
+        ],
+        [
+          "ADM-18/marketing-schedule-review",
+          "2378:31188"
+        ],
+        [
+          "ADM-18/marketing-scheduled",
+          "2378:31321"
+        ],
+        [
+          "ADM-18/marketing-scheduler-blocked",
+          "2378:31455"
+        ],
+        [
+          "ADM-18/marketing-publish-failed",
+          "2378:31583"
+        ],
+        [
+          "ADM-18/marketing-unknown",
+          "2378:31711"
+        ],
+        [
+          "ADM-18/marketing-delivery",
+          "2378:31839"
+        ],
+        [
+          "ADM-18/marketing-delivery-unknown",
+          "2378:32009"
+        ],
+        [
+          "ADM-18/marketing-pause-confirm",
+          "2378:32179"
+        ],
+        [
+          "ADM-18/marketing-pausing",
+          "2378:100353"
+        ],
+        [
+          "ADM-18/marketing-paused",
+          "2378:100481"
+        ],
+        [
+          "ADM-18/marketing-pause-failed",
+          "2378:100636"
+        ],
+        [
+          "ADM-18/marketing-history",
+          "2378:100764"
+        ],
+        [
+          "ADM-18/marketing-version",
+          "2378:100906"
+        ],
+        [
+          "ADM-18/marketing-revision",
+          "2378:101035"
+        ],
+        [
+          "ADM-18/marketing-readonly",
+          "2378:101229"
+        ],
+        [
+          "ADM-18/marketing-no-access",
+          "2378:101372"
+        ],
+        [
+          "ADM-18/marketing-edit-only",
+          "2378:101493"
+        ],
+        [
+          "ADM-18/marketing-ended",
+          "2378:101690"
+        ],
+        [
+          "ADM-18/marketing-revision-saved",
+          "2378:101845"
+        ],
+        [
+          "ADM-18/marketing-edit-only-saved",
+          "2378:101968"
+        ],
+        [
+          "ADM-18/marketing-delivery-paused",
+          "2385:33206"
+        ],
+        [
+          "ADM-18/access-marketing",
+          "3069:64582"
+        ]
+      ],
+      "identity": [
+        {
+          "id": "3185:81938",
+          "name": "Record · Сотрудник",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "STAFF-204"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Ирина Волкова"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Сотрудник"
+            }
+          }
+        },
+        {
+          "id": "3185:81942",
+          "name": "Record · Права",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "Просмотр своих полномочий, без изменения назначения"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Маркетинг и тексты по правам"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Права"
+            }
+          }
+        },
+        {
+          "id": "3185:81950",
+          "name": "Record · Защита аккаунта",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "Секреты не показываются; восстановление не возвращает старые сеансы"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Защищённый способ по текущим полномочиям"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Защита аккаунта"
+            }
+          }
+        }
+      ],
+      "header": [
+        "Ирина Волкова · STAFF-204"
+      ],
+      "fontFamilies": [
+        "Inter"
+      ],
+      "rootHeight": 1120,
+      "contentBottom": 812
+    },
+    {
+      "role": "role-profile-marketing",
+      "locale": "en",
+      "profile": "3182:221793",
+      "rootName": "EN · role-profile-marketing · Personal profile",
+      "overlay": "3623:146427",
+      "trigger": "I3623:146416;2254:1088",
+      "triggerAction": {
+        "type": "NODE",
+        "destinationId": "3623:146427",
+        "navigation": "OVERLAY",
+        "transition": null,
+        "resetVideoPosition": false
+      },
+      "hasOriginBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146183"
+      },
+      "contextBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146182"
+      },
+      "languagePrefixMatches": true,
+      "languageDestination": {
+        "type": "NODE",
+        "destinationId": "3182:78809",
+        "navigation": "NAVIGATE",
+        "transition": null,
+        "resetVideoPosition": false,
+        "resetScrollPosition": false,
+        "resetInteractiveComponents": true
+      },
+      "sameLanguageActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "dismissActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "returnContract": true,
+      "returns": [
+        [
+          "ADM-16/content-catalog",
+          "2340:95732"
+        ],
+        [
+          "ADM-16/content-filtered",
+          "2340:96010"
+        ],
+        [
+          "ADM-16/content-empty",
+          "2340:96223"
+        ],
+        [
+          "ADM-16/content-load-error",
+          "2340:96383"
+        ],
+        [
+          "ADM-16/content-editor",
+          "2340:96543"
+        ],
+        [
+          "ADM-16/content-draft-saved",
+          "2340:96731"
+        ],
+        [
+          "ADM-16/content-missing",
+          "2340:96918"
+        ],
+        [
+          "ADM-16/content-placeholder-error",
+          "2340:97109"
+        ],
+        [
+          "ADM-16/content-length-error",
+          "2340:97300"
+        ],
+        [
+          "ADM-16/content-validated",
+          "2340:97491"
+        ],
+        [
+          "ADM-16/content-conflict",
+          "2340:97682"
+        ],
+        [
+          "ADM-16/content-preview",
+          "2340:97857"
+        ],
+        [
+          "ADM-16/content-publish-review",
+          "2341:27482"
+        ],
+        [
+          "ADM-16/content-publishing",
+          "2341:27699"
+        ],
+        [
+          "ADM-16/content-published",
+          "2341:27866"
+        ],
+        [
+          "ADM-16/content-publish-error",
+          "2341:28033"
+        ],
+        [
+          "ADM-16/content-publish-unknown",
+          "2341:28200"
+        ],
+        [
+          "ADM-16/content-history",
+          "2341:28367"
+        ],
+        [
+          "ADM-16/content-version",
+          "2341:28535"
+        ],
+        [
+          "ADM-16/content-rollback-review",
+          "2341:28708"
+        ],
+        [
+          "ADM-16/content-rollback-pending",
+          "2341:28885"
+        ],
+        [
+          "ADM-16/content-rollback-done",
+          "2341:29052"
+        ],
+        [
+          "ADM-16/content-readonly",
+          "2341:29219"
+        ],
+        [
+          "ADM-16/content-no-access",
+          "2341:29409"
+        ],
+        [
+          "ADM-16/content-locales",
+          "2341:96924"
+        ],
+        [
+          "ADM-16/content-locale-form",
+          "2341:97096"
+        ],
+        [
+          "ADM-16/content-locale-draft",
+          "2341:97287"
+        ],
+        [
+          "ADM-16/content-history-restored",
+          "2341:97462"
+        ],
+        [
+          "ADM-16/content-preview-previous",
+          "2341:97634"
+        ],
+        [
+          "ADM-16/content-view-catalog",
+          "2341:97824"
+        ],
+        [
+          "ADM-16/content-view-support",
+          "2341:97988"
+        ],
+        [
+          "ADM-16/content-view-onboarding",
+          "2341:98152"
+        ],
+        [
+          "ADM-16/content-edit-only",
+          "2341:98316"
+        ],
+        [
+          "ADM-16/content-preview-edit-only",
+          "2341:98503"
+        ],
+        [
+          "ADM-16/locale-readiness",
+          "3097:198807"
+        ],
+        [
+          "ADM-16/locale-incomplete",
+          "3097:198835"
+        ],
+        [
+          "ADM-16/locale-ready",
+          "3097:198863"
+        ],
+        [
+          "ADM-16/locale-enabled",
+          "3097:198891"
+        ],
+        [
+          "ADM-16/locale-disable-review",
+          "3097:198919"
+        ],
+        [
+          "ADM-16/locale-disabled",
+          "3097:198947"
+        ],
+        [
+          "ADM-16/locale-fallback-blocked",
+          "3097:198975"
+        ],
+        [
+          "ADM-16/locale-conflict",
+          "3097:199003"
+        ],
+        [
+          "ADM-18/marketing-list",
+          "2378:102168"
+        ],
+        [
+          "ADM-18/marketing-filtered",
+          "2378:102365"
+        ],
+        [
+          "ADM-18/marketing-empty",
+          "2378:102544"
+        ],
+        [
+          "ADM-18/marketing-load-error",
+          "2378:102665"
+        ],
+        [
+          "ADM-18/marketing-editor",
+          "2378:102786"
+        ],
+        [
+          "ADM-18/marketing-draft-saved",
+          "2378:102984"
+        ],
+        [
+          "ADM-18/marketing-invalid",
+          "2378:103185"
+        ],
+        [
+          "ADM-18/marketing-validated",
+          "2378:103386"
+        ],
+        [
+          "ADM-18/marketing-audience",
+          "2378:103587"
+        ],
+        [
+          "ADM-18/marketing-policy-blocked",
+          "2378:103754"
+        ],
+        [
+          "ADM-18/marketing-preview",
+          "2378:103894"
+        ],
+        [
+          "ADM-18/marketing-test",
+          "2378:104042"
+        ],
+        [
+          "ADM-18/marketing-publish-review",
+          "2378:104190"
+        ],
+        [
+          "ADM-18/marketing-publishing",
+          "2378:104323"
+        ],
+        [
+          "ADM-18/marketing-active",
+          "2378:104451"
+        ],
+        [
+          "ADM-18/marketing-schedule",
+          "2378:104606"
+        ],
+        [
+          "ADM-18/marketing-schedule-review",
+          "2378:104743"
+        ],
+        [
+          "ADM-18/marketing-scheduled",
+          "2378:104876"
+        ],
+        [
+          "ADM-18/marketing-scheduler-blocked",
+          "2378:105010"
+        ],
+        [
+          "ADM-18/marketing-publish-failed",
+          "2378:105138"
+        ],
+        [
+          "ADM-18/marketing-unknown",
+          "2378:105266"
+        ],
+        [
+          "ADM-18/marketing-delivery",
+          "2378:105394"
+        ],
+        [
+          "ADM-18/marketing-delivery-unknown",
+          "2378:105564"
+        ],
+        [
+          "ADM-18/marketing-pause-confirm",
+          "2378:105734"
+        ],
+        [
+          "ADM-18/marketing-pausing",
+          "2378:105867"
+        ],
+        [
+          "ADM-18/marketing-paused",
+          "2378:105995"
+        ],
+        [
+          "ADM-18/marketing-pause-failed",
+          "2378:106150"
+        ],
+        [
+          "ADM-18/marketing-history",
+          "2378:106278"
+        ],
+        [
+          "ADM-18/marketing-version",
+          "2378:106420"
+        ],
+        [
+          "ADM-18/marketing-revision",
+          "2378:106549"
+        ],
+        [
+          "ADM-18/marketing-readonly",
+          "2378:106743"
+        ],
+        [
+          "ADM-18/marketing-no-access",
+          "2378:106886"
+        ],
+        [
+          "ADM-18/marketing-edit-only",
+          "2378:107007"
+        ],
+        [
+          "ADM-18/marketing-ended",
+          "2378:107204"
+        ],
+        [
+          "ADM-18/marketing-revision-saved",
+          "2378:107359"
+        ],
+        [
+          "ADM-18/marketing-edit-only-saved",
+          "2378:107482"
+        ],
+        [
+          "ADM-18/marketing-delivery-paused",
+          "2385:105089"
+        ],
+        [
+          "ADM-18/access-marketing",
+          "3069:193041"
+        ]
+      ],
+      "identity": [
+        {
+          "id": "3185:225893",
+          "name": "Record · Staff",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "STAFF-204"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Irina Volkova"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Staff"
+            }
+          }
+        },
+        {
+          "id": "3185:225897",
+          "name": "Record · Access",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "View own grants, no assignment changes"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Marketing and content under grants"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Access"
+            }
+          }
+        },
+        {
+          "id": "3185:225905",
+          "name": "Record · Account security",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "No secrets shown; recovery does not restore old sessions"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Strong method under current grants"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Account security"
+            }
+          }
+        }
+      ],
+      "header": [
+        "Irina Volkova · STAFF-204"
+      ],
+      "fontFamilies": [
+        "Inter"
+      ],
+      "rootHeight": 1120,
+      "contentBottom": 804
+    },
+    {
+      "role": "role-profile-audit",
+      "locale": "ru",
+      "profile": "3182:78837",
+      "rootName": "RU · role-profile-audit · Личный профиль",
+      "overlay": "3623:146463",
+      "trigger": "I3623:146452;2254:1061",
+      "triggerAction": {
+        "type": "NODE",
+        "destinationId": "3623:146463",
+        "navigation": "OVERLAY",
+        "transition": null,
+        "resetVideoPosition": false
+      },
+      "hasOriginBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146188"
+      },
+      "contextBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146185"
+      },
+      "languagePrefixMatches": true,
+      "languageDestination": {
+        "type": "NODE",
+        "destinationId": "3182:221821",
+        "navigation": "NAVIGATE",
+        "transition": null,
+        "resetVideoPosition": false,
+        "resetScrollPosition": false,
+        "resetInteractiveComponents": true
+      },
+      "sameLanguageActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "dismissActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "returnContract": true,
+      "returns": [
+        [
+          "ADM-12/access-audit-read",
+          "3069:64330"
+        ],
+        [
+          "ADM-12/access-export-denied",
+          "3069:64358"
+        ],
+        [
+          "ADM-12/access-export-preview",
+          "3069:64386"
+        ],
+        [
+          "ADM-12/access-export-preparing",
+          "3069:64414"
+        ],
+        [
+          "ADM-12/access-export-ready",
+          "3069:64442"
+        ],
+        [
+          "ADM-12/access-export-error",
+          "3069:64470"
+        ],
+        [
+          "ADM-12/access-export-revoked",
+          "3069:64498"
+        ]
+      ],
+      "identity": [
+        {
+          "id": "3185:82072",
+          "name": "Record · Сотрудник",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "STAFF-205"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Аудитор"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Сотрудник"
+            }
+          }
+        },
+        {
+          "id": "3185:82076",
+          "name": "Record · Права",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "Просмотр своих полномочий, без изменения назначения"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Просмотр выбранного журнала"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Права"
+            }
+          }
+        },
+        {
+          "id": "3185:82084",
+          "name": "Record · Защита аккаунта",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "Секреты не показываются; восстановление не возвращает старые сеансы"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Защищённый способ по текущим полномочиям"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Защита аккаунта"
+            }
+          }
+        }
+      ],
+      "header": [
+        "Аудитор · STAFF-205"
+      ],
+      "fontFamilies": [
+        "Inter"
+      ],
+      "rootHeight": 1120,
+      "contentBottom": 812
+    },
+    {
+      "role": "role-profile-audit",
+      "locale": "en",
+      "profile": "3182:221821",
+      "rootName": "EN · role-profile-audit · Personal profile",
+      "overlay": "3623:146499",
+      "trigger": "I3623:146488;2254:1088",
+      "triggerAction": {
+        "type": "NODE",
+        "destinationId": "3623:146499",
+        "navigation": "OVERLAY",
+        "transition": null,
+        "resetVideoPosition": false
+      },
+      "hasOriginBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146188"
+      },
+      "contextBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146187"
+      },
+      "languagePrefixMatches": true,
+      "languageDestination": {
+        "type": "NODE",
+        "destinationId": "3182:78837",
+        "navigation": "NAVIGATE",
+        "transition": null,
+        "resetVideoPosition": false,
+        "resetScrollPosition": false,
+        "resetInteractiveComponents": true
+      },
+      "sameLanguageActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "dismissActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "returnContract": true,
+      "returns": [
+        [
+          "ADM-12/access-audit-read",
+          "3069:192789"
+        ],
+        [
+          "ADM-12/access-export-denied",
+          "3069:192817"
+        ],
+        [
+          "ADM-12/access-export-preview",
+          "3069:192845"
+        ],
+        [
+          "ADM-12/access-export-preparing",
+          "3069:192873"
+        ],
+        [
+          "ADM-12/access-export-ready",
+          "3069:192901"
+        ],
+        [
+          "ADM-12/access-export-error",
+          "3069:192929"
+        ],
+        [
+          "ADM-12/access-export-revoked",
+          "3069:192957"
+        ]
+      ],
+      "identity": [
+        {
+          "id": "3185:226027",
+          "name": "Record · Staff",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "STAFF-205"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Auditor"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Staff"
+            }
+          }
+        },
+        {
+          "id": "3185:226031",
+          "name": "Record · Access",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "View own grants, no assignment changes"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Read selected audit log"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Access"
+            }
+          }
+        },
+        {
+          "id": "3185:226039",
+          "name": "Record · Account security",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "No secrets shown; recovery does not restore old sessions"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Strong method under current grants"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Account security"
+            }
+          }
+        }
+      ],
+      "header": [
+        "Auditor · STAFF-205"
+      ],
+      "fontFamilies": [
+        "Inter"
+      ],
+      "rootHeight": 1120,
+      "contentBottom": 804
+    },
+    {
+      "role": "role-profile-nora-operations",
+      "locale": "ru",
+      "profile": "3326:72674",
+      "rootName": "RU · role-profile-nora-operations · Личный профиль Норы · операционная роль",
+      "overlay": "3623:146535",
+      "trigger": "I3623:146524;2254:1061",
+      "triggerAction": {
+        "type": "NODE",
+        "destinationId": "3623:146535",
+        "navigation": "OVERLAY",
+        "transition": null,
+        "resetVideoPosition": false
+      },
+      "hasOriginBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146193"
+      },
+      "contextBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146190"
+      },
+      "languagePrefixMatches": true,
+      "languageDestination": {
+        "type": "NODE",
+        "destinationId": "3326:209998",
+        "navigation": "NAVIGATE",
+        "transition": null,
+        "resetVideoPosition": false,
+        "resetScrollPosition": false,
+        "resetInteractiveComponents": true
+      },
+      "sameLanguageActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "dismissActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "returnContract": true,
+      "returns": [
+        [
+          "ADM-11/feedback",
+          "2960:55007"
+        ],
+        [
+          "ADM-11/feedback-filters",
+          "2960:55551"
+        ],
+        [
+          "ADM-11/feedback-filtered",
+          "2960:55930"
+        ],
+        [
+          "ADM-11/feedback-empty",
+          "2960:56252"
+        ],
+        [
+          "ADM-11/feedback-loading",
+          "2960:56521"
+        ],
+        [
+          "ADM-11/feedback-load-error",
+          "2960:56790"
+        ],
+        [
+          "ADM-11/feedback-detail",
+          "2960:57059"
+        ],
+        [
+          "ADM-11/feedback-edit",
+          "2960:57405"
+        ],
+        [
+          "ADM-11/feedback-invalid",
+          "2960:57825"
+        ],
+        [
+          "ADM-11/feedback-updated",
+          "2960:58197"
+        ],
+        [
+          "ADM-11/feedback-conflict",
+          "2960:58543"
+        ],
+        [
+          "ADM-11/feedback-no-context",
+          "2960:58865"
+        ],
+        [
+          "ADM-11/feedback-similar",
+          "2960:59191"
+        ],
+        [
+          "ADM-11/feedback-link-review",
+          "2960:59517"
+        ],
+        [
+          "ADM-11/feedback-linked",
+          "2960:59851"
+        ],
+        [
+          "ADM-11/feedback-resolved",
+          "2960:60181"
+        ],
+        [
+          "ADM-11/feedback-tech-blocked",
+          "2960:61098"
+        ],
+        [
+          "ADM-17/control-tech-scope",
+          "2138:60069"
+        ],
+        [
+          "ADM-17/control-tech-confirm",
+          "2138:60194"
+        ],
+        [
+          "ADM-17/control-tech-partial",
+          "2138:60308"
+        ],
+        [
+          "ADM-17/control-tech-active",
+          "2138:60418"
+        ],
+        [
+          "ADM-17/control-deposits-scope",
+          "2138:60991"
+        ],
+        [
+          "ADM-17/control-deposits-confirm",
+          "2138:61116"
+        ],
+        [
+          "ADM-17/control-deposits-partial",
+          "2138:61230"
+        ],
+        [
+          "ADM-17/control-deposits-active",
+          "2138:61340"
+        ],
+        [
+          "ADM-17/control-withdrawals-scope",
+          "2138:61918"
+        ],
+        [
+          "ADM-17/control-withdrawals-confirm",
+          "2138:62043"
+        ],
+        [
+          "ADM-17/control-withdrawals-partial",
+          "2138:62157"
+        ],
+        [
+          "ADM-17/control-withdrawals-active",
+          "2138:62267"
+        ],
+        [
+          "ADM-17/control-partner-payouts-scope",
+          "2138:62840"
+        ],
+        [
+          "ADM-17/control-partner-payouts-confirm",
+          "2138:62965"
+        ],
+        [
+          "ADM-17/control-partner-payouts-partial",
+          "2138:63079"
+        ],
+        [
+          "ADM-17/control-partner-payouts-active",
+          "2138:63189"
+        ]
+      ],
+      "identity": [
+        {
+          "id": "3326:72693",
+          "name": "Record · Сотрудник",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "STAFF-203"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Нора Азиз"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Сотрудник"
+            }
+          }
+        },
+        {
+          "id": "3326:72694",
+          "name": "Record · Права",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "Просмотр своих полномочий, без изменения назначения"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Операционная работа и поддержка"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Права"
+            }
+          }
+        },
+        {
+          "id": "3326:72696",
+          "name": "Record · Защита аккаунта",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "Секреты не показываются; восстановление не возвращает старые сеансы"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Защищённый способ по текущим полномочиям"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Защита аккаунта"
+            }
+          }
+        }
+      ],
+      "header": [
+        "Нора Азиз · STAFF-203 · операционное назначение · учебный снимок"
+      ],
+      "fontFamilies": [
+        "Inter"
+      ],
+      "rootHeight": 1200,
+      "contentBottom": 812
+    },
+    {
+      "role": "role-profile-nora-operations",
+      "locale": "en",
+      "profile": "3326:209998",
+      "rootName": "EN · role-profile-nora-operations · Nora profile · operations assignment",
+      "overlay": "3623:146571",
+      "trigger": "I3623:146560;2254:1088",
+      "triggerAction": {
+        "type": "NODE",
+        "destinationId": "3623:146571",
+        "navigation": "OVERLAY",
+        "transition": null,
+        "resetVideoPosition": false
+      },
+      "hasOriginBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146193"
+      },
+      "contextBinding": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3622:146192"
+      },
+      "languagePrefixMatches": true,
+      "languageDestination": {
+        "type": "NODE",
+        "destinationId": "3326:72674",
+        "navigation": "NAVIGATE",
+        "transition": null,
+        "resetVideoPosition": false,
+        "resetScrollPosition": false,
+        "resetInteractiveComponents": true
+      },
+      "sameLanguageActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "dismissActions": [
+        {
+          "type": "CLOSE"
+        }
+      ],
+      "returnContract": true,
+      "returns": [
+        [
+          "ADM-11/feedback",
+          "2960:177403"
+        ],
+        [
+          "ADM-11/feedback-filters",
+          "2960:177855"
+        ],
+        [
+          "ADM-11/feedback-filtered",
+          "2960:178234"
+        ],
+        [
+          "ADM-11/feedback-empty",
+          "2960:178556"
+        ],
+        [
+          "ADM-11/feedback-loading",
+          "2960:178825"
+        ],
+        [
+          "ADM-11/feedback-load-error",
+          "2960:179094"
+        ],
+        [
+          "ADM-11/feedback-detail",
+          "2960:179363"
+        ],
+        [
+          "ADM-11/feedback-edit",
+          "2960:179709"
+        ],
+        [
+          "ADM-11/feedback-invalid",
+          "2960:180129"
+        ],
+        [
+          "ADM-11/feedback-updated",
+          "2960:180499"
+        ],
+        [
+          "ADM-11/feedback-conflict",
+          "2960:180845"
+        ],
+        [
+          "ADM-11/feedback-no-context",
+          "2960:181167"
+        ],
+        [
+          "ADM-11/feedback-similar",
+          "2960:181493"
+        ],
+        [
+          "ADM-11/feedback-link-review",
+          "2960:181819"
+        ],
+        [
+          "ADM-11/feedback-linked",
+          "2960:182153"
+        ],
+        [
+          "ADM-11/feedback-resolved",
+          "2960:182483"
+        ],
+        [
+          "ADM-11/feedback-tech-blocked",
+          "2960:183400"
+        ],
+        [
+          "ADM-17/control-tech-scope",
+          "2138:70512"
+        ],
+        [
+          "ADM-17/control-tech-confirm",
+          "2138:70637"
+        ],
+        [
+          "ADM-17/control-tech-partial",
+          "2138:70751"
+        ],
+        [
+          "ADM-17/control-tech-active",
+          "2138:70861"
+        ],
+        [
+          "ADM-17/control-deposits-scope",
+          "2138:71434"
+        ],
+        [
+          "ADM-17/control-deposits-confirm",
+          "2138:71559"
+        ],
+        [
+          "ADM-17/control-deposits-partial",
+          "2138:71673"
+        ],
+        [
+          "ADM-17/control-deposits-active",
+          "2138:71783"
+        ],
+        [
+          "ADM-17/control-withdrawals-scope",
+          "2138:72361"
+        ],
+        [
+          "ADM-17/control-withdrawals-confirm",
+          "2138:72486"
+        ],
+        [
+          "ADM-17/control-withdrawals-partial",
+          "2138:72600"
+        ],
+        [
+          "ADM-17/control-withdrawals-active",
+          "2138:72710"
+        ],
+        [
+          "ADM-17/control-partner-payouts-scope",
+          "2138:73283"
+        ],
+        [
+          "ADM-17/control-partner-payouts-confirm",
+          "2138:73408"
+        ],
+        [
+          "ADM-17/control-partner-payouts-partial",
+          "2138:73522"
+        ],
+        [
+          "ADM-17/control-partner-payouts-active",
+          "2138:73632"
+        ]
+      ],
+      "identity": [
+        {
+          "id": "3326:210017",
+          "name": "Record · Staff",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "STAFF-203"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Nora Aziz"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Staff"
+            }
+          }
+        },
+        {
+          "id": "3326:210018",
+          "name": "Record · Access",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "View own grants, no assignment changes"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Operations and support"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Access"
+            }
+          }
+        },
+        {
+          "id": "3326:210020",
+          "name": "Record · Account security",
+          "props": {
+            "Meta#2137:2": {
+              "type": "TEXT",
+              "value": "No secrets shown; recovery does not restore old sessions"
+            },
+            "Detail#2137:1": {
+              "type": "TEXT",
+              "value": "Strong method under current grants"
+            },
+            "Title#2137:0": {
+              "type": "TEXT",
+              "value": "Account security"
+            }
+          }
+        }
+      ],
+      "header": [
+        "Nora Aziz · STAFF-203 · operations assignment fixture"
+      ],
+      "fontFamilies": [
+        "Inter"
+      ],
+      "rootHeight": 1200,
+      "contentBottom": 804
+    }
+  ]
+}

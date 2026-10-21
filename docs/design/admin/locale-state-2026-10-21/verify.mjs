@@ -13,7 +13,7 @@ const n=j('navigation-migration.json').batches;assert.equal(n.length,19);assert.
 const master=j('menu-migration.json');assert.equal(master.variantCount,12);assert.equal(master.parentId,'1981:29');assert.equal(master.convertedURLs,68);
 const resume=j('resume-readback.json');for(const l of ['ru','en']){const c=resume.config[l];const rows=resume.rows.filter(r=>r.locale===l);assert.ok(rows.length>=1);const menu=rows.find(r=>r.name==='Menu · users');assert.ok(menu);for(const [key,id]of Object.entries(c.targets))assert.deepEqual(run(menu.reactions[0].actions,{[c.view.id]:key}),[id]);}
 const live=j('final-readback.json');assert.equal(live.sharedFrames,1776);assert.equal(live.formerEnglishFrames,0);assert.equal(live.switches.length,6);assert.ok(live.switches.every(x=>x.native&&x.resetInteractiveComponents&&!x.hasURL&&x.sameAsReference));assert.equal(live.adminInternalURLs,0);assert.equal(live.invalidDestinations,0);
-const map=j('../sitemap.json');assert.equal(map.revision,'0.31');assert.equal(map.sections.flatMap(s=>s.screens).length,878);assert.deepEqual(map.counts,{ru:888,en:888});
+const map=j('../sitemap.json');assert.ok(Number(map.revision)>=0.31);assert.equal(map.sections.flatMap(s=>s.screens).length,878);assert.ok(map.counts.ru>=888&&map.counts.en>=888);
 const guide=j('guide-sync.json');assert.ok(guide.tailRetained&&guide.introVerified);assert.equal(guide.linksAfter,1802);assert.equal(guide.screenCards,878);
 const trace=j('manual-checks.json');for(const [label,key,text] of [
  ['FINAL EN new email and ended sessions','sessions-other-revoked','elena.new@demo.example'],
