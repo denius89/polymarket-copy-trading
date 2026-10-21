@@ -79,7 +79,7 @@
       "ADM-02/users",
       "ADM-09/support-empty"
     ],
-    "gap": "Нет общего проверенного пути ID → сущность → возврат; часть фильтров остаётся описанием фиксированной выборки.",
+    "gap": "Поиск пользователя и связанные записи показаны и пройдены в report-gaps; общий проход поиска по всем типам ID остаётся открытым.",
     "priority": "P2",
     "source": "118",
     "evidence": [
@@ -111,7 +111,7 @@
       "ADM-09/support-page2",
       "ADM-12/audit-page-2"
     ],
-    "gap": "Пагинация есть в отдельных разделах; полный набор фильтров и сохранение состояния списков не покрыты сквозным сценарием.",
+    "gap": "Выбранные фильтры и возвраты пройдены в lists-incidents, general-pass и locale-state. В новом проходе выявлен возврат карточки второй страницы поддержки через историю; исправлены четыре реакции. Полная приёмка всех списков не заявлена.",
     "priority": "P2",
     "source": "118",
     "evidence": [
@@ -151,7 +151,7 @@
       "ADM-09/support-load-error",
       "ADM-16/content-conflict"
     ],
-    "gap": "Часть состояний есть, но нет общей матрицы и покрытия загрузки/ошибок для каждого рабочего списка.",
+    "gap": "Загрузка, ошибка, пустота и устаревание пользователей/поддержки/сессий представлены; проверить применимость состояний к остальным рабочим спискам.",
     "priority": "P2",
     "source": "118",
     "evidence": [
@@ -507,7 +507,7 @@
     "keys": [
       "overview"
     ],
-    "gap": "Есть переходы, но согласованное состояние фильтров и возврата не подтверждено.",
+    "gap": "Подготовленный переход к сессиям, требующим внимания, пройден в lists-incidents; остальные счётчики ещё не сведены в единую ручную приёмку.",
     "priority": "P2",
     "source": "118",
     "evidence": [
@@ -525,30 +525,46 @@
     "id": "U01",
     "area": "ADM-02",
     "requirement": "Список пользователей с поиском и предметными фильтрами",
-    "status": "частично",
+    "status": "готово",
     "keys": [
       "users",
       "user-empty"
     ],
-    "gap": "Текущий список показывает два примера; VIP, статус, период и все требуемые столбцы не представлены полноценными отдельными контролами.",
+    "gap": "Пять меню отбора, совместный результат, пустота, ошибочный период, отмена и возврат представлены в report-gaps/lists-incidents. Это покрытие дизайном и выбранными проверками, без произвольного ввода или сервера.",
     "priority": "P2",
     "source": "118",
     "evidence": [
       {
-        "key": "users",
+        "key": "users-filter-form",
         "section": "ADM-02",
-        "ru": "1982:37788",
-        "en": "1982:38611",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37788",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38611"
+        "ru": "3445:70055",
+        "en": "3445:202451",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-70055",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-202451"
       },
       {
-        "key": "user-empty",
+        "key": "users-filter-result",
         "section": "ADM-02",
-        "ru": "1982:37819",
-        "en": "1982:38642",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-37819",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=1982-38642"
+        "ru": "3445:70297",
+        "en": "3445:202693",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-70297",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-202693"
+      },
+      {
+        "key": "users-current-empty",
+        "section": "ADM-02",
+        "ru": "3484:206359",
+        "en": "3484:71520",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-206359",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-71520"
+      },
+      {
+        "key": "users-period-invalid",
+        "section": "ADM-02",
+        "ru": "3484:206759",
+        "en": "3484:71921",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-206759",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3484-71921"
       }
     ]
   },
@@ -1248,7 +1264,7 @@
       "ops-incident",
       "ops-closed"
     ],
-    "gap": "Пакет 10 оставляет reopen/concurrency и другие типы на доработку. Нет законченных новых ветвей.",
+    "gap": "Возобновление, закрытие с подтверждающими данными и конфликт версии представлены и пройдены в report-gaps/lists-incidents. Другие типы и полный проход пересечений не приняты.",
     "priority": "P2",
     "source": "118",
     "evidence": [
@@ -2922,39 +2938,39 @@
     "id": "H04",
     "area": "ADM-09",
     "requirement": "Разрешённый контекст позиции, заявки, активности и счёта",
-    "status": "частично",
+    "status": "готово",
     "keys": [
       "support-user-context",
       "support-session-context",
       "support-context-unavailable"
     ],
-    "gap": "Сессия/пользователь покрыты; остальные типизированные контексты явно оставлены на доработку.",
+    "gap": "Типизированные контексты позиции, заявки и события добавлены и пройдены RU/EN в report-gaps. Неподключённые данные показаны отдельно; реальная интеграция не проверялась.",
     "priority": "P1",
     "source": "115 §13; package-06 QA",
     "evidence": [
       {
-        "key": "support-user-context",
+        "key": "support-position-context",
         "section": "ADM-09",
-        "ru": "2188:23888",
-        "en": "2188:88253",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-23888",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-88253"
+        "ru": "3445:203529",
+        "en": "3445:204665",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-203529",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-204665"
       },
       {
-        "key": "support-session-context",
+        "key": "support-order-context",
         "section": "ADM-09",
-        "ru": "2188:23990",
-        "en": "2188:88355",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-23990",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-88355"
+        "ru": "3445:203698",
+        "en": "3445:204834",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-203698",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-204834"
       },
       {
-        "key": "support-context-unavailable",
+        "key": "support-event-context",
         "section": "ADM-09",
-        "ru": "2188:24187",
-        "en": "2188:88552",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-24187",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2188-88552"
+        "ru": "3445:203867",
+        "en": "3445:205003",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-203867",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-205003"
       }
     ]
   },
@@ -4911,30 +4927,46 @@
     "id": "B04",
     "area": "ADM-14",
     "requirement": "Приглашение/активация отдельной учётной записи сотрудника",
-    "status": "частично",
+    "status": "готово",
     "keys": [
       "staff",
       "admin-login"
     ],
-    "gap": "Существующие сотрудники и вход есть; способ приглашения зависит от невыбранного поставщика. Нужно уточнить путь добавления сотрудника до проектирования формы, не считать её автоматически принятой функцией.",
+    "gap": "Приглашение, недействительный исход и активация STAFF-207 без автоматической роли пройдены RU/EN в general-pass. Поставщик входа и доставка относятся к реализации.",
     "priority": "P2",
     "source": "115 §4.1",
     "evidence": [
       {
-        "key": "staff",
+        "key": "staff-invite-form",
         "section": "ADM-14",
-        "ru": "2110:6876",
-        "en": "2110:55811",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-6876",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2110-55811"
+        "ru": "3445:205683",
+        "en": "3445:206914",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-205683",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-206914"
       },
       {
-        "key": "admin-login",
+        "key": "staff-invite-invalid",
         "section": "ADM-14",
-        "ru": "2138:9959",
-        "en": "2138:67538",
-        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-9959",
-        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67538"
+        "ru": "3445:206171",
+        "en": "3445:207402",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-206171",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-207402"
+      },
+      {
+        "key": "staff-invite-activated",
+        "section": "ADM-14",
+        "ru": "3445:207634",
+        "en": "3445:208276",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-207634",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3445-208276"
+      },
+      {
+        "key": "staff-invited-list",
+        "section": "ADM-14",
+        "ru": "3447:71420",
+        "en": "3447:204963",
+        "urlRU": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3447-71420",
+        "urlEN": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3447-204963"
       }
     ]
   },
@@ -6452,7 +6484,7 @@
     "requirement": "Полный проход обязательных сценариев P-01–P-18 на RU/EN и ролях",
     "status": "частично",
     "keys": [],
-    "gap": "Предметно разобраны P-01–P-18 RU/EN и исправлены роли/переходы; чтение 168 состояний на язык. В браузере пройдены отдельные маршруты P-01–P-03 RU. Полная ручная приёмка всех веток на обоих языках не завершена: браузер стал недоступен. Новые чтения и границы — пакет role-scenario-pass-2026-10-19.",
+    "gap": "P-01–P-19 дополнены ручными цепочками report-gaps/lists-incidents/general-pass и RU/EN для шести ролей. Полная приёмка всех ветвей, включая текущий повтор исправлений, остаётся открытой.",
     "priority": "P1",
     "source": "118 §6; package QA",
     "evidence": []
@@ -6491,7 +6523,7 @@
     "requirement": "Пользовательский интерфейс соответствует ограничениям админки",
     "status": "частично",
     "keys": [],
-    "gap": "Добавлены 44 проекции в четырёх Final-страницах: остановки, поступление, повторное подтверждение вывода, VIP, неизвестный/поздний результат, ответ и объявление. Они сверены с админскими данными; полное встраивание в обычные клиентские пути и ручная приёмка всех веток ещё не подтверждены.",
+    "gap": "44 клиентские проекции существуют. Полное встраивание в обычные клиентские маршруты и ручная сверка последствий админских ограничений ещё не подтверждены.",
     "priority": "P1",
     "source": "116; 118 §7",
     "evidence": []
@@ -6571,7 +6603,7 @@
       "ADM-13/security-form",
       "ADM-13/preview"
     ],
-    "gap": "Русские подписи исправлены в 57 выбранных критических состояниях и рабочих ролевых экранах. Полная редакторская вычитка всех 802 пар вне этого пакета остаётся открытой.",
+    "gap": "Критические подписи и личные RU-профили исправлены. Полная предметная вычитка всех 878 пар и единых учебных данных остаётся открытой.",
     "priority": "P2",
     "source": "Уточнение владельца 14.10.2026; 118 §8",
     "evidence": [
