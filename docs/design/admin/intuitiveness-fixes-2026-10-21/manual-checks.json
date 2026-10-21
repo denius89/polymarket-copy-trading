@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-21",
+  "environment": "Figma Present / synthetic / desktop",
+  "cases": [
+    {
+      "id": "support-status-only",
+      "path": [
+        "2185:22038",
+        "2187:23231",
+        "2187:23342"
+      ],
+      "expected": "No MSG-1042-C without send",
+      "observed": "No sent reply after fresh session/status-only transition",
+      "status": "pass"
+    },
+    {
+      "id": "support-send-status",
+      "path": [
+        "2187:23342",
+        "2186:22083",
+        "2186:22248",
+        "2186:22424",
+        "2187:23231",
+        "2187:23342"
+      ],
+      "expected": "Exactly one MSG-1042-C",
+      "observed": "One sent reply after final duplicate cleanup",
+      "status": "pass"
+    },
+    {
+      "id": "support-locale-return",
+      "path": [
+        "2187:23342",
+        "3182:78753",
+        "3182:221737",
+        "2188:87344"
+      ],
+      "expected": "STAFF-206 / TKT-1042 / Waiting for user / one MSG-1042-C",
+      "observed": "Same staff and waiting state; exactly one reply in English",
+      "status": "pass"
+    },
+    {
+      "id": "owner-support-entry",
+      "path": [
+        "1982:37788",
+        "2138:9818",
+        "2185:21070"
+      ],
+      "expected": "Explicit Oleg demo selection before entering queue",
+      "observed": "P-02 names Oleg STAFF-206 before transition",
+      "status": "pass"
+    },
+    {
+      "id": "vip-recipient",
+      "path": [
+        "1982:37913",
+        "1982:37972"
+      ],
+      "expected": "Same U-DEMO-001 and 0% Alpha fee",
+      "observed": "Recipient and before/after retained",
+      "status": "pass"
+    }
+  ],
+  "limits": [
+    "Selected routes only",
+    "Not all 878 pairs",
+    "No runtime payments/access/delivery",
+    "No employee usability test"
+  ],
+  "qaFixes": [
+    "Removed duplicate waiting-state reply clones",
+    "Rebound cloned EN message properties to translated strings",
+    "Cleared unintended white group fills",
+    "Corrected dynamic button width",
+    "Moved tooltip to title anchor",
+    "Separated VIP preview conflict examples"
+  ],
+  "browserCleanup": "Temporary tab closed; no user settings changed"
+}
