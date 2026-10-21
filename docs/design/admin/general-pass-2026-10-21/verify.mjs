@@ -39,4 +39,3 @@ const guide=j('guide-sync.json');assert.equal(guide.screenCards,878);assert.equa
 const coverage=j('coverage.json');assert.equal(coverage.routes.length,10);assert.equal(coverage.fullStateCombinationAcceptance,false);assert.equal(coverage.realOperationsVerified,false);
 const manifest=j('manifest.json');for(const f of [...manifest.screenshots,manifest.browserTrace])assert.equal(crypto.createHash('sha256').update(read(f.file)).digest('hex'),f.sha256);
 console.log('Verified account/email/session continuity, feedback state/link retention, audit caller return, observed selected RU/EN branches and retained guide. No full-state or runtime acceptance.');
-
