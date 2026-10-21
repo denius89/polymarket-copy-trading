@@ -1,0 +1,1684 @@
+[
+  {
+    "id": "I2960:177817;2137:26729",
+    "name": "Detail",
+    "text": "New · unassigned",
+    "bound": {
+      "characters": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3560:73194"
+      },
+      "fills": [
+        {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:35"
+        }
+      ]
+    },
+    "actions": []
+  },
+  {
+    "id": "2960:177817",
+    "name": "Admin/Metadata row",
+    "actions": [
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "new",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:179363"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "updated",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:180499"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "linked",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:182153"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "resolved",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:182483"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2960:177842",
+    "name": "Action · feedback-detail",
+    "actions": [
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "new",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:179363"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "updated",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:180499"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "linked",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:182153"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "resolved",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:182483"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2960:178221",
+    "name": "Action · feedback-filtered",
+    "actions": [
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "new",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:178234"
+              }
+            ]
+          },
+          {
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:178556"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2960:178530",
+    "name": "Admin/Metadata row",
+    "actions": [
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "new",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:179363"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "updated",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:180499"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "linked",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:182153"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "resolved",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:182483"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2960:178543",
+    "name": "Action · feedback-detail",
+    "actions": [
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "new",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:179363"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "updated",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:180499"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "linked",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:182153"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "resolved",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:182483"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2960:179700",
+    "name": "Action · feedback-filtered",
+    "actions": [
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "new",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:178234"
+              }
+            ]
+          },
+          {
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:178556"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2960:180112",
+    "name": "Action · feedback-updated",
+    "actions": [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73193",
+        "variableValue": {
+          "value": "updated",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73194",
+        "variableValue": {
+          "value": "In progress · Nora Aziz",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "2960:180499"
+      }
+    ]
+  },
+  {
+    "id": "2960:180124",
+    "name": "Action · feedback-detail",
+    "actions": [
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "new",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:179363"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "updated",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:180499"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "linked",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:182153"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "resolved",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:182483"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2960:180494",
+    "name": "Action · feedback-detail",
+    "actions": [
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "new",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:179363"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "updated",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:180499"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "linked",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:182153"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "resolved",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:182483"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2960:180525",
+    "name": "My account · open profile",
+    "actions": [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73193",
+        "variableValue": {
+          "value": "updated",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73194",
+        "variableValue": {
+          "value": "In progress · Nora Aziz",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "3326:209998"
+      }
+    ]
+  },
+  {
+    "id": "2960:180832",
+    "name": "Action · feedback-link-review",
+    "actions": [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73193",
+        "variableValue": {
+          "value": "updated",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73194",
+        "variableValue": {
+          "value": "In progress · Nora Aziz",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "2960:181819"
+      }
+    ]
+  },
+  {
+    "id": "2960:180836",
+    "name": "Action · feedback-resolved",
+    "actions": [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73193",
+        "variableValue": {
+          "value": "resolved",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73194",
+        "variableValue": {
+          "value": "Reviewed · Nora Aziz",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "2960:182483"
+      }
+    ]
+  },
+  {
+    "id": "2960:180840",
+    "name": "Action · feedback",
+    "actions": [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73193",
+        "variableValue": {
+          "value": "updated",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73194",
+        "variableValue": {
+          "value": "In progress · Nora Aziz",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "2960:177403"
+      }
+    ]
+  },
+  {
+    "id": "2960:181158",
+    "name": "Action · feedback-updated",
+    "actions": [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73193",
+        "variableValue": {
+          "value": "updated",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73194",
+        "variableValue": {
+          "value": "In progress · Nora Aziz",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "2960:180499"
+      }
+    ]
+  },
+  {
+    "id": "2960:182140",
+    "name": "Action · feedback-linked",
+    "actions": [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73193",
+        "variableValue": {
+          "value": "linked",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73194",
+        "variableValue": {
+          "value": "In progress · Nora Aziz",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73195",
+        "variableValue": {
+          "value": "FB-DEMO-01 → TKT-1042 · link retained; ticket status unchanged",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "2960:182153"
+      }
+    ]
+  },
+  {
+    "id": "2960:182148",
+    "name": "Action · feedback-updated",
+    "actions": [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73193",
+        "variableValue": {
+          "value": "updated",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73194",
+        "variableValue": {
+          "value": "In progress · Nora Aziz",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "2960:180499"
+      }
+    ]
+  },
+  {
+    "id": "2960:182179",
+    "name": "My account · open profile",
+    "actions": [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73193",
+        "variableValue": {
+          "value": "linked",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73194",
+        "variableValue": {
+          "value": "In progress · Nora Aziz",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73195",
+        "variableValue": {
+          "value": "FB-DEMO-01 → TKT-1042 · link retained; ticket status unchanged",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "3326:209998"
+      }
+    ]
+  },
+  {
+    "id": "2960:182474",
+    "name": "Action · feedback-resolved",
+    "actions": [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73193",
+        "variableValue": {
+          "value": "resolved",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73194",
+        "variableValue": {
+          "value": "Reviewed · Nora Aziz",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "2960:182483"
+      }
+    ]
+  },
+  {
+    "id": "2960:182478",
+    "name": "Action · feedback",
+    "actions": [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73193",
+        "variableValue": {
+          "value": "linked",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73194",
+        "variableValue": {
+          "value": "In progress · Nora Aziz",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73195",
+        "variableValue": {
+          "value": "FB-DEMO-01 → TKT-1042 · link retained; ticket status unchanged",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "2960:177403"
+      }
+    ]
+  },
+  {
+    "id": "2960:182470",
+    "name": "Action · support-ticket",
+    "actions": [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73193",
+        "variableValue": {
+          "value": "linked",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73194",
+        "variableValue": {
+          "value": "In progress · Nora Aziz",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73195",
+        "variableValue": {
+          "value": "FB-DEMO-01 → TKT-1042 · link retained; ticket status unchanged",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "2188:85241"
+      }
+    ]
+  },
+  {
+    "id": "I2960:182787;2137:26730",
+    "name": "Meta",
+    "text": "No ticket link has been created",
+    "bound": {
+      "characters": {
+        "type": "VARIABLE_ALIAS",
+        "id": "VariableID:3560:73195"
+      },
+      "fills": [
+        {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:35"
+        }
+      ]
+    },
+    "actions": []
+  },
+  {
+    "id": "I2960:182783;2137:26729",
+    "name": "Detail",
+    "text": "Internal processing completed · Nora Aziz",
+    "bound": {
+      "fills": [
+        {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:2:35"
+        }
+      ]
+    },
+    "actions": []
+  },
+  {
+    "id": "2960:182509",
+    "name": "My account · open profile",
+    "actions": [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73193",
+        "variableValue": {
+          "value": "resolved",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73194",
+        "variableValue": {
+          "value": "Reviewed · Nora Aziz",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "3326:209998"
+      }
+    ]
+  },
+  {
+    "id": "2960:182800",
+    "name": "Action · feedback",
+    "actions": [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73193",
+        "variableValue": {
+          "value": "resolved",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3560:73194",
+        "variableValue": {
+          "value": "Reviewed · Nora Aziz",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "2960:177403"
+      }
+    ]
+  },
+  {
+    "id": "2960:181810",
+    "name": "Action · feedback-detail",
+    "actions": [
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "new",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:179363"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "updated",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:180499"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "linked",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:182153"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:3560:73193"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "resolved",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "2960:182483"
+              }
+            ]
+          },
+          {
+            "actions": []
+          }
+        ]
+      }
+    ]
+  }
+]

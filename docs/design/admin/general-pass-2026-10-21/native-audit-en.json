@@ -1,0 +1,753 @@
+{
+  "locale": "en",
+  "variable": "VariableID:3573:146174",
+  "proof": [
+    {
+      "key": "audit",
+      "id": "2110:57011",
+      "changes": [
+        {
+          "id": "2110:57119",
+          "name": "Action · audit-entry",
+          "reactions": [
+            {
+              "action": {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:3573:146174",
+                "variableValue": {
+                  "value": "audit",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3573:146174",
+                  "variableValue": {
+                    "value": "audit",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "2110:57130",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "trigger": {
+                "type": "ON_CLICK"
+              }
+            }
+          ]
+        },
+        {
+          "id": "2139:35000",
+          "name": "Action · audit-export-preview",
+          "reactions": [
+            {
+              "action": {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:3573:146174",
+                "variableValue": {
+                  "value": "audit",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3573:146174",
+                  "variableValue": {
+                    "value": "audit",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "2138:76628",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "trigger": {
+                "type": "ON_CLICK"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "audit-filtered",
+      "id": "2138:76278",
+      "changes": [
+        {
+          "id": "2138:76381",
+          "name": "Action · audit-entry",
+          "reactions": [
+            {
+              "action": {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:3573:146174",
+                "variableValue": {
+                  "value": "audit-filtered",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3573:146174",
+                  "variableValue": {
+                    "value": "audit-filtered",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "2110:57130",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "trigger": {
+                "type": "ON_CLICK"
+              }
+            }
+          ]
+        },
+        {
+          "id": "2138:76391",
+          "name": "Action · audit-export-preview",
+          "reactions": [
+            {
+              "action": {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:3573:146174",
+                "variableValue": {
+                  "value": "audit-filtered",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3573:146174",
+                  "variableValue": {
+                    "value": "audit-filtered",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                },
+                {
+                  "type": "NODE",
+                  "destinationId": "2138:76628",
+                  "navigation": "NAVIGATE",
+                  "transition": null,
+                  "resetVideoPosition": false,
+                  "resetScrollPosition": true
+                }
+              ],
+              "trigger": {
+                "type": "ON_CLICK"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "audit-entry",
+      "id": "2110:57130",
+      "changes": [
+        {
+          "id": "I2217:137805;2211:743",
+          "name": "Section",
+          "reactions": [
+            {
+              "action": {
+                "type": "CONDITIONAL",
+                "conditionalBlocks": [
+                  {
+                    "actions": [
+                      {
+                        "type": "NODE",
+                        "destinationId": "2138:76278",
+                        "navigation": "NAVIGATE",
+                        "transition": null,
+                        "resetVideoPosition": false
+                      }
+                    ],
+                    "condition": {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3573:146174"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "audit-filtered",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  },
+                  {
+                    "actions": [
+                      {
+                        "type": "NODE",
+                        "destinationId": "2110:57011",
+                        "navigation": "NAVIGATE",
+                        "transition": null,
+                        "resetVideoPosition": false
+                      }
+                    ]
+                  }
+                ]
+              },
+              "actions": [
+                {
+                  "type": "CONDITIONAL",
+                  "conditionalBlocks": [
+                    {
+                      "actions": [
+                        {
+                          "type": "NODE",
+                          "destinationId": "2138:76278",
+                          "navigation": "NAVIGATE",
+                          "transition": null,
+                          "resetVideoPosition": false
+                        }
+                      ],
+                      "condition": {
+                        "value": {
+                          "expressionArguments": [
+                            {
+                              "value": {
+                                "type": "VARIABLE_ALIAS",
+                                "id": "VariableID:3573:146174"
+                              },
+                              "type": "VARIABLE_ALIAS",
+                              "resolvedType": "STRING"
+                            },
+                            {
+                              "value": "audit-filtered",
+                              "type": "STRING",
+                              "resolvedType": "STRING"
+                            }
+                          ],
+                          "expressionFunction": "EQUALS"
+                        },
+                        "type": "EXPRESSION",
+                        "resolvedType": "BOOLEAN"
+                      }
+                    },
+                    {
+                      "actions": [
+                        {
+                          "type": "NODE",
+                          "destinationId": "2110:57011",
+                          "navigation": "NAVIGATE",
+                          "transition": null,
+                          "resetVideoPosition": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "trigger": {
+                "type": "ON_CLICK"
+              }
+            }
+          ]
+        },
+        {
+          "id": "2110:57236",
+          "name": "Action · audit",
+          "reactions": [
+            {
+              "action": {
+                "type": "CONDITIONAL",
+                "conditionalBlocks": [
+                  {
+                    "actions": [
+                      {
+                        "type": "NODE",
+                        "destinationId": "2138:76278",
+                        "navigation": "NAVIGATE",
+                        "transition": null,
+                        "resetVideoPosition": false
+                      }
+                    ],
+                    "condition": {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3573:146174"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "audit-filtered",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  },
+                  {
+                    "actions": [
+                      {
+                        "type": "NODE",
+                        "destinationId": "2110:57011",
+                        "navigation": "NAVIGATE",
+                        "transition": null,
+                        "resetVideoPosition": false
+                      }
+                    ]
+                  }
+                ]
+              },
+              "actions": [
+                {
+                  "type": "CONDITIONAL",
+                  "conditionalBlocks": [
+                    {
+                      "actions": [
+                        {
+                          "type": "NODE",
+                          "destinationId": "2138:76278",
+                          "navigation": "NAVIGATE",
+                          "transition": null,
+                          "resetVideoPosition": false
+                        }
+                      ],
+                      "condition": {
+                        "value": {
+                          "expressionArguments": [
+                            {
+                              "value": {
+                                "type": "VARIABLE_ALIAS",
+                                "id": "VariableID:3573:146174"
+                              },
+                              "type": "VARIABLE_ALIAS",
+                              "resolvedType": "STRING"
+                            },
+                            {
+                              "value": "audit-filtered",
+                              "type": "STRING",
+                              "resolvedType": "STRING"
+                            }
+                          ],
+                          "expressionFunction": "EQUALS"
+                        },
+                        "type": "EXPRESSION",
+                        "resolvedType": "BOOLEAN"
+                      }
+                    },
+                    {
+                      "actions": [
+                        {
+                          "type": "NODE",
+                          "destinationId": "2110:57011",
+                          "navigation": "NAVIGATE",
+                          "transition": null,
+                          "resetVideoPosition": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "trigger": {
+                "type": "ON_CLICK"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "audit-export-preview",
+      "id": "2138:76628",
+      "changes": [
+        {
+          "id": "I2217:155842;2211:743",
+          "name": "Section",
+          "reactions": [
+            {
+              "action": {
+                "type": "CONDITIONAL",
+                "conditionalBlocks": [
+                  {
+                    "actions": [
+                      {
+                        "type": "NODE",
+                        "destinationId": "2138:76278",
+                        "navigation": "NAVIGATE",
+                        "transition": null,
+                        "resetVideoPosition": false
+                      }
+                    ],
+                    "condition": {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3573:146174"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "audit-filtered",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  },
+                  {
+                    "actions": [
+                      {
+                        "type": "NODE",
+                        "destinationId": "2110:57011",
+                        "navigation": "NAVIGATE",
+                        "transition": null,
+                        "resetVideoPosition": false
+                      }
+                    ]
+                  }
+                ]
+              },
+              "actions": [
+                {
+                  "type": "CONDITIONAL",
+                  "conditionalBlocks": [
+                    {
+                      "actions": [
+                        {
+                          "type": "NODE",
+                          "destinationId": "2138:76278",
+                          "navigation": "NAVIGATE",
+                          "transition": null,
+                          "resetVideoPosition": false
+                        }
+                      ],
+                      "condition": {
+                        "value": {
+                          "expressionArguments": [
+                            {
+                              "value": {
+                                "type": "VARIABLE_ALIAS",
+                                "id": "VariableID:3573:146174"
+                              },
+                              "type": "VARIABLE_ALIAS",
+                              "resolvedType": "STRING"
+                            },
+                            {
+                              "value": "audit-filtered",
+                              "type": "STRING",
+                              "resolvedType": "STRING"
+                            }
+                          ],
+                          "expressionFunction": "EQUALS"
+                        },
+                        "type": "EXPRESSION",
+                        "resolvedType": "BOOLEAN"
+                      }
+                    },
+                    {
+                      "actions": [
+                        {
+                          "type": "NODE",
+                          "destinationId": "2110:57011",
+                          "navigation": "NAVIGATE",
+                          "transition": null,
+                          "resetVideoPosition": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "trigger": {
+                "type": "ON_CLICK"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "audit-export-ready",
+      "id": "2138:76747",
+      "changes": [
+        {
+          "id": "I2217:156047;2211:743",
+          "name": "Section",
+          "reactions": [
+            {
+              "action": {
+                "type": "CONDITIONAL",
+                "conditionalBlocks": [
+                  {
+                    "actions": [
+                      {
+                        "type": "NODE",
+                        "destinationId": "2138:76278",
+                        "navigation": "NAVIGATE",
+                        "transition": null,
+                        "resetVideoPosition": false
+                      }
+                    ],
+                    "condition": {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3573:146174"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "audit-filtered",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  },
+                  {
+                    "actions": [
+                      {
+                        "type": "NODE",
+                        "destinationId": "2110:57011",
+                        "navigation": "NAVIGATE",
+                        "transition": null,
+                        "resetVideoPosition": false
+                      }
+                    ]
+                  }
+                ]
+              },
+              "actions": [
+                {
+                  "type": "CONDITIONAL",
+                  "conditionalBlocks": [
+                    {
+                      "actions": [
+                        {
+                          "type": "NODE",
+                          "destinationId": "2138:76278",
+                          "navigation": "NAVIGATE",
+                          "transition": null,
+                          "resetVideoPosition": false
+                        }
+                      ],
+                      "condition": {
+                        "value": {
+                          "expressionArguments": [
+                            {
+                              "value": {
+                                "type": "VARIABLE_ALIAS",
+                                "id": "VariableID:3573:146174"
+                              },
+                              "type": "VARIABLE_ALIAS",
+                              "resolvedType": "STRING"
+                            },
+                            {
+                              "value": "audit-filtered",
+                              "type": "STRING",
+                              "resolvedType": "STRING"
+                            }
+                          ],
+                          "expressionFunction": "EQUALS"
+                        },
+                        "type": "EXPRESSION",
+                        "resolvedType": "BOOLEAN"
+                      }
+                    },
+                    {
+                      "actions": [
+                        {
+                          "type": "NODE",
+                          "destinationId": "2110:57011",
+                          "navigation": "NAVIGATE",
+                          "transition": null,
+                          "resetVideoPosition": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "trigger": {
+                "type": "ON_CLICK"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "audit-export-failed",
+      "id": "2138:76853",
+      "changes": [
+        {
+          "id": "I2217:156252;2211:743",
+          "name": "Section",
+          "reactions": [
+            {
+              "action": {
+                "type": "CONDITIONAL",
+                "conditionalBlocks": [
+                  {
+                    "actions": [
+                      {
+                        "type": "NODE",
+                        "destinationId": "2138:76278",
+                        "navigation": "NAVIGATE",
+                        "transition": null,
+                        "resetVideoPosition": false
+                      }
+                    ],
+                    "condition": {
+                      "value": {
+                        "expressionArguments": [
+                          {
+                            "value": {
+                              "type": "VARIABLE_ALIAS",
+                              "id": "VariableID:3573:146174"
+                            },
+                            "type": "VARIABLE_ALIAS",
+                            "resolvedType": "STRING"
+                          },
+                          {
+                            "value": "audit-filtered",
+                            "type": "STRING",
+                            "resolvedType": "STRING"
+                          }
+                        ],
+                        "expressionFunction": "EQUALS"
+                      },
+                      "type": "EXPRESSION",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  },
+                  {
+                    "actions": [
+                      {
+                        "type": "NODE",
+                        "destinationId": "2110:57011",
+                        "navigation": "NAVIGATE",
+                        "transition": null,
+                        "resetVideoPosition": false
+                      }
+                    ]
+                  }
+                ]
+              },
+              "actions": [
+                {
+                  "type": "CONDITIONAL",
+                  "conditionalBlocks": [
+                    {
+                      "actions": [
+                        {
+                          "type": "NODE",
+                          "destinationId": "2138:76278",
+                          "navigation": "NAVIGATE",
+                          "transition": null,
+                          "resetVideoPosition": false
+                        }
+                      ],
+                      "condition": {
+                        "value": {
+                          "expressionArguments": [
+                            {
+                              "value": {
+                                "type": "VARIABLE_ALIAS",
+                                "id": "VariableID:3573:146174"
+                              },
+                              "type": "VARIABLE_ALIAS",
+                              "resolvedType": "STRING"
+                            },
+                            {
+                              "value": "audit-filtered",
+                              "type": "STRING",
+                              "resolvedType": "STRING"
+                            }
+                          ],
+                          "expressionFunction": "EQUALS"
+                        },
+                        "type": "EXPRESSION",
+                        "resolvedType": "BOOLEAN"
+                      }
+                    },
+                    {
+                      "actions": [
+                        {
+                          "type": "NODE",
+                          "destinationId": "2110:57011",
+                          "navigation": "NAVIGATE",
+                          "transition": null,
+                          "resetVideoPosition": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "trigger": {
+                "type": "ON_CLICK"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

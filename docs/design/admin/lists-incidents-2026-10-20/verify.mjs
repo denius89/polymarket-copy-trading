@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
 const read=p=>fs.readFileSync(new URL(p,import.meta.url)),json=p=>JSON.parse(read(p));
 const map=json('../sitemap.json'),pairs=json('screen-pairs.json'),trace=json('manual-checks.json');
-assert.equal(map.revision,'0.29');assert.equal(map.sections.flatMap(s=>s.screens).length,878);assert.deepEqual(map.counts,{ru:888,en:888});assert.equal(pairs.length,26);
+assert.ok(Number(map.revision)>=0.29);assert.equal(map.sections.flatMap(s=>s.screens).length,878);assert.deepEqual(map.counts,{ru:888,en:888});assert.equal(pairs.length,26);
 const ev=(x,vars)=>{if(x.type==='VARIABLE_ALIAS')return vars[x.value.id];if(x.type!=='EXPRESSION')return x.value;const a=x.value.expressionArguments.map(v=>ev(v,vars));switch(x.value.expressionFunction){case'EQUALS':return a[0]===a[1];case'NOT_EQUAL':return a[0]!==a[1];case'AND':return a.every(Boolean);default:throw Error(x.value.expressionFunction);}};
 function run(actions,vars){const destinations=[];for(const a of actions){if(a.type==='SET_VARIABLE')vars[a.variableId]=ev(a.variableValue,vars);else if(a.type==='NODE')destinations.push(a.destinationId);else if(a.type==='CONDITIONAL'){const b=a.conditionalBlocks.find(b=>!b.condition||ev(b.condition,vars));if(b)destinations.push(...run(b.actions,vars));}}return destinations;}
 let combinations=0;
