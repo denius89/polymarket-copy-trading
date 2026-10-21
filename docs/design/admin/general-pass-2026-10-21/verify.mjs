@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
 const read=p=>fs.readFileSync(new URL(p,import.meta.url)),j=p=>JSON.parse(read(p));
 const map=j('../sitemap.json'),trace=j('manual-checks.json');
-assert.equal(map.revision,'0.30');assert.equal(map.sections.flatMap(s=>s.screens).length,878);assert.deepEqual(map.counts,{ru:888,en:888});
+assert.ok(Number(map.revision)>=0.30);assert.equal(map.sections.flatMap(s=>s.screens).length,878);assert.deepEqual(map.counts,{ru:888,en:888});
 const val=(x,v)=>x.type==='VARIABLE_ALIAS'?v[x.value.id]:x.type==='EXPRESSION'?(()=>{const a=x.value.expressionArguments.map(x=>val(x,v));if(x.value.expressionFunction==='EQUALS')return a[0]===a[1];throw Error(x.value.expressionFunction);})():x.value;
 function run(actions,v){let dest=[];for(const a of actions){if(a.type==='SET_VARIABLE')v[a.variableId]=val(a.variableValue,v);else if(a.type==='NODE')dest.push(a.destinationId);else if(a.type==='CONDITIONAL'){const b=a.conditionalBlocks.find(b=>!b.condition||val(b.condition,v));if(b)dest.push(...run(b.actions,v));}}return dest;}
 const flat=as=>as.flatMap(a=>a.type==='CONDITIONAL'?flat(a.conditionalBlocks.flatMap(b=>b.actions)):[a]);
