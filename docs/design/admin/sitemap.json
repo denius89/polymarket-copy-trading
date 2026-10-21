@@ -1,5 +1,5 @@
 {
-  "revision": "0.31",
+  "revision": "0.32",
   "updatedAt": "2026-10-21",
   "purpose": "Living design sitemap; not a production capability inventory or final design acceptance.",
   "figma": {
@@ -11,16 +11,18 @@
     "prototypePageId": "1981:29",
     "prototypePageName": "14 · Admin · RU + EN",
     "formerEnglishPageId": "1981:30",
-    "sharedPageRootFrames": 1776,
-    "languageCountsAreLogical": true
+    "sharedPageRootFrames": 1788,
+    "languageCountsAreLogical": true,
+    "roleLocalePickerCount": 12,
+    "roleLocaleStatePackage": "role-locale-state-2026-10-21/README.md"
   },
   "sources": [
     "118_admin_console_figma_design_brief_2026-10-09.md",
     "current Figma RU/EN root frame inventory"
   ],
   "counts": {
-    "ru": 888,
-    "en": 888
+    "ru": 894,
+    "en": 894
   },
   "sections": [
     {
@@ -10796,5 +10798,91 @@
     "perLocale": 5,
     "verification": "lists-incidents-2026-10-20/native-filter-ru.json",
     "note": "Prototype menu overlays; not main screen cards or a published component library."
-  }
+  },
+  "roleLocaleServiceOverlays": [
+    {
+      "role": "role-profile-owner-b",
+      "locale": "ru",
+      "id": "3623:146175",
+      "profile": "3182:78725",
+      "openedFrom": "I3623:146164;2254:1061"
+    },
+    {
+      "role": "role-profile-owner-b",
+      "locale": "en",
+      "id": "3623:146211",
+      "profile": "3182:221709",
+      "openedFrom": "I3623:146200;2254:1088"
+    },
+    {
+      "role": "role-profile-ops",
+      "locale": "ru",
+      "id": "3623:146247",
+      "profile": "3182:78753",
+      "openedFrom": "I3623:146236;2254:1061"
+    },
+    {
+      "role": "role-profile-ops",
+      "locale": "en",
+      "id": "3623:146283",
+      "profile": "3182:221737",
+      "openedFrom": "I3623:146272;2254:1088"
+    },
+    {
+      "role": "role-profile-limited",
+      "locale": "ru",
+      "id": "3623:146319",
+      "profile": "3182:78781",
+      "openedFrom": "I3623:146308;2254:1061"
+    },
+    {
+      "role": "role-profile-limited",
+      "locale": "en",
+      "id": "3623:146355",
+      "profile": "3182:221765",
+      "openedFrom": "I3623:146344;2254:1088"
+    },
+    {
+      "role": "role-profile-marketing",
+      "locale": "ru",
+      "id": "3623:146391",
+      "profile": "3182:78809",
+      "openedFrom": "I3623:146380;2254:1061"
+    },
+    {
+      "role": "role-profile-marketing",
+      "locale": "en",
+      "id": "3623:146427",
+      "profile": "3182:221793",
+      "openedFrom": "I3623:146416;2254:1088"
+    },
+    {
+      "role": "role-profile-audit",
+      "locale": "ru",
+      "id": "3623:146463",
+      "profile": "3182:78837",
+      "openedFrom": "I3623:146452;2254:1061"
+    },
+    {
+      "role": "role-profile-audit",
+      "locale": "en",
+      "id": "3623:146499",
+      "profile": "3182:221821",
+      "openedFrom": "I3623:146488;2254:1088"
+    },
+    {
+      "role": "role-profile-nora-operations",
+      "locale": "ru",
+      "id": "3623:146535",
+      "profile": "3326:72674",
+      "openedFrom": "I3623:146524;2254:1061"
+    },
+    {
+      "role": "role-profile-nora-operations",
+      "locale": "en",
+      "id": "3623:146571",
+      "profile": "3326:209998",
+      "openedFrom": "I3623:146560;2254:1088"
+    }
+  ]
 }
