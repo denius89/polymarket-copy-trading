@@ -1,0 +1,882 @@
+[
+  {
+    "name": "admin/notifications/not-demo-01a/{locale}/list",
+    "ru": {
+      "id": "VariableID:3409:69100",
+      "name": "Admin/Notifications/NOT-DEMO-01A/ru/list",
+      "type": "STRING",
+      "initial": "16.10 12:00 UTC · доступно; отметки прочтения нет"
+    },
+    "en": {
+      "id": "VariableID:3409:69104",
+      "name": "Admin/Notifications/NOT-DEMO-01A/en/list",
+      "type": "STRING",
+      "initial": "16 Oct 12:00 UTC · available; no read receipt"
+    },
+    "values": {
+      "ru": [
+        "16.10 12:00 UTC · доступно; отметки прочтения нет",
+        "16.10 12:03 UTC · прочитано · READ-DEMO-A"
+      ],
+      "en": [
+        "16 Oct 12:00 UTC · available; no read receipt",
+        "16 Oct 12:03 UTC · read · READ-DEMO-A"
+      ]
+    }
+  },
+  {
+    "name": "admin/notifications/not-demo-01a/{locale}/status",
+    "ru": {
+      "id": "VariableID:3409:69101",
+      "name": "Admin/Notifications/NOT-DEMO-01A/ru/status",
+      "type": "STRING",
+      "initial": "Доступно / подтверждено / нет отметки"
+    },
+    "en": {
+      "id": "VariableID:3409:69105",
+      "name": "Admin/Notifications/NOT-DEMO-01A/en/status",
+      "type": "STRING",
+      "initial": "Available / confirmed / no read receipt"
+    },
+    "values": {
+      "ru": [
+        "Доступно / подтверждено / нет отметки",
+        "Доступно / подтверждено / прочитано"
+      ],
+      "en": [
+        "Available / confirmed / no read receipt",
+        "Available / confirmed / read"
+      ]
+    }
+  },
+  {
+    "name": "admin/notifications/not-demo-01a/{locale}/evidence",
+    "ru": {
+      "id": "VariableID:3409:69102",
+      "name": "Admin/Notifications/NOT-DEMO-01A/ru/evidence",
+      "type": "STRING",
+      "initial": "AV-DEMO-01 / DL-DEMO-01; отметки прочтения нет"
+    },
+    "en": {
+      "id": "VariableID:3409:69106",
+      "name": "Admin/Notifications/NOT-DEMO-01A/en/evidence",
+      "type": "STRING",
+      "initial": "AV-DEMO-01 / DL-DEMO-01; no read receipt"
+    },
+    "values": {
+      "ru": [
+        "AV-DEMO-01 / DL-DEMO-01; отметки прочтения нет",
+        "AV-DEMO-01 / DL-DEMO-01 · READ-DEMO-A · 12:03 UTC"
+      ],
+      "en": [
+        "AV-DEMO-01 / DL-DEMO-01; no read receipt",
+        "AV-DEMO-01 / DL-DEMO-01 · READ-DEMO-A · 12:03 UTC"
+      ]
+    }
+  },
+  {
+    "name": "admin/notifications/not-demo-01a/{locale}/action",
+    "ru": {
+      "id": "VariableID:3409:69103",
+      "name": "Admin/Notifications/NOT-DEMO-01A/ru/action",
+      "type": "STRING",
+      "initial": "Отметить своё ознакомление · демо"
+    },
+    "en": {
+      "id": "VariableID:3409:69107",
+      "name": "Admin/Notifications/NOT-DEMO-01A/en/action",
+      "type": "STRING",
+      "initial": "Acknowledge for myself · demo"
+    },
+    "values": {
+      "ru": [
+        "Отметить своё ознакомление · демо",
+        "Запись ознакомления"
+      ],
+      "en": [
+        "Acknowledge for myself · demo",
+        "Acknowledgement record"
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/draft/0",
+    "ru": {
+      "id": "VariableID:3486:72908",
+      "name": "Admin lists/RU/draft/0",
+      "type": "STRING",
+      "initial": "U-DEMO-002"
+    },
+    "en": {
+      "id": "VariableID:3486:208100",
+      "name": "Admin lists/EN/draft/0",
+      "type": "STRING",
+      "initial": "U-DEMO-002"
+    },
+    "values": {
+      "ru": [
+        "U-DEMO-002",
+        "Demo Noor",
+        "U-NOT-FOUND"
+      ],
+      "en": [
+        "U-DEMO-002",
+        "Demo Noor",
+        "U-NOT-FOUND"
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/draft/1",
+    "ru": {
+      "id": "VariableID:3486:72909",
+      "name": "Admin lists/RU/draft/1",
+      "type": "STRING",
+      "initial": "Без VIP"
+    },
+    "en": {
+      "id": "VariableID:3486:208101",
+      "name": "Admin lists/EN/draft/1",
+      "type": "STRING",
+      "initial": "No VIP"
+    },
+    "values": {
+      "ru": [
+        "Без VIP",
+        "Все",
+        "С VIP"
+      ],
+      "en": [
+        "No VIP",
+        "All",
+        "VIP"
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/draft/2",
+    "ru": {
+      "id": "VariableID:3486:72910",
+      "name": "Admin lists/RU/draft/2",
+      "type": "STRING",
+      "initial": "Требует внимания"
+    },
+    "en": {
+      "id": "VariableID:3486:208102",
+      "name": "Admin lists/EN/draft/2",
+      "type": "STRING",
+      "initial": "Needs attention"
+    },
+    "values": {
+      "ru": [
+        "Требует внимания",
+        "Все состояния",
+        "Активен"
+      ],
+      "en": [
+        "Needs attention",
+        "All states",
+        "Active"
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/draft/3",
+    "ru": {
+      "id": "VariableID:3486:72911",
+      "name": "Admin lists/RU/draft/3",
+      "type": "STRING",
+      "initial": "Polymarket"
+    },
+    "en": {
+      "id": "VariableID:3486:208103",
+      "name": "Admin lists/EN/draft/3",
+      "type": "STRING",
+      "initial": "Polymarket"
+    },
+    "values": {
+      "ru": [
+        "Polymarket",
+        "Все площадки",
+        "Limitless"
+      ],
+      "en": [
+        "Polymarket",
+        "All venues",
+        "Limitless"
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/draft/4",
+    "ru": {
+      "id": "VariableID:3486:72912",
+      "name": "Admin lists/RU/draft/4",
+      "type": "STRING",
+      "initial": "За всё время"
+    },
+    "en": {
+      "id": "VariableID:3486:208104",
+      "name": "Admin lists/EN/draft/4",
+      "type": "STRING",
+      "initial": "All time"
+    },
+    "values": {
+      "ru": [
+        "За всё время",
+        "20–13.10.2026 · ошибка",
+        "13–20.10.2026"
+      ],
+      "en": [
+        "All time",
+        "20–13 Oct 2026 · invalid",
+        "13–20 Oct 2026"
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/applied/0",
+    "ru": {
+      "id": "VariableID:3486:72913",
+      "name": "Admin lists/RU/applied/0",
+      "type": "STRING",
+      "initial": "U-DEMO-002"
+    },
+    "en": {
+      "id": "VariableID:3486:208105",
+      "name": "Admin lists/EN/applied/0",
+      "type": "STRING",
+      "initial": "U-DEMO-002"
+    },
+    "values": {
+      "ru": [
+        "U-DEMO-002",
+        "Demo Noor",
+        "U-NOT-FOUND"
+      ],
+      "en": [
+        "U-DEMO-002",
+        "Demo Noor",
+        "U-NOT-FOUND"
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/applied/1",
+    "ru": {
+      "id": "VariableID:3486:72914",
+      "name": "Admin lists/RU/applied/1",
+      "type": "STRING",
+      "initial": "Без VIP"
+    },
+    "en": {
+      "id": "VariableID:3486:208106",
+      "name": "Admin lists/EN/applied/1",
+      "type": "STRING",
+      "initial": "No VIP"
+    },
+    "values": {
+      "ru": [
+        "Без VIP",
+        "Все",
+        "С VIP"
+      ],
+      "en": [
+        "No VIP",
+        "All",
+        "VIP"
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/applied/2",
+    "ru": {
+      "id": "VariableID:3486:72915",
+      "name": "Admin lists/RU/applied/2",
+      "type": "STRING",
+      "initial": "Требует внимания"
+    },
+    "en": {
+      "id": "VariableID:3486:208107",
+      "name": "Admin lists/EN/applied/2",
+      "type": "STRING",
+      "initial": "Needs attention"
+    },
+    "values": {
+      "ru": [
+        "Требует внимания",
+        "Все состояния",
+        "Активен"
+      ],
+      "en": [
+        "Needs attention",
+        "All states",
+        "Active"
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/applied/3",
+    "ru": {
+      "id": "VariableID:3486:72916",
+      "name": "Admin lists/RU/applied/3",
+      "type": "STRING",
+      "initial": "Polymarket"
+    },
+    "en": {
+      "id": "VariableID:3486:208108",
+      "name": "Admin lists/EN/applied/3",
+      "type": "STRING",
+      "initial": "Polymarket"
+    },
+    "values": {
+      "ru": [
+        "Polymarket",
+        "Все площадки",
+        "Limitless"
+      ],
+      "en": [
+        "Polymarket",
+        "All venues",
+        "Limitless"
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/applied/4",
+    "ru": {
+      "id": "VariableID:3486:72917",
+      "name": "Admin lists/RU/applied/4",
+      "type": "STRING",
+      "initial": "За всё время"
+    },
+    "en": {
+      "id": "VariableID:3486:208109",
+      "name": "Admin lists/EN/applied/4",
+      "type": "STRING",
+      "initial": "All time"
+    },
+    "values": {
+      "ru": [
+        "За всё время",
+        "20–13.10.2026 · ошибка",
+        "13–20.10.2026"
+      ],
+      "en": [
+        "All time",
+        "20–13 Oct 2026 · invalid",
+        "13–20 Oct 2026"
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/origin/sessions",
+    "ru": {
+      "id": "VariableID:3489:208459",
+      "name": "Admin lists/RU/origin/sessions",
+      "type": "STRING",
+      "initial": ""
+    },
+    "en": {
+      "id": "VariableID:3489:208682",
+      "name": "Admin lists/EN/origin/sessions",
+      "type": "STRING",
+      "initial": ""
+    },
+    "values": {
+      "ru": [
+        "",
+        "sessions-page-1",
+        "sessions-needs-attention",
+        "sessions-page-2"
+      ],
+      "en": [
+        "",
+        "sessions-page-1",
+        "sessions-needs-attention",
+        "sessions-page-2"
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/origin/reconciliation",
+    "ru": {
+      "id": "VariableID:3489:208460",
+      "name": "Admin lists/RU/origin/reconciliation",
+      "type": "STRING",
+      "initial": ""
+    },
+    "en": {
+      "id": "VariableID:3489:208683",
+      "name": "Admin lists/EN/origin/reconciliation",
+      "type": "STRING",
+      "initial": ""
+    },
+    "values": {
+      "ru": [
+        "",
+        "reconciliation-selected"
+      ],
+      "en": [
+        "",
+        "reconciliation-selected"
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/origin/support",
+    "ru": {
+      "id": "VariableID:3489:208461",
+      "name": "Admin lists/RU/origin/support",
+      "type": "STRING",
+      "initial": ""
+    },
+    "en": {
+      "id": "VariableID:3489:208684",
+      "name": "Admin lists/EN/origin/support",
+      "type": "STRING",
+      "initial": ""
+    },
+    "values": {
+      "ru": [
+        "",
+        "support",
+        "support-filtered",
+        "support-page2"
+      ],
+      "en": [
+        "",
+        "support",
+        "support-filtered",
+        "support-page2"
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/session snapshot/0",
+    "ru": {
+      "id": "VariableID:3501:208256",
+      "name": "Admin lists/RU/session snapshot/0",
+      "type": "STRING",
+      "initial": "S-DEMO-002 · U-DEMO-002"
+    },
+    "en": {
+      "id": "VariableID:3501:73167",
+      "name": "Admin lists/EN/session snapshot/0",
+      "type": "STRING",
+      "initial": "S-DEMO-002 · U-DEMO-002"
+    },
+    "values": {
+      "ru": [
+        "S-DEMO-002 · U-DEMO-002",
+        "S-DEMO-001 · U-DEMO-001"
+      ],
+      "en": [
+        "S-DEMO-002 · U-DEMO-002",
+        "S-DEMO-001 · U-DEMO-001"
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/session snapshot/1",
+    "ru": {
+      "id": "VariableID:3501:208257",
+      "name": "Admin lists/RU/session snapshot/1",
+      "type": "STRING",
+      "initial": "Polymarket"
+    },
+    "en": {
+      "id": "VariableID:3501:73168",
+      "name": "Admin lists/EN/session snapshot/1",
+      "type": "STRING",
+      "initial": "Polymarket"
+    },
+    "values": {
+      "ru": [
+        "Polymarket",
+        "Limitless"
+      ],
+      "en": [
+        "Polymarket",
+        "Limitless"
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/session snapshot/2",
+    "ru": {
+      "id": "VariableID:3501:208258",
+      "name": "Admin lists/RU/session snapshot/2",
+      "type": "STRING",
+      "initial": "Последний снимок · результат заявки неизвестен · резерв $20"
+    },
+    "en": {
+      "id": "VariableID:3501:73169",
+      "name": "Admin lists/EN/session snapshot/2",
+      "type": "STRING",
+      "initial": "Last snapshot · order result unknown · $20 reserved"
+    },
+    "values": {
+      "ru": [
+        "Последний снимок · результат заявки неизвестен · резерв $20",
+        "Последний снимок · активна · нет позиций и заявок"
+      ],
+      "en": [
+        "Last snapshot · order result unknown · $20 reserved",
+        "Last snapshot · active · no positions or orders",
+        "Last snapshot · order outcome unknown · $20 reserved"
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/session snapshot/3",
+    "ru": {
+      "id": "VariableID:3501:208259",
+      "name": "Admin lists/RU/session snapshot/3",
+      "type": "STRING",
+      "initial": "Все площадки · Alpha / Paper · ID ↑ · страница 2 из 2. Новый результат ещё не получен."
+    },
+    "en": {
+      "id": "VariableID:3501:73170",
+      "name": "Admin lists/EN/session snapshot/3",
+      "type": "STRING",
+      "initial": "All venues · Alpha / Paper · ID ascending · page 2 of 2. New results have not arrived."
+    },
+    "values": {
+      "ru": [
+        "Все площадки · Alpha / Paper · ID ↑ · страница 2 из 2. Новый результат ещё не получен.",
+        "Все площадки · Alpha / Paper · ID ↑ · страница 1 из 2. Новый результат ещё не получен.",
+        "Отбор: Polymarket · результат заявки неизвестен · S-DEMO-002 · страница 1 из 1. Новый результат ещё не получен."
+      ],
+      "en": [
+        "All venues · Alpha / Paper · ID ascending · page 2 of 2. New results have not arrived.",
+        "All venues · Alpha / Paper · ID ascending · page 1 of 2. New results have not arrived.",
+        "Filters: Polymarket · order outcome unknown · S-DEMO-002 · page 1 of 1. New results have not arrived."
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/support status",
+    "ru": {
+      "id": "VariableID:3509:73181",
+      "name": "Admin lists/RU/support status",
+      "type": "STRING",
+      "initial": "Все статусы"
+    },
+    "en": {
+      "id": "VariableID:3508:73173",
+      "name": "Admin lists/EN/support status",
+      "type": "STRING",
+      "initial": "All statuses"
+    },
+    "values": {
+      "ru": [
+        "Все статусы",
+        "Ожидает поддержку"
+      ],
+      "en": [
+        "All statuses",
+        "Waiting for support"
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/support context",
+    "ru": {
+      "id": "VariableID:3509:73182",
+      "name": "Admin lists/RU/support context",
+      "type": "STRING",
+      "initial": "Исходная выборка: все статусы · страница 1 · 13 октября 2026. Новые данные ещё не подтверждены."
+    },
+    "en": {
+      "id": "VariableID:3508:73174",
+      "name": "Admin lists/EN/support context",
+      "type": "STRING",
+      "initial": "Original selection: all statuses · page 1 · 13 Oct 2026. New data is not confirmed yet."
+    },
+    "values": {
+      "ru": [
+        "Исходная выборка: все статусы · страница 1 · 13 октября 2026. Новые данные ещё не подтверждены.",
+        "Исходная выборка: ожидают поддержки · страница 1 · 13 октября 2026. Новые данные ещё не подтверждены.",
+        "Исходная выборка: все статусы · страница 2 · 13 октября 2026. Новые данные ещё не подтверждены."
+      ],
+      "en": [
+        "Original selection: all statuses · page 1 · 13 Oct 2026. New data is not confirmed yet.",
+        "Original selection: waiting for support · page 1 · 13 Oct 2026. New data is not confirmed yet.",
+        "Original selection: all statuses · page 2 · 13 Oct 2026. New data is not confirmed yet."
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/prior selection",
+    "ru": {
+      "id": "VariableID:3539:73226",
+      "name": "Admin lists/RU/prior selection",
+      "type": "STRING",
+      "initial": "users"
+    },
+    "en": {
+      "id": "VariableID:3539:208367",
+      "name": "Admin lists/EN/prior selection",
+      "type": "STRING",
+      "initial": "users"
+    },
+    "values": {
+      "ru": [
+        "users",
+        "users-filter-result",
+        "users-current-empty",
+        "users-filter-loading",
+        "users-filter-error",
+        "users-current-stale"
+      ],
+      "en": [
+        "users",
+        "users-filter-result",
+        "users-current-empty",
+        "users-filter-loading",
+        "users-filter-error",
+        "users-current-stale"
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/selection applied",
+    "ru": {
+      "id": "VariableID:3539:73227",
+      "name": "Admin lists/RU/selection applied",
+      "type": "BOOLEAN",
+      "initial": false
+    },
+    "en": {
+      "id": "VariableID:3539:208368",
+      "name": "Admin lists/EN/selection applied",
+      "type": "BOOLEAN",
+      "initial": false
+    },
+    "values": {
+      "ru": [
+        false
+      ],
+      "en": [
+        false
+      ]
+    }
+  },
+  {
+    "name": "admin account continuity/{locale}/email",
+    "ru": {
+      "id": "VariableID:3556:73201",
+      "name": "Admin account continuity/RU/email",
+      "type": "STRING",
+      "initial": "elena.owner@demo.example"
+    },
+    "en": {
+      "id": "VariableID:3556:208679",
+      "name": "Admin account continuity/EN/email",
+      "type": "STRING",
+      "initial": "elena.owner@demo.example"
+    },
+    "values": {
+      "ru": [
+        "elena.owner@demo.example",
+        "elena.new@demo.example"
+      ],
+      "en": [
+        "elena.owner@demo.example",
+        "elena.new@demo.example"
+      ]
+    }
+  },
+  {
+    "name": "admin account continuity/{locale}/verified email",
+    "ru": {
+      "id": "VariableID:3556:73202",
+      "name": "Admin account continuity/RU/verified email",
+      "type": "STRING",
+      "initial": "elena.owner@demo.example · Подтверждён"
+    },
+    "en": {
+      "id": "VariableID:3556:208680",
+      "name": "Admin account continuity/EN/verified email",
+      "type": "STRING",
+      "initial": "elena.owner@demo.example · Verified"
+    },
+    "values": {
+      "ru": [
+        "elena.owner@demo.example · Подтверждён",
+        "elena.new@demo.example · Подтверждён"
+      ],
+      "en": [
+        "elena.owner@demo.example · Verified",
+        "elena.new@demo.example · Verified"
+      ]
+    }
+  },
+  {
+    "name": "admin account continuity/{locale}/other sessions ended",
+    "ru": {
+      "id": "VariableID:3556:73203",
+      "name": "Admin account continuity/RU/other sessions ended",
+      "type": "BOOLEAN",
+      "initial": false
+    },
+    "en": {
+      "id": "VariableID:3556:208681",
+      "name": "Admin account continuity/EN/other sessions ended",
+      "type": "BOOLEAN",
+      "initial": false
+    },
+    "values": {
+      "ru": [
+        false
+      ],
+      "en": [
+        false
+      ]
+    }
+  },
+  {
+    "name": "feedback continuity/{locale}/state",
+    "ru": {
+      "id": "VariableID:3560:208320",
+      "name": "Feedback continuity/ru/state",
+      "type": "STRING",
+      "initial": "new"
+    },
+    "en": {
+      "id": "VariableID:3560:73193",
+      "name": "Feedback continuity/en/state",
+      "type": "STRING",
+      "initial": "new"
+    },
+    "values": {
+      "ru": [
+        "new",
+        "updated",
+        "resolved",
+        "linked"
+      ],
+      "en": [
+        "new",
+        "updated",
+        "resolved",
+        "linked"
+      ]
+    }
+  },
+  {
+    "name": "feedback continuity/{locale}/list status",
+    "ru": {
+      "id": "VariableID:3560:208321",
+      "name": "Feedback continuity/ru/list status",
+      "type": "STRING",
+      "initial": "Новое · не назначено"
+    },
+    "en": {
+      "id": "VariableID:3560:73194",
+      "name": "Feedback continuity/en/list status",
+      "type": "STRING",
+      "initial": "New · unassigned"
+    },
+    "values": {
+      "ru": [
+        "Новое · не назначено",
+        "В работе · Нора Азиз",
+        "Разобрано · Нора Азиз"
+      ],
+      "en": [
+        "New · unassigned",
+        "In progress · Nora Aziz",
+        "Reviewed · Nora Aziz"
+      ]
+    }
+  },
+  {
+    "name": "feedback continuity/{locale}/link",
+    "ru": {
+      "id": "VariableID:3560:208322",
+      "name": "Feedback continuity/ru/link",
+      "type": "STRING",
+      "initial": "Связь с обращением не создавалась"
+    },
+    "en": {
+      "id": "VariableID:3560:73195",
+      "name": "Feedback continuity/en/link",
+      "type": "STRING",
+      "initial": "No ticket link has been created"
+    },
+    "values": {
+      "ru": [
+        "Связь с обращением не создавалась",
+        "FB-DEMO-01 → TKT-1042 · связь сохранена; статус обращения не изменён"
+      ],
+      "en": [
+        "No ticket link has been created",
+        "FB-DEMO-01 → TKT-1042 · link retained; ticket status unchanged"
+      ]
+    }
+  },
+  {
+    "name": "audit selection/{locale}",
+    "ru": {
+      "id": "VariableID:3573:73201",
+      "name": "Audit selection/ru",
+      "type": "STRING",
+      "initial": "audit"
+    },
+    "en": {
+      "id": "VariableID:3573:146174",
+      "name": "Audit selection/en",
+      "type": "STRING",
+      "initial": "audit"
+    },
+    "values": {
+      "ru": [
+        "audit",
+        "audit-filtered"
+      ],
+      "en": [
+        "audit",
+        "audit-filtered"
+      ]
+    }
+  },
+  {
+    "name": "admin lists/{locale}/current users screen",
+    "ru": {
+      "id": "VariableID:3601:146164",
+      "name": "Admin lists/RU/current users screen",
+      "type": "STRING",
+      "initial": "users"
+    },
+    "en": {
+      "id": "VariableID:3601:146165",
+      "name": "Admin lists/EN/current users screen",
+      "type": "STRING",
+      "initial": "users"
+    },
+    "values": {
+      "ru": [
+        "users",
+        "users-filter-form",
+        "users-filter-result",
+        "users-current-empty",
+        "users-current-stale",
+        "users-filter-loading",
+        "users-filter-error",
+        "users-period-invalid"
+      ],
+      "en": [
+        "users",
+        "users-filter-form",
+        "users-filter-result",
+        "users-current-empty",
+        "users-current-stale",
+        "users-filter-loading",
+        "users-filter-error",
+        "users-period-invalid"
+      ]
+    }
+  }
+]

@@ -1,0 +1,916 @@
+{
+  "config": {
+    "ru": {
+      "view": {
+        "id": "VariableID:3601:146164",
+        "name": "Admin lists/RU/current users screen",
+        "type": "STRING",
+        "initial": "users"
+      },
+      "prior": {
+        "id": "VariableID:3539:73226",
+        "name": "Admin lists/RU/prior selection",
+        "type": "STRING",
+        "initial": "users"
+      },
+      "hasApplied": {
+        "id": "VariableID:3539:73227",
+        "name": "Admin lists/RU/selection applied",
+        "type": "BOOLEAN",
+        "initial": false
+      },
+      "targets": {
+        "users": "1982:37788",
+        "users-filter-form": "3445:70055",
+        "users-filter-result": "3445:70297",
+        "users-current-empty": "3484:206359",
+        "users-current-stale": "3484:206557",
+        "users-filter-loading": "3445:207870",
+        "users-filter-error": "3445:208073",
+        "users-period-invalid": "3484:206759"
+      },
+      "sessions": {
+        "id": "VariableID:3489:208459",
+        "name": "Admin lists/RU/origin/sessions",
+        "type": "STRING",
+        "initial": ""
+      },
+      "support": {
+        "id": "VariableID:3489:208461",
+        "name": "Admin lists/RU/origin/support",
+        "type": "STRING",
+        "initial": ""
+      },
+      "audit": {
+        "id": "VariableID:3573:73201",
+        "name": "Audit selection/ru",
+        "type": "STRING",
+        "initial": "audit"
+      },
+      "routes": {
+        "sessions": {
+          "": "1982:38062",
+          "sessions-page-1": "3484:206957",
+          "sessions-page-2": "3484:207098",
+          "sessions-needs-attention": "3525:208394"
+        },
+        "support": {
+          "": "2185:21070",
+          "support": "2185:21070",
+          "support-filtered": "2185:21286",
+          "support-page2": "2185:21842"
+        },
+        "audit": {
+          "audit": "2110:52274",
+          "audit-filtered": "2138:66380"
+        }
+      },
+      "bases": {
+        "users": "1982:37788",
+        "sessions": "1982:38062",
+        "support": "2185:21070",
+        "audit": "2110:52274"
+      }
+    },
+    "en": {
+      "view": {
+        "id": "VariableID:3601:146165",
+        "name": "Admin lists/EN/current users screen",
+        "type": "STRING",
+        "initial": "users"
+      },
+      "prior": {
+        "id": "VariableID:3539:208367",
+        "name": "Admin lists/EN/prior selection",
+        "type": "STRING",
+        "initial": "users"
+      },
+      "hasApplied": {
+        "id": "VariableID:3539:208368",
+        "name": "Admin lists/EN/selection applied",
+        "type": "BOOLEAN",
+        "initial": false
+      },
+      "targets": {
+        "users": "1982:38611",
+        "users-filter-form": "3445:202451",
+        "users-filter-result": "3445:202693",
+        "users-current-empty": "3484:71520",
+        "users-current-stale": "3484:71719",
+        "users-filter-loading": "3445:208512",
+        "users-filter-error": "3445:208715",
+        "users-period-invalid": "3484:71921"
+      },
+      "sessions": {
+        "id": "VariableID:3489:208682",
+        "name": "Admin lists/EN/origin/sessions",
+        "type": "STRING",
+        "initial": ""
+      },
+      "support": {
+        "id": "VariableID:3489:208684",
+        "name": "Admin lists/EN/origin/support",
+        "type": "STRING",
+        "initial": ""
+      },
+      "audit": {
+        "id": "VariableID:3573:146174",
+        "name": "Audit selection/en",
+        "type": "STRING",
+        "initial": "audit"
+      },
+      "routes": {
+        "sessions": {
+          "": "1982:38885",
+          "sessions-page-1": "3484:72119",
+          "sessions-page-2": "3484:72260",
+          "sessions-needs-attention": "3525:73164"
+        },
+        "support": {
+          "": "2188:84282",
+          "support": "2188:84282",
+          "support-filtered": "2188:84494",
+          "support-page2": "2188:85045"
+        },
+        "audit": {
+          "audit": "2110:57011",
+          "audit-filtered": "2138:76278"
+        }
+      },
+      "bases": {
+        "users": "1982:38611",
+        "sessions": "1982:38885",
+        "support": "2188:84282",
+        "audit": "2110:57011"
+      }
+    }
+  },
+  "rows": [
+    {
+      "locale": "ru",
+      "id": "2207:702",
+      "name": "Menu · users",
+      "reactions": [
+        {
+          "action": {
+            "type": "CONDITIONAL",
+            "conditionalBlocks": [
+              {
+                "actions": [
+                  {
+                    "type": "NODE",
+                    "destinationId": "1982:37788",
+                    "navigation": "NAVIGATE",
+                    "transition": null,
+                    "resetVideoPosition": false
+                  }
+                ],
+                "condition": {
+                  "value": {
+                    "expressionArguments": [
+                      {
+                        "value": {
+                          "type": "VARIABLE_ALIAS",
+                          "id": "VariableID:3601:146164"
+                        },
+                        "type": "VARIABLE_ALIAS",
+                        "resolvedType": "STRING"
+                      },
+                      {
+                        "value": "users",
+                        "type": "STRING",
+                        "resolvedType": "STRING"
+                      }
+                    ],
+                    "expressionFunction": "EQUALS"
+                  },
+                  "type": "EXPRESSION",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "actions": []
+              }
+            ]
+          },
+          "actions": [
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "NODE",
+                      "destinationId": "1982:37788",
+                      "navigation": "NAVIGATE",
+                      "transition": null,
+                      "resetVideoPosition": false
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:3601:146164"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "users",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            },
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "NODE",
+                      "destinationId": "3445:70055",
+                      "navigation": "NAVIGATE",
+                      "transition": null,
+                      "resetVideoPosition": false
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:3601:146164"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "users-filter-form",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            },
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "NODE",
+                      "destinationId": "3445:70297",
+                      "navigation": "NAVIGATE",
+                      "transition": null,
+                      "resetVideoPosition": false
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:3601:146164"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "users-filter-result",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            },
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "NODE",
+                      "destinationId": "3484:206359",
+                      "navigation": "NAVIGATE",
+                      "transition": null,
+                      "resetVideoPosition": false
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:3601:146164"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "users-current-empty",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            },
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "NODE",
+                      "destinationId": "3484:206557",
+                      "navigation": "NAVIGATE",
+                      "transition": null,
+                      "resetVideoPosition": false
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:3601:146164"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "users-current-stale",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            },
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "NODE",
+                      "destinationId": "3445:207870",
+                      "navigation": "NAVIGATE",
+                      "transition": null,
+                      "resetVideoPosition": false
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:3601:146164"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "users-filter-loading",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            },
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "NODE",
+                      "destinationId": "3445:208073",
+                      "navigation": "NAVIGATE",
+                      "transition": null,
+                      "resetVideoPosition": false
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:3601:146164"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "users-filter-error",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            },
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "NODE",
+                      "destinationId": "3484:206759",
+                      "navigation": "NAVIGATE",
+                      "transition": null,
+                      "resetVideoPosition": false
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:3601:146164"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "users-period-invalid",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            }
+          ],
+          "trigger": {
+            "type": "ON_CLICK"
+          }
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "id": "2207:770",
+      "name": "Menu · users",
+      "reactions": [
+        {
+          "action": {
+            "type": "CONDITIONAL",
+            "conditionalBlocks": [
+              {
+                "actions": [
+                  {
+                    "type": "NODE",
+                    "destinationId": "1982:38611",
+                    "navigation": "NAVIGATE",
+                    "transition": null,
+                    "resetVideoPosition": false
+                  }
+                ],
+                "condition": {
+                  "value": {
+                    "expressionArguments": [
+                      {
+                        "value": {
+                          "type": "VARIABLE_ALIAS",
+                          "id": "VariableID:3601:146165"
+                        },
+                        "type": "VARIABLE_ALIAS",
+                        "resolvedType": "STRING"
+                      },
+                      {
+                        "value": "users",
+                        "type": "STRING",
+                        "resolvedType": "STRING"
+                      }
+                    ],
+                    "expressionFunction": "EQUALS"
+                  },
+                  "type": "EXPRESSION",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "actions": []
+              }
+            ]
+          },
+          "actions": [
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "NODE",
+                      "destinationId": "1982:38611",
+                      "navigation": "NAVIGATE",
+                      "transition": null,
+                      "resetVideoPosition": false
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:3601:146165"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "users",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            },
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "NODE",
+                      "destinationId": "3445:202451",
+                      "navigation": "NAVIGATE",
+                      "transition": null,
+                      "resetVideoPosition": false
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:3601:146165"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "users-filter-form",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            },
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "NODE",
+                      "destinationId": "3445:202693",
+                      "navigation": "NAVIGATE",
+                      "transition": null,
+                      "resetVideoPosition": false
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:3601:146165"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "users-filter-result",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            },
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "NODE",
+                      "destinationId": "3484:71520",
+                      "navigation": "NAVIGATE",
+                      "transition": null,
+                      "resetVideoPosition": false
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:3601:146165"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "users-current-empty",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            },
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "NODE",
+                      "destinationId": "3484:71719",
+                      "navigation": "NAVIGATE",
+                      "transition": null,
+                      "resetVideoPosition": false
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:3601:146165"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "users-current-stale",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            },
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "NODE",
+                      "destinationId": "3445:208512",
+                      "navigation": "NAVIGATE",
+                      "transition": null,
+                      "resetVideoPosition": false
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:3601:146165"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "users-filter-loading",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            },
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "NODE",
+                      "destinationId": "3445:208715",
+                      "navigation": "NAVIGATE",
+                      "transition": null,
+                      "resetVideoPosition": false
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:3601:146165"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "users-filter-error",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            },
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "NODE",
+                      "destinationId": "3484:71921",
+                      "navigation": "NAVIGATE",
+                      "transition": null,
+                      "resetVideoPosition": false
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:3601:146165"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "users-period-invalid",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            }
+          ],
+          "trigger": {
+            "type": "ON_CLICK"
+          }
+        }
+      ]
+    }
+  ]
+}

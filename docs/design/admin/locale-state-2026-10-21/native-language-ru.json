@@ -1,0 +1,2320 @@
+{
+  "id": "I2258:92796;2254:1083",
+  "reactions": [
+    {
+      "action": {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:3409:69104",
+        "variableValue": {
+          "value": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:3409:69100"
+          },
+          "type": "VARIABLE_ALIAS",
+          "resolvedType": "STRING"
+        }
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3409:69104",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3409:69100"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3409:69104",
+                  "variableValue": {
+                    "value": "16 Oct 12:00 UTC · available; no read receipt",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3409:69100"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "16.10 12:00 UTC · доступно; отметки прочтения нет",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3409:69104",
+                  "variableValue": {
+                    "value": "16 Oct 12:03 UTC · read · READ-DEMO-A",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3409:69100"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "16.10 12:03 UTC · прочитано · READ-DEMO-A",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3409:69105",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3409:69101"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3409:69105",
+                  "variableValue": {
+                    "value": "Available / confirmed / no read receipt",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3409:69101"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Доступно / подтверждено / нет отметки",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3409:69105",
+                  "variableValue": {
+                    "value": "Available / confirmed / read",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3409:69101"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Доступно / подтверждено / прочитано",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3409:69106",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3409:69102"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3409:69106",
+                  "variableValue": {
+                    "value": "AV-DEMO-01 / DL-DEMO-01; no read receipt",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3409:69102"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "AV-DEMO-01 / DL-DEMO-01; отметки прочтения нет",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3409:69107",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3409:69103"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3409:69107",
+                  "variableValue": {
+                    "value": "Acknowledge for myself · demo",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3409:69103"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Отметить своё ознакомление · демо",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3409:69107",
+                  "variableValue": {
+                    "value": "Acknowledgement record",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3409:69103"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Запись ознакомления",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3486:208100",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3486:72908"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3486:208101",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3486:72909"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208101",
+                  "variableValue": {
+                    "value": "No VIP",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3486:72909"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Без VIP",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208101",
+                  "variableValue": {
+                    "value": "All",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3486:72909"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Все",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208101",
+                  "variableValue": {
+                    "value": "VIP",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3486:72909"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "С VIP",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3486:208102",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3486:72910"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208102",
+                  "variableValue": {
+                    "value": "Needs attention",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3486:72910"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Требует внимания",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208102",
+                  "variableValue": {
+                    "value": "All states",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3486:72910"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Все состояния",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208102",
+                  "variableValue": {
+                    "value": "Active",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3486:72910"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Активен",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3486:208103",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3486:72911"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208103",
+                  "variableValue": {
+                    "value": "All venues",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3486:72911"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Все площадки",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3486:208104",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3486:72912"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208104",
+                  "variableValue": {
+                    "value": "All time",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3486:72912"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "За всё время",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208104",
+                  "variableValue": {
+                    "value": "20–13 Oct 2026 · invalid",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3486:72912"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "20–13.10.2026 · ошибка",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208104",
+                  "variableValue": {
+                    "value": "13–20 Oct 2026",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3486:72912"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "13–20.10.2026",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3486:208105",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3486:72913"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3486:208106",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3486:72914"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208106",
+                  "variableValue": {
+                    "value": "No VIP",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3486:72914"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Без VIP",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208106",
+                  "variableValue": {
+                    "value": "All",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3486:72914"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Все",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208106",
+                  "variableValue": {
+                    "value": "VIP",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3486:72914"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "С VIP",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3486:208107",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3486:72915"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208107",
+                  "variableValue": {
+                    "value": "Needs attention",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3486:72915"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Требует внимания",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208107",
+                  "variableValue": {
+                    "value": "All states",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3486:72915"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Все состояния",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208107",
+                  "variableValue": {
+                    "value": "Active",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3486:72915"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Активен",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3486:208108",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3486:72916"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208108",
+                  "variableValue": {
+                    "value": "All venues",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3486:72916"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Все площадки",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3486:208109",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3486:72917"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208109",
+                  "variableValue": {
+                    "value": "All time",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3486:72917"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "За всё время",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208109",
+                  "variableValue": {
+                    "value": "20–13 Oct 2026 · invalid",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3486:72917"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "20–13.10.2026 · ошибка",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3486:208109",
+                  "variableValue": {
+                    "value": "13–20 Oct 2026",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3486:72917"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "13–20.10.2026",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3489:208682",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3489:208459"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3489:208683",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3489:208460"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3489:208684",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3489:208461"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3501:73167",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3501:208256"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3501:73168",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3501:208257"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3501:73169",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3501:208258"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3501:73169",
+                  "variableValue": {
+                    "value": "Last snapshot · order result unknown · $20 reserved",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3501:208258"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Последний снимок · результат заявки неизвестен · резерв $20",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3501:73169",
+                  "variableValue": {
+                    "value": "Last snapshot · active · no positions or orders",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3501:208258"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Последний снимок · активна · нет позиций и заявок",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3501:73170",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3501:208259"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3501:73170",
+                  "variableValue": {
+                    "value": "All venues · Alpha / Paper · ID ascending · page 2 of 2. New results have not arrived.",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3501:208259"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Все площадки · Alpha / Paper · ID ↑ · страница 2 из 2. Новый результат ещё не получен.",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3501:73170",
+                  "variableValue": {
+                    "value": "All venues · Alpha / Paper · ID ascending · page 1 of 2. New results have not arrived.",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3501:208259"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Все площадки · Alpha / Paper · ID ↑ · страница 1 из 2. Новый результат ещё не получен.",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3501:73170",
+                  "variableValue": {
+                    "value": "Filters: Polymarket · order outcome unknown · S-DEMO-002 · page 1 of 1. New results have not arrived.",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3501:208259"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Отбор: Polymarket · результат заявки неизвестен · S-DEMO-002 · страница 1 из 1. Новый результат ещё не получен.",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3508:73173",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3509:73181"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3508:73173",
+                  "variableValue": {
+                    "value": "All statuses",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3509:73181"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Все статусы",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3508:73173",
+                  "variableValue": {
+                    "value": "Waiting for support",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3509:73181"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Ожидает поддержку",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3508:73174",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3509:73182"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3508:73174",
+                  "variableValue": {
+                    "value": "Original selection: all statuses · page 1 · 13 Oct 2026. New data is not confirmed yet.",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3509:73182"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Исходная выборка: все статусы · страница 1 · 13 октября 2026. Новые данные ещё не подтверждены.",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3508:73174",
+                  "variableValue": {
+                    "value": "Original selection: waiting for support · page 1 · 13 Oct 2026. New data is not confirmed yet.",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3509:73182"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Исходная выборка: ожидают поддержки · страница 1 · 13 октября 2026. Новые данные ещё не подтверждены.",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3508:73174",
+                  "variableValue": {
+                    "value": "Original selection: all statuses · page 2 · 13 Oct 2026. New data is not confirmed yet.",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3509:73182"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Исходная выборка: все статусы · страница 2 · 13 октября 2026. Новые данные ещё не подтверждены.",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3539:208367",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3539:73226"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3539:208368",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3539:73227"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3556:208679",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3556:73201"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3556:208680",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3556:73202"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3556:208680",
+                  "variableValue": {
+                    "value": "elena.owner@demo.example · Verified",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3556:73202"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "elena.owner@demo.example · Подтверждён",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3556:208680",
+                  "variableValue": {
+                    "value": "elena.new@demo.example · Verified",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3556:73202"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "elena.new@demo.example · Подтверждён",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3556:208681",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3556:73203"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3560:73193",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3560:208320"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3560:73194",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3560:208321"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3560:73194",
+                  "variableValue": {
+                    "value": "New · unassigned",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3560:208321"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Новое · не назначено",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3560:73194",
+                  "variableValue": {
+                    "value": "In progress · Nora Aziz",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3560:208321"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "В работе · Нора Азиз",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3560:73194",
+                  "variableValue": {
+                    "value": "Reviewed · Nora Aziz",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3560:208321"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Разобрано · Нора Азиз",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3560:73195",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3560:208322"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3560:73195",
+                  "variableValue": {
+                    "value": "No ticket link has been created",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3560:208322"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "Связь с обращением не создавалась",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "CONDITIONAL",
+          "conditionalBlocks": [
+            {
+              "actions": [
+                {
+                  "type": "SET_VARIABLE",
+                  "variableId": "VariableID:3560:73195",
+                  "variableValue": {
+                    "value": "FB-DEMO-01 → TKT-1042 · link retained; ticket status unchanged",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                }
+              ],
+              "condition": {
+                "value": {
+                  "expressionArguments": [
+                    {
+                      "value": {
+                        "type": "VARIABLE_ALIAS",
+                        "id": "VariableID:3560:208322"
+                      },
+                      "type": "VARIABLE_ALIAS",
+                      "resolvedType": "STRING"
+                    },
+                    {
+                      "value": "FB-DEMO-01 → TKT-1042 · связь сохранена; статус обращения не изменён",
+                      "type": "STRING",
+                      "resolvedType": "STRING"
+                    }
+                  ],
+                  "expressionFunction": "EQUALS"
+                },
+                "type": "EXPRESSION",
+                "resolvedType": "BOOLEAN"
+              }
+            },
+            {
+              "actions": []
+            }
+          ]
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3573:146174",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3573:73201"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:3601:146165",
+          "variableValue": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:3601:146164"
+            },
+            "type": "VARIABLE_ALIAS",
+            "resolvedType": "STRING"
+          }
+        },
+        {
+          "type": "NODE",
+          "destinationId": "2155:79633",
+          "navigation": "NAVIGATE",
+          "transition": null,
+          "resetVideoPosition": false,
+          "resetInteractiveComponents": true
+        }
+      ],
+      "trigger": {
+        "type": "ON_CLICK"
+      }
+    }
+  ]
+}
