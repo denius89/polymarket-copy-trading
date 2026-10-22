@@ -41,4 +41,3 @@ const income=body.children.find(n=>n.name==='Finance view · income');for(const 
 for(const[id,name]of [['2003:2','RU · finance · Обзор финансов'],['2007:2','EN · finance · Finance overview'],['2003:77','RU · finance-empty · Финансы · нет источников'],['2007:77','EN · finance-empty · Finance · no sources'],['2003:115','RU · finance-stale · Финансы · данные устарели'],['2007:115','EN · finance-stale · Finance · stale data']]){const n=await figma.getNodeByIdAsync(id);n.name=name;mutated.push(n.id);}
 const map=await figma.getNodeByIdAsync('2105:5768');await Promise.all(map.getStyledTextSegments(['fontName']).map(s=>figma.loadFontAsync(s.fontName)));map.characters='900 RU +900 EN · 884 пары экранов · карта 0.37 · UI kit 0.4.24';mutated.push(map.id);
 return{createdNodeIds:created,mutatedNodeIds:mutated};
-
