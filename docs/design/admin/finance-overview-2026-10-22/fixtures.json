@@ -1,0 +1,164 @@
+{
+  "revision": "0.1",
+  "synthetic": true,
+  "realMoneyEnabled": false,
+  "asOf": "2026-10-12T12:00:00Z",
+  "mode": "Paper Alpha",
+  "commissionPercent": 0,
+  "usdtUSD": 1,
+  "historyIsNewIllustration": true,
+  "openingBalanceUSD": 0,
+  "days": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "periods": {
+    "7d": [
+      6,
+      12
+    ],
+    "3d": [
+      10,
+      12
+    ]
+  },
+  "records": [
+    {
+      "id": "ALPHA-IN-001",
+      "day": 6,
+      "timeUTC": "11:00",
+      "venue": "Polymarket",
+      "direction": "receipt",
+      "classification": "funding",
+      "amountUSD": 1000,
+      "source": "DEMO-SRC-PM",
+      "matched": true,
+      "name": [
+        "Финансирование владельца",
+        "Owner funding"
+      ]
+    },
+    {
+      "id": "ALPHA-EX-001",
+      "day": 7,
+      "timeUTC": "11:01",
+      "venue": "Polymarket",
+      "direction": "expense",
+      "classification": "network",
+      "amountUSD": 0.5,
+      "source": "DEMO-SRC-PM",
+      "matched": true,
+      "name": [
+        "Комиссия сети",
+        "Network fee"
+      ]
+    },
+    {
+      "id": "ALPHA-EX-002",
+      "day": 9,
+      "timeUTC": "12:00",
+      "venue": "Polymarket",
+      "direction": "expense",
+      "classification": "hosting",
+      "amountUSD": 14,
+      "source": "DEMO-SRC-PM",
+      "matched": true,
+      "name": [
+        "Оплата инфраструктуры",
+        "Infrastructure payment"
+      ]
+    },
+    {
+      "id": "ALPHA-IN-002",
+      "day": 10,
+      "timeUTC": "11:00",
+      "venue": "Limitless",
+      "direction": "receipt",
+      "classification": "funding",
+      "amountUSD": 500,
+      "source": "DEMO-SRC-LL",
+      "matched": true,
+      "name": [
+        "Финансирование владельца",
+        "Owner funding"
+      ]
+    },
+    {
+      "id": "ALPHA-EX-003",
+      "day": 11,
+      "timeUTC": "10:00",
+      "venue": "Limitless",
+      "direction": "expense",
+      "classification": "monitoring",
+      "amountUSD": 10,
+      "source": "DEMO-SRC-LL",
+      "matched": true,
+      "name": [
+        "Оплата наблюдения",
+        "Monitoring payment"
+      ]
+    },
+    {
+      "id": "ALPHA-IN-003",
+      "day": 12,
+      "timeUTC": "12:00",
+      "venue": "Polymarket",
+      "direction": "receipt",
+      "classification": "unmatched",
+      "amountUSD": 20,
+      "source": "DEMO-SRC-PM",
+      "matched": false,
+      "name": [
+        "Поступление без основания",
+        "Unmatched receipt"
+      ]
+    }
+  ],
+  "incomeAccrualUSD": 0,
+  "partnerLiabilityUSD": 0,
+  "partnerPaidUSD": 0,
+  "pendingPayoutCount": 0,
+  "sources": [
+    {
+      "id": "DEMO-SRC-PM",
+      "venue": "Polymarket",
+      "asset": "USDT",
+      "observedBalanceUSD": 1005.5,
+      "matchedUSD": 985.5,
+      "unmatchedUSD": 20
+    },
+    {
+      "id": "DEMO-SRC-LL",
+      "venue": "Limitless",
+      "asset": "USDT",
+      "observedBalanceUSD": 490,
+      "matchedUSD": 490,
+      "unmatchedUSD": 0
+    }
+  ],
+  "totals": {
+    "observedReceiptsUSD": 1520,
+    "ownerFundingUSD": 1500,
+    "unmatchedReceiptsUSD": 20,
+    "confirmedExpensesUSD": 24.5,
+    "observedBalanceUSD": 1495.5,
+    "matchedFundsUSD": 1475.5
+  },
+  "invariants": [
+    "All amounts are newly prepared fictional own-funds examples, not a record of real service activity",
+    "Paper Alpha fee 0%, income accrual 0, partner liability and payouts 0",
+    "Owner funding is not income; payouts are not counted as operating expenses",
+    "Observed balance = opening + observed receipts - confirmed expenses",
+    "Matched funds = owner funding - confirmed expenses; unmatched observed receipt is excluded",
+    "No user balances or session budgets enter these figures",
+    "Aggregated matched funds are not a route-specific payment limit or solvency promise",
+    "Snapshot balances and attention do not change with historical period",
+    "Unknown external identifiers, network and contract are not invented",
+    "Existing future-paid-mode records and partner balances are independent scenarios; not Alpha totals"
+  ]
+}
