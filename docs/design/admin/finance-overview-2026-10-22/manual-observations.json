@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-22",
+  "method": "Selected clicks in Figma Present; observations summarized, not raw trace",
+  "actor": "Fictional STAFF-201, Owner A",
+  "results": [
+    {
+      "scenario": "RU receipt day 10",
+      "observed": "Only ALPHA-IN-002, $500; detail and same filtered return",
+      "status": "pass"
+    },
+    {
+      "scenario": "RU zero day 8",
+      "observed": "Empty receipt list, not missing source",
+      "status": "pass"
+    },
+    {
+      "scenario": "3-day period",
+      "observed": "Receipts $520; expenses $10; current balance unchanged",
+      "status": "pass"
+    },
+    {
+      "scenario": "3-day expenses",
+      "observed": "Only ALPHA-EX-003, $10",
+      "status": "pass"
+    },
+    {
+      "scenario": "Unmatched receipt",
+      "observed": "ALPHA-IN-003, $20; not automatically matched",
+      "status": "pass"
+    },
+    {
+      "scenario": "Own funds",
+      "observed": "1495.50 observed;1475.50 matched;20 unmatched",
+      "status": "pass"
+    },
+    {
+      "scenario": "RU to EN via own profile",
+      "observed": "Same ALPHA-IN-003 and STAFF-201 Owner A; 3 days retained",
+      "status": "pass"
+    },
+    {
+      "scenario": "Corrected record return EN",
+      "observed": "12 October receipts; only ALPHA-IN-003",
+      "status": "pass"
+    },
+    {
+      "scenario": "No source EN",
+      "observed": "Unknown amounts; no zero chart; return preserves actor and 3 days",
+      "status": "pass"
+    },
+    {
+      "scenario": "Stale EN",
+      "observed": "Current total unavailable; past complete snapshot labelled; return works",
+      "status": "pass"
+    },
+    {
+      "scenario": "Income EN",
+      "observed": "0% fee, funding not income; future 1% separate",
+      "status": "pass"
+    },
+    {
+      "scenario": "Liability EN",
+      "observed": "Zero confirmed liability; full payout rule and separate future-paid example",
+      "status": "pass"
+    }
+  ],
+  "limits": [
+    "Not all roles or devices retested",
+    "Not production runtime or real financial execution",
+    "Figma accessibility-tree variable refresh limitation disclosed in QA"
+  ]
+}

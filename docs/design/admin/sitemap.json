@@ -1,5 +1,5 @@
 {
-  "revision": "0.36",
+  "revision": "0.37",
   "updatedAt": "2026-10-22",
   "purpose": "Living design sitemap; not a production capability inventory or final design acceptance.",
   "figma": {
@@ -4848,38 +4848,38 @@
       "id": "ADM-13",
       "title": "Финансы и выплаты",
       "group": "Финансы",
-      "description": "Вход по трём задачам: партнёры и выплаты; деньги сервиса; настройки условий и защиты. Дополнительные формы отделены от обычной выплаты. Сценарий P-14 — заполненный пример, ручная приёмка остаётся открытой.",
+      "description": "Финансовый обзор владельцев: показатели, поступления и расходы, задача сверки, состав собственных средств и детализация. Состояния без источников и с устаревшими данными не превращают неизвестное в ноль. Остальные финансовые сценарии и будущие платные примеры открываются отдельно.",
       "screens": [
         {
           "id": "2003:2",
           "key": "finance",
-          "title": "Финансы",
+          "title": "Обзор финансов",
           "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-2",
           "english": {
             "id": "2007:2",
-            "title": "Finance",
+            "title": "Finance overview",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-2"
           }
         },
         {
           "id": "2003:77",
           "key": "finance-empty",
-          "title": "Источники не подключены",
+          "title": "Финансы · нет источников",
           "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-77",
           "english": {
             "id": "2007:77",
-            "title": "EN · finance-empty · Sources disconnected",
+            "title": "Finance · no sources",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-77"
           }
         },
         {
           "id": "2003:115",
           "key": "finance-stale",
-          "title": "Сводка неполная",
+          "title": "Финансы · данные устарели",
           "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2003-115",
           "english": {
             "id": "2007:115",
-            "title": "EN · finance-stale · Incomplete summary",
+            "title": "Finance · stale data",
             "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2007-115"
           }
         },
@@ -11009,5 +11009,17 @@
     "history": "new synthetic 12 hourly intervals for the two existing users",
     "roles": "existing owners overview only",
     "state": "6h/12h and data expanded shared across locales"
+  },
+  "financeOverview": {
+    "package": "finance-overview-2026-10-22/README.md",
+    "changedRoots": 6,
+    "newRoots": 0,
+    "uiKitRevision": "0.4.24",
+    "snapshot": "Independent fictional Paper Alpha own funds; no client money; fee 0%",
+    "state": "7/3 days, view, filter and record shared across RU/EN; existing actor preserved",
+    "mainPageRoots": 1800,
+    "primaryPairs": 884,
+    "internalViews": 7,
+    "transactionRecords": 6
   }
 }
