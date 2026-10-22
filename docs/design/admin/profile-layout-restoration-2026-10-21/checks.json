@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-21",
+  "baseline": "43a527b1729290fdd27b4cd097c523eeff1c6f04",
+  "profileRoots": 12,
+  "roleContexts": 6,
+  "panelsPerProfile": 6,
+  "overviewCardsPerProfile": 4,
+  "rootFrameCount": 1788,
+  "mainPairs": 878,
+  "uiKit": "0.4.21",
+  "prototypeVariables": 36,
+  "newRootFrames": 0,
+  "imagesInComposition": 0,
+  "font": "Inter",
+  "manual": [
+    {
+      "case": "Support EN/RU → account",
+      "result": "pass",
+      "actor": "STAFF-206"
+    },
+    {
+      "case": "Overview → permissions → preferences",
+      "result": "pass",
+      "method": "AX plus visual screen inspection"
+    },
+    {
+      "case": "RU → EN; selected preferences and work return retained",
+      "result": "pass"
+    },
+    {
+      "case": "EN → RU after corrected dropdown",
+      "result": "pass"
+    },
+    {
+      "case": "Opaque misplaced language popup fixed",
+      "result": "pass",
+      "scope": "12 native menus, manual EN popup"
+    },
+    {
+      "case": "Account EN → original EN support",
+      "result": "pass",
+      "target": "2188:84282"
+    },
+    {
+      "case": "Personal / security / devices panels",
+      "result": "pass",
+      "scope": "Oleg RU, displayed identity preserved"
+    }
+  ],
+  "limits": [
+    "Layout restoration, not completion of every account edit/recovery flow for all roles",
+    "No runtime authorization, MFA/session/key operations",
+    "Other-role emails/security registration/session list left unconfirmed",
+    "AX may omit unchanged prototype layers; visible result checked with screenshots"
+  ],
+  "temporaryTabClosed": true,
+  "userSettingsChanged": false
+}
