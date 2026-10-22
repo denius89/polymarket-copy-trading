@@ -1,0 +1,99 @@
+{
+  "revision": "0.1",
+  "synthetic": true,
+  "liveConnected": false,
+  "asOf": "2026-10-12T12:00:00Z",
+  "source": "users-workspace-2026-10-22/fixtures.json",
+  "historyIsNewIllustration": true,
+  "definition": "Distinct existing demo users with at least one activity event in the preceding one-hour bucket; not registrations or current concurrent connections. Do not sum unique counts across hours.",
+  "hoursUTC": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "activeUsers": [
+    0,
+    0,
+    1,
+    1,
+    0,
+    1,
+    1,
+    2,
+    1,
+    1,
+    2,
+    2
+  ],
+  "members": [
+    [],
+    [],
+    [
+      "U-DEMO-001"
+    ],
+    [
+      "U-DEMO-001"
+    ],
+    [],
+    [
+      "U-DEMO-002"
+    ],
+    [
+      "U-DEMO-001"
+    ],
+    [
+      "U-DEMO-001",
+      "U-DEMO-002"
+    ],
+    [
+      "U-DEMO-001"
+    ],
+    [
+      "U-DEMO-002"
+    ],
+    [
+      "U-DEMO-001",
+      "U-DEMO-002"
+    ],
+    [
+      "U-DEMO-001",
+      "U-DEMO-002"
+    ]
+  ],
+  "current": {
+    "users": 2,
+    "sessions": 2,
+    "sessionsNeedingReview": 1,
+    "sessionsWithoutAttention": 1
+  },
+  "sessionStates": [
+    {
+      "id": "S-DEMO-001",
+      "venue": "Limitless",
+      "state": "active"
+    },
+    {
+      "id": "S-DEMO-002",
+      "venue": "Polymarket",
+      "state": "needs-reconciliation"
+    }
+  ],
+  "invariants": [
+    "All history members exist in customer fixture",
+    "Historical activity is separate from unknown registration dates",
+    "No inferred equity or PnL",
+    "Paper Alpha fee 0%",
+    "Missing source is not zero",
+    "Role and work origin remain untouched by overview filters"
+  ],
+  "sessionGrouping": "For overview only: sessions needing reconciliation versus sessions without attention; not lifecycle states."
+}

@@ -1,0 +1,31 @@
+{
+  "baseline": "5a73302fea51f28a645d84f7904a040ecdfd0079",
+  "figmaFileKey": "lxPP2um7FvIbt02K8eeH4T",
+  "screenPage": "1981:29",
+  "kitPage": "1981:2",
+  "sitemap": "0.36",
+  "uiKit": "0.4.23",
+  "scope": "Existing owners overview and stale/no-source states RU/EN; not other role dashboards or financial analytics",
+  "roots": {
+    "ru": [
+      "1982:37690",
+      "1982:37735",
+      "1982:37763"
+    ],
+    "en": [
+      "1982:38513",
+      "1982:38558",
+      "1982:38586"
+    ]
+  },
+  "scriptOrder": [
+    "build-kit.js",
+    "build-screens.js",
+    "polish.js",
+    "routing-fix.js",
+    "kit-polish.js",
+    "viewport-fix.js",
+    "stale-copy.js"
+  ],
+  "scriptNotes": "Build scripts require explicit KIT/FIXTURE/ROOTS inputs described in changes.json; targeted repair scripts are historical mutations, not a safe full-file restore."
+}
