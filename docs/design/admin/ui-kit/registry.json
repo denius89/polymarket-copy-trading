@@ -3169,6 +3169,27 @@
       "id": "2406:1447",
       "name": "Admin/Data result header",
       "type": "COMPONENT"
+    },
+    {
+      "id": "3866:1484",
+      "name": "Admin/User table header",
+      "type": "COMPONENT"
+    },
+    {
+      "id": "3866:1529",
+      "name": "Admin/User table row",
+      "type": "COMPONENT_SET",
+      "variants": [
+        "3866:1493",
+        "3866:1502",
+        "3866:1511",
+        "3866:1520"
+      ]
+    },
+    {
+      "id": "3871:1524",
+      "name": "Admin/Customer detail row",
+      "type": "COMPONENT"
     }
   ],
   "collections": [
@@ -3712,7 +3733,7 @@
       }
     }
   ],
-  "lastDesignUpdate": "2026-10-16",
+  "lastDesignUpdate": "2026-10-22",
   "limitations": [
     "Client kit merge pending",
     "New button state families are available for incremental screen adoption; legacy masters retained",
@@ -3795,7 +3816,7 @@
       }
     }
   ],
-  "revision": "0.4.21",
+  "revision": "0.4.22",
   "currentPages": {
     "ru": "1981:29",
     "en": "1981:29"
@@ -4038,9 +4059,9 @@
     "changedPerLanguage": 37,
     "qa": "../section-navigation-2026-10-13/qa.json"
   },
-  "updated": "2026-10-16",
-  "componentSetCount": 28,
-  "variantCount": 168,
+  "updated": "2026-10-22",
+  "componentSetCount": 29,
+  "variantCount": 172,
   "accountHub": {
     "reviewId": "2316:1132",
     "sourceNavigationId": "2233:1217",
@@ -4363,5 +4384,31 @@
     "newComponentSets": 0,
     "newVariants": 0,
     "libraryPublished": false
+  },
+  "customerTables": {
+    "updated": "2026-10-22",
+    "header": "3866:1484",
+    "rows": "3866:1529",
+    "detail": "3871:1524",
+    "showcase": "3866:1530",
+    "columnWidths": [
+      208,
+      112,
+      124,
+      124,
+      72,
+      88,
+      132,
+      140
+    ],
+    "rowWidth": 1144,
+    "rowStates": [
+      "Default",
+      "Hover",
+      "Focus",
+      "Disabled"
+    ],
+    "notes": "Cash balance excludes marked positions and session budget. Missing is not zero. Detail row uses fill columns to avoid overflow. Boolean prototype variables require ALL_SCOPES in this API; visual tokens are reused.",
+    "columnGap": 16
   }
 }
