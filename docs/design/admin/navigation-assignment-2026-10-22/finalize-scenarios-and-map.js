@@ -12,4 +12,3 @@ for(const f of mapLabel.getStyledTextSegments(['fontName']))await figma.loadFont
 mapLabel.characters='900 RU +900 EN · 884 пары экранов · карта 0.34 · UI kit 0.4.21';mutated.push(mapLabel.id);
 for(const [id,name]of [['2138:57454','RU · role-assignment · Назначить роль Ирине Волковой'],['2138:57580','RU · role-assignment-review · Проверьте назначение роли'],['2138:57700','RU · role-assigned · Роль Ирины обновлена'],['2138:67897','EN · role-assignment · Assign a role to Irina Volkova'],['2138:68023','EN · role-assignment-review · Review role assignment'],['2138:68143','EN · role-assigned · Irina’s role updated']]){const n=await figma.getNodeByIdAsync(id);n.name=name;mutated.push(id);}
 return {createdNodeIds:created,mutatedNodeIds:[...new Set(mutated)],changes,mapLabel:mapLabel.characters};
-
