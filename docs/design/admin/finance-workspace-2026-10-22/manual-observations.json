@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-22",
+  "method": "Selected manual Figma Present clicks; concise observations, not raw authenticated trace",
+  "actor": "Fictional STAFF-201 Owner A",
+  "scenarios": [
+    {
+      "scenario": "RU combined filters",
+      "observed": "3 days+expenses+Limitless: only ALPHA-EX-003 $10",
+      "status": "pass"
+    },
+    {
+      "scenario": "RU record return",
+      "observed": "ALPHA-EX-003 detail; return keeps filtered row",
+      "status": "pass"
+    },
+    {
+      "scenario": "RU empty selection",
+      "observed": "unmatched+Limitless: explicit no matching records",
+      "status": "pass"
+    },
+    {
+      "scenario": "Unknown payout",
+      "observed": "One PAY-021 $120, fee $1.20, calculated debit $121.20; no resend",
+      "status": "pass"
+    },
+    {
+      "scenario": "Read evidence",
+      "observed": "Check opens original PAY-021; no automatic success",
+      "status": "pass"
+    },
+    {
+      "scenario": "Read source error",
+      "observed": "Unknown outcome and held liability preserved",
+      "status": "pass"
+    },
+    {
+      "scenario": "Fictional full confirmation",
+      "observed": "Same PAY-021 opens confirmed record and returns to matching confirmed list",
+      "status": "pass"
+    },
+    {
+      "scenario": "Partner after settlement",
+      "observed": "PART-024 $40 available, $18 unconfirmed; PAY-021 settled",
+      "status": "pass"
+    },
+    {
+      "scenario": "PART-031",
+      "observed": "Own selected details, $25 known reserve; other categories unknown, no new payout",
+      "status": "pass"
+    },
+    {
+      "scenario": "Other venue",
+      "observed": "Viewing Limitless preserves confirmed Polymarket PAY-021",
+      "status": "pass"
+    },
+    {
+      "scenario": "RU to EN via profile",
+      "observed": "Same STAFF-201, partner directory and confirmed PAY-021 snapshot",
+      "status": "pass"
+    },
+    {
+      "scenario": "EN ledger continuity",
+      "observed": "Saved unmatched+Limitless selection remains empty after explicit Alpha selection",
+      "status": "pass"
+    },
+    {
+      "scenario": "EN preparation",
+      "observed": "Before sending→PART-024→full $120 Polymarket preparation; no send",
+      "status": "pass"
+    },
+    {
+      "scenario": "EN accepted return",
+      "observed": "Same PAY-021 request accepted snapshot",
+      "status": "pass"
+    },
+    {
+      "scenario": "EN submitted return",
+      "observed": "Same PAY-021 submitted/checking snapshot",
+      "status": "pass"
+    }
+  ],
+  "limits": [
+    "Not all roles/devices/critical branches retested",
+    "Figma accessibility-tree refresh limitation disclosed",
+    "No production or real account behavior tested"
+  ]
+}

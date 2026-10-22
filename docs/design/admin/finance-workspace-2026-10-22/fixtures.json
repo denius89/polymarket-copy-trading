@@ -1,0 +1,80 @@
+{
+  "synthetic": true,
+  "realMoneyEnabled": false,
+  "alphaFixture": "../finance-overview-2026-10-22/fixtures.json",
+  "alphaPartnerDirectory": [
+    "PART-024",
+    "PART-031"
+  ],
+  "alphaPartnerMoney": "New complete fictional projection: zero accruals, reserves and payouts; not live accounts",
+  "futureExample": {
+    "operation": "PAY-021",
+    "partner": "PART-024",
+    "venue": "Polymarket",
+    "principalUSD": 120,
+    "transferFeeUSD": 1.2,
+    "feePayer": "service",
+    "calculatedSourceDebitUSD": 121.2,
+    "previewVersion": "PRV-021 v7",
+    "otherVenueAvailableUSD": 40,
+    "unconfirmedPolymarketUSD": 18,
+    "otherReserves": null,
+    "states": {
+      "ready": {
+        "availableForNewUSD": 120,
+        "heldPrincipalUSD": 0,
+        "settledPrincipalUSD": 0
+      },
+      "accepted": {
+        "availableForNewUSD": 0,
+        "heldPrincipalUSD": 120,
+        "settledPrincipalUSD": 0
+      },
+      "submitted": {
+        "availableForNewUSD": 0,
+        "heldPrincipalUSD": 120,
+        "settledPrincipalUSD": 0
+      },
+      "unknown": {
+        "availableForNewUSD": 0,
+        "heldPrincipalUSD": 120,
+        "settledPrincipalUSD": 0
+      },
+      "paid": {
+        "availableForNewUSD": 0,
+        "heldPrincipalUSD": 0,
+        "settledPrincipalUSD": 120
+      }
+    },
+    "fictionalTimesUTC": {
+      "preview": "2026-10-16T12:05:00Z",
+      "accepted": "2026-10-16T12:06:00Z",
+      "submitted": "2026-10-16T12:07:00Z",
+      "unknown": "2026-10-16T12:08:00Z",
+      "paid": "2026-10-16T12:10:00Z"
+    }
+  },
+  "incompletePartner": {
+    "id": "PART-031",
+    "venue": "Limitless",
+    "knownReservedUSD": 25,
+    "availableUSD": null,
+    "unconfirmedUSD": null,
+    "operationId": null
+  },
+  "legacyLedger": {
+    "independentFromAlphaAndPAY021": true,
+    "REC-010": {
+      "amountUSD": 100,
+      "classification": "receipt matched to ACC-010"
+    },
+    "EXP-002": {
+      "amountUSD": 1.2,
+      "classification": "confirmed expense"
+    },
+    "LEGACY-PENDING": {
+      "amountUSD": 40,
+      "classification": "unconfirmed receipt"
+    }
+  }
+}
