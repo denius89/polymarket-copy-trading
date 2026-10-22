@@ -1,0 +1,60 @@
+{
+  "revision": "0.1",
+  "synthetic": true,
+  "liveConnected": false,
+  "asOf": "2026-10-12T12:00:00Z",
+  "scope": "New illustrative customer wallet snapshot for design; separate from session budget and partner balances",
+  "currency": "USD",
+  "usdtAccountingRate": 1,
+  "users": [
+    {
+      "id": "U-DEMO-001",
+      "name": "Demo Atlas",
+      "venue": "Limitless",
+      "cashBalance": 1000,
+      "availableCash": 1000,
+      "orderReserve": 0,
+      "positionValue": 0,
+      "valuationStatus": "complete",
+      "session": {
+        "id": "S-DEMO-001",
+        "budgetCap": 200,
+        "positions": 0,
+        "orders": 0
+      },
+      "vip": "not assigned",
+      "createdAt": null,
+      "lastActivityAt": "2026-10-12T12:00:00Z"
+    },
+    {
+      "id": "U-DEMO-002",
+      "name": "Demo Noor",
+      "venue": "Polymarket",
+      "cashBalance": 180,
+      "availableCash": 160,
+      "orderReserve": 20,
+      "positionValue": null,
+      "valuationStatus": "unavailable",
+      "session": {
+        "id": "S-DEMO-002",
+        "budgetCap": 200,
+        "availableBudget": 160,
+        "orderReserve": 20,
+        "executedCost": 20,
+        "equity": null,
+        "pnl": null
+      },
+      "vip": "not assigned",
+      "attention": "Order result unknown; no repeat until reconciliation",
+      "createdAt": null,
+      "lastActivityAt": "2026-10-12T12:00:00Z"
+    }
+  ],
+  "invariants": [
+    "cashBalance=availableCash+orderReserve in this simplified fixture; no other holds",
+    "positionValue is separate from cashBalance; no aggregate equity if position mark unavailable",
+    "budgetCap is a ceiling, not a wallet balance or extra reserve",
+    "money values are read-only fictional paper amounts; fee 0%",
+    "unknown != zero; not-connected venue contributes no invented zero"
+  ]
+}
