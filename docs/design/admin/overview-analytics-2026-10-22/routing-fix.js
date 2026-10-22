@@ -1,0 +1,23 @@
+// Extend existing roots. Sidebar, role initializer, account return and routes survive.
+await figma.setCurrentPageAsync(await figma.getNodeByIdAsync('1981:29'));
+const created=[],mutated=[],proof=[];
+const vs=await figma.variables.getLocalVariablesAsync(),vm=new Map(vs.map(v=>[v.name,v])),vi=new Map(vs.map(v=>[v.id,v]));const cs=await figma.variables.getLocalVariableCollectionsAsync(),cm=new Map(cs.map(c=>[c.id,c]));
+function value(v){const c=cm.get(v.variableCollectionId),x=v.valuesByMode[c.modes.find(m=>m.name==='Dark')?.modeId||c.defaultModeId];return x?.type==='VARIABLE_ALIAS'?value(vi.get(x.id)):x;}
+function paint(name){const v=vm.get(name),c=value(v);return figma.variables.setBoundVariableForPaint({type:'SOLID',color:{r:c.r,g:c.g,b:c.b}},'color',v);}
+const sm=new Map((await figma.getLocalTextStylesAsync()).map(s=>[s.name,s]));await Promise.all(['Caption','Label','Body/Small','Heading/Small','Numeric/Small'].map(n=>figma.loadFontAsync(sm.get(n).fontName)));
+const tr=n=>(created.push(n.id),n);
+function box(p,name,dir,w){const n=tr(figma.createAutoLayout(dir));p.appendChild(n);n.name=name;n.resize(w,80);n.primaryAxisSizingMode=dir==='VERTICAL'?'AUTO':'FIXED';n.counterAxisSizingMode=dir==='VERTICAL'?'FIXED':'AUTO';n.fills=[];n.setBoundVariable('itemSpacing',vm.get('spacing/4'));return n;}
+function text(p,s,w=p.width,style='Body/Small',tone='color/text/primary'){const t=tr(figma.createText());p.appendChild(t);t.name=s.slice(0,65);t.textStyleId=sm.get(style).id;t.characters=s;t.textAutoResize='HEIGHT';t.resize(w,t.height);t.fills=[paint(tone)];return t;}
+function surface(p,name,w){const n=box(p,name,'VERTICAL',w);n.fills=[paint('color/bg/surface')];n.setBoundVariable('cornerRadius',vm.get('radius/lg'));for(const k of ['paddingTop','paddingRight','paddingBottom','paddingLeft'])n.setBoundVariable(k,vm.get('spacing/4'));return n;}
+function props(n,values){const p={};for(const[k,v]of Object.entries(values)){const key=Object.keys(n.componentProperties).find(x=>x.split('#')[0]===k);if(key)p[key]=v;}n.setProperties(p);}
+const secondary=await figma.getNodeByIdAsync('2081:65'),primary=await figma.getNodeByIdAsync('2081:38'),detail=await figma.getNodeByIdAsync('3871:1524');
+function button(p,label,active=false){const n=tr((active?primary:secondary).createInstance());p.appendChild(n);props(n,{Label:label,'Show icon':false});n.name=label;return n;}
+const coll=cm.get('VariableCollectionId:134:180');function bool(name,d){const full='Admin overview/'+name;let v=vm.get(full);if(!v){v=figma.variables.createVariable(full,coll,'BOOLEAN');v.scopes=['ALL_SCOPES'];v.setValueForMode(coll.defaultModeId,d);created.push(v.id);vm.set(full,v);}return v;}
+const six=bool('six hours',false),twelve=bool('twelve hours',true),data=bool('data expanded',false),closed=bool('data collapsed',true);
+const set=(v,b)=>({type:'SET_VARIABLE',variableId:v.id,variableValue:{type:'BOOLEAN',resolvedType:'BOOLEAN',value:b}});
+
+for(const[id,ru]of [['1982:37690',true],['1982:38513',false]]){const root=await figma.getNodeByIdAsync(id),body=root.findOne(n=>n.name==='Overview analytics · v1');const targets=body.findAll(n=>n.name==='Attention · S-DEMO-002'||n.name===(ru?'Открыть сессию для сверки':'Open session for reconciliation'));for(const n of targets){const reactions=JSON.parse(JSON.stringify(n.reactions));function walk(x){if(!x||typeof x!=='object')return;if(x.type==='NODE')x.destinationId=ru?'1982:38392':'1982:39215';for(const y of Object.values(x))if(y&&typeof y==='object')walk(y);}walk(reactions);await n.setReactionsAsync(reactions);mutated.push(n.id);}
+const dataPanel=body.findOne(n=>n.name==='Chart data alternative');for(const t of dataPanel.findAllWithCriteria({types:['TEXT']})){if(t.characters.includes('— 1 users')){await Promise.all(t.getStyledTextSegments(['fontName']).map(s=>figma.loadFontAsync(s.fontName)));t.characters=t.characters.replace('— 1 users','— 1 user');mutated.push(t.id);}}
+const ux=body.children.find(n=>n.name==='UX07 · Demo examples');const acts=body.children.find(n=>n.name==='Actions');const demoNames=ru?['Задержанные данные','Пустой обзор','Учебная операционная роль']:['Stale data','Empty overview','Operations role'];const demo=[];for(const p of [acts,ux])for(const n of [...p.children])if(demoNames.includes(n.name)||n.type==='INSTANCE'&&n.findAllWithCriteria({types:['TEXT']}).some(t=>demoNames.includes(t.characters)))demo.push(n);
+const row=box(ux,'Prototype example actions','HORIZONTAL',1144);row.itemSpacing=12;for(const n of demo)row.appendChild(n);ux.primaryAxisSizingMode='AUTO';mutated.push(ux.id,acts.id,...demo.map(n=>n.id));}
+return {createdNodeIds:created,mutatedNodeIds:mutated};

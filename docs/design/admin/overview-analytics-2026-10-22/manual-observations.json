@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-22",
+  "synthetic": true,
+  "scope": "Selected chains, not full role acceptance",
+  "observations": [
+    {
+      "case": "RU data disclosure",
+      "result": "Show data changed to Hide data; hourly values visible in screenshot; unchanged AX nodes omitted by Figma."
+    },
+    {
+      "case": "RU profile return",
+      "result": "Returned from own profile to overview with data expanded; Elena STAFF-201 preserved."
+    },
+    {
+      "case": "RU six-hour window",
+      "result": "Activity chart 6h visible, labels 07–12, data changed to six buckets."
+    },
+    {
+      "case": "RU to EN through own account",
+      "route": [
+        "2155:19298",
+        "2155:19768",
+        "2258:92779",
+        "2155:79633",
+        "2155:79040",
+        "1982:38513"
+      ],
+      "result": "English overview retained 6h and expanded data, Elena STAFF-201 owner A."
+    },
+    {
+      "case": "Initial reconciliation action",
+      "result": "Found inherited navigation to attention list; corrected to session card."
+    },
+    {
+      "case": "Corrected direct reconciliation",
+      "route": [
+        "1982:38513",
+        "1982:39215"
+      ],
+      "result": "Opened S-DEMO-002 / U-DEMO-002, ORDER-DEMO-002 unknown, reserve $20, no resend until reconciliation; Elena preserved."
+    },
+    {
+      "case": "User drill-down",
+      "route": [
+        "1982:38513",
+        "1982:38611"
+      ],
+      "result": "Two table rows Atlas and Noor match current count, no role change."
+    },
+    {
+      "case": "All sessions drill-down",
+      "route": [
+        "1982:38513",
+        "3484:72119"
+      ],
+      "result": "All venues page 1 of 2, one demo row/page, Elena preserved."
+    },
+    {
+      "case": "Stale route and retry",
+      "route": [
+        "1982:38513",
+        "1982:38558",
+        "1982:38513"
+      ],
+      "result": "Past activity snapshot timestamp separate from Polymarket last success 11:45, no monetary zero, retry returns demo overview and retains 6h/data."
+    },
+    {
+      "case": "No-source route",
+      "route": [
+        "1982:38513",
+        "1982:38586"
+      ],
+      "result": "No data source message, no fabricated line or count zeros, return to demo visible."
+    },
+    {
+      "case": "Main scroll in fixed viewport",
+      "result": "EN overview at 1440x1000: scrolling the Main area reveals lower attention, connection and example blocks while sidebar stays in place; browser screenshot confirmed."
+    }
+  ]
+}
