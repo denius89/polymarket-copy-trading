@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-22",
+  "checks": [
+    {
+      "id": "identity-owner-a",
+      "observed": "Overview → Content preserves Elena STAFF-201 and full owner menu",
+      "result": "passed"
+    },
+    {
+      "id": "identity-owner-b",
+      "observed": "Owner B profile → Content → own profile → exact return preserves Maxim STAFF-202",
+      "result": "passed"
+    },
+    {
+      "id": "assignment",
+      "observed": "Auditor + expiry 2026-10-31 23:59 UTC + reason; review/back preserve draft; confirmation updates Irina staff row while acting owner unchanged",
+      "result": "passed"
+    },
+    {
+      "id": "audit-boundary",
+      "observed": "Audit log → export denied → log → own profile → same log; STAFF-205 retained",
+      "result": "passed"
+    },
+    {
+      "id": "ops-origin-defect",
+      "observed": "Legacy ticket avatar did not capture global origin; return disappeared after RU/EN",
+      "result": "found-and-fixed",
+      "repair": "1636 profile entry points, 12 native receipts"
+    },
+    {
+      "id": "ops-ru-en-return",
+      "observed": "Workspace → TKT-1042 → profile → Interface preferences → English → Back → EN TKT-1042 2188:85241, STAFF-206 retained",
+      "result": "passed",
+      "note": "Immediate AX snapshot preceded completed navigation; later URL and rendered screen confirmed destination."
+    },
+    {
+      "id": "grant-expiry",
+      "observed": "Limited home → expired → Client stays on expired screen; expired authority not restored by menu",
+      "result": "passed"
+    },
+    {
+      "id": "shared-support-header",
+      "observed": "Nora operations → Support 2185:21070 → own profile 3326:72674 → exact Support return preserves Nora STAFF-203 and operations assignment. Header and avatar now match menu.",
+      "result": "passed-after-repair"
+    },
+    {
+      "id": "expired-profile-language-return",
+      "result": "passed",
+      "observed": "Limited home → expired → own profile → Interface preferences → English → exact expired screen 3069:192733. STAFF-203/ASG-DEMO-41 retained; personal account available; work permission stays expired."
+    },
+    {
+      "id": "marketing-final",
+      "result": "passed",
+      "observed": "Content 2337:26585 → Announcements 2376:29545 → own profile 3182:78809 → exact Announcements return; Irina STAFF-204 and same two-item menu retained."
+    },
+    {
+      "id": "revoked-assignment-personal",
+      "result": "passed",
+      "observed": "Revoked assignment 3069:64302 → own profile shows revoked notice. Work Client menu does not disclose data. Clarified that assignment revocation leaves personal account active; blocking the personal account is a separate sign-out case."
+    },
+    {
+      "id": "scenario-launcher",
+      "result": "passed",
+      "observed": "Launcher labels now identify actual participant rather than ambiguous multi-role labels. P-09 correctly names Owner A. P-19 opens selected own profile; direct default entry opened Owner A 2155:19298. This is an explicit demo launcher, not work navigation."
+    }
+  ],
+  "limitations": [
+    "Prepared Figma interactions, not actual server authorization.",
+    "Representative manual paths plus native structural checks; not every possible arbitrary field value."
+  ]
+}

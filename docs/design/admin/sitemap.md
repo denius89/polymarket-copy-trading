@@ -1,6 +1,10 @@
+22.10.2026 — [Контекст сотрудника, профиль и назначение роли](navigation-assignment-2026-10-22/README.md): Меню и переходы сохраняют сотрудника и рабочее назначение; профиль всех ролей использует согласованную компоновку, личные данные, защиту и свои сессии. Назначение роли: подготовка → проверка → подтверждение. Карта 0.34: 884 пары /900 корней на язык, UI kit 0.4.21. Только дизайн и подготовленные значения; результаты и границы проверки — в пакете.
+
+21.10.2026 — [Собственный аккаунт всех ролей](account-self-service-2026-10-21/README.md): Завершены собственные аккаунты всех ролей в согласованной компоновке: черновики личных данных, защита и свои сессии, сохранение состояния RU/EN. Владелец A дополнен на прежних маршрутах; для остальных контекстов — 466 внутренних состояний. Восстановление открывается отдельно от рабочей админки. Карта 0.33: 884 пары /900 корней на язык, UI kit 0.4.21. Только дизайн и подготовленные значения, без реальной авторизации.
+
 21.10.2026 — [Исправления понятности UX01–UX09](intuitiveness-fixes-2026-10-21/README.md): получатель VIP, проверка полной выплаты, явный учебный сотрудник, независимые статус и ответ, предметные подсказки и свои права. RU/EN и выбранные ручные цепочки проверены. 1788 корней, карта 0.32, набор компонентов 0.4.21; новых корневых экранов нет. Справочник: 27 уточнённых карточек, все 878 карточек и 1804 ссылки сохранены. Это исправления затронутого дизайна, не общая приёмка продукта.
 
-# Карта админки · 0.32
+# Карта админки · 0.34
 
 21.10.2026 — [Уточнение VIP и статуса обращения](copy-clarifications-2026-10-21/README.md): две подписи исправлены в существующих кадрах RU/EN; карта 0.32, количество экранов и ссылки сохранены.
 
@@ -645,9 +649,9 @@
 | Доступ этого сеанса отозван | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-10079) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67658) |
 | Доступ обоих Owner потерян | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-10101) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67680) |
 | Восстановление Owner: безопасный порядок | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-10212) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67791) |
-| Назначить роль сотруднику | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-57454) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67897) |
-| Проверка назначения роли | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-57580) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68023) |
-| Роль назначена · демо | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-57700) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68143) |
+| Назначить роль Ирине Волковой | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-57454) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-67897) |
+| Проверьте назначение роли | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-57580) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68023) |
+| Роль Ирины обновлена | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-57700) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68143) |
 | Редактировать роль «Маркетолог» | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-57816) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68259) |
 | Изменение прав · v2 → v3 | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-57954) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68397) |
 | Версия роли сохранена | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-58065) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2138-68508) |
@@ -1010,3 +1014,16 @@
 | Сохранено без публикации | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-101968) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2378-107482) |
 | Доставка до паузы | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2385-33206) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=2385-105089) |
 | Маркетинг и тексты по правам | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-64582) | [Макет](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3069-193041) |
+
+## Отдельное восстановление собственного аккаунта
+
+Эти шесть пар входят в текущие 884 основные пары; рабочего меню нет.
+
+| Экран | RU | EN |
+| --- | --- | --- |
+| Ограниченное восстановление · владелец B | [RU](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3734-146894) | [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3734-146993) |
+| Ограниченное восстановление · операционная работа и поддержка | [RU](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3734-146722) | [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3734-146797) |
+| Ограниченное восстановление · ограниченное назначение Норы | [RU](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3734-147070) | [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3734-147145) |
+| Ограниченное восстановление · маркетинг | [RU](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3734-147220) | [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3734-147295) |
+| Ограниченное восстановление · аудитор | [RU](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3734-147370) | [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3734-147445) |
+| Ограниченное восстановление · операционное назначение Норы | [RU](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3734-147520) | [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3734-147595) |

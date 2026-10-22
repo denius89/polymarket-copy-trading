@@ -1,0 +1,53 @@
+// Construction journal for existing Figma roots. Read current file before reuse.
+await figma.setCurrentPageAsync(await figma.getNodeByIdAsync('1981:29'));
+const created=[],mutated=[],removed=[],proof=[];
+const M={};for(const[k,id]of Object.entries({field:'2081:150',primary:'2081:38',secondary:'2081:65',info:'1981:7'}))M[k]=await figma.getNodeByIdAsync(id);
+const col=await figma.variables.getVariableCollectionByIdAsync('VariableCollectionId:134:180'),vars=await figma.variables.getLocalVariablesAsync();
+const V={};function variable(k,type,value){let v=vars.find(v=>v.name==='Admin assignment/'+k);if(!v){v=figma.variables.createVariable('Admin assignment/'+k,col,type);v.scopes=type==='BOOLEAN'?['ALL_SCOPES']:['TEXT_CONTENT'];v.setValueForMode(col.defaultModeId,value);created.push(v.id);vars.push(v);}return V[k]=v;}
+for(const [k,t,v]of [['role ru','STRING','Маркетолог'],['role en','STRING','Marketing'],['rights ru','STRING','Тексты и языки: редактирование и публикация. Объявления: создание, публикация и остановка. Финансы, выплаты и управление сотрудниками недоступны.'],['rights en','STRING','Content and languages: edit and publish. Announcements: create, publish and stop. No finance, payouts or staff management.'],['area ru','STRING','Тексты и языки; объявления'],['area en','STRING','Content and languages; announcements'],['term ru','STRING','Бессрочно'],['term en','STRING','No expiry'],['reason ru','STRING','Работа с текстами и объявлениями'],['reason en','STRING','Manage content and announcements'],['roles open','BOOLEAN',false],['term open','BOOLEAN',false],['assigned','BOOLEAN',false]])variable(k,t,v);
+const fonts=new Map();for(const m of Object.values(M))for(const t of m.findAllWithCriteria({types:['TEXT']}))for(const s of t.getStyledTextSegments(['fontName']))fonts.set(JSON.stringify(s.fontName),s.fontName);for(const f of fonts.values())await figma.loadFontAsync(f);
+const track=n=>{created.push(n.id);return n;};
+function prop(n,p){const q={};for(const[k,v]of Object.entries(p)){const key=Object.keys(n.componentProperties).find(x=>x.split('#')[0]===k);if(key)q[key]=v;}n.setProperties(q);mutated.push(n.id);}
+function set(v,value){return {type:'SET_VARIABLE',variableId:v.id,variableValue:{type:v.resolvedType,resolvedType:v.resolvedType,value}};}
+function node(id){return {type:'NODE',destinationId:id,navigation:'NAVIGATE',transition:null,preserveScrollPosition:false};}
+async function click(n,actions){await n.setReactionsAsync([{trigger:{type:'ON_CLICK'},actions}]);mutated.push(n.id);}
+function box(parent,name,dir='VERTICAL'){const n=track(figma.createAutoLayout(dir));parent.appendChild(n);n.name=name;n.fills=[];n.resize(1144,40);n.itemSpacing=16;n.primaryAxisSizingMode=dir==='VERTICAL'?'AUTO':'FIXED';n.counterAxisSizingMode=dir==='VERTICAL'?'FIXED':'AUTO';if(dir==='HORIZONTAL')n.layoutWrap='WRAP';n.layoutSizingHorizontal='FILL';return n;}
+function field(parent,label,value,hint,v,select=false){const n=track(M.field.createInstance());parent.appendChild(n);n.name='Assignment field · '+label;prop(n,{Label:label,Value:value,Hint:hint,Kind:select?'Select':'Input',State:select?'Filled':'ReadOnly'});n.resize(550,n.height);n.layoutSizingHorizontal='FILL';n.layoutSizingVertical='HUG';if(v){const text=n.findAllWithCriteria({types:['TEXT']}).find(t=>t.name==='Value');text.setBoundVariable('characters',v);mutated.push(text.id);}return n;}
+function info(parent,title,body,v){const n=track(M.info.createInstance());parent.appendChild(n);n.name='Assignment summary · '+title;prop(n,{Title:title,Body:body});n.resize(1144,n.height);n.layoutSizingHorizontal='FILL';n.layoutSizingVertical='HUG';if(v){const text=n.findAllWithCriteria({types:['TEXT']}).find(t=>t.name!=='Entity title');text.setBoundVariable('characters',v);mutated.push(text.id);}return n;}
+async function button(parent,label,aa,primary=false){const n=track(M[primary?'primary':'secondary'].createInstance());parent.appendChild(n);n.name='Assignment action · '+label;prop(n,{Label:label,'Show icon':false});n.primaryAxisSizingMode='AUTO';n.layoutSizingHorizontal='HUG';await click(n,aa);return n;}
+for(const loc of ['ru','en']){
+ const en=loc==='en',L=(a,b)=>en?b:a,ids=en?['2138:67897','2138:68023','2138:68143']:['2138:57454','2138:57580','2138:57700'];
+ for(let stage=0;stage<3;stage++){
+  const root=await figma.getNodeByIdAsync(ids[stage]),main=root.children.find(n=>/^Main/.test(n.name));
+  for(const t of main.findAllWithCriteria({types:['TEXT']}))for(const s of t.getStyledTextSegments(['fontName']))fonts.set(JSON.stringify(s.fontName),s.fontName);for(const f of fonts.values())await figma.loadFontAsync(f);
+  const heading=main.children.find(n=>n.name==='Page heading');const tt=heading.findAllWithCriteria({types:['TEXT']});tt[0].characters=stage===0?L('Назначить роль Ирине Волковой','Assign a role to Irina Volkova'):stage===1?L('Проверьте назначение роли','Review role assignment'):L('Роль Ирины обновлена','Irina’s role updated');tt[1].characters=L('Ирина Волкова · STAFF-204 · учебное назначение','Irina Volkova · STAFF-204 · demo assignment');mutated.push(...tt.map(t=>t.id));
+  for(const c of [...main.children])if(c!==heading&&!/context/i.test(c.name)&&c.name!=='Breadcrumb trail'){removed.push(c.id);c.remove();}
+  const body=box(main,'Role assignment · '+stage);
+  if(stage===0)info(body,L('Текущий доступ','Current access'),L('Роль не назначена. Это подготовленное учебное состояние; доступ изменится только после подтверждения на следующем шаге.','No role assigned. This is a prepared demo state; access changes only after confirmation on the next step.'));
+  if(stage===1)info(body,L('Доступ пока не изменён','Access has not changed'),L('Проверьте сотрудника, разрешения и срок. «Назначить роль» применит именно эти условия и сохранит причину в журнале.','Check the employee, permissions and expiry. Assign role applies these exact conditions and records the reason in the audit log.'));
+  if(stage===2)info(body,L('Назначение сохранено · учебное состояние','Assignment saved · demo state'),L('Роль назначена Ирине. Ваша учётная запись и ваши полномочия не менялись. Реальная выдача прав в прототипе отключена.','The role was assigned to Irina. Your account and permissions have not changed. No real access is granted in the prototype.'));
+  const row=box(body,'Role and expiry','HORIZONTAL');const a=field(row,L('Назначаемая роль','Assigned role'),'','',V['role '+loc],stage===0);const b=field(row,L('Срок доступа','Access expiry'),'','',V['term '+loc],stage===0);
+  if(stage===0){
+   await click(a,[set(V['roles open'],true),set(V['term open'],false)]);await click(b,[set(V['term open'],true),set(V['roles open'],false)]);
+   const choices=box(body,'Choose role','HORIZONTAL');choices.setBoundVariable('visible',V['roles open']);
+   for(const role of ['marketing','audit']){
+    const audit=role==='audit';await button(choices,audit?L('Аудитор','Auditor'):L('Маркетолог','Marketing'),[set(V['role ru'],audit?'Аудитор':'Маркетолог'),set(V['role en'],audit?'Auditor':'Marketing'),set(V['rights ru'],audit?'Журнал аудита: просмотр разрешённых записей. Изменения запрещены; экспорт требует отдельного разрешения.':'Тексты и языки: редактирование и публикация. Объявления: создание, публикация и остановка. Финансы, выплаты и управление сотрудниками недоступны.'),set(V['rights en'],audit?'Audit log: view permitted records. No changes; export requires a separate permission.':'Content and languages: edit and publish. Announcements: create, publish and stop. No finance, payouts or staff management.'),set(V['area ru'],audit?'Разрешённые записи журнала аудита':'Тексты и языки; объявления'),set(V['area en'],audit?'Permitted audit log records':'Content and languages; announcements'),set(V['roles open'],false)]);
+   }
+   await button(choices,L('Закрыть список','Close list'),[set(V['roles open'],false)]);
+   const terms=box(body,'Choose expiry','HORIZONTAL');terms.setBoundVariable('visible',V['term open']);
+   for(const dated of [false,true])await button(terms,dated?L('До 31.10.2026, 23:59 UTC','Until 31 Oct 2026, 23:59 UTC'):L('Бессрочно','No expiry'),[set(V['term ru'],dated?'До 31.10.2026, 23:59 UTC':'Бессрочно'),set(V['term en'],dated?'Until 31 Oct 2026, 23:59 UTC':'No expiry'),set(V['term open'],false)]);
+   await button(terms,L('Закрыть список','Close list'),[set(V['term open'],false)]);
+  }
+  info(body,L('Что сотрудник сможет делать','What the employee can do'),'',V['rights '+loc]);
+  field(body,L('Где действует доступ','Where access applies'),'',L('Версия выбранного шаблона: 2. Права владельца через эту роль не выдаются.','Selected template version: 2. Owner powers cannot be granted through this role.'),V['area '+loc]);
+  const reason=field(body,L('Причина назначения','Assignment reason'),'',L('Сохранится в журнале изменений','Saved in the audit log'),V['reason '+loc],false);
+  if(stage===0){prop(reason,{State:'Filled'});await click(reason,[set(V['reason ru'],'Выполнение согласованных рабочих задач'),set(V['reason en'],'Perform agreed work tasks')]);}
+  const actions=box(body,'Assignment actions','HORIZONTAL');
+  if(stage===0){await button(actions,L('Продолжить','Continue'),[set(V['roles open'],false),set(V['term open'],false),node(ids[1])],true);await button(actions,L('Отменить','Cancel'),[set(V['roles open'],false),set(V['term open'],false),node(en?'2110:55811':'2110:6876')]);}
+  if(stage===1){await button(actions,L('Назначить роль','Assign role'),[set(V['assigned'],true),node(ids[2])],true);await button(actions,L('Вернуться к редактированию','Back to editing'),[node(ids[0])]);await button(actions,L('Отменить назначение','Cancel assignment'),[node(en?'2110:55811':'2110:6876')]);}
+  if(stage===2)await button(actions,L('К сотрудникам','Back to staff'),[node(en?'2110:55811':'2110:6876')],true);
+  const note=track(tt[1].clone());body.appendChild(note);note.name='Prototype fixture note';note.characters=L('Учебный прототип: поля выбирают подготовленные значения. Реальные права не изменяются.','Demo prototype: fields select prepared values. Real permissions are not changed.');note.resize(1144,note.height);note.textAutoResize='HEIGHT';
+  root.resize(1440,Math.max(1120,Math.ceil((main.y+body.y+body.height+48)/40)*40));mutated.push(root.id,main.id);proof.push({root:root.id,stage,locale:loc,body:body.id,fonts:[...new Set(body.findAllWithCriteria({types:['TEXT']}).map(t=>t.fontName.family))],descendants:body.findAll(()=>true).length});
+ }
+}
+return {createdNodeIds:[...new Set(created)],mutatedNodeIds:[...new Set(mutated)],removedNodeIds:removed,variables:Object.fromEntries(Object.entries(V).map(([k,v])=>[k,v.id])),proof};
