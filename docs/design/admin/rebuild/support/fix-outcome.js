@@ -1,0 +1,5 @@
+const root=await figma.getNodeByIdAsync(SUPPORT.roots.ticket);
+for(const c of SUPPORT.cases){const group=root.findOne(n=>n.name==='Conversation / '+c.key);for(const name of ['Проверить отправку','Повторить проверку']){const n=group.findOne(n=>n.name===name&&'reactions'in n);click(n,scheck(c));mutated.push(n.id);}}
+const test=await figma.getNodeByIdAsync(SUPPORT.roots.test);const hint=test.findAllWithCriteria({types:['TEXT']}).find(n=>n.characters.startsWith('Следующая отправка ответа'));
+if(hint){await figma.loadFontAsync(hint.fontName);hint.setBoundVariable('characters',tr('Выберите ответ сервиса для отправки или проверки. «Успех» при проверке подтверждает исходное сообщение. Без подтверждения исход остаётся неизвестным. Сообщения не покидают прототип.','Choose the service result for sending or checking. Success confirms the original message when checked. Without confirmation, the outcome stays unknown. No messages leave the prototype.'));mutated.push(hint.id);}
+return await sfinish();
