@@ -1,5 +1,5 @@
 {
-  "revision": "0.46",
+  "revision": "0.47",
   "updatedAt": "2026-10-23",
   "purpose": "Current rebuild entry is in rebuild/figma/manifest.json; sections and earlier packages below remain retired historical mapping.",
   "figma": {
@@ -7,22 +7,22 @@
     "pageId": "1981:29",
     "prototypePageId": "1981:29",
     "prototypePageName": "14 · Admin · новая компоновка",
-    "sharedPageRootFrames": 35,
+    "sharedPageRootFrames": 39,
     "entryNodeId": "3990:108",
     "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3990-108",
-    "prototypeEntryStatus": "first-route, self-service profile, scoped support and feedback shared RU/EN with seven synthetic role contexts; not full admin"
+    "prototypeEntryStatus": "First route, profile, support, feedback and incidents; shared RU/EN, seven synthetic assignments; not full admin"
   },
   "sources": [
     "118_admin_console_figma_design_brief_2026-10-09.md",
     "current Figma RU/EN root frame inventory"
   ],
   "counts": {
-    "uniqueRoots": 35,
-    "ru": 35,
-    "en": 35,
-    "counting": "RU and EN use the same roots, not 70 distinct frames",
-    "screens": 14,
-    "overlays": 21
+    "uniqueRoots": 39,
+    "ru": 39,
+    "en": 39,
+    "counting": "RU and EN use the same roots, not 78 distinct frames",
+    "screens": 16,
+    "overlays": 23
   },
   "sections": [
     {
@@ -11344,6 +11344,17 @@
       }
     ],
     "qa": "rebuild/figma/interactive/profile-verification.md",
-    "roleContexts": 7
+    "roleContexts": 7,
+    "incidents": {
+      "contract": "rebuild/incidents/README.md",
+      "verification": "rebuild/incidents/verification.md",
+      "roots": [
+        "4083:241",
+        "4083:242",
+        "4083:243",
+        "4083:244"
+      ]
+    },
+    "publicPrototype": "https://shadow-admin-demo.denisfedko.chatgpt.site"
   }
 }

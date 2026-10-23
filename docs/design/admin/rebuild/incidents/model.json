@@ -1,0 +1,116 @@
+{
+  "baseline": "47b5a0c724870a29cb4208b94d038ba0bddc6f36",
+  "roots": {
+    "incidents": "4083:241",
+    "incident": "4083:242",
+    "incidentOptions": "4083:243",
+    "incidentReview": "4083:244"
+  },
+  "cases": [
+    {
+      "id": "INC-101",
+      "key": "noor",
+      "uid": "U-DEMO-002",
+      "sid": "S-DEMO-002",
+      "ticket": "T-101",
+      "name": "Demo Noor",
+      "venue": "Polymarket",
+      "date": "2026-10-23",
+      "priority": "high",
+      "status": "waiting",
+      "assignee": "STAFF-203",
+      "title": [
+        "Неизвестен результат заявки",
+        "Order outcome unknown"
+      ],
+      "impact": [
+        "Повторная отправка заявки недоступна до сверки.",
+        "Resending the order is unavailable until reconciliation."
+      ],
+      "fact": [
+        "Заявка ORD-002 отправлена; итог площадкой не подтверждён.",
+        "Order ORD-002 was submitted; the venue has not confirmed the outcome."
+      ],
+      "missing": [
+        "Нужен подтверждённый итог исходной заявки.",
+        "The original order needs a confirmed outcome."
+      ],
+      "restriction": [
+        "Повтор заявки заблокирован; резерв сохраняется.",
+        "Resending is blocked; the reserve is retained."
+      ],
+      "evidence": null,
+      "resolved": false
+    },
+    {
+      "id": "INC-102",
+      "key": "orion",
+      "uid": "U-DEMO-009",
+      "sid": "S-DEMO-009",
+      "ticket": "T-103",
+      "name": "Demo Orion",
+      "venue": "Limitless",
+      "date": "2026-10-22",
+      "priority": "high",
+      "status": "investigating",
+      "assignee": "STAFF-206",
+      "title": [
+        "Не обновляются данные сессии",
+        "Session data is not updating"
+      ],
+      "impact": [
+        "Снимок сессии устарел. Новые действия требуют свежих данных.",
+        "The session snapshot is stale. New actions require fresh data."
+      ],
+      "fact": [
+        "Последний снимок — 10:20 UTC. Подтверждения восстановления пока нет.",
+        "Latest snapshot: 10:20 UTC. Recovery has not been confirmed yet."
+      ],
+      "missing": [
+        "Нужна отдельная проверка восстановления потока.",
+        "A separate feed recovery check is required."
+      ],
+      "restriction": [
+        "Ограничение новых действий проверяется отдельно от закрытия инцидента.",
+        "The restriction on new actions is checked separately from incident closure."
+      ],
+      "evidence": null,
+      "resolved": false
+    },
+    {
+      "id": "INC-103",
+      "key": "robin",
+      "uid": "U-DEMO-005",
+      "sid": "S-DEMO-005",
+      "ticket": "T-102",
+      "name": "Demo Robin",
+      "venue": "Limitless",
+      "date": "2026-10-21",
+      "priority": "normal",
+      "status": "closed",
+      "assignee": "STAFF-203",
+      "title": [
+        "Задержка уведомления об исполнении",
+        "Fill notification delay"
+      ],
+      "impact": [
+        "Проверена задержка уведомления. Частичное исполнение заявки остаётся отдельным фактом.",
+        "The notification delay was checked. A partial order fill remains a separate fact."
+      ],
+      "fact": [
+        "EVID-DEMO-103 подтверждает обработку уведомления.",
+        "EVID-DEMO-103 confirms notification processing."
+      ],
+      "missing": [
+        "Для исходной причины закрытия данных достаточно.",
+        "Evidence is sufficient for the original closure reason."
+      ],
+      "restriction": [
+        "Закрытие не отменяет остаток заявки и не меняет её результат.",
+        "Closure does not cancel the order remainder or change its outcome."
+      ],
+      "evidence": "EVID-DEMO-103",
+      "resolved": true
+    }
+  ]
+}
