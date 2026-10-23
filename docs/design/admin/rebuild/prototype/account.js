@@ -41,7 +41,7 @@ function failBeforeAction(){if(state.response!=='error')return false;state.respo
 function finishEnd(){const target=account.pendingEnd||account.endTarget;account.otherSessions=target==='all'?[]:account.otherSessions.filter(k=>k!==target);account.pendingEnd=null;account.notice=['Выбранные сеансы завершены. Текущий сеанс сохранён.','Selected sessions ended. Your current session is unchanged.'];closeAccountDialog();}
 function accountAction(action,el){
  if(action==='entry'){state.route='entry';account=null;render();return;}
- if(action==='enter'){state.role=el.dataset.role;account=newAccount(state.role);support=newSupport();Object.assign(state,{q:'',venue:'all',issue:'all',from:'2026-10-17',to:'2026-10-23',page:1,sort:'name',asc:true,userId:'U-DEMO-002',sessionId:null,tab:'overview',profileReturn:'overview',columns:{money:actor().money,vip:true,activity:true},tooltip:null,periodOpen:false});state.selected.clear();navigate('overview');return;}
+ if(action==='enter'){state.role=el.dataset.role;account=newAccount(state.role);support=newSupport();feedback=newFeedback();Object.assign(state,{q:'',venue:'all',issue:'all',from:'2026-10-17',to:'2026-10-23',page:1,sort:'name',asc:true,userId:'U-DEMO-002',sessionId:null,tab:'overview',profileReturn:'overview',columns:{money:actor().money,vip:true,activity:true},tooltip:null,periodOpen:false});state.selected.clear();navigate('overview');return;}
  if(!account)return;
  if(action==='tab'){account.view=el.dataset.tab;account.error=null;account.notice=null;render();}
  else if(action==='cancel-name'){account.draft=null;account.error=null;account.notice=null;render();}

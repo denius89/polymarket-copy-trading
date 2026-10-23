@@ -1,18 +1,18 @@
 {
-  "version": "0.4",
+  "version": "0.5",
   "date": "2026-10-23",
-  "status": "first-route-profile-support-checked-owner-review-open",
-  "baseline": "8e971ef620d8d0424644bcce92c808ec2c838564",
+  "status": "first-route-profile-support-feedback-checked-owner-review-open",
+  "baseline": "07cb1971b3a0bc0deab5389661d2bcedaca6f158",
   "fileKey": "lxPP2um7FvIbt02K8eeH4T",
   "pageId": "1981:29",
   "entry": "3990:108",
   "counts": {
-    "uniqueRoots": 31,
-    "ru": 31,
-    "en": 31,
-    "counting": "RU and EN use the same roots, not 62 distinct frames",
-    "screens": 12,
-    "overlays": 19
+    "uniqueRoots": 35,
+    "ru": 35,
+    "en": 35,
+    "counting": "RU and EN use the same roots, not 70 distinct frames",
+    "screens": 14,
+    "overlays": 21
   },
   "screens": [
     {
@@ -355,6 +355,50 @@
       ],
       "sharedFrame": true,
       "kind": "overlay"
+    },
+    {
+      "key": "feedback",
+      "id": "4072:197",
+      "title": "Обратная связь",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "type": "screen",
+      "source": "../feedback/model.json"
+    },
+    {
+      "key": "feedbackItem",
+      "id": "4072:198",
+      "title": "Карточка отзыва",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "type": "screen",
+      "source": "../feedback/model.json"
+    },
+    {
+      "key": "feedbackOptions",
+      "id": "4072:199",
+      "title": "Выбор значения",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "type": "overlay",
+      "source": "../feedback/model.json"
+    },
+    {
+      "key": "feedbackLink",
+      "id": "4072:200",
+      "title": "Связь с обращением",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "type": "overlay",
+      "source": "../feedback/model.json"
     }
   ],
   "roleContexts": 7,
@@ -372,5 +416,11 @@
     "Support queue dates are snapshot dates. No backend delivery, persistence, new-ticket creation, closed/reopen or concurrent-agent workflow."
   ],
   "accountModel": "interactive/profile-model.json",
-  "supportModel": "../support/model.json"
+  "supportModel": "../support/model.json",
+  "feedback": {
+    "model": "../feedback/model.json",
+    "verification": "../feedback/verification.md",
+    "roles": 7,
+    "note": "Three synthetic items; native prepared inputs, local free input. Not a backend contract."
+  }
 }
