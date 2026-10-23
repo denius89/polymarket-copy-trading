@@ -1,18 +1,18 @@
 {
-  "version": "0.2",
+  "version": "0.3",
   "date": "2026-10-23",
-  "status": "first-route-roles-controls-manually-checked-owner-review-open",
-  "baseline": "fe501a7020a1493ab8326fe62ca3f8c01a6e6165",
+  "status": "first-route-and-profile-roles-controls-checked-owner-review-open",
+  "baseline": "8ee49250146520a755ca7cfce1cc08323dc01925",
   "fileKey": "lxPP2um7FvIbt02K8eeH4T",
   "pageId": "1981:29",
   "entry": "3990:108",
   "counts": {
-    "uniqueRoots": 15,
-    "ru": 15,
-    "en": 15,
-    "counting": "RU and EN use the same roots, not 30 distinct frames",
-    "screens": 8,
-    "overlays": 7
+    "uniqueRoots": 24,
+    "ru": 24,
+    "en": 24,
+    "counting": "RU and EN use the same roots, not 48 distinct frames",
+    "screens": 10,
+    "overlays": 14
   },
   "screens": [
     {
@@ -84,7 +84,7 @@
     {
       "key": "profile",
       "id": "3990:109",
-      "title": "Личный профиль · язык и права",
+      "title": "Личный профиль · данные, безопасность, свои сеансы, язык и права",
       "locales": [
         "ru",
         "en"
@@ -179,17 +179,118 @@
       ],
       "sharedFrame": true,
       "kind": "overlay"
+    },
+    {
+      "key": "account-field",
+      "id": "4028:168",
+      "title": "Выбор значения профиля",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "overlay"
+    },
+    {
+      "key": "account-confirm",
+      "id": "4028:169",
+      "title": "Подтверждение завершения сеанса",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "overlay"
+    },
+    {
+      "key": "account-auth",
+      "id": "4028:170",
+      "title": "Повторная проверка личности",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "overlay"
+    },
+    {
+      "key": "account-keys",
+      "id": "4028:171",
+      "title": "Замена способа защиты",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "overlay"
+    },
+    {
+      "key": "account-email",
+      "id": "4028:172",
+      "title": "Подтверждение почты",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "overlay"
+    },
+    {
+      "key": "account-codes",
+      "id": "4028:173",
+      "title": "Коды восстановления · учебный пример",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "overlay"
+    },
+    {
+      "key": "account-logout",
+      "id": "4028:174",
+      "title": "Выход из аккаунта",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "screen"
+    },
+    {
+      "key": "account-recovery",
+      "id": "4028:175",
+      "title": "Восстановление доступа",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "screen"
+    },
+    {
+      "key": "account-test",
+      "id": "4028:176",
+      "title": "Учебные ответы сервиса",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "overlay"
     }
   ],
   "roleContexts": 7,
   "nativeCases": 3,
   "runtime": "../prototype/index.html",
   "model": "interactive/model.json",
-  "verification": "interactive/verification.md",
+  "verification": "interactive/profile-verification.md",
   "limitations": [
     "Native search selects prepared records; calendar covers 17–23 October. Arbitrary input is in the separate HTML example.",
     "Native list contains three issue cases, not the full 24-user overview snapshot.",
-    "Personal-data editing, account security and own sessions remain stage 3.",
-    "No real authentication, API, transactions or production access controls."
-  ]
+    "No real authentication, API, transactions or production access controls.",
+    "Native profile fields select prepared values; arbitrary name/email input is available in HTML.",
+    "Security and email responses are synthetic. One pending session termination is reconciled before another in this sample."
+  ],
+  "accountModel": "interactive/profile-model.json"
 }

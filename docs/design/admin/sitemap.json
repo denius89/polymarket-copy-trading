@@ -1,5 +1,5 @@
 {
-  "revision": "0.43",
+  "revision": "0.44",
   "updatedAt": "2026-10-23",
   "purpose": "Current rebuild entry is in rebuild/figma/manifest.json; sections and earlier packages below remain retired historical mapping.",
   "figma": {
@@ -7,22 +7,22 @@
     "pageId": "1981:29",
     "prototypePageId": "1981:29",
     "prototypePageName": "14 · Admin · новая компоновка",
-    "sharedPageRootFrames": 15,
+    "sharedPageRootFrames": 24,
     "entryNodeId": "3990:108",
     "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3990-108",
-    "prototypeEntryStatus": "first-route shared RU/EN with seven synthetic role contexts; not a full scenario hub"
+    "prototypeEntryStatus": "first-route and full self-service profile shared RU/EN with seven synthetic role contexts; not full admin"
   },
   "sources": [
     "118_admin_console_figma_design_brief_2026-10-09.md",
     "current Figma RU/EN root frame inventory"
   ],
   "counts": {
-    "uniqueRoots": 15,
-    "ru": 15,
-    "en": 15,
-    "counting": "RU and EN use the same roots, not 30 distinct frames",
-    "screens": 8,
-    "overlays": 7
+    "uniqueRoots": 24,
+    "ru": 24,
+    "en": 24,
+    "counting": "RU and EN use the same roots, not 48 distinct frames",
+    "screens": 10,
+    "overlays": 14
   },
   "sections": [
     {
@@ -11147,7 +11147,7 @@
       {
         "key": "profile",
         "id": "3990:109",
-        "title": "Личный профиль · язык и права",
+        "title": "Личный профиль · данные, безопасность, свои сеансы, язык и права",
         "locales": [
           "ru",
           "en"
@@ -11242,9 +11242,108 @@
         ],
         "sharedFrame": true,
         "kind": "overlay"
+      },
+      {
+        "key": "account-field",
+        "id": "4028:168",
+        "title": "Выбор значения профиля",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "overlay"
+      },
+      {
+        "key": "account-confirm",
+        "id": "4028:169",
+        "title": "Подтверждение завершения сеанса",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "overlay"
+      },
+      {
+        "key": "account-auth",
+        "id": "4028:170",
+        "title": "Повторная проверка личности",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "overlay"
+      },
+      {
+        "key": "account-keys",
+        "id": "4028:171",
+        "title": "Замена способа защиты",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "overlay"
+      },
+      {
+        "key": "account-email",
+        "id": "4028:172",
+        "title": "Подтверждение почты",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "overlay"
+      },
+      {
+        "key": "account-codes",
+        "id": "4028:173",
+        "title": "Коды восстановления · учебный пример",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "overlay"
+      },
+      {
+        "key": "account-logout",
+        "id": "4028:174",
+        "title": "Выход из аккаунта",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "screen"
+      },
+      {
+        "key": "account-recovery",
+        "id": "4028:175",
+        "title": "Восстановление доступа",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "screen"
+      },
+      {
+        "key": "account-test",
+        "id": "4028:176",
+        "title": "Учебные ответы сервиса",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "overlay"
       }
     ],
-    "qa": "rebuild/figma/interactive/verification.md",
+    "qa": "rebuild/figma/interactive/profile-verification.md",
     "roleContexts": 7
   }
 }

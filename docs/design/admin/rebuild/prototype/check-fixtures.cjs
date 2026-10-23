@@ -1,7 +1,8 @@
 'use strict';
 const fs=require('node:fs');const vm=require('node:vm');const assert=require('node:assert/strict');
 const context=vm.createContext({Intl,Date,Set,document:{documentElement:{},querySelector:selector=>selector==='.tooltip'?null:({innerHTML:''}),addEventListener:()=>{}}});
-vm.runInContext(fs.readFileSync(__dirname+'/app.js','utf8'),context);
+for(const file of ['account-fixtures.js','account.js','app.js']) vm.runInContext(fs.readFileSync(__dirname+'/'+file,'utf8'),context);
+vm.runInContext("account=newAccount('lead')",context);
 const read=code=>vm.runInContext(code,context);
 assert.equal(read('users.length'),24);
 assert.equal(read('users.flatMap(u=>u.sessions).length'),24);
