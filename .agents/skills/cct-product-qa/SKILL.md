@@ -1,11 +1,11 @@
 ---
 name: cct-product-qa
-description: Design risk-based acceptance and fault/concurrency tests for user/admin and financial scenarios. Use for product QA planning or authorized review, not writing product features or treating coverage as correctness.
+description: Design risk-based acceptance and fault/concurrency tests for user/admin and financial scenarios. Use for acceptance strategy or cross-layer fault testing; a bounded prototype click-through does not require a full product QA programme.
 ---
 
 # S23 · Сквозная стратегия качества
 
-Применяй к существующему проекту и текущему поручению. Для границ подготовки, evidence и выбора источников прочитай [общие правила](../../../docs/ai-system/OPERATING_RULES.md). Подготовка процедуры не является разрешением выполнять описанные внешние действия.
+Применяй к указанному предмету и объёму задачи. [Общие правила](../../../docs/ai-system/OPERATING_RULES.md) прочитай при первом использовании в чате; повторно — если они изменились или возник конфликт. Навык не добавляет полномочий и не отменяет уже данное поручение.
 
 ## Процедура
 
@@ -15,13 +15,6 @@ description: Design risk-based acceptance and fault/concurrency tests for user/a
 4. Отдели synthetic/recorded/staging от real venue/account, предусмотри изоляцию и запрет неожиданных side effects. Нагрузочные/денежные тесты требуют своего scope.
 5. Выдай acceptance matrix и минимальные воспроизводимые примеры/ожидаемые свойства с доказанным охватом. Отдельно пометь текущий evidence/status для client и admin E2E, tenant/permission boundaries, локалей и venues: план сценария не выполненная проверка. Green coverage и screenshot не полная приёмка; не начинай реализацию tests/app вне поручения.
 
-## Знания и проверка
+## Дополнительные материалы
 
-Для предметной работы: [пакет S23](../../../docs/ai-system/learning/S23.md) и нужный раздел [опор области](../../../docs/ai-system/knowledge/domains/engineering.md). Прочитай относящиеся первичные материалы, а не только индекс; не загружай учебные задания при каждом простом запросе.
-
-Результат: конкретный ответ в рамках поручения с основаниями, ограничениями и существенными рисками. Выбирай формат по задаче. Проверяй следующие свойства:
-
-- Обнаружить круговой oracle и ограниченность coverage.
-- Предложить независимые денежные инварианты и сбойные сценарии без кода продукта.
-
-Смежные процедуры: S06, S07, S08. Это зависимости знаний/проверки, не команда автоматически запускать все навыки или агентов.
+[пакет S23](../../../docs/ai-system/learning/S23.md) и нужный раздел [опор области](../../../docs/ai-system/knowledge/domains/engineering.md). Открывай только если для текущего решения не хватает конкретного правила или источника. Учебные задания и исторические eval-кейсы нужны при обучении/оценке навыка, не при обычной работе.
