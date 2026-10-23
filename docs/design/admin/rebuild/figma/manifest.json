@@ -1,51 +1,195 @@
 {
-  "version": "0.1",
+  "version": "0.2",
   "date": "2026-10-23",
-  "status": "first-route-draft-not-accepted",
-  "baseline": "30487aa562c453757f5eb808528efd93d931e374",
+  "status": "first-route-roles-controls-manually-checked-owner-review-open",
+  "baseline": "fe501a7020a1493ab8326fe62ca3f8c01a6e6165",
   "fileKey": "lxPP2um7FvIbt02K8eeH4T",
   "pageId": "1981:29",
-  "entry": "3971:2",
+  "entry": "3990:108",
   "counts": {
-    "ru": 5,
-    "en": 0
+    "uniqueRoots": 15,
+    "ru": 15,
+    "en": 15,
+    "counting": "RU and EN use the same roots, not 30 distinct frames",
+    "screens": 8,
+    "overlays": 7
   },
   "screens": [
     {
-      "key": "F01",
+      "key": "overview",
       "id": "3971:2",
       "title": "Обзор",
-      "locale": "ru"
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "screen"
     },
     {
-      "key": "F02",
+      "key": "users",
       "id": "3971:3",
-      "title": "Пользователи · требуют внимания",
-      "locale": "ru"
+      "title": "Пользователи · проверка проблемных сессий",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "screen"
     },
     {
-      "key": "F03",
+      "key": "user",
       "id": "3971:4",
-      "title": "Demo Noor",
-      "locale": "ru"
+      "title": "Карточка пользователя",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "screen"
     },
     {
-      "key": "F04",
+      "key": "session",
       "id": "3971:5",
-      "title": "S-DEMO-002",
-      "locale": "ru"
+      "title": "Торговая сессия",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "screen"
     },
     {
-      "key": "F05",
+      "key": "order",
       "id": "3971:6",
-      "title": "ORD-002",
-      "locale": "ru"
+      "title": "Заявка",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "screen"
+    },
+    {
+      "key": "entry",
+      "id": "3990:108",
+      "title": "Учебные входы",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "screen"
+    },
+    {
+      "key": "profile",
+      "id": "3990:109",
+      "title": "Личный профиль · язык и права",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "screen"
+    },
+    {
+      "key": "denied",
+      "id": "3990:110",
+      "title": "Нет доступа",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "screen"
+    },
+    {
+      "key": "venue",
+      "id": "3990:111",
+      "title": "Площадка",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "overlay"
+    },
+    {
+      "key": "period",
+      "id": "3990:112",
+      "title": "Период",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "overlay"
+    },
+    {
+      "key": "search",
+      "id": "3990:113",
+      "title": "Поиск по учебным записям",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "overlay"
+    },
+    {
+      "key": "status",
+      "id": "3990:114",
+      "title": "Состояние",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "overlay"
+    },
+    {
+      "key": "columns",
+      "id": "3990:115",
+      "title": "Столбцы",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "overlay"
+    },
+    {
+      "key": "help",
+      "id": "3990:116",
+      "title": "Подсказка о демо-средствах",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "overlay"
+    },
+    {
+      "key": "language",
+      "id": "3997:36",
+      "title": "Язык интерфейса",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "overlay"
     }
   ],
+  "roleContexts": 7,
+  "nativeCases": 3,
   "runtime": "../prototype/index.html",
+  "model": "interactive/model.json",
+  "verification": "interactive/verification.md",
   "limitations": [
-    "Native Figma is a fixed Noor route; arbitrary input and filtering are tested in the local HTML example.",
-    "Native EN and other staff roles are not implemented in this slice.",
+    "Native search selects prepared records; calendar covers 17–23 October. Arbitrary input is in the separate HTML example.",
+    "Native list contains three issue cases, not the full 24-user overview snapshot.",
+    "Personal-data editing, account security and own sessions remain stage 3.",
     "No real authentication, API, transactions or production access controls."
   ]
 }
