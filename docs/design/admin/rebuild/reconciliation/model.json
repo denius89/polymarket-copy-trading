@@ -1,0 +1,96 @@
+{
+  "baseline": "903eee0e7f2f1c33e16c505023a7aae4a07bd9f5",
+  "page": "1981:29",
+  "roots": {
+    "reconciliation": "4100:294",
+    "reconciliationItem": "4100:295",
+    "reconciliationOptions": "4100:296",
+    "reconciliationResult": "4111:346"
+  },
+  "cases": [
+    {
+      "id": "REC-101",
+      "key": "noor",
+      "uid": "U-DEMO-002",
+      "sid": "S-DEMO-002",
+      "oid": "ORD-002",
+      "incident": "INC-101",
+      "name": "Demo Noor",
+      "venue": "Polymarket",
+      "date": "2026-10-23",
+      "cutoff": "2026-10-23 12:00 UTC",
+      "source": "DEMO-ORDER-002",
+      "field": [
+        "Исполнение заявки",
+        "Order fill"
+      ],
+      "recorded": null,
+      "observed": null,
+      "reserve": 20,
+      "reason": [
+        "Нет подтверждённого итога исходной заявки. Нулевое исполнение не доказано.",
+        "No confirmed outcome for the original order. Zero fill is not established."
+      ],
+      "next": [
+        "Дождаться подтверждения исходной заявки и повторить сверку. Повторная отправка недоступна.",
+        "Wait for original-order evidence, then recheck. Resending remains unavailable."
+      ]
+    },
+    {
+      "id": "REC-102",
+      "key": "orion",
+      "uid": "U-DEMO-009",
+      "sid": "S-DEMO-009",
+      "oid": "ORD-009",
+      "incident": "INC-102",
+      "name": "Demo Orion",
+      "venue": "Limitless",
+      "date": "2026-10-23",
+      "cutoff": "2026-10-23 10:20 UTC",
+      "source": "DEMO-SNAPSHOT-009",
+      "field": [
+        "Стоимость позиций по учёту",
+        "Position cost basis"
+      ],
+      "recorded": 20,
+      "observed": 24,
+      "reserve": 20,
+      "reason": [
+        "Контрольный пример: два учебных источника одного исторического снимка расходятся на 4 USD. Текущие суммы не подтверждены.",
+        "Control example: two synthetic sources for the same historical snapshot differ by USD 4. Current amounts are unconfirmed."
+      ],
+      "next": [
+        "Разобрать подтверждающие записи в INC-102. Не исправлять сумму вручную и не считать восстановление потока исправлением учёта.",
+        "Investigate evidence in INC-102. Do not manually overwrite amounts or equate feed recovery with correcting the ledger."
+      ]
+    },
+    {
+      "id": "REC-103",
+      "key": "robin",
+      "uid": "U-DEMO-005",
+      "sid": "S-DEMO-005",
+      "oid": "ORD-005",
+      "incident": "INC-103",
+      "name": "Demo Robin",
+      "venue": "Limitless",
+      "date": "2026-10-22",
+      "cutoff": "2026-10-22 12:00 UTC",
+      "source": "DEMO-FILL-005",
+      "field": [
+        "Исполнение заявки",
+        "Order fill"
+      ],
+      "recorded": 8,
+      "observed": 8,
+      "reserve": 12,
+      "reason": [
+        "Подтверждённая часть совпала: 8 USD из 20 USD. Отмена остатка 12 USD ещё не подтверждена.",
+        "Confirmed fill matches: USD 8 of USD 20. Cancellation of the USD 12 remainder is still unconfirmed."
+      ],
+      "next": [
+        "Продолжать наблюдение за остатком заявки. Совпадение этой части не завершает всю денежную сверку.",
+        "Continue observing the order remainder. Matching this part does not complete full monetary reconciliation."
+      ]
+    }
+  ]
+}
