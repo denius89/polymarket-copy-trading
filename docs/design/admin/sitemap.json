@@ -1,5 +1,5 @@
 {
-  "revision": "0.42",
+  "revision": "0.43",
   "updatedAt": "2026-10-23",
   "purpose": "Current rebuild entry is in rebuild/figma/manifest.json; sections and earlier packages below remain retired historical mapping.",
   "figma": {
@@ -7,18 +7,22 @@
     "pageId": "1981:29",
     "prototypePageId": "1981:29",
     "prototypePageName": "14 · Admin · новая компоновка",
-    "sharedPageRootFrames": 5,
-    "entryNodeId": "3971:2",
-    "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3971-2",
-    "prototypeEntryStatus": "first-route draft RU; not a full scenario hub"
+    "sharedPageRootFrames": 15,
+    "entryNodeId": "3990:108",
+    "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3990-108",
+    "prototypeEntryStatus": "first-route shared RU/EN with seven synthetic role contexts; not a full scenario hub"
   },
   "sources": [
     "118_admin_console_figma_design_brief_2026-10-09.md",
     "current Figma RU/EN root frame inventory"
   ],
   "counts": {
-    "ru": 5,
-    "en": 0
+    "uniqueRoots": 15,
+    "ru": 15,
+    "en": 15,
+    "counting": "RU and EN use the same roots, not 30 distinct frames",
+    "screens": 8,
+    "overlays": 7
   },
   "sections": [
     {
@@ -11075,36 +11079,172 @@
     "manifest": "rebuild/figma/manifest.json",
     "screens": [
       {
-        "key": "F01",
+        "key": "overview",
         "id": "3971:2",
         "title": "Обзор",
-        "locale": "ru"
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "screen"
       },
       {
-        "key": "F02",
+        "key": "users",
         "id": "3971:3",
-        "title": "Пользователи · требуют внимания",
-        "locale": "ru"
+        "title": "Пользователи · проверка проблемных сессий",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "screen"
       },
       {
-        "key": "F03",
+        "key": "user",
         "id": "3971:4",
-        "title": "Demo Noor",
-        "locale": "ru"
+        "title": "Карточка пользователя",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "screen"
       },
       {
-        "key": "F04",
+        "key": "session",
         "id": "3971:5",
-        "title": "S-DEMO-002",
-        "locale": "ru"
+        "title": "Торговая сессия",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "screen"
       },
       {
-        "key": "F05",
+        "key": "order",
         "id": "3971:6",
-        "title": "ORD-002",
-        "locale": "ru"
+        "title": "Заявка",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "screen"
+      },
+      {
+        "key": "entry",
+        "id": "3990:108",
+        "title": "Учебные входы",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "screen"
+      },
+      {
+        "key": "profile",
+        "id": "3990:109",
+        "title": "Личный профиль · язык и права",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "screen"
+      },
+      {
+        "key": "denied",
+        "id": "3990:110",
+        "title": "Нет доступа",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "screen"
+      },
+      {
+        "key": "venue",
+        "id": "3990:111",
+        "title": "Площадка",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "overlay"
+      },
+      {
+        "key": "period",
+        "id": "3990:112",
+        "title": "Период",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "overlay"
+      },
+      {
+        "key": "search",
+        "id": "3990:113",
+        "title": "Поиск по учебным записям",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "overlay"
+      },
+      {
+        "key": "status",
+        "id": "3990:114",
+        "title": "Состояние",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "overlay"
+      },
+      {
+        "key": "columns",
+        "id": "3990:115",
+        "title": "Столбцы",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "overlay"
+      },
+      {
+        "key": "help",
+        "id": "3990:116",
+        "title": "Подсказка о демо-средствах",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "overlay"
+      },
+      {
+        "key": "language",
+        "id": "3997:36",
+        "title": "Язык интерфейса",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "kind": "overlay"
       }
     ],
-    "qa": "rebuild/qa.md"
+    "qa": "rebuild/figma/interactive/verification.md",
+    "roleContexts": 7
   }
 }
