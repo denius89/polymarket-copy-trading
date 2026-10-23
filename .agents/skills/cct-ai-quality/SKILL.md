@@ -1,6 +1,6 @@
 ---
 name: cct-ai-quality
-description: Evaluate substantial AI deliverables and project skills for Controlled Copy Trading using traceable evidence, scope, failure cases and proportionate cost. Use for quality reviews, readiness claims and skill evaluations; does not certify product safety or authorize release.
+description: Evaluate AI deliverables or project skills when a quality review, readiness assessment or skill evaluation is requested. Ordinary task verification does not require this separate review workflow.
 ---
 
 # S10 · Оценка качества AI
@@ -17,7 +17,7 @@ description: Evaluate substantial AI deliverables and project skills for Control
 
 ## Проверка навыка
 
-Перед прогоном определи ожидаемые наблюдаемые свойства. В [протоколе оценки](../../../docs/ai-system/evals/PROTOCOL.md) есть изолированные cases, отдельные oracle и фиксация результата. Для практики прочитай [пакет S10](../../../docs/ai-system/learning/S10.md).
+Этот раздел применяется только к оценке навыков/эксперименту, а не обычной проверке интерфейса. Перед прогоном определи ожидаемые наблюдаемые свойства. В [протоколе оценки](../../../docs/ai-system/evals/PROTOCOL.md) есть изолированные cases, отдельные oracle и фиксация результата. Для практики прочитай [пакет S10](../../../docs/ai-system/learning/S10.md).
 
 - Проверь положительные, отрицательные и пограничные triggers; loaded-by-path не доказывает автоматический discovery.
 - Разделяй структуру, детерминированные проверки инструментария, собственный пилот и независимый поведенческий прогон. Автор, видевший oracle, не может объявить собственный ответ blind holdout.

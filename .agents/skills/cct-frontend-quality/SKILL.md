@@ -1,11 +1,11 @@
 ---
 name: cct-frontend-quality
-description: Assess frontend state handling, accessibility, responsive behavior and measured performance for this project. Use for frontend review or preparation, not deriving runtime success from mockups.
+description: Assess frontend state handling, accessibility, responsive behavior and measured performance for this project. Use for frontend implementation review; a Figma-only layout change does not require runtime performance testing.
 ---
 
 # S06 · Качество frontend и performance
 
-Применяй к существующему проекту и текущему поручению. Для границ подготовки, evidence и выбора источников прочитай [общие правила](../../../docs/ai-system/OPERATING_RULES.md). Подготовка процедуры не является разрешением выполнять описанные внешние действия.
+Применяй к указанному предмету и объёму задачи. [Общие правила](../../../docs/ai-system/OPERATING_RULES.md) прочитай при первом использовании в чате; повторно — если они изменились или возник конфликт. Навык не добавляет полномочий и не отменяет уже данное поручение.
 
 ## Процедура
 
@@ -16,13 +16,6 @@ description: Assess frontend state handling, accessibility, responsive behavior 
 5. При reconnect/retry проверь bounded backoff с jitter, предел попыток/общего времени, один активный цикл и отмену устаревшего timer/request при unmount, смене соединения или успешном sync. Для review предложи конкретную стратегию и проверку, а не только название storm; параметры без принятого бюджета обозначь предложением. Для денежных запросов сначала сверка unknown/idempotency, а не слепой retry.
 6. Выдай отдельные functional, visual, accessibility и performance выводы с воспроизводимыми условиями. Числовые бюджеты бери из актуального проекта или предложи явно, не придумывая принятие.
 
-## Знания и проверка
+## Дополнительные материалы
 
-Для предметной работы: [пакет S06](../../../docs/ai-system/learning/S06.md) и нужный раздел [опор области](../../../docs/ai-system/knowledge/domains/engineering.md). Прочитай относящиеся первичные материалы, а не только индекс; не загружай учебные задания при каждом простом запросе.
-
-Результат: конкретный ответ в рамках поручения с основаниями, ограничениями и существенными рисками. Выбирай формат по задаче. Проверяй следующие свойства:
-
-- Не подтверждать INP/WCAG runtime по картинке.
-- Подготовить соразмерный план измерений без начала frontend.
-
-Смежные процедуры: S04, S05. Это зависимости знаний/проверки, не команда автоматически запускать все навыки или агентов.
+[пакет S06](../../../docs/ai-system/learning/S06.md) и нужный раздел [опор области](../../../docs/ai-system/knowledge/domains/engineering.md). Открывай только если для текущего решения не хватает конкретного правила или источника. Учебные задания и исторические eval-кейсы нужны при обучении/оценке навыка, не при обычной работе.
