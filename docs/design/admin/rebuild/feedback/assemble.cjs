@@ -1,0 +1,7 @@
+// Prints a bounded native Figma script. Execute through the official Figma connector.
+// Existing helpers are reused; this is construction history, not an exact Figma backup.
+const fs=require('node:fs'),path=require('node:path');const base=path.resolve(__dirname,'..');const read=p=>fs.readFileSync(path.join(base,p),'utf8');const json=p=>JSON.stringify(JSON.parse(read(p)));const job=process.argv[2]||'list';if(!['list','detail','options','link','integrate','verify'].includes(job))throw Error('Unknown job');
+const profile=read('figma/interactive/profile-common.js').split('\n');
+let code='const MODEL='+json('figma/interactive/model.json')+';\n'+read('figma/interactive/common.js')+'\n'+profile.slice(1,3).concat(profile.slice(8,9),profile.slice(16,22),profile.slice(32,39)).join('\n')+'\nconst SUPPORT='+json('support/model.json')+';\n'+read('support/common.js')+'\nconst FEEDBACK='+json('feedback/model.json')+';\n'+read('feedback/common.js')+'\nconst JOB='+JSON.stringify(job)+';\n';
+let source=job==='integrate'?read('feedback/integrate.js'):job==='verify'?read('feedback/verify-figma.js'):['list','detail'].includes(job)?read('feedback/screens.js'):read('feedback/menus.js');
+if(job==='list')source=source.split("if(JOB==='detail')")[0];if(job==='detail')source="if(JOB==='detail')"+source.split("if(JOB==='detail')")[1];code+=source;if(code.length>50000)throw Error('Split the operation before sending to Figma');process.stdout.write(code);
