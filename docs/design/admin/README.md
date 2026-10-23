@@ -1,3 +1,5 @@
+Текущий срез новой админки: [профиль всех ролей в Figma и HTML](rebuild/figma/interactive/profile-contract.md), [результаты проверки](rebuild/figma/interactive/profile-verification.md), [план 1.3](rebuild/README.md). Карта 0.44; 24 общих корня RU/EN. Личные данные, защита и свои сеансы доступны; это учебный прототип без реальных внешних действий.
+
 Актуально, 23.10.2026 · карта 0.43: [входы первого маршрута RU/EN](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=3990-108&starting-point-node-id=3990-108&scaling=scale-down). 15 общих корней (8 экранов и 7 меню), 7 учебных контекстов; язык не дублирует кадры. Рабочие фильтры, выбор строк, профиль с языком и правами, связанные детали. [Реестр](rebuild/figma/manifest.json) · [Ручная проверка и ограничения](rebuild/figma/interactive/verification.md). Это первый срез новой админки; старые ID ниже — история.
 
 Актуально, 23.10.2026: [новый первый срез](rebuild/foundation.md), [план](rebuild/README.md), [проверки](rebuild/qa.md). В Figma 5 новых экранов RU; текущий реестр — rebuild/figma/manifest.json. Прежние пакеты ниже относятся к удалённым макетам.

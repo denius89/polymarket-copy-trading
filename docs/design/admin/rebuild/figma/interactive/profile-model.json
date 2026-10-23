@@ -1,0 +1,126 @@
+{
+  "baseline": "8ee49250146520a755ca7cfce1cc08323dc01925",
+  "profile": "3990:109",
+  "views": [
+    "details",
+    "security",
+    "sessions",
+    "interface",
+    "rights"
+  ],
+  "roots": {
+    "field": "4028:168",
+    "confirm": "4028:169",
+    "auth": "4028:170",
+    "keys": "4028:171",
+    "email": "4028:172",
+    "codes": "4028:173",
+    "logout": "4028:174",
+    "recovery": "4028:175",
+    "test": "4028:176"
+  },
+  "accounts": [
+    {
+      "role": "ownerA",
+      "id": "STAFF-201",
+      "nameRu": "Елена Морозова",
+      "nameEn": "Elena Morozova",
+      "shortRu": "Елена",
+      "shortEn": "Elena",
+      "initials": "EM",
+      "email": "elena@shadow.example",
+      "owner": true
+    },
+    {
+      "role": "ownerB",
+      "id": "STAFF-202",
+      "nameRu": "Максим Орлов",
+      "nameEn": "Maxim Orlov",
+      "shortRu": "Максим",
+      "shortEn": "Maxim",
+      "initials": "MO",
+      "email": "maxim@shadow.example",
+      "owner": true
+    },
+    {
+      "role": "lead",
+      "id": "STAFF-206",
+      "nameRu": "Олег Смирнов",
+      "nameEn": "Oleg Smirnov",
+      "shortRu": "Олег",
+      "shortEn": "Oleg",
+      "initials": "OS",
+      "email": "oleg@shadow.example",
+      "owner": false
+    },
+    {
+      "role": "ops",
+      "id": "STAFF-203",
+      "nameRu": "Нора Азиз",
+      "nameEn": "Nora Aziz",
+      "shortRu": "Нора",
+      "shortEn": "Nora",
+      "initials": "NA",
+      "email": "nora@shadow.example",
+      "owner": false
+    },
+    {
+      "role": "limited",
+      "id": "STAFF-203",
+      "nameRu": "Нора Азиз",
+      "nameEn": "Nora Aziz",
+      "shortRu": "Нора",
+      "shortEn": "Nora",
+      "initials": "NA",
+      "email": "nora@shadow.example",
+      "owner": false
+    },
+    {
+      "role": "marketing",
+      "id": "STAFF-204",
+      "nameRu": "Ирина Волкова",
+      "nameEn": "Irina Volkova",
+      "shortRu": "Ирина",
+      "shortEn": "Irina",
+      "initials": "IV",
+      "email": "irina@shadow.example",
+      "owner": false
+    },
+    {
+      "role": "audit",
+      "id": "STAFF-205",
+      "nameRu": "Аудитор",
+      "nameEn": "Auditor",
+      "shortRu": "Аудитор Shadow",
+      "shortEn": "Shadow auditor",
+      "initials": "AU",
+      "email": "audit@shadow.example",
+      "owner": false
+    }
+  ],
+  "sessions": [
+    {
+      "key": "current",
+      "id": "SELF-01",
+      "device": "Safari · macOS",
+      "time": "12:00 UTC",
+      "current": true
+    },
+    {
+      "key": "laptop",
+      "id": "SELF-02",
+      "device": "Chrome · Windows",
+      "time": "11:42 UTC",
+      "current": false
+    },
+    {
+      "key": "mobile",
+      "id": "SELF-03",
+      "device": "Firefox · Linux",
+      "time": "10:15 UTC",
+      "current": false
+    }
+  ],
+  "sampleDate": "2026-10-23",
+  "notes": "Synthetic account-scoped fixtures. SELF IDs belong to the currently selected STAFF account; no fabricated location. Entry starts a new test session. No real credentials or auth-provider selected."
+}
