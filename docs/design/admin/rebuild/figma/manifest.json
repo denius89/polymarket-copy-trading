@@ -1,20 +1,20 @@
 {
-  "version": "0.11",
+  "version": "0.12",
   "date": "2026-10-25",
-  "status": "finance-increment-complete-full-admin-open",
+  "status": "platforms-increment-complete-full-admin-open",
   "baseline": "bfb97e79197b89413b14eab4423dc9d651f63d91",
   "fileKey": "lxPP2um7FvIbt02K8eeH4T",
   "pageId": "1981:29",
   "entry": "3990:108",
   "counts": {
-    "uniqueRoots": 130,
-    "ru": 130,
-    "en": 130,
-    "counting": "65 desktop + 65 mobile roots; RU/EN share the same 130 roots, not 260",
-    "screens": 62,
-    "overlays": 68,
-    "desktopRoots": 65,
-    "mobileRoots": 65
+    "uniqueRoots": 152,
+    "ru": 152,
+    "en": 152,
+    "counting": "76 desktop + 76 mobile; RU/EN share roots, not 304",
+    "screens": 78,
+    "overlays": 74,
+    "desktopRoots": 76,
+    "mobileRoots": 76
   },
   "screens": [
     {
@@ -731,6 +731,127 @@
       ],
       "sharedFrame": true,
       "source": "../finance/figma-model.json"
+    },
+    {
+      "key": "dataConnections",
+      "id": "4200:1133",
+      "kind": "screen",
+      "title": "dataConnections",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "dataMarkets",
+      "id": "4200:1134",
+      "kind": "screen",
+      "title": "dataMarkets",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "dataMarket",
+      "id": "4200:1135",
+      "kind": "screen",
+      "title": "dataMarket",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "dataCollector",
+      "id": "4200:1136",
+      "kind": "screen",
+      "title": "dataCollector",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "dataValidator",
+      "id": "4200:1137",
+      "kind": "screen",
+      "title": "dataValidator",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "dataRating",
+      "id": "4200:1138",
+      "kind": "screen",
+      "title": "dataRating",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "dataResults",
+      "id": "4200:1139",
+      "kind": "screen",
+      "title": "dataResults",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "dataFilters",
+      "id": "4200:1140",
+      "kind": "overlay",
+      "title": "dataFilters",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "dataOptions",
+      "id": "4200:1141",
+      "kind": "overlay",
+      "title": "dataOptions",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "dataCommand",
+      "id": "4200:1142",
+      "kind": "screen",
+      "title": "dataCommand",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "dataScenario",
+      "id": "4200:1143",
+      "kind": "overlay",
+      "title": "dataScenario",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
     }
   ],
   "roleContexts": 7,
@@ -794,7 +915,7 @@
   "responsive": {
     "width": 390,
     "entry": "4160:650",
-    "inventory": "../finance/mobile-inventory.json",
+    "inventory": "../platforms/mobile-inventory.json",
     "screens": [
       {
         "key": "overview",
@@ -1315,6 +1436,94 @@
         "width": 390,
         "height": 844,
         "kind": "screen"
+      },
+      {
+        "key": "dataConnections",
+        "desktop": "4200:1133",
+        "id": "4214:63892",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "dataMarkets",
+        "desktop": "4200:1134",
+        "id": "4214:63959",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "dataMarket",
+        "desktop": "4200:1135",
+        "id": "4214:64025",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "dataCollector",
+        "desktop": "4200:1136",
+        "id": "4214:64084",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "dataValidator",
+        "desktop": "4200:1137",
+        "id": "4214:64158",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "dataRating",
+        "desktop": "4200:1138",
+        "id": "4214:64222",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "dataResults",
+        "desktop": "4200:1139",
+        "id": "4214:64290",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "dataFilters",
+        "desktop": "4200:1140",
+        "id": "4214:64360",
+        "width": 390,
+        "height": 760,
+        "kind": "overlay"
+      },
+      {
+        "key": "dataOptions",
+        "desktop": "4200:1141",
+        "id": "4214:64382",
+        "width": 390,
+        "height": 760,
+        "kind": "overlay"
+      },
+      {
+        "key": "dataCommand",
+        "desktop": "4200:1142",
+        "id": "4214:64393",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "dataScenario",
+        "desktop": "4200:1143",
+        "id": "4214:64455",
+        "width": 390,
+        "height": 760,
+        "kind": "overlay"
       }
     ],
     "financeInventory": "../finance/mobile-inventory.json"
@@ -1323,6 +1532,12 @@
     "model": "../finance/figma-model.json",
     "mobile": "../finance/mobile-inventory.json",
     "verification": "../finance/verification.md",
+    "freeInput": "HTML only; Figma uses prepared examples"
+  },
+  "platforms": {
+    "model": "../platforms/figma-model.json",
+    "mobile": "../platforms/mobile-inventory.json",
+    "verification": "../platforms/verification.md",
     "freeInput": "HTML only; Figma uses prepared examples"
   }
 }

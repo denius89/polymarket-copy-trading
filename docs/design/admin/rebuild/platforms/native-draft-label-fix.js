@@ -1,0 +1,2 @@
+// Inject shared prefix. Application label follows confirmed outcome only.
+const changes=[];for(const id of ['4200:1142','4214:64393']){const root=await figma.getNodeByIdAsync(id),b=root.findOne(n=>n.name==='Проверить результат этой команды');const rx=JSON.parse(JSON.stringify(b.reactions));for(const q of rx){delete q.action;q.actions.push(when(AND(ddiag,DQ('phase','confirmed'),DQ('kind','collector'),DQ('collectorDraft',false)),setPair(D('draftLabel'),'Черновик применён','Draft applied')));}await b.setReactionsAsync(rx);changes.push(b.id);}return {mutatedNodeIds:changes};
