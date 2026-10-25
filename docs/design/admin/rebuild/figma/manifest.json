@@ -1,18 +1,18 @@
 {
-  "version": "0.7",
-  "date": "2026-10-23",
-  "status": "first-route-profile-support-feedback-incidents-reconciliation-checked-owner-review-open",
-  "baseline": "47b5a0c724870a29cb4208b94d038ba0bddc6f36",
+  "version": "0.8",
+  "date": "2026-10-25",
+  "status": "trading-evidence-and-recovery-eligibility-added-owner-review-open",
+  "baseline": "a4e2cded1ba3cf7219e2a940458a924d15fd9750",
   "fileKey": "lxPP2um7FvIbt02K8eeH4T",
   "pageId": "1981:29",
   "entry": "3990:108",
   "counts": {
-    "uniqueRoots": 43,
-    "ru": 43,
-    "en": 43,
-    "counting": "RU and EN use the same roots, not 86 distinct frames",
-    "screens": 18,
-    "overlays": 25
+    "uniqueRoots": 47,
+    "ru": 47,
+    "en": 47,
+    "counting": "RU and EN use the same roots, not 94 distinct frames",
+    "screens": 20,
+    "overlays": 27
   },
   "screens": [
     {
@@ -487,6 +487,50 @@
         "en"
       ],
       "sharedFrame": true
+    },
+    {
+      "key": "tradingReview",
+      "id": "4127:346",
+      "title": "Исполнение заявки",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "tradingOptions",
+      "id": "4127:347",
+      "title": "Учебный снимок состояния",
+      "kind": "overlay",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "tradingRecovery",
+      "id": "4127:348",
+      "title": "Проверка восстановления",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "tradingResult",
+      "id": "4127:349",
+      "title": "Результат проверки",
+      "kind": "overlay",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
     }
   ],
   "roleContexts": 7,
@@ -502,7 +546,8 @@
     "Security and email responses are synthetic. One pending session termination is reconciled before another in this sample.",
     "Support uses three synthetic conversations. Figma selects sample text and displays one prepared reply/note per conversation; HTML supports arbitrary local text.",
     "Support queue dates are snapshot dates. No backend delivery, persistence, new-ticket creation, closed/reopen or concurrent-agent workflow.",
-    "Reconciliation compares one synthetic measure, not all flows or fees. HTML retains run history in memory; Figma displays the latest check and prepared inputs. No monetary side effects."
+    "Reconciliation compares one synthetic measure, not all flows or fees. HTML retains run history in memory; Figma displays the latest check and prepared inputs. No monetary side effects.",
+    "Trading provides 12 alternative synthetic snapshots and read-only completion checks; original reconciliation records stay unchanged. No execution, emergency dual approval or backend recovery."
   ],
   "accountModel": "interactive/profile-model.json",
   "supportModel": "../support/model.json",
@@ -524,5 +569,16 @@
     "contract": "../reconciliation/README.md",
     "verification": "../reconciliation/verification.md",
     "inventory": "../reconciliation/root-inventory.json"
+  },
+  "trading": {
+    "contract": "../trading/README.md",
+    "verification": "../trading/verification.md",
+    "nativeStates": 12,
+    "roots": {
+      "tradingReview": "4127:346",
+      "tradingOptions": "4127:347",
+      "tradingRecovery": "4127:348",
+      "tradingResult": "4127:349"
+    }
   }
 }

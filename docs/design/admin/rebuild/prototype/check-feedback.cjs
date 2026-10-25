@@ -1,7 +1,7 @@
 'use strict';
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
 const c={structuredClone,Set,Date,console,document:{addEventListener(){},querySelector(){return {textContent:'',innerHTML:'',setAttribute(){},focus(){}}},documentElement:{}},window:{scrollTo(){}}};vm.createContext(c);
-for(const f of ['account-fixtures.js','account.js','support.js','feedback.js','incidents.js','reconciliation.js','app.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,f),'utf8').replace(f==='app.js'?/render\(\);\s*$/:/$^/,''),c);
+for(const f of ['account-fixtures.js','account.js','support.js','feedback.js','incidents.js','reconciliation.js','trading.js','app.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,f),'utf8').replace(f==='app.js'?/render\(\);\s*$/:/$^/,''),c);
 const run=s=>vm.runInContext(s,c);run('render=()=>{}');let n=0;const ok=(s,label)=>{assert.ok(run(s),label);n++;};
 for(const role of ['ownerA','ownerB','lead','ops','limited','marketing','audit']){
  run(`state.role='${role}';account=newAccount(state.role);support=newSupport();feedback=newFeedback();`);
