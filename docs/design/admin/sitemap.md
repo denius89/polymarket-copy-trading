@@ -1063,3 +1063,5 @@
 | Ограниченное восстановление · маркетинг | [RU](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3734-147220) | [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3734-147295) |
 | Ограниченное восстановление · аудитор | [RU](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3734-147370) | [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3734-147445) |
 | Ограниченное восстановление · операционное назначение Норы | [RU](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3734-147520) | [EN](https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3734-147595) |
+
+25.10.2026: добавлен [контент/маркетинг](rebuild/content/README.md). Актуальная карта: 178 общих RU/EN корней, 100 экранов и 78 меню; [реестр](rebuild/figma/manifest.json).
