@@ -2,7 +2,7 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const listeners={};const element={innerHTML:'',textContent:'',focus(){},setAttribute(){}};
 const c=vm.createContext({structuredClone,Intl,Date,Set,document:{documentElement:{},activeElement:null,querySelector:s=>s==='.tooltip'?null:element,addEventListener:(type,fn)=>(listeners[type]??=[]).push(fn)},window:{scrollTo(){}}});
-for(const f of ['account-fixtures.js','account.js','support.js','feedback.js','incidents.js','reconciliation.js','trading.js','emergency.js','app.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),c);
+for(const f of ['account-fixtures.js','account.js','support.js','feedback.js','incidents.js','reconciliation.js','trading.js','emergency.js','finance.js','app.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),c);
 const read=s=>vm.runInContext(s,c);read('render=()=>{}');
 let checks=0;const ok=(code,expected=true)=>{assert.equal(read(code),expected,code);checks++;};
 for(const role of ['ownerA','ownerB','lead','ops','limited','marketing','audit']){

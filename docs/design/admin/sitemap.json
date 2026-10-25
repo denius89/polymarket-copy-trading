@@ -1,5 +1,5 @@
 {
-  "revision": "0.51",
+  "revision": "0.52",
   "updatedAt": "2026-10-25",
   "purpose": "Current rebuild entry is in rebuild/figma/manifest.json; sections and earlier packages below remain retired historical mapping.",
   "figma": {
@@ -7,10 +7,10 @@
     "pageId": "1981:29",
     "prototypePageId": "1981:29",
     "prototypePageName": "14 · Admin · новая компоновка",
-    "sharedPageRootFrames": 102,
+    "sharedPageRootFrames": 130,
     "entryNodeId": "3990:108",
     "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3990-108",
-    "prototypeEntryStatus": "First route, profile, support, feedback, incidents, reconciliation, trading and synthetic two-approver emergency recovery; shared RU/EN, seven assignments; not full admin",
+    "prototypeEntryStatus": "First route, profile, support, feedback, incidents, reconciliation, trading and synthetic two-approver emergency recovery; shared RU/EN, seven assignments; not full admin; finance increment",
     "mobileEntryNodeId": "4160:650"
   },
   "sources": [
@@ -18,14 +18,14 @@
     "current Figma RU/EN root frame inventory"
   ],
   "counts": {
-    "uniqueRoots": 102,
-    "ru": 102,
-    "en": 102,
-    "counting": "51 desktop + 51 mobile roots; RU and EN share these same 102 roots, not 204 frames",
-    "screens": 42,
-    "overlays": 60,
-    "desktopRoots": 51,
-    "mobileRoots": 51
+    "uniqueRoots": 130,
+    "ru": 130,
+    "en": 130,
+    "counting": "65 desktop + 65 mobile roots; RU/EN share the same 130 roots, not 260",
+    "screens": 62,
+    "overlays": 68,
+    "desktopRoots": 65,
+    "mobileRoots": 65
   },
   "sections": [
     {
@@ -11553,6 +11553,248 @@
           "en"
         ],
         "sharedFrame": true
+      },
+      {
+        "key": "tradingReview",
+        "id": "4127:346",
+        "title": "Исполнение заявки",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true
+      },
+      {
+        "key": "tradingOptions",
+        "id": "4127:347",
+        "title": "Учебный снимок состояния",
+        "kind": "overlay",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true
+      },
+      {
+        "key": "tradingRecovery",
+        "id": "4127:348",
+        "title": "Проверка восстановления",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true
+      },
+      {
+        "key": "tradingResult",
+        "id": "4127:349",
+        "title": "Результат проверки",
+        "kind": "overlay",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true
+      },
+      {
+        "key": "emergency",
+        "id": "4143:371",
+        "title": "Аварийное восстановление",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true
+      },
+      {
+        "key": "emergencyScope",
+        "id": "4143:372",
+        "title": "Выбор ограничения",
+        "kind": "overlay",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true
+      },
+      {
+        "key": "emergencyProof",
+        "id": "4143:373",
+        "title": "Проверка личности",
+        "kind": "overlay",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true
+      },
+      {
+        "key": "emergencyTests",
+        "id": "4143:374",
+        "title": "Учебные проверки ошибок",
+        "kind": "overlay",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true
+      },
+      {
+        "key": "financeOverview",
+        "id": "4167:722",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../finance/figma-model.json"
+      },
+      {
+        "key": "financeMovements",
+        "id": "4167:723",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../finance/figma-model.json"
+      },
+      {
+        "key": "financePartners",
+        "id": "4167:724",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../finance/figma-model.json"
+      },
+      {
+        "key": "financePartner",
+        "id": "4167:725",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../finance/figma-model.json"
+      },
+      {
+        "key": "financePayouts",
+        "id": "4167:726",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../finance/figma-model.json"
+      },
+      {
+        "key": "financePayout",
+        "id": "4167:727",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../finance/figma-model.json"
+      },
+      {
+        "key": "financeSettings",
+        "id": "4167:728",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../finance/figma-model.json"
+      },
+      {
+        "key": "financePolicy",
+        "id": "4167:729",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../finance/figma-model.json"
+      },
+      {
+        "key": "financeSource",
+        "id": "4167:730",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../finance/figma-model.json"
+      },
+      {
+        "key": "financeFilters",
+        "id": "4167:731",
+        "kind": "overlay",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../finance/figma-model.json"
+      },
+      {
+        "key": "financeScenario",
+        "id": "4167:732",
+        "kind": "overlay",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../finance/figma-model.json"
+      },
+      {
+        "key": "financeProof",
+        "id": "4167:733",
+        "kind": "overlay",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../finance/figma-model.json"
+      },
+      {
+        "key": "financePolicyOptions",
+        "id": "4167:734",
+        "kind": "overlay",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../finance/figma-model.json"
+      },
+      {
+        "key": "financeIncident",
+        "id": "4183:63448",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../finance/figma-model.json"
       }
     ],
     "qa": "rebuild/figma/interactive/profile-verification.md",
@@ -11570,10 +11812,548 @@
     "publicPrototype": "https://shadow-admin-demo.denisfedko.chatgpt.site",
     "reconciliation": "rebuild/reconciliation/README.md",
     "responsive": {
-      "roots": 51,
       "width": 390,
       "entry": "4160:650",
-      "verification": "rebuild/role-mobile/verification.md"
+      "inventory": "../finance/mobile-inventory.json",
+      "screens": [
+        {
+          "key": "overview",
+          "id": "4162:707",
+          "kind": "screen",
+          "desktop": "3971:2",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "users",
+          "id": "4159:420",
+          "kind": "screen",
+          "desktop": "3971:3",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "user",
+          "id": "4160:429",
+          "kind": "screen",
+          "desktop": "3971:4",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "session",
+          "id": "4160:506",
+          "kind": "screen",
+          "desktop": "3971:5",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "order",
+          "id": "4160:577",
+          "kind": "screen",
+          "desktop": "3971:6",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "entry",
+          "id": "4160:650",
+          "kind": "screen",
+          "desktop": "3990:108",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "profile",
+          "id": "4160:684",
+          "kind": "screen",
+          "desktop": "3990:109",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "denied",
+          "id": "4160:876",
+          "kind": "screen",
+          "desktop": "3990:110",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "venue",
+          "id": "4161:456",
+          "kind": "overlay",
+          "desktop": "3990:111",
+          "width": 390,
+          "height": 361
+        },
+        {
+          "key": "period",
+          "id": "4161:467",
+          "kind": "overlay",
+          "desktop": "3990:112",
+          "width": 390,
+          "height": 319
+        },
+        {
+          "key": "search",
+          "id": "4161:490",
+          "kind": "overlay",
+          "desktop": "3990:113",
+          "width": 390,
+          "height": 455
+        },
+        {
+          "key": "status",
+          "id": "4161:504",
+          "kind": "overlay",
+          "desktop": "3990:114",
+          "width": 390,
+          "height": 429
+        },
+        {
+          "key": "columns",
+          "id": "4161:517",
+          "kind": "overlay",
+          "desktop": "3990:115",
+          "width": 390,
+          "height": 337
+        },
+        {
+          "key": "help",
+          "id": "4161:527",
+          "kind": "overlay",
+          "desktop": "3990:116",
+          "width": 390,
+          "height": 265
+        },
+        {
+          "key": "language",
+          "id": "4161:63013",
+          "kind": "overlay",
+          "desktop": "3997:36",
+          "width": 390,
+          "height": 293
+        },
+        {
+          "key": "account-field",
+          "id": "4161:63025",
+          "kind": "overlay",
+          "desktop": "4028:168",
+          "width": 390,
+          "height": 514
+        },
+        {
+          "key": "account-confirm",
+          "id": "4161:63056",
+          "kind": "overlay",
+          "desktop": "4028:169",
+          "width": 390,
+          "height": 446
+        },
+        {
+          "key": "account-auth",
+          "id": "4161:63076",
+          "kind": "overlay",
+          "desktop": "4028:170",
+          "width": 390,
+          "height": 544
+        },
+        {
+          "key": "account-keys",
+          "id": "4161:63103",
+          "kind": "overlay",
+          "desktop": "4028:171",
+          "width": 390,
+          "height": 522
+        },
+        {
+          "key": "account-email",
+          "id": "4161:63147",
+          "kind": "overlay",
+          "desktop": "4028:172",
+          "width": 390,
+          "height": 608
+        },
+        {
+          "key": "account-codes",
+          "id": "4161:63169",
+          "kind": "overlay",
+          "desktop": "4028:173",
+          "width": 390,
+          "height": 422
+        },
+        {
+          "key": "account-logout",
+          "id": "4161:63185",
+          "kind": "screen",
+          "desktop": "4028:174",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "account-recovery",
+          "id": "4161:63198",
+          "kind": "screen",
+          "desktop": "4028:175",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "account-test",
+          "id": "4161:63218",
+          "kind": "overlay",
+          "desktop": "4028:176",
+          "width": 390,
+          "height": 594
+        },
+        {
+          "key": "support-support",
+          "id": "4161:63238",
+          "kind": "screen",
+          "desktop": "4058:143",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "support-ticket",
+          "id": "4161:63374",
+          "kind": "screen",
+          "desktop": "4058:144",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "support-filters",
+          "id": "4161:63655",
+          "kind": "overlay",
+          "desktop": "4058:145",
+          "width": 390,
+          "height": 504
+        },
+        {
+          "key": "support-compose",
+          "id": "4161:63708",
+          "kind": "overlay",
+          "desktop": "4058:146",
+          "width": 390,
+          "height": 396
+        },
+        {
+          "key": "support-status",
+          "id": "4161:63719",
+          "kind": "overlay",
+          "desktop": "4058:147",
+          "width": 390,
+          "height": 444
+        },
+        {
+          "key": "support-assign",
+          "id": "4161:63732",
+          "kind": "overlay",
+          "desktop": "4058:148",
+          "width": 390,
+          "height": 400
+        },
+        {
+          "key": "support-test",
+          "id": "4161:63743",
+          "kind": "overlay",
+          "desktop": "4058:149",
+          "width": 390,
+          "height": 440
+        },
+        {
+          "key": "feedback",
+          "id": "4161:63756",
+          "kind": "screen",
+          "desktop": "4072:197",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "feedbackItem",
+          "id": "4161:63888",
+          "kind": "screen",
+          "desktop": "4072:198",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "feedbackOptions",
+          "id": "4161:64159",
+          "kind": "overlay",
+          "desktop": "4072:199",
+          "width": 390,
+          "height": 532
+        },
+        {
+          "key": "feedbackLink",
+          "id": "4161:64244",
+          "kind": "overlay",
+          "desktop": "4072:200",
+          "width": 390,
+          "height": 428
+        },
+        {
+          "key": "incidents",
+          "id": "4161:64265",
+          "kind": "screen",
+          "desktop": "4083:241",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "incident",
+          "id": "4161:64399",
+          "kind": "screen",
+          "desktop": "4083:242",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "incidentOptions",
+          "id": "4161:64696",
+          "kind": "overlay",
+          "desktop": "4083:243",
+          "width": 390,
+          "height": 508
+        },
+        {
+          "key": "incidentReview",
+          "id": "4161:64794",
+          "kind": "overlay",
+          "desktop": "4083:244",
+          "width": 390,
+          "height": 492
+        },
+        {
+          "key": "reconciliation",
+          "id": "4161:64832",
+          "kind": "screen",
+          "desktop": "4100:294",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "reconciliationItem",
+          "id": "4161:64952",
+          "kind": "screen",
+          "desktop": "4100:295",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "reconciliationOptions",
+          "id": "4161:65194",
+          "kind": "overlay",
+          "desktop": "4100:296",
+          "width": 390,
+          "height": 452
+        },
+        {
+          "key": "reconciliationResult",
+          "id": "4161:65242",
+          "kind": "overlay",
+          "desktop": "4111:346",
+          "width": 390,
+          "height": 200
+        },
+        {
+          "key": "tradingReview",
+          "id": "4161:65247",
+          "kind": "screen",
+          "desktop": "4127:346",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "tradingOptions",
+          "id": "4161:65334",
+          "kind": "overlay",
+          "desktop": "4127:347",
+          "width": 390,
+          "height": 260
+        },
+        {
+          "key": "tradingRecovery",
+          "id": "4161:65366",
+          "kind": "screen",
+          "desktop": "4127:348",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "tradingResult",
+          "id": "4161:65414",
+          "kind": "overlay",
+          "desktop": "4127:349",
+          "width": 390,
+          "height": 200
+        },
+        {
+          "key": "emergency",
+          "id": "4161:65427",
+          "kind": "screen",
+          "desktop": "4143:371",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "key": "emergencyScope",
+          "id": "4161:65508",
+          "kind": "overlay",
+          "desktop": "4143:372",
+          "width": 390,
+          "height": 484
+        },
+        {
+          "key": "emergencyProof",
+          "id": "4161:65519",
+          "kind": "overlay",
+          "desktop": "4143:373",
+          "width": 390,
+          "height": 308
+        },
+        {
+          "key": "emergencyTests",
+          "id": "4161:65526",
+          "kind": "overlay",
+          "desktop": "4143:374",
+          "width": 390,
+          "height": 492
+        },
+        {
+          "key": "financeOverview",
+          "desktop": "4167:722",
+          "id": "4186:63459",
+          "width": 390,
+          "height": 844,
+          "kind": "screen"
+        },
+        {
+          "key": "financeMovements",
+          "desktop": "4167:723",
+          "id": "4186:63578",
+          "width": 390,
+          "height": 844,
+          "kind": "screen"
+        },
+        {
+          "key": "financePartners",
+          "desktop": "4167:724",
+          "id": "4186:63678",
+          "width": 390,
+          "height": 844,
+          "kind": "screen"
+        },
+        {
+          "key": "financePartner",
+          "desktop": "4167:725",
+          "id": "4186:63750",
+          "width": 390,
+          "height": 844,
+          "kind": "screen"
+        },
+        {
+          "key": "financePayouts",
+          "desktop": "4167:726",
+          "id": "4186:63812",
+          "width": 390,
+          "height": 844,
+          "kind": "screen"
+        },
+        {
+          "key": "financePayout",
+          "desktop": "4167:727",
+          "id": "4186:63873",
+          "width": 390,
+          "height": 844,
+          "kind": "screen"
+        },
+        {
+          "key": "financeSettings",
+          "desktop": "4167:728",
+          "id": "4186:63949",
+          "width": 390,
+          "height": 844,
+          "kind": "screen"
+        },
+        {
+          "key": "financePolicy",
+          "desktop": "4167:729",
+          "id": "4186:64022",
+          "width": 390,
+          "height": 844,
+          "kind": "screen"
+        },
+        {
+          "key": "financeSource",
+          "desktop": "4167:730",
+          "id": "4186:64099",
+          "width": 390,
+          "height": 844,
+          "kind": "screen"
+        },
+        {
+          "key": "financeFilters",
+          "desktop": "4167:731",
+          "id": "4186:64185",
+          "width": 390,
+          "height": 760,
+          "kind": "overlay"
+        },
+        {
+          "key": "financeScenario",
+          "desktop": "4167:732",
+          "id": "4186:64201",
+          "width": 390,
+          "height": 760,
+          "kind": "overlay"
+        },
+        {
+          "key": "financeProof",
+          "desktop": "4167:733",
+          "id": "4186:64223",
+          "width": 390,
+          "height": 760,
+          "kind": "overlay"
+        },
+        {
+          "key": "financePolicyOptions",
+          "desktop": "4167:734",
+          "id": "4186:64230",
+          "width": 390,
+          "height": 760,
+          "kind": "overlay"
+        },
+        {
+          "key": "financeIncident",
+          "desktop": "4183:63448",
+          "id": "4186:64239",
+          "width": 390,
+          "height": 844,
+          "kind": "screen"
+        }
+      ],
+      "financeInventory": "../finance/mobile-inventory.json"
+    },
+    "finance": {
+      "model": "../finance/figma-model.json",
+      "mobile": "../finance/mobile-inventory.json",
+      "verification": "../finance/verification.md",
+      "freeInput": "HTML only; Figma uses prepared examples"
+    },
+    "counts": {
+      "uniqueRoots": 130,
+      "ru": 130,
+      "en": 130,
+      "counting": "65 desktop + 65 mobile roots; RU/EN share the same 130 roots, not 260",
+      "screens": 62,
+      "overlays": 68,
+      "desktopRoots": 65,
+      "mobileRoots": 65
     }
   }
 }
