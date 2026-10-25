@@ -1,20 +1,20 @@
 {
-  "version": "0.10",
+  "version": "0.11",
   "date": "2026-10-25",
-  "status": "role-mobile-browser-pass-complete-full-admin-open",
-  "baseline": "96e9395bfc8aae7c77da30c7ef2a5332c8b7d394",
+  "status": "finance-increment-complete-full-admin-open",
+  "baseline": "bfb97e79197b89413b14eab4423dc9d651f63d91",
   "fileKey": "lxPP2um7FvIbt02K8eeH4T",
   "pageId": "1981:29",
   "entry": "3990:108",
   "counts": {
-    "uniqueRoots": 102,
-    "ru": 102,
-    "en": 102,
-    "counting": "51 desktop + 51 mobile roots; RU and EN share these same 102 roots, not 204 frames",
-    "screens": 42,
-    "overlays": 60,
-    "desktopRoots": 51,
-    "mobileRoots": 51
+    "uniqueRoots": 130,
+    "ru": 130,
+    "en": 130,
+    "counting": "65 desktop + 65 mobile roots; RU/EN share the same 130 roots, not 260",
+    "screens": 62,
+    "overlays": 68,
+    "desktopRoots": 65,
+    "mobileRoots": 65
   },
   "screens": [
     {
@@ -577,6 +577,160 @@
         "en"
       ],
       "sharedFrame": true
+    },
+    {
+      "key": "financeOverview",
+      "id": "4167:722",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../finance/figma-model.json"
+    },
+    {
+      "key": "financeMovements",
+      "id": "4167:723",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../finance/figma-model.json"
+    },
+    {
+      "key": "financePartners",
+      "id": "4167:724",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../finance/figma-model.json"
+    },
+    {
+      "key": "financePartner",
+      "id": "4167:725",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../finance/figma-model.json"
+    },
+    {
+      "key": "financePayouts",
+      "id": "4167:726",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../finance/figma-model.json"
+    },
+    {
+      "key": "financePayout",
+      "id": "4167:727",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../finance/figma-model.json"
+    },
+    {
+      "key": "financeSettings",
+      "id": "4167:728",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../finance/figma-model.json"
+    },
+    {
+      "key": "financePolicy",
+      "id": "4167:729",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../finance/figma-model.json"
+    },
+    {
+      "key": "financeSource",
+      "id": "4167:730",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../finance/figma-model.json"
+    },
+    {
+      "key": "financeFilters",
+      "id": "4167:731",
+      "kind": "overlay",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../finance/figma-model.json"
+    },
+    {
+      "key": "financeScenario",
+      "id": "4167:732",
+      "kind": "overlay",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../finance/figma-model.json"
+    },
+    {
+      "key": "financeProof",
+      "id": "4167:733",
+      "kind": "overlay",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../finance/figma-model.json"
+    },
+    {
+      "key": "financePolicyOptions",
+      "id": "4167:734",
+      "kind": "overlay",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../finance/figma-model.json"
+    },
+    {
+      "key": "financeIncident",
+      "id": "4183:63448",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../finance/figma-model.json"
     }
   ],
   "roleContexts": 7,
@@ -640,7 +794,7 @@
   "responsive": {
     "width": 390,
     "entry": "4160:650",
-    "inventory": "../role-mobile/figma-inventory.json",
+    "inventory": "../finance/mobile-inventory.json",
     "screens": [
       {
         "key": "overview",
@@ -1049,7 +1203,126 @@
         "desktop": "4143:374",
         "width": 390,
         "height": 492
+      },
+      {
+        "key": "financeOverview",
+        "desktop": "4167:722",
+        "id": "4186:63459",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "financeMovements",
+        "desktop": "4167:723",
+        "id": "4186:63578",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "financePartners",
+        "desktop": "4167:724",
+        "id": "4186:63678",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "financePartner",
+        "desktop": "4167:725",
+        "id": "4186:63750",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "financePayouts",
+        "desktop": "4167:726",
+        "id": "4186:63812",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "financePayout",
+        "desktop": "4167:727",
+        "id": "4186:63873",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "financeSettings",
+        "desktop": "4167:728",
+        "id": "4186:63949",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "financePolicy",
+        "desktop": "4167:729",
+        "id": "4186:64022",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "financeSource",
+        "desktop": "4167:730",
+        "id": "4186:64099",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "financeFilters",
+        "desktop": "4167:731",
+        "id": "4186:64185",
+        "width": 390,
+        "height": 760,
+        "kind": "overlay"
+      },
+      {
+        "key": "financeScenario",
+        "desktop": "4167:732",
+        "id": "4186:64201",
+        "width": 390,
+        "height": 760,
+        "kind": "overlay"
+      },
+      {
+        "key": "financeProof",
+        "desktop": "4167:733",
+        "id": "4186:64223",
+        "width": 390,
+        "height": 760,
+        "kind": "overlay"
+      },
+      {
+        "key": "financePolicyOptions",
+        "desktop": "4167:734",
+        "id": "4186:64230",
+        "width": 390,
+        "height": 760,
+        "kind": "overlay"
+      },
+      {
+        "key": "financeIncident",
+        "desktop": "4183:63448",
+        "id": "4186:64239",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
       }
-    ]
+    ],
+    "financeInventory": "../finance/mobile-inventory.json"
+  },
+  "finance": {
+    "model": "../finance/figma-model.json",
+    "mobile": "../finance/mobile-inventory.json",
+    "verification": "../finance/verification.md",
+    "freeInput": "HTML only; Figma uses prepared examples"
   }
 }

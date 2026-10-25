@@ -1,0 +1,62 @@
+[
+  {
+    "file": "check-account.cjs",
+    "exit": 0,
+    "stdout": "{\"checks\":169,\"status\":\"pass\",\"roles\":7,\"scope\":\"in-memory account transitions; no server authentication proof\"}",
+    "stderr": ""
+  },
+  {
+    "file": "check-emergency.cjs",
+    "exit": 0,
+    "stdout": "{\"status\":\"pass\",\"assertions\":122,\"scope\":\"Synthetic UI state model, not server authorization or physical-key verification\"}",
+    "stderr": ""
+  },
+  {
+    "file": "check-feedback.cjs",
+    "exit": 0,
+    "stdout": "{\"assertions\":85,\"result\":\"pass\",\"roles\":7,\"scope\":\"synthetic in-memory transitions, not server authorization\"}",
+    "stderr": ""
+  },
+  {
+    "file": "check-finance.cjs",
+    "exit": 0,
+    "stdout": "{\"assertions\":137,\"status\":\"pass\",\"scope\":\"Synthetic finance transitions only; not real authorization or payments\"}",
+    "stderr": ""
+  },
+  {
+    "file": "check-fixtures.cjs",
+    "exit": 0,
+    "stdout": "11 fixture and financial-display assertions passed",
+    "stderr": ""
+  },
+  {
+    "file": "check-incidents.cjs",
+    "exit": 0,
+    "stdout": "{\"assertions\":77,\"result\":\"pass\",\"roles\":7,\"scope\":\"Synthetic in-memory behavior; not server authorization\"}",
+    "stderr": ""
+  },
+  {
+    "file": "check-reconciliation.cjs",
+    "exit": 0,
+    "stdout": "{\"assertions\":91,\"result\":\"pass\",\"roles\":7,\"scope\":\"Synthetic snapshot checks and context; not server authorization\"}",
+    "stderr": ""
+  },
+  {
+    "file": "check-role-context.cjs",
+    "exit": 0,
+    "stdout": "{\"status\":\"pass\",\"assertions\":620,\"roles\":7,\"locales\":2,\"scope\":\"In-memory route and identity invariants; not browser layout or server authorization\"}",
+    "stderr": ""
+  },
+  {
+    "file": "check-support.cjs",
+    "exit": 0,
+    "stdout": "{\"assertions\":91,\"result\":\"pass\",\"roles\":7}",
+    "stderr": ""
+  },
+  {
+    "file": "check-trading.cjs",
+    "exit": 0,
+    "stdout": "{\"assertions\":670,\"status\":\"pass\",\"scope\":\"synthetic viewer, 7 roles, RU/EN; no backend authorization or execution proof\"}",
+    "stderr": ""
+  }
+]
