@@ -1,7 +1,7 @@
 'use strict';
 const fs=require('node:fs');const vm=require('node:vm');const assert=require('node:assert/strict');
 const context=vm.createContext({structuredClone,Intl,Date,Set,document:{documentElement:{},querySelector:selector=>selector==='.tooltip'?null:({innerHTML:''}),addEventListener:()=>{}}});
-for(const file of ['account-fixtures.js','account.js','support.js','feedback.js','incidents.js','reconciliation.js','trading.js','emergency.js','finance.js','platforms.js','app.js']) vm.runInContext(fs.readFileSync(__dirname+'/'+file,'utf8'),context);
+for(const file of ['account-fixtures.js','account.js','support.js','feedback.js','incidents.js','reconciliation.js','trading.js','emergency.js','finance.js','platforms.js','content.js','app.js']) vm.runInContext(fs.readFileSync(__dirname+'/'+file,'utf8'),context);
 vm.runInContext("account=newAccount('lead')",context);
 const read=code=>vm.runInContext(code,context);
 assert.equal(read('users.length'),24);

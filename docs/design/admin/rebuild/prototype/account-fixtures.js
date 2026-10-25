@@ -112,8 +112,8 @@ const accountFixtures=[
     "users": false,
     "money": false,
     "limited": false,
-    "rightsRu": "Контент и маркетинг — последующий этап. В этом назначении нет просмотра клиентов, торговых событий и денежных сумм.",
-    "rightsEn": "Content and marketing are a later stage. This assignment cannot view users, trading events or monetary amounts."
+    "rightsRu": "Тексты, лендинг и объявления — самостоятельная работа по выданным правам. В этом назначении нет просмотра клиентов, торговых событий и денежных сумм.",
+    "rightsEn": "Texts, landing and announcements are managed independently under assigned permissions. This assignment cannot view users, trading events or monetary amounts."
   },
   {
     "role": "audit",
