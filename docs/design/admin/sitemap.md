@@ -1,3 +1,5 @@
+Актуализация 0.49 · 25.10.2026: [торговые состояния и восстановление](rebuild/trading/README.md), [проверки](rebuild/trading/verification.md). 47 общих корней RU/EN: 20 экранов и 27 меню. [Публичный прототип](https://shadow-admin-demo.denisfedko.chatgpt.site).
+
 Актуализация 0.48 · 23.10.2026: [денежная сверка и связь с инцидентами](rebuild/reconciliation/README.md), [проверки и ограничения](rebuild/reconciliation/verification.md). 43 общих корня RU/EN: 18 экранов и 25 меню. [Публичный прототип](https://shadow-admin-demo.denisfedko.chatgpt.site). Данные учебные; денежные команды не выполняются. Ниже — история предыдущих этапов.
 
 Актуализация 0.47 · 23.10.2026: [инциденты и поддержка](rebuild/incidents/README.md), [проверка](rebuild/incidents/verification.md). 39 общих корней RU/EN: 16 экранов и 23 меню. [Публичный учебный прототип](https://shadow-admin-demo.denisfedko.chatgpt.site). Ниже — записи прежних этапов.

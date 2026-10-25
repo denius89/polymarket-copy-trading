@@ -1,7 +1,7 @@
 'use strict';
 const fs=require('node:fs');const vm=require('node:vm');const assert=require('node:assert/strict');
 const context=vm.createContext({structuredClone,Intl,Date,Set,document:{documentElement:{},querySelector:selector=>selector==='.tooltip'?null:({innerHTML:''}),addEventListener:()=>{}}});
-for(const file of ['account-fixtures.js','account.js','support.js','feedback.js','incidents.js','reconciliation.js','app.js']) vm.runInContext(fs.readFileSync(__dirname+'/'+file,'utf8'),context);
+for(const file of ['account-fixtures.js','account.js','support.js','feedback.js','incidents.js','reconciliation.js','trading.js','app.js']) vm.runInContext(fs.readFileSync(__dirname+'/'+file,'utf8'),context);
 vm.runInContext("account=newAccount('lead')",context);
 const read=code=>vm.runInContext(code,context);
 assert.equal(read('users.length'),24);
@@ -14,7 +14,7 @@ read('state.venue="Polymarket";state.from=state.to="2026-10-18"');
 assert.equal(read('filtered().length'),2);
 read('state.issue="issues"');assert.equal(read('filtered()[0].id'),'U-DEMO-002');
 read('state.userId="U-DEMO-002";state.sessionId="S-DEMO-002"');
-assert.equal(read('orderCard().includes("Подтверждённое исполнение</span><strong>—")'),true);
+assert.equal(read('orderCard().includes("Не подтверждено") && tradingCurrent().fill===null'),true);
 assert.equal(read('orderCard().includes("Повторить отправку")'),false);
 read('state.q="Noor"');assert.equal(read('filtered(true).length'),2);
 console.log('11 fixture and financial-display assertions passed');
