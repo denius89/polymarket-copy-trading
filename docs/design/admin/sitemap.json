@@ -1,5 +1,5 @@
 {
-  "revision": "0.50",
+  "revision": "0.51",
   "updatedAt": "2026-10-25",
   "purpose": "Current rebuild entry is in rebuild/figma/manifest.json; sections and earlier packages below remain retired historical mapping.",
   "figma": {
@@ -7,22 +7,25 @@
     "pageId": "1981:29",
     "prototypePageId": "1981:29",
     "prototypePageName": "14 · Admin · новая компоновка",
-    "sharedPageRootFrames": 51,
+    "sharedPageRootFrames": 102,
     "entryNodeId": "3990:108",
     "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3990-108",
-    "prototypeEntryStatus": "First route, profile, support, feedback, incidents, reconciliation, trading and synthetic two-approver emergency recovery; shared RU/EN, seven assignments; not full admin"
+    "prototypeEntryStatus": "First route, profile, support, feedback, incidents, reconciliation, trading and synthetic two-approver emergency recovery; shared RU/EN, seven assignments; not full admin",
+    "mobileEntryNodeId": "4160:650"
   },
   "sources": [
     "118_admin_console_figma_design_brief_2026-10-09.md",
     "current Figma RU/EN root frame inventory"
   ],
   "counts": {
-    "uniqueRoots": 51,
-    "ru": 51,
-    "en": 51,
-    "counting": "RU and EN use the same roots, not 102 distinct frames",
-    "screens": 21,
-    "overlays": 30
+    "uniqueRoots": 102,
+    "ru": 102,
+    "en": 102,
+    "counting": "51 desktop + 51 mobile roots; RU and EN share these same 102 roots, not 204 frames",
+    "screens": 42,
+    "overlays": 60,
+    "desktopRoots": 51,
+    "mobileRoots": 51
   },
   "sections": [
     {
@@ -11565,6 +11568,12 @@
       ]
     },
     "publicPrototype": "https://shadow-admin-demo.denisfedko.chatgpt.site",
-    "reconciliation": "rebuild/reconciliation/README.md"
+    "reconciliation": "rebuild/reconciliation/README.md",
+    "responsive": {
+      "roots": 51,
+      "width": 390,
+      "entry": "4160:650",
+      "verification": "rebuild/role-mobile/verification.md"
+    }
   }
 }
