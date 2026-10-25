@@ -1,0 +1,1 @@
+const fs=require('fs'),path=require('path'),b=path.resolve(__dirname,'..');process.stdout.write('const MODEL='+fs.readFileSync(path.join(b,'figma/interactive/model.json'),'utf8')+';\n'+fs.readFileSync(path.join(b,'figma/interactive/common.js'),'utf8')+'\n'+fs.readFileSync(path.join(__dirname,'native.js'),'utf8'));

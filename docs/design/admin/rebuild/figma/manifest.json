@@ -1,18 +1,18 @@
 {
-  "version": "0.8",
+  "version": "0.9",
   "date": "2026-10-25",
-  "status": "trading-evidence-and-recovery-eligibility-added-owner-review-open",
-  "baseline": "a4e2cded1ba3cf7219e2a940458a924d15fd9750",
+  "status": "emergency-two-approvers-added-owner-review-open",
+  "baseline": "96e9395bfc8aae7c77da30c7ef2a5332c8b7d394",
   "fileKey": "lxPP2um7FvIbt02K8eeH4T",
   "pageId": "1981:29",
   "entry": "3990:108",
   "counts": {
-    "uniqueRoots": 47,
-    "ru": 47,
-    "en": 47,
-    "counting": "RU and EN use the same roots, not 94 distinct frames",
-    "screens": 20,
-    "overlays": 27
+    "uniqueRoots": 51,
+    "ru": 51,
+    "en": 51,
+    "counting": "RU and EN use the same roots, not 102 distinct frames",
+    "screens": 21,
+    "overlays": 30
   },
   "screens": [
     {
@@ -531,6 +531,50 @@
         "en"
       ],
       "sharedFrame": true
+    },
+    {
+      "key": "emergency",
+      "id": "4143:371",
+      "title": "Аварийное восстановление",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "emergencyScope",
+      "id": "4143:372",
+      "title": "Выбор ограничения",
+      "kind": "overlay",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "emergencyProof",
+      "id": "4143:373",
+      "title": "Проверка личности",
+      "kind": "overlay",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "emergencyTests",
+      "id": "4143:374",
+      "title": "Учебные проверки ошибок",
+      "kind": "overlay",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
     }
   ],
   "roleContexts": 7,
@@ -579,6 +623,16 @@
       "tradingOptions": "4127:347",
       "tradingRecovery": "4127:348",
       "tradingResult": "4127:349"
+    }
+  },
+  "emergency": {
+    "contract": "../emergency/README.md",
+    "verification": "../emergency/verification.md",
+    "roots": {
+      "emergency": "4143:371",
+      "emergencyScope": "4143:372",
+      "emergencyProof": "4143:373",
+      "emergencyTests": "4143:374"
     }
   }
 }
