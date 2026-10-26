@@ -3,7 +3,7 @@ const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/st
 const handlers={},nodes=new Map();
 const node=s=>{if(!nodes.has(s))nodes.set(s,{innerHTML:'',textContent:'',dataset:{},setAttribute(){},showModal(){this.open=true},focus(){},insertAdjacentHTML(){},getBoundingClientRect(){return {top:0,left:0,bottom:44,right:100,width:100,height:44}}});return nodes.get(s)};
 const ctx={structuredClone,Set,console,document:{documentElement:{},activeElement:{dataset:{}},addEventListener(k,f){(handlers[k]??=[]).push(f)},querySelector(s){return s==='.tooltip'?null:node(s)}},window:{scrollY:37,scrollTo(){}},Intl,Date};vm.createContext(ctx);
-for(const f of ['account-fixtures.js','account.js','support.js','feedback.js','incidents.js','reconciliation.js','trading.js','emergency.js','finance.js','platforms.js','content.js','app.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx);
+for(const f of ['account-fixtures.js','account.js','support.js','feedback.js','incidents.js','reconciliation.js','trading.js','emergency.js','finance.js','platforms.js','content.js','management.js','app.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx);
 const run=s=>vm.runInContext(s,ctx);let n=0;
 const ok=(s,msg)=>{assert.ok(run(s),msg);n++};
 for(const role of ['ownerA','ownerB','lead','ops','limited','marketing','audit']){

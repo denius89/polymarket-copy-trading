@@ -1,0 +1,153 @@
+Browser tab: 4, Title: "Shadow · Staff and access", URL: "http://127.0.0.1:8875/docs/design/admin/rebuild/prototype/index.html".
+1 AXWebArea Shadow · Staff and access, URL: 127.0.0.1:8875/docs/design/admin/rebuild/prototype/index.html
+	2 link Description: К содержимому / Skip to content, Value: 127.0.0.1:8875/docs/design/admin/rebuild/prototype/index.html#main
+	3 container app
+		4 container
+			5 text shadow Platform management
+			6 container Description: Main navigation, ID: main-navigation
+				7 button Overview
+				8 container
+					9 button (expanded) Users and trading, Secondary Actions: Collapse
+						10 text Users and trading
+					11 button Users
+					12 button Sessions
+				13 button Personal profile
+				14 button Support
+				15 button Money reconciliation
+				16 button Finance
+				17 button Venues and data
+				18 button Content and marketing
+				19 container
+					20 button (expanded) Management, Secondary Actions: Collapse
+						21 text Management
+					22 button Staff and access
+					23 button Incidents
+					24 button Emergency recovery
+			25 text ●  Demo trading
+			26 text Paper Alpha · 0%
+		27 container main
+			28 container
+				29 text Elena Morozova · STAFF-201 · Owner A
+				30 button Personal profile
+					31 text EM
+					32 text Personal profile
+			33 button Overview
+			34 text / Staff and access
+			35 heading Staff and access, Value: 1
+				36 text Staff and access
+			37 text Who can act, where and until when
+			38 tab group
+				39 tab (selectable, settable, boolean) Staff, Value: 0
+				40 tab (selectable, settable, boolean) Role templates, Value: 0
+				41 tab (selected, settable, boolean) Audit log, Value: 1
+			42 heading Action log, Value: 2
+				43 text Action log
+			44 text Synthetic records of this walkthrough. Production audit requires independent storage and integrity checks. This prototype does not prove those protections.
+			45 container management-audit-filter
+				46 text Actor, object or action
+				47 text field (settable) Actor, object or action, ID: auditQuery
+				48 text Outcome
+				49 pop up button (collapsed, settable) Outcome, Value: All, ID: auditResult, Secondary Actions: Expand
+					50 menu
+						51 (selected) All
+						52 Confirmed
+						53 Awaiting result
+						54 Outcome unknown
+						55 Confirmed failure
+						56 Data changed
+				57 text From · UTC
+				58 date field (settable) From · UTC, Value: 2026-10-17, ID: auditFrom
+					59 container
+						60 stepper
+						61 stepper
+						62 stepper
+					63 pop up button Показать окно выбора даты Показать окно выбора даты
+				64 text To · UTC
+				65 date field (settable) To · UTC, Value: 2026-10-26, ID: auditTo
+					66 container
+						67 stepper
+						68 stepper
+						69 stepper
+					70 pop up button Показать окно выбора даты Показать окно выбора даты
+				71 button Apply filters
+			72 container Table: scroll horizontally
+				73 table
+					74 row
+						75 cell
+							76 text Time UTC
+						77 cell
+							78 text Actor
+						79 cell
+							80 text Action / object
+						81 cell
+							82 text Outcome
+					83 row
+						84 cell
+							85 button AUD-DEMO-1
+							86 text 2026-10-26T12:00Z
+						87 cell
+							88 text STAFF-201
+							89 text Owner A
+						90 cell
+							91 text Command accepted
+							92 text STAFF-203
+						93 cell
+							94 text Awaiting result
+					95 row
+						96 cell
+							97 button AUD-DEMO-2
+							98 text 2026-10-26T12:00Z
+						99 cell
+							100 text STAFF-201
+							101 text Owner A
+						102 cell
+							103 text Outcome remains unconfirmed
+							104 text STAFF-203
+						105 cell
+							106 text Outcome unknown
+					107 row
+						108 cell
+							109 button AUD-DEMO-3
+							110 text 2026-10-26T12:00Z
+						111 cell
+							112 text STAFF-201
+							113 text Owner A
+						114 cell
+							115 text Assignment applied
+							116 text STAFF-203
+						117 cell
+							118 text Confirmed
+					119 row
+						120 cell
+							121 button AUD-DEMO-4
+							122 text 2026-10-26T12:00Z
+						123 cell
+							124 text STAFF-201
+							125 text Owner A
+						126 cell
+							127 text Command accepted
+							128 text STAFF-203
+						129 cell
+							130 text Awaiting result
+					131 row
+						132 cell
+							133 button AUD-DEMO-5
+							134 text 2026-10-26T12:00Z
+						135 cell
+							136 text STAFF-201
+							137 text Owner A
+						138 cell
+							139 text Assignment revoked
+							140 text STAFF-203
+						141 cell
+							142 text Confirmed
+			143 button Prepare permitted export
+			144 container
+				145 heading Command outcome · ACCESS-DEMO-4, Value: 3
+					146 text Command outcome · ACCESS-DEMO-4
+				147 text Confirmed · STAFF-201
+			148 button (collapsed) Synthetic states — not operational settings, Secondary Actions: Expand
+				149 text Synthetic states — not operational settings
+			150 text Synthetic data · real operations disabled
+
+The focused UI element is 1 AXWebArea Shadow · Staff and access, URL: 127.0.0.1:8875/docs/design/admin/rebuild/prototype/index.html
