@@ -9,7 +9,7 @@ for(const role of ['ownerA','ownerB','lead','ops','audit','limited','marketing']
   run(`technical.phase='${phase}';var lockedNav=mainNavigation()`);
   ok('navActions(normalNav)===navActions(lockedNav)','same role menu entries and order while restricted');
   ok(`technicalSidebarStatus().includes('id="technical-navigation-reason"')`,'localized restriction explanation');
-  ok('!/<button[^>]*data-action="profile"[^>]*disabled/.test(lockedNav)','own profile stays accessible');
+  ok('!/<button[^>]*data-action="profile"/.test(lockedNav)','profile is accessed through the header, not duplicated in the sidebar');
   ok('!/<button[^>]*data-(?:technical|emergency)="open"[^>]*disabled/.test(lockedNav)','emergency entries stay accessible');
   ok('/<button[^>]*data-action="overview"[^>]*disabled/.test(lockedNav)','normal overview is disabled');
   ok(`state.role==='${role}'`,'role unchanged');
