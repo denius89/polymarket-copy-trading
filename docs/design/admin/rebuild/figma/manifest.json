@@ -1,20 +1,20 @@
 {
-  "version": "0.13",
-  "date": "2026-10-25",
-  "status": "content-increment-complete-full-admin-open",
-  "baseline": "46fe1ebbe264fb2a99e3dd6183a086c3ecc9803f",
+  "version": "0.14",
+  "date": "2026-10-26",
+  "status": "staff-access-increment-complete-management-and-final-acceptance-open",
+  "baseline": "d8ef34e0f90a98458c651bedd2b3b0ddced65ad0",
   "fileKey": "lxPP2um7FvIbt02K8eeH4T",
   "pageId": "1981:29",
   "entry": "3990:108",
   "counts": {
-    "uniqueRoots": 178,
-    "ru": 178,
-    "en": 178,
-    "counting": "89 desktop + 89 mobile; RU/EN share roots, not 356",
-    "screens": 100,
-    "overlays": 78,
-    "desktopRoots": 89,
-    "mobileRoots": 89
+    "uniqueRoots": 198,
+    "ru": 198,
+    "en": 198,
+    "counting": "99 desktop + 99 mobile; RU/EN share roots, not 396",
+    "screens": 116,
+    "overlays": 82,
+    "desktopRoots": 99,
+    "mobileRoots": 99
   },
   "screens": [
     {
@@ -995,6 +995,116 @@
         "en"
       ],
       "sharedFrame": true
+    },
+    {
+      "key": "staffList",
+      "id": "4238:1866",
+      "kind": "screen",
+      "title": "Сотрудники и права",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "staffDetail",
+      "id": "4238:1867",
+      "kind": "screen",
+      "title": "Назначение сотрудника",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "staffRoles",
+      "id": "4238:1868",
+      "kind": "screen",
+      "title": "Шаблоны ролей",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "staffCompare",
+      "id": "4238:1869",
+      "kind": "screen",
+      "title": "Проверка назначения",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "staffRevoke",
+      "id": "4238:1870",
+      "kind": "screen",
+      "title": "Отзыв доступа",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "staffAudit",
+      "id": "4238:1871",
+      "kind": "screen",
+      "title": "Журнал действий",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "staffEvent",
+      "id": "4238:1872",
+      "kind": "screen",
+      "title": "Подробности события",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "staffResult",
+      "id": "4238:1873",
+      "kind": "screen",
+      "title": "Результат команды",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "staffOptions",
+      "id": "4238:1874",
+      "kind": "overlay",
+      "title": "Выбор значений",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
+    },
+    {
+      "key": "staffScenario",
+      "id": "4238:1875",
+      "kind": "overlay",
+      "title": "Учебные состояния",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true
     }
   ],
   "roleContexts": 7,
@@ -1058,7 +1168,7 @@
   "responsive": {
     "width": 390,
     "entry": "4160:650",
-    "inventory": "../content/mobile-inventory.json",
+    "inventory": "../management/mobile-inventory.json",
     "screens": [
       {
         "key": "overview",
@@ -1771,6 +1881,86 @@
         "width": 390,
         "height": 760,
         "kind": "overlay"
+      },
+      {
+        "key": "staffList",
+        "desktop": "4238:1866",
+        "id": "4245:64990",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "staffDetail",
+        "desktop": "4238:1867",
+        "id": "4245:65078",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "staffRoles",
+        "desktop": "4238:1868",
+        "id": "4245:65146",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "staffCompare",
+        "desktop": "4238:1869",
+        "id": "4245:65206",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "staffRevoke",
+        "desktop": "4238:1870",
+        "id": "4245:65272",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "staffAudit",
+        "desktop": "4238:1871",
+        "id": "4245:65336",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "staffEvent",
+        "desktop": "4238:1872",
+        "id": "4245:65395",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "staffResult",
+        "desktop": "4238:1873",
+        "id": "4245:65456",
+        "width": 390,
+        "height": 844,
+        "kind": "screen"
+      },
+      {
+        "key": "staffOptions",
+        "desktop": "4238:1874",
+        "id": "4245:65512",
+        "width": 390,
+        "height": 760,
+        "kind": "overlay"
+      },
+      {
+        "key": "staffScenario",
+        "desktop": "4238:1875",
+        "id": "4245:65531",
+        "width": 390,
+        "height": 760,
+        "kind": "overlay"
       }
     ],
     "financeInventory": "../finance/mobile-inventory.json"
@@ -1792,5 +1982,11 @@
     "mobile": "../content/mobile-inventory.json",
     "verification": "../content/verification.md",
     "freeInput": "HTML only; Figma prepared change then restore, not arbitrary text/calendar input"
+  },
+  "management": {
+    "model": "../management/figma-model.json",
+    "verification": "../management/verification.md",
+    "status": "staff-assignment-revocation-audit-only",
+    "securityAndControls": "pending"
   }
 }
