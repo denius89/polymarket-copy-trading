@@ -1,20 +1,20 @@
 {
-  "version": "0.17",
+  "version": "0.18",
   "date": "2026-10-26",
-  "status": "staff-protection-increment-complete-controls-and-final-acceptance-open",
+  "status": "own-withdrawal-prototype-complete-general-acceptance-open",
   "baseline": "79b48999309951e38ec9914bb6486665565cb169",
   "fileKey": "lxPP2um7FvIbt02K8eeH4T",
   "pageId": "1981:29",
   "entry": "3990:108",
   "counts": {
-    "uniqueRoots": 216,
-    "ru": 216,
-    "en": 216,
-    "counting": "108 desktop + 108 mobile; RU/EN share roots, not 432",
-    "screens": 132,
-    "overlays": 84,
-    "desktopRoots": 108,
-    "mobileRoots": 108
+    "uniqueRoots": 228,
+    "ru": 228,
+    "en": 228,
+    "counting": "114 desktop + 114 mobile; RU/EN share the same 228 roots",
+    "screens": 138,
+    "overlays": 90,
+    "desktopRoots": 114,
+    "mobileRoots": 114
   },
   "screens": [
     {
@@ -1205,6 +1205,72 @@
       ],
       "sharedFrame": true,
       "source": "../technical-mode/figma-inventory.json"
+    },
+    {
+      "key": "ownWithdrawal-form",
+      "id": "4372:2350",
+      "title": "Собственные средства · form",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "screen"
+    },
+    {
+      "key": "ownWithdrawal-review",
+      "id": "4372:2439",
+      "title": "Собственные средства · review",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "screen"
+    },
+    {
+      "key": "ownWithdrawal-settings",
+      "id": "4372:2528",
+      "title": "Собственные средства · settings",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "screen"
+    },
+    {
+      "key": "ownWithdrawal-source",
+      "id": "4372:2617",
+      "title": "Собственные средства · source",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "overlay"
+    },
+    {
+      "key": "ownWithdrawal-inputs",
+      "id": "4372:2706",
+      "title": "Собственные средства · inputs",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "overlay"
+    },
+    {
+      "key": "ownWithdrawal-scenarios",
+      "id": "4372:2795",
+      "title": "Собственные средства · scenarios",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "overlay"
     }
   ],
   "roleContexts": 7,
@@ -2133,6 +2199,48 @@
         "desktop": "4304:2297",
         "width": 390,
         "height": 844
+      },
+      {
+        "key": "ownWithdrawal-form",
+        "id": "4372:2884",
+        "kind": "screen",
+        "desktop": "4372:2350",
+        "width": 390
+      },
+      {
+        "key": "ownWithdrawal-review",
+        "id": "4372:2976",
+        "kind": "screen",
+        "desktop": "4372:2439",
+        "width": 390
+      },
+      {
+        "key": "ownWithdrawal-settings",
+        "id": "4372:3068",
+        "kind": "screen",
+        "desktop": "4372:2528",
+        "width": 390
+      },
+      {
+        "key": "ownWithdrawal-source",
+        "id": "4372:3160",
+        "kind": "overlay",
+        "desktop": "4372:2617",
+        "width": 390
+      },
+      {
+        "key": "ownWithdrawal-inputs",
+        "id": "4372:3252",
+        "kind": "overlay",
+        "desktop": "4372:2706",
+        "width": 390
+      },
+      {
+        "key": "ownWithdrawal-scenarios",
+        "id": "4372:3344",
+        "kind": "overlay",
+        "desktop": "4372:2795",
+        "width": 390
       }
     ],
     "financeInventory": "../finance/mobile-inventory.json",
@@ -2189,5 +2297,25 @@
     "rootCountUnchanged": 216,
     "siteVersion": 16,
     "withdrawalProposal": "../navigation-clarity/own-funds-withdrawal-proposal.md"
+  },
+  "ownWithdrawals": {
+    "roots": {
+      "formD": "4372:2350",
+      "reviewD": "4372:2439",
+      "settingsD": "4372:2528",
+      "sourceD": "4372:2617",
+      "inputsD": "4372:2706",
+      "scenariosD": "4372:2795",
+      "formM": "4372:2884",
+      "reviewM": "4372:2976",
+      "settingsM": "4372:3068",
+      "sourceM": "4372:3160",
+      "inputsM": "4372:3252",
+      "scenariosM": "4372:3344"
+    },
+    "verification": "../own-withdrawals/verification.md",
+    "decision": "../../../../decisions/0060_service_own_funds_external_withdrawals.md",
+    "freeInput": "../prototype/own-withdrawal.js",
+    "scope": "Finite preset Figma cases; arbitrary HTML input; synthetic only"
   }
 }
