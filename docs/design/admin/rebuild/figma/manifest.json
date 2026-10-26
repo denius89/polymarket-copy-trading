@@ -1,5 +1,5 @@
 {
-  "version": "0.15",
+  "version": "0.16",
   "date": "2026-10-26",
   "status": "staff-protection-increment-complete-controls-and-final-acceptance-open",
   "baseline": "79b48999309951e38ec9914bb6486665565cb169",
@@ -7,14 +7,14 @@
   "pageId": "1981:29",
   "entry": "3990:108",
   "counts": {
-    "uniqueRoots": 210,
-    "ru": 210,
-    "en": 210,
-    "counting": "105 desktop + 105 mobile; RU/EN share roots, not 420",
-    "screens": 126,
+    "uniqueRoots": 216,
+    "ru": 216,
+    "en": 216,
+    "counting": "108 desktop + 108 mobile; RU/EN share roots, not 432",
+    "screens": 132,
     "overlays": 84,
-    "desktopRoots": 105,
-    "mobileRoots": 105
+    "desktopRoots": 108,
+    "mobileRoots": 108
   },
   "screens": [
     {
@@ -1171,6 +1171,39 @@
       ],
       "sharedFrame": true,
       "source": "../account-protection/root-inventory.json"
+    },
+    {
+      "key": "technicalMode",
+      "id": "4304:2295",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../technical-mode/figma-inventory.json"
+    },
+    {
+      "key": "technicalOptions",
+      "id": "4304:2296",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../technical-mode/figma-inventory.json"
+    },
+    {
+      "key": "technicalPreview",
+      "id": "4304:2297",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../technical-mode/figma-inventory.json"
     }
   ],
   "roleContexts": 7,
@@ -2075,6 +2108,30 @@
         "width": 390,
         "height": 760,
         "kind": "overlay"
+      },
+      {
+        "key": "technicalMode",
+        "id": "4311:2321",
+        "kind": "screen",
+        "desktop": "4304:2295",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "key": "technicalOptions",
+        "id": "4311:2377",
+        "kind": "screen",
+        "desktop": "4304:2296",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "key": "technicalPreview",
+        "id": "4311:2395",
+        "kind": "screen",
+        "desktop": "4304:2297",
+        "width": 390,
+        "height": 844
       }
     ],
     "financeInventory": "../finance/mobile-inventory.json",
@@ -2116,5 +2173,12 @@
     "roots": "../account-protection/root-inventory.json",
     "mobile": "../account-protection/mobile-inventory.json",
     "scope": "Synthetic protection of another non-owner; owner compromise and actual restoration remain open"
+  },
+  "technicalMode": {
+    "entry": "4304:2295",
+    "mobileEntry": "4311:2321",
+    "inventory": "../technical-mode/figma-inventory.json",
+    "verification": "../technical-mode/verification.md",
+    "scope": "Full shutdown, component confirmation, linked independent recovery; bounded prepared Figma cases. Historical global navigation gate remains open."
   }
 }
