@@ -1,5 +1,5 @@
 {
-  "version": "0.16",
+  "version": "0.17",
   "date": "2026-10-26",
   "status": "staff-protection-increment-complete-controls-and-final-acceptance-open",
   "baseline": "79b48999309951e38ec9914bb6486665565cb169",
@@ -449,7 +449,7 @@
     {
       "key": "reconciliation",
       "id": "4100:294",
-      "title": "Денежная сверка",
+      "title": "Сверка операций",
       "kind": "screen",
       "locales": [
         "ru",
@@ -460,7 +460,7 @@
     {
       "key": "reconciliationItem",
       "id": "4100:295",
-      "title": "Проверка денежных данных",
+      "title": "Сверка операции",
       "kind": "screen",
       "locales": [
         "ru",
@@ -537,7 +537,7 @@
     {
       "key": "emergency",
       "id": "4143:371",
-      "title": "Аварийное восстановление",
+      "title": "Восстановление ограничения",
       "kind": "screen",
       "locales": [
         "ru",
@@ -1181,7 +1181,8 @@
         "en"
       ],
       "sharedFrame": true,
-      "source": "../technical-mode/figma-inventory.json"
+      "source": "../technical-mode/figma-inventory.json",
+      "title": "Ограничения и восстановление"
     },
     {
       "key": "technicalOptions",
@@ -2180,5 +2181,13 @@
     "inventory": "../technical-mode/figma-inventory.json",
     "verification": "../technical-mode/verification.md",
     "scope": "Full shutdown, component confirmation, linked independent recovery; bounded prepared Figma cases. Historical global navigation gate remains open."
+  },
+  "navigationClarification": {
+    "date": "2026-10-26",
+    "report": "../navigation-clarity/verification.md",
+    "sidebarCount": 124,
+    "rootCountUnchanged": 216,
+    "siteVersion": 16,
+    "withdrawalProposal": "../navigation-clarity/own-funds-withdrawal-proposal.md"
   }
 }
