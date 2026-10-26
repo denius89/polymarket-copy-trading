@@ -1,3 +1,5 @@
+26.10.2026 — [Технический режим](rebuild/technical-mode/README.md): карта 0.55, 216 общих RU/EN корней: 108 настольных + 108 мобильных; 132 экрана и 84 меню. [Границы проверки](rebuild/technical-mode/verification.md).
+
 26.10.2026 — [Защита аккаунта сотрудника](rebuild/account-protection/README.md) добавлена; текущая карта 0.54, 210 общих RU/EN корней (105+105). [Проверка и ограничения](rebuild/account-protection/verification.md).
 
 26.10.2026 — Текущий реестр: 198 общих RU/EN корней, 99 настольных + 99 мобильных; 116 экранов и 82 меню. [Сотрудники и права](rebuild/management/README.md), [проверка и ограничения](rebuild/management/verification.md). Ниже — история предыдущих срезов.
