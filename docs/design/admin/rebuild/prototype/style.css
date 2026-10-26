@@ -111,3 +111,7 @@
 @media(max-width:650px){#management-staff-filter{grid-template-columns:1fr 1fr}#management-staff-filter>.field{grid-column:1/-1}.management-template-list>.field{width:100%}}
 
 .management-workspace > .panel{margin-block:24px}.management-workspace > .btn{margin-block:8px}.management-workspace .panel .btn + .btn{margin-left:12px}
+
+/* Staff account protection inherits the existing form palette and focus treatment. */
+.security-workspace textarea{display:block;width:100%;min-height:96px;box-sizing:border-box;padding:12px;font:inherit;line-height:1.5;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:8px;resize:vertical;caret-color:var(--focus)}
+.security-workspace textarea:focus-visible{outline:2px solid var(--focus);outline-offset:3px}

@@ -1,5 +1,5 @@
 {
-  "revision": "0.53",
+  "revision": "0.54",
   "updatedAt": "2026-10-26",
   "purpose": "Current rebuild entry is in rebuild/figma/manifest.json; sections and earlier packages below remain retired historical mapping.",
   "figma": {
@@ -7,7 +7,7 @@
     "pageId": "1981:29",
     "prototypePageId": "1981:29",
     "prototypePageName": "14 · Admin · новая компоновка",
-    "sharedPageRootFrames": 198,
+    "sharedPageRootFrames": 210,
     "entryNodeId": "3990:108",
     "url": "https://www.figma.com/design/lxPP2um7FvIbt02K8eeH4T?node-id=3990-108",
     "prototypeEntryStatus": "First route, profile, support, feedback, incidents, reconciliation, trading and synthetic two-approver emergency recovery; shared RU/EN, seven assignments; not full admin; finance increment",
@@ -18,14 +18,14 @@
     "current Figma RU/EN root frame inventory"
   ],
   "counts": {
-    "uniqueRoots": 198,
-    "ru": 198,
-    "en": 198,
-    "counting": "99 desktop + 99 mobile; RU/EN share roots, not 396",
-    "screens": 116,
-    "overlays": 82,
-    "desktopRoots": 99,
-    "mobileRoots": 99
+    "uniqueRoots": 210,
+    "ru": 210,
+    "en": 210,
+    "counting": "105 desktop + 105 mobile; RU/EN share roots, not 420",
+    "screens": 126,
+    "overlays": 84,
+    "desktopRoots": 105,
+    "mobileRoots": 105
   },
   "sections": [
     {
@@ -12169,6 +12169,72 @@
           "en"
         ],
         "sharedFrame": true
+      },
+      {
+        "key": "staffSecurity",
+        "id": "4288:2163",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../account-protection/root-inventory.json"
+      },
+      {
+        "key": "staffSecurityConfirm",
+        "id": "4288:2164",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../account-protection/root-inventory.json"
+      },
+      {
+        "key": "staffSecurityResult",
+        "id": "4288:2165",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../account-protection/root-inventory.json"
+      },
+      {
+        "key": "staffSecurityIncident",
+        "id": "4288:2166",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../account-protection/root-inventory.json"
+      },
+      {
+        "key": "staffSecurityRecovery",
+        "id": "4288:2167",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../account-protection/root-inventory.json"
+      },
+      {
+        "key": "staffSecurityOptions",
+        "id": "4288:2168",
+        "kind": "overlay",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../account-protection/root-inventory.json"
       }
     ],
     "qa": "rebuild/figma/interactive/profile-verification.md",
@@ -12720,15 +12786,16 @@
       "freeInput": "HTML only; Figma uses prepared examples"
     },
     "counts": {
-      "uniqueRoots": 198,
-      "ru": 198,
-      "en": 198,
-      "counting": "99 desktop + 99 mobile; RU/EN share roots, not 396",
-      "screens": 116,
-      "overlays": 82,
-      "desktopRoots": 99,
-      "mobileRoots": 99
+      "uniqueRoots": 210,
+      "ru": 210,
+      "en": 210,
+      "counting": "105 desktop + 105 mobile; RU/EN share roots, not 420",
+      "screens": 126,
+      "overlays": 84,
+      "desktopRoots": 105,
+      "mobileRoots": 105
     },
-    "management": "rebuild/management/README.md"
+    "management": "rebuild/management/README.md",
+    "accountProtection": "rebuild/account-protection/README.md"
   }
 }
