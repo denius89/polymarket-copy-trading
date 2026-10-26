@@ -115,3 +115,13 @@
 /* Staff account protection inherits the existing form palette and focus treatment. */
 .security-workspace textarea{display:block;width:100%;min-height:96px;box-sizing:border-box;padding:12px;font:inherit;line-height:1.5;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:8px;resize:vertical;caret-color:var(--focus)}
 .security-workspace textarea:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+
+/* Technical mode: current state and the next action lead the page. */
+.technical-status,.technical-flow{margin-bottom:24px}
+.technical-status p,.technical-flow p{max-width:72ch;margin:16px 0}
+.technical-status .btn,.technical-flow .btn{margin:0 12px 12px 0}
+.technical-flow textarea{display:block;width:100%;max-width:680px;margin:12px 0}
+.technical-next{margin-top:24px}
+@media(max-width:600px){.technical-status .btn,.technical-flow .btn{width:100%;margin-right:0}.technical-flow textarea{max-width:100%}}
+
+.technical-status~.support-layout,.technical-flow~.support-layout{margin-bottom:24px}

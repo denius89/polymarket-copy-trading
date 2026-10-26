@@ -1,0 +1,5 @@
+// Replace the vars/variable helper in figma/interactive/common.js before clarity-figma.js.
+// Reuse MODEL, sc and lc; new state goes into a separate collection because the old one has 5000 variables.
+const collections=await figma.variables.getLocalVariableCollectionsAsync();const extra=collections.find(c=>c.name==='Admin technical clarity state')||figma.variables.createVariableCollection('Admin technical clarity state');
+const vars={};const localVars=await figma.variables.getLocalVariablesAsync();for(const v of localVars)if(v.variableCollectionId===sc.id||v.variableCollectionId===lc.id||v.variableCollectionId===extra.id)vars[v.name]=v;
+function variable(name,type,ru,en){if(vars[name]&&Object.keys(vars[name].valuesByMode).length)return vars[name];const c=en===undefined?extra:lc;const v=vars[name]||figma.variables.createVariable(name,c,type);v.scopes=type==='STRING'?['TEXT_CONTENT']:['ALL_SCOPES'];v.hiddenFromPublishing=true;if(c===extra)v.setValueForMode(extra.defaultModeId,ru);else{v.setValueForMode(MODEL.ru,ru);v.setValueForMode(MODEL.en,en);}created.push(v.id);vars[name]=v;return v;}
