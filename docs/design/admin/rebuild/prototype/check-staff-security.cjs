@@ -1,6 +1,6 @@
 const fs=require('fs'),vm=require('vm'),assert=require('node:assert/strict'),path=require('path');
 const ctx={structuredClone,Intl,Date,Set,console,document:{addEventListener(){},querySelector(){return {textContent:'',innerHTML:'',setAttribute(){},focus(){}}},documentElement:{}},window:{scrollTo(){},scrollY:0}};vm.createContext(ctx);
-for(const f of ['account-fixtures.js','account.js','support.js','feedback.js','incidents.js','reconciliation.js','trading.js','emergency.js','finance.js','platforms.js','content.js','management.js','staff-security.js','app.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,f),'utf8').replace(f==='app.js'?/render\(\);\s*$/:/$^/,''),ctx);
+for(const f of ['account-fixtures.js','account.js','support.js','feedback.js','incidents.js','reconciliation.js','trading.js','emergency.js','finance.js','own-withdrawal.js','platforms.js','content.js','management.js','staff-security.js','app.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,f),'utf8').replace(f==='app.js'?/render\(\);\s*$/:/$^/,''),ctx);
 const run=s=>vm.runInContext(s,ctx);run('render=()=>{}');let assertions=0;const ok=(s,label)=>{assert.ok(run(s),label);assertions++;};
 function setup(role='ownerA'){run(`state.role='${role}';state.locale='ru';account=newAccount(state.role);management=newManagement();incidents=newIncidents();state.route='management';management.staff='STAFF-203';staffSecurity().reason='Неизвестный вход сотрудника';`);}
 function proof(){run('securityReview();securityAuthenticate()');}
