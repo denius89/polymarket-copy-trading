@@ -1,3 +1,5 @@
+26.10.2026 — [Ограничения и восстановление объединены; сверка перенесена в финансы](rebuild/navigation-clarity/README.md). 216 корней сохранены, 124 меню обновлены; [проверка](rebuild/navigation-clarity/verification.md). Предложение вывода собственных средств ожидает согласования.
+
 26.10.2026 — [Технический режим](rebuild/technical-mode/README.md): карта 0.55, 216 общих RU/EN корней: 108 настольных + 108 мобильных; 132 экрана и 84 меню. [Границы проверки](rebuild/technical-mode/verification.md).
 
 26.10.2026 — [Защита аккаунта сотрудника](rebuild/account-protection/README.md) добавлена; текущая карта 0.54, 210 общих RU/EN корней (105+105). [Проверка и ограничения](rebuild/account-protection/verification.md).
