@@ -1,0 +1,538 @@
+{
+  "date": "2026-10-27",
+  "baseline": "8e13c7d351b954a64629f5633cdf47a15cc1a09a",
+  "fixture": "Synthetic UI-only examples; not venue parameters or execution evidence",
+  "budgetFixture": {
+    "B": 200,
+    "available": 60,
+    "reserved": 20,
+    "positionCost": 120,
+    "F": 20,
+    "p": 10,
+    "d": 15
+  },
+  "states": [
+    {
+      "key": "budget",
+      "title": [
+        "Демо-бюджет",
+        "Demo budget"
+      ],
+      "tone": "Info",
+      "alert": [
+        "Меняется только бюджет",
+        "Only the budget changes"
+      ],
+      "body": [
+        "Позиции и резерв сохранятся. Добавление или изъятие виртуальных средств не меняет торговую прибыль.",
+        "Positions and reserves stay unchanged. Adding or withdrawing virtual funds does not change trading profit."
+      ],
+      "rows": [
+        [
+          "Текущий бюджет · Current budget",
+          "200 $"
+        ],
+        [
+          "Свободно после резервов · Free after reserves",
+          "60 $"
+        ],
+        [
+          "В резерве · Reserved",
+          "20 $"
+        ],
+        [
+          "Позиции · учётная стоимость · Positions · cost basis",
+          "120 $"
+        ]
+      ],
+      "field": [
+        "Новый бюджет",
+        "New budget",
+        "300 $"
+      ],
+      "actions": [
+        [
+          "Проверить 300 $",
+          "Review $300",
+          "increase",
+          "primary"
+        ],
+        [
+          "150 $ · уменьшить",
+          "$150 · reduce",
+          "decrease"
+        ],
+        [
+          "100 $ · проверить",
+          "$100 · check",
+          "insufficient"
+        ]
+      ],
+      "snapshot": [
+        "Бюджет 200 $ · Свободно 60 $ · Резерв 20 $ · Стоимость позиций 120 $",
+        "Budget $200 · Free $60 · Reserved $20 · Position cost $120"
+      ]
+    },
+    {
+      "key": "increase",
+      "title": [
+        "Подтвердите увеличение",
+        "Confirm budget increase"
+      ],
+      "tone": "Info",
+      "alert": [
+        "Добавим 100 $ виртуальных средств",
+        "Add $100 in virtual funds"
+      ],
+      "body": [
+        "Бюджет: 200 → 300 $. Свободно: 60 → 160 $. Позиции 120 $ и резерв 20 $ сохранятся. Это не доход от торговли.",
+        "Budget: $200 → $300. Free funds: $60 → $160. Position cost $120 and reserve $20 stay unchanged. This is not trading income."
+      ],
+      "details": [
+        "Лимиты станут: позиция 30 $ (10%), покупки 45 $/день (15%). Фиксированная копия 20 $ не меняется.",
+        "New limits: position $30 (10%), daily buys $45 (15%). Fixed copy amount remains $20."
+      ],
+      "actions": [
+        [
+          "Подтвердить увеличение",
+          "Confirm increase",
+          "increased",
+          "primary"
+        ],
+        [
+          "Назад",
+          "Back",
+          "budget"
+        ]
+      ],
+      "snapshot": [
+        "Изменение ещё не применено · Бюджет 200 $",
+        "Change not applied yet · Budget $200"
+      ]
+    },
+    {
+      "key": "decrease",
+      "title": [
+        "Подтвердите уменьшение",
+        "Confirm budget reduction"
+      ],
+      "tone": "Warning",
+      "alert": [
+        "Сумма копии останется 20 $",
+        "Copy amount stays $20"
+      ],
+      "body": [
+        "Изымем 50 $ свободных виртуальных средств. Бюджет станет 150 $, свободно 10 $. Позиции 120 $ и резерв 20 $ сохранятся.",
+        "Withdraw $50 of free virtual funds. Budget becomes $150, with $10 free. Position cost $120 and reserve $20 stay unchanged."
+      ],
+      "details": [
+        "Лимит позиции станет 15 $, дневной — 22,50 $. Старая копия 20 $ сохранится, но новые покупки по 20 $ не пройдут лимит позиции. Продажи не запускаются автоматически.",
+        "Position limit becomes $15; daily limit $22.50. The existing $20 copy amount is kept, but new $20 buys exceed the position limit. No automatic sale is started."
+      ],
+      "actions": [
+        [
+          "Сохранить с предупреждением",
+          "Save with warning",
+          "decreased",
+          "primary"
+        ],
+        [
+          "Назад",
+          "Back",
+          "budget"
+        ]
+      ],
+      "snapshot": [
+        "Изменение ещё не применено · Свободно 60 $",
+        "Change not applied yet · Free funds $60"
+      ]
+    },
+    {
+      "key": "insufficient",
+      "title": [
+        "Бюджет не изменён",
+        "Budget unchanged"
+      ],
+      "tone": "Danger",
+      "alert": [
+        "Недостаточно свободных средств",
+        "Not enough free funds"
+      ],
+      "body": [
+        "Для изменения 200 → 100 $ нужно изъять 100 $. Свободно после всех резервов только 60 $. Вся правка отклонена.",
+        "Reducing $200 → $100 requires withdrawing $100. Only $60 is free after all reserves. The entire change was rejected."
+      ],
+      "details": [
+        "Бюджет 200 $, позиции 120 $ и резерв 20 $ не изменились. Укажите другой бюджет. Позиции не продаются, резерв не освобождается ради этой правки.",
+        "Budget $200, position cost $120 and reserve $20 are unchanged. Choose another budget. No positions are sold or reserves released for this change."
+      ],
+      "field": [
+        "Новый бюджет",
+        "New budget",
+        "100 $"
+      ],
+      "actions": [
+        [
+          "Изменить сумму",
+          "Change amount",
+          "budget",
+          "primary"
+        ]
+      ],
+      "snapshot": [
+        "Отказ без изменения средств · Бюджет 200 $",
+        "Rejected without changing funds · Budget $200"
+      ]
+    },
+    {
+      "key": "increased",
+      "title": [
+        "Бюджет увеличен",
+        "Budget increased"
+      ],
+      "tone": "Success",
+      "alert": [
+        "Баланс изменён",
+        "Balance changed"
+      ],
+      "body": [
+        "Добавлено 100 $ виртуальных средств. Бюджет 300 $; свободно 160 $; резерв 20 $; учётная стоимость позиций 120 $.",
+        "Added $100 in virtual funds. Budget $300; free funds $160; reserve $20; position cost $120."
+      ],
+      "details": [
+        "В отчёте сохранена отметка «Баланс изменён». Движение +100 $ — финансирование, не прибыль. Фиксированная копия 20 $ сохранена. Старые заявки и позиции не пересчитаны.",
+        "The report retains “Balance changed”. The +$100 flow is funding, not profit. Fixed copy amount stays $20. Existing orders and positions were not recalculated."
+      ],
+      "actions": [
+        [
+          "Открыть отчёт",
+          "Open report",
+          "report",
+          "primary"
+        ],
+        [
+          "К сессии",
+          "Back to session",
+          "session"
+        ]
+      ],
+      "snapshot": [
+        "Применено +100 $ · Бюджет 300 $ · Свободно 160 $",
+        "Applied +$100 · Budget $300 · Free funds $160"
+      ]
+    },
+    {
+      "key": "decreased",
+      "title": [
+        "Бюджет уменьшен",
+        "Budget reduced"
+      ],
+      "tone": "Warning",
+      "alert": [
+        "Баланс изменён · копия 20 $ сохранена",
+        "Balance changed · $20 copy kept"
+      ],
+      "body": [
+        "Изъято 50 $ виртуальных средств. Бюджет 150 $; свободно 10 $; резерв 20 $; учётная стоимость позиций 120 $.",
+        "Withdrew $50 in virtual funds. Budget $150; free funds $10; reserve $20; position cost $120."
+      ],
+      "details": [
+        "Лимит позиции 15 $, дневной 22,50 $. Новая покупка на 20 $ будет пропущена. Измените размер копии в настройках, если хотите продолжать покупки. Отметка «Баланс изменён» остаётся в отчёте; −50 $ не убыток.",
+        "Position limit $15; daily limit $22.50. A new $20 buy will be skipped. Change the copy amount in settings to continue buying. The report keeps “Balance changed”; −$50 is not a loss."
+      ],
+      "actions": [
+        [
+          "Посмотреть настройки",
+          "View settings",
+          "settings",
+          "primary"
+        ],
+        [
+          "Открыть отчёт",
+          "Open report",
+          "report"
+        ]
+      ],
+      "snapshot": [
+        "Применено −50 $ · Бюджет 150 $ · Свободно 10 $",
+        "Applied −$50 · Budget $150 · Free funds $10"
+      ]
+    },
+    {
+      "key": "period-end",
+      "title": [
+        "Период оценки завершён",
+        "Assessment period ended"
+      ],
+      "tone": "Warning",
+      "alert": [
+        "Новые покупки остановлены",
+        "New buys stopped"
+      ],
+      "body": [
+        "Прошло 14 дней. Для копируемых частей продолжаются только сокращения и выходы вслед за трейдером. Копирование можно явно отключить.",
+        "14 days have elapsed. Only trader reductions and exits continue for copied parts. You can explicitly turn copying off."
+      ],
+      "details": [
+        "В периоде 8 подходящих действий: недостаточно данных для оценки качества. Поздние закрытия не продлевают период. Отмена остатков BUY запрошена; неизвестная заявка удерживает резерв 20 $ до сверки.",
+        "The period has 8 eligible actions: insufficient data to assess quality. Later closures do not extend the period. Cancellation of BUY remainders was requested; the unknown order retains its $20 reserve until reconciliation."
+      ],
+      "actions": [
+        [
+          "Отключить и оставить",
+          "Stop and keep",
+          "stop-keep",
+          "primary"
+        ],
+        [
+          "Проверить операции",
+          "Review operations",
+          "operations"
+        ]
+      ],
+      "snapshot": [
+        "Период 14 дней закрыт · Только сокращения · Резерв 20 $",
+        "14-day period closed · Exit only · Reserve $20"
+      ]
+    },
+    {
+      "key": "stop-keep",
+      "title": [
+        "Отключить и оставить позиции?",
+        "Stop and keep positions?"
+      ],
+      "tone": "Warning",
+      "alert": [
+        "Позиции останутся открытыми",
+        "Positions will stay open"
+      ],
+      "body": [
+        "После подтверждения мы перестанем повторять и покупки, и выходы трейдера. Открытые части перейдут под ваше ручное управление. Это не продажа.",
+        "After confirmation, neither buys nor trader exits will be copied. Open parts move to your manual control. This is not a sale."
+      ],
+      "details": [
+        "Отмена незавершённых BUY ещё требует подтверждения. Новая сессия и сброс недоступны до закрытия всех частей и сверки операций.",
+        "Cancellation of unfinished BUY orders still requires confirmation. A new session and reset remain unavailable until all parts are closed and operations reconciled."
+      ],
+      "actions": [
+        [
+          "Отключить и оставить",
+          "Stop and keep",
+          "manual",
+          "primary"
+        ],
+        [
+          "Назад",
+          "Back",
+          "period-end"
+        ]
+      ],
+      "snapshot": [
+        "Копирование ещё не отключено · Только сокращения",
+        "Copying not turned off yet · Exit only"
+      ]
+    },
+    {
+      "key": "manual",
+      "title": [
+        "Копирование отключено",
+        "Copying off"
+      ],
+      "tone": "Warning",
+      "alert": [
+        "Остались ручные позиции",
+        "Manual positions remain"
+      ],
+      "body": [
+        "Все оставленные части находятся под вашим управлением. Новые действия трейдера больше не копируются. Отключение не закрыло позиции.",
+        "Retained parts are under your control. New trader actions are no longer copied. Turning copying off did not close positions."
+      ],
+      "details": [
+        "Новая сессия и сброс пока недоступны. Нужны подтверждённое закрытие или погашение всех частей и окончательная сверка операций.",
+        "A new session and reset are unavailable. All parts must have confirmed closure or redemption, and operations must be finally reconciled."
+      ],
+      "actions": [
+        [
+          "Проверить завершение",
+          "Check completion",
+          "unknown",
+          "primary"
+        ]
+      ],
+      "snapshot": [
+        "Копирование отключено · Ручные части открыты",
+        "Copying off · Manual parts open"
+      ]
+    },
+    {
+      "key": "unknown",
+      "title": [
+        "Уточняем операции",
+        "Reconciling operations"
+      ],
+      "tone": "Warning",
+      "alert": [
+        "Резерв 20 $ сохранён",
+        "$20 reserve retained"
+      ],
+      "body": [
+        "Подтверждённые позиции закрыты, но итог одной BUY-заявки ещё неизвестен. Она ещё может исполниться. Тайм-аут не означает отказ.",
+        "Confirmed positions are closed, but one BUY order still has an unknown outcome. It may still fill. A timeout does not mean rejection."
+      ],
+      "details": [
+        "Не отправляем заявку повторно. Новая сессия и сброс недоступны до окончательного подтверждения и сверки. Если появится поздняя часть, она останется в учёте.",
+        "The order is not resent. A new session and reset remain unavailable until final confirmation and reconciliation. Any late fill remains recorded."
+      ],
+      "actions": [
+        [
+          "Обновить статус",
+          "Refresh status",
+          "dust",
+          "primary"
+        ]
+      ],
+      "snapshot": [
+        "Копирование отключено · Неизвестный BUY · Резерв 20 $",
+        "Copying off · Unknown BUY · Reserve $20"
+      ]
+    },
+    {
+      "key": "dust",
+      "title": [
+        "Остался малый остаток",
+        "Small remainder remains"
+      ],
+      "tone": "Warning",
+      "alert": [
+        "Остаток не списан",
+        "Remainder not written off"
+      ],
+      "body": [
+        "В учёте осталось 0,004 доли — меньше подтверждённого минимума продажи этого инструмента. Это не нулевая позиция.",
+        "The ledger still has 0.004 shares, below the verified sell minimum for this instrument. This is not a zero position."
+      ],
+      "details": [
+        "Новая сессия и сброс недоступны. Остаток сохраняется до подтверждённого закрытия или погашения. Не докупаем ради минимума и не захватываем другие части.",
+        "A new session and reset are unavailable. The remainder stays until confirmed closure or redemption. We do not buy extra to meet a minimum or use other parts."
+      ],
+      "actions": [
+        [
+          "Проверить статус погашения",
+          "Check redemption status",
+          "complete",
+          "primary"
+        ]
+      ],
+      "snapshot": [
+        "Копирование отключено · Остаток 0,004 доли",
+        "Copying off · Remainder 0.004 shares"
+      ]
+    },
+    {
+      "key": "complete",
+      "title": [
+        "Сессия завершена",
+        "Session complete"
+      ],
+      "tone": "Success",
+      "alert": [
+        "Все обязательства сверены",
+        "All obligations reconciled"
+      ],
+      "body": [
+        "Получено подтверждение погашения остатка. Копирование отключено; все части закрыты; заявки окончательны; резерв 0; необъяснённых расхождений нет.",
+        "Redemption of the remainder is confirmed. Copying is off; all parts are closed; orders are final; reserve is 0; no unexplained discrepancies remain."
+      ],
+      "details": [
+        "Можно начать новую сессию или сбросить paper-среду. История предыдущей сессии и её отчёты сохранятся.",
+        "You can start a new session or reset the paper environment. The previous session history and reports are retained."
+      ],
+      "actions": [
+        [
+          "Новая сессия",
+          "New session",
+          "catalog",
+          "primary"
+        ],
+        [
+          "Сбросить демо",
+          "Reset demo",
+          "reset"
+        ]
+      ],
+      "snapshot": [
+        "Строгий финал подтверждён · Все части 0 · Резерв 0",
+        "Strict completion confirmed · All parts 0 · Reserve 0"
+      ]
+    },
+    {
+      "key": "reset",
+      "title": [
+        "Сбросить завершённое демо?",
+        "Reset completed demo?"
+      ],
+      "tone": "Info",
+      "alert": [
+        "История сохранится",
+        "History is retained"
+      ],
+      "body": [
+        "Предыдущая сессия полностью закрыта и сверена. Новая paper-среда начнётся с 200 $ виртуальных средств. История и отчёты останутся доступны.",
+        "The previous session is fully closed and reconciled. A new paper environment starts with $200 in virtual funds. History and reports remain available."
+      ],
+      "details": [
+        "Сброс не удаляет обязательства и не создаёт прибыль. При оставшихся позициях, резерве или неизвестных операциях он недоступен.",
+        "Reset does not erase obligations or create profit. It is unavailable while positions, reserves or unknown operations remain."
+      ],
+      "actions": [
+        [
+          "Подтвердить сброс",
+          "Confirm reset",
+          "reset-done",
+          "primary"
+        ],
+        [
+          "Назад",
+          "Back",
+          "complete"
+        ]
+      ],
+      "snapshot": [
+        "Сброс ещё не выполнен · Предыдущая сессия завершена",
+        "Reset not applied yet · Previous session complete"
+      ]
+    },
+    {
+      "key": "reset-done",
+      "title": [
+        "Демо-среда сброшена",
+        "Demo environment reset"
+      ],
+      "tone": "Success",
+      "alert": [
+        "Доступно 200 $ виртуальных средств",
+        "$200 in virtual funds available"
+      ],
+      "body": [
+        "Новая среда: доступно 200 $, резерв 0, открытых частей нет. Новая сессия ещё не запущена.",
+        "New environment: $200 free, reserve 0, no open parts. A new session has not been started yet."
+      ],
+      "details": [
+        "История и отчёты предыдущей среды сохранены. Выберите трейдера и проверьте настройки перед новым запуском.",
+        "History and reports of the previous environment are retained. Choose a trader and review settings before starting again."
+      ],
+      "actions": [
+        [
+          "Выбрать трейдера",
+          "Choose a trader",
+          "catalog",
+          "primary"
+        ]
+      ],
+      "snapshot": [
+        "Новая среда · Доступно 200 $ · Сессия не запущена",
+        "New environment · $200 free · Session not started"
+      ]
+    }
+  ]
+}
