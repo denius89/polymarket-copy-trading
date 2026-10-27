@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-27",
+  "scope": "Read-only synthetic model probe; no browser or backend assertion",
+  "multipleSessionUsers": [
+    {
+      "id": "U-DEMO-001",
+      "name": "Demo Atlas",
+      "sessions": [
+        {
+          "id": "S-DEMO-001",
+          "venue": "Polymarket",
+          "budget": 200,
+          "available": 160,
+          "reserved": 20,
+          "positionsCost": 20,
+          "started": "2026-10-17"
+        },
+        {
+          "id": "S-DEMO-001B",
+          "venue": "Limitless",
+          "budget": 200,
+          "available": 160,
+          "reserved": 20,
+          "positionsCost": 20,
+          "started": "2026-10-17"
+        }
+      ]
+    }
+  ],
+  "noorOrder": {
+    "uid": "U-DEMO-002",
+    "sid": "S-DEMO-002",
+    "oid": "ORD-002"
+  },
+  "unknown": {
+    "label": [
+      "Итог неизвестен",
+      "Outcome unknown"
+    ],
+    "fill": null,
+    "reserve": 20,
+    "cancelled": null,
+    "position": null,
+    "final": false,
+    "fresh": true,
+    "consistent": false,
+    "copy": false,
+    "why": [
+      "Нет подтверждения исходной заявки. Сохраняем резерв на возможное исполнение.",
+      "Original-order evidence is missing. Reserve remains for possible execution."
+    ],
+    "event": [
+      "12:00 · Итог не получен. Тайм-аут не доказывает отказ.",
+      "12:00 · Outcome unavailable. A timeout does not prove rejection."
+    ]
+  },
+  "partial": {
+    "label": [
+      "Часть исполнена · ждём отмену",
+      "Part filled · cancellation pending"
+    ],
+    "fill": 8,
+    "reserve": 12,
+    "cancelled": 0,
+    "position": 28,
+    "final": false,
+    "fresh": true,
+    "consistent": true,
+    "copy": true,
+    "why": [
+      "Отмена 12 USD запрошена системой, но ещё не подтверждена площадкой. Исполненные 8 USD остаются в позиции.",
+      "The system requested cancellation of USD 12; the venue has not confirmed it. The USD 8 fill stays in the position."
+    ],
+    "event": [
+      "12:00 · Подтверждены 8 USD. Запрошена отмена остатка 12 USD.",
+      "12:00 · USD 8 confirmed. Cancellation of the USD 12 remainder requested."
+    ]
+  },
+  "late": {
+    "label": [
+      "Позднее исполнение · ждём отмену",
+      "Late fill · cancellation pending"
+    ],
+    "fill": 12,
+    "reserve": 8,
+    "cancelled": 0,
+    "position": 32,
+    "final": false,
+    "fresh": true,
+    "consistent": true,
+    "copy": true,
+    "why": [
+      "Дополнительно подтверждены 4 USD той же заявки. Резерв уменьшился до 8 USD; доступные средства не выросли.",
+      "Another USD 4 of the same order is confirmed. Reserve is now USD 8; available funds did not increase."
+    ],
+    "event": [
+      "12:01 · FILL-005-B: +4 USD. Повтор этого подтверждения не создаёт второй покупки.",
+      "12:01 · FILL-005-B: +USD 4. Repeated delivery does not create a second purchase."
+    ]
+  },
+  "cancelled": {
+    "label": [
+      "Остаток отменён",
+      "Remainder cancelled"
+    ],
+    "fill": 12,
+    "reserve": 0,
+    "cancelled": 8,
+    "position": 32,
+    "final": true,
+    "fresh": true,
+    "consistent": true,
+    "copy": true,
+    "why": [
+      "Подтверждена отмена оставшихся 8 USD: их резерв освобождён. Покупка 12 USD остаётся в учёте.",
+      "Cancellation of the remaining USD 8 is confirmed: its reserve is released. The USD 12 purchase stays recorded."
+    ],
+    "event": [
+      "12:02 · CANCEL-005-C: окончательная отмена 8 USD после двух подтверждённых частей.",
+      "12:02 · CANCEL-005-C: final cancellation of USD 8 after two confirmed fills."
+    ]
+  },
+  "supportCases": [
+    {
+      "id": "T-101",
+      "uid": "U-DEMO-002",
+      "sid": "S-DEMO-002"
+    },
+    {
+      "id": "T-102",
+      "uid": "U-DEMO-005",
+      "sid": "S-DEMO-005"
+    },
+    {
+      "id": "T-103",
+      "uid": "U-DEMO-009",
+      "sid": "S-DEMO-009"
+    }
+  ]
+}
