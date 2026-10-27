@@ -43,3 +43,10 @@ Baseline: main `f0a196034adf8f04ad1d2a7927f509af96f95de1`. [Первый сце�
 Ничего не устанавливалось; проект не обещает нулевой риск, успешную доставку, достаточную производительность или готовность к live.
 
 Источники прочитаны 27.10.2026: [Supabase self-hosting и обязанности](https://supabase.com/docs/guides/self-hosting), [Docker / состав и ресурсы](https://supabase.com/docs/guides/self-hosting/docker), [self-hosted MFA](https://supabase.com/docs/guides/self-hosting/self-hosted-phone-mfa), [MIT Auth](https://github.com/supabase/auth/blob/master/LICENSE), [Better Auth PostgreSQL](https://better-auth.com/docs/installation), [Better Auth email OTP](https://better-auth.com/docs/plugins/email-otp), [Better Auth 2FA / passwordless limitation](https://better-auth.com/docs/plugins/2fa). Версии исходников/образов для внедрения ещё не закреплены; это не аудит кода поставщиков.
+
+
+## Уточнение этапа аккаунтов · 27.10.2026
+
+[Принято](README.md#регистрация-первого-этапа-принято): первый публично доступный стенд использует подготовленные синтетические аккаунты команды; открытая регистрация — после подключения реальной почты. Блокировать незапланированную регистрацию серверно, включая прямые Auth-маршруты. Это не отменяет публичный доступ к гостевым экранам и не превращает почтовый приёмник в сервис для реальных пользователей.
+
+[Ежедневные копии / последние 7 успешных копий](README.md#следующий-вопрос-резервные-копии-тестового-стенда) пока предложение. Размещение, расходы, назначение ответственного и проверяемый restore-план остаются до эксплуатации. Ни аккаунты, ни backup jobs этим документом не создаются.
