@@ -1,0 +1,87 @@
+[
+  {
+    "suite": "check-access-recovery.cjs",
+    "exit": 0,
+    "output": "{\"suite\":\"access-recovery\",\"assertions\":136,\"passed\":true}"
+  },
+  {
+    "suite": "check-account.cjs",
+    "exit": 0,
+    "output": "{\"checks\":169,\"status\":\"pass\",\"roles\":7,\"scope\":\"in-memory account transitions; no server authentication proof\"}"
+  },
+  {
+    "suite": "check-content.cjs",
+    "exit": 0,
+    "output": "{\"assertions\":145,\"status\":\"pass\",\"scope\":\"Synthetic content and communication state, not dispatch or backend permissions\"}"
+  },
+  {
+    "suite": "check-emergency.cjs",
+    "exit": 0,
+    "output": "{\"status\":\"pass\",\"assertions\":122,\"scope\":\"Synthetic UI state model, not server authorization or physical-key verification\"}"
+  },
+  {
+    "suite": "check-feedback.cjs",
+    "exit": 0,
+    "output": "{\"assertions\":85,\"result\":\"pass\",\"roles\":7,\"scope\":\"synthetic in-memory transitions, not server authorization\"}"
+  },
+  {
+    "suite": "check-finance.cjs",
+    "exit": 0,
+    "output": "{\"assertions\":137,\"status\":\"pass\",\"scope\":\"Synthetic finance transitions only; not real authorization or payments\"}"
+  },
+  {
+    "suite": "check-fixtures.cjs",
+    "exit": 0,
+    "output": "11 fixture and financial-display assertions passed"
+  },
+  {
+    "suite": "check-incidents.cjs",
+    "exit": 0,
+    "output": "{\"assertions\":77,\"result\":\"pass\",\"roles\":7,\"scope\":\"Synthetic in-memory behavior; not server authorization\"}"
+  },
+  {
+    "suite": "check-management.cjs",
+    "exit": 0,
+    "output": "{\"assertions\":93,\"status\":\"pass\",\"scope\":\"Synthetic staff assignments and audit only; no server authorization\"}"
+  },
+  {
+    "suite": "check-own-withdrawal.cjs",
+    "exit": 0,
+    "output": "{\"status\":\"pass\",\"assertions\":167,\"scope\":\"Synthetic withdrawal flow; no actual wallet or network verification\"}"
+  },
+  {
+    "suite": "check-platforms.cjs",
+    "exit": 0,
+    "output": "{\"assertions\":155,\"status\":\"pass\",\"scope\":\"Synthetic venue-data workflows, not API or backend authorization\"}"
+  },
+  {
+    "suite": "check-reconciliation.cjs",
+    "exit": 0,
+    "output": "{\"assertions\":91,\"result\":\"pass\",\"roles\":7,\"scope\":\"Synthetic snapshot checks and context; not server authorization\"}"
+  },
+  {
+    "suite": "check-role-context.cjs",
+    "exit": 0,
+    "output": "{\"status\":\"pass\",\"assertions\":620,\"roles\":7,\"locales\":2,\"scope\":\"In-memory route and identity invariants; not browser layout or server authorization\"}"
+  },
+  {
+    "suite": "check-staff-security.cjs",
+    "exit": 0,
+    "output": "{\"suite\":\"staff-security\",\"assertions\":65,\"passed\":true}"
+  },
+  {
+    "suite": "check-support.cjs",
+    "exit": 0,
+    "output": "{\"assertions\":91,\"result\":\"pass\",\"roles\":7}"
+  },
+  {
+    "suite": "check-technical-mode.cjs",
+    "exit": 0,
+    "output": "{\"status\":\"pass\",\"assertions\":603,\"scope\":\"Synthetic technical-mode UI. Not backend shutdown or real key verification.\"}"
+  },
+  {
+    "suite": "check-trading.cjs",
+    "exit": 0,
+    "output": "{\"assertions\":670,\"status\":\"pass\",\"scope\":\"synthetic viewer, 7 roles, RU/EN; no backend authorization or execution proof\"}"
+  }
+]

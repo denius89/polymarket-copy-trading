@@ -1,0 +1,154 @@
+{
+  "baseline": "fe501a7020a1493ab8326fe62ca3f8c01a6e6165",
+  "page": "1981:29",
+  "stateCollection": "VariableCollectionId:4391:2",
+  "stateMode": "4391:0",
+  "localeCollection": "VariableCollectionId:3986:28",
+  "ru": "3986:1",
+  "en": "3986:2",
+  "roots": {
+    "overview": "3971:2",
+    "users": "3971:3",
+    "user": "3971:4",
+    "session": "3971:5",
+    "order": "3971:6",
+    "entry": "3990:108",
+    "profile": "3990:109",
+    "denied": "3990:110",
+    "venue": "3990:111",
+    "period": "3990:112",
+    "search": "3990:113",
+    "status": "3990:114",
+    "columns": "3990:115",
+    "help": "3990:116",
+    "language": "3997:36"
+  },
+  "roles": [
+    {
+      "key": "ownerA",
+      "ru": "Елена Морозова · STAFF-201 · Владелец A",
+      "en": "Elena Morozova · STAFF-201 · Owner A",
+      "users": true,
+      "money": true,
+      "limited": false,
+      "rightsRu": "Просмотр первого маршрута на обеих площадках. Денежные и критические команды добавляются отдельными этапами.",
+      "rightsEn": "View this route for both venues. Money and critical actions are added in separate stages."
+    },
+    {
+      "key": "ownerB",
+      "ru": "Максим Орлов · STAFF-202 · Владелец B",
+      "en": "Maxim Orlov · STAFF-202 · Owner B",
+      "users": true,
+      "money": true,
+      "limited": false,
+      "rightsRu": "Те же права владельца, что у владельца A. Личный аккаунт и автор действий остаются отдельными.",
+      "rightsEn": "Same owner permissions as Owner A. Personal account and action author remain separate."
+    },
+    {
+      "key": "lead",
+      "ru": "Олег Смирнов · STAFF-206 · Руководитель операций",
+      "en": "Oleg Smirnov · STAFF-206 · Operations lead",
+      "users": true,
+      "money": true,
+      "limited": false,
+      "rightsRu": "Пользователи, сессии и события обеих площадок. Нет отправки сделок за клиента и полномочий владельца.",
+      "rightsEn": "Users, sessions and events for both venues. No trades on behalf of users or owner-only authority."
+    },
+    {
+      "key": "ops",
+      "ru": "Нора Азиз · STAFF-203 · Операции и поддержка",
+      "en": "Nora Aziz · STAFF-203 · Operations and support",
+      "users": true,
+      "money": true,
+      "limited": false,
+      "rightsRu": "Учебное операционное назначение: просмотр клиентов и торговых событий. Поддержка и операции объединены.",
+      "rightsEn": "Synthetic operations assignment: view users and trading events. Support and operations are combined."
+    },
+    {
+      "key": "limited",
+      "ru": "Нора Азиз · STAFF-203 · Назначение DEMO-R1",
+      "en": "Nora Aziz · STAFF-203 · Assignment DEMO-R1",
+      "users": true,
+      "money": false,
+      "limited": true,
+      "rightsRu": "Новый учебный пример DEMO-R1: только Demo Noor на Polymarket, без денежных сумм. Не заменяет историческое ASG-DEMO-41.",
+      "rightsEn": "New synthetic example DEMO-R1: only Demo Noor on Polymarket, without monetary amounts. Does not replace historical ASG-DEMO-41."
+    },
+    {
+      "key": "marketing",
+      "ru": "Ирина Волкова · STAFF-204 · Маркетинг",
+      "en": "Irina Volkova · STAFF-204 · Marketing",
+      "users": false,
+      "money": false,
+      "limited": false,
+      "rightsRu": "Контент и маркетинг — последующий этап. В этом назначении нет просмотра клиентов, торговых событий и денежных сумм.",
+      "rightsEn": "Content and marketing are a later stage. This assignment cannot view users, trading events or monetary amounts."
+    },
+    {
+      "key": "audit",
+      "ru": "Аудитор · STAFF-205 · Просмотр",
+      "en": "Auditor · STAFF-205 · Read only",
+      "users": true,
+      "money": false,
+      "limited": false,
+      "rightsRu": "Учебное назначение: просмотр пользователей и событий обеих площадок. Денежные суммы и экспорт отдельно не разрешены.",
+      "rightsEn": "Synthetic assignment: view users and events for both venues. Monetary amounts and export are not separately permitted."
+    }
+  ],
+  "cases": [
+    {
+      "key": "noor",
+      "name": "Demo Noor",
+      "uid": "U-DEMO-002",
+      "sid": "S-DEMO-002",
+      "oid": "ORD-002",
+      "venue": "Polymarket",
+      "day": 18,
+      "status": "unknown",
+      "available": 160,
+      "reserve": 20,
+      "cost": 20,
+      "requested": 20,
+      "filled": null,
+      "remaining": null
+    },
+    {
+      "key": "orion",
+      "name": "Demo Orion",
+      "uid": "U-DEMO-009",
+      "sid": "S-DEMO-009",
+      "oid": "ORD-009",
+      "venue": "Limitless",
+      "day": 18,
+      "status": "stale",
+      "available": null,
+      "reserve": null,
+      "cost": null,
+      "requested": 20,
+      "filled": null,
+      "remaining": null
+    },
+    {
+      "key": "robin",
+      "name": "Demo Robin",
+      "uid": "U-DEMO-005",
+      "sid": "S-DEMO-005",
+      "oid": "ORD-005",
+      "venue": "Limitless",
+      "day": 21,
+      "status": "partial",
+      "available": 160,
+      "reserve": 12,
+      "cost": 28,
+      "requested": 20,
+      "filled": 8,
+      "remaining": 12
+    }
+  ],
+  "recoveryRoots": {
+    "mainD": "4028:175",
+    "mainM": "4161:63198",
+    "choicesD": "4392:2532",
+    "choicesM": "4392:2533"
+  }
+}
