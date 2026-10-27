@@ -10,7 +10,7 @@ Mobile-first продукт для контролируемого копиров
 
 [Дорожная карта](docs/ROADMAP.md) · [Интерфейсы](docs/design/client/sitemap.md) · [Документация](docs/README.md) · [Исследования](research/TRADER_SCORE_README.md) · [Как работаем](docs/REPOSITORY_GUIDE.md)
 
-> **Этап: техническое планирование · pre-MVP.** Админка v1 согласована; [BI-01–BI-04](docs/design/client/business-rule-fixes-2026-10-27/README.md) исправлены в клиентских прототипах и документах. Подготовлен [технический план 139](docs/139_shadow_technical_implementation_plan_2026-10-27.md). Приложение и торговые адаптеры ещё не реализованы; реальные операции выключены. Срез — **27 октября 2026**.
+> **Этап: техническое планирование · pre-MVP.** Админка v1 согласована; [BI-01–BI-04](docs/design/client/business-rule-fixes-2026-10-27/README.md) исправлены в клиентских прототипах и документах. Приняты [три технических решения](docs/decisions/0062_paper_first_modular_backend_and_first_slice.md); подготовлен [проект первого сценария](docs/technical/first-session/README.md). Приложение и торговые адаптеры ещё не реализованы; реальные операции выключены. Срез — **27 октября 2026**.
 
 ## Начать с нужного
 
@@ -30,7 +30,7 @@ Mobile-first продукт для контролируемого копиров
 | API площадок | Справочники [Polymarket](docs/api/polymarket/README.md) и [Limitless](docs/api/limitless/README.md); свидетельства от 06.10.2026, свежесть проверяется под задачу. |
 | Приложение | `apps/` и `packages/` пока описывают будущие границы. Разработка, paper и live проходят отдельные gates. |
 
-Последний дизайн-срез: [админка v1](docs/design/admin/rebuild/v1-final/README.md), [общая клиентская модель](docs/design/admin/rebuild/client-alignment/README.md), [BI-01–BI-04](docs/design/client/business-rule-fixes-2026-10-27/README.md). Следующий результат для обсуждения — [технический план](docs/139_shadow_technical_implementation_plan_2026-10-27.md). Дизайн и Present не заменяют серверную приёмку.
+Последний дизайн-срез: [админка v1](docs/design/admin/rebuild/v1-final/README.md), [общая клиентская модель](docs/design/admin/rebuild/client-alignment/README.md), [BI-01–BI-04](docs/design/client/business-rule-fixes-2026-10-27/README.md). По [плану 139](docs/139_shadow_technical_implementation_plan_2026-10-27.md) подготовлены [схема данных, команды и приёмка первого сценария](docs/technical/first-session/README.md); код отдельно не поручен. Дизайн и Present не заменяют серверную приёмку.
 
 ## Дизайн в Figma
 
