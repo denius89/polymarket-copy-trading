@@ -1,0 +1,9 @@
+// One-time, scoped native prototype setup. Runtime access controls remain a backend responsibility.
+for(const[k,v]of Object.entries({phase:'identity',method:'backup',case:'lost',outcome:'success',device:'A',primary:'',backup:'',primaryVerified:false,backupVerified:false,proved:false,applied:false,actor:'',owner:false,options:'method',error:false,noop:false}))variable('recovery/'+k,typeof v==='boolean'?'BOOLEAN':'STRING',v);
+for(const role of ['ownerA','ownerB','lead','ops','marketing','audit'])variable('recovery/spent/'+role,'BOOLEAN',false);
+for(const k of ['identity','keys','result','signin','rights','external'])variable('recovery/view/'+k,'BOOLEAN',k==='identity');
+pair('recovery/status','Рабочий доступ закрыт. Начните с проверки личности.','Workspace closed. Start by verifying identity.');
+pair('recovery/methodLabel','Действующий запасной способ','Valid backup method');pair('recovery/caseLabel','Потерян способ входа','Sign-in method lost');pair('recovery/deviceLabel','Учебное устройство A','Synthetic device A');pair('recovery/primaryLabel','Основной: не зарегистрирован','Primary: not registered');pair('recovery/backupLabel','Запасной: не зарегистрирован','Backup: not registered');pair('recovery/outcomeLabel','Учебный ответ: подтверждено','Synthetic response: confirmed');
+const roots={mainD:'4028:175',mainM:'4161:63198'};let edge=Math.max(...p.children.map(n=>n.x+n.width))+120;
+for(const mobile of [false,true]){const n=box(p,'RECOVERY / choices'+(mobile?'M':'D'),mobile?358:640);n.x=edge;n.y=mobile?2400:120;n.fills=[paint('surface')];n.paddingTop=n.paddingBottom=n.paddingLeft=n.paddingRight=24;n.cornerRadius=12;roots['choices'+(mobile?'M':'D')]=n.id;edge+=800;}
+return {roots,createdNodeIds:created,variables:Object.fromEntries(Object.entries(vars).filter(([k])=>k.startsWith('recovery/')).map(([k,v])=>[k,v.id]))};

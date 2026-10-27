@@ -1,20 +1,20 @@
 {
-  "version": "0.18",
-  "date": "2026-10-26",
-  "status": "own-withdrawal-prototype-complete-general-acceptance-open",
-  "baseline": "79b48999309951e38ec9914bb6486665565cb169",
+  "version": "0.19",
+  "date": "2026-10-27",
+  "status": "access-recovery-prototype-general-acceptance-open",
+  "baseline": "9ae9bc5ae65a1900fbda86011850d560b8ee3f7e",
   "fileKey": "lxPP2um7FvIbt02K8eeH4T",
   "pageId": "1981:29",
   "entry": "3990:108",
   "counts": {
-    "uniqueRoots": 228,
-    "ru": 228,
-    "en": 228,
-    "counting": "114 desktop + 114 mobile; RU/EN share the same 228 roots",
+    "uniqueRoots": 230,
+    "ru": 230,
+    "en": 230,
+    "counting": "115 desktop + 115 mobile; RU/EN share the same 230 roots",
     "screens": 138,
-    "overlays": 90,
-    "desktopRoots": 114,
-    "mobileRoots": 114
+    "overlays": 92,
+    "desktopRoots": 115,
+    "mobileRoots": 115
   },
   "screens": [
     {
@@ -1271,6 +1271,17 @@
       ],
       "sharedFrame": true,
       "kind": "overlay"
+    },
+    {
+      "key": "recoveryChoices",
+      "id": "4392:2532",
+      "title": "Восстановление доступа · выбор",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "overlay"
     }
   ],
   "roleContexts": 7,
@@ -1518,7 +1529,7 @@
         "kind": "screen",
         "desktop": "4028:175",
         "width": 390,
-        "height": 844
+        "height": 1125
       },
       {
         "key": "account-test",
@@ -2241,6 +2252,13 @@
         "kind": "overlay",
         "desktop": "4372:2795",
         "width": 390
+      },
+      {
+        "key": "recoveryChoices",
+        "id": "4392:2533",
+        "kind": "overlay",
+        "desktop": "4392:2532",
+        "width": 358
       }
     ],
     "financeInventory": "../finance/mobile-inventory.json",
@@ -2281,7 +2299,7 @@
     "verification": "../account-protection/verification.md",
     "roots": "../account-protection/root-inventory.json",
     "mobile": "../account-protection/mobile-inventory.json",
-    "scope": "Synthetic protection of another non-owner; owner compromise and actual restoration remain open"
+    "scope": "Synthetic protection and protected recovery; independent identity verification and real access restoration remain unimplemented"
   },
   "technicalMode": {
     "entry": "4304:2295",
@@ -2317,5 +2335,12 @@
     "decision": "../../../../decisions/0060_service_own_funds_external_withdrawals.md",
     "freeInput": "../prototype/own-withdrawal.js",
     "scope": "Finite preset Figma cases; arbitrary HTML input; synthetic only"
+  },
+  "accessRecovery": {
+    "contract": "../access-recovery/README.md",
+    "verification": "../access-recovery/verification.md",
+    "mapping": "../access-recovery/figma-map.json",
+    "stateCollection": "VariableCollectionId:4391:2",
+    "scope": "Seven synthetic assignments; prepared Figma choices; no production authentication or independent identity verification"
   }
 }
