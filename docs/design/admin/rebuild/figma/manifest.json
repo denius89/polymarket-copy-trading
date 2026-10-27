@@ -1,5 +1,5 @@
 {
-  "version": "0.20",
+  "version": "0.21",
   "date": "2026-10-27",
   "status": "design-v1-frozen-for-implementation-with-explicit-gates",
   "baseline": "9ae9bc5ae65a1900fbda86011850d560b8ee3f7e",
@@ -7,14 +7,14 @@
   "pageId": "1981:29",
   "entry": "3990:108",
   "counts": {
-    "uniqueRoots": 230,
-    "ru": 230,
-    "en": 230,
-    "counting": "115 desktop + 115 mobile; RU/EN share the same 230 roots",
-    "screens": 138,
-    "overlays": 92,
-    "desktopRoots": 115,
-    "mobileRoots": 115
+    "uniqueRoots": 262,
+    "ru": 262,
+    "en": 262,
+    "screens": 168,
+    "overlays": 94,
+    "desktopRoots": 131,
+    "mobileRoots": 131,
+    "counting": "Desktop and mobile roots; RU/EN share each root, independent client locale collection."
   },
   "screens": [
     {
@@ -1286,6 +1286,198 @@
       ],
       "sharedFrame": true,
       "kind": "overlay"
+    },
+    {
+      "key": "client-client-tech-down",
+      "id": "4440:97630",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../client-alignment/README.md",
+      "viewport": "desktop"
+    },
+    {
+      "key": "client-client-service-pause",
+      "id": "4440:97644",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../client-alignment/README.md",
+      "viewport": "desktop"
+    },
+    {
+      "key": "client-client-deposits-pm",
+      "id": "4440:97658",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../client-alignment/README.md",
+      "viewport": "desktop"
+    },
+    {
+      "key": "client-client-withdrawals-ll",
+      "id": "4440:97672",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../client-alignment/README.md",
+      "viewport": "desktop"
+    },
+    {
+      "key": "client-client-incoming-observed",
+      "id": "4440:97686",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../client-alignment/README.md",
+      "viewport": "desktop"
+    },
+    {
+      "key": "client-client-withdrawal-renew",
+      "id": "4440:97700",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../client-alignment/README.md",
+      "viewport": "desktop"
+    },
+    {
+      "key": "client-client-vip-terms",
+      "id": "4440:97714",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../client-alignment/README.md",
+      "viewport": "desktop"
+    },
+    {
+      "key": "client-client-order-unknown",
+      "id": "4440:97726",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../client-alignment/README.md",
+      "viewport": "desktop"
+    },
+    {
+      "key": "client-client-order-late",
+      "id": "4440:97740",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../client-alignment/README.md",
+      "viewport": "desktop"
+    },
+    {
+      "key": "client-client-support-reply",
+      "id": "4440:97754",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../client-alignment/README.md",
+      "viewport": "desktop"
+    },
+    {
+      "key": "client-client-announcement",
+      "id": "4440:97766",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../client-alignment/README.md",
+      "viewport": "desktop"
+    },
+    {
+      "key": "client-home",
+      "id": "4440:97778",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../client-alignment/README.md",
+      "viewport": "desktop"
+    },
+    {
+      "key": "client-help",
+      "id": "4440:97792",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../client-alignment/README.md",
+      "viewport": "desktop"
+    },
+    {
+      "key": "client-notifications",
+      "id": "4440:97806",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../client-alignment/README.md",
+      "viewport": "desktop"
+    },
+    {
+      "key": "client-profile",
+      "id": "4440:97820",
+      "kind": "screen",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../client-alignment/README.md",
+      "viewport": "desktop"
+    },
+    {
+      "key": "client-language",
+      "id": "4442:65760",
+      "kind": "overlay",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "source": "../client-alignment/README.md",
+      "viewport": "desktop"
     }
   ],
   "roleContexts": 7,
@@ -1318,7 +1510,64 @@
     "verification": "../incidents/verification.md",
     "inventory": "../incidents/root-inventory.json"
   },
-  "publicPrototype": "https://shadow-admin-demo.denisfedko.chatgpt.site",
+  "publicPrototype": {
+    "projectId": "appgprj_6adbb54c1e448191ae6354fbc454c7f7",
+    "url": "https://shadow-admin-demo.denisfedko.chatgpt.site",
+    "access": "public",
+    "versionId": "appgprj_6adbb54c1e448191ae6354fbc454c7f7~appgver_9eead1ff3c5c8191b3a938d249920724",
+    "versionNumber": 20,
+    "sourceCommit": "288e8c380d7cc610e4d56cf18213112f083fd624",
+    "deploymentId": "appgdep_6ae08da6cd888191a5bb08ea12e0bc97",
+    "status": "succeeded",
+    "updatedAt": "2026-10-27T11:40:34.970774+00:00",
+    "archiveHash": "sha256:0b2e08c6c36622028e771e80cbfdc9e913ae5d741cc47e6959784eecbf35f80f",
+    "staticDirectory": "dist",
+    "files": [
+      "index.html",
+      "style.css",
+      "account-fixtures.js",
+      "account.js",
+      "support.js",
+      "feedback.js",
+      "incidents.js",
+      "reconciliation.js",
+      "trading.js",
+      "emergency.js",
+      "app.js",
+      "finance.js",
+      "platforms.js",
+      "content.js",
+      "management.js",
+      "staff-security.js",
+      "technical-mode.js",
+      "own-withdrawal.js",
+      "access-recovery.js",
+      "client-view.js"
+    ],
+    "notes": "Synthetic browser-only prototype with shared in-memory client/admin views. No backend, real authentication or shared server persistence. Preserve this Site and public audience. Runtime files only; no credentials.",
+    "runtimeSha256": {
+      "index.html": "463d26a830921cb7bc959a8c520f2e7cf867280ec8f0e9c32da40243bdf78b0c",
+      "style.css": "aa0b2e946ae66cda3667145016fd62d5b7d82bf29b70540d9c8a9db262699668",
+      "account-fixtures.js": "a647029aa666441d8cb7b0210f444fbc00b9712b8e8452c46c00aa2b95dc2b78",
+      "account.js": "5748363e9509a583423a2ac0e5088715cc6232a057e35ab9269b410c1e512cc4",
+      "support.js": "9f6377e03e7a80a88c62901254193b621326035d82130fb0c595e925d191a6ff",
+      "feedback.js": "016154befea85df3d43a20496b6d69c7f4acbf16820ad3a29fe90bdb6001e5d4",
+      "incidents.js": "e3402745ce595ca2f64033013bb05e1fb4dec7e938429a341cdd81989a774276",
+      "reconciliation.js": "aaeb787929b59b21b393234398f9125963a6c0ab8d250718993cf4fa78efec20",
+      "trading.js": "62eb37f4ef83cc9a27bf4cf97872262b62d8b12ab6abb3d4d6d2c72413609958",
+      "emergency.js": "c89b5e3d4bbed2ab81c9c367e945a0b922d54471831602d88af533b553ad828c",
+      "app.js": "ffd16a72d93243d83fbc1f190ba3762597caef713c9a242ddf42d90effe38ce7",
+      "finance.js": "a48b60461b18a0e75bacf6811e60ca3e5bc7ff403beeea92bf523de5d08474f8",
+      "platforms.js": "7c0df2895b65f08ad8a17321fa5acc0c03f8acc06536f1ba31cc63efffd3e0cb",
+      "content.js": "42f20e05108195e33411f2f54edda0749e7dcdf0bbd56cf525a8dfe89d3be3cf",
+      "management.js": "f0951513ad52a5fa1e17167add9376e59afe6f524c9cd386be036d1ee208d9f6",
+      "staff-security.js": "2129c334e696fbf00f959f44e6548d17ee481bb6f87b9a51f80a87c94373a1dd",
+      "technical-mode.js": "9fd557348475df735603f50c119b95d74891888a8d6265ce066e6af32202b740",
+      "own-withdrawal.js": "51d80612fd1f49300c9e2eb3592707616a5a1f55f629bdd2572f26136de4615e",
+      "access-recovery.js": "2b32c953db5e491d35519db814bae2da6afe4c765a6e07b381142edc7822c427",
+      "client-view.js": "c58282647bc1270b9d8daa5e53a2e5933c6a11147d40d5fce2e21c8f0814e867"
+    }
+  },
   "reconciliation": {
     "model": "../reconciliation/model.json",
     "contract": "../reconciliation/README.md",
@@ -1349,7 +1598,7 @@
   "responsive": {
     "width": 390,
     "entry": "4160:650",
-    "inventory": "../management/mobile-inventory.json",
+    "inventory": "../client-alignment/mobile-inventory.json",
     "screens": [
       {
         "key": "overview",
@@ -2265,6 +2514,198 @@
         "kind": "overlay",
         "desktop": "4392:2532",
         "width": 358
+      },
+      {
+        "key": "client-client-tech-down",
+        "id": "4440:97315",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../client-alignment/README.md",
+        "viewport": "mobile"
+      },
+      {
+        "key": "client-client-service-pause",
+        "id": "4440:97329",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../client-alignment/README.md",
+        "viewport": "mobile"
+      },
+      {
+        "key": "client-client-deposits-pm",
+        "id": "4440:97351",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../client-alignment/README.md",
+        "viewport": "mobile"
+      },
+      {
+        "key": "client-client-withdrawals-ll",
+        "id": "4440:97373",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../client-alignment/README.md",
+        "viewport": "mobile"
+      },
+      {
+        "key": "client-client-incoming-observed",
+        "id": "4440:97395",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../client-alignment/README.md",
+        "viewport": "mobile"
+      },
+      {
+        "key": "client-client-withdrawal-renew",
+        "id": "4440:97417",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../client-alignment/README.md",
+        "viewport": "mobile"
+      },
+      {
+        "key": "client-client-vip-terms",
+        "id": "4440:97439",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../client-alignment/README.md",
+        "viewport": "mobile"
+      },
+      {
+        "key": "client-client-order-unknown",
+        "id": "4440:97459",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../client-alignment/README.md",
+        "viewport": "mobile"
+      },
+      {
+        "key": "client-client-order-late",
+        "id": "4440:97481",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../client-alignment/README.md",
+        "viewport": "mobile"
+      },
+      {
+        "key": "client-client-support-reply",
+        "id": "4440:97503",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../client-alignment/README.md",
+        "viewport": "mobile"
+      },
+      {
+        "key": "client-client-announcement",
+        "id": "4440:97522",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../client-alignment/README.md",
+        "viewport": "mobile"
+      },
+      {
+        "key": "client-home",
+        "id": "4440:97542",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../client-alignment/README.md",
+        "viewport": "mobile"
+      },
+      {
+        "key": "client-help",
+        "id": "4440:97564",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../client-alignment/README.md",
+        "viewport": "mobile"
+      },
+      {
+        "key": "client-notifications",
+        "id": "4440:97586",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../client-alignment/README.md",
+        "viewport": "mobile"
+      },
+      {
+        "key": "client-profile",
+        "id": "4440:97608",
+        "kind": "screen",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../client-alignment/README.md",
+        "viewport": "mobile"
+      },
+      {
+        "key": "client-language",
+        "id": "4442:2768",
+        "kind": "overlay",
+        "locales": [
+          "ru",
+          "en"
+        ],
+        "sharedFrame": true,
+        "source": "../client-alignment/README.md",
+        "viewport": "mobile"
       }
     ],
     "financeInventory": "../finance/mobile-inventory.json",
@@ -2355,5 +2796,19 @@
     "openGates": "../v1-final/backlog.md",
     "verification": "../v1-final/verification.md",
     "canvasChanges": false
+  },
+  "clientAlignment": {
+    "source": "../client-alignment/README.md",
+    "desktop": "../client-alignment/figma-desktop.json",
+    "mobile": "../client-alignment/figma-mobile.json",
+    "runtime": "../prototype/client-view.js",
+    "findings": [
+      "CA-01",
+      "CA-02",
+      "CA-03",
+      "CA-04",
+      "CA-05"
+    ],
+    "scope": "Prepared shared client/admin scenarios; not a whole-client-app or backend acceptance."
   }
 }
