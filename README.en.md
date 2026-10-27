@@ -10,7 +10,7 @@ A mobile-first product for controlled copy trading on **Polymarket** and **Limit
 
 [Roadmap](docs/ROADMAP.md) · [Interfaces](docs/design/client/sitemap.md) · [Documentation](docs/README.md) · [Research](research/TRADER_SCORE_README.md) · [Repository guide](docs/REPOSITORY_GUIDE.md)
 
-> **Stage: design and research · pre-MVP.** RU/EN designs are under review. The user application and trading adapters are not implemented; real transactions are not enabled. Homepage snapshot: **19 October 2026**. Most detailed project documents are in Russian.
+> **Stage: technical planning · pre-MVP.** Admin v1 is approved; [BI-01–BI-04](docs/design/client/business-rule-fixes-2026-10-27/README.md) are addressed in the client prototypes and documentation. The [technical plan 139](docs/139_shadow_technical_implementation_plan_2026-10-27.md) is proposed. The application and trading adapters are not implemented; real transactions remain disabled. Snapshot: **27 October 2026**. Detailed documents are mostly in Russian.
 
 ## Start with your task
 
@@ -24,13 +24,13 @@ A mobile-first product for controlled copy trading on **Polymarket** and **Limit
 
 | Area | Status |
 | --- | --- |
-| Client and admin | RU/EN, mobile/desktop, UI kit and handoff prepared. Full manual acceptance remains open. |
+| Client and admin | [Admin v1 approved](docs/design/admin/rebuild/v1-final/README.md); [client financial states corrected](docs/design/client/business-rule-fixes-2026-10-27/README.md) in all four variants. Full application acceptance remains ahead. |
 | First entry | [ADR-0048](docs/decisions/0048_unified_registration_and_first_entry.md) is accepted; [all four Final entry routes are updated](docs/design/client/adr48-entry-fixes-2026-10-19/README.md). Runtime authentication and full end-to-end acceptance remain ahead. |
 | Copy Score | Seven research packages and source inputs preserved. A public ranking formula has not been accepted. |
 | Venue APIs | [Polymarket](docs/api/polymarket/README.md) and [Limitless](docs/api/limitless/README.md) references. Evidence dated 6 October 2026; freshness must be checked for each task. |
 | Application | `apps/` and `packages/` describe future boundaries. Implementation, paper trading and live trading have separate gates. |
 
-Latest design evidence: [roles and cross-scenario review](docs/design/admin/role-scenario-pass-2026-10-19/README.md), followed by the [44 client-state reading supplement](docs/design/admin/role-scenario-verification-2026-10-19/README.md). Design inspection is not runtime acceptance.
+Latest design evidence: [admin v1](docs/design/admin/rebuild/v1-final/README.md), [shared client model](docs/design/admin/rebuild/client-alignment/README.md), and [BI-01–BI-04](docs/design/client/business-rule-fixes-2026-10-27/README.md). Next proposal: [technical implementation plan](docs/139_shadow_technical_implementation_plan_2026-10-27.md). Prototype inspection is not runtime acceptance.
 
 ## Figma design
 

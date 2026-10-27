@@ -10,7 +10,7 @@ Mobile-first продукт для контролируемого копиров
 
 [Дорожная карта](docs/ROADMAP.md) · [Интерфейсы](docs/design/client/sitemap.md) · [Документация](docs/README.md) · [Исследования](research/TRADER_SCORE_README.md) · [Как работаем](docs/REPOSITORY_GUIDE.md)
 
-> **Этап: дизайн и исследования · pre-MVP.** Макеты RU/EN подготовлены и проходят проверку. Пользовательское приложение и торговые адаптеры ещё не реализованы; реальные операции не включены. Срез главной страницы — **19 октября 2026**.
+> **Этап: техническое планирование · pre-MVP.** Админка v1 согласована; [BI-01–BI-04](docs/design/client/business-rule-fixes-2026-10-27/README.md) исправлены в клиентских прототипах и документах. Подготовлен [технический план 139](docs/139_shadow_technical_implementation_plan_2026-10-27.md). Приложение и торговые адаптеры ещё не реализованы; реальные операции выключены. Срез — **27 октября 2026**.
 
 ## Начать с нужного
 
@@ -24,13 +24,13 @@ Mobile-first продукт для контролируемого копиров
 
 | Область | Состояние |
 | --- | --- |
-| Клиент и админка | RU/EN, mobile/desktop, UI kit и handoff. Ручная сквозная приёмка остаётся открытой. |
+| Клиент и админка | [Админка v1 согласована](docs/design/admin/rebuild/v1-final/README.md); [финансовые состояния клиента исправлены](docs/design/client/business-rule-fixes-2026-10-27/README.md) в четырёх версиях. Полная приёмка работающего приложения впереди. |
 | Первый вход | [ADR-0048](docs/decisions/0048_unified_registration_and_first_entry.md) принят; [вход четырёх Final-версий обновлён](docs/design/client/adr48-entry-fixes-2026-10-19/README.md). Runtime-auth и полная сквозная приёмка впереди. |
 | Copy Score | Семь исследовательских пакетов и исходные данные сохранены. Формула публичного рейтинга не утверждена. |
 | API площадок | Справочники [Polymarket](docs/api/polymarket/README.md) и [Limitless](docs/api/limitless/README.md); свидетельства от 06.10.2026, свежесть проверяется под задачу. |
 | Приложение | `apps/` и `packages/` пока описывают будущие границы. Разработка, paper и live проходят отдельные gates. |
 
-Последний дизайн-срез: [роли и сквозные сценарии](docs/design/admin/role-scenario-pass-2026-10-19/README.md) и [дополнение по 44 клиентским состояниям](docs/design/admin/role-scenario-verification-2026-10-19/README.md). Чтение макетов и прототипных действий не заменяет проверку работающего продукта.
+Последний дизайн-срез: [админка v1](docs/design/admin/rebuild/v1-final/README.md), [общая клиентская модель](docs/design/admin/rebuild/client-alignment/README.md), [BI-01–BI-04](docs/design/client/business-rule-fixes-2026-10-27/README.md). Следующий результат для обсуждения — [технический план](docs/139_shadow_technical_implementation_plan_2026-10-27.md). Дизайн и Present не заменяют серверную приёмку.
 
 ## Дизайн в Figma
 

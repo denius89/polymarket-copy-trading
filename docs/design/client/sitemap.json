@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-19",
+  "updatedAt": "2026-10-27",
   "figmaFileKey": "lxPP2um7FvIbt02K8eeH4T",
   "figmaPage": "0:1",
   "figmaBoard": "1664:2",
@@ -69,7 +69,7 @@
       "desktopRu": "3091:192723",
       "desktopEn": "3091:192567"
     },
-    "note": "Design-only manual inputs and linked 3% examples. Numeric ranges remain proposed paper policy; see manual-copy-settings-2026-10-18.md."
+    "note": "Accepted paper numeric policy ADR-0058; design examples are not free-input/runtime validation. See manual-copy-settings-2026-10-18.md; active-session budget rules ADR-0056."
   },
   "desktopIntroduction": {
     "signal": {
@@ -841,5 +841,95 @@
     "mobile": "4440:97542",
     "publicUrl": "https://shadow-admin-demo.denisfedko.chatgpt.site",
     "scope": "Prepared shared-state examples and source-aware Final utility returns."
+  },
+  "businessRuleFixes": {
+    "date": "2026-10-27",
+    "package": "business-rule-fixes-2026-10-27/README.md",
+    "reviewEntry": "4494:2",
+    "statesPerVariant": 14,
+    "totalPreparedStates": 56,
+    "contextOverlays": 4,
+    "variants": {
+      "mr": {
+        "roots": {
+          "budget": "4485:3501",
+          "increase": "4485:3561",
+          "decrease": "4485:3621",
+          "insufficient": "4485:3681",
+          "increased": "4485:3741",
+          "decreased": "4485:3801",
+          "period-end": "4485:3861",
+          "stop-keep": "4485:3921",
+          "manual": "4485:3981",
+          "unknown": "4485:4041",
+          "dust": "4485:4101",
+          "complete": "4485:4161",
+          "reset": "4485:4221",
+          "reset-done": "4485:4281"
+        },
+        "contextOverlay": "4485:4346",
+        "languageButton": "4485:4349"
+      },
+      "me": {
+        "roots": {
+          "budget": "4485:19902",
+          "increase": "4485:19962",
+          "decrease": "4485:20022",
+          "insufficient": "4485:20082",
+          "increased": "4485:20142",
+          "decreased": "4485:20202",
+          "period-end": "4485:20262",
+          "stop-keep": "4485:20322",
+          "manual": "4485:20382",
+          "unknown": "4485:20442",
+          "dust": "4485:20502",
+          "complete": "4485:20562",
+          "reset": "4485:20622",
+          "reset-done": "4485:20682"
+        },
+        "contextOverlay": "4485:20747",
+        "languageButton": "4485:20750"
+      },
+      "dr": {
+        "roots": {
+          "budget": "4485:13891",
+          "increase": "4485:13956",
+          "decrease": "4485:14021",
+          "insufficient": "4485:14086",
+          "increased": "4485:14151",
+          "decreased": "4485:14216",
+          "period-end": "4485:14281",
+          "stop-keep": "4485:14346",
+          "manual": "4485:14411",
+          "unknown": "4485:14476",
+          "dust": "4485:14541",
+          "complete": "4485:14606",
+          "reset": "4485:14671",
+          "reset-done": "4485:14736"
+        },
+        "contextOverlay": "4485:14806",
+        "languageButton": "4485:14809"
+      },
+      "de": {
+        "roots": {
+          "budget": "4485:30273",
+          "increase": "4485:30338",
+          "decrease": "4485:30403",
+          "insufficient": "4485:30468",
+          "increased": "4485:30533",
+          "decreased": "4485:30598",
+          "period-end": "4485:30663",
+          "stop-keep": "4485:30728",
+          "manual": "4485:30793",
+          "unknown": "4485:30858",
+          "dust": "4485:30923",
+          "complete": "4485:30988",
+          "reset": "4485:31053",
+          "reset-done": "4485:31118"
+        },
+        "contextOverlay": "4485:31188",
+        "languageButton": "4485:31191"
+      }
+    }
   }
 }

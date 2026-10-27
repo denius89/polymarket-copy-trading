@@ -1,5 +1,7 @@
 # Бизнес-логика MVP · демо-копирование
 
+27.10.2026 — действующая короткая сводка: [100](100_paper_copy_business_logic_working_draft_2026-10-05.md); [исправления финансовых состояний Final](design/client/business-rule-fixes-2026-10-27/README.md), [технический план 139](139_shadow_technical_implementation_plan_2026-10-27.md). Принятые диапазоны/пороги отделены от активации и реализации; более ранние датированные уточнения ниже сохраняют историю.
+
 Уточнение по проверке 19.10.2026: [Аудит активации 137](137_profile_activation_audit_2026-10-19.md): проверены bounded public streams/reconnect, локальный SNTP и fee reference-вектора. **Ни один профиль не включён**: publisher-clock bound ≤250 мс не доказан; legacy Limitless имеет несовпадение whitepaper/current fee table и inspected SDK rank-rate fallback. Polymarket v1/legacy public observation подтверждены, V2/COLLATERAL не найдены в ограниченной выборке, что не доказывает их отсутствие.
 
 Уточнение 19.10.2026: [ADR-0059](decisions/0059_clob_market_profiles_freshness_price_and_fees.md)/[136](136_venue_market_profiles_and_quote_gates_2026-10-19.md): принят контракт CLOB-профилей обеих площадок — возраст книги ≤2 с, получение snapshot ≤1 с, clock uncertainty ≤250 мс, предел цены 2% от текущего best соответствующей стороны. Минимумы/precision/fees — по точному market/order-shape профилю; AMM пока неподдерживаемый. Обязательная проверка потока/часов и расходов ещё не пройдена: runtime выключен, неизвестное блокирует конкретный профиль.
