@@ -1,0 +1,111 @@
+{
+  "baseline": "5ce83e88f3998c7fdbc6a1fd8ae64bef35a42fb4",
+  "checks": [
+    {
+      "suite": "check-access-recovery.cjs",
+      "exit": 0,
+      "stdout": "{\"suite\":\"access-recovery\",\"assertions\":136,\"passed\":true}",
+      "stderr": ""
+    },
+    {
+      "suite": "check-account.cjs",
+      "exit": 0,
+      "stdout": "{\"checks\":169,\"status\":\"pass\",\"roles\":7,\"scope\":\"in-memory account transitions; no server authentication proof\"}",
+      "stderr": ""
+    },
+    {
+      "suite": "check-content.cjs",
+      "exit": 0,
+      "stdout": "{\"assertions\":145,\"status\":\"pass\",\"scope\":\"Synthetic content and communication state, not dispatch or backend permissions\"}",
+      "stderr": ""
+    },
+    {
+      "suite": "check-emergency.cjs",
+      "exit": 0,
+      "stdout": "{\"status\":\"pass\",\"assertions\":122,\"scope\":\"Synthetic UI state model, not server authorization or physical-key verification\"}",
+      "stderr": ""
+    },
+    {
+      "suite": "check-feedback.cjs",
+      "exit": 0,
+      "stdout": "{\"assertions\":85,\"result\":\"pass\",\"roles\":7,\"scope\":\"synthetic in-memory transitions, not server authorization\"}",
+      "stderr": ""
+    },
+    {
+      "suite": "check-finance.cjs",
+      "exit": 0,
+      "stdout": "{\"assertions\":137,\"status\":\"pass\",\"scope\":\"Synthetic finance transitions only; not real authorization or payments\"}",
+      "stderr": ""
+    },
+    {
+      "suite": "check-fixtures.cjs",
+      "exit": 0,
+      "stdout": "11 fixture and financial-display assertions passed",
+      "stderr": ""
+    },
+    {
+      "suite": "check-incidents.cjs",
+      "exit": 0,
+      "stdout": "{\"assertions\":77,\"result\":\"pass\",\"roles\":7,\"scope\":\"Synthetic in-memory behavior; not server authorization\"}",
+      "stderr": ""
+    },
+    {
+      "suite": "check-management.cjs",
+      "exit": 0,
+      "stdout": "{\"assertions\":93,\"status\":\"pass\",\"scope\":\"Synthetic staff assignments and audit only; no server authorization\"}",
+      "stderr": ""
+    },
+    {
+      "suite": "check-own-withdrawal.cjs",
+      "exit": 0,
+      "stdout": "{\"status\":\"pass\",\"assertions\":167,\"scope\":\"Synthetic withdrawal flow; no actual wallet or network verification\"}",
+      "stderr": ""
+    },
+    {
+      "suite": "check-platforms.cjs",
+      "exit": 0,
+      "stdout": "{\"assertions\":155,\"status\":\"pass\",\"scope\":\"Synthetic venue-data workflows, not API or backend authorization\"}",
+      "stderr": ""
+    },
+    {
+      "suite": "check-reconciliation.cjs",
+      "exit": 0,
+      "stdout": "{\"assertions\":91,\"result\":\"pass\",\"roles\":7,\"scope\":\"Synthetic snapshot checks and context; not server authorization\"}",
+      "stderr": ""
+    },
+    {
+      "suite": "check-role-context.cjs",
+      "exit": 0,
+      "stdout": "{\"status\":\"pass\",\"assertions\":620,\"roles\":7,\"locales\":2,\"scope\":\"In-memory route and identity invariants; not browser layout or server authorization\"}",
+      "stderr": ""
+    },
+    {
+      "suite": "check-staff-security.cjs",
+      "exit": 0,
+      "stdout": "{\"suite\":\"staff-security\",\"assertions\":65,\"passed\":true}",
+      "stderr": ""
+    },
+    {
+      "suite": "check-support.cjs",
+      "exit": 0,
+      "stdout": "{\"assertions\":91,\"result\":\"pass\",\"roles\":7}",
+      "stderr": ""
+    },
+    {
+      "suite": "check-technical-mode.cjs",
+      "exit": 0,
+      "stdout": "{\"status\":\"pass\",\"assertions\":603,\"scope\":\"Synthetic technical-mode UI. Not backend shutdown or real key verification.\"}",
+      "stderr": ""
+    },
+    {
+      "suite": "check-trading.cjs",
+      "exit": 0,
+      "stdout": "{\"assertions\":670,\"status\":\"pass\",\"scope\":\"synthetic viewer, 7 roles, RU/EN; no backend authorization or execution proof\"}",
+      "stderr": ""
+    }
+  ],
+  "assertions": 3437,
+  "suiteCount": 17,
+  "date": "2026-10-27",
+  "scope": "Fresh local state-model run; no backend or browser simulation proof"
+}

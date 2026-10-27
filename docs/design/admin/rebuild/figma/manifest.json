@@ -1,7 +1,7 @@
 {
-  "version": "0.19",
+  "version": "0.20",
   "date": "2026-10-27",
-  "status": "access-recovery-prototype-general-acceptance-open",
+  "status": "design-v1-frozen-for-implementation-with-explicit-gates",
   "baseline": "9ae9bc5ae65a1900fbda86011850d560b8ee3f7e",
   "fileKey": "lxPP2um7FvIbt02K8eeH4T",
   "pageId": "1981:29",
@@ -367,7 +367,8 @@
         "en"
       ],
       "type": "screen",
-      "source": "../feedback/model.json"
+      "source": "../feedback/model.json",
+      "kind": "screen"
     },
     {
       "key": "feedbackItem",
@@ -378,7 +379,8 @@
         "en"
       ],
       "type": "screen",
-      "source": "../feedback/model.json"
+      "source": "../feedback/model.json",
+      "kind": "screen"
     },
     {
       "key": "feedbackOptions",
@@ -389,7 +391,8 @@
         "en"
       ],
       "type": "overlay",
-      "source": "../feedback/model.json"
+      "source": "../feedback/model.json",
+      "kind": "overlay"
     },
     {
       "key": "feedbackLink",
@@ -400,7 +403,8 @@
         "en"
       ],
       "type": "overlay",
-      "source": "../feedback/model.json"
+      "source": "../feedback/model.json",
+      "kind": "overlay"
     },
     {
       "key": "incidents",
@@ -1393,7 +1397,7 @@
         "kind": "screen",
         "desktop": "3990:108",
         "width": 390,
-        "height": 844
+        "height": 946
       },
       {
         "key": "profile",
@@ -2193,7 +2197,7 @@
         "kind": "screen",
         "desktop": "4304:2295",
         "width": 390,
-        "height": 844
+        "height": 1926
       },
       {
         "key": "technicalOptions",
@@ -2216,14 +2220,16 @@
         "id": "4372:2884",
         "kind": "screen",
         "desktop": "4372:2350",
-        "width": 390
+        "width": 390,
+        "height": 1651
       },
       {
         "key": "ownWithdrawal-review",
         "id": "4372:2976",
         "kind": "screen",
         "desktop": "4372:2439",
-        "width": 390
+        "width": 390,
+        "height": 1432
       },
       {
         "key": "ownWithdrawal-settings",
@@ -2342,5 +2348,12 @@
     "mapping": "../access-recovery/figma-map.json",
     "stateCollection": "VariableCollectionId:4391:2",
     "scope": "Seven synthetic assignments; prepared Figma choices; no production authentication or independent identity verification"
+  },
+  "v1Handoff": {
+    "guide": "../v1-final/README.md",
+    "coverage": "../v1-final/coverage.md",
+    "openGates": "../v1-final/backlog.md",
+    "verification": "../v1-final/verification.md",
+    "canvasChanges": false
   }
 }
