@@ -5,7 +5,7 @@ for(const file of ['account-fixtures.js','account.js','support.js','feedback.js'
 vm.runInContext("account=newAccount('lead')",context);
 const read=code=>vm.runInContext(code,context);
 assert.equal(read('users.length'),24);
-assert.equal(read('users.flatMap(u=>u.sessions).length'),24);
+assert.equal(read('users.flatMap(u=>u.sessions).length'),23);
 assert.equal(read('new Set(users.map(u=>u.id)).size'),24);
 assert.equal(read('users.filter(u=>u.issue!=="ok").length'),3);
 assert.equal(read('users.every(u=>u.sessions.every(s=>s.available===null||s.available+s.reserved+s.positionsCost===s.budget))'),true);
@@ -17,4 +17,5 @@ read('state.userId="U-DEMO-002";state.sessionId="S-DEMO-002"');
 assert.equal(read('orderCard().includes("Не подтверждено") && tradingCurrent().fill===null'),true);
 assert.equal(read('orderCard().includes("Повторить отправку")'),false);
 read('state.q="Noor"');assert.equal(read('filtered(true).length'),2);
-console.log('11 fixture and financial-display assertions passed');
+assert.equal(read('users.every(u=>u.sessions.length<=1)'),true);
+console.log('12 fixture and financial-display assertions passed');
