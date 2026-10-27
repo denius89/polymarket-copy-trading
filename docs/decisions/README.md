@@ -1,5 +1,7 @@
 # Архитектурные решения
 
+[ADR-0063](0063_supabase_user_auth_provider.md) — принято 27.10.2026: Supabase Auth для входа пользователей. Запрошен второй фактор; [SES, лимиты кодов и область TOTP](../technical/first-session/auth-policy.md) пока предложения. Staff/Owner вход отдельно, код и подключение сервисов не выполняются.
+
 [ADR-0062](0062_paper_first_modular_backend_and_first_slice.md) — принято 27.10.2026: paper-first, модульный TypeScript/PostgreSQL сервер, первый общий сценарий клиента/админки. [Схема/команды/приёмка](../technical/first-session/README.md) — подготовленный проект T0; код и миграции не поручены. ADR-0042 принят только в соответствующей части.
 
 [ADR-0043](0043_admin_money_security_and_incident_recovery.md) — принято 12.10.2026: protected recipient/пороги, independent money recovery, PARTNER_PAYOUTS_OFF, isolation/compromise, funding lifecycle, audit integrity и безопасный restart. Уточняет ADR-0030/0031/0032/0037/0040/0041; обычные выплаты/тарифы не получают обязательного второго подтверждения.
