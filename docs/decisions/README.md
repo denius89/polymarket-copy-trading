@@ -148,3 +148,5 @@
 ## Рыночные профили · 19.10.2026
 
 [ADR-0059](0059_clob_market_profiles_freshness_price_and_fees.md) — контракт принят: 2 с/1 с/250 мс, ценовой предел 2%, CLOB обеих площадок с раздельными версиями и доказанными расходами; AMM пока unsupported. [136](../136_venue_market_profiles_and_quote_gates_2026-10-19.md), [JSON](../policies/paper-clob-market-profiles-v1.json), [QA/evidence](../qa/venue-profiles-2026-10-19/README.md). Активация blocked до проверок.
+
+- [ADR-0061: Пополнение кошельков Shadow извне](0061_owner_external_wallet_funding.md).

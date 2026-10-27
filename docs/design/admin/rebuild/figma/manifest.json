@@ -1,5 +1,5 @@
 {
-  "version": "0.21",
+  "version": "0.22",
   "date": "2026-10-27",
   "status": "design-v1-frozen-for-implementation-with-explicit-gates",
   "baseline": "9ae9bc5ae65a1900fbda86011850d560b8ee3f7e",
@@ -7,13 +7,13 @@
   "pageId": "1981:29",
   "entry": "3990:108",
   "counts": {
-    "uniqueRoots": 262,
-    "ru": 262,
-    "en": 262,
-    "screens": 168,
-    "overlays": 94,
-    "desktopRoots": 131,
-    "mobileRoots": 131,
+    "uniqueRoots": 268,
+    "ru": 268,
+    "en": 268,
+    "screens": 170,
+    "overlays": 98,
+    "desktopRoots": 134,
+    "mobileRoots": 134,
     "counting": "Desktop and mobile roots; RU/EN share each root, independent client locale collection."
   },
   "screens": [
@@ -1478,6 +1478,39 @@
       "sharedFrame": true,
       "source": "../client-alignment/README.md",
       "viewport": "desktop"
+    },
+    {
+      "key": "externalFunding-details",
+      "id": "4459:2826",
+      "title": "Пополнить кошелёк Shadow",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "screen"
+    },
+    {
+      "key": "externalFunding-source",
+      "id": "4459:2895",
+      "title": "Кошелёк и сеть пополнения",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "overlay"
+    },
+    {
+      "key": "externalFunding-outcomes",
+      "id": "4459:2964",
+      "title": "Учебные результаты входящего перевода",
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "sharedFrame": true,
+      "kind": "overlay"
     }
   ],
   "roleContexts": 7,
@@ -1598,7 +1631,7 @@
   "responsive": {
     "width": 390,
     "entry": "4160:650",
-    "inventory": "../client-alignment/mobile-inventory.json",
+    "inventory": "../external-funding/mobile-inventory.json",
     "screens": [
       {
         "key": "overview",
@@ -2706,6 +2739,27 @@
         "sharedFrame": true,
         "source": "../client-alignment/README.md",
         "viewport": "mobile"
+      },
+      {
+        "key": "externalFunding-details",
+        "id": "4459:3033",
+        "desktop": "4459:2826",
+        "kind": "screen",
+        "width": 390
+      },
+      {
+        "key": "externalFunding-source",
+        "id": "4459:3105",
+        "desktop": "4459:2895",
+        "kind": "overlay",
+        "width": 390
+      },
+      {
+        "key": "externalFunding-outcomes",
+        "id": "4459:3177",
+        "desktop": "4459:2964",
+        "kind": "overlay",
+        "width": 390
       }
     ],
     "financeInventory": "../finance/mobile-inventory.json",
@@ -2810,5 +2864,18 @@
       "CA-05"
     ],
     "scope": "Prepared shared client/admin scenarios; not a whole-client-app or backend acceptance."
+  },
+  "externalFunding": {
+    "roots": {
+      "detailsD": "4459:2826",
+      "sourceD": "4459:2895",
+      "outcomesD": "4459:2964",
+      "detailsM": "4459:3033",
+      "sourceM": "4459:3105",
+      "outcomesM": "4459:3177"
+    },
+    "decision": "../../../../decisions/0061_owner_external_wallet_funding.md",
+    "verification": "../external-funding/verification.md",
+    "scope": "Owner-only synthetic inbound observations; no real transfers"
   }
 }
