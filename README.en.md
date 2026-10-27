@@ -10,7 +10,7 @@ A mobile-first product for controlled copy trading on **Polymarket** and **Limit
 
 [Roadmap](docs/ROADMAP.md) · [Interfaces](docs/design/client/sitemap.md) · [Documentation](docs/README.md) · [Research](research/TRADER_SCORE_README.md) · [Repository guide](docs/REPOSITORY_GUIDE.md)
 
-> **Stage: technical planning · pre-MVP.** Admin v1 is approved; [BI-01–BI-04](docs/design/client/business-rule-fixes-2026-10-27/README.md) are addressed in the client prototypes and documentation. The [technical plan 139](docs/139_shadow_technical_implementation_plan_2026-10-27.md) is proposed. The application and trading adapters are not implemented; real transactions remain disabled. Snapshot: **27 October 2026**. Detailed documents are mostly in Russian.
+> **Stage: technical planning · pre-MVP.** Admin v1 is approved; [BI-01–BI-04](docs/design/client/business-rule-fixes-2026-10-27/README.md) are addressed in the client prototypes and documentation. [Three foundations are accepted](docs/decisions/0062_paper_first_modular_backend_and_first_slice.md); the [first-scenario design](docs/technical/first-session/README.md) documents the data model, commands and acceptance criteria. The application and trading adapters are not implemented; real transactions remain disabled. Snapshot: **27 October 2026**. Detailed documents are mostly in Russian.
 
 ## Start with your task
 
@@ -30,7 +30,7 @@ A mobile-first product for controlled copy trading on **Polymarket** and **Limit
 | Venue APIs | [Polymarket](docs/api/polymarket/README.md) and [Limitless](docs/api/limitless/README.md) references. Evidence dated 6 October 2026; freshness must be checked for each task. |
 | Application | `apps/` and `packages/` describe future boundaries. Implementation, paper trading and live trading have separate gates. |
 
-Latest design evidence: [admin v1](docs/design/admin/rebuild/v1-final/README.md), [shared client model](docs/design/admin/rebuild/client-alignment/README.md), and [BI-01–BI-04](docs/design/client/business-rule-fixes-2026-10-27/README.md). Next proposal: [technical implementation plan](docs/139_shadow_technical_implementation_plan_2026-10-27.md). Prototype inspection is not runtime acceptance.
+Latest design evidence: [admin v1](docs/design/admin/rebuild/v1-final/README.md), [shared client model](docs/design/admin/rebuild/client-alignment/README.md), and [BI-01–BI-04](docs/design/client/business-rule-fixes-2026-10-27/README.md). Under the [technical plan](docs/139_shadow_technical_implementation_plan_2026-10-27.md), [first-scenario contracts](docs/technical/first-session/README.md) are prepared; implementation has not been authorized. Prototype inspection is not runtime acceptance.
 
 ## Figma design
 

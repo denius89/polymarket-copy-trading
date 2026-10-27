@@ -1,5 +1,7 @@
 # Архитектурные решения
 
+[ADR-0062](0062_paper_first_modular_backend_and_first_slice.md) — принято 27.10.2026: paper-first, модульный TypeScript/PostgreSQL сервер, первый общий сценарий клиента/админки. [Схема/команды/приёмка](../technical/first-session/README.md) — подготовленный проект T0; код и миграции не поручены. ADR-0042 принят только в соответствующей части.
+
 [ADR-0043](0043_admin_money_security_and_incident_recovery.md) — принято 12.10.2026: protected recipient/пороги, independent money recovery, PARTNER_PAYOUTS_OFF, isolation/compromise, funding lifecycle, audit integrity и безопасный restart. Уточняет ADR-0030/0031/0032/0037/0040/0041; обычные выплаты/тарифы не получают обязательного второго подтверждения.
 
 [ADR-0013](0013_consolidated_ux_and_risk_boundaries.md): принятые уточнения первого входа, сводок, средств и управления. Формулы/пороги финансовой автопаузы остаются предложением.
@@ -91,7 +93,7 @@
 | [0039](0039_owner_assignable_user_vip.md) | Назначение VIP пользователям | принято | только Owner; профиль/индивидуальные условия, срок, effective preview и audit; отдельно от partner VIP |
 | [0040](0040_platform_usd_accounting_and_venue_payout_options.md) | USD-учёт и выплаты по площадке | принято | единый расчёт в $, все подтверждённые варианты Polymarket/Limitless; исполнение уточнено в ADR-0041 |
 | [0041](0041_owner_confirmed_automated_partner_payouts.md) | Автоматическое исполнение выплат после подтверждения Owner | принято | подтверждение в админке; серверная авторизация/подписание, отправка и сверка; API-gate до live |
-| [0042](0042_admin_modular_backend_and_shared_projections_proposal.md) | Техническая основа админки | предложено | modular TypeScript backend/shared projections/outbox; отдельные emergency/payout boundaries;115/116 |
+| [0042](0042_admin_modular_backend_and_shared_projections_proposal.md) | Техническая основа админки | принято частично | модульный TypeScript/PostgreSQL/shared-data подход принят ADR-0062; остальные детали предложены |
 
 ## Как добавить решение
 
