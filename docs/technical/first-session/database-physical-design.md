@@ -1,5 +1,7 @@
 # Физическая схема БД первого сценария — согласованный документ
 
+29.10.2026 · Заключительный блок принят после PR №176 и отражён; [итог дополнения §§4–5](database-c04-addendum.md), [ADR-0064 §37](../../decisions/0064_first_session_database_contract.md). Реестры H02/H03, параметры H04–H06 и T01–T17 действуют вместе с физическими полями ниже. Исторические пометки «ещё выбрать код/бюджет» не отменяют последующее принятие. Полевая карта JSON/DTO, компоненты и предметные испытания остаются отдельно; только документы.
+
 29.10.2026 · Приняты [блоки 1–3 дополнения после пакета бэкенда](database-c04-addendum.md): guest context до draft, historical guest_context_id, результат/атомарность C04 и last_input_receipt_id текущего ввода; [ADR-0064 §§34–35](../../decisions/0064_first_session_database_contract.md). Точные составные FK и post-claim поиск приняты блоком 3; ADR-0064 §36. Исторические §§30–34 сохранены, реализация не начата.
 
 29.10.2026 · **Все четыре блока физической схемы и сводная передача приняты целиком. Согласование завершено.** [Итог — ADR-0064 §33](../../decisions/0064_first_session_database_contract.md); [сводная передача бэкенду](database-backend-handoff.md). Блок 1 принят после PR №161, заключительный блок — после PR №164. [Фиксация блока 1 — ADR-0064 §30](../../decisions/0064_first_session_database_contract.md). Согласованная логическая модель остаётся обязательной: [итог](database-final-review.md), [ADR-0064](../../decisions/0064_first_session_database_contract.md). Baseline: main `43a6991580e0a61e4210dfd167d0d994ccb63454`. Документ описывает будущие таблицы; SQL, миграций, кода приложения и созданной БД нет.
@@ -79,8 +81,8 @@
 | version | bigint | Да | Версия сохранённого ввода C04, начально 1; +1 только при успешном изменении |
 | last_input_receipt_id | uuid | Да | Успешный C04 created/updated, сохранивший текущую версию ввода; свой draft/result version/моменты совпадают. Не последний запрос и не unchanged receipt; FK (environment,last_input_receipt_id,id,version) → command_receipts(environment,id,result_draft_id,result_draft_version), принятый блоком 3 дополнения |
 | locale | text | Да | `ru` либо `en` |
-| step | text | Да | Код шага согласованной формы; точные коды сопоставляются с существующим UX, не задают права запуска |
-| entry_context | text | Нет | Разрешённый код исходного контекста/перехода; NULL = контекст не передан. Без произвольного redirect или секретов |
+| step | text | Да | select_trader, configure, review; код шага не даёт права запуска |
+| entry_context | text | Нет | catalog, trader_details, session_summary либо NULL; без произвольного redirect или секретов |
 | venue_id | uuid | Нет | Площадка ещё не выбрана → NULL; будущий FK на каталог блока 2 |
 | trader_id | uuid | Нет | Трейдер ещё не выбран → NULL; при наличии обязательна venue_id, будущая составная ссылка на трейдера той же площадки/среды |
 | selected_mode | text | Нет | `fixed` либо `percent`; NULL = способ ещё не выбран |
@@ -189,3 +191,13 @@ flowchart LR
 29.10.2026 · Блок3 принят после PR №172. Target/result FK C04 используют имеющийся unique draft_ownerships(environment,draft_id,id). Для current input используется unique receipts(environment,id,result_draft_id,result_draft_version); draft ссылается всеми обязательными компонентами. Отложенная проверка дополнительно требует C04/succeeded/created либо updated и равенство моментов ввода. Receipt со старой result version не имеет FK на изменяемую version draft. Проверки новой операции не заставляют прошлую историю равняться текущему вводу.
 
 При новом C04 проверяются current ownership и proof/полный вход. После claim для чтения старого C04 допускается именно historical guest ownership по подтверждённой claim-цепочке текущего user; это исключение для восстановления результата, не разрешение редактировать по прошлому владению. Успех использует result ownership, rejected update — проверенную target ownership. Rejected create без draft не имеет такой цепочки. Claim/used не меняют last_input_receipt_id/version/TTL. Полный порядок и неоднозначный поиск — [операции §2.6](database-physical-operations-access.md), [дополнение §3.5](database-c04-addendum.md). SQL/Auth-процедуры и испытания не выполнены.
+
+## 9. Итоговое отражение H02/T01–T17 для ввода и владения
+
+Реестр — first-session-registry-v1. Guest digest guest-hmac-sha256-v1 относится к доказательству конкретного draft; постоянный Auth context до create имеет отдельный защищённый протокол, ещё не реализованный. Realm/status/assurance/providers/revoke reasons читаются по [реестру](backend-code-registry.md), не задаются клиентом или вымышленным identity status. Environment — точная доверенная конфигурация, paper не автоматически имя среды.
+
+Raw сохраняется без trim/NFC: NULL, пустая строка, 20, 20.00 различаются. Числовой парсер принимает ASCII digits, одну точку/запятую с цифрами с обеих сторон, ведущие/конечные нули; не принимает пробелы/знаки/экспоненту/валюту/процентный знак. 3.5=3,5; 1,000=1. Короткая abc-строка допустима C04 с ошибкой; JSON number вместо raw-строки — ранний структурный отказ. До 64 code points, без округления и defaults; полный набор сохраняемых полей, не PATCH.
+
+Raw loss-поле отображается как rawDailyBuyLimitPercent, смысл — дневной лимит новых покупок. Список fieldErrors и приоритеты приняты T02–T04; исходный result не меняется при replay. Last_input_receipt_id не указывает на последнюю unchanged попытку. Происхождение ошибок Q03 после изменения policy требует ещё точной полевой карты, исторические ошибки не объявляются новой проверкой.
+
+C04 и claim имеют каждый бюджет 5s/максимум 3 подтверждённых serialization/deadlock rollback-попытки с паузами 50–150 мс внутри общего бюджета (T05/T12). Unknown сначала сверяется; повтор claim получателем читает исходную цепочку без действительности уже закрытого guest proof. C04 unknown сохраняет исходный key. Свой used/expired/stale draft даёт окончательный отказ после допуска; чужая/скрытая цель — ранний отказ без CMD. Точные DTO и Auth-протокол остаются остатком; новых таблиц/колонок для секретов нет.
