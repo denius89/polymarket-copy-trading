@@ -1,6 +1,6 @@
 # Физическая схема БД — блок 4: команды, аудит, события и доступ
 
-29.10.2026 · **Предложение заключительного блока для согласования целиком.** Блоки [1](database-physical-design.md), [2](database-physical-catalog-review.md), [3](database-physical-session-ledger.md) приняты; этот блок ещё не принят. Baseline main `287e2639cecd751ff4812e15e815efa79ab3757e`. Основания: [ADR-0064](../../decisions/0064_first_session_database_contract.md), [data-model §22–23](data-model.md), [commands](commands.md), [auth-policy](auth-policy.md), [контракт доступа админки](../../design/admin/staff-access-2026-10-18/contract.md). Только документ: без SQL, кода, миграций, создания аккаунтов и развёртывания.
+29.10.2026 · **Блок 4 и сводная передача приняты целиком 29.10.2026 после PR №164.** [ADR-0064 §33](../../decisions/0064_first_session_database_contract.md). Все четыре физических блока согласованы: [1](database-physical-design.md), [2](database-physical-catalog-review.md), [3](database-physical-session-ledger.md) и этот блок. Инженерные зависимости сохранены; принятие не означает выполненную реализацию. Baseline main `287e2639cecd751ff4812e15e815efa79ab3757e`. Основания: [ADR-0064](../../decisions/0064_first_session_database_contract.md), [data-model §22–23](data-model.md), [commands](commands.md), [auth-policy](auth-policy.md), [контракт доступа админки](../../design/admin/staff-access-2026-10-18/contract.md). Только документ: без SQL, кода, миграций, создания аккаунтов и развёртывания.
 
 ## 1. Общие соглашения и состав
 
@@ -297,4 +297,4 @@ Serializable и общий lock order остаются из data-model §22; gua
 
 Техническая сверка 29.10.2026: [PostgreSQL Constraints](https://www.postgresql.org/docs/current/ddl-constraints.html), [Transaction Isolation](https://www.postgresql.org/docs/current/transaction-iso.html). Ссылки подтверждают свойства механизмов, не готовность Shadow или выбранной версии Auth.
 
-**Сводная передача и оставшиеся зависимости:** [database-backend-handoff.md](database-backend-handoff.md). Блок 4 ещё требует принятия владельцем; после него новая серия продуктовых микровопросов не предполагается. Завершение документального согласования не является поручением начать SQL, код или развёртывание.
+**Сводная передача и оставшиеся зависимости:** [database-backend-handoff.md](database-backend-handoff.md). Блок 4 и сводная передача приняты, документальное согласование физической схемы завершено. H01–H06 остаются инженерной работой будущего бэкенда. Код, SQL, миграции и развёртывание — только после отдельного поручения.

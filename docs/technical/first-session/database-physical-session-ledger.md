@@ -226,4 +226,4 @@ B2-D4 закрывается этим предложением по generation/a
 
 Технические основания проверены 29.10.2026: [PostgreSQL Constraints](https://www.postgresql.org/docs/current/ddl-constraints.html) — CHECK строки не доказывает межстрочную полноту/баланс; [Constraint triggers](https://www.postgresql.org/docs/current/sql-createtrigger.html) — допускают отложенную проверку до конца транзакции. Версия развёртывания этим чтением не выбрана.
 
-**Блок 3 принят целиком**, включая явные инженерные зависимости. Следующее согласование — [заключительный блок 4](database-physical-operations-access.md) и [сводная передача бэкенду](database-backend-handoff.md). Код и SQL по-прежнему не начинать.
+**Блок 3 принят целиком**, включая явные инженерные зависимости. [Заключительный блок 4](database-physical-operations-access.md) и [сводная передача бэкенду](database-backend-handoff.md) также приняты; согласование физической схемы завершено. Код и SQL по-прежнему не начинать.
