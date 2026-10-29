@@ -1,6 +1,6 @@
 # Физическая схема БД — блок 3: сессия, настройки и виртуальный учёт
 
-29.10.2026 · **Предложение для согласования целиком.** Блоки [1](database-physical-design.md) и [2](database-physical-catalog-review.md) приняты. Baseline: main `ab94c39b099f4d2b40f39425de9c5d4cdb387901`. Основание — [ADR-0064](../../decisions/0064_first_session_database_contract.md), [логическая модель](data-model.md), [команды C06/Q04/Q06](commands.md) и [задание бэкенда](backend-chat-brief.md). Только документ: SQL, код, миграции, БД и развёртывание не создаются.
+29.10.2026 · **Блок 3 принят целиком 29.10.2026 после PR №163.** [Фиксация — ADR-0064 §32](../../decisions/0064_first_session_database_contract.md). Блоки [1](database-physical-design.md) и [2](database-physical-catalog-review.md) приняты. Baseline: main `ab94c39b099f4d2b40f39425de9c5d4cdb387901`. Основание — [ADR-0064](../../decisions/0064_first_session_database_contract.md), [логическая модель](data-model.md), [команды C06/Q04/Q06](commands.md) и [задание бэкенда](backend-chat-brief.md). Только документ: SQL, код, миграции, БД и развёртывание не создаются.
 
 ## 1. Состав и границы
 
@@ -226,4 +226,4 @@ B2-D4 закрывается этим предложением по generation/a
 
 Технические основания проверены 29.10.2026: [PostgreSQL Constraints](https://www.postgresql.org/docs/current/ddl-constraints.html) — CHECK строки не доказывает межстрочную полноту/баланс; [Constraint triggers](https://www.postgresql.org/docs/current/sql-createtrigger.html) — допускают отложенную проверку до конца транзакции. Версия развёртывания этим чтением не выбрана.
 
-**Следующее согласование:** принять блок 3 целиком как документальный проект. Затем заключительный блок 4 — результаты команд, аудит, события/обработка, доступ сотрудников и сводная матрица ограничений/передача бэкенду. Код и SQL по-прежнему не начинать.
+**Блок 3 принят целиком**, включая явные инженерные зависимости. Следующее согласование — [заключительный блок 4](database-physical-operations-access.md) и [сводная передача бэкенду](database-backend-handoff.md). Код и SQL по-прежнему не начинать.
