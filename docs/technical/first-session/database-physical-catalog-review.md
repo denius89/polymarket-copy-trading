@@ -1,5 +1,7 @@
 # Физическая схема БД — блок 2: каталог, правила и проверка настроек
 
+29.10.2026 · По поручению владельца после PR №177 завершена [точная карта ошибок API ↔ БД](database-error-field-map.md): контейнеры reasons/fieldErrors, закрытые params и источник ошибок Q03. Это уточнение документов в рамках T01–T17, без пересогласования C04. Прежние пометки о незавершённости именно этой карты ниже исторические; полные DTO/Auth/компоненты и испытания остаются отдельно.
+
 29.10.2026 · Заключительный блок принят после PR №176 и отражён; [итог дополнения §§4–5](database-c04-addendum.md), [ADR-0064 §37](../../decisions/0064_first_session_database_contract.md). Реестры H02/H03, параметры H04–H06 и T01–T17 действуют вместе с физическими полями ниже. Исторические пометки «ещё выбрать код/бюджет» не отменяют последующее принятие. Полевая карта JSON/DTO, компоненты и предметные испытания остаются отдельно; только документы.
 
 29.10.2026 · **Блок 2 принят целиком 29.10.2026 после PR №162.** [Фиксация — ADR-0064 §31](../../decisions/0064_first_session_database_contract.md). [Блок 1](database-physical-design.md) принят; общие соглашения и зависимости сохраняются. Baseline: main `8c1719f8d9aecf1a4ee11b050ab27c4da3dcbc4a`. Семантика — [ADR-0064](../../decisions/0064_first_session_database_contract.md), числовые правила — [ADR-0058](../../decisions/0058_paper_mvp_numeric_settings_policy.md) и [paper-mvp-settings-v1](../../policies/paper-mvp-settings-v1.json). Только документ, без SQL, кода и интеграций.
@@ -153,7 +155,8 @@ Unique(environment, trader_id, id) обеспечивает current_revision_id 
 | allowed_to_start | boolean | Да; результат проверки на тот момент, не разрешение обойти проверки C06 |
 | requires_authentication | boolean | Да; у guest всегда true и allowed_to_start=false |
 | primary_reason_code | text | Обязательная безопасная основная причина при allowed_to_start=false; при true NULL |
-| reason_details, warnings | jsonb | Да; типизированные по контракту безопасные дополнительные данные, пустые структуры при отсутствии, до 16 КиБ каждое. Обязательные настройки/владелец не переносятся сюда |
+| reason_details | jsonb | Да; объект ровно reasons/fieldErrors, оба массива обязательны; при разрешённом review оба []. Primary_reason_code согласован с первым reason. Полная форма — [карта §2–4](database-error-field-map.md), до 16 КиБ на весь объект |
+| warnings | jsonb | Да; отдельные безопасные предупреждения по существующему контракту, пустая структура при отсутствии, до 16 КиБ. Не смешиваются с reasons/fieldErrors; обязательные настройки/владелец остаются в колонках |
 | checked_at, expires_at, created_at | timestamptz | Да; expiry через 10 минут после checked_at; запись неизменяема |
 
 ### 8.1. Полнота и исторические связи
@@ -215,7 +218,7 @@ PK/unique выше обеспечивают целостность; не дуб�
 
 Review v1 имеет свой полный формат, отдельный от version draft и current policy. raw_loss_limit_percent → rawDailyBuyLimitPercent; loss_limit_percent → dailyBuyLimitPercent; effective_loss_limit_n/d → effectiveDailyBuyLimit. Сотые процентного пункта БД → decimal-строка API, n/d → сокращённые целочисленные строки. При normalization_valid=false нормализованный набор весь NULL; допустимая неполнота raw не превращается в частично действующие настройки.
 
-По одному fieldError на активное поле: REQUIRED→INVALID_DECIMAL→OUT_OF_RANGE→INVALID_STEP→FIXED_LIMIT_EXCEEDED. Порядок массива: бюджет, размер выбранного режима, рынок, дневной лимит. Зависимый fixed-предел вычисляется только при корректных B/p/d; собственные проверки F независимы. Неактивный raw не даёт ошибки настройки, но обязан пройти структуру/длину. Смысл params принят T04, точные имена и физическое размещение fieldErrors внутри review.reason_details требуют полевой карты; новая колонка/обёртка не придумана.
+По одному fieldError на активное поле: REQUIRED→INVALID_DECIMAL→OUT_OF_RANGE→INVALID_STEP→FIXED_LIMIT_EXCEEDED. Порядок массива: бюджет, размер выбранного режима, рынок, дневной лимит. Зависимый fixed-предел вычисляется только при корректных B/p/d; собственные проверки F независимы. Неактивный raw не даёт ошибки настройки, но обязан пройти структуру/длину. Смысл params принят T04; точные имена и физическое размещение fieldErrors внутри review.reason_details определены [картой ошибок](database-error-field-map.md). Новая колонка не добавляется.
 
 Для разрешённого отрицательного review приоритет: AUTH_REQUIRED guest → SESSION_NOT_SETTLED → CURRENT_SESSION_EXISTS → CAPABILITY_UNAVAILABLE → VENUE_REQUIRED → TRADER_REQUIRED → SIZING_MODE_REQUIRED → TIMEZONE_REQUIRED → NUMERIC_SETTINGS_INVALID. В capability: PAPER_START_DISABLED → CATALOG_SOURCE_DISABLED → TRADER_START_DISABLED; только применимые достоверно установленные причины. Сначала проверяется законность создания review из доступного актуального draft; техническая недоступность не отрицательный review. Warnings SYNTHETIC_DATA/COPYING_NOT_CONNECTED запуск не запрещают.
 
