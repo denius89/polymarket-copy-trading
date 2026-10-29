@@ -1,6 +1,6 @@
 # Физическая схема БД — блок 2: каталог, правила и проверка настроек
 
-29.10.2026 · **Предложение для согласования целиком.** [Блок 1](database-physical-design.md) принят; общие соглашения и зависимости сохраняются. Baseline: main `8c1719f8d9aecf1a4ee11b050ab27c4da3dcbc4a`. Семантика — [ADR-0064](../../decisions/0064_first_session_database_contract.md), числовые правила — [ADR-0058](../../decisions/0058_paper_mvp_numeric_settings_policy.md) и [paper-mvp-settings-v1](../../policies/paper-mvp-settings-v1.json). Только документ, без SQL, кода и интеграций.
+29.10.2026 · **Блок 2 принят целиком 29.10.2026 после PR №162.** [Фиксация — ADR-0064 §31](../../decisions/0064_first_session_database_contract.md). [Блок 1](database-physical-design.md) принят; общие соглашения и зависимости сохраняются. Baseline: main `8c1719f8d9aecf1a4ee11b050ab27c4da3dcbc4a`. Семантика — [ADR-0064](../../decisions/0064_first_session_database_contract.md), числовые правила — [ADR-0058](../../decisions/0058_paper_mvp_numeric_settings_policy.md) и [paper-mvp-settings-v1](../../policies/paper-mvp-settings-v1.json). Только документ, без SQL, кода и интеграций.
 
 ## 1. Состав и общий принцип
 
@@ -205,4 +205,4 @@ PK/unique выше обеспечивают целостность; не дуб�
 
 Технические источники прочитаны 29.10.2026: [PostgreSQL Numeric Types](https://www.postgresql.org/docs/current/datatype-numeric.html), [Constraints](https://www.postgresql.org/docs/current/ddl-constraints.html). Numeric без объявленного scale не подменяет проверки конечности/целочисленности; межстрочную согласованность нельзя считать обеспеченной одним CHECK строки.
 
-**Следующее согласование:** принять блок 2 целиком с перечисленными зависимостями как документальный проект. Затем блок 3 — сессия, слот, версии настроек, финансирование, проводки и общий snapshot. SQL, миграции и код по-прежнему не начинать.
+**Блок 2 принят целиком**, включая явно указанные технические зависимости. Следующее согласование — [блок 3: сессия, слот, настройки и виртуальный учёт](database-physical-session-ledger.md). SQL, миграции и код по-прежнему не начинать.
