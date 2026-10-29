@@ -57,12 +57,47 @@
 | Утечка owner/recovery или policy-root | Пользовательский контроль и независимые подтверждения | Backend/поддержка не могут захватить wallet через reset. Компрометация устройства/провайдера остаётся риском |
 | Падение Shadow или провайдера | Независимый выход и регламент отмены | Пользователь отключает торговлю/получает средства без исправного Shadow; учесть gas, остаточные заявки, late fills и незакрытые позиции |
 
-## Вопросы площадкам и проверки следующего этапа
+## Первоначальные пробелы и проверки следующего этапа
 
-**Polymarket:** подтвердить Builder beta enablement; точный срок/расхождение примера; owner-controlled отзыв и вывод при недоступности Shadow/Builder API; момент блокировки CLOB и завершения отмен; redeem/merge вне торгового session scope; полный источник сверки session orders. Проверить отсутствие вывода и произвольных wallet calls украденным session key.
+**Исходный список Polymarket (уточнён ниже):** подтвердить Builder beta enablement; точный срок/расхождение примера; owner-controlled отзыв и вывод при недоступности Shadow/Builder API; момент блокировки CLOB и завершения отмен; redeem/merge вне торгового session scope; полный источник сверки session orders. Проверить отсутствие вывода и произвольных wallet calls украденным session key.
 
-**Limitless:** подтвердить actual scopes Shadow; поддержку EOA с внешним EIP-712 signer для нужных профилей; индивидуальный отзыв автоматизации; право конечного пользователя самостоятельно восстановить/экспортировать managed child и выйти; возможность ограничить partner credentials конкретным child, бюджетом и ценой; права на изменение scope; отмену старых заявок после revoke. Зеленый свет партнёра не отвечает на эти вопросы автоматически.
+**Исходный список Limitless (уточнён ниже):** подтвердить actual scopes Shadow; поддержку EOA с внешним EIP-712 signer для нужных профилей; индивидуальный отзыв автоматизации; право конечного пользователя самостоятельно восстановить/экспортировать managed child и выйти; возможность ограничить partner credentials конкретным child, бюджетом и ценой; права на изменение scope; отмену старых заявок после revoke. Зеленый свет партнёра не отвечает на эти вопросы автоматически.
 
 **Turnkey/Privy:** отдельно подтвердить допустимость prediction-market/copy-trading продукта, стоимость, доступность по юрисдикциям и совместимость актуальных SDK. Определить root/owner/recovery вне backend, запрет обходных raw-digest методов, устойчивость общей суммы к гонкам и поведение при сбое. Аудит провайдера не заменяет независимую проверку интеграции Shadow.
 
 Предлагаемый выбор: сохранить paper-first; для будущего Polymarket ориентироваться на Deposit Wallet + CLOB Session Key; для Limitless исследовать user-controlled EOA + policy signer, не принимать managed partner wallet без независимого user exit. Оба live-пути открываются каждый по своим доказательствам. Код, тесты живых счетов и обращения партнёрам данным документом не запускаются.
+
+
+## Дополнительная проверка документации по поручению владельца
+
+29.10.2026 · Сначала закрывать вопросы документацией; обращения площадкам не поручены. Ниже уточнения к исходному списку. Документированный механизм не равен фактически включённому доступу Shadow или проведённому испытанию.
+
+| Вопрос | Результат повторного чтения | Следствие для Shadow |
+| --- | --- | --- |
+| Самостоятельный выход из Limitless EOA | Wallet Types прямо описывает обычный ERC20 transfer на Base без участия Limitless; ключ контролируется EOA владельцем | Выход свободного USDC документирован. Это не закрывает продажу позиций, gas или доступ к ключу у внешнего провайдера |
+| Кто подписывает Limitless EOA | В EOA режиме maker = signer = account; отдельный session signer другого адреса здесь не описан | Внешний подписант должен обслуживать именно EOA ключ, с ограничениями у провайдера; это не встроенный trade-only session key Limitless |
+| Срок и replay Limitless заявки | EIP-712 guide требует expiration = 0 и nonce = 0, ненулевые значения отклоняются | Нельзя предлагать минутное истечение либо ротацию nonce как доступную защиту. Уже подписанные заявки/отмену учитывать отдельно |
+| Лимиты на стороне Limitless | Responsible Agents относит order/daily/exposure limits к обязанностям приложения; отмена заявок и отзыв токена описаны раздельно | Нельзя выдавать trading scope за внешний денежный бюджет; остановка подписи не отменяет стоящие заявки |
+| Независимый экспорт Limitless managed child | Wallet Types объявляет embedded owner key неэкспортируемым; Partner Accounts описывает создание/поиск child, а не независимую передачу контроля пользователю | Для обещания самостоятельного managed exit оснований нет; не считать общую функцию Privy доступной в чужой интеграции Limitless |
+| Polymarket отзыв | Owner подписывает revokeSessionSigner; документированный relayer flow также требует Builder authentication, отмена/финализация асинхронны | Механизм известен. Готовый путь пользователя без Shadow/его Builder по этим страницам не доказан, это пробел аварийного UX, не отсутствие отзыва |
+| Polymarket вывод | Bridge guide требует отдельно перевести pUSD из своего кошелька на адрес моста | Создание withdrawal address само по себе не переводит средства и не расширяет полномочия session key |
+
+Источники: [Limitless Wallet Types](https://docs.limitless.exchange/user-guide/wallet-types), [EIP-712](https://docs.limitless.exchange/developers/eip712-signing), [Responsible Agents](https://docs.limitless.exchange/developers/responsible-agents), [Partner Accounts](https://docs.limitless.exchange/developers/sdk/typescript/partner-accounts), [Polymarket Session Keys](https://docs.polymarket.com/trading/session-keys), [вывод через bridge](https://docs.polymarket.com/trading/bridge/withdraw).
+
+### Что дают внешние подписанты на самом деле
+
+**Privy:** документирована схема user owner + additional server signer с ограничениями, работающий offline; пользователь может удалить signers. Есть проверка EIP-712 domain и полей сообщения. При этом types map должен совпасть полностью, включая порядок; при mismatch условие false. Поэтому запрещена широкая ALLOW-политика, которая подпишет запрос при несовпадении более узкой DENY. Источники: [offline](https://docs.privy.io/controls/authorization-keys/owners/configuration/user/offline), [отзыв signers](https://docs.privy.io/wallets/using-wallets/signers/remove-signers), [проверки EIP-712](https://docs.privy.io/controls/policies/example-policies/ethereum).
+
+**Накопительный бюджет Privy:** stateful aggregations документированы для eth_signTransaction и eth_signUserOperation, не для eth_signTypedData_v4. Значения обновляются после подписи; несколько параллельных запросов могут пройти проверку до записи. Сама документация называет это защитой от катастрофического поведения, а не строгим real-time enforcement. Вывод: готового строгого дневного потолка EIP-712 копирования этим механизмом нет. [Stateful policies, разделы Data collection / Supported RPC methods](https://docs.privy.io/controls/policies/stateful-policies).
+
+**Экспорт:** общая документация Privy допускает экспорт пользовательского embedded wallet при соответствующем ownership; серверные wallets имеют иной путь, а 2-of-2 owner может запретить односторонний экспорт. Это опровергает универсальное прочтение «Privy по природе никогда не экспортирует ключи», но не отменяет конкретную конфигурацию Limitless. [Privy export](https://docs.privy.io/wallets/wallets/export). Противоречие обобщения Limitless с возможностями самого провайдера сохраняется как различие документов/конфигураций, не разрешается предположением.
+
+**Turnkey:** policy language даёт primary_type/domain/message EIP-712 и trusted time; root quorum обходит policies. Это документированные примитивы для ограниченной подписи и срока сервисного доступа. Строгий накопительный бюджет по фактическим fill/reserve в прочитанных страницах не подтверждён. [Policy language](https://docs.turnkey.com/features/policies/language), [оценка policies](https://docs.turnkey.com/features/policies/overview). Disaster recovery провайдера описывает восстановление его инфраструктуры, не гарантированный немедленный выход пользователя при недоступности Turnkey: [Disaster recovery](https://docs.turnkey.com/security/disaster-recovery).
+
+### Уточнённая рекомендация без переписки с площадками
+
+Для архитектурного выбора достаточно документации: Polymarket — отдельный пользовательский Deposit Wallet с CLOB Session Key; Limitless CLOB — отдельный пользовательский EOA в eoa trading mode, ключ в пользовательском внешнем signer с узким серверным доступом. Это композиция документированных примитивов, не выполненная интеграция. AMM, managed-only продукты, packs и любые произвольные транзакции автоматически сюда не входят. Обе площадки остаются обязательными, но наличие безопасного CLOB пути не означает готовности всех продуктов площадки.
+
+Turnkey остаётся первым кандидатом; Privy тоже способен дать пользовательский ownership и ограниченный offline signer. Покупка/подключение провайдера не поручены. Ни один из них по текущим доказательствам не заменяет независимый учёт бюджета EIP-712. Взломанный backend не должен иметь root, расширение policy, recovery/export или неограниченные обходные подписи. В EOA варианте отсутствие права вывода обеспечивается политикой провайдера, а не самим адресом/блокчейном; украденный полный EOA private key такой защиты не имеет.
+
+Предмет будущих испытаний: отказы на transfer/permit/raw digest/неверный domain и чужой maker, отсутствие расширения прав, гонки лимитов, отзыв новых подписей против старых заявок, восстановление/выход при падении Shadow и отдельно провайдера. Документация не доказывает, что мы правильно настроили систему; эти испытания пока не поручены и не выполнены. Новых внешних обращений, аккаунтов или финансовых операций нет.
