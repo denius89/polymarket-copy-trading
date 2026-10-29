@@ -1,6 +1,6 @@
 # Закрытые реестры кодов первого сценария — H02 и H03
 
-29.10.2026 · **Принято владельцем целиком.** Издание first-session-registry-v1, часть [пакета](backend-design.md). Реестр документальный; наличие кода не означает реализованный endpoint, выданное право или прошедший тест.
+29.10.2026 · **Принято владельцем целиком.** Издание first-session-registry-v1, часть [пакета](backend-design.md). Дополнения T01–T17 и точное употребление кодов — в [едином контракте §§6–22](backend-contracts.md). Набор runtime-кодов этим дополнением не расширен. Реестр документальный; наличие кода не означает реализованный endpoint, выданное право или прошедший тест.
 
 ## 1. Правила
 
@@ -83,7 +83,7 @@ Active не означает подключённую торговлю. p/d ос
 
 HTTP сам по себе не определяет существование durable receipt. AUTH_VERIFICATION_FAILED не раскрывает аккаунт. Внутренняя причина отзыва login не обязана раскрываться публично. Непрочитанная/повреждённая policy — техническая ошибка, не CAPABILITY_UNAVAILABLE.
 
-Уточнения известного запрета: PAPER_START_DISABLED, CATALOG_SOURCE_DISABLED, TRADER_START_DISABLED. Причины незавершённого review: VENUE_REQUIRED, TRADER_REQUIRED, SIZING_MODE_REQUIRED, TIMEZONE_REQUIRED, NUMERIC_SETTINGS_INVALID, AUTH_REQUIRED. Review может содержать несколько причин и сохраниться как предметно отклонённый без технического провала C05. Приоритет одновременно применимых причин и точные параметры ещё требуют явной спецификации, не новых числовых правил.
+Уточнения известного запрета: PAPER_START_DISABLED, CATALOG_SOURCE_DISABLED, TRADER_START_DISABLED. Причины незавершённого review: VENUE_REQUIRED, TRADER_REQUIRED, SIZING_MODE_REQUIRED, TIMEZONE_REQUIRED, NUMERIC_SETTINGS_INVALID, AUTH_REQUIRED. Review может содержать несколько причин и сохраниться как предметно отклонённый без технического провала C05. Приоритет причин принят в backend-contracts §8; семантика безопасных параметров — §9. Полная машинная схема/отображение в физический JSON остаются полевой сверкой, не новым числовым правилом.
 
 | fieldErrors.code | Значение |
 | --- | --- |
@@ -93,11 +93,11 @@ HTTP сам по себе не определяет существование d
 | INVALID_STEP | Нарушена сетка policy |
 | FIXED_LIMIT_EXCEEDED | Новый fixed выше точного допустимого предела |
 
-Field errors привязаны к известному полю; допустимы только типизированные безопасные границы/шаг/единица/предел. Сырые сообщения БД/библиотек не попадают в ответ. Неактивный ввод не становится действующим параметром.
+Field errors привязаны к известному полю; по одной ошибке на поле, порядок REQUIRED → INVALID_DECIMAL → OUT_OF_RANGE → INVALID_STEP → FIXED_LIMIT_EXCEEDED. Допустимы только типизированные безопасные границы/шаг/единица/предел по backend-contracts §§7–9. Сырые сообщения БД/библиотек не попадают в ответ. Неактивный ввод не становится действующим параметром.
 
 Warnings: SYNTHETIC_DATA, COPYING_NOT_CONNECTED. Информируют, не запрещая согласованный пустой запуск.
 
-NextAction: authenticate, complete_totp, enroll_totp, select_trader, continue_setup, review_setup, view_session, view_summary, recover_setup, resolve_command, retry_later. Это навигация, не разрешение; автоматического start нет. Resolve_command работает с исходным ключом; recover_setup не обещает несуществующий перенос draft.
+NextAction: authenticate, complete_totp, enroll_totp, select_trader, continue_setup, review_setup, view_session, view_summary, recover_setup, resolve_command, retry_later. При отсутствии безопасного действия nextAction=NULL, без нового enum. Карта выбора — backend-contracts §12. Это навигация, не разрешение; автоматического start нет. Resolve_command работает с исходным ключом; recover_setup не обещает несуществующий перенос draft.
 
 ## 6. Аудит и outbox
 
