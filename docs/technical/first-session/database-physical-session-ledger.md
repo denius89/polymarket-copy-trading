@@ -1,5 +1,7 @@
 # Физическая схема БД — блок 3: сессия, настройки и виртуальный учёт
 
+29.10.2026 · Заключительный блок принят после PR №176 и отражён; [итог дополнения §§4–5](database-c04-addendum.md), [ADR-0064 §37](../../decisions/0064_first_session_database_contract.md). Реестры H02/H03, параметры H04–H06 и T01–T17 действуют вместе с физическими полями ниже. Исторические пометки «ещё выбрать код/бюджет» не отменяют последующее принятие. Полевая карта JSON/DTO, компоненты и предметные испытания остаются отдельно; только документы.
+
 29.10.2026 · Принят блок3 [дополнения C04](database-c04-addendum.md): общие command_receipts теперь типизированы C04/C06. Обязательные начальные ссылки этого блока на (environment,receipt,session) сохраняются: у C04 result_session_id всегда NULL, поэтому C04/rejected не могут удовлетворить C06-связи. До commit проверяется полный START с user actor и тем же succeeded C06 receipt; связь snapshot через session/settings сохранена. Использование draft не меняет last_input_receipt_id/version/TTL. Реестры/время H02–H06 — заключительная сверка; SQL/испытаний нет.
 
 29.10.2026 · **Блок 3 принят целиком 29.10.2026 после PR №163.** [Фиксация — ADR-0064 §32](../../decisions/0064_first_session_database_contract.md). Блоки [1](database-physical-design.md) и [2](database-physical-catalog-review.md) приняты. Baseline: main `ab94c39b099f4d2b40f39425de9c5d4cdb387901`. Основание — [ADR-0064](../../decisions/0064_first_session_database_contract.md), [логическая модель](data-model.md), [команды C06/Q04/Q06](commands.md) и [задание бэкенда](backend-chat-brief.md). Только документ: SQL, код, миграции, БД и развёртывание не создаются.
@@ -40,13 +42,13 @@ Review различает отсутствующую строку (`absent`, gen
 | mode | text | Да; paper |
 | started_from_draft_id, started_from_review_id, started_from_ownership_id | uuid | Да; неизменяемые источники запуска; составной FK на review того же draft/ownership |
 | venue_id, catalog_source_id, trader_id, trader_revision_id | uuid | Да; полный scope выбранной trader_revisions из блока 2 |
-| data_origin | text | Да; происхождение использованной revision, первый полигон явно синтетический |
-| lifecycle, control_state | text | Да; закрытые коды согласованного состояния, см. ниже; активная сессия не означает подключённое копирование |
+| data_origin | text | Да; происхождение использованной revision, первый стенд: synthetic |
+| lifecycle, control_state | text | Да; active / copying_not_connected для первого запуска; не означает подключённую торговлю |
 | version | bigint | Да; от 1, guard изменяемой session |
 | started_at | timestamptz | Да; серверный момент успешного допуска после повторной проверки сроков |
 | iana_timezone | text | Да; проверенная зона подтверждённого review, неизменна после старта |
 | evaluation_deadline_at | timestamptz | Да; сохранённая UTC-граница оценки |
-| deadline_calculation_version, timezone_database_version | text | Да; версия принятого алгоритма и использованной базы часовых зон |
+| deadline_calculation_version, timezone_database_version | text | Да; paper-evaluation-deadline-v1 и фактическая закреплённая версия tzdb |
 | current_settings_revision_id | uuid | Да; FK на settings именно этой session |
 | current_snapshot_version | bigint | Да; FK `(environment, id, current_snapshot_version)` → session_snapshots(environment, session_id, version) |
 | current_ledger_sequence | bigint | Да; последняя опубликованная sequence журнала своей session; в первом запуске 1 |
@@ -78,7 +80,7 @@ Unique(environment, started_from_draft_id) и unique(environment, started_from_r
 | market_limit_percent, loss_limit_percent | integer | Да; p/d в сотых процентного пункта |
 | effective_market_limit_n, effective_market_limit_d; effective_loss_limit_n, effective_loss_limit_d | numeric | Да; точные положительные P/D |
 | policy_version_id | uuid | Да; FK на неизменяемую paper_policy_versions своей среды |
-| calculation_version | text | Да; поддерживаемая версия расчёта указанной policy |
+| calculation_version | text | Да; paper-settings-calculation-v1 для первой policy |
 | signal_max_age_seconds | integer | Да; 30 по policy v1, не клиентская настройка |
 | command_receipt_id | uuid | Да; результат создавшей версии команды, блок 4 |
 | actor_user_id | uuid | Да; постоянный user, для первого C06 владелец session |
@@ -151,10 +153,10 @@ Unique(environment, journal_id, line_number) и unique(environment, journal_id, 
 | session_version | bigint | Да; историческая версия состояния session при построении; не FK на изменяемую version |
 | settings_revision_id | uuid | Да; составной FK на settings своей session |
 | ledger_sequence | bigint | Да; составной FK на `(environment, session_id, sequence)` journals; начальная 1 |
-| projection_calculation_version | text | Да; поддерживаемая версия расчёта снимка, отдельная от формата и policy |
-| lifecycle, control_state | text | Да; согласованное состояние session в этой проекции |
+| projection_calculation_version | text | Да; paper-empty-snapshot-v1 для первого снимка, отдельная от формата и policy |
+| lifecycle, control_state | text | Да; active / copying_not_connected в первом снимке |
 | content_state | text | Да; EMPTY для первого запуска |
-| data_origin, coverage_state | text | Да; синтетическое происхождение и отсутствие торговой выборки явно, не утверждение покрытия реального рынка |
+| data_origin, coverage_state | text | Да; synthetic / no_trade_data в первом снимке; не покрытие реального рынка |
 | unit | text | Да; virtual_USD |
 | initial_funding_n, initial_funding_d | numeric | Да; B по initial flow/журналу, поясняющая величина, не второе зачисление |
 | free_n, free_d; reserved_n, reserved_d | numeric | Да; B/0 соответственно при старте |
@@ -229,3 +231,15 @@ B2-D4 закрывается этим предложением по generation/a
 Технические основания проверены 29.10.2026: [PostgreSQL Constraints](https://www.postgresql.org/docs/current/ddl-constraints.html) — CHECK строки не доказывает межстрочную полноту/баланс; [Constraint triggers](https://www.postgresql.org/docs/current/sql-createtrigger.html) — допускают отложенную проверку до конца транзакции. Версия развёртывания этим чтением не выбрана.
 
 **Блок 3 принят целиком**, включая явные инженерные зависимости. [Заключительный блок 4](database-physical-operations-access.md) и [сводная передача бэкенду](database-backend-handoff.md) также приняты; согласование физической схемы завершено. Код и SQL по-прежнему не начинать.
+
+## 11. Итоговые форматы, календарь и проверяемость H02/H05/H06
+
+Settings/snapshot имеют независимые record_schema_version=v1. Единица virtual_USD, initial flow/journal initial_paper_funding, счета paper_cash/virtual_funding_source. Все n/d обязательного финансового снимка точны; исходные B/free/equity, нули и счётчики не меняются. Процентные integer БД — сотые п.п., API decimal-строки; loss_limit/effective_loss_limit отображаются как dailyBuyLimitPercent/effectiveDailyBuyLimit. Partial Q06 — разрешённая проекция общего полного snapshot, не новый сохранённый формат и не NULL/ноль закрытых сумм.
+
+Deadline: +14 местных календарных дней; overlap первое вхождение, gap первый существующий момент после пропуска. Для пропуска 02:00→03:00 целевые 02:30 дают 03:00. Сохраняются UTC deadline/IANA zone/алгоритм/tzdb; чтение/новая библиотека не пересчитывает историю. Кандидат @js-temporal/polyfill 0.5.1 (upstream prerelease) требует совместного закрепления/испытаний Node/ICU/фактической tzdb/образа; стандартный compatible не доказывает правило gap. Библиотека не установлена.
+
+Кандидаты БД/драйвера — PostgreSQL 17.11 / pg 8.23.1; совместимость с Auth/Node/образами не доказана. BigInt и сокращённые дроби без промежуточного float, numeric без округляющего scale, bigint/numeric строки в драйвере, одно соединение на транзакцию. Локальные ограничения и отложенная полнота от родителя дополняют разрешённые процедуры/guards/Serializable, не заменяют испытания. Runtime не владеет таблицами и не отключает ограничения. Новых индексов без запроса/плана не добавляется.
+
+C06: приоритет новой допущенной команды DRAFT_USED→DRAFT_EXPIRED→VERSION_CONFLICT→SESSION_NOT_SETTLED→CURRENT_SESSION_EXISTS→CAPABILITY_UNAVAILABLE→REVIEW_EXPIRED→REVIEW_STALE→SETUP_INVALID; только доступные достоверно установленные факты, technical failure не business refusal. Точный старый key возвращает прежний исход без нового funding даже после исчезновения причины отказа; новый ключ только новое явное намерение. HTTP 201 только после полного commit, replay успеха сохраняет исходный 201; HTTP не новая финансовая колонка.
+
+M02 — будущие состояния только управляемые изолированные fixtures; M03 — тестовая публикация полного snapshot и отдельные повреждённые копии. Они не расширяют допустимый lifecycle C06 и не вводят рабочие endpoints обхода FK. H06: согласованный backup Auth+Shadow/WAL и полный format scan описаны в дополнении §4.6; существующие финансовые записи/история не удаляются ради восстановления или совместимости.

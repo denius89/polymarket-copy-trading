@@ -1,5 +1,7 @@
 # Физическая схема БД — блок 2: каталог, правила и проверка настроек
 
+29.10.2026 · Заключительный блок принят после PR №176 и отражён; [итог дополнения §§4–5](database-c04-addendum.md), [ADR-0064 §37](../../decisions/0064_first_session_database_contract.md). Реестры H02/H03, параметры H04–H06 и T01–T17 действуют вместе с физическими полями ниже. Исторические пометки «ещё выбрать код/бюджет» не отменяют последующее принятие. Полевая карта JSON/DTO, компоненты и предметные испытания остаются отдельно; только документы.
+
 29.10.2026 · **Блок 2 принят целиком 29.10.2026 после PR №162.** [Фиксация — ADR-0064 §31](../../decisions/0064_first_session_database_contract.md). [Блок 1](database-physical-design.md) принят; общие соглашения и зависимости сохраняются. Baseline: main `8c1719f8d9aecf1a4ee11b050ab27c4da3dcbc4a`. Семантика — [ADR-0064](../../decisions/0064_first_session_database_contract.md), числовые правила — [ADR-0058](../../decisions/0058_paper_mvp_numeric_settings_policy.md) и [paper-mvp-settings-v1](../../policies/paper-mvp-settings-v1.json). Только документ, без SQL, кода и интеграций.
 
 ## 1. Состав и общий принцип
@@ -27,7 +29,7 @@
 | environment, id | text, uuid | Да | PK |
 | venue_id | uuid | Да | FK → venues той же среды |
 | source_environment | text | Да | Непустая серверная область источника; отличается от среды самого приложения |
-| data_origin | text | Да | Закрытый код происхождения: синтетические данные отделены от подтверждённого внешнего источника; конкретные коды B2-D1 |
+| data_origin | text | Да | synthetic для первого стенда; реальный источник/fallback этим не разрешён |
 | source_ref | text | Да | Безопасная ссылка/идентификатор набора данных, без bearer-ссылок и secrets |
 | start_enabled | boolean | Да | Текущий допуск использования этого источника для первого paper-запуска |
 | unavailable_reason_code | text | Условно | Обязателен при start_enabled=false; при true NULL |
@@ -82,7 +84,7 @@ Unique(environment, trader_id, id) обеспечивает current_revision_id 
 | --- | --- | --- |
 | environment, id | text, uuid | Да; PK |
 | policy_version_code | text | Да; unique(environment, policy_version_code), первая версия `paper-mvp-settings-v1` |
-| source_ref, source_hash, calculation_version | text | Да; ссылка на принятое решение/версионированный источник, проверяемый отпечаток его точного содержимого, версия правил расчёта; формат hash/calculation version — общий контракт B2-D2 |
+| source_ref, source_hash, calculation_version | text | Да; ссылка на принятое решение/версионированный источник, проверяемый отпечаток его точного содержимого, версия правил расчёта; source_hash = sha256: + 64 строчные hex-цифры точных байтов источника; calculation_version = paper-settings-calculation-v1 |
 | currency_unit | text | Да; `virtual_USD` для денежных параметров первого paper-среза |
 | budget_min_n, budget_min_d; budget_max_n, budget_max_d | numeric | Да; B min=100/1, max=1000/1 |
 | budget_step_n, budget_step_d; budget_origin_n, budget_origin_d; budget_default_n, budget_default_d | numeric | Да; шаг=10/1, начало сетки=100/1, default=200/1 |
@@ -206,3 +208,15 @@ PK/unique выше обеспечивают целостность; не дуб�
 Технические источники прочитаны 29.10.2026: [PostgreSQL Numeric Types](https://www.postgresql.org/docs/current/datatype-numeric.html), [Constraints](https://www.postgresql.org/docs/current/ddl-constraints.html). Numeric без объявленного scale не подменяет проверки конечности/целочисленности; межстрочную согласованность нельзя считать обеспеченной одним CHECK строки.
 
 **Блок 2 принят целиком**, включая явно указанные технические зависимости. Блоки 3–4 также приняты; [сводная передача](database-backend-handoff.md) фиксирует завершение согласования и инженерные зависимости. SQL, миграции и код по-прежнему не начинать.
+
+## 11. Отражённые реестры, review v1 и приоритеты
+
+Источники — first-session-registry-v1 и backend-contracts §§3–9/18–19. Source refs/environment/external ID normalization остаются проверяемыми ссылками/контрактом адаптера, не произвольным enum. Policy paper-mvp-settings-v1 и calculation paper-settings-calculation-v1 неизменяемы. Source_hash хеширует точные байты закреплённого источника; это не канонизация command-jcs-v1.
+
+Review v1 имеет свой полный формат, отдельный от version draft и current policy. raw_loss_limit_percent → rawDailyBuyLimitPercent; loss_limit_percent → dailyBuyLimitPercent; effective_loss_limit_n/d → effectiveDailyBuyLimit. Сотые процентного пункта БД → decimal-строка API, n/d → сокращённые целочисленные строки. При normalization_valid=false нормализованный набор весь NULL; допустимая неполнота raw не превращается в частично действующие настройки.
+
+По одному fieldError на активное поле: REQUIRED→INVALID_DECIMAL→OUT_OF_RANGE→INVALID_STEP→FIXED_LIMIT_EXCEEDED. Порядок массива: бюджет, размер выбранного режима, рынок, дневной лимит. Зависимый fixed-предел вычисляется только при корректных B/p/d; собственные проверки F независимы. Неактивный raw не даёт ошибки настройки, но обязан пройти структуру/длину. Смысл params принят T04, точные имена и физическое размещение fieldErrors внутри review.reason_details требуют полевой карты; новая колонка/обёртка не придумана.
+
+Для разрешённого отрицательного review приоритет: AUTH_REQUIRED guest → SESSION_NOT_SETTLED → CURRENT_SESSION_EXISTS → CAPABILITY_UNAVAILABLE → VENUE_REQUIRED → TRADER_REQUIRED → SIZING_MODE_REQUIRED → TIMEZONE_REQUIRED → NUMERIC_SETTINGS_INVALID. В capability: PAPER_START_DISABLED → CATALOG_SOURCE_DISABLED → TRADER_START_DISABLED; только применимые достоверно установленные причины. Сначала проверяется законность создания review из доступного актуального draft; техническая недоступность не отрицательный review. Warnings SYNTHETIC_DATA/COPYING_NOT_CONNECTED запуск не запрещают.
+
+C05:5s/до 3 подтверждённых rollback-попыток; unknown прекращает автоматические повторы, возможен явный новый review, прежний возможный результат сохраняется. C05 не получает CommandReceipt/Q05. Успешное создание любого review — HTTP 200, allowedToStart=false не техническая ошибка. Точный DTO/JSON-map, публикация источников и испытания остаются; B2-D2 и кодовая часть B2-D3 отражены, полевые/компонентные части не объявлены закрытыми.

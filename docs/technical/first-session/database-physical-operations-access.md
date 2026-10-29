@@ -1,5 +1,7 @@
 # Физическая схема БД — блок 4: команды, аудит, события и доступ
 
+29.10.2026 · Заключительный блок принят после PR №176 и отражён; [итог дополнения §§4–5](database-c04-addendum.md), [ADR-0064 §37](../../decisions/0064_first_session_database_contract.md). Реестры H02/H03, параметры H04–H06 и T01–T17 действуют вместе с физическими полями ниже. Исторические пометки «ещё выбрать код/бюджет» не отменяют последующее принятие. Полевая карта JSON/DTO, компоненты и предметные испытания остаются отдельно; только документы.
+
 29.10.2026 · После PR №172 приняты [блоки 1–3 дополнения C04](database-c04-addendum.md): scope/result/атомарность, target-колонки, receipt.command_type, строгие FK и восстановление через claim; [ADR-0064 §36](../../decisions/0064_first_session_database_contract.md). Колонки и проверки ниже отражены документально. Заключительная сверка H02–H06 предложена блоком 4 дополнения; DTO/декодеры и испытания ещё не выполнены. Только документы, без SQL/кода/миграций.
 
 29.10.2026 · **Блок 4 и сводная передача приняты целиком 29.10.2026 после PR №164.** [ADR-0064 §33](../../decisions/0064_first_session_database_contract.md). Все четыре физических блока согласованы: [1](database-physical-design.md), [2](database-physical-catalog-review.md), [3](database-physical-session-ledger.md) и этот блок. Инженерные зависимости сохранены; принятие не означает выполненную реализацию. Baseline main `287e2639cecd751ff4812e15e815efa79ab3757e`. Основания: [ADR-0064](../../decisions/0064_first_session_database_contract.md), [data-model §22–23](data-model.md), [commands](commands.md), [auth-policy](auth-policy.md), [контракт доступа админки](../../design/admin/staff-access-2026-10-18/contract.md). Только документ: без SQL, кода, миграций, создания аккаунтов и развёртывания.
@@ -26,8 +28,8 @@
 | target_draft_id, target_ownership_id | uuid | Оба обязательны только C04 update после подтверждённого доступа; для create/C06 оба NULL. FK (environment,target_draft_id,target_ownership_id) → draft_ownerships(environment,draft_id,id) |
 | expected_draft_version | bigint | Положительная ожидаемая версия из запроса, обязательна только C04 update; для create/C06 NULL |
 | client_command_id | uuid | Да; единственный логический ключ UUID v4, созданный клиентом до отправки |
-| canonical_request_version, hash_algorithm | text | Да; известные серверу версии канонизации и отпечатка |
-| request_hash | bytea | Да; отпечаток точного канонического намерения; размер/алгоритм фиксируются в H02 сводной передачи |
+| canonical_request_version, hash_algorithm | text | Да; command-jcs-v1 / sha256; версия исходного ключа сохраняется |
+| request_hash | bytea | Да; SHA-256, ровно 32 байта, от проверенного канонического намерения JCS; raw без trim/NFC |
 | receipt_id | uuid | Да; единственный окончательный receipt этого ключа, отложенный FK |
 
 Ровно один actor ID заполнен по actor_realm; C06/guest запрещён. Две условные уникальности: при user — (environment, actor_realm, actor_user_id, command_type, client_command_id); при guest — (environment, actor_realm, actor_guest_context_id, command_type, client_command_id). NOT NULL соответствующего варианта вместе с XOR не допускает обхода через NULL; общий unique по двум nullable actor IDs не используется. Служебное хранилище guest context принадлежит Auth, не новой таблице Shadow; его ID проверяется по доверенному контексту, вымышленный FK на неизвестную Auth-таблицу не объявляется.
@@ -145,9 +147,9 @@ Unique(environment,id,draft_id,claimed_ownership_id). Ownership `(environment,cl
 
 Unique(environment,event_kind,command_receipt_id) при ненулевом receipt — один факт данного типа на исходную команду; для claim аналогичный unique по claim_receipt_id. Для Q06 unique(environment,event_kind,request_id) — один факт выдачи конкретного ответа; новый запрос чтения получает новый request_id. Наличие audit не означает доставку ответа или просмотр человеком. При повторе успешного C06 не создаются ещё один start audit или outbox.
 
-Границы actor/login подтверждаются условными составными FK на auth_sessions и проверкой варианта до commit; событие C06 имеет user key, Q06 — staff. Для отказа C06 отдельный безопасный audit может указывать receipt и связанную session только после проверки доступа; не превращать отказ до авторизации в существующий финансовый ресурс. Состав новых типов аудита не создаёт endpoints.
+Границы actor/login подтверждаются условными составными FK на auth_sessions и проверкой варианта до commit; событие C06 имеет user key, Q06 — staff. Закрытый реестр содержит только paper_session.started/succeeded, setup_draft.claimed/succeeded и admin_session.read_authorized/authorized, event_schema_version=v1. Отдельного audit-kind отказа C06 нет; допустимый окончательный отказ хранится в command receipt. Ранний отказ не создаёт фиктивного actor/ресурса. Новые типы требуют отдельного расширения реестра.
 
-Для paper_session.started принят FK (environment,command_receipt_id,session_id) → command_receipts(environment,id,result_session_id). У этого event_kind обе ссылки обязательны; NULL-обход запрещён, outcome/key/receipt и весь начальный комплект проверяются до commit. У Q06 command_receipt_id NULL, у claim — отдельный claim_receipt_id; условия event_kind различают варианты. Старое упоминание возможного audit отказа выше не добавляет новый тип в закрытый реестр; его удаление/сведение реестра предложено заключительным блоком 4.
+Для paper_session.started принят FK (environment,command_receipt_id,session_id) → command_receipts(environment,id,result_session_id). У этого event_kind обе ссылки обязательны; NULL-обход запрещён, outcome/key/receipt и весь начальный комплект проверяются до commit. У Q06 command_receipt_id NULL, у claim — отдельный claim_receipt_id; условия event_kind различают варианты. Реестр событий и эти условные ссылки согласованы заключительным блоком 4.
 
 ### 4.2. `audit_authorizations`
 
@@ -156,9 +158,13 @@ Unique(environment,event_kind,command_receipt_id) при ненулевом rece
 | audit_event_id | uuid | Да; FK audit_events, только Q06 |
 | assignment_id, grant_id | uuid | Да; составной FK на неизменяемую разрешающую строку staff_assignment_grants |
 | assignment_version | bigint | Да; историческая версия действовавшего назначения |
-| authorized_data_code | text | Да; разрешённая группа данных по общему реестру Q06 |
+| authorized_data_code | text | Да; session.summary, session.settings, session.financial_snapshot либо user.minimal_context по фактически выданной группе |
 
 Unique(environment,audit_event_id,grant_id,authorized_data_code). Для Q06 до commit требуется достаточный набор этих строк для всех выдаваемых групп данных; актор всех назначений совпадает с actor_staff_id события. Это фиксирует происхождение доступа, не копирует финансовые значения и не выдаёт доступ в будущем. Выбранные grants неизменяемы, прежние назначения/identity не удаляются каскадом. Обычное чтение требует заново текущих прав независимо от старого audit.
+
+Для Q06 обязательна session.summary (read/ADM-03); session.settings и session.financial_snapshot требуют собственных полных read/ADM-03 grants, user.minimal_context — read/ADM-02 и только внутренний ID владельца этой session. Каждая строка разрешения проверяется целиком по environment/action/section/data type/paper/venue/сроку/current set/principal. Из нескольких достаточных выбирать по возрастанию assignmentId, затем grantId для каждой выдаваемой группы; сохранять assignment/version/immutable grant/authorized_data_code. До commit проверяются доказательства всех выданных групп, actor и scope. Нельзя склеить части разных grants; owner — одна роль для владельца 1 и владельца 2, без старшинства.
+
+Закрытая группа отсутствует и указана в restrictedGroups текущей выдачи; не NULL/ноль/пустой объект. Разрешённая группа полна; отсутствие/повреждение обязательных данных — ошибка всего чтения. RestrictedGroups/nextAction/доступные ссылки не сохраняются как новые факты snapshot/receipt. Q06 использует один согласованный snapshot/settings, текущие права и свой audit до выдачи. Каждая HTTP-передача имеет новый server requestId (audit.request_id), внутренние попытки одной передачи сохраняют его; requestId/correlationId не key/fingerprint. Обычные чтения 5s без внутренних повторов, no-store; ошибка audit закрывает ответ.
 
 ## 5. Событие и доставка
 
@@ -166,12 +172,12 @@ Unique(environment,audit_event_id,grant_id,authorized_data_code). Для Q06 д�
 
 | Дополнительные колонки | Тип | Обязательность / смысл |
 | --- | --- | --- |
-| event_type, event_schema_version | text | Да; первый тип — факт успешного старта, точные коды H02 |
-| consumer_name | text | Да; доверенный серверный получатель, не URL/имя из запроса |
+| event_type, event_schema_version | text | Да; paper_session.started / v1 |
+| consumer_name | text | Да; paper_start_observer, не URL/имя из запроса |
 | command_receipt_id | uuid | Да; исходный успешный C06 |
 | session_id, session_version, snapshot_version | uuid, bigint, bigint | Да; неизменяемые ссылки/версии опубликованного результата |
 | occurred_at | timestamptz | Да; время исходного события |
-| payload | jsonb | Да; безопасное дополнительное содержимое; обязательные scope/IDs вынесены в колонки |
+| payload | jsonb | Да; пустой объект для первого события; обязательные scope/IDs/версии вынесены в колонки |
 | delivery_state | text | Да; pending, processing, retry_wait, processed, needs_review |
 | attempt_count | integer | Да; 0…5, увеличивается при успешном захвате |
 | next_attempt_at | timestamptz | Для pending/retry_wait обязателен; иначе NULL |
@@ -183,9 +189,9 @@ Unique(environment,audit_event_id,grant_id,authorized_data_code). Для Q06 д�
 
 ID строки является стабильным eventId. Unique(environment,event_type,command_receipt_id,consumer_name). Composite FK `(environment,command_receipt_id,session_id)` → успешный receipt результата; snapshot относится к той же session. Первый срез использует одного зарегистрированного локального потребителя факта старта; его действие — безопасно подтвердить наблюдение исходного результата, без создания денег/сессии/обязательной проекции. Это не отправка Telegram/email и не торговля. Расширение на fan-out/внешние эффекты требует отдельного протокола; один processed не объявляется доставкой всем возможным потребителям.
 
-Event ID/type/format/consumer/resource/receipt/payload/occurred_at неизменяемы; UPDATE разрешён только полям доставки. Начально pending, attempt_count=0, next_attempt_at=created_at. При захвате +1, новый lease token и ограниченный срок, state=processing. Повторы временного сбоя/истёкшего lease: всего 5 попыток, задержки после неудачных попыток 1–4 равны 1/5/30/120 секунд. Падение worker расходует попытку. При истёкшем lease задержка отсчитывается не раньше lease_until; поздний worker не получает более ранний повтор. Пятая неудача, неизвестный формат или постоянная ошибка → needs_review, без удаления. Длительность/продление lease — H04 до worker, не выдуманные числовые defaults.
+Event ID/type/format/consumer/resource/receipt/payload/occurred_at неизменяемы; UPDATE разрешён только полям доставки. Начально pending, attempt_count=0, next_attempt_at=created_at. При захвате +1, новый lease token и ограниченный срок, state=processing. Повторы временного сбоя/истёкшего lease: всего 5 попыток, задержки после неудачных попыток 1–4 равны 1/5/30/120 секунд. Падение worker расходует попытку. При истёкшем lease задержка отсчитывается не раньше lease_until; поздний worker не получает более ранний повтор. Пятая неудача, неизвестный формат или постоянная ошибка → needs_review, без удаления. Lease30s без продления; бюджет обработки после захвата 5s с ожиданиями; одно ожидание lock≤1s и ≤остатку бюджета, пустая очередь опрашивается раз в 1s, один event на worker. Lease — актуальное время БД, бюджет — монотонный.
 
-Локальный эффект, ConsumerEventReceipt и перевод в processed по возможности одной транзакцией. Worker блокирует outbox и проверяет действующий token/срок перед эффектом и перед завершением; старый token не завершает новую попытку. Нет безусловного ACK по одному eventId. Повтор не создаёт новый eventId и не заменяет payload. Ограничение C06 (3 попытки/5 секунд) не смешивается с этим бюджетом.
+При обычной обработке локальный эффект, ConsumerEventReceipt и processed обязательно сохраняются одной транзакцией. Worker блокирует outbox и проверяет действующий token/срок перед эффектом и перед завершением; старый token не завершает новую попытку. Нет безусловного ACK по одному eventId. Повтор не создаёт новый eventId и не заменяет payload. Ограничение C06 (3 попытки/5 секунд) не смешивается с этим бюджетом.
 
 ### 5.2. `consumer_event_receipts`
 
@@ -193,7 +199,7 @@ Event ID/type/format/consumer/resource/receipt/payload/occurred_at неизме�
 | --- | --- | --- |
 | consumer_name | text | Да; тот же доверенный consumer |
 | event_id | uuid | Да; FK на outbox этого consumer |
-| result_code | text | Да; типизированный окончательный локальный результат |
+| result_code | text | Да; observed для paper_start_observer |
 | result_session_id | uuid | Да для наблюдения старта; та же session исходного события |
 | processed_at | timestamptz | Да; время подтверждённого эффекта |
 
@@ -250,7 +256,7 @@ Unique(environment,id,staff_principal_id). Начальный состав — �
 | assignment_id | uuid | Да; FK staff_assignments |
 | grant_set_version | bigint | Да; версия полного набора, историческая, не FK на изменяемый current номер |
 | grant_key | text | Да; стабильный код строки в наборе; unique(environment,assignment_id,grant_set_version,grant_key) |
-| action_code, section_code, data_type_code | text | Да; одна разрешающая комбинация, машинные коды H03 |
+| action_code, section_code, data_type_code | text | Да; одна полная комбинация из first-session-registry-v1; для Q06 read/ADM-03 с session.* или read/ADM-02 с user.minimal_context |
 | product_mode | text | Да; paper для выдачи первого сценария |
 | venue_scope | text | Да; all либо one, явная область |
 | venue_id | uuid | Только для one, FK venues; при all NULL |
@@ -266,7 +272,7 @@ Unique(environment,assignment_id,id) для audit evidence. Строки опу�
 | Дополнительные колонки | Тип | Обязательность / смысл |
 | --- | --- | --- |
 | realm | text | Да; user либо staff |
-| policy_code | text | Да; unique(environment,realm,policy_code) |
+| policy_code | text | Да; unique(environment,realm,policy_code); первые user-login-policy-v1 / staff-login-policy-v1 |
 | max_lifetime_seconds, inactivity_seconds | integer | Да; положительные согласованные пределы |
 | source_ref | text | Да; ссылка на принятую политику/версию |
 | published_at | timestamptz | Да; опубликованная неизменяемая версия |
@@ -355,3 +361,17 @@ Serializable и общий lock order остаются из data-model §22; gua
 Техническая сверка 29.10.2026: [PostgreSQL Constraints](https://www.postgresql.org/docs/current/ddl-constraints.html), [Transaction Isolation](https://www.postgresql.org/docs/current/transaction-iso.html). Ссылки подтверждают свойства механизмов, не готовность Shadow или выбранной версии Auth.
 
 **Сводная передача и оставшиеся зависимости:** [database-backend-handoff.md](database-backend-handoff.md). Блок 4 и сводная передача приняты, документальное согласование физической схемы завершено. H01–H06 остаются инженерной работой будущего бэкенда. Код, SQL, миграции и развёртывание — только после отдельного поручения.
+
+## 10. Итоговые границы исполнения, форматов и хранения
+
+Реестр first-session-registry-v1 задаёт статусы principals/identity/assignments, providers/assurance, причины revoke, action/section/data type и delivery errors; неизвестные значения/несовместимые сочетания не становятся defaults. Модель полей не добавляет user identity status или guest audit. Частичная публикация grants запрещена: полный immutable набор/current set/assignment.version/staff guard вместе; истечение после ожиданий повторно проверяется. Точные реальные environment/role/source refs — доверенная конфигурация.
+
+T04: fieldErrors исходного C04 — response_data.fieldErrors, массив field/code/params, пустой массив при отсутствии; params={} у REQUIRED/INVALID_DECIMAL, типизированные границы/шаг/отсчёт/единица/предел по коду. Reason_code в core, reason_data остаётся объектом и {} при отсутствии; API reasonDetails — список с основной причиной первой. Точная карта объекта на список/имена params и fieldErrors review остаются открытыми: не добавлены несогласованные JSON-обёртки/колонки. У каждого ограниченного JSON-поля ≤16 384 байт компактного UTF-8; raw/секреты/исключения не детали отказа.
+
+C04/C05/claim отдельно приняты T05/T12:5s от начала первой попытки с ожиданием соединения/locks/паузами, максимум 3 подтверждённых serialization/deadlock rollback-попытки, паузы 50–150 мс в остатке. C05 unknown не получает command receipt/Q05, допускает только явный новый review; claim имеет свой receipt и повторный доступ получателя по цепочке. C04/C06 unknown восстанавливаются по исходному key. Rejected окончателен и после исчезновения препятствия, новый key — только новое явное намерение. Транспорт/доступ/чужой ресурс отвергаются до предметного receipt.
+
+Q05:5s без внутренних повторов; pending только неустановленный результат, unreadable/missing details — technical error. UI-поллинг один запрос, интервалы 1/2/5/10s после завершения, окно 30s и полный 5s бюджет должен помещаться; окно не TTL/rollback. C01–C03:10s, без автоматического одноразового повтора, защищённая Auth-операция, не CommandReceipt. C07:5s/одна попытка/подтверждённый 204, unknown/повтор привязаны к исходному login, late retry не отзывает новый. Подробные HTTP/nextAction/strict request правила — backend-contracts T01–T17; HTTP/requestId/current projection не новые денежные колонки.
+
+H05: одно соединение на критическую Serializable-транзакцию, exact BigInt/numeric/bigint-string; parent completeness и запрет изменения immutable обязательны. API без произвольного DML, worker минимален, Auth в своём хранилище, schema executor/backup/copy verifier отдельно; runtime не владелец таблиц. PostgreSQL 17.11 / pg 8.23.1 — кандидаты, не испытанная интеграция.
+
+H06/M04/M05: в первом стенде details/outbox/dedup/core/родители сохраняются, archive/cleanup нет; пропажа строки неисправность. Ежедневные зашифрованные физические копии Auth+Shadow, последние 7 успешных вне сервера и непрерывная необходимая цепочка WAL; успех доставки подтверждает получатель. Разрыв/непокрытый период видимы, старый backup не разрешает новый эффект/возврат прав. Входы/команды/worker закрыты до сверки ключей/claim/Auth отзыва/финансов/dedup и полного обхода review/settings/snapshot/receipt. Неизменяемый отчёт вне восстанавливаемой БД: run/copy identity/точка/отпечаток, версии всех компонентов/форматов, количества/полнота, безопасные ошибки/итог. Пустой тип — «нет данных», неполный обход не успех. Хранилище/машинный формат/права/доставка WAL/RPO-RTO ещё требуют спецификации и доказательств, 35-я report-таблица не добавлена.
