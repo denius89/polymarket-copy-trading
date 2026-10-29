@@ -357,3 +357,16 @@ SetupDraft.last_input_receipt_id обязателен и указывает на
 Claim/used не меняют input pointer; receipt сохраняет историческое ownership и не требует вечного совпадения с current ownership. Отказ после допуска к scoped key имеет свой rejected result без изменения draft; ранний invalid/access denied — без предметного receipt. Технический сбой/unknown не считаются окончательным отказом. В C04 нет FIN/start audit/outbox. Core/details/исторические связи не удаляются по сроку draft/login.
 
 Принятое отражено в физических блоках и проверочных документах. Полные target/nullable/FK, точный безопасный Q05 после claim и защита всех C06 дочерних ссылок предложены блоком 3, не приняты автоматически. M01 ещё не закрыт целиком; H02 параметры ошибок/DTO и реальные DB/Auth/API/concurrency/restore испытания остаются отдельной работой. Только документы: без кода, SQL, миграций, установки и развёртывания.
+
+
+## 36. Приняты восстановление C04 после claim и строгие связи C04/C06
+
+29.10.2026 · Владелец принял блок3 целиком после PR №172. Baseline main `bd6849f8a5aed246e8c003f0f54cabc722caa236`; [дополнение §§1–3](../technical/first-session/database-c04-addendum.md), основания ADR-0065/DB-C04-01–10. Исторические §§1–35 сохранены без переписывания.
+
+В command_keys приняты c04_operation/target_draft_id/target_ownership_id/expected_draft_version с обязательностью проверенной цели только update. Command_receipts.command_type связан составным FK с типом key; условные result-группы и обязательные details проверяются от родителя. Успех C04 ссылается на историческое ownership своего draft; actor соответствует всем применимым target/result. Create единственный, version1; update updated=expected+1 либо unchanged=expected. SetupDraft ссылается на собственный created/updated receipt/version и проверенные моменты; история старых receipts не привязана FK к изменяемой текущей версии.
+
+C04 не удовлетворяет обязательным C06 session/settings/funding/journal/start-audit/outbox ссылкам: тип/result/полнота строгие, NULL-обход запрещён. Начальный финансовый комплект и один succeeded C06 receipt сохраняются; новой таблицы результата нет.
+
+До claim потерянный create восстанавливается через доверенный постоянный guest context+key. После claim current user читает original guest result через claim/историческое ownership (target ownership для rejected update), без смены scope/actor или права исполнить отсутствующий guest key. Rejected create без draft не получает фиктивной цепочки. Старый guest proof закрыт для переданного draft/результата; независимые drafts не отзываются автоматически. При неоднозначном поиске нужен locator из своего контекста, не глобальный поиск/первое совпадение. Exact replay сверяет исходный fingerprint; Q05 не требует всей старой формы. Unknown/backup до commit не разрешают новое исполнение.
+
+Физические блоки, общие контракты и проверочные документы обновлены. DB-C04-01–10 отражены документально; M01 ещё требует точного DTO/декодеров/Auth-интеграции/испытаний. Заключительный блок4 H02–H06/M01–M05 пока предложение, не принят этим разделом. Только документы: код, SQL, миграции, установка и развёртывание не начаты; реальные испытания не выполнены.

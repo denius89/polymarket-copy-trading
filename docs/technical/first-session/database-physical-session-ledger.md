@@ -1,5 +1,7 @@
 # Физическая схема БД — блок 3: сессия, настройки и виртуальный учёт
 
+29.10.2026 · Принят блок3 [дополнения C04](database-c04-addendum.md): общие command_receipts теперь типизированы C04/C06. Обязательные начальные ссылки этого блока на (environment,receipt,session) сохраняются: у C04 result_session_id всегда NULL, поэтому C04/rejected не могут удовлетворить C06-связи. До commit проверяется полный START с user actor и тем же succeeded C06 receipt; связь snapshot через session/settings сохранена. Использование draft не меняет last_input_receipt_id/version/TTL. Реестры/время H02–H06 — заключительная сверка; SQL/испытаний нет.
+
 29.10.2026 · **Блок 3 принят целиком 29.10.2026 после PR №163.** [Фиксация — ADR-0064 §32](../../decisions/0064_first_session_database_contract.md). Блоки [1](database-physical-design.md) и [2](database-physical-catalog-review.md) приняты. Baseline: main `ab94c39b099f4d2b40f39425de9c5d4cdb387901`. Основание — [ADR-0064](../../decisions/0064_first_session_database_contract.md), [логическая модель](data-model.md), [команды C06/Q04/Q06](commands.md) и [задание бэкенда](backend-chat-brief.md). Только документ: SQL, код, миграции, БД и развёртывание не создаются.
 
 ## 1. Состав и границы

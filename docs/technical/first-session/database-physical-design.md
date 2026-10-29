@@ -1,6 +1,6 @@
 # Физическая схема БД первого сценария — согласованный документ
 
-29.10.2026 · Приняты [блоки 1–2 дополнения после пакета бэкенда](database-c04-addendum.md): guest context до draft, historical guest_context_id, результат/атомарность C04 и last_input_receipt_id текущего ввода; [ADR-0064 §§34–35](../../decisions/0064_first_session_database_contract.md). Точные составные FK и post-claim поиск предложены блоком 3. Исторические §§30–34 сохранены, реализация не начата.
+29.10.2026 · Приняты [блоки 1–3 дополнения после пакета бэкенда](database-c04-addendum.md): guest context до draft, historical guest_context_id, результат/атомарность C04 и last_input_receipt_id текущего ввода; [ADR-0064 §§34–35](../../decisions/0064_first_session_database_contract.md). Точные составные FK и post-claim поиск приняты блоком 3; ADR-0064 §36. Исторические §§30–34 сохранены, реализация не начата.
 
 29.10.2026 · **Все четыре блока физической схемы и сводная передача приняты целиком. Согласование завершено.** [Итог — ADR-0064 §33](../../decisions/0064_first_session_database_contract.md); [сводная передача бэкенду](database-backend-handoff.md). Блок 1 принят после PR №161, заключительный блок — после PR №164. [Фиксация блока 1 — ADR-0064 §30](../../decisions/0064_first_session_database_contract.md). Согласованная логическая модель остаётся обязательной: [итог](database-final-review.md), [ADR-0064](../../decisions/0064_first_session_database_contract.md). Baseline: main `43a6991580e0a61e4210dfd167d0d994ccb63454`. Документ описывает будущие таблицы; SQL, миграций, кода приложения и созданной БД нет.
 
@@ -77,7 +77,7 @@
 | id | uuid | Да | ID черновика, часть PK |
 | current_ownership_id | uuid | Да | Текущее доказательство владения; FK `(environment, id, current_ownership_id)` → draft_ownerships `(environment, draft_id, id)` |
 | version | bigint | Да | Версия сохранённого ввода C04, начально 1; +1 только при успешном изменении |
-| last_input_receipt_id | uuid | Да | Успешный C04 created/updated, сохранивший текущую версию ввода; свой draft/result version/моменты совпадают. Не последний запрос и не unchanged receipt; точный составной FK предложен блоком 3 дополнения |
+| last_input_receipt_id | uuid | Да | Успешный C04 created/updated, сохранивший текущую версию ввода; свой draft/result version/моменты совпадают. Не последний запрос и не unchanged receipt; FK (environment,last_input_receipt_id,id,version) → command_receipts(environment,id,result_draft_id,result_draft_version), принятый блоком 3 дополнения |
 | locale | text | Да | `ru` либо `en` |
 | step | text | Да | Код шага согласованной формы; точные коды сопоставляются с существующим UX, не задают права запуска |
 | entry_context | text | Нет | Разрешённый код исходного контекста/перехода; NULL = контекст не передан. Без произвольного redirect или секретов |
@@ -105,7 +105,7 @@ NULL в raw-полях означает «поле ещё не задано», �
 
 Версия C04 описывает ввод; актуальный ownership и признак использования проверяются отдельно при каждом доступе/старте. Служебная фиксация claim/used не продлевает срок ввода. Все участники гонок блокируют ту же строку draft по принятому порядку; невалидный короткий ввод не обходит ownership/version/used/expiry.
 
-Принятый last_input_receipt_id обязателен уже при create. Каждая реальная правка меняет pointer, version и моменты ввода атомарно с новым key/receipt/details. Новый unchanged сохраняет свой receipt, но не меняет даже pointer/TTL; exact replay не создаёт нового CMD. При claim/used pointer прежний: результат может законно ссылаться на историческое guest ownership после перехода current ownership к user. Старый receipt version5 не ссылается на текущую изменяемую version draft и остаётся читаемым после version6 при текущем доступе. Не создаётся полная история raw. Запрет изменения ввода без результата требует проверки переходов и полноты от родителя; полный FK-набор предложен блоком 3 дополнения.
+Принятый last_input_receipt_id обязателен уже при create. Каждая реальная правка меняет pointer, version и моменты ввода атомарно с новым key/receipt/details. Новый unchanged сохраняет свой receipt, но не меняет даже pointer/TTL; exact replay не создаёт нового CMD. При claim/used pointer прежний: результат может законно ссылаться на историческое guest ownership после перехода current ownership к user. Старый receipt version5 не ссылается на текущую изменяемую version draft и остаётся читаемым после version6 при текущем доступе. Не создаётся полная история raw. Запрет изменения ввода без результата требует проверки переходов и полноты от родителя; полный FK-набор принят блоком 3 дополнения и описан в физическом блоке операций §2.5.
 
 ### 3.4. `shadow.draft_ownerships` → DraftOwnership
 
@@ -131,7 +131,7 @@ Auth-адаптер устойчиво создаёт guest context до пер�
 
 Предлагаемая уникальность `(environment, draft_id, owner_kind)` допускает максимум одну исходную guest-запись и одну user-запись для этого сценария. У guest previous/claim пусты; у user они либо оба пусты при первоначальном пользовательском создании, либо оба заполнены при claim. Для claim previous должен быть guest-записью того же draft. Эта межстрочная проверка и обязательный переход current pointer завершаются в одной транзакции, не одним CHECK отдельной строки.
 
-Для FK текущего владельца предлагается уникальный ключ `(environment, draft_id, id)`. При создании draft и первого ownership обе строки получают ID заранее и сохраняются вместе; замкнутая ссылка проверяется до commit. Обязательный current_ownership_id не становится nullable ради порядка вставки. При claim новая ownership, current pointer, закрытие старого guest-допуска и результат claim сохраняются атомарно. Старый guest digest остаётся только историческим доказательством и больше не разрешает доступ.
+Для FK текущего владельца принят уникальный ключ `(environment, draft_id, id)`. При создании draft и первого ownership обе строки получают ID заранее и сохраняются вместе; замкнутая ссылка проверяется до commit. Обязательный current_ownership_id не становится nullable ради порядка вставки. При claim новая ownership, current pointer, закрытие старого guest-допуска и результат claim сохраняются атомарно. Старый guest digest остаётся только историческим доказательством и больше не разрешает доступ.
 
 ## 4. Связи и проверяемые инварианты блока 1
 
@@ -183,3 +183,9 @@ flowchart LR
 29.10.2026 владелец принял блок 1 целиком: общие соглашения, четыре таблицы, колонки, связи и ограничения. Зависимости B1-D1–D4 сохранены и не выдаются за решения будущего бэкенда. Блоки 2–4 также приняты; [итоговая передача](database-backend-handoff.md) объединяет всю схему. Согласование завершено; код, SQL и миграции не начинаются.
 
 Техническая сверка 29.10.2026: [PostgreSQL — Constraints](https://www.postgresql.org/docs/current/ddl-constraints.html) и [Character Types](https://www.postgresql.org/docs/current/datatype-character.html). Для raw-ввода выбран text с отдельной проверкой длины: приводящее обрезание ограниченного varchar не должно менять пользовательский ввод. Настоящие ограничения/гонки/планы запросов ещё не испытывались.
+
+## 8. Дополнение C04: принятые связи текущего и исторического владения
+
+29.10.2026 · Блок3 принят после PR №172. Target/result FK C04 используют имеющийся unique draft_ownerships(environment,draft_id,id). Для current input используется unique receipts(environment,id,result_draft_id,result_draft_version); draft ссылается всеми обязательными компонентами. Отложенная проверка дополнительно требует C04/succeeded/created либо updated и равенство моментов ввода. Receipt со старой result version не имеет FK на изменяемую version draft. Проверки новой операции не заставляют прошлую историю равняться текущему вводу.
+
+При новом C04 проверяются current ownership и proof/полный вход. После claim для чтения старого C04 допускается именно historical guest ownership по подтверждённой claim-цепочке текущего user; это исключение для восстановления результата, не разрешение редактировать по прошлому владению. Успех использует result ownership, rejected update — проверенную target ownership. Rejected create без draft не имеет такой цепочки. Claim/used не меняют last_input_receipt_id/version/TTL. Полный порядок и неоднозначный поиск — [операции §2.6](database-physical-operations-access.md), [дополнение §3.5](database-c04-addendum.md). SQL/Auth-процедуры и испытания не выполнены.

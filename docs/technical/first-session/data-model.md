@@ -1,5 +1,7 @@
 # Логическая схема данных первого сценария
 
+29.10.2026 · Блок 3 [дополнения C04](database-c04-addendum.md) принят целиком после PR №172 и отражён: target/expected version, типизированная связь key/receipt, current input FK, post-claim восстановление без переноса ключа и строгая полнота C06. [ADR-0064 §36](../../decisions/0064_first_session_database_contract.md). Заключительный блок H02–H06/M01–M05 предложен, ещё не принят в чате БД. DTO/декодеры/испытания не готовы; только документы.
+
 29.10.2026 · Принят блок 2 [дополнения C04](database-c04-addendum.md), [ADR-0064 §35](../../decisions/0064_first_session_database_contract.md): шесть исходных C04 result-полей, immutable details/fieldErrors и last_input_receipt_id текущего ввода. Create/updated/новый unchanged атомарны со своим CMD; replay без новой записи. C04 не создаёт FIN/start audit/outbox. Точные условные FK/post-claim поиск — предложение следующего блока, SQL не создавался.
 
 29.10.2026 · Принят блок 1 [дополнения C04](database-c04-addendum.md), [ADR-0064 §34](../../decisions/0064_first_session_database_contract.md): XOR user/guest scope ключа и постоянный гостевой контекст до draft, связанный с historical ownership. Расширение результата/атомарности C04 предложено блоком 2; строгий начальный комплект C06 не ослабляется. Исторические профили C06 и предыдущие принятия не объявляются полным физическим решением C04.
