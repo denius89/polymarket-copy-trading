@@ -1,6 +1,6 @@
 # Физическая схема БД — блок 4: команды, аудит, события и доступ
 
-29.10.2026 · После PR №169 принят [блок 1 дополнения C04](database-c04-addendum.md): user/guest actor и scoped уникальность ключа. §2.1 обновлён; §2.2–2.3 пока описывают принятый ранее вариант результата C06, **не готовый результат C04**. Результат/атомарность C04 предложены в блоке 2 дополнения, полные типизированные FK — блок 3. M01 не закрыт целиком; [ADR-0064 §34](../../decisions/0064_first_session_database_contract.md). Только документы, без SQL/кода/миграций.
+29.10.2026 · После PR №170 приняты [блоки 1–2 дополнения C04](database-c04-addendum.md): user/guest actor, scoped ключи, исходный результат, details и атомарность с last_input_receipt_id. §2.1–2.3 обновлены; полный target/post-claim поиск и типизированные FK предложены блоком 3, включая новый discriminator receipt.command_type, который ещё не принят как колонка. M01 не закрыт целиком; [ADR-0064 §§34–35](../../decisions/0064_first_session_database_contract.md). Только документы, без SQL/кода/миграций.
 
 29.10.2026 · **Блок 4 и сводная передача приняты целиком 29.10.2026 после PR №164.** [ADR-0064 §33](../../decisions/0064_first_session_database_contract.md). Все четыре физических блока согласованы: [1](database-physical-design.md), [2](database-physical-catalog-review.md), [3](database-physical-session-ledger.md) и этот блок. Инженерные зависимости сохранены; принятие не означает выполненную реализацию. Baseline main `287e2639cecd751ff4812e15e815efa79ab3757e`. Основания: [ADR-0064](../../decisions/0064_first_session_database_contract.md), [data-model §22–23](data-model.md), [commands](commands.md), [auth-policy](auth-policy.md), [контракт доступа админки](../../design/admin/staff-access-2026-10-18/contract.md). Только документ: без SQL, кода, миграций, создания аккаунтов и развёртывания.
 
@@ -29,7 +29,7 @@
 
 Ровно один actor ID заполнен по actor_realm; C06/guest запрещён. Две условные уникальности: при user — (environment, actor_realm, actor_user_id, command_type, client_command_id); при guest — (environment, actor_realm, actor_guest_context_id, command_type, client_command_id). NOT NULL соответствующего варианта вместе с XOR не допускает обхода через NULL; общий unique по двум nullable actor IDs не используется. Служебное хранилище guest context принадлежит Auth, не новой таблице Shadow; его ID проверяется по доверенному контексту, вымышленный FK на неизвестную Auth-таблицу не объявляется.
 
-Дополнительный unique(environment,id,receipt_id) для обратной ссылки receipt сохраняется. В транзакции заранее назначаются оба серверных ID. Вставка ключа с обязательным receipt_id резервирует уникальность, даже когда receipt ещё не вставлен; отложенный FK запрещает commit без результата. Это **не отдельный долговечный pending**: нет commit между ключом и receipt. После commit ключ/отпечаток/связь неизменны. Откат убирает оба. Нет самостоятельного фонового истечения ключа и нет TTL по login/draft. C04 result и его полнота требуют следующих блоков дополнения; расширение ключа не разрешает вставить C04 в старый результат C06.
+Дополнительный unique(environment,id,receipt_id) для обратной ссылки receipt сохраняется. В транзакции заранее назначаются оба серверных ID. Вставка ключа с обязательным receipt_id резервирует уникальность, даже когда receipt ещё не вставлен; отложенный FK запрещает commit без результата. Это **не отдельный долговечный pending**: нет commit между ключом и receipt. После commit ключ/отпечаток/связь неизменны. Откат убирает оба. Нет самостоятельного фонового истечения ключа и нет TTL по login/draft. C04 result/атомарность приняты блоком 2; полные target/типизированные FK завершаются блоком 3. Расширение не разрешает использовать C04 как C06.
 
 Канонизация C06 включает review/ожидаемые версии и смысловые параметры, но не RU/EN подписи. Для C04 create/update, target при update, expectedVersion и все сохраняемые поля формы (включая locale/step) входят в намерение по backend-contracts; create/update не два пространства ключей. При повторе используется сохранённая версия канонизации/алгоритма; неизвестная версия закрывает чтение/исполнение, не делает ключ свободным. Другой payload того же key — конфликт без замены прежнего результата. Авторизация проверяется заново, смена устройства не создаёт новую область ключа. После claim прежний guest key не переносится в user: доступ к его результату только по подтверждённой цепочке владения/claim; полный путь чтения ещё детализируется в дополнении.
 
@@ -41,11 +41,19 @@
 | command_key_id | uuid | Да; unique(environment,command_key_id); FK `(environment,command_key_id,id)` → command_keys(environment,id,receipt_id) |
 | outcome | text | Да; succeeded либо rejected, только окончательный исход |
 | reason_code | text | Обязателен при rejected, NULL при succeeded |
-| result_session_id, result_settings_revision_id | uuid | Оба обязательны при succeeded, иначе NULL; результат именно исходного C06 |
-| result_snapshot_version, result_session_version | bigint | Оба обязательны при succeeded, иначе NULL; исходные версии, при первом запуске 1 |
-| related_session_id | uuid | NULL либо своя блокирующая session при rejected; не созданный результат |
+| result_session_id, result_settings_revision_id | uuid | Оба обязательны только при succeeded C06; иначе NULL, в том числе у C04 |
+| result_snapshot_version, result_session_version | bigint | Оба обязательны только при succeeded C06; иначе NULL; исходные версии, при первом запуске 1 |
+| result_draft_id, result_ownership_id | uuid | Оба обязательны только при succeeded C04; исходный draft и историческое владение при выполнении; иначе NULL |
+| result_draft_version | bigint | Обязательна только при succeeded C04; исходная версия результата, не текущая версия draft; иначе NULL |
+| result_change_kind | text | Только при succeeded C04: created, updated, unchanged; иначе NULL |
+| result_last_saved_at, result_expires_at | timestamptz | Оба обязательны только при succeeded C04; исходные моменты ввода; иначе NULL |
+| related_session_id | uuid | NULL либо своя блокирующая session только при rejected C06; у C04 NULL, не созданный результат |
 
 Для ключа FK `(environment,receipt_id)` → receipts(environment,id); обе стороны замыкаются до commit. Unique(environment,id,result_session_id) обслуживает ссылки пакета C06. Результат settings/snapshot принадлежит result_session_id; составные FK используют ключи блока 3. До commit проверяется, что user созданной/связанной session равен actor_user_id ключа. related_session_id не даёт раскрыть чужую сессию и требует актуального доступа даже при повторном чтении отказа.
+
+Условная полнота определяется типом связанного command_keys: шесть result-полей C04 заполнены только вместе у succeeded C04; четыре session-result поля — только вместе у succeeded C06. У rejected обе result-группы NULL. Одна группа не заменяет другую. Связи C04 со своим draft/историческим ownership и точная защита discriminator/target keys предлагаются блоком 3 дополнения, не локальным CHECK, читающим чужую таблицу. Необязательность неактивной группы не ослабляет обязательность активного варианта C06.
+
+Сохранённый C04 result version5/времена/changeKind/fieldErrors возвращается даже после version6, expiry, used или нового допустимого login. Q03 показывает текущий draft отдельно. У старого receipt нет FK на изменяемую текущую version: обратная ссылка текущего ввода идёт от setup_drafts.last_input_receipt_id. Чтение прежнего результата требует текущего доступа, но не права повторно редактировать истёкший/used draft.
 
 Session `(environment,start_receipt_id,id)` → receipts(environment,id,result_session_id). Settings/funding/journal `(environment,command_receipt_id,session_id)` → тот же ключ receipts для начального C06. Проверка полноты дополнительно требует один и тот же receipt во всех начальных записях, actor settings=actor key=user session, outcome=succeeded и правильный command_type. Receipt не может ссылаться на session, созданную другим receipt. У отказа нет создаваемых session/settings/funding/journal/snapshot; наличие связанной старой session не делает отказ успехом.
 
@@ -57,9 +65,17 @@ Session `(environment,start_receipt_id,id)` → receipts(environment,id,result_s
 | --- | --- | --- |
 | receipt_id | uuid | Да; unique(environment,receipt_id), FK receipts |
 | reason_data | jsonb | Да; безопасные детали причины, пустой объект при отсутствии |
-| response_data | jsonb | Да; типизированные дополнительные сведения исходного ответа, без bearer/сырых запросов |
+| response_data | jsonb | Да; типизированные дополнительные сведения исходного ответа, без bearer/сырых запросов. Для succeeded C04 содержит сохранённый response_data.fieldErrors — массив известных полей/кодов и разрешённых безопасных параметров, пустой массив при отсутствии ошибок |
 
-Для нового receipt создаётся ровно одна неизменяемая строка details; формат определяется record_schema_version родителя, не отдельной версией результата. Обязательные IDs/исход/причина остаются в core, числа читаются по исходным неизменяемым settings/snapshot. Core — совместно command_keys + command_receipts; его нельзя удалять при возможном повторе команды. Будущий отдельно разрешённый архив деталей потребует явной отметки/процедуры и совместимого читателя; сейчас очистки нет. Неожиданно отсутствующие details означают техническую недоступность, не доказанный архив и не разрешение повторить C06.
+Для нового receipt создаётся ровно одна неизменяемая строка details, включая C04 unchanged/rejected; формат определяется record_schema_version родителя, не отдельной версией результата. Обязательные IDs/исход/причина остаются в core; числа C06 читаются по исходным immutable settings/snapshot, исходные версия/времена C04 — из его core. FieldErrors C04 при повторе не вычисляются заново по текущему raw/policy; полной истории raw-правок не добавляется. Точная форма безопасных параметров и приоритет причин требуют оставшейся спецификации H02, не произвольных сообщений библиотек.
+
+Core — совместно command_keys + command_receipts; его нельзя удалять при возможном повторе. В первом стенде сохраняются details/outbox/dedup и историческое ownership, без очистки по draft/login TTL. Будущий разрешённый архив потребует отдельного совместимого протокола. Неожиданно отсутствующие details — техническая недоступность, не доказанный архив и не разрешение повторить C04/C06.
+
+### 2.4. Принятая атомарность C04
+
+Новый create сохраняет draft/первоначальное ownership/current pointer, last_input_receipt_id и один key/receipt/details вместе. Update с изменением сохраняет ввод/version+1/времена/TTL и новый last_input_receipt_id вместе с этим комплектом CMD. Новый unchanged сохраняет только новый окончательный CMD; ввод, его version/времена/TTL/pointer прежние. Exact replay возвращает исходный результат без новых строк CMD и без изменения draft. Новая stale expectedVersion проверяется до сравнения raw и даёт VERSION_CONFLICT; окончательный отказ после допуска к ключу сохраняется без изменения draft. Ранний invalid/access denied не создаёт предметного receipt; техническая ошибка/unknown не становятся rejected.
+
+После подтверждённого rollback отсутствует весь комплект этой операции; unknown commit выясняется по исходному key. Во всех C04 случаях FIN/start audit/outbox не создаются; гостевой вид audit не добавлен. Полнота должна проверяться с обеих сторон: результат требует своего изменения/состояния, а current input — допустимого успешного C04. Точные составные FK и защита переходов предлагаются блоком 3; новый SQL/обработчик не создан.
 
 ## 3. `draft_claim_receipts` — однократная передача гостевого черновика
 

@@ -344,3 +344,16 @@ Auth-адаптер создаёт устойчивый guest context до draft
 После claim старый guest proof закрыт для переданного draft и результатов. Текущий user получает прежний результат только по подтверждённой исторической цепочке ownership/claim; key остаётся в исходном guest realm и не исполняется заново. Полный безопасный поиск/условные ссылки завершаются следующим блоком. Строгие обязательные связи C06 сохраняются.
 
 DB-C04-01/02 отражены в документальных колонках/ограничениях; DB-C04-08 частично — принципом доступа. Result/атомарность C04, предлагаемый last_input_receipt_id и typed FK ещё не приняты физически. M01 не закрыт целиком. A01–A112 и Auth/DB/API/concurrency/restore не испытаны. По поручению владельца только документы: без кода, SQL, миграций, установки и развёртывания.
+
+
+## 35. Приняты результат и атомарность C04
+
+29.10.2026 · Владелец принял блок 2 целиком, включая last_input_receipt_id, после PR №170. Baseline main `870ef0b43434f42c38bee74b48bfe5e2e7b8c629`. [Дополнение C04](../technical/first-session/database-c04-addendum.md), основания — ADR-0065 и DB-C04-04–07/10. Исторические §§30–34 сохранены.
+
+У succeeded C04 обязательны отдельные result_draft_id/result_ownership_id/result_draft_version/result_change_kind/result_last_saved_at/result_expires_at. Session-result поля относятся только к succeeded C06; варианты не взаимозаменяемы. Сохранённые fieldErrors — типизированные response_data.fieldErrors обязательных details, не пересчёт по новой policy/текущему raw. Полная история raw-правок не добавляется.
+
+SetupDraft.last_input_receipt_id обязателен и указывает на created/updated C04, сохранивший текущую версию ввода. Create/update изменяет его атомарно вместе с вводом/version/моментами и key/окончательным receipt/details; create включает первоначальное ownership/current pointer. Новый unchanged имеет свой CMD, но не меняет draft/version/TTL/pointer. Exact replay не создаёт CMD и возвращает исходный результат даже после последующей правки; Q03 отдельно показывает текущий ввод. Stale expectedVersion проверяется до сравнения содержимого.
+
+Claim/used не меняют input pointer; receipt сохраняет историческое ownership и не требует вечного совпадения с current ownership. Отказ после допуска к scoped key имеет свой rejected result без изменения draft; ранний invalid/access denied — без предметного receipt. Технический сбой/unknown не считаются окончательным отказом. В C04 нет FIN/start audit/outbox. Core/details/исторические связи не удаляются по сроку draft/login.
+
+Принятое отражено в физических блоках и проверочных документах. Полные target/nullable/FK, точный безопасный Q05 после claim и защита всех C06 дочерних ссылок предложены блоком 3, не приняты автоматически. M01 ещё не закрыт целиком; H02 параметры ошибок/DTO и реальные DB/Auth/API/concurrency/restore испытания остаются отдельной работой. Только документы: без кода, SQL, миграций, установки и развёртывания.
