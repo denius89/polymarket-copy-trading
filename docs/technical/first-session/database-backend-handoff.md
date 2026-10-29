@@ -1,6 +1,6 @@
 # БД первого сценария — сводная передача будущему бэкенду
 
-29.10.2026 · **Документ для согласования вместе с заключительным физическим блоком 4.** Блоки 1–3 приняты. Baseline: main `287e2639cecd751ff4812e15e815efa79ab3757e`; текущий пакет добавляет фиксацию блока 3 и предложения блока 4. Код, SQL, миграции, работающий API/БД и развёртывание отсутствуют в рамках этой работы. Другому чату сообщения не отправлялись.
+29.10.2026 · **Сводная передача и заключительный блок 4 приняты целиком. Согласование физической схемы завершено.** [ADR-0064 §33](../../decisions/0064_first_session_database_contract.md). Все четыре блока приняты; baseline финального принятия: main `77bcba67547bd6448799d792a36757c180e41395` после PR №164. H01–H06 сохраняются как инженерные зависимости будущего бэкенда. Код, SQL, миграции, работающий API/БД и развёртывание отсутствуют в рамках этой работы. Другому чату сообщения не отправлялись.
 
 ## 1. Что передаётся и что имеет приоритет
 
@@ -15,8 +15,8 @@
 | [1 — пользователь и черновик](database-physical-design.md) | Принят | users, user_auth_identities, setup_drafts, draft_ownerships |
 | [2 — каталог и проверка](database-physical-catalog-review.md) | Принят | venues, catalog_sources, traders, trader_revisions, paper_policy_versions, paper_controls, setup_reviews |
 | [3 — сессия и деньги](database-physical-session-ledger.md) | Принят | user_session_slots, paper_sessions, settings_revisions, funding_flows, journals, journal_entries, session_snapshots |
-| [4 — служебные записи](database-physical-operations-access.md) | Предложение | command_keys, command_receipts, command_receipt_details, draft_claim_receipts, audit_events, audit_authorizations, outbox_events, consumer_event_receipts |
-| [4 — доступ и вход](database-physical-operations-access.md) | Предложение | staff_principals, staff_auth_identities, staff_assignments, staff_assignment_grants, login_policy_versions, login_policy_controls, auth_sessions, staff_login_slots |
+| [4 — служебные записи](database-physical-operations-access.md) | Принят | command_keys, command_receipts, command_receipt_details, draft_claim_receipts, audit_events, audit_authorizations, outbox_events, consumer_event_receipts |
+| [4 — доступ и вход](database-physical-operations-access.md) | Принят | staff_principals, staff_auth_identities, staff_assignments, staff_assignment_grants, login_policy_versions, login_policy_controls, auth_sessions, staff_login_slots |
 
 Итого 34 прикладные таблицы в документальном проекте; количество не означает 34 реализованных компонента или расширение пользовательского сценария. Провайдерские OTP/TOTP/WebAuthn credentials/challenges, ключи, recovery-секреты и внутренние таблицы Auth сюда не копируются. Их проверенная интеграция — H01, а не право обойти согласованное восстановление. Рыночные ордера/позиции/резервы/signals/score, treasury и настоящие платежи не добавлены. Начальный состав сотрудников: владелец 1 и владелец 2, два личных равноправных Owner.
 
@@ -108,11 +108,11 @@ Backup/restore: ежедневно, последние 7 успешных заш
 | H05 Схема и интеграционные доказательства | После отдельного поручения: выбранная PostgreSQL/driver, точная арифметика, constraint triggers, DB-роли/процедуры, планы запросов, fault/concurrency-тесты | B3-D4 и сводные механизмы | Полные документальные таблицы/связи/инварианты, единый atomic start и Serializable |
 | H06 Срок/restore/совместимость | Проверенная библиотека времени/tzdb и DST; политика форматов/совместимые изменения; отчёт/хранилище restore evidence, сверка после backup | B3-D3, data-model §16–23 | 14 календарных дней, сохранённый deadline, 7 копий, закрытый restore, отсутствие автоочистки/авторемонта |
 
-B1-D4 замыкается блоками 2–4 по venue/trader/session/claim receipt. B2-D4 замкнут **принятым блоком 3** по generation/слоту/session/settings; DTO spelling остаётся H02. B3-D2 предлагается закрыть блоком 4 по command key/receipt/actor/audit/outbox. Не писать в статусе «все зависимости решены»: компонентные контракты H01–H06 ещё требуют проверки. Их работа входит в отдельное техническое проектирование/реализацию после поручения, не в самовольную смену продукта.
+B1-D4 замыкается блоками 2–4 по venue/trader/session/claim receipt. B2-D4 замкнут **принятым блоком 3** по generation/слоту/session/settings; DTO spelling остаётся H02. B3-D2 замкнут принятым блоком 4 по документальным связям command key/receipt/actor/audit/outbox; реализация/испытания относятся к H05. Не писать в статусе «все зависимости решены»: компонентные контракты H01–H06 ещё требуют проверки. Их работа входит в отдельное техническое проектирование/реализацию после поручения, не в самовольную смену продукта.
 
 ## 8. Порядок продолжения и критерии приёмки
 
-1. Принять или скорректировать заключительный блок 4 целиком; текущий статус — предложение. После принятия зафиксировать окончательный статус всех четырёх физических блоков.
+1. **Выполнено 29.10.2026:** все четыре физических блока и сводная передача приняты целиком; итог зафиксирован в ADR-0064 §33. Согласование в этом чате завершено.
 2. Отдельный чат бэкенда читает этот пакет и подтверждает совместимость H01–H06: DTO/форматы, Auth/права, операции/неизменяемость и выбранные компоненты. Не создавать параллельные сущности/денежные правила по одному макету. Автоматическая отправка сообщения туда не поручена.
 3. Только после отдельного поручения на код — минимальная схема и API вместе, совместимые миграции и изолированный стенд. Принятие схемы не является разрешением deploy или изменения реальных доступов.
 4. Реальная приёмка по A01–A112: оба допустимых способа размера и обе площадки на явно синтетическом источнике; точное выбранное B; одинаковая session/settings/snapshot у клиента/админки; гонки/дубли/отзыв/unknown outcome; worker crash; DST и restore. Проверки других этапов не заменяются фиктивными успешными заглушками.
