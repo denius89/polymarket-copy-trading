@@ -1,5 +1,7 @@
 # Первый рабочий сценарий Shadow: проект до кода
 
+29.10.2026 · **Блок 3 физической схемы принят** ([ADR-0064 §32](../../decisions/0064_first_session_database_contract.md)); [заключительный блок 4](database-physical-operations-access.md) и [сводная передача бэкенду](database-backend-handoff.md) предложены к согласованию целиком. Только документы, без SQL/кода.
+
 29.10.2026 · **Блок 2 физической схемы принят** ([ADR-0064 §31](../../decisions/0064_first_session_database_contract.md)); [блок 3 — сессия и виртуальный учёт](database-physical-session-ledger.md) предложен к согласованию. Семь таблиц, связи и ограничения; без SQL/кода.
 
 29.10.2026 · **Блок 1 физической схемы принят** ([ADR-0064 §30](../../decisions/0064_first_session_database_contract.md)); [блок 2 — каталог, правила и review](database-physical-catalog-review.md) подготовлен как предложение. SQL и код не создаются.

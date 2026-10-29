@@ -313,3 +313,10 @@ A01–A112 остаются запланированными проверкам�
 29.10.2026 · Владелец принял блок 2 целиком после PR №162. Baseline: main `ab94c39b099f4d2b40f39425de9c5d4cdb387901`. [Документ](../technical/first-session/database-physical-catalog-review.md) фиксирует venues, catalog_sources, traders, trader_revisions, paper_policy_versions, paper_controls и setup_reviews: колонки/типы/обязательность, составные связи, неизменяемую историю, текущие guards, числовую policy без изменения правил и сохранение валидного/невалидного результата проверки.
 
 Принятый статус относится к документальному проекту, не реализации. Зависимости B2-D1–D4 остаются явными; точные slot/session/settings связи и generation предложены в блоке 3, который пока не принят. SQL, миграции, код, БД и развёртывание не начинались. Общий контракт будущего бэкенда сохраняется.
+
+
+## 32. Принят третий блок физической детализации
+
+29.10.2026 · Владелец принял блок 3 целиком после PR №163. Baseline: main `287e2639cecd751ff4812e15e815efa79ab3757e`. [Документ](../technical/first-session/database-physical-session-ledger.md) фиксирует user_session_slots, paper_sessions, settings_revisions, funding_flows, journals, journal_entries и session_snapshots: колонки/составные связи, generation слота, историческую уникальность draft/review, один initial funding и две точные проводки, обязательные current pointers и общий снимок. Принят документальный механизм проверки полноты/баланса до commit и сохранение deadline с версией tzdb.
+
+Принятие не подтверждает реализацию или испытания. B3-D1–D4 остаются инженерными зависимостями; ссылки receipt/actor/audit/outbox предложены к завершению в отдельном блоке 4. Только документы, без SQL, кода, миграций и развёртывания. Блок 4 и сводная передача бэкенду пока имеют статус предложения.
