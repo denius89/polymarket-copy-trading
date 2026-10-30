@@ -64,3 +64,15 @@
 ## Дополнение 29.10.2026 — полевая передача ошибок после PR №177
 
 По прямому поручению владельца чат БД завершил [точную карту reasonDetails/fieldErrors/params и Q03](../technical/first-session/database-error-field-map.md); основание — [ADR-0064 §38](0064_first_session_database_contract.md). Это уточнение прежнего открытого стыка T04/DB-T03, без изменения T01–T17 или C04/last_input_receipt_id. Контейнеры и имена полей определены явно, текущая выдача отделена от сохранённого факта. Остальные полные DTO, Auth, совместимость компонентов и реальные испытания остаются; документация не свидетельствует о реализованном API/БД. Предыдущие разделы этого ADR сохранены.
+
+## Дополнение 30.10.2026 — точные формы API и каталог Q02
+
+По последовательным явным принятиям владельца в чате бэкенда и прямому поручению сведено [дополнение форм API](../technical/first-session/backend-api-forms-addendum.md). Baseline main f72f1e81c31bae95952cc82ee59650b9f304e98f (PR №180); предыдущие разделы ADR сохранены.
+
+Приняты: полные формы запросов C04/C05/C06/claim/Q01–Q06; конкретные commandRef/expectedSlot; nextActionParams и X-Correlation-Id; Q05 и единый исторический receipt; прямые ответы и отдельный ранний/технический error-конверт; review с закрытыми warnings; Q03/source errors; settings/financialSnapshot/summary и сборка Q04/Q06 с restrictedGroups; claim и Q01; Q02 карточка и постраничный список. Полевая карта БД reasonDetails/fieldErrors/params и исходная финансовая семантика сохраняются. Это API-проекции, не новые строки БД или исполняемые schemas.
+
+Список Q02: одна venue, limit20 по умолчанию/1…50, opaque base64url cursor≤2048 ASCII без padding; порядок traderId. NextCursor=null — единственный признак конца. Продолжение связано с разрешённым состоянием каталога; change →409 CATALOG_CHANGED и явный новый обход без смешивания страниц/сброса draft. **Принято издание first-session-registry-v2:** ровно один новый runtime-код CATALOG_CHANGED, только список Q02; прежние коды/права/events и четыре recordSchemaVersion=v1 не переименовываются. Конкретный trusted cursor/подпись/согласованное наблюдение guards ещё требуют спецификации/испытаний.
+
+**Сохраняется открытым DB-API-09.** Внешний200/session=null/restrictedGroups=[] для доказанного отсутствия текущей session в Q06 принят вместе с обязательными правами и audit до ответа. Действующая physical audit-форма требует session_id/snapshot_version и evidence существующей session; права на отсутствие без venue/точная запись target user не определены. Нужен отдельный ответ БД/H03. Не выбран новый audit-kind/grant/nullable-вариант, не объявлено, что хранение точно не нужно менять. Строгие связи прежнего Q06 не ослабляются.
+
+[Передача DB-API-01–11](../technical/first-session/backend-database-change-list.md) отделяет принятые API-формы, требуемое отражение и этот открытый вопрос. R001–R071 и I01–I22 PR №179/180 учтены как документы; future lifecycle M02, инструменты/права M03, M05 evidence и H01/компоненты/ранние guards/испытания остаются. M01 не закрыт. Проверки документов не доказывают DB/API/Auth/concurrency/restore. Код, SQL, миграции, установка и deploy не поручены.
