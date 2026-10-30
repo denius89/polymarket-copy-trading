@@ -1,5 +1,7 @@
 # Точная карта ошибок API ↔ БД первого сценария
 
+30.10.2026 · [Дополнение API](backend-api-forms-addendum.md) фиксирует полные внешние формы receipt/review/Q03, ранние ошибки, warnings и навигацию. Карта reasons/fieldErrors/params и last_input_receipt_id ниже **не меняется**. CATALOG_CHANGED409 — новый код только списка Q02, не причина сохранённого отказа C04/C06 или review. Механизмы/декодеры ещё не реализованы; audit/access Q06 без session открыт отдельно.
+
 29.10.2026 · Документальная детализация по прямому поручению владельца после PR №177; baseline main `11333018424fec4fe03d33d1fc45cf7b46217112`. Основания: [T01–T04/T14–T16](backend-contracts.md), [DB-T03 и стык Q03](backend-database-change-list.md), [закрытый реестр](backend-code-registry.md), [ADR-0064 §38](../../decisions/0064_first_session_database_contract.md). Имена контейнеров и параметров ниже фиксируются этим дополнением явно, а не приписываются прежнему решению. Это спецификация, без кода, SQL, миграций и испытаний поведения.
 
 ## 1. Граница и версия

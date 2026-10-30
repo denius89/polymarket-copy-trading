@@ -1,5 +1,7 @@
 # Закрытые реестры кодов первого сценария — H02 и H03
 
+30.10.2026 · **Текущее издание first-session-registry-v2.** По явному принятию владельца добавлен только CATALOG_CHANGED для изменения каталога между страницами Q02: HTTP409, форма ошибки и перезапуск списка — [дополнение API §14](backend-api-forms-addendum.md). Предыдущие коды/значения/роли и четыре recordSchemaVersion=v1 сохраняются. Описания v1 ниже отражают исходное издание; это не миграция сохранённых данных. Q06 без session не получает новый audit-kind или grant этим изданием; DB-API-09 открыт.
+
 29.10.2026 · По поручению владельца после PR №177 завершена [точная карта ошибок API ↔ БД](database-error-field-map.md): контейнеры reasons/fieldErrors, закрытые params и источник ошибок Q03. Это уточнение документов в рамках T01–T17, без пересогласования C04. Прежние пометки о незавершённости именно этой карты ниже исторические; полные DTO/Auth/компоненты и испытания остаются отдельно.
 
 29.10.2026 · **Принято владельцем целиком.** Издание first-session-registry-v1, часть [пакета](backend-design.md). Дополнения T01–T17 и точное употребление кодов — в [едином контракте §§6–22](backend-contracts.md). Набор runtime-кодов этим дополнением не расширен. Реестр документальный; наличие кода не означает реализованный endpoint, выданное право или прошедший тест.
@@ -80,6 +82,7 @@ Active не означает подключённую торговлю. p/d ос
 | Review | REVIEW_STALE, REVIEW_EXPIRED, SETUP_INVALID | 409 при запуске; исправление/новый review |
 | Сессия мешает запуску | CURRENT_SESSION_EXISTS, SESSION_NOT_SETTLED | 409; только разрешённая собственная ссылка |
 | Известный запрет | CAPABILITY_UNAVAILABLE | 409; durable business rejection после допуска к ключу |
+| Каталог изменился между страницами | CATALOG_CHANGED | 409 только Q02-list; без durable receipt, следующая попытка списка явно с первой страницы |
 | Техническая недоступность | SERVICE_UNAVAILABLE, RECORD_UNAVAILABLE | 503; не окончательный business rejection |
 | Исход выясняется | COMMAND_OUTCOME_UNRESOLVED | 202 как наблюдение; исходный ключ сохраняется |
 
@@ -181,3 +184,11 @@ Venue_scope: one с venue_id либо all с NULL venue_id; всегда в ра
 ## 10. Полевая карта пояснений
 
 [Карта ошибок](database-error-field-map.md) определяет закрытые ключи params для уже перечисленных code: min/max/unit, step/origin/unit, max/unit, пустой объект либо capabilityReasonCode. Новых error/reason codes и ролей нет. percentage_points — существующая единица policy, virtual_USD — денежная единица первого paper-среза. Q03 fieldErrorsSource — происхождение исторических ошибок, не новый исход команды. Прежняя пометка о полевой сверке в §5 закрыта в этом объёме.
+
+## 11. Издание v2: CATALOG_CHANGED и границы ответа
+
+CATALOG_CHANGED используется только после проверки допустимого cursor/контекста и текущего доступа, когда установлено изменение состояния разрешённого каталога между страницами. Полная форма: reasonCode=CATALOG_CHANGED; reasonDetails — один code=CATALOG_CHANGED/params={}; nextAction=select_trader; nextActionParams ровно разрешённый venueId. Полей items/nextCursor/receipt нет. UI явно начинает новый обход и не смешивает страницы/поздние ответы; сохранённый draft/выбор не стирается.
+
+Malformed cursor/несовпадение параметров —400 INVALID_REQUEST; потеря права — access/hidden ответ; невозможность прочитать состояние —503, не CATALOG_CHANGED. Нет новой причины сохранённого C04/C06/review. COMMAND_OUTCOME_UNRESOLVED остаётся наблюдением202, не reasonCode прямого503; закрытая форма Q05 не получает дополнительный reasonCode.
+
+Остальные точные формы early/technical errors, warnings, nextActionParams и correlationId — [дополнение §§2/5/6](backend-api-forms-addendum.md). Реестр событий аудита не расширен: ответ Q06 без существующей session требует отдельного решения по правам/хранению/evidence. Реализация и испытания не выполнены.
