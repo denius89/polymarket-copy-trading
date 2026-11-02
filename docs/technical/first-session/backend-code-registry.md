@@ -1,5 +1,7 @@
 # Закрытые реестры кодов первого сценария — H02 и H03
 
+02.11.2026 · **Текущее документальное издание first-session-registry-v5.** По явным принятиям чата бэкенда добавлены только три Auth-кода409 и отдельный перечень Auth-only типов/результатов (§14), сведённых в [Auth-дополнении](backend-auth-contracts-addendum.md). Это не новые command_receipts/audit_events. CATALOG_CHANGED, право/audit DB-API-09, прочие значения v4 и четыре recordSchemaVersion=v1 сохранены. Код/декодеры/испытания не создавались.
+
 02.11.2026 · [Блок 3 DB-API-09 принят; проект стыка завершён](database-q06-absence-design.md). Реестр остаётся first-session-registry-v4: этот блок не добавляет кодов/полей/версий. Прежние отметки об открытой конкуренции ниже исторические; реализация/codecs/совместимость и испытания остаются.
 
 02.11.2026 · **Текущее документальное издание first-session-registry-v4.** Владелец принял блок 2 DB-API-09: новый audit-kind/условный вариант и authorized_data_code по §13. Право v3 сохранено. Записи v3/v2 ниже — история изданий; блок 3 конкуренции открыт, реализация/испытания отсутствуют.
@@ -220,3 +222,17 @@ Malformed cursor/несовпадение параметров —400 INVALID_RE
 У нового события target_user_id обязателен, staff/login/request/time/guard обязательны, session/snapshot/command/claim/draft refs строго NULL, safe_context={}. У старых событий три новые колонки строго NULL; старый admin_session.read_authorized сохраняет реальные session/snapshot и только прежние четыре evidence-кода. Нового HTTP-кода/API-поля/restrictedGroups-кода/outbox/CommandReceipt нет. Форматы четырёх сохраняемых recordSchemaVersion=v1 не переименованы.
 
 V1 нового audit-kind — его собственный первый вариант; старый decoder не обязан его понимать и не вправе молча игнорировать. Проверка совместимости/публикации/возврата ещё нужна. Реестр документален; блок 3 и готовность endpoint не закрыты.
+
+## 14. Издание v5: принятые Auth-коды и отдельная область типов
+
+| reasonCode | HTTP / точное назначение |
+| --- | --- |
+| AUTH_CONTEXT_STATE_CONFLICT | 409; действие не соответствует текущему этапу/challenge, новая C01 после принятой отправки, иной continuation-binding либо ещё не завершённый Auth при resolution; не подменяет KEY_REUSE_CONFLICT |
+| AUTH_COOKIE_RECOVERY_NOT_APPLICABLE | 409; подтверждённый результат указанной допустимой Auth-операции не login_completed |
+| AUTH_COOKIE_RECOVERY_CLOSED | 409; окно выдачи cookie закрылось по времени либо первому успешному Q01 |
+
+Ошибки имеют принятый четырёхполевой конверт §2 [Auth-дополнения](backend-auth-contracts-addendum.md), без нового поля/сырого сообщения. SERVICE_UNAVAILABLE/RECORD_UNAVAILABLE остаются техническими503, не сохранённым business rejection. CATALOG_CHANGED сохраняет только Q02-list область.
+
+Для GET результата user Auth допускаются commandType C01/C02/C03/AUTH_TOTP_VERIFY/AUTH_TOTP_CHALLENGE_RENEW. Последние два — отдельные Auth-only операции, не расширение command_receipts.command_type. Результаты: email_dispatch_accepted, auth_step_required, login_completed, verification_rejected, totp_challenge_renewed; точные поля в §§5–7 дополнения. Status resolved/unresolved этой области не смешивается с completed/unresolved logout или собственной формой202 claim. C07 использует отдельный logout-контекст/маршрут; claim не получает нового типа или operation ID.
+
+Stages user Auth-context: ready, email_verification, totp_verification, totp_enrollment, completed. Continuation.kind: default/setup_draft. Logout continuation authorizationMode: original_login/current_user. Другие закрытые значения и области прежних изданий неизменны. Новые DTO/типы для TOTP-management/staff и имена их audit-events ещё не выбраны, не выводятся из названий глав этого пакета.
