@@ -410,3 +410,9 @@ M04: первого архива/cleanup нет. M05: immutable отчёт вн�
 [Q02 §§9–10/12–13](database-q02-catalog-design.md) и [ADR-0064 §52](../../decisions/0064_first_session_database_contract.md): согласованы точные8 полей cursor, JCS/SHA-256/AEAD, ротация без нового TTL и различие400/409/access/503. Полный fingerprint одного разрешённого снимка не хранится новой колонкой; ключи/история страниц не добавляются в34 таблицы.
 
 Три блока проектирования приняты; текущий H01/источники readContextId/scopeRevision/привязка, key-management/компоненты/restore/производительность/M05/H06 и будущие доказательства ещё требуются. Нет нового CMD/Q05 или изменения C04/карты ошибок/строгого C06. Предметные испытания/код/SQL/миграции не выполнялись.
+
+## Q02/H01: принятое уточнение readContextId — 02.11.2026
+
+[Q02 §§14–15](database-q02-catalog-design.md), [ADR-0064 §53](../../decisions/0064_first_session_database_contract.md): user → постоянный users.id; guest → постоянный серверный ID Auth-контекста, уже используемый для C04. Reader identity не login/credential/версия прав; новый действительный login того же user может использовать прежний cursor при том же разрешённом состоянии.
+
+Новых таблиц/колонок/Auth-FK, bootstrap-команд или изменений C04 нет. Получение/доказательство контекста до draft, lifecycle/late cookies, scopeRevision/атомарная привязка/restore и испытания ещё QH02–QH08. Фиксация ID не объявляет защищённый Auth-адаптер готовым.

@@ -400,3 +400,9 @@ read_visible двух таблиц — внутренние колонки, не
 | catalogFingerprint | SHA-256/JCS полного Manifest одного снимка, включая scopeRevision, P/S/T/current R; отдельной колонки нет |
 
 Точные bytes/канонизация/AEAD/keys — Q02 §9; номер codec не новый runtime-код реестра. ScopeRevision меняет fingerprint, а не readerBinding. Подлинный cursor не даёт доступа; сохранённый допуск и иное достоверное состояние →409, неподходящий cursor→400, unknown→503, утрата доступа→access/hidden. Исторические причины C04/C06/Q03 и requestId/nextAction не смешиваются с cursor. Испытания/компоненты/H01 ещё не выполнены.
+
+## 22. Уточнён принятый источник readerBinding Q02
+
+02.11.2026 · [Q02 §§14–15](database-q02-catalog-design.md): readContextId — users.id для user и постоянный UUID защищённого Auth guest context для guest, в канонической строчной форме. ReaderBinding вычисляется прежним SHA-256/JCS массивом §9.2 с realm/environment; payload по-прежнему имеет8 полей, внешних параметров/полей API не добавлено.
+
+Login ID и версия разрешений не источник readContextId. Новый полный login того же user сам по себе не сбрасывает cursor; текущий допуск/ключ/Manifest всё равно обязательны. ScopeRevision меняет fingerprint, не readerBinding. Guest bootstrap/proof/источник версии и согласованность — QH02–QH05; не выводятся из draft/receipt ID. C04/error map сохранены, QID01–QID08 не выполнялись.

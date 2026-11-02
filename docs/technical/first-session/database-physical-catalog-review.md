@@ -267,3 +267,9 @@ Q02 берёт одну Serializable-картину основного хран�
 02.11.2026 · [DB-API-10 §§9–10/12–13](database-q02-catalog-design.md) принят владельцем целиком; [ADR-0064 §52](../../decisions/0064_first_session_database_contract.md). Восемь полей cursor формируются из разрешённого текущего контекста, позиции страницы и fingerprint полного состояния §13. Manifest берёт P/S/T/current R; JCS/SHA-256/AEAD — обязанности доверенного слоя выдачи, не новые хранимые JSON/hash/key-поля.
 
 read_visible/версии/current-цикл и все34 таблицы сохраняются. Ключевой набор вне Shadow; история страниц/таблица cursor не создаются. Q02 не пишет CMD/review/session/финансы/audit Q06 и не выполняет внутренний retry. Текущий H01 обязателен; его readContextId/scopeRevision и привязка ещё зависимость. Принятие codec не доказывает производительность/изоляцию/права writer. QCAT01–QCAT36 не выполнялись; SQL/код/миграции не начинались.
+
+## 15. Q02 reader identity — существующие источники, без новых полей
+
+02.11.2026 · [Q02 §14](database-q02-catalog-design.md) принят: readContextId user использует постоянный users.id, guest — уже согласованный постоянный Auth guest UUID. Физические колонки/34 таблицы остаются прежними. Исторический actor_guest_context_id/ownership не самостоятельное доказательство текущего гостевого чтения; вымышленный FK на внутреннюю Auth-таблицу не вводится.
+
+Точная передача [QH01–QH08 §15](database-q02-catalog-design.md) отделяет этот источник от незавершённых proof/guest bootstrap/scopeRevision и атомарной привязки к catalog snapshot. Codec/состав Manifest/guards/C04/строгий C06 не изменены. QID01–QID08 — будущие проверки, не созданные данные/испытания.
