@@ -384,3 +384,19 @@ nextAction — разрешённое значение реестра либо n
 read_visible двух таблиц — внутренние колонки, не новые API-поля; startAvailability по-прежнему ровно available/capabilityReasonCode с прежним приоритетом. Полная карта применяется к trader карточки и каждому items. Query Q02 имеет собственные venueCode/limit/cursor из API §14 и не ограничивается общим правилом query для Q01/Q03–Q06.
 
 Единый снимок/полный fingerprint не заменяет текущий H01. Подлинность/формат cursor — следующий блок, версия области доступа — явная зависимость. HTTP409 чтения не сохраняет бизнес-отказ; unknown503 не разрешает автоматический новый обход. DB-API-10 ещё открыт; испытания не выполнялись.
+
+## 21. Принятый cursor Q02 и источники его полей
+
+02.11.2026 · [Точный блок3 §§9–10/12–13](database-q02-catalog-design.md) принят. Внешний API по-прежнему передаёт одну непрозрачную base64url-строку cursor/nextCursor; восемь plaintext-полей не добавляются в корень API или таблицы БД.
+
+| Внутреннее поле | Принятый источник / проверка |
+| --- | --- |
+| requestSchemaVersion | v1, фиксированный поддерживаемый профиль |
+| environmentBinding | SHA-256/JCS доверенной серверной environment с доменом по Q02 §9.2 |
+| readerBinding | SHA-256/JCS защищённых realm/readContextId H01 и environmentBinding; не клиентские полномочия |
+| venueId, venueCode | Разрешённая venues.id/code, соответствие запросу |
+| limit | Эффективное принятое значение1–50; default20, то же при продолжении |
+| lastTraderId | Последний фактически выданный traders.id страницы, не дополнительный элемент проверки продолжения |
+| catalogFingerprint | SHA-256/JCS полного Manifest одного снимка, включая scopeRevision, P/S/T/current R; отдельной колонки нет |
+
+Точные bytes/канонизация/AEAD/keys — Q02 §9; номер codec не новый runtime-код реестра. ScopeRevision меняет fingerprint, а не readerBinding. Подлинный cursor не даёт доступа; сохранённый допуск и иное достоверное состояние →409, неподходящий cursor→400, unknown→503, утрата доступа→access/hidden. Исторические причины C04/C06/Q03 и requestId/nextAction не смешиваются с cursor. Испытания/компоненты/H01 ещё не выполнены.
