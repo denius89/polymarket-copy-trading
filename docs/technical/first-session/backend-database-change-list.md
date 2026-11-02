@@ -368,3 +368,15 @@ D01 подготовлен для единого согласования, не 
 Принятые fence/witness/lifecycle/reset grants сохранены. Witness full change-set и reconciliation evidence получают точные typed ссылки; потеря ack не меняет receipt. BR01–07 отражены, BR08 открыт. ASC/MAP перенесены по карте имён, UST01–UST08 добавлены, всё «не выполнялось». U02 отдельно предлагает65536 только registration POST; U03 — семантику late confirmed effect без выданного login, точные DTO/HTTP затем D02.
 
 После ответа владельца нужна адресная принятая дельта к physical design/constraints/ADR/API/registry и планам доказательств. Не закрывать M01/M02/RV испытаниями документов. Сообщение в другой чат автоматически не отправлялось. Код, SQL, миграции, установка, создание БД/аккаунтов и поведенческие испытания не выполнялись.
+
+## 30. U01–U03 приняты; физическая дельта78 и проект полного D02
+
+02.11.2026 · Основание — ответ владельца «давай» на предложение подтвердить U01–U03. Baseline main2165b86/PR №207, новая матрица БД прочитана. [Принятие](auth-storage-unified-decisions.md), [единая карта AC01–AC42](auth-storage-unified.md) и [актуализация полноты §9](database-auth-completeness-matrix.md). Каталог теперь **78 =36 Shadow +42 auth_control**. P01–P05 не переоткрывались;18 D01-A не складываются с37, отдельные дубли не создаются.
+
+Приняты AC38 постоянный cookie verifier, AC39 внешний dispatch, AC40 внутренние claim attempts, AC41/42 reconciliation; typed поля/полнота existing AC, encrypted email, immutable nonce при erasure, точный выбор execution approvals вместо unique(case version,staff), AC04/39 в Auth G3. AC19 unique consent/прежний draft guard/receipt и до3 attempts в5s сохранены. Q01/recovery/eraser window→secret; весь Q02 G1 до G2, C04/last_input_receipt_id/карта ошибок/строгий C06 не изменены.
+
+U02 — registration verify body65536, прочие8192 и прежние Shadow65536. U03 — принята семантика окончательного результата без выданного login при доказанном внешнем успехе/закрытом допуске. Точные DTO/причины/HTTP вместе с остальными новыми маршрутами находятся в [проекте API D02](backend-auth-d02-contracts.md), полный whitelist — [проект v6](backend-auth-d02-registry.md). V5 остаётся current до пакетного принятия новой точной редакции; наличие нового файла не выдаёт гранты/не создаёт работающий endpoint.
+
+Для вычитки D02 отдельно видны дополнительные технические уточнения: NRef namespace до context, GET current reset case, pair approverContextId/точная развёртка участников, derived-context proof для восстановления create-response, отдельный точный staff recovery grant, late-outcome wire. Они не являются молчаливым принятием нового продукта. После вычитки — полное издание v6, паспорт D03/BR08 и общая передача D04; никакого автоматического разрешения разработки.
+
+В constraints/планах добавлены AC38–42 и ссылки ASC/UST/DA/E. Прежние baseline73/BASE36 сохраняются историей, будущий полный manifest перечисляет78 плюс отдельно provider/external evidence. Все DB/API/Auth/concurrency/restore испытания — «не выполнялось». Код, SQL, миграции, установка/создание БД/аккаунтов/развёртывание не выполнялись; сообщение в другой чат не отправлялось.

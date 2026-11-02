@@ -123,3 +123,9 @@ D01-A не закрывает физические quotas/factor/security/MFA ca
 ## Дополнение 02.11.2026 — сведение Auth с принятой картой БД
 
 Учтены PR №203/204/205: P01–P05 приняты, каталог73, отдельные18 D01-A не добавляются. [Единая схема](../technical/first-session/auth-storage-unified.md) устраняет дубли и сохраняет unique consent/claim guard. [U01–U03](../technical/first-session/auth-storage-unified-decisions.md) предлагают только новую адресную дельту: физическое уточнение до78, registration transport-limit и семантику late effect без login. ADR-0066 остаётся принятым в прежней границе до ответа по дельте. Затем полный D02, включая точную DTO late outcome; BR08 и испытания не закрываются. Код, SQL, миграции, установка и развёртывание не выполнялись.
+
+## Дополнение 02.11.2026 — принятие U01–U03 и точная редакция D02
+
+Ответ владельца «давай» после предложения подтвердить U01–U03 принят как согласие с этими тремя дополнениями. [Лист принятия](../technical/first-session/auth-storage-unified-decisions.md), [единая карта78](../technical/first-session/auth-storage-unified.md). Приняты +5 AC38–42, перечисленные typed связи/полнота/encrypted email/approval history/подпорядок locks; unique consent/claim guard сохранены. U02 принимает registration body65536; U03 — семантику позднего подтверждения без выданного login. Предыдущая история P01–P05/каталог73 не удаляется, текущий состав78.
+
+Подготовлены [точный D02 API](../technical/first-session/backend-auth-d02-contracts.md) и [полный проект v6](../technical/first-session/backend-auth-d02-registry.md) для единой вычитки. Они явно выделяют дополнительные wire/технические детали, не объявленные принятыми задним числом. Current registry пока v5; после принятия D02 — адресное издание v6, паспорт D03 и передача D04. BR08/компоненты/проверки не закрыты. Разработка/SQL/миграции/создание базы/развёртывание не разрешены; испытания не выполнялись.
