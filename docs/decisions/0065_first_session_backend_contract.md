@@ -76,3 +76,18 @@
 **Сохраняется открытым DB-API-09.** Внешний200/session=null/restrictedGroups=[] для доказанного отсутствия текущей session в Q06 принят вместе с обязательными правами и audit до ответа. Действующая physical audit-форма требует session_id/snapshot_version и evidence существующей session; права на отсутствие без venue/точная запись target user не определены. Нужен отдельный ответ БД/H03. Не выбран новый audit-kind/grant/nullable-вариант, не объявлено, что хранение точно не нужно менять. Строгие связи прежнего Q06 не ослабляются.
 
 [Передача DB-API-01–11](../technical/first-session/backend-database-change-list.md) отделяет принятые API-формы, требуемое отражение и этот открытый вопрос. R001–R071 и I01–I22 PR №179/180 учтены как документы; future lifecycle M02, инструменты/права M03, M05 evidence и H01/компоненты/ранние guards/испытания остаются. M01 не закрыт. Проверки документов не доказывают DB/API/Auth/concurrency/restore. Код, SQL, миграции, установка и deploy не поручены.
+
+
+## Дополнение 02.11.2026 — единый Auth-контракт и ответ БД
+
+По последовательным явным принятиям владельца и поручению свести их подготовлено [единое дополнение](../technical/first-session/backend-auth-contracts-addendum.md). Baseline main58ae9f0d5bdad6741ee83ddb8aaed8343077b58d (PR №198). Предыдущие разделы ADR сохранены; старое открытое состояние DB-API-09 уточнено более поздним принятым проектом БД, не переоткрывается.
+
+Приняты и сведены: порядок ранних отказов/строгий Auth transport; per-context/per-login cookies; выдача/чтение Auth-context30m; C01–C03 и email-profile; TOTP verify/renew и профиль одноразовых time steps; immutable Auth result/completion; закрытие5m окна cookie-recovery первым Q01; logout15m/продолжение и исходная цель; immutable continuation и актуальное resolution; claim-consent10m/прежний POST/отдельный GET результата и ограниченное чтение после expiry. Claim не получил authOperationId/clientCommandId; старое тело/receipt и атомарность сохранены.
+
+Поведенческие пакеты enrollment/disable/admin reset и staff также приняты; их полные DTO ещё не определены. Добровольное подключение требует свежего email, контекста10m, отдельного5/15 и сохраняет старые login; disable закрывает старые login без обязательного reenroll, reset — с обязательным. Disable/reset бюджет10s, неизвестность не разрешает повтор. Staff-context10m/challenge5m не меняют8h/30m/один login и равноправие владельца 1/владельца 2. Новые права reset и процедура identity-check не назначены молча.
+
+Документальное издание first-session-registry-v5 добавляет три согласованных Auth409-кода и отдельные Auth-only перечни, не command_receipts/audit-events. CATALOG_CHANGED, право/audit DB-API-09, четыре recordSchemaVersion=v1 и физические36 таблиц сохранены. Новые Auth storage mappings могут потребовать отдельной физической дельты; её согласование не заменено этим ADR.
+
+[Передача DB-AUTH-01–10 и ответ RV01–RV08](../technical/first-session/backend-database-change-list.md) разделяют принятую семантику, точные формы, физическое отражение и будущие испытания. [Сверка §15/остаток BA-G01–12](../technical/first-session/backend-auth-contracts-addendum.md) сохраняют guest bootstrap/protected selector, Auth↔БД recovery/guard, компоненты/права/keys/restore/M02–M03/M05 и H04-доказательства открытыми. Это не закрытие полного M01/H01 и не разрешение к реализации.
+
+Документальная проверка не доказывает DB/API/Auth/concurrency/restore. Код, SQL, миграции, установка, аккаунты, развёртывание и предметные испытания не выполнялись. Передача подготовлена для владельца, сообщение в другой чат автоматически не отправлялось.
