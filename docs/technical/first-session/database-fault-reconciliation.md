@@ -481,6 +481,9 @@ S/X parent даёт целое локальное состояние, а не н
 
 02.11.2026 · [Ответ БД и план DA01–DA12](database-auth-handoff-review.md). DA02/03 уточняют Q01 против recovery/revoke/потери ответа; DA05 — поздний выход A при новом login B; DA07–09 — consent/claim после expiry/loss и задержанный до guard старый POST; DA11/12 — частичную Auth-recovery и staff replacement/Q06. Это развитие F06/F13/F19 и прежних границ unknown, не утверждение готового механизма. Пустой receipt даже при свободном guard не исключает поздний эффект старого допущенного исполнителя. Код, стенд и fault injection не запускались.
 
-## Кандидат Auth: MAP01–MAP08
+## Принятая карта Auth: будущие MAP01–MAP08
 
 02.11.2026 · [Вычитка](database-backend-package-review.md) и [карта §8](database-auth-physical-map-proposal.md) задают будущие negative/конкурентные случаи: неполный parent/child, G2→G1, binding ABA, delayed-before-guard claim, closed-gate reconciliation, local commit до witness ack, лишний/пропущенный approval и secret erase/backup. Указанные варианты развивают DA/F/CC, но не являются выполненным fault injection. Прежний результат C04/C06/claim не меняется из-за технической неопределённости внешнего подтверждения.
+
+
+P01–P05 приняты с исправлениями ([итог](database-auth-acceptance-2026-11-02.md)); MAP01–MAP08 и новые ASC01–ASC18 остаются не выполненными сценариями. ASC сначала сопоставляются принятой AC-карте; наличие описания другой декомпозиции из PR №204 не доказывает совместимость или безопасный повтор. Предметные F/CC/DA не получают pass от проверки документов.
