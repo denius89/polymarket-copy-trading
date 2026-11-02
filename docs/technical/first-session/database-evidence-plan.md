@@ -423,3 +423,9 @@ QBASE имеет2 новых scopes+2 members, C06-only может0/0 без Q02
 ## Принятое дополнение Auth: документальный объём и исполнительные gates
 
 02.11.2026 · [Карта AC01–AC37/P01–P05](database-auth-physical-map-proposal.md) и [BR01–BR09](database-backend-package-review.md) подготовлены на baseline PR №201. MAP01–MAP08 и трассировка R/A/CC/F/E/DA/NA/QID/QSC — план, все not_run. Проверить parent completeness каждого варианта, reverse FK/namespace/rights, saved epoch до dispatch, старый handler после fence, свежесть witness и immutable outcome. Полнота текста не подтверждает Supabase correlation/TOTP steps/crypto/budgets/backup. P01–P05 и собственный total73 приняты; fixture/test-control/хранилища не созданы. Синтетические counts Auth требуют полного выбранного варианта, нули допустимы только с явным основанием неприменимости. D01-A/ASC из PR №204 необходимо свести, а не считать второй схемой или выполненным доказательством.
+
+## Адресные источники будущих доказательств Auth
+
+02.11.2026 · [Матрица полноты Auth §§2–7](database-auth-completeness-matrix.md):37 AC-строк с разрешёнными/запрещёнными изменениями, варианты контекстов/результатов, локальные комплекты и обратные MAP01–MAP08/DA01–DA12. E02 использует адресные N/L/U/F/D/W, E07 — допуск, E08/E09 — разрывы и обе очередности, E11 — время, E12 — исходный DTO и current projection, E15 — restore, E17 — все реальные writers/enforcement. Ранний отказ другой защиты не доказывает целевую полноту. Матрица не выбирает второй storage split из D01-A и не доказывает provider capability; все проверки не выполнялись. Создание синтетических Auth manifest/counts остаётся следующим документальным блоком.
+
+В ходе блока учтён ответ D01-U PR №206: предложения U01–U03 и их влияние перечислены в [матрице §7.1](database-auth-completeness-matrix.md). Они не приняты этой работой; каталог73/реестр v5 и базовые unique/locks сохранены.
