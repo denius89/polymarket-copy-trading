@@ -119,3 +119,7 @@
 Сохраняются scope Auth-key, неизменяемость результата,5min/первый Q01, запрет нового claim-key и прежний transient advisory guard/receipt. Журнал исполнителей не становится постоянным guard. Общий execution epoch не отзывает все независимые login при обычном claim fence; restore отзывает их отдельно по принятому протоколу. Cipher стирается отдельно от login digest/history. Не обещана распределённая транзакция с provider или стирание прошлых backup/WAL.
 
 D01-A не закрывает физические quotas/factor/security/MFA cases/selector и внешние witness/keys; D02 должен явно отразить поздний provider effect без допустимого local completion. Baseline36 таблиц и реестр v5 не переписаны;54 только предлагаемый состав этой части после принятия. Никаких изменений продуктовых C04/C06/Q02/Q06 или полномочий владельцев. Код, SQL, миграции, установка, испытания и deploy не выполнялись.
+
+## Дополнение 02.11.2026 — сведение Auth с принятой картой БД
+
+Учтены PR №203/204/205: P01–P05 приняты, каталог73, отдельные18 D01-A не добавляются. [Единая схема](../technical/first-session/auth-storage-unified.md) устраняет дубли и сохраняет unique consent/claim guard. [U01–U03](../technical/first-session/auth-storage-unified-decisions.md) предлагают только новую адресную дельту: физическое уточнение до78, registration transport-limit и семантику late effect без login. ADR-0066 остаётся принятым в прежней границе до ответа по дельте. Затем полный D02, включая точную DTO late outcome; BR08 и испытания не закрываются. Код, SQL, миграции, установка и развёртывание не выполнялись.

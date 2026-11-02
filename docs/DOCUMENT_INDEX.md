@@ -1,3 +1,5 @@
+02.11.2026 — **Auth-карты сведены с учётом принятия P01–P05 в PR №205.** [Единая схема](technical/first-session/auth-storage-unified.md) объединяет принятую основу БД №203 и D01-A, устраняет дубли и задаёт один предлагаемый уточнённый порядок locks. AC19 unique consent сохранён. Принятый каталог73; дельта +5 таблиц до78 ещё предложена. [U01–U03](technical/first-session/auth-storage-unified-decisions.md) требуют подтверждения только физической дельты, registration body-limit и семантики позднего внешнего успеха без login. Fence/witness/lifecycle/reset grants уже приняты и не открываются заново. Далее адресная дельта D02; BR08/компоненты/испытания остаются открытыми. Без кода, SQL, миграций, установки и развёртывания.
+
 # Полный каталог документов
 
 02.11.2026 · [Точная карта Auth-хранения D01-A](technical/first-session/backend-auth-storage-map.md) —18 предлагаемых таблиц, поля/связи/ограничения/транзакции/сроки; [проверочные сценарии ASC01–ASC18](technical/first-session/backend-auth-storage-cases.md). Без SQL и исполнения.
