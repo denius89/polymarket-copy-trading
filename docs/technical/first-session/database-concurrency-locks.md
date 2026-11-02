@@ -327,6 +327,9 @@ Q02 не удерживает publication до доставки HTTP: overlap м
 
 QSC03/QSC06–QSC09 дополняют CC13/CC20: две очередности, snapshot не освежается после ожидания, один5s бюджет/без retry Q02, технический конфликт не409. Неявные FK/unique locks и права writer ещё требуют доказательств. Внешний H01 selector не защищается одним локальным S: его binding/revoke протокол остаётся отдельно. Никаких реальных locks/испытаний не выполнялось.
 
-## Проект Auth: ранги и исправление Q02
+## Принятое дополнение Auth: ранги и исправление Q02
 
-02.11.2026 · [BR01/02/04](database-backend-package-review.md) и [карта §§6–7](database-auth-physical-map-proposal.md) предлагают G0 gate и расширение G2, весь Q02 G1 до G2, scopeRevision bump при binding replacement против ABA, заранее выбранные X cookie-window/guest extension/activity. Старый handler использует сохранённый admission epoch, закрытый gate допускает только явно ограниченный reconcile. Действующий G1–G6/C04/C06 не переписан; расширение и mapping advisory key пока требуют принятия. MAP02–MAP06 не выполнялись.
+02.11.2026 · [BR01/02/04](database-backend-package-review.md) и [карта §§6–7](database-auth-physical-map-proposal.md), принятая в P01–P05, задают G0 gate и расширение G2, весь Q02 G1 до G2, scopeRevision bump при binding replacement против ABA, заранее выбранные X cookie-window/guest extension/activity. Старый handler использует сохранённый admission epoch, закрытый gate допускает только явно ограниченный reconcile. Прежние G1–G6/C04/C06 сохранены; расширение и mapping advisory key приняты в P01–P05 как документальный проект. MAP02–MAP06 не выполнялись.
+
+
+После принятия P01–P05 применяется G0→весь G1→расширенный G2→G3 (в том числе AC19)→прежние G4–G6 по карте §7. Параллельная D01-A PR №204 размещает execution/attempt X иначе и допускает несколько server executions на consent: это конкретный открытый стык сведения, а не второй разрешённый порядок. [Итог §3](database-auth-acceptance-2026-11-02.md). Граф неявных FK/unique locks и обе очередности должны быть доказаны в будущих MAP/DA/ASC; испытаний не было.

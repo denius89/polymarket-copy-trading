@@ -269,6 +269,6 @@ Catalog writer атомарно меняет read_visible с S.version либо 
 
 Q02 S parent и один прежний primary/Serializable-снимок для версии/набора/Manifest/items. Прежние TX04/TX05/TX06/TXCL, их completeness/unknown/retry не меняются. Auth+Shadow не объявлены общей внешней транзакцией; неизвестный publisher commit устанавливает его доверенный протокол, Q02 не чинит. Runtime/enforcement/restore/испытания остаются; SQL/код/база не создавались.
 
-## Проект Auth ↔ БД: отдельные атомарные границы
+## Принятое дополнение Auth ↔ БД: отдельные атомарные границы
 
-02.11.2026 · [Карта §§6–7](database-auth-physical-map-proposal.md) предлагает admission/seal→external→local result; completion/login/window; claim admission/fence/reconcile; typed witness change-set в одной T с эффектом; staff case/approval/credential и отдельное уведомление. Это новые границы на согласование, не уже изменённые TX C04/C05/C06/claim. Сохранённый outcome не меняется из-за отсутствия witness ack; неизвестный effect не повторяется. P03/P04 отдельно признают цену остановки среды/внешней доступности. Испытания не выполнялись.
+02.11.2026 · [Карта §§6–7](database-auth-physical-map-proposal.md), принятая в P01–P05, задаёт admission/seal→external→local result; completion/login/window; claim admission/fence/reconcile; typed witness change-set в одной T с эффектом; staff case/approval/credential и отдельное уведомление. Это явно принятое дополнение к допуску и внешней сверке; прежние локальные атомарные комплекты TX C04/C05/C06/claim сохранены. Сохранённый outcome не меняется из-за отсутствия witness ack; неизвестный effect не повторяется. P03/P04 явно принимают цену остановки среды/внешней доступности. Испытания не выполнялись.
