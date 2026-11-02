@@ -1,5 +1,7 @@
 # Физическая схема БД — блок 4: команды, аудит, события и доступ
 
+02.11.2026 · **Блоки 1–2 DB-API-09 приняты целиком**: отдельное право отсутствия для всех площадок и отдельный audit-kind в существующем журнале. [Решение](database-q06-absence-design.md), реестр v4: target user/наблюдение слота, одно evidence, строгие старые session/snapshot связи сохранены. Блок 3 — согласованность с C06/отзывом/login replacement — ещё открыт; DB-API-09 целиком не закрыт. Только документы, без кода, SQL, миграций и испытаний.
+
 02.11.2026 · Блок 2: [карта API-полей DB-API-01–08/11](database-api-field-map.md) отражена в этой физической спецификации; подробности — в заключительном разделе. Baseline main `6a4e2fe04f8b4bb11dcbe09812724ffec84cb0c0` (PR №185). Прежние пометки о невыбранных внешних формах уточнены; C04/карта ошибок и строгий C06 сохранены. Только документы, без кода, SQL, миграций и испытаний. DB-API-09/10 и компонентные зависимости остаются открытыми.
 
 30.10.2026 · [Реестр физических ограничений](database-constraint-register.md) связывает принятые таблицы/поля с механизмами обеспечения и A01–A112. Это свод существующих гарантий и границ БД/бэкенда; новые правила, SQL и испытания не добавлены.
@@ -410,3 +412,25 @@ H06/M04/M05: в первом стенде details/outbox/dedup/core/родите
 Q06 существующей session: summary обязательна; settings/financialSnapshot/userContext выдаются только целыми разрешёнными группами. RestrictedGroups перечисляет закрытые необязательные группы в порядке session.settings/session.financial_snapshot/user.minimal_context без повторов. Отказ audit/чтения не restricted. Audit и достаточные audit_authorizations по фактически выданным группам обязательны до ответа; прежние session_id/snapshot_version/FK/роль staff сохраняются. Каждая новая HTTP-выдача имеет свой audit, не доказательство доставки. Владелец 1 и владелец 2 равноправны.
 
 **DB-API-09 не закрыт:** accepted current Q06 session=null/restrictedGroups=[] требует отдельно определённых права на target user и физического audit/evidence. Нынешний Q06 audit требует реальную session/snapshot; NULL-ослабления/нового event_kind/фиктивных записей здесь нет. [] при отсутствии карточки не означает все права. DB-API-10/защищённые H01-протоколы, mapping advisory guard/привилегии/M05 и испытания остаются зависимостями. Текущие ссылки разрешаются отдельно, nextAction=null/nextActionParams={} при отсутствии безопасной цели; навигация не автоматический start.
+
+## 13. Принятое расширение grants для отсутствия Q06
+
+02.11.2026 · [Блок 1 DB-API-09 §7](database-q06-absence-design.md) принят. В staff_assignment_grants.action_code/section_code/data_type_code/product_mode/venue_scope/venue_id добавляется ровно сочетание read/ADM-03/user.current_session_absence/paper/all/NULL по first-session-registry-v3. Закрытая проверка комбинаций запрещает one для этого типа данных; никакой новой колонки grants не требуется. Прежние PK/FK/unique/immutable publication/current set/guards и область environment сохраняются.
+
+Достаточное разрешение — одна целая актуальная строка своего назначения, выбираемая по assignmentId/grantId. Старые grants не изменяются и не наследуют новое право; доверенная роль owner требует нового полного набора с одинаковым правом для владельца 1 и владельца 2. Реальных назначений нет. Связи R055/R069/A23/A24; NA01–NA10 — будущие случаи, не испытания.
+
+Это не расширение audit_events/audit_authorizations: §4 и прежние обязательные session/snapshot ссылки остаются без изменения. Три колонки/new kind/evidence из §8 проекта пока только предложены. DB-API-09 открыт по хранению и конкуренции; код/SQL/миграции не создавались.
+
+## 14. Принятый типизированный аудит отсутствия Q06
+
+02.11.2026 · Владелец принял [блок 2 проекта §8–9](database-q06-absence-design.md). Этот раздел явно дополняет §4, сохраняя требования прежних event_kind; статус предложения в источнике §8 заменён принятием §9.
+
+В audit_events добавляются три проектируемые колонки: target_user_id uuid; slot_observation text; observed_slot_generation bigint. Для admin_session.current_absence_authorized: target_user_id NOT NULL, scoped FK (environment,target_user_id) → users(environment,id); observation NOT NULL только absent/present_free, generation NULL только absent и >0 только present_free. Для всех прежних kind три колонки NULL. Нельзя записать occupied/unknown или использовать слот другой цели/среды/paper. Generation — историческое значение, не FK на изменяемую текущую версию; slot_id не добавляется.
+
+Полный новый вариант: staff realm, actor_staff_id и actor_login_id/actor_authorization_version/request_id/occurred_at обязательны с прежними actor/login FK и положительным guard; actor_user_id=NULL; outcome=authorized/schema=v1; command_receipt_id/claim_receipt_id/draft_id/session_id/snapshot_version=NULL; safe_context={}. Общие PK/environment/id/неизменяемость и правила серверных моментов прежние. Старый admin_session.read_authorized по-прежнему требует обе реальные session/snapshot ссылки и свой составной FK; started требует прежний полный успешный C06. Новым kind заменить START-аудит нельзя.
+
+Дополнительный условный unique(environment,request_id) охватывает оба Q06-kind совместно, запрещая два различных исхода одной передачи. Прежние kind/command/claim uniqueness сохраняются. Каждое новое HTTP-чтение имеет новый requestId; audit означает подготовку разрешённого ответа, не доставку.
+
+Audit_authorizations нового kind: ровно одна строка с authorized_data_code=user.current_session_absence, своим audit/assignment/grant/version по прежним scoped FK, тем же staff actor и целым актуальным read/ADM-03/paper/all grant/venue_id=NULL. Детерминированный выбор assignmentId/grantId. Старый kind не принимает этот evidence-code; отсутствие не использует прежние session-группы как замену. До commit проверка полноты от родителя обязательна также при нуле детей; лишнее/чужое evidence не допускается. История grant/actor/target не удаляется каскадом.
+
+Новый комплект +1 audit/+1 evidence и согласованное чтение/допуск атомарны; отказ любой части закрывает выдачу. Нет предметной дельты command/slot/session/финансов/outbox. При доказанном rollback комплект отсутствует; unknown commit не даёт такого вывода. Цель/наблюдение/разрешение не переносятся в произвольный JSON. Новые таблицы не добавлены, старые строки не дополняются вымышленными фактами. Механизм согласованного наблюдения при гонках ещё блок 3; это не реализованные CHECK/FK/процедуры и не разрешение SQL/миграций.

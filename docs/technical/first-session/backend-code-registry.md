@@ -1,5 +1,9 @@
 # Закрытые реестры кодов первого сценария — H02 и H03
 
+02.11.2026 · **Текущее документальное издание first-session-registry-v4.** Владелец принял блок 2 DB-API-09: новый audit-kind/условный вариант и authorized_data_code по §13. Право v3 сохранено. Записи v3/v2 ниже — история изданий; блок 3 конкуренции открыт, реализация/испытания отсутствуют.
+
+02.11.2026 · **Текущее документальное издание first-session-registry-v3.** Владелец принял блок 1 DB-API-09: добавлен только grant data_type_code=user.current_session_absence в read/ADM-03/paper/all; см. §12. Историческая запись v2 ниже сохранена. Audit event_kind/authorized_data_code и форматы записей пока не расширены; блок 2 ещё предложен. DB-API-09 в целом открыт, реализации/испытаний нет.
+
 30.10.2026 · **Текущее издание first-session-registry-v2.** По явному принятию владельца добавлен только CATALOG_CHANGED для изменения каталога между страницами Q02: HTTP409, форма ошибки и перезапуск списка — [дополнение API §14](backend-api-forms-addendum.md). Предыдущие коды/значения/роли и четыре recordSchemaVersion=v1 сохраняются. Описания v1 ниже отражают исходное издание; это не миграция сохранённых данных. Q06 без session не получает новый audit-kind или grant этим изданием; DB-API-09 открыт.
 
 29.10.2026 · По поручению владельца после PR №177 завершена [точная карта ошибок API ↔ БД](database-error-field-map.md): контейнеры reasons/fieldErrors, закрытые params и источник ошибок Q03. Это уточнение документов в рамках T01–T17, без пересогласования C04. Прежние пометки о незавершённости именно этой карты ниже исторические; полные DTO/Auth/компоненты и испытания остаются отдельно.
@@ -192,3 +196,25 @@ CATALOG_CHANGED используется только после проверк�
 Malformed cursor/несовпадение параметров —400 INVALID_REQUEST; потеря права — access/hidden ответ; невозможность прочитать состояние —503, не CATALOG_CHANGED. Нет новой причины сохранённого C04/C06/review. COMMAND_OUTCOME_UNRESOLVED остаётся наблюдением202, не reasonCode прямого503; закрытая форма Q05 не получает дополнительный reasonCode.
 
 Остальные точные формы early/technical errors, warnings, nextActionParams и correlationId — [дополнение §§2/5/6](backend-api-forms-addendum.md). Реестр событий аудита не расширен: ответ Q06 без существующей session требует отдельного решения по правам/хранению/evidence. Реализация и испытания не выполнены.
+
+## 12. Издание v3: принятое право отсутствия Q06
+
+02.11.2026 · [Блок 1 принят владельцем](database-q06-absence-design.md). Единственное новое допустимое сочетание staff_assignment_grants: action_code=read, section_code=ADM-03, data_type_code=user.current_session_absence, product_mode=paper, venue_scope=all, venue_id=NULL, точный environment. One или комбинация двух one не заменяют all. Остальные поля/сроки/current set/principal/guards действуют как прежде.
+
+Право раскрывает минимальный факт отсутствия current paper-session у target user своей среды. Не подразумевает профиль/поиск/историю/деньги/экспорт или существующую session; старые summary/minimal grants не подразумевают его. Новой API-группы/restrictedGroups-кода нет. Роль owner материализует право одинаково для владельца 1 и владельца 2 через новый полный доверенный набор; immutable grants старой публикации не меняются, фактические назначения не выполнялись.
+
+Издание v3 меняет только закрытые допустимые сочетания grants, не error codes, audit event_kind/outcome, audit_authorizations.authorized_data_code, outbox или четыре recordSchemaVersion=v1. Кандидаты блока 2 не разрешены этим изданием. Валидация и совместимость codecs/публикации требуют будущей проверки; наличие v3 в Markdown не означает её прохождение.
+
+## 13. Издание v4: принятый аудит отсутствия Q06
+
+02.11.2026 · [Блок 2 DB-API-09 принят](database-q06-absence-design.md). Дополнения к v3:
+
+| Поле | Новое допустимое значение / сочетание |
+| --- | --- |
+| audit_events.event_kind/outcome_code/event_schema_version | admin_session.current_absence_authorized / authorized / v1 |
+| audit_events.slot_observation | Для нового kind только absent либо present_free; observed_slot_generation NULL при absent, положительный bigint при present_free |
+| audit_authorizations.authorized_data_code | user.current_session_absence — только для нового kind, ровно один достаточный целый grant принятого read/ADM-03/paper/all права |
+
+У нового события target_user_id обязателен, staff/login/request/time/guard обязательны, session/snapshot/command/claim/draft refs строго NULL, safe_context={}. У старых событий три новые колонки строго NULL; старый admin_session.read_authorized сохраняет реальные session/snapshot и только прежние четыре evidence-кода. Нового HTTP-кода/API-поля/restrictedGroups-кода/outbox/CommandReceipt нет. Форматы четырёх сохраняемых recordSchemaVersion=v1 не переименованы.
+
+V1 нового audit-kind — его собственный первый вариант; старый decoder не обязан его понимать и не вправе молча игнорировать. Проверка совместимости/публикации/возврата ещё нужна. Реестр документален; блок 3 и готовность endpoint не закрыты.
