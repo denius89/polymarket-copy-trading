@@ -2,6 +2,8 @@
 
 # Полный каталог документов
 
+02.11.2026 · [Матрица полноты и допустимых изменений Auth](technical/first-session/database-auth-completeness-matrix.md) —37 адресных AC, варианты контекстов/результатов, атомарные комплекты, R/A/MAP/DA и незакрытые стыки D01-A/D02–D03; только документы.
+
 02.11.2026 · [Точная карта Auth-хранения D01-A](technical/first-session/backend-auth-storage-map.md) —18 предлагаемых таблиц, поля/связи/ограничения/транзакции/сроки; [проверочные сценарии ASC01–ASC18](technical/first-session/backend-auth-storage-cases.md). Без SQL и исполнения.
 
 02.11.2026 · [Физический проект Auth ↔ БД AC01–AC37](technical/first-session/database-auth-physical-map-proposal.md), [вычитка BR01–BR09](technical/first-session/database-backend-package-review.md), [ADR-0066](decisions/0066_auth_control_physical_mapping.md). P01–P05 приняты с исправлениями; собственный каталог73 (36 Shadow +37 Auth). [Итог и остаток](technical/first-session/database-auth-acceptance-2026-11-02.md); без кода/SQL/БД/испытаний.
