@@ -376,3 +376,11 @@ nextAction — разрешённое значение реестра либо n
 02.11.2026 · [Все три блока приняты](database-q06-absence-design.md).200/session=null/restrictedGroups=[] разрешён только после текущего all-grant допуска и подтверждённого нового audit/evidence одной Serializable-операции. Новой API-группы/asOf/snapshot нет; safe navigation при отсутствии цели null/{}. Unknown/порча/отказ аудита не null200.
 
 Отсутствие относится к согласованному снимку: при перекрывающемся C06 оно может предшествовать START даже с более поздним commit audit. Следующая новая транзакция после завершённого START выбирает session и прежние групповые права. Не возвращать старый audit как current-состояние, не использовать его occurred_at как timestamp commit/гарантию отсутствия до доставки.5s/одна попытка Q06 сохраняются; карта отражена, codecs/поведение не испытаны.
+
+## 20. Q02: принятые источники, видимость и граница страницы
+
+02.11.2026 · [Точная карта 17 полей Trader, DB-API-10 §2](database-q02-catalog-design.md) теперь связана с принятыми блоками1–2 (§§6–8). catalogVersion ← source.version, traderControlVersion ← trader.version, paperControlVersion ← paper_controls.version; displayed_name/source_ref/observed_at принадлежат current revision, historical catalogVersionAtCreation не заменяет текущий guard.
+
+read_visible двух таблиц — внутренние колонки, не новые API-поля; startAvailability по-прежнему ровно available/capabilityReasonCode с прежним приоритетом. Полная карта применяется к trader карточки и каждому items. Query Q02 имеет собственные venueCode/limit/cursor из API §14 и не ограничивается общим правилом query для Q01/Q03–Q06.
+
+Единый снимок/полный fingerprint не заменяет текущий H01. Подлинность/формат cursor — следующий блок, версия области доступа — явная зависимость. HTTP409 чтения не сохраняет бизнес-отказ; unknown503 не разрешает автоматический новый обход. DB-API-10 ещё открыт; испытания не выполнялись.
