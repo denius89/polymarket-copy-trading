@@ -321,3 +321,15 @@ QH04 локальный источник выбран; QH05 локальная �
 02.11.2026: владелец передал результат коллеги «вопросов нет» и разрешил дальнейшее проектирование без кода. [Карта D01–D04/V00–V07](backend-delivery-map.md) снимает ожидание вычитки и определяет следующий документальный результат D01: точное отражение закрытого Auth inventory, window/consent/202, selector, quotas, security transition/recovery и epoch в физических спецификациях. D02 связывает его с новой дельтой реестра/API; прежний реестр v5 не меняется этой записью.
 
 Это запись результата со слов владельца, не утверждение, что БД уже подготовила D01 либо все RV/M01 закрыты. Принятые36 таблиц остаются baseline до явного пересчёта дельты. Отдельное автоматическое сообщение в чат БД не отправлялось. SQL, миграции, код, установка и реальные испытания не выполнялись.
+
+## 26. D01-A — точная дельта хранения контекстов, результатов, cookie и claim
+
+02.11.2026 · Baseline main abfecdc/PR №202. Подготовлены [точная карта18 таблиц](backend-auth-storage-map.md) и [ASC01–ASC18](backend-auth-storage-cases.md). Имена, типы/nullability, составные PK/FK/UNIQUE, mutable/immutable поля, guard-порядок, локальные транзакции и отдельное стирание секретов заданы документально. Это предложение для физической сверки БД, не утверждённое расширение каталога36 таблиц и не SQL.
+
+Просьба БД проверить и затем отразить одной адресной дельтой: contexts/subject/email/challenges/continuation; operations/dispatch/results; completion/credential/window/cipher с deferred полнотой; consent и историю execution/attempts; gate/reconciliation. На existing Shadow нужны только перечисленные supporting UNIQUE/typed FK и полнота связей; command_receipts/claim receipt область не меняются. Число54 применимо только если эти18 таблиц приняты, без provider и оставшихся Auth-групп.
+
+Особо проверить Q01↔recovery/revoke: один X window, необратимое закрытие, прежний deadline, неизменный cookie-secret, erasure отдельно от истории/действительности login. Для claim: журнал допуска не permanent guard; нет клиентского operation ID/второго dedup scope; старый delayed-before-G3 handler не получает новую epoch. Новое исполнение после unknown только при доказанном drain/fresh primary сверке и закрытом source consent. ASC ссылаются на DA/E/CC и пока не выполнялись.
+
+Граница D01-A: quotas/factor used steps/security transitions, MFA/reset/staff recovery cases, selector и внешние key/witness механизмы требуют своих точных групп; не укладываются в generic JSON. Для D02 отдельно записано сочетание confirmed provider effect без ранее сохранённого local completion при уже закрытом security-допуске: факт сохраняется, но новые result_kind/ложный login/verification_rejected не выдумываются. До явного API-отражения этот путь не объявлять готовым.
+
+Код, SQL, миграции, установка, реальные аккаунты/БД, поведенческие испытания и отправка сообщения в другой чат не выполнялись. Принятые C04/last_input_receipt_id, строгий C06, Q02/Q06/DB-API-09 сохранены.
