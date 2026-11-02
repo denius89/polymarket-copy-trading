@@ -472,3 +472,7 @@ R014/R017/R018 и C04 не расширены: передача draft не пе�
 Нулевая дочерняя cardinality разрешена только для этого текущего набора и не отменяет C06/CMD/Q06 completeness. Удаляемое membership не immutable финансовый/ownership/audit факт R007. Смена source/trader read_visible/start/revision повышает прежние S/T guards; членство отдельно. R066/QSC10 — барьер restore против повторения старого scopeId/version; локальная monotonic version не достаточна после восстановления.
 
 Способы enforcement всех writers/привилегии/процедуры/неявные locks ещё не реализованы. Новых R/A/error-кодов/ролей/API не добавлено; все QSC не выполнялись.
+
+## Проект новых Auth-ограничений — не расширение действующего реестра
+
+02.11.2026 · [AC01–AC37](database-auth-physical-map-proposal.md) задают поля, scoped U/F, variant N/L, parent-and-child полноту D, W/T и writers/readers. Связь с R001–R071/A01–A112 — §8 карты. [BR01–BR09](database-backend-package-review.md) требуют исправлений механизма перед принятием. Новые R-ID и count73 не добавляются в действующий реестр автоматически; сейчас37 таблиц auth_control только предложены, Shadow36/прежние C04/C06/Q06 правила сохранены.
