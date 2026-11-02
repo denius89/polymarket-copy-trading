@@ -1,5 +1,7 @@
 # Точная карта хранения Auth: контексты, результаты, cookie и claim
 
+Интеграция02.11.2026: во время публикации появился PR №203 (`32792c1`) с [более широкой картой БД AC01–AC37](database-auth-physical-map-proposal.md) и [BR01–BR09](database-backend-package-review.md). D01-A ниже — параллельная детализация части того же Auth-контура, **не ещё18 таблиц сверх37**. Имена/декомпозиция/lock-порядок двух проектов нельзя смешивать как уже принятую схему; перед DDL нужна одна согласованная карта. Обе версии сохранены для предметного сведения.
+
 02.11.2026 · D01-A по прямому поручению владельца. Baseline main `abfecdc5b910f6aaee4482c47b80a298823e3eda` (PR №202). Статус: **предлагаемая физическая дельта для согласования с БД**, не SQL, миграция или созданная схема. Источники: [Auth-контракт](backend-auth-contracts-addendum.md), [проект механизмов после вычитки](backend-review-mechanisms.md), [ответ БД DA01–DA12](database-auth-handoff-review.md), [действующие таблицы доступа](database-physical-operations-access.md), [блокировки](database-concurrency-locks.md). Принятые правила C04/C05/C06, Q02/Q06, P-RESET и равноправие владельца 1/владельца 2 сохраняются.
 
 Объём: постоянный контекст и доказательство, операция до/после внешнего эффекта, неизменяемый результат, локальный полный login и исходная cookie, историческое согласие на claim, допуск исполнителя и доказанная остановка после unknown. Это конкретная часть D01, **не весь Auth-provider, MFA/credentials/cases, счётчики, selector или инфраструктура witness**. Их границы и блокирующие зависимости перечислены в §12, а не спрятаны в JSON.
@@ -294,3 +296,17 @@ Reconciler использует выделенный путь при closed gate
 Не покрытые этим поручением источники остаются явными зависимостями: principal security/factor versions/одноразовые TOTP steps и атомарные failure counters; транспортные sliding quotas; mfa management/reset evidence/двойные approvals/staff bootstrap/recovery; trusted selector/bindings; внешний witness/key service и подтверждённые полномочия reconciler. Их нельзя «дописать потом» внутри generic context/result JSON или запускать зависимый endpoint без enforcement. Работающий provider и его outcome correlation тоже ещё не доказаны. Provider table FK не выдумывается.
 
 В [проверочных сценариях карты](backend-auth-storage-cases.md) перечислены обе очередности Q01/recovery/revoke, повтор операции/полнота, задержанный claim до guard, конкурирующие согласия, fence/crash/restore и secret erasure. Все варианты **не выполнялись**. Проверка документов не подтверждает DB/API/Auth/конкурентность/восстановление. Код, SQL, миграции, установка и развёртывание не начинались.
+
+## 13. Сведение с параллельной картой БД PR №203
+
+| Предмет D01-A | Соответствующая часть БД | Что нужно выбрать/свести, не складывая таблицы |
+| --- | --- | --- |
+| contexts + subject/email bindings | AC03 + AC06 | Отдельные typed children и proof в context против общей typed оболочки с отдельным verifier; состав неизменяемых целей/сроков должен остаться одинаковым |
+| operations/dispatch/results | AC04/05/08 | Отдельная история dispatch и попыток против seal в operation; БД также покрывает namespace до context, который вне D01-A |
+| completion/credential/window/cipher | AC05/07/16 + полный login | Явная локальная полнота и постоянный login verifier; storage split выбрать единым, не завести два окна одного login |
+| consent/execution/attempts | AC03/19 | D01-A допускает несколько серверных request-records, AC19 unique consent; согласовать точную единицу admission и отсутствие повторного permit, сохранив единственный claim receipt |
+| gate/runs/items и locks | AC01/19/34/35, карта БД §7 | Одно согласованное место claim-admission locks: D01-A держит свои execution/attempt X до G3, БД размещает AC19 в G3. Не смешивать эти порядки. Witness change-set из БД шире D01-A и требует собственного принятия |
+
+BR01/02 (Q02 G1 и ABA), BR05 (witness change-set), BR06/07 (guest lifecycle и typed права) относятся к широкому пакету и не закрываются публикацией этой узкой карты. BR04/09 имеют пересекающиеся решения в D01-A (captured epoch/reconcile-only/стирание), но эквивалентность двух физических вариантов ещё должна быть проверена. BR08 остаётся capability gate. Историческое REVIEW-01 не переписывается: новые находки БД появились отдельно.
+
+Числа54 и73 описывают разные объёмы предложений, не последовательные утверждённые расширения. Принятый baseline по-прежнему36. Следующий результат — единая согласованная физическая дельта на основе обоих пакетов, затем D02; текущий PR публикует подготовленную карту и не выбирает архитектуру за владельца/БД.
