@@ -1,5 +1,7 @@
 # Ответ БД на DB-AUTH-01–10
 
+> Продолжение после PR №201: [вычитка BR01–BR09](database-backend-package-review.md) и [единый физический проект AC01–AC37](database-auth-physical-map-proposal.md) подготовлены. Новые решения P01–P05 ещё не приняты; ниже сохранён ответ на PR №199.
+
 02.11.2026 · Сверка актуальной main `4459f30896c726192f10c86869f9fc48fd6b4ada`, PR №199. Источники доступны: [передача §§20–22](backend-database-change-list.md), [единое Auth-дополнение](backend-auth-contracts-addendum.md), [реестр v5](backend-code-registry.md), [ADR-0065](../../decisions/0065_first_session_backend_contract.md), текущие физические спецификации и [пакет вычитки БД](database-review-handoff-2026-11-02.md).
 
 ## 1. Краткий результат

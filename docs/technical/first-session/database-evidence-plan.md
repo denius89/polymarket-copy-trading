@@ -417,3 +417,7 @@ QBASE имеет2 новых scopes+2 members, C06-only может0/0 без Q02
 ## Дополнение DB-AUTH-01–10: DA01–DA12
 
 02.11.2026 · [Ответ БД и план DA01–DA12](database-auth-handoff-review.md). DA01–DA12 связывают новые Auth-протоколы с E07/E08/E09/E11/E12/E15/E17 и соответствующими A/R/CC/F; DA06/12 также E10. Нужны отдельные наблюдаемые факты окна cookie/Q01, секретобезопасного replay, расходования TOTP steps, consent/разрешённого202 и барьера старого in-flight claim. Источник и права Auth-storage ещё не определены; заглушка или отсутствие receipt не доказательство. Все DA — «не выполнялось», и прежние E/A/NA/QID/QSC не помечаются пройденными.
+
+## Кандидат Auth: документальный объём и исполнительные gates
+
+02.11.2026 · [Карта AC01–AC37/P01–P05](database-auth-physical-map-proposal.md) и [BR01–BR09](database-backend-package-review.md) подготовлены на baseline PR №201. MAP01–MAP08 и трассировка R/A/CC/F/E/DA/NA/QID/QSC — план, все not_run. Проверить parent completeness каждого варианта, reverse FK/namespace/rights, saved epoch до dispatch, старый handler после fence, свежесть witness и immutable outcome. Полнота текста не подтверждает Supabase correlation/TOTP steps/crypto/budgets/backup.37 новых таблиц и собственный total73 только предложены; fixture/test-control/хранилища не созданы.

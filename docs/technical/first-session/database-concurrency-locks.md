@@ -326,3 +326,7 @@ Q02 не удерживает publication до доставки HTTP: overlap м
 02.11.2026 · [Q02 §§16–17](database-q02-catalog-design.md), [физический протокол §16.4](database-physical-catalog-review.md): S родителя q02_read_scopes у Q02 и X у scope writer до детей. Если операция затрагивает несколько scopes, полный environment/id порядок; scope перед paper/source/trader, а не после G2/чтения детей. Дети не добавляются без изменения родительского guard. Новый ресурс пропускается C04/C05/C06/claim, пока их принятый путь его не требует; новых checks/reasons им не добавлено.
 
 QSC03/QSC06–QSC09 дополняют CC13/CC20: две очередности, snapshot не освежается после ожидания, один5s бюджет/без retry Q02, технический конфликт не409. Неявные FK/unique locks и права writer ещё требуют доказательств. Внешний H01 selector не защищается одним локальным S: его binding/revoke протокол остаётся отдельно. Никаких реальных locks/испытаний не выполнялось.
+
+## Проект Auth: ранги и исправление Q02
+
+02.11.2026 · [BR01/02/04](database-backend-package-review.md) и [карта §§6–7](database-auth-physical-map-proposal.md) предлагают G0 gate и расширение G2, весь Q02 G1 до G2, scopeRevision bump при binding replacement против ABA, заранее выбранные X cookie-window/guest extension/activity. Старый handler использует сохранённый admission epoch, закрытый gate допускает только явно ограниченный reconcile. Действующий G1–G6/C04/C06 не переписан; расширение и mapping advisory key пока требуют принятия. MAP02–MAP06 не выполнялись.
