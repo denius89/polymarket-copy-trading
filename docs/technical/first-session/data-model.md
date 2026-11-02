@@ -416,3 +416,9 @@ M04: первого архива/cleanup нет. M05: immutable отчёт вн�
 [Q02 §§14–15](database-q02-catalog-design.md), [ADR-0064 §53](../../decisions/0064_first_session_database_contract.md): user → постоянный users.id; guest → постоянный серверный ID Auth-контекста, уже используемый для C04. Reader identity не login/credential/версия прав; новый действительный login того же user может использовать прежний cursor при том же разрешённом состоянии.
 
 Новых таблиц/колонок/Auth-FK, bootstrap-команд или изменений C04 нет. Получение/доказательство контекста до draft, lifecycle/late cookies, scopeRevision/атомарная привязка/restore и испытания ещё QH02–QH08. Фиксация ID не объявляет защищённый Auth-адаптер готовым.
+
+## Q02: принят локальный scope и его состав — 02.11.2026
+
+[Физический каталог §16](database-physical-catalog-review.md), [Q02 §§16–17](database-q02-catalog-design.md), [ADR-0064 §54](../../decisions/0064_first_session_database_contract.md). В проект добавлены q02_read_scopes и q02_read_scope_sources; полный состав теперь36 таблиц. Это текущая серверная область разрешённых источников и её guard, не новые роли/персональные grants/история страниц/сохранённый hash.
+
+ScopeRevision — стабильный scope ID+монотонная version в типизированной строке; весь состав/основание/guard публикуются атомарно. Q02 читает выбранную разрешённую область под S родителя, writer X; scope первым в G1 только у использующих его операций. Protected selector H01/внешний отзыв/restore не решаются одним локальным FK/lock. C04/C06/claim и финансовые правила сохранены; SQL/код/реальная БД не создавались.

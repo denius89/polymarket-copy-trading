@@ -1,3 +1,5 @@
+02.11.2026 — **Приняты2 scope-таблицы в проекте; состав34→36.** [Q02 §§16–17/QSC01–QSC10](database-q02-catalog-design.md), [ADR-0064 §54](../../decisions/0064_first_session_database_contract.md): текущая область/монотонная версия и scoped список источников, atomic publication и S/X parent. Формат cursor/постоянный reader/C04/строгий C06 сохранены. QH04 локально выбран, QH05 описан внутри БД; H01 protected selector/отзыв/guest proof, enforcement/restore/компоненты/M05/H06 остаются. Только документы: код, SQL, миграции, создание базы и испытания не выполнялись.
+
 02.11.2026 — **Принята постоянная идентичность readContextId Q02.** [H01-передача QH01–QH08, QID01–QID08, §§14–15](database-q02-catalog-design.md), [ADR-0064 §53](../../decisions/0064_first_session_database_contract.md): user→users.id, guest→постоянный Auth guest UUID; новый действующий login того же user не меняет binding. Доступ/keys/Manifest всё равно проверяются; C04/claim/формат cursor не меняются. Следующий стык — scopeRevision/атомарная публикация QH04–QH05, guest bootstrap/proof и прочие механизмы H01 остаются. Только документы; испытания/код/SQL/миграции не начаты.
 
 02.11.2026 — **Заключительный блок Q02 принят; все три блока согласованы и отражены.** [Итог DB-API-10 §§12–13](database-q02-catalog-design.md), [ADR-0064 §52](../../decisions/0064_first_session_database_contract.md): точный защищённый cursor/JCS/полный fingerprint, ротация без нового TTL и границы400/409/access/503. QCAT01–QCAT36 не выполнялись. Следующая работа — закрыть H01 readContextId/scopeRevision/привязку, компоненты/ключи/права/restore/производительность/M02–M03/M05/H06; сквозная готовность не заявляется. C04/карта ошибок/строгий C06 сохранены. Только документы, без кода, SQL, миграций и испытаний.
@@ -59,12 +61,12 @@
 | Блок | Статус | Таблицы shadow |
 | --- | --- | --- |
 | [1 — пользователь и черновик](database-physical-design.md) | Принят | users, user_auth_identities, setup_drafts, draft_ownerships |
-| [2 — каталог и проверка](database-physical-catalog-review.md) | Принят | venues, catalog_sources, traders, trader_revisions, paper_policy_versions, paper_controls, setup_reviews |
+| [2 — каталог и проверка](database-physical-catalog-review.md) | Принят | venues, catalog_sources, traders, trader_revisions, paper_policy_versions, paper_controls, setup_reviews, q02_read_scopes, q02_read_scope_sources |
 | [3 — сессия и деньги](database-physical-session-ledger.md) | Принят | user_session_slots, paper_sessions, settings_revisions, funding_flows, journals, journal_entries, session_snapshots |
 | [4 — служебные записи](database-physical-operations-access.md) | Принят | command_keys, command_receipts, command_receipt_details, draft_claim_receipts, audit_events, audit_authorizations, outbox_events, consumer_event_receipts |
 | [4 — доступ и вход](database-physical-operations-access.md) | Принят | staff_principals, staff_auth_identities, staff_assignments, staff_assignment_grants, login_policy_versions, login_policy_controls, auth_sessions, staff_login_slots |
 
-Итого 34 прикладные таблицы в документальном проекте; количество не означает 34 реализованных компонента или расширение пользовательского сценария. Провайдерские OTP/TOTP/WebAuthn credentials/challenges, ключи, recovery-секреты и внутренние таблицы Auth сюда не копируются. Их проверенная интеграция — H01, а не право обойти согласованное восстановление. Рыночные ордера/позиции/резервы/signals/score, treasury и настоящие платежи не добавлены. Начальный состав сотрудников: владелец 1 и владелец 2, два личных равноправных Owner.
+Итого 36 прикладных таблиц в документальном проекте (после принятого расширения Q02 от02.11.2026); количество не означает 36 реализованных компонентов или расширение пользовательского сценария. Провайдерские OTP/TOTP/WebAuthn credentials/challenges, ключи, recovery-секреты и внутренние таблицы Auth сюда не копируются. Их проверенная интеграция — H01, а не право обойти согласованное восстановление. Рыночные ордера/позиции/резервы/signals/score, treasury и настоящие платежи не добавлены. Начальный состав сотрудников: владелец 1 и владелец 2, два личных равноправных Owner.
 
 ## 3. Общий контракт полей
 
@@ -329,3 +331,13 @@ C04/last_input_receipt_id/error map/claim/strict C06 сохранены. Нов�
 Бэкенду переданы требования документа QH01–QH08: реализуемый защищённый источник; guest bootstrap/proof до draft; lifecycle/refresh/logout/late cookies; источник scopeRevision и перечень writers; её атомарная привязка к разрешённому набору/снимку; invalid/access/unknown и бюджет; key/restore; доказательства. Для ответа нужны источник→reader/writer→изменение/отзыв/restore→граница наблюдения→исход→будущий случай. Само сообщение в другой чат не отправлялось.
 
 Следующий конкретный незакрытый выбор — физический механизм scopeRevision/согласованной публикации QH04–QH05, после сверки с бэкендом. Не добавлять новую таблицу/колонку без отдельного описания и принятия. Код, SQL, миграции, установка, развёртывание и испытания не начинались.
+
+## Q02 scope: принято расширение схемы34→36 — 02.11.2026
+
+Читать [физический каталог §16](database-physical-catalog-review.md), [Q02 §§16–17](database-q02-catalog-design.md), [R §21](database-constraint-register.md), [ADR-0064 §54](../../decisions/0064_first_session_database_contract.md). К реестру §2 добавлены q02_read_scopes и q02_read_scope_sources: текущая область одной venue, монотонный guard/безопасное versioned source_ref и scoped membership. Ключи/поля/FK/unique/пустой набор/атомарность описаны, реальные таблицы не создавались.
+
+ScopeRevision вычисляется из id/version; source members/основание/guard меняются одной транзакцией. S/X parent первым в G1 у Q02/scope publisher, старые C04/C05/C06/claim пропускают его. Reader identity/codec/17 полей/ошибки/финансы сохранены. Новые таблицы не история страниц, не новый aggregate guard каталога и не новые роли. QBASE/counts36/QSC01–QSC10 связаны с A/R/F/E и не выполнялись.
+
+Закрыт выбор локального хранения QH04, описана локальная часть QH05. Открыты H01 protected readScopeId/его guard и отзыв, guest proof/lifecycle, источник/публикация правил source_ref, enforcement всех writers/privileges, ключи/anti-rollback restore/компоненты/производительность/M03/M05/H06. Локальный scope lock не доказательство атомарности внешнего Auth.
+
+Итог — документальная схема36 таблиц. Исторические принятия34 сохранены; C06/CMD/Q06 обязательные children не ослаблены допустимым empty scope. Код, SQL, миграции, создание базы/установка/развёртывание/испытания не выполнялись, сообщений коллегам не отправляли.

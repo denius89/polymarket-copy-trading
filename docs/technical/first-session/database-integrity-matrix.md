@@ -1,5 +1,7 @@
 # Матрица целостности БД и ожидаемых записей — A01–A112
 
+02.11.2026 · **Текущий документальный состав —36 таблиц:** приняты q02_read_scopes и q02_read_scope_sources, [физический каталог §16](database-physical-catalog-review.md), [Q02 §§16–17](database-q02-catalog-design.md). Упоминания34 ниже — прежняя базовая схема/история; её связи и полнота сохранены. Реальная БД, SQL, код, миграции и испытания не создавались.
+
 30.10.2026 · [Изолированные тестовые состояния M02–M03](database-isolated-test-states.md) подготовлены документально: BASE-наборы, SEM-факты допуска, stand-only публикация и отдельные отрицательные/повреждённые варианты I01–I22. Подготовка/загрузка/испытания не выполнялись; будущие lifecycle-представления и инструменты остаются явными зависимостями.
 
 29.10.2026 · По поручению владельца после PR №177 завершена [точная карта ошибок API ↔ БД](database-error-field-map.md): контейнеры reasons/fieldErrors, закрытые params и источник ошибок Q03. Это уточнение документов в рамках T01–T17, без пересогласования C04. Прежние пометки о незавершённости именно этой карты ниже исторические; полные DTO/Auth/компоненты и испытания остаются отдельно.
@@ -224,6 +226,8 @@
 | draft_ownerships | A02, A26, A35, A60, A100, A103 | Guest/user, неизменяемая история, claim/current cycle |
 | venues | A02, A08, A12, A23, A36, A39 | Свой venue и scope, обе площадки |
 | catalog_sources | A16, A36, A39, A102 | Source identity/provenance и guard |
+| q02_read_scopes | A19, A23, A33, A39, A47, A100, A102, A103 | Текущая область одной venue и атомарный guard публикации; H01 отдельно |
+| q02_read_scope_sources | A19, A23, A33, A36, A100, A103 | Текущее членство/scoped FK/unique; допустим0, child меняется с parent guard |
 | traders | A02, A16, A36, A39, A102 | Source external ID, current revision/eligibility |
 | trader_revisions | A16, A36, A60, A103 | Историческая revision того же source/venue |
 | paper_policy_versions | A07, A08, A16, A32, A33 | Неизменяемые числа/шаги/ссылки |
@@ -385,3 +389,9 @@ A23 — текущий допуск/чужой context и scope; A33/A36/A39 —
 02.11.2026 · [QID01–QID08 / Q02 §§14–15](database-q02-catalog-design.md) отражают принятое уточнение. A23/A39 — тот же user разных login имеет тот же binding, чужой user/guest/realm/environment другой; A25/A107 — текущий вход проверяется отдельно от ID; A26/A35/A100 — claim не переносит cursor и не меняет C04 history; A53/A98/A110 — неизвестный proof/scope не пустой/общий контекст; A102 — изменение прав требует собственного scope protocol.
 
 Во всех Q02-вариантах DRAFT/REVIEW/CMD/FIN/AUD/EVT не создаются ради reader ID. Нельзя подставлять фиктивный C04/ownership для guest без draft. Известный UUID не свидетельство защищённого допуска, счёт строк не доказательство Auth. Все QID/QCAT/A остаются невыполненными; QH02–QH08 и реализация QH01 открыты.
+
+## 22. Новые текущие области Q02: состав36 таблиц
+
+02.11.2026 · [Q02/QSC01–QSC10](database-q02-catalog-design.md) и [физическая схема §16](database-physical-catalog-review.md). К базовым34 добавлены q02_read_scopes и q02_read_scope_sources. Обратные связи: parent — A19/A23/A33/A39/A47/A100/A102/A103; members — A19/A23/A33/A36/A100/A103; restore — A84/A85/A106/A110. A01–A112 сохранены.
+
+Scope publisher меняет только свой полный набор/основание/guard. Q02 читает scope/Manifest без новых CMD/draft/review/FIN/audit; потеря доказанного H01 не исправляется локальным scope ID. Правильная пустая область —0 members, сломанная parent/source ссылка —503. Новые допустимые0 детей не ослабляют обязательные children других таблиц. QBASE/counts36 описаны в Q02 §17, все QSC/A не выполнялись.

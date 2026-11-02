@@ -39,7 +39,7 @@ Serializable не обновляет уже полученный снимок и
 
 | Ранг | Порядок внутри группы для рассматриваемых операций | Режим и повторная проверка |
 | --- | --- | --- |
-| G1 · Политика/каталог/controls | paper_controls → catalog_sources → traders → login_policy_controls; последний ресурс нужен только если операция действительно зависит от его current pointer | S у потребителя, X у publisher; immutable paper_policy_versions/trader_revisions — H. Login использует закреплённую policy, её новая публикация не меняет старые сроки |
+| G1 · Политика/каталог/controls | q02_read_scopes (только Q02/его scope writer) → paper_controls → catalog_sources → traders → login_policy_controls; последний ресурс нужен только если операция действительно зависит от его current pointer | S у потребителя, X у publisher; immutable paper_policy_versions/trader_revisions — H. Login использует закреплённую policy, её новая публикация не меняет старые сроки |
 | G2 · Principal/identity/доступ/login | users → user_auth_identities → auth_sessions. Доверенный guest-контекст и его изменяемые guards относятся к группе доступа по будущему H01-адаптеру | S для разрешения действия; X сразу, если этот путь действительно меняет guard/login, включая разрешённый foreground touch. Нельзя после G5 возвращаться за X login |
 | G3 · Команда или claim | C04/C06: полный scoped key; claim: G по environment/draft, затем H существующего claim receipt | Новый CMD — U; immutable завершённый CMD — H с текущим доступом. Claim не вставляется в command_keys. В одном запросе этого среза не захватываются и CMD, и claim guard ради новой второй операции |
 | G4 · Слот | user_session_slots по environment/user_id/paper | C05: S существующего либо P отсутствия; C06: X существующего либо U нового. Venue не часть ключа. C04/claim группу пропускают |
@@ -320,3 +320,9 @@ Q06 имеет прежние5s/одну попытку без внутренн�
 [Q02 §7](database-q02-catalog-design.md) использует один короткий Serializable-снимок primary для полного состояния и items/continuation, без транзакции между страницами и без нового общего X/advisory guard. Publisher сохраняет прежний G1-порядок/атомарные S/T guards, теперь включая read_visible; полный current-цикл обязателен и у скрытых строк.
 
 Q02 не удерживает publication до доставки HTTP: overlap может дать полную старую страницу, следующий запрос обнаруживает новое состояние. Current Auth guard при необходимости защищается по G1→G2 с проверкой после ожидания; конкретный H01 scope protocol ещё требуется. CC13/CC20 дополняются QCAT07/12–18/20, но не объявляются проверенными. 5s/одна попытка Q02, без автоматического retry. C04/C05/C06/claim и их профили/полнота сохранены.
+
+## Q02 scope: принятый дополнительный ресурс G1
+
+02.11.2026 · [Q02 §§16–17](database-q02-catalog-design.md), [физический протокол §16.4](database-physical-catalog-review.md): S родителя q02_read_scopes у Q02 и X у scope writer до детей. Если операция затрагивает несколько scopes, полный environment/id порядок; scope перед paper/source/trader, а не после G2/чтения детей. Дети не добавляются без изменения родительского guard. Новый ресурс пропускается C04/C05/C06/claim, пока их принятый путь его не требует; новых checks/reasons им не добавлено.
+
+QSC03/QSC06–QSC09 дополняют CC13/CC20: две очередности, snapshot не освежается после ожидания, один5s бюджет/без retry Q02, технический конфликт не409. Неявные FK/unique locks и права writer ещё требуют доказательств. Внешний H01 selector не защищается одним локальным S: его binding/revoke протокол остаётся отдельно. Никаких реальных locks/испытаний не выполнялось.

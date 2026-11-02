@@ -1,5 +1,7 @@
 # Изолированные тестовые состояния M02–M03
 
+02.11.2026 · **Текущий документальный состав —36 таблиц:** приняты q02_read_scopes и q02_read_scope_sources, [физический каталог §16](database-physical-catalog-review.md), [Q02 §§16–17](database-q02-catalog-design.md). Упоминания34 ниже — прежняя базовая схема/история; её связи и полнота сохранены. Реальная БД, SQL, код, миграции и испытания не создавались.
+
 30.10.2026 · Порученный документальный блок после PR №179. Baseline main `38950b73a4b81144c497d1e26dc13aee9986197b`. **Все BASE/SEM/PUB/NEG/BAD/READ-FAULT и I01–I22 ниже — спецификации будущих наборов и механизмов, не созданные базы, загрузчики или выполненные проверки.** Код, SQL, миграции, установка и развёртывание не выполняются.
 
 ## 1. Назначение и основания
@@ -65,6 +67,8 @@ BASE-READY — после одного успешного C04 create и одно
 | draft_ownerships | 1 | 1 | 1 | Первоначальное user ownership; previous/claim NULL |
 | venues | 2 | 2 | 2 | polymarket и limitless |
 | catalog_sources | 2 | 2 | 2 | По одному synthetic source на venue |
+| q02_read_scopes | 0 | 0 | 0 | Для базовых C06/PUB без Q02; отдельный QBASE —2, оба venue |
+| q02_read_scope_sources | 0 | 0 | 0 | Для базовых C06/PUB без Q02; отдельный QBASE —2, свои SRC |
 | traders | 2 | 2 | 2 | Свои source/venue и current revision |
 | trader_revisions | 2 | 2 | 2 | По одной immutable revision, без торговой статистики |
 | paper_policy_versions | 1 | 1 | 1 | paper-mvp-settings-v1, исходные числа/hash |
@@ -347,3 +351,9 @@ SEM-FINAL проверяет только снятие этого препятс
 02.11.2026 · [QCAT21–QCAT36](database-q02-catalog-design.md) приняты как план. BASE/SEM/PUB/NEG/BAD/READ-FAULT не изменяются настоящим выполнением. Для будущих вариантов нужны независимо управляемые key-состояния (выдача/старый проверочный/отзыв/недоступность), readContextId/scopeRevision и доказуемый restore; реальные ключи не публикуются в manifest evidence.
 
 Подмена cursor не имитирует порчу БД, неверный keyId при полном key-наборе не имитирует недоступность хранилища ключей, выключение read_visible не заменяет отзыв H01. Состояния изолируются; новые таблицы/production bypass не создаются. Инструменты/привилегии/компоненты/M03/M05/H06 и фактические испытания остаются; все случаи «не выполнялось».
+
+## Текущее расширение до36 таблиц — QBASE scope
+
+02.11.2026 · [Физический scope §16](database-physical-catalog-review.md), [Q02 §17/QSC01–QSC10](database-q02-catalog-design.md). Таблица counts выше расширена с34 до36 строк без изменения прежних counts; базовые C06/PUB без Q02 имеют0/0 новых строк. Новый полный manifest включает q02_read_scopes и q02_read_scope_sources: для изолированного QBASE2/2, для C06-only без Q02 допустимо0/0, без изменения старых финансовых counts.
+
+QBASE: две разные venue, source ссылки на соответствующие SRC-PM/SRC-LM, явный H01 selector. NEG проверяет cross-venue/дубликат/обход parent guard, BAD/READ-FAULT отдельно — сломанный parent/source/unknown selector. Для A→B→A каждый членский набор и guard фиксируются, не переиспользуются версии. Порча отличается от допустимого empty scope. Подготовка/загрузка/SQL/испытания не выполнялись; нужны реальные изолированные средства/права/H01/M03/M05/H06.
