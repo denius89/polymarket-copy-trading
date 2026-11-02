@@ -406,3 +406,9 @@ read_visible двух таблиц — внутренние колонки, не
 02.11.2026 · [Q02 §§14–15](database-q02-catalog-design.md): readContextId — users.id для user и постоянный UUID защищённого Auth guest context для guest, в канонической строчной форме. ReaderBinding вычисляется прежним SHA-256/JCS массивом §9.2 с realm/environment; payload по-прежнему имеет8 полей, внешних параметров/полей API не добавлено.
 
 Login ID и версия разрешений не источник readContextId. Новый полный login того же user сам по себе не сбрасывает cursor; текущий допуск/ключ/Manifest всё равно обязательны. ScopeRevision меняет fingerprint, не readerBinding. Guest bootstrap/proof/источник версии и согласованность — QH02–QH05; не выводятся из draft/receipt ID. C04/error map сохранены, QID01–QID08 не выполнялись.
+
+## 23. Принятый источник scopeRevision из локального scope
+
+02.11.2026 · [Q02 §§16–17](database-q02-catalog-design.md): Manifest.scopeRevision вычисляется как q02-read-scope-v1:<scopeId>:<version> из q02_read_scopes.id/version. Дублируемого столбца нет. Manifest.sources берётся ровно из q02_read_scope_sources выбранной разрешённой области, с FK своей venue/source, до visibility-фильтра.
+
+Восемь полей cursor/17 полей Trader/JCS/SHA-256/AEAD и внешний API не меняются. Scope ID не новый клиентский query/body-параметр. ReaderBinding использует прежний постоянный user/guest ID, не scope version. Смена разрешённой области/состава устанавливается через прежний fingerprint409, access/unknown остаются отдельными. H01 защищённо выбирает readScopeId; этот selector и restore ещё зависимы, QSC не выполнялись.

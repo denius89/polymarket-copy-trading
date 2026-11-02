@@ -519,3 +519,13 @@ TTL не добавлен. Плановая ротация сохраняет с
 ReadContextId user — канонический users.id; guest — постоянный серверный UUID Auth-контекста, уже используемый actor_guest_context_id C04. Прежний доменно разделённый readerBinding включает realm/environment; login/credential/версия прав не подменяют identity. Новый полный действующий login того же user может продолжать прежний cursor при том же разрешённом состоянии/пригодном ключе; старый отозванный/истёкший вход не оживает. Новый user/guest context/realm меняет binding, автоматического guest fallback нет.
 
 Claim не переносит cursor между realms и не отзывает глобально независимые guest drafts; C04/error map/строгий C06 сохранены. Новых колонок/таблиц/маршрутов/полей cursor нет. QH01 источник выбран, защищённый адаптер/guest bootstrap/proof/lifecycle/scopeRevision/атомарная привязка/key/restore/evidence ещё требуют QH02–QH08. QID01–QID08 не выполнялись, код/SQL/миграции/установка/развёртывание/испытания не начаты.
+
+## 54. Приняты две таблицы текущей области чтения Q02
+
+02.11.2026 · Владелец явно принял «Да, две таблицы в проекте (рекомендую)» и расширение документальной схемы34→36. Baseline main `6e9e09e9536b164e2836ab2eadca50e0ac5ecaa4` (PR №196). [Физический каталог §16](../technical/first-session/database-physical-catalog-review.md), [Q02 §§16–17](../technical/first-session/database-q02-catalog-design.md). История §§1–53/прежних34 таблиц сохраняется.
+
+Приняты q02_read_scopes и q02_read_scope_sources: постоянная область одной venue с version/source_ref, текущий набор разрешённых sources со scoped FK/unique. ScopeRevision вычисляется из id/version, а не дублируется колонкой. Создание/изменение полного состава/основания/guard атомарны; A→B→A не возвращает прежнюю версию; одинаковый состав и основание без изменений не повышают guard. Допустим0 members при достоверном разрешении, но missing parent/сломанные ссылки не пустота. Исключается членство, не catalog/history.
+
+Q02 S parent/scope writer X до детей; scope первый в G1 только на использующих его путях, остальные C04/C05/C06/claim не расширяются автоматически. Новый storage не история страниц/ключевой store/агрегатный guard всех данных каталога, не роли/персональные grants. Codec/readContextId/финансы/строгий C06 и четыре record-типа сохранены.
+
+QH04 локальное хранение выбрано, локальная часть QH05 описана. Protected selector/актуальность допуска H01, guest bootstrap/lifecycle, versioned policy source, enforcement/privileges/неявные locks и anti-rollback restore/ключи/компоненты/M05/H06 ещё нужны. Монотонность одной восстановленной БД не доказывает отсутствие старого токена. QSC01–QSC10 не выполнялись; код, SQL, миграции, создание БД, установка и развёртывание не начаты.

@@ -235,3 +235,9 @@ PR №179/180 учтены: R001–R071 и I01–I22 документальны;
 02.11.2026 · Владелец принял [Q02 §14](database-q02-catalog-design.md): постоянный users.id либо постоянный серверный Auth guest UUID, с прежним realm/environment binding. Новый полный login того же user не меняет identity cursor; текущий допуск проверяется заново. [ADR-0064 §53](../../decisions/0064_first_session_database_contract.md). Формат cursor/C04/claim/строгий C06 и34 таблицы не меняются.
 
 [Точная передача QH01–QH08 §15](database-q02-catalog-design.md) конкретизирует остаток: защищённый source/proof до draft, lifecycle, источник и атомарная привязка scopeRevision, отказы/бюджет, key/restore/evidence. Принятие UUID не закрывает эти механизмы. QID01–QID08 не выполнялись; сообщений/кода/SQL/миграций/испытаний не было.
+
+## 18. Q02: принято локальное хранение scopeRevision/состава
+
+02.11.2026 · [Q02 §§16–17](database-q02-catalog-design.md), [физический каталог §16](database-physical-catalog-review.md), [ADR-0064 §54](../../decisions/0064_first_session_database_contract.md). Владелец принял2 таблицы в проекте, состав34→36: q02_read_scopes/q02_read_scope_sources. Формат scopeRevision=id/version в типизированной строке; atomic members/source_ref/guard и S/X parent описаны. Принятые Q02 codec/readContextId/C04/строгий C06 не меняются.
+
+QH04 локальный источник выбран; QH05 локальная публикация описана, protected selector/внешний H01 отзыв и restore остаются. QH02–QH03/QH06–QH08/enforcement/компоненты/M03/M05/H06 не закрыты. QSC01–QSC10/QBASE не выполнялись и не загружались; реальная БД/код/SQL/миграции/испытания не создавались.
