@@ -302,7 +302,7 @@ Claim HTTP200: корень claim/nextAction/nextActionParams. L=`draft_claim_re
 | user.locale | **Т** `users.locale`, не язык браузера или draft |
 | nextAction, nextActionParams | **П** текущая безопасная навигация |
 
-Корень ровно authenticated/user/nextAction/nextActionParams; user ровно userId/locale. auth_sessions.user_id/realm/identity/assurance/срок/отзыв и текущий статус пользователя участвуют в проверке вместе с доверенным Auth-adapter, но не выдаются как новые поля. Pending MFA не полный вход; нет/expired/revoked —401, техническая недоступность не доказанный logout. Нет user=null при200, staff-ролей, баланса, cookies/tokens. Q01 ничего не создаёт; background-опрос не продлевает вход. Auth/logout не получают обычный CommandReceipt из-за этой карты.
+Корень ровно authenticated/user/nextAction/nextActionParams; user ровно userId/locale. auth_sessions.user_id/realm/identity/assurance/срок/отзыв и текущий статус пользователя участвуют в проверке вместе с доверенным Auth-adapter, но не выдаются как новые поля. Pending MFA не полный вход; нет/expired/revoked —401, техническая недоступность не доказанный logout. Нет user=null при200, staff-ролей, баланса, cookies/tokens. Q01 не создаёт draft/session/command receipt; по принятому Auth-дополнению §7 первый успешный Q01 надёжно закрывает cookie-recovery-window в Auth. Этот служебный эффект не foreground и не продлевает вход; механизм фиксации ещё BA-G06. Auth/logout не получают обычный CommandReceipt из-за этой карты.
 
 ## 13. Текущая диагностика и навигация
 
@@ -412,3 +412,11 @@ Login ID и версия разрешений не источник readContextI
 02.11.2026 · [Q02 §§16–17](database-q02-catalog-design.md): Manifest.scopeRevision вычисляется как q02-read-scope-v1:<scopeId>:<version> из q02_read_scopes.id/version. Дублируемого столбца нет. Manifest.sources берётся ровно из q02_read_scope_sources выбранной разрешённой области, с FK своей venue/source, до visibility-фильтра.
 
 Восемь полей cursor/17 полей Trader/JCS/SHA-256/AEAD и внешний API не меняются. Scope ID не новый клиентский query/body-параметр. ReaderBinding использует прежний постоянный user/guest ID, не scope version. Смена разрешённой области/состава устанавливается через прежний fingerprint409, access/unknown остаются отдельными. H01 защищённо выбирает readScopeId; этот selector и restore ещё зависимы, QSC не выполнялись.
+
+## 24. Уточнение Auth/claim после PR №199
+
+02.11.2026 · [Auth-контракт §§7–11](backend-auth-contracts-addendum.md), [ответ БД](database-auth-handoff-review.md). Q01 JSON прежний; X-Shadow-Login-Id в успешном ответе берётся из проверенного auth_sessions.id/доверенного Auth-соответствия, не echo клиентского заголовка. Факт закрытия cookie-window — Auth, не users/auth_sessions.last_user_activity_at и не поле неизменяемого CommandReceipt. Его физический источник/атомарность пока не выбраны.
+
+Claim HTTP200 по-прежнему шесть полей из draft_claim_receipts. GET /api/demo/drafts/:draftId/claim может вернуть202/status=unresolved с observedAt и null/{} navigation, без claim: нужен текущий полный user и доказанная серверная область исходного consent; само отсутствие receipt не даёт допуска. Принятый read-only recovery допускает утраченную/истёкшую claim-cookie по серверной связи исходного context/user/environment/draft. Она не даёт права исполнить и не меняет отдельный GET контекста. Источник этой связи/барьер отсутствия in-flight ещё DB-AUTH-06/07, не новая выбранная колонка.
+
+Реестр теперь v5: три новых Auth409 не добавляют Auth-типы в command_receipts/audit_events и не меняют карту ошибок C04/Q03. Auth-контексты/operations/cookie/continuation не переиспользуют обычный Q05. C04/last_input_receipt_id/строгий C06 сохранены; DA01–DA12 не выполнялись.

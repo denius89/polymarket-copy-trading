@@ -395,3 +395,7 @@ A23 — текущий допуск/чужой context и scope; A33/A36/A39 —
 02.11.2026 · [Q02/QSC01–QSC10](database-q02-catalog-design.md) и [физическая схема §16](database-physical-catalog-review.md). К базовым34 добавлены q02_read_scopes и q02_read_scope_sources. Обратные связи: parent — A19/A23/A33/A39/A47/A100/A102/A103; members — A19/A23/A33/A36/A100/A103; restore — A84/A85/A106/A110. A01–A112 сохранены.
 
 Scope publisher меняет только свой полный набор/основание/guard. Q02 читает scope/Manifest без новых CMD/draft/review/FIN/audit; потеря доказанного H01 не исправляется локальным scope ID. Правильная пустая область —0 members, сломанная parent/source ссылка —503. Новые допустимые0 детей не ослабляют обязательные children других таблиц. QBASE/counts36 описаны в Q02 §17, все QSC/A не выполнялись.
+
+## 23. Трассировка новой передачи Auth/claim
+
+02.11.2026 · [Ответ БД и план DA01–DA12](database-auth-handoff-review.md). DB-AUTH-01–10 сопоставлены существующим R/A и источникам; DA01–DA12 уточняют A01/A02/A05/A06/A21–A26/A29/A30/A33/A35/A47/A100/A103/A104/A107. Первый Q01 имеет служебную Auth-дельту закрытия cookie-window, без FIN/CMD/нового login и продления idle. Успешный claim сохраняет CLAIM-OK; read-only202 не создаёт ownership/receipt/финансы, его Auth-допуск требует отдельного источника. Новые Auth storage/counts ещё не выбраны, поэтому отсутствие дельты в36 Shadow-таблицах не доказывает отсутствие Auth-эффекта.

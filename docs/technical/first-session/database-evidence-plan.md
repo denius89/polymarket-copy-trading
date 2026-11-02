@@ -413,3 +413,7 @@ Stub с одинаковым UUID не подтверждает H01. Safe eviden
 02.11.2026 · [QSC01–QSC10](database-q02-catalog-design.md), [физические ограничения §16](database-physical-catalog-review.md): E01 manifest теперь явно перечисляет36 таблиц; E02 проверяет scoped FK/unique/current membership/parent guard и неизменную полноту старых комплектов; E07 — защищённый selector; E09 — два writer и reader/writer; E11 — guard/5s; E15 — restore против повторного токена; E17 — реальный writer/enforcement/планы.
 
 QBASE имеет2 новых scopes+2 members, C06-only может0/0 без Q02; counts без фактических IDs/ссылок/guard/допуска не доказательство. Старые списки34 таблиц — базовая часть, их сохранность также проверяется. E14 по-прежнему четыре immutable record-типа, новые current configuration таблицы не расширяют этот список. Все QSC/E не выполнялись, средства/права/M05 ещё нужны.
+
+## Дополнение DB-AUTH-01–10: DA01–DA12
+
+02.11.2026 · [Ответ БД и план DA01–DA12](database-auth-handoff-review.md). DA01–DA12 связывают новые Auth-протоколы с E07/E08/E09/E11/E12/E15/E17 и соответствующими A/R/CC/F; DA06/12 также E10. Нужны отдельные наблюдаемые факты окна cookie/Q01, секретобезопасного replay, расходования TOTP steps, consent/разрешённого202 и барьера старого in-flight claim. Источник и права Auth-storage ещё не определены; заглушка или отсутствие receipt не доказательство. Все DA — «не выполнялось», и прежние E/A/NA/QID/QSC не помечаются пройденными.
