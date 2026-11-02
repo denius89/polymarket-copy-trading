@@ -1,5 +1,7 @@
 # Полный каталог документов
 
+02.11.2026 · [Карта работ бэкенда после вычитки](technical/first-session/backend-delivery-map.md) — результат REVIEW-01, подготовка D01–D04, будущие срезы V00–V07 и критерии проверки компонентов; без реализации.
+
 02.11.2026 · [Пакет бэкенда для вычитки](technical/first-session/backend-review-handoff.md): [API](technical/first-session/backend-review-api-spec.md), [механизмы Auth ↔ БД](technical/first-session/backend-review-mechanisms.md), [компоненты и доказательства](technical/first-session/backend-review-operations.md). Проект по BA-G01–12/RV01–RV08, с учётом PR №200; новые дельты не объявлены принятыми.
 
 02.11.2026 · [Единое дополнение бэкенда: Auth, продолжение и claim](technical/first-session/backend-auth-contracts-addendum.md) — принятые формы, сверка и конечный список BA-G01–12; [передача БД DB-AUTH/RV](technical/first-session/backend-database-change-list.md).
