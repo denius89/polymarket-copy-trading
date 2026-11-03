@@ -1,3 +1,5 @@
+02.11.2026 · **U01–U03 приняты; текущий документальный каталог78 =36 Shadow +42 Auth.** Источник полей/связей/locks — [единая карта](auth-storage-unified.md), адресная полнота — [матрица §9](database-auth-completeness-matrix.md). Прежние73/37 Auth ниже — история среза P01–P05;18 D01-A не прибавляются. [D02 API](backend-auth-d02-contracts.md) и [полный проект v6](backend-auth-d02-registry.md) подготовлены для единой вычитки, принятый реестр пока v5. Реальные испытания/код/SQL/миграции/создание базы не выполнялись.
+
 # Реестр физических ограничений первого сценария
 
 02.11.2026 · **Принято дополнение Auth P01–P05:** [карта AC01–AC37](database-auth-physical-map-proposal.md), [итог и остаток](database-auth-acceptance-2026-11-02.md). Текущий собственный каталог **73 =36 Shadow +37 auth_control**; прежние36 и их примеры ниже описывают Shadow-часть. Provider internal schema, внешние witness/evidence и test-control считаются отдельно. История прежних принятий сохранена; C04/карта ошибок/строгий C06 не пересогласованы. Реестр пока v5; предметные испытания не выполнялись.
@@ -531,3 +533,17 @@ R014/R017/R018 и C04 не расширены: передача draft не пе�
 02.11.2026 · [Матрица AC01–AC37](database-auth-completeness-matrix.md) детализирует каждую таблицу: обязательный комплект/законный NULL, допустимое изменение/атомарную границу, запрещённый вариант и адресные R/A/MAP/DA. Общие R001/002/005/007/009/068 применяются по физическому варианту, а не заменяют его. Для каждого D проверяются обе стороны, лишние/чужие children и все writers. Переходы enum не считаются все разрешёнными; точный D02 whitelist и шесть стыков D01-A открыты. Новых R/A-ID, ролей/DDL и прошедших испытаний нет.
 
 В ходе блока учтён ответ D01-U PR №206: предложения U01–U03 и их влияние перечислены в [матрице §7.1](database-auth-completeness-matrix.md). Они не приняты этой работой; каталог73/реестр v5 и базовые unique/locks сохранены.
+
+## Адресная принятая дельта U01: AC38–AC42 и существующие связи
+
+02.11.2026 · Единственный текущий каталог/поля — [AC01–AC42](auth-storage-unified.md), полнота — [матрица §9](database-auth-completeness-matrix.md). Принято78, не создано в БД. Новые номера R/A не изобретаются; прежние инварианты конкретизируются на новых источниках.
+
+| AC | Связанные R | A / будущие случаи |
+| --- | --- | --- |
+| AC38 login_cookie_credentials | R007/058/059/066/070 | A21/A25/A29/A30/A107; ASC04–09/UST04 |
+| AC39 operation_dispatches | R007/058/062/066/070 | A21/A25/A100/A107; ASC01–03/18/UST05 |
+| AC40 claim_attempts | R014/044/062/066/070 | A23/A26/A35/A100/A103/A107; ASC13–15/UST03 |
+| AC41 reconciliation_runs | R062/066/069/070 | A34/A100/A107/A111; ASC14/16/17/UST08 |
+| AC42 reconciliation_items | R007/044/066/070 | A25/A35/A100/A107/A111; ASC16/18/UST05/08 |
+
+Для AC03/07/08 используется encrypted email+raw comparison; AC04 seal только AC39, payload16384; AC05/16/38 full source tuple/обратная полнота; AC28 unique operation/challenge и immutable exact approval pair; AC32–35 typed run/admission/window targets/full change-set. Эта дельта заменяет соответствующие прежние representations73, не ослабляет scoped FK/unique consent/strict C06. Все writer/eraser/reconciler обязаны соблюдать единый порядок, проверка implicit FK/index locks остаётся будущей. D02 DTO/audit dictionaries — отдельный проект; SQL enforcement/испытаний нет.

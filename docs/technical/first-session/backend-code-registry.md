@@ -1,3 +1,5 @@
+02.11.2026 · **Подготовлен полный проект first-session-registry-v6, current пока v5.** [Точная дельта D02](backend-auth-d02-registry.md) и [API](backend-auth-d02-contracts.md): actions/results/context purposes/stages/grants/audit/record formats и AC-отображение. Принятие U01–U03 не объявляется автоматическим принятием всех новых DTO/технических уточнений D02; нужен единый итог вычитки. История v1–v5 сохранена.
+
 # Закрытые реестры кодов первого сценария — H02 и H03
 
 02.11.2026 · **Текущее документальное издание first-session-registry-v5.** По явным принятиям чата бэкенда добавлены только три Auth-кода409 и отдельный перечень Auth-only типов/результатов (§14), сведённых в [Auth-дополнении](backend-auth-contracts-addendum.md). Это не новые command_receipts/audit_events. CATALOG_CHANGED, право/audit DB-API-09, прочие значения v4 и четыре recordSchemaVersion=v1 сохранены. Код/декодеры/испытания не создавались.
@@ -236,3 +238,11 @@ V1 нового audit-kind — его собственный первый вар
 Для GET результата user Auth допускаются commandType C01/C02/C03/AUTH_TOTP_VERIFY/AUTH_TOTP_CHALLENGE_RENEW. Последние два — отдельные Auth-only операции, не расширение command_receipts.command_type. Результаты: email_dispatch_accepted, auth_step_required, login_completed, verification_rejected, totp_challenge_renewed; точные поля в §§5–7 дополнения. Status resolved/unresolved этой области не смешивается с completed/unresolved logout или собственной формой202 claim. C07 использует отдельный logout-контекст/маршрут; claim не получает нового типа или operation ID.
 
 Stages user Auth-context: ready, email_verification, totp_verification, totp_enrollment, completed. Continuation.kind: default/setup_draft. Logout continuation authorizationMode: original_login/current_user. Другие закрытые значения и области прежних изданий неизменны. Новые DTO/типы для TOTP-management/staff и имена их audit-events ещё не выбраны, не выводятся из названий глав этого пакета.
+
+## 15. Проект v6: полный D02, ещё не текущее издание
+
+Полный единственный whitelist дельты находится в [D02 registry](backend-auth-d02-registry.md), формы — [D02 API](backend-auth-d02-contracts.md). Это кандидат v6, не выборочное добавление пары кодов в v5. После единого принятия указатель current меняется явной записью, старые издания не переписываются.
+
+Дельта включает AUTH_EMAIL_LINK_VERIFY и auth_completion_not_issued только в указанных user Auth scopes; отдельные MFA/staff/guest namespaces; новые actions/results/proof/stage; принятые reset grants и проект точного staff_recovery_approve; закрытые Auth audit kinds; специфические record formats/typed refs. Top-level reasonCode не добавляются; четыре Shadow формата, command_receipts и Q06 audit не расширены. Login-cookie NOT_APPLICABLE для новых scopes относится только к их собственным completion kinds. CATALOG_CHANGED остаётся Q02-only.
+
+D02 перечисляет дополнительные технические решения для вычитки: NRef до context, pair approver selector и role rows, current-case GET, proof reissuance profile, поздний outcome DTO/HTTP. U01–U03 уже приняты, их физический итог78 отдельно отражён. Ни одного codec/endpoint/grant assignment/испытания этой работой не создано.
