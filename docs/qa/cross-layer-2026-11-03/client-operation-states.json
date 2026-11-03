@@ -1,0 +1,1391 @@
+{
+  "date": "2026-11-03",
+  "fileKey": "lxPP2um7FvIbt02K8eeH4T",
+  "scope": "X05 existing launch and review controls",
+  "variants": {
+    "mr": {
+      "launch": "2498:29000",
+      "page": "2477:528",
+      "wrapper": "4556:24976",
+      "states": {
+        "pendingStart": "4556:24977",
+        "unknownStart": "4556:24995",
+        "readingStart": "4556:25002",
+        "rejected": "4556:25016",
+        "expired": "4556:25023",
+        "pendingSave": "4556:25030",
+        "unknownSave": "4556:25042",
+        "readingSave": "4556:25049",
+        "saveRejected": "4556:25061",
+        "saved": "4556:25068",
+        "reviewUnknown": "4556:25075"
+      },
+      "buttons": {
+        "pendingStart": [
+          [
+            "success",
+            "4556:24983"
+          ],
+          [
+            "unknownStart",
+            "4556:24985"
+          ],
+          [
+            "rejected",
+            "4556:24987"
+          ],
+          [
+            "expired",
+            "4556:24989"
+          ],
+          [
+            "pendingSave",
+            "4556:24991"
+          ],
+          [
+            "reviewUnknown",
+            "4556:24993"
+          ]
+        ],
+        "unknownStart": [
+          [
+            "readingStart",
+            "4556:25000"
+          ]
+        ],
+        "readingStart": [
+          [
+            "success",
+            "4556:25008"
+          ],
+          [
+            "unknownStart",
+            "4556:25010"
+          ],
+          [
+            "rejected",
+            "4556:25012"
+          ],
+          [
+            "expired",
+            "4556:25014"
+          ]
+        ],
+        "rejected": [
+          [
+            "setup",
+            "4556:25021"
+          ]
+        ],
+        "expired": [
+          [
+            "review",
+            "4556:25028"
+          ]
+        ],
+        "pendingSave": [
+          [
+            "unknownSave",
+            "4556:25036"
+          ],
+          [
+            "saved",
+            "4556:25038"
+          ],
+          [
+            "saveRejected",
+            "4556:25040"
+          ]
+        ],
+        "unknownSave": [
+          [
+            "readingSave",
+            "4556:25047"
+          ]
+        ],
+        "readingSave": [
+          [
+            "unknownSave",
+            "4556:25055"
+          ],
+          [
+            "saved",
+            "4556:25057"
+          ],
+          [
+            "saveRejected",
+            "4556:25059"
+          ]
+        ],
+        "saveRejected": [
+          [
+            "setup",
+            "4556:25066"
+          ]
+        ],
+        "saved": [
+          [
+            "review",
+            "4556:25073"
+          ]
+        ],
+        "reviewUnknown": [
+          [
+            "review",
+            "4556:25080"
+          ]
+        ]
+      },
+      "launchControls": [
+        "2498:28999",
+        "3086:3473"
+      ],
+      "review": {
+        "fixed": "2498:28917",
+        "percent": "3086:3391"
+      },
+      "existingSuccess": "2532:21021",
+      "fonts": [
+        "Inter/Semi Bold",
+        "Inter/Regular"
+      ],
+      "readback": {
+        "timer": {
+          "seconds": 30,
+          "nav": []
+        },
+        "reviewEntries": [
+          {
+            "id": "2498:28999",
+            "branches": [
+              {
+                "wroteBeforeLaunch": [],
+                "sets": 0
+              },
+              {
+                "wroteBeforeLaunch": [
+                  [
+                    "VariableID:3237:16601",
+                    "fixed"
+                  ]
+                ],
+                "sets": 14
+              }
+            ]
+          },
+          {
+            "id": "3086:3473",
+            "branches": [
+              {
+                "wroteBeforeLaunch": [],
+                "sets": 0
+              },
+              {
+                "wroteBeforeLaunch": [
+                  [
+                    "VariableID:3237:16601",
+                    "percent"
+                  ]
+                ],
+                "sets": 14
+              }
+            ]
+          }
+        ],
+        "manualStatusReads": [
+          {
+            "target": "readingStart",
+            "id": "4556:25000",
+            "nav": [],
+            "staged": []
+          },
+          {
+            "target": "readingSave",
+            "id": "4556:25047",
+            "nav": [],
+            "staged": []
+          }
+        ],
+        "refresh": [
+          {
+            "target": "review",
+            "id": "4556:25028",
+            "nav": [
+              "2498:28917",
+              "3086:3391"
+            ],
+            "staged": []
+          },
+          {
+            "target": "review",
+            "id": "4556:25080",
+            "nav": [
+              "2498:28917",
+              "3086:3391"
+            ],
+            "staged": []
+          }
+        ],
+        "confirmed": [
+          {
+            "target": "success",
+            "id": "4556:24983",
+            "nav": [
+              "2532:21021"
+            ],
+            "staged": [
+              [
+                "VariableID:949:4521",
+                false
+              ],
+              [
+                "VariableID:3237:16601",
+                "none"
+              ],
+              [
+                "VariableID:3237:16600",
+                "empty"
+              ],
+              [
+                "VariableID:830:2",
+                "empty"
+              ]
+            ]
+          },
+          {
+            "target": "success",
+            "id": "4556:25008",
+            "nav": [
+              "2532:21021"
+            ],
+            "staged": [
+              [
+                "VariableID:949:4521",
+                false
+              ],
+              [
+                "VariableID:3237:16601",
+                "none"
+              ],
+              [
+                "VariableID:3237:16600",
+                "empty"
+              ],
+              [
+                "VariableID:830:2",
+                "empty"
+              ]
+            ]
+          }
+        ]
+      },
+      "stateFlags": {
+        "pendingStart": "VariableID:4556:24963",
+        "unknownStart": "VariableID:4556:24964",
+        "readingStart": "VariableID:4556:24965",
+        "rejected": "VariableID:4556:24966",
+        "expired": "VariableID:4556:24967",
+        "pendingSave": "VariableID:4556:24968",
+        "unknownSave": "VariableID:4556:24969",
+        "readingSave": "VariableID:4556:24970",
+        "saveRejected": "VariableID:4556:24971",
+        "saved": "VariableID:4556:24972",
+        "reviewUnknown": "VariableID:4556:24973",
+        "hold": "VariableID:4556:24974",
+        "wasHeld": "VariableID:4556:24975"
+      },
+      "prototypeChecks": {
+        "pendingStart": {
+          "footer": "4560:3300",
+          "toggle": "4560:3301",
+          "options": "4560:3304",
+          "variable": "VariableID:4560:3296",
+          "defaultVisible": false,
+          "buttons": [
+            "4556:24983",
+            "4556:24985",
+            "4556:24987",
+            "4556:24989",
+            "4556:24991",
+            "4556:24993"
+          ]
+        },
+        "readingStart": {
+          "footer": "4560:3316",
+          "toggle": "4560:3317",
+          "options": "4560:3320",
+          "variable": "VariableID:4560:3297",
+          "defaultVisible": false,
+          "buttons": [
+            "4556:25008",
+            "4556:25010",
+            "4556:25012",
+            "4556:25014"
+          ]
+        },
+        "pendingSave": {
+          "footer": "4560:3329",
+          "toggle": "4560:3330",
+          "options": "4560:3333",
+          "variable": "VariableID:4560:3298",
+          "defaultVisible": false,
+          "buttons": [
+            "4556:25036",
+            "4556:25038",
+            "4556:25040"
+          ]
+        },
+        "readingSave": {
+          "footer": "4560:3341",
+          "toggle": "4560:3342",
+          "options": "4560:3345",
+          "variable": "VariableID:4560:3299",
+          "defaultVisible": false,
+          "buttons": [
+            "4556:25055",
+            "4556:25057",
+            "4556:25059"
+          ]
+        }
+      }
+    },
+    "me": {
+      "launch": "2502:20040",
+      "page": "2499:2",
+      "wrapper": "4556:3271",
+      "states": {
+        "pendingStart": "4556:3272",
+        "unknownStart": "4556:3290",
+        "readingStart": "4556:3297",
+        "rejected": "4556:3311",
+        "expired": "4556:3318",
+        "pendingSave": "4556:3325",
+        "unknownSave": "4556:3337",
+        "readingSave": "4556:3344",
+        "saveRejected": "4556:3356",
+        "saved": "4556:3363",
+        "reviewUnknown": "4556:3370"
+      },
+      "buttons": {
+        "pendingStart": [
+          [
+            "success",
+            "4556:3278"
+          ],
+          [
+            "unknownStart",
+            "4556:3280"
+          ],
+          [
+            "rejected",
+            "4556:3282"
+          ],
+          [
+            "expired",
+            "4556:3284"
+          ],
+          [
+            "pendingSave",
+            "4556:3286"
+          ],
+          [
+            "reviewUnknown",
+            "4556:3288"
+          ]
+        ],
+        "unknownStart": [
+          [
+            "readingStart",
+            "4556:3295"
+          ]
+        ],
+        "readingStart": [
+          [
+            "success",
+            "4556:3303"
+          ],
+          [
+            "unknownStart",
+            "4556:3305"
+          ],
+          [
+            "rejected",
+            "4556:3307"
+          ],
+          [
+            "expired",
+            "4556:3309"
+          ]
+        ],
+        "rejected": [
+          [
+            "setup",
+            "4556:3316"
+          ]
+        ],
+        "expired": [
+          [
+            "review",
+            "4556:3323"
+          ]
+        ],
+        "pendingSave": [
+          [
+            "unknownSave",
+            "4556:3331"
+          ],
+          [
+            "saved",
+            "4556:3333"
+          ],
+          [
+            "saveRejected",
+            "4556:3335"
+          ]
+        ],
+        "unknownSave": [
+          [
+            "readingSave",
+            "4556:3342"
+          ]
+        ],
+        "readingSave": [
+          [
+            "unknownSave",
+            "4556:3350"
+          ],
+          [
+            "saved",
+            "4556:3352"
+          ],
+          [
+            "saveRejected",
+            "4556:3354"
+          ]
+        ],
+        "saveRejected": [
+          [
+            "setup",
+            "4556:3361"
+          ]
+        ],
+        "saved": [
+          [
+            "review",
+            "4556:3368"
+          ]
+        ],
+        "reviewUnknown": [
+          [
+            "review",
+            "4556:3375"
+          ]
+        ]
+      },
+      "launchControls": [
+        "2502:20039",
+        "3087:3481"
+      ],
+      "review": {
+        "fixed": "2502:19957",
+        "percent": "3087:3399"
+      },
+      "existingSuccess": "2532:20954",
+      "fonts": [
+        "Inter/Semi Bold",
+        "Inter/Regular"
+      ],
+      "readback": {
+        "timer": {
+          "seconds": 30,
+          "nav": []
+        },
+        "reviewEntries": [
+          {
+            "id": "2502:20039",
+            "branches": [
+              {
+                "wroteBeforeLaunch": [],
+                "sets": 0
+              },
+              {
+                "wroteBeforeLaunch": [
+                  [
+                    "VariableID:3237:16606",
+                    "fixed"
+                  ]
+                ],
+                "sets": 14
+              }
+            ]
+          },
+          {
+            "id": "3087:3481",
+            "branches": [
+              {
+                "wroteBeforeLaunch": [],
+                "sets": 0
+              },
+              {
+                "wroteBeforeLaunch": [
+                  [
+                    "VariableID:3237:16606",
+                    "percent"
+                  ]
+                ],
+                "sets": 14
+              }
+            ]
+          }
+        ],
+        "manualStatusReads": [
+          {
+            "target": "readingStart",
+            "id": "4556:3295",
+            "nav": [],
+            "staged": []
+          },
+          {
+            "target": "readingSave",
+            "id": "4556:3342",
+            "nav": [],
+            "staged": []
+          }
+        ],
+        "refresh": [
+          {
+            "target": "review",
+            "id": "4556:3323",
+            "nav": [
+              "2502:19957",
+              "3087:3399"
+            ],
+            "staged": []
+          },
+          {
+            "target": "review",
+            "id": "4556:3375",
+            "nav": [
+              "2502:19957",
+              "3087:3399"
+            ],
+            "staged": []
+          }
+        ],
+        "confirmed": [
+          {
+            "target": "success",
+            "id": "4556:3278",
+            "nav": [
+              "2532:20954"
+            ],
+            "staged": [
+              [
+                "VariableID:949:9430",
+                false
+              ],
+              [
+                "VariableID:3237:16606",
+                "none"
+              ],
+              [
+                "VariableID:3237:16605",
+                "empty"
+              ],
+              [
+                "VariableID:830:2",
+                "empty"
+              ]
+            ]
+          },
+          {
+            "target": "success",
+            "id": "4556:3303",
+            "nav": [
+              "2532:20954"
+            ],
+            "staged": [
+              [
+                "VariableID:949:9430",
+                false
+              ],
+              [
+                "VariableID:3237:16606",
+                "none"
+              ],
+              [
+                "VariableID:3237:16605",
+                "empty"
+              ],
+              [
+                "VariableID:830:2",
+                "empty"
+              ]
+            ]
+          }
+        ]
+      },
+      "stateFlags": {
+        "pendingStart": "VariableID:4556:3258",
+        "unknownStart": "VariableID:4556:3259",
+        "readingStart": "VariableID:4556:3260",
+        "rejected": "VariableID:4556:3261",
+        "expired": "VariableID:4556:3262",
+        "pendingSave": "VariableID:4556:3263",
+        "unknownSave": "VariableID:4556:3264",
+        "readingSave": "VariableID:4556:3265",
+        "saveRejected": "VariableID:4556:3266",
+        "saved": "VariableID:4556:3267",
+        "reviewUnknown": "VariableID:4556:3268",
+        "hold": "VariableID:4556:3269",
+        "wasHeld": "VariableID:4556:3270"
+      },
+      "prototypeChecks": {
+        "pendingStart": {
+          "footer": "4560:6638",
+          "toggle": "4560:6639",
+          "options": "4560:6642",
+          "variable": "VariableID:4560:6634",
+          "defaultVisible": false,
+          "buttons": [
+            "4556:3278",
+            "4556:3280",
+            "4556:3282",
+            "4556:3284",
+            "4556:3286",
+            "4556:3288"
+          ]
+        },
+        "readingStart": {
+          "footer": "4560:6654",
+          "toggle": "4560:6655",
+          "options": "4560:6658",
+          "variable": "VariableID:4560:6635",
+          "defaultVisible": false,
+          "buttons": [
+            "4556:3303",
+            "4556:3305",
+            "4556:3307",
+            "4556:3309"
+          ]
+        },
+        "pendingSave": {
+          "footer": "4560:6667",
+          "toggle": "4560:6668",
+          "options": "4560:6671",
+          "variable": "VariableID:4560:6636",
+          "defaultVisible": false,
+          "buttons": [
+            "4556:3331",
+            "4556:3333",
+            "4556:3335"
+          ]
+        },
+        "readingSave": {
+          "footer": "4560:6679",
+          "toggle": "4560:6680",
+          "options": "4560:6683",
+          "variable": "VariableID:4560:6637",
+          "defaultVisible": false,
+          "buttons": [
+            "4556:3350",
+            "4556:3352",
+            "4556:3354"
+          ]
+        }
+      }
+    },
+    "dr": {
+      "launch": "2499:3791",
+      "page": "2477:529",
+      "wrapper": "4556:25122",
+      "states": {
+        "pendingStart": "4556:25123",
+        "unknownStart": "4556:25141",
+        "readingStart": "4556:25148",
+        "rejected": "4556:25162",
+        "expired": "4556:25169",
+        "pendingSave": "4556:25176",
+        "unknownSave": "4556:25188",
+        "readingSave": "4556:25195",
+        "saveRejected": "4556:25207",
+        "saved": "4556:25214",
+        "reviewUnknown": "4556:25221"
+      },
+      "buttons": {
+        "pendingStart": [
+          [
+            "success",
+            "4556:25129"
+          ],
+          [
+            "unknownStart",
+            "4556:25131"
+          ],
+          [
+            "rejected",
+            "4556:25133"
+          ],
+          [
+            "expired",
+            "4556:25135"
+          ],
+          [
+            "pendingSave",
+            "4556:25137"
+          ],
+          [
+            "reviewUnknown",
+            "4556:25139"
+          ]
+        ],
+        "unknownStart": [
+          [
+            "readingStart",
+            "4556:25146"
+          ]
+        ],
+        "readingStart": [
+          [
+            "success",
+            "4556:25154"
+          ],
+          [
+            "unknownStart",
+            "4556:25156"
+          ],
+          [
+            "rejected",
+            "4556:25158"
+          ],
+          [
+            "expired",
+            "4556:25160"
+          ]
+        ],
+        "rejected": [
+          [
+            "setup",
+            "4556:25167"
+          ]
+        ],
+        "expired": [
+          [
+            "review",
+            "4556:25174"
+          ]
+        ],
+        "pendingSave": [
+          [
+            "unknownSave",
+            "4556:25182"
+          ],
+          [
+            "saved",
+            "4556:25184"
+          ],
+          [
+            "saveRejected",
+            "4556:25186"
+          ]
+        ],
+        "unknownSave": [
+          [
+            "readingSave",
+            "4556:25193"
+          ]
+        ],
+        "readingSave": [
+          [
+            "unknownSave",
+            "4556:25201"
+          ],
+          [
+            "saved",
+            "4556:25203"
+          ],
+          [
+            "saveRejected",
+            "4556:25205"
+          ]
+        ],
+        "saveRejected": [
+          [
+            "setup",
+            "4556:25212"
+          ]
+        ],
+        "saved": [
+          [
+            "review",
+            "4556:25219"
+          ]
+        ],
+        "reviewUnknown": [
+          [
+            "review",
+            "4556:25226"
+          ]
+        ]
+      },
+      "launchControls": [
+        "2499:3724",
+        "3087:192614"
+      ],
+      "review": {
+        "fixed": "2499:3711",
+        "percent": "3087:192601"
+      },
+      "existingSuccess": "2499:3827",
+      "fonts": [
+        "Inter/Semi Bold",
+        "Inter/Regular"
+      ],
+      "readback": {
+        "timer": {
+          "seconds": 30,
+          "nav": []
+        },
+        "reviewEntries": [
+          {
+            "id": "2499:3724",
+            "branches": [
+              {
+                "wroteBeforeLaunch": [],
+                "sets": 0
+              },
+              {
+                "wroteBeforeLaunch": [
+                  [
+                    "VariableID:3237:16611",
+                    "fixed"
+                  ]
+                ],
+                "sets": 14
+              }
+            ]
+          },
+          {
+            "id": "3087:192614",
+            "branches": [
+              {
+                "wroteBeforeLaunch": [],
+                "sets": 0
+              },
+              {
+                "wroteBeforeLaunch": [
+                  [
+                    "VariableID:3237:16611",
+                    "percent"
+                  ]
+                ],
+                "sets": 14
+              }
+            ]
+          }
+        ],
+        "manualStatusReads": [
+          {
+            "target": "readingStart",
+            "id": "4556:25146",
+            "nav": [],
+            "staged": []
+          },
+          {
+            "target": "readingSave",
+            "id": "4556:25193",
+            "nav": [],
+            "staged": []
+          }
+        ],
+        "refresh": [
+          {
+            "target": "review",
+            "id": "4556:25174",
+            "nav": [
+              "2499:3711",
+              "3087:192601"
+            ],
+            "staged": []
+          },
+          {
+            "target": "review",
+            "id": "4556:25226",
+            "nav": [
+              "2499:3711",
+              "3087:192601"
+            ],
+            "staged": []
+          }
+        ],
+        "confirmed": [
+          {
+            "target": "success",
+            "id": "4556:25129",
+            "nav": [
+              "2499:3827"
+            ],
+            "staged": [
+              [
+                "VariableID:949:4521",
+                false
+              ],
+              [
+                "VariableID:3237:16611",
+                "none"
+              ],
+              [
+                "VariableID:3237:16610",
+                "empty"
+              ],
+              [
+                "VariableID:830:2",
+                "empty"
+              ]
+            ]
+          },
+          {
+            "target": "success",
+            "id": "4556:25154",
+            "nav": [
+              "2499:3827"
+            ],
+            "staged": [
+              [
+                "VariableID:949:4521",
+                false
+              ],
+              [
+                "VariableID:3237:16611",
+                "none"
+              ],
+              [
+                "VariableID:3237:16610",
+                "empty"
+              ],
+              [
+                "VariableID:830:2",
+                "empty"
+              ]
+            ]
+          }
+        ]
+      },
+      "stateFlags": {
+        "pendingStart": "VariableID:4556:25109",
+        "unknownStart": "VariableID:4556:25110",
+        "readingStart": "VariableID:4556:25111",
+        "rejected": "VariableID:4556:25112",
+        "expired": "VariableID:4556:25113",
+        "pendingSave": "VariableID:4556:25114",
+        "unknownSave": "VariableID:4556:25115",
+        "readingSave": "VariableID:4556:25116",
+        "saveRejected": "VariableID:4556:25117",
+        "saved": "VariableID:4556:25118",
+        "reviewUnknown": "VariableID:4556:25119",
+        "hold": "VariableID:4556:25120",
+        "wasHeld": "VariableID:4556:25121"
+      },
+      "prototypeChecks": {
+        "pendingStart": {
+          "footer": "4560:15821",
+          "toggle": "4560:15822",
+          "options": "4560:15825",
+          "variable": "VariableID:4560:15817",
+          "defaultVisible": false,
+          "buttons": [
+            "4556:25129",
+            "4556:25131",
+            "4556:25133",
+            "4556:25135",
+            "4556:25137",
+            "4556:25139"
+          ]
+        },
+        "readingStart": {
+          "footer": "4560:15837",
+          "toggle": "4560:15838",
+          "options": "4560:15841",
+          "variable": "VariableID:4560:15818",
+          "defaultVisible": false,
+          "buttons": [
+            "4556:25154",
+            "4556:25156",
+            "4556:25158",
+            "4556:25160"
+          ]
+        },
+        "pendingSave": {
+          "footer": "4560:15850",
+          "toggle": "4560:15851",
+          "options": "4560:15854",
+          "variable": "VariableID:4560:15819",
+          "defaultVisible": false,
+          "buttons": [
+            "4556:25182",
+            "4556:25184",
+            "4556:25186"
+          ]
+        },
+        "readingSave": {
+          "footer": "4560:15862",
+          "toggle": "4560:15863",
+          "options": "4560:15866",
+          "variable": "VariableID:4560:15820",
+          "defaultVisible": false,
+          "buttons": [
+            "4556:25201",
+            "4556:25203",
+            "4556:25205"
+          ]
+        }
+      }
+    },
+    "de": {
+      "launch": "2504:7373",
+      "page": "2499:3",
+      "wrapper": "4556:12486",
+      "states": {
+        "pendingStart": "4556:12487",
+        "unknownStart": "4556:12505",
+        "readingStart": "4556:12512",
+        "rejected": "4556:12526",
+        "expired": "4556:12533",
+        "pendingSave": "4556:12540",
+        "unknownSave": "4556:12552",
+        "readingSave": "4556:12559",
+        "saveRejected": "4556:12571",
+        "saved": "4556:12578",
+        "reviewUnknown": "4556:12585"
+      },
+      "buttons": {
+        "pendingStart": [
+          [
+            "success",
+            "4556:12493"
+          ],
+          [
+            "unknownStart",
+            "4556:12495"
+          ],
+          [
+            "rejected",
+            "4556:12497"
+          ],
+          [
+            "expired",
+            "4556:12499"
+          ],
+          [
+            "pendingSave",
+            "4556:12501"
+          ],
+          [
+            "reviewUnknown",
+            "4556:12503"
+          ]
+        ],
+        "unknownStart": [
+          [
+            "readingStart",
+            "4556:12510"
+          ]
+        ],
+        "readingStart": [
+          [
+            "success",
+            "4556:12518"
+          ],
+          [
+            "unknownStart",
+            "4556:12520"
+          ],
+          [
+            "rejected",
+            "4556:12522"
+          ],
+          [
+            "expired",
+            "4556:12524"
+          ]
+        ],
+        "rejected": [
+          [
+            "setup",
+            "4556:12531"
+          ]
+        ],
+        "expired": [
+          [
+            "review",
+            "4556:12538"
+          ]
+        ],
+        "pendingSave": [
+          [
+            "unknownSave",
+            "4556:12546"
+          ],
+          [
+            "saved",
+            "4556:12548"
+          ],
+          [
+            "saveRejected",
+            "4556:12550"
+          ]
+        ],
+        "unknownSave": [
+          [
+            "readingSave",
+            "4556:12557"
+          ]
+        ],
+        "readingSave": [
+          [
+            "unknownSave",
+            "4556:12565"
+          ],
+          [
+            "saved",
+            "4556:12567"
+          ],
+          [
+            "saveRejected",
+            "4556:12569"
+          ]
+        ],
+        "saveRejected": [
+          [
+            "setup",
+            "4556:12576"
+          ]
+        ],
+        "saved": [
+          [
+            "review",
+            "4556:12583"
+          ]
+        ],
+        "reviewUnknown": [
+          [
+            "review",
+            "4556:12590"
+          ]
+        ]
+      },
+      "launchControls": [
+        "2504:7206",
+        "3087:192895"
+      ],
+      "review": {
+        "fixed": "2504:7176",
+        "percent": "3087:192865"
+      },
+      "existingSuccess": "2504:5634",
+      "fonts": [
+        "Inter/Semi Bold",
+        "Inter/Regular"
+      ],
+      "readback": {
+        "timer": {
+          "seconds": 30,
+          "nav": []
+        },
+        "reviewEntries": [
+          {
+            "id": "2504:7206",
+            "branches": [
+              {
+                "wroteBeforeLaunch": [],
+                "sets": 0
+              },
+              {
+                "wroteBeforeLaunch": [
+                  [
+                    "VariableID:3237:16616",
+                    "fixed"
+                  ]
+                ],
+                "sets": 14
+              }
+            ]
+          },
+          {
+            "id": "3087:192895",
+            "branches": [
+              {
+                "wroteBeforeLaunch": [],
+                "sets": 0
+              },
+              {
+                "wroteBeforeLaunch": [
+                  [
+                    "VariableID:3237:16616",
+                    "percent"
+                  ]
+                ],
+                "sets": 14
+              }
+            ]
+          }
+        ],
+        "manualStatusReads": [
+          {
+            "target": "readingStart",
+            "id": "4556:12510",
+            "nav": [],
+            "staged": []
+          },
+          {
+            "target": "readingSave",
+            "id": "4556:12557",
+            "nav": [],
+            "staged": []
+          }
+        ],
+        "refresh": [
+          {
+            "target": "review",
+            "id": "4556:12538",
+            "nav": [
+              "2504:7176",
+              "3087:192865"
+            ],
+            "staged": []
+          },
+          {
+            "target": "review",
+            "id": "4556:12590",
+            "nav": [
+              "2504:7176",
+              "3087:192865"
+            ],
+            "staged": []
+          }
+        ],
+        "confirmed": [
+          {
+            "target": "success",
+            "id": "4556:12493",
+            "nav": [
+              "2504:5634"
+            ],
+            "staged": [
+              [
+                "VariableID:949:9430",
+                false
+              ],
+              [
+                "VariableID:3237:16616",
+                "none"
+              ],
+              [
+                "VariableID:3237:16615",
+                "empty"
+              ],
+              [
+                "VariableID:830:2",
+                "empty"
+              ]
+            ]
+          },
+          {
+            "target": "success",
+            "id": "4556:12518",
+            "nav": [
+              "2504:5634"
+            ],
+            "staged": [
+              [
+                "VariableID:949:9430",
+                false
+              ],
+              [
+                "VariableID:3237:16616",
+                "none"
+              ],
+              [
+                "VariableID:3237:16615",
+                "empty"
+              ],
+              [
+                "VariableID:830:2",
+                "empty"
+              ]
+            ]
+          }
+        ]
+      },
+      "stateFlags": {
+        "pendingStart": "VariableID:4556:12473",
+        "unknownStart": "VariableID:4556:12474",
+        "readingStart": "VariableID:4556:12475",
+        "rejected": "VariableID:4556:12476",
+        "expired": "VariableID:4556:12477",
+        "pendingSave": "VariableID:4556:12478",
+        "unknownSave": "VariableID:4556:12479",
+        "readingSave": "VariableID:4556:12480",
+        "saveRejected": "VariableID:4556:12481",
+        "saved": "VariableID:4556:12482",
+        "reviewUnknown": "VariableID:4556:12483",
+        "hold": "VariableID:4556:12484",
+        "wasHeld": "VariableID:4556:12485"
+      },
+      "prototypeChecks": {
+        "pendingStart": {
+          "footer": "4560:24985",
+          "toggle": "4560:24986",
+          "options": "4560:24989",
+          "variable": "VariableID:4560:24981",
+          "defaultVisible": false,
+          "buttons": [
+            "4556:12493",
+            "4556:12495",
+            "4556:12497",
+            "4556:12499",
+            "4556:12501",
+            "4556:12503"
+          ]
+        },
+        "readingStart": {
+          "footer": "4560:25001",
+          "toggle": "4560:25002",
+          "options": "4560:25005",
+          "variable": "VariableID:4560:24982",
+          "defaultVisible": false,
+          "buttons": [
+            "4556:12518",
+            "4556:12520",
+            "4556:12522",
+            "4556:12524"
+          ]
+        },
+        "pendingSave": {
+          "footer": "4560:25014",
+          "toggle": "4560:25015",
+          "options": "4560:25018",
+          "variable": "VariableID:4560:24983",
+          "defaultVisible": false,
+          "buttons": [
+            "4556:12546",
+            "4556:12548",
+            "4556:12550"
+          ]
+        },
+        "readingSave": {
+          "footer": "4560:25026",
+          "toggle": "4560:25027",
+          "options": "4560:25030",
+          "variable": "VariableID:4560:24984",
+          "defaultVisible": false,
+          "buttons": [
+            "4556:12565",
+            "4556:12567",
+            "4556:12569"
+          ]
+        }
+      }
+    }
+  }
+}

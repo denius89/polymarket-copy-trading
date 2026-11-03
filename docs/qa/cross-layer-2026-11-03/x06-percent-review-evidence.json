@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-03",
+  "changes": [
+    {
+      "id": "3086:3472",
+      "before": "3% от подтверждённой покупки трейдера. Сумма каждой демо-копии проверяется по лимитам.",
+      "after": "Пустая сессия: копирование не подключено. Заявок и позиций не будет."
+    },
+    {
+      "id": "3087:3480",
+      "before": "New signals only. Existing orders and positions stay unchanged.",
+      "after": "Empty session: copying is not connected. No orders or positions will appear."
+    },
+    {
+      "id": "3087:192674",
+      "before": "Только новые сигналы",
+      "after": "Первый запуск: пустая сессия"
+    },
+    {
+      "id": "3087:192675",
+      "before": "3% от подтверждённой покупки. Каждый сигнал проверяется по лимитам.",
+      "after": "Копирование пока не подключено. Новые заявки и позиции не появятся."
+    },
+    {
+      "id": "3087:192998",
+      "before": "New signals only",
+      "after": "First launch: empty session"
+    },
+    {
+      "id": "3087:192999",
+      "before": "3% of confirmed trader buy. Every copy is checked against the limits.",
+      "after": "Copying is not connected yet. No new orders or positions will appear."
+    },
+    {
+      "id": "I2499:3814;819:315",
+      "before": "Запуск копирования",
+      "after": "Запуск демо-сессии"
+    },
+    {
+      "id": "I2499:3814;819:316",
+      "before": "Настройки сохранены; копирование готово к запуску",
+      "after": "Проверяем результат запуска"
+    },
+    {
+      "id": "I2504:7396;819:315",
+      "before": "Starting demo copying",
+      "after": "Starting demo session"
+    }
+  ],
+  "reason": "Final Present pass found stale new-signal promise in percentage review; aligned all four variants and desktop launch headers."
+}
