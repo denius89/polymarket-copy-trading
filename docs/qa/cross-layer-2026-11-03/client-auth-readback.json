@@ -1,0 +1,1346 @@
+[
+  {
+    "tag": "MR",
+    "submit": [
+      {
+        "type": "NODE",
+        "to": "4557:24672"
+      },
+      {
+        "type": "NODE",
+        "to": "4557:24717"
+      }
+    ],
+    "frames": [
+      {
+        "key": "totp",
+        "id": "4557:24672",
+        "bottom": 408,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "totperror",
+        "id": "4557:24683",
+        "bottom": 340,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "pause",
+        "id": "4557:24692",
+        "bottom": 276,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "renew",
+        "id": "4557:24699",
+        "bottom": 340,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "unknown",
+        "id": "4557:24708",
+        "bottom": 276,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "q01",
+        "id": "4557:24717",
+        "bottom": 212,
+        "height": 844,
+        "overflow": false,
+        "actions": [
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:3",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:2",
+            "value": false
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:2",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "empty"
+          },
+          {
+            "type": "NODE",
+            "to": "2532:21021"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:2",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16603",
+            "value": "Сессия уже активна. Новая не запущена; черновик настройки сохранён."
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16604",
+            "value": "Открыть текущую сессию"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "active"
+          },
+          {
+            "type": "NODE",
+            "to": "3239:11824"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:2",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16603",
+            "value": "Сессия на паузе. Вход её не возобновляет; черновик настройки сохранён."
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16604",
+            "value": "Открыть текущую сессию"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "paused"
+          },
+          {
+            "type": "NODE",
+            "to": "3239:11824"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:2",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16603",
+            "value": "Остались позиции или незавершённая сверка. Новая сессия недоступна; черновик сохранён."
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16604",
+            "value": "Открыть текущую сессию"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "active"
+          },
+          {
+            "type": "NODE",
+            "to": "3239:11824"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:2",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16603",
+            "value": "Сессия завершена; открытых позиций и незавершённой сверки нет. Можно выбрать трейдера для новой проверки."
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16604",
+            "value": "Выбрать трейдера"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "completed"
+          },
+          {
+            "type": "NODE",
+            "to": "3239:11824"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:2",
+            "value": true
+          },
+          {
+            "type": "NODE",
+            "to": "4557:24831"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:2",
+            "value": true
+          },
+          {
+            "type": "NODE",
+            "to": "4557:24831"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:2",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "before"
+          },
+          {
+            "type": "NODE",
+            "to": "2532:20141"
+          }
+        ]
+      },
+      {
+        "key": "q01failed",
+        "id": "4557:24722",
+        "bottom": 372,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "cookie",
+        "id": "4557:24731",
+        "bottom": 360,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "recovery",
+        "id": "4557:24740",
+        "bottom": 480,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "recoverypending",
+        "id": "4557:24751",
+        "bottom": 296,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "reenroll",
+        "id": "4557:24758",
+        "bottom": 448,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "manageoff",
+        "id": "4557:24769",
+        "bottom": 340,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "manageon",
+        "id": "4557:24778",
+        "bottom": 340,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "enrollemail",
+        "id": "4557:24787",
+        "bottom": 428,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "enroll",
+        "id": "4557:24798",
+        "bottom": 500,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "disableemail",
+        "id": "4557:24809",
+        "bottom": 428,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "disable",
+        "id": "4557:24820",
+        "bottom": 428,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "claim",
+        "id": "4557:24831",
+        "bottom": 392,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "claimunknown",
+        "id": "4557:24840",
+        "bottom": 296,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "claimdone",
+        "id": "4557:24847",
+        "bottom": 340,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "claimfailed",
+        "id": "4557:24856",
+        "bottom": 296,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      }
+    ]
+  },
+  {
+    "tag": "ME",
+    "submit": [
+      {
+        "type": "NODE",
+        "to": "4557:25139"
+      },
+      {
+        "type": "NODE",
+        "to": "4557:25184"
+      }
+    ],
+    "frames": [
+      {
+        "key": "totp",
+        "id": "4557:25139",
+        "bottom": 408,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "totperror",
+        "id": "4557:25150",
+        "bottom": 320,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "pause",
+        "id": "4557:25159",
+        "bottom": 276,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "renew",
+        "id": "4557:25166",
+        "bottom": 320,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "unknown",
+        "id": "4557:25175",
+        "bottom": 276,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "q01",
+        "id": "4557:25184",
+        "bottom": 192,
+        "height": 844,
+        "overflow": false,
+        "actions": [
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:3",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:3",
+            "value": false
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:3",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "empty"
+          },
+          {
+            "type": "NODE",
+            "to": "2532:20954"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:3",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16608",
+            "value": "A session is already active. No new session was started; your settings draft is kept."
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16609",
+            "value": "Open current session"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "active"
+          },
+          {
+            "type": "NODE",
+            "to": "3239:15308"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:3",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16608",
+            "value": "Your session is paused. Signing in does not resume it; your settings draft is kept."
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16609",
+            "value": "Open current session"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "paused"
+          },
+          {
+            "type": "NODE",
+            "to": "3239:15308"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:3",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16608",
+            "value": "Positions or reconciliation are still open. A new session is unavailable; your draft is kept."
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16609",
+            "value": "Open current session"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "active"
+          },
+          {
+            "type": "NODE",
+            "to": "3239:15308"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:3",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16608",
+            "value": "Your session is complete, with no open positions or reconciliation. You can choose a trader for a new check."
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16609",
+            "value": "Choose a trader"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "completed"
+          },
+          {
+            "type": "NODE",
+            "to": "3239:15308"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:3",
+            "value": true
+          },
+          {
+            "type": "NODE",
+            "to": "4557:25298"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:3",
+            "value": true
+          },
+          {
+            "type": "NODE",
+            "to": "4557:25298"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:3",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "before"
+          },
+          {
+            "type": "NODE",
+            "to": "2532:19324"
+          }
+        ]
+      },
+      {
+        "key": "q01failed",
+        "id": "4557:25189",
+        "bottom": 340,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "cookie",
+        "id": "4557:25198",
+        "bottom": 340,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "recovery",
+        "id": "4557:25207",
+        "bottom": 448,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "recoverypending",
+        "id": "4557:25218",
+        "bottom": 296,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "reenroll",
+        "id": "4557:25225",
+        "bottom": 428,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "manageoff",
+        "id": "4557:25236",
+        "bottom": 340,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "manageon",
+        "id": "4557:25245",
+        "bottom": 340,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "enrollemail",
+        "id": "4557:25254",
+        "bottom": 408,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "enroll",
+        "id": "4557:25265",
+        "bottom": 448,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "disableemail",
+        "id": "4557:25276",
+        "bottom": 428,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "disable",
+        "id": "4557:25287",
+        "bottom": 428,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "claim",
+        "id": "4557:25298",
+        "bottom": 392,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "claimunknown",
+        "id": "4557:25307",
+        "bottom": 276,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "claimdone",
+        "id": "4557:25314",
+        "bottom": 340,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "claimfailed",
+        "id": "4557:25323",
+        "bottom": 276,
+        "height": 844,
+        "overflow": false,
+        "actions": []
+      }
+    ]
+  },
+  {
+    "tag": "DR",
+    "submit": [
+      {
+        "type": "NODE",
+        "to": "4557:24906"
+      },
+      {
+        "type": "NODE",
+        "to": "4557:24951"
+      }
+    ],
+    "frames": [
+      {
+        "key": "totp",
+        "id": "4557:24906",
+        "bottom": 444,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "totperror",
+        "id": "4557:24917",
+        "bottom": 376,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "pause",
+        "id": "4557:24926",
+        "bottom": 312,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "renew",
+        "id": "4557:24933",
+        "bottom": 376,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "unknown",
+        "id": "4557:24942",
+        "bottom": 312,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "q01",
+        "id": "4557:24951",
+        "bottom": 248,
+        "height": 960,
+        "overflow": false,
+        "actions": [
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:3",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:4",
+            "value": false
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:4",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "empty"
+          },
+          {
+            "type": "NODE",
+            "to": "2499:3827"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:4",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16613",
+            "value": "Сессия уже активна. Новая не запущена; черновик настройки сохранён."
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16614",
+            "value": "Открыть текущую сессию"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "active"
+          },
+          {
+            "type": "NODE",
+            "to": "3239:8310"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:4",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16613",
+            "value": "Сессия на паузе. Вход её не возобновляет; черновик настройки сохранён."
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16614",
+            "value": "Открыть текущую сессию"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "paused"
+          },
+          {
+            "type": "NODE",
+            "to": "3239:8310"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:4",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16613",
+            "value": "Остались позиции или незавершённая сверка. Новая сессия недоступна; черновик сохранён."
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16614",
+            "value": "Открыть текущую сессию"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "active"
+          },
+          {
+            "type": "NODE",
+            "to": "3239:8310"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:4",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16613",
+            "value": "Сессия завершена; открытых позиций и незавершённой сверки нет. Можно выбрать трейдера для новой проверки."
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16614",
+            "value": "Выбрать трейдера"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "completed"
+          },
+          {
+            "type": "NODE",
+            "to": "3239:8310"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:4",
+            "value": true
+          },
+          {
+            "type": "NODE",
+            "to": "4557:25065"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:4",
+            "value": true
+          },
+          {
+            "type": "NODE",
+            "to": "4557:25065"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:4",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "before"
+          },
+          {
+            "type": "NODE",
+            "to": "2525:134441"
+          }
+        ]
+      },
+      {
+        "key": "q01failed",
+        "id": "4557:24956",
+        "bottom": 376,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "cookie",
+        "id": "4557:24965",
+        "bottom": 376,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "recovery",
+        "id": "4557:24974",
+        "bottom": 484,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "recoverypending",
+        "id": "4557:24985",
+        "bottom": 332,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "reenroll",
+        "id": "4557:24992",
+        "bottom": 484,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "manageoff",
+        "id": "4557:25003",
+        "bottom": 376,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "manageon",
+        "id": "4557:25012",
+        "bottom": 376,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "enrollemail",
+        "id": "4557:25021",
+        "bottom": 464,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "enroll",
+        "id": "4557:25032",
+        "bottom": 504,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "disableemail",
+        "id": "4557:25043",
+        "bottom": 464,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "disable",
+        "id": "4557:25054",
+        "bottom": 464,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "claim",
+        "id": "4557:25065",
+        "bottom": 396,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "claimunknown",
+        "id": "4557:25074",
+        "bottom": 312,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "claimdone",
+        "id": "4557:25081",
+        "bottom": 376,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "claimfailed",
+        "id": "4557:25090",
+        "bottom": 312,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      }
+    ]
+  },
+  {
+    "tag": "DE",
+    "submit": [
+      {
+        "type": "NODE",
+        "to": "4557:25372"
+      },
+      {
+        "type": "NODE",
+        "to": "4557:25417"
+      }
+    ],
+    "frames": [
+      {
+        "key": "totp",
+        "id": "4557:25372",
+        "bottom": 444,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "totperror",
+        "id": "4557:25383",
+        "bottom": 376,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "pause",
+        "id": "4557:25392",
+        "bottom": 312,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "renew",
+        "id": "4557:25399",
+        "bottom": 376,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "unknown",
+        "id": "4557:25408",
+        "bottom": 312,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "q01",
+        "id": "4557:25417",
+        "bottom": 248,
+        "height": 960,
+        "overflow": false,
+        "actions": [
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:3",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:5",
+            "value": false
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:5",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "empty"
+          },
+          {
+            "type": "NODE",
+            "to": "2504:5634"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:5",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16618",
+            "value": "A session is already active. No new session was started; your settings draft is kept."
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16619",
+            "value": "Open current session"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "active"
+          },
+          {
+            "type": "NODE",
+            "to": "3239:23646"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:5",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16618",
+            "value": "Your session is paused. Signing in does not resume it; your settings draft is kept."
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16619",
+            "value": "Open current session"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "paused"
+          },
+          {
+            "type": "NODE",
+            "to": "3239:23646"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:5",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16618",
+            "value": "Positions or reconciliation are still open. A new session is unavailable; your draft is kept."
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16619",
+            "value": "Open current session"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "active"
+          },
+          {
+            "type": "NODE",
+            "to": "3239:23646"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:5",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16618",
+            "value": "Your session is complete, with no open positions or reconciliation. You can choose a trader for a new check."
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3237:16619",
+            "value": "Choose a trader"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "completed"
+          },
+          {
+            "type": "NODE",
+            "to": "3239:23646"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:5",
+            "value": true
+          },
+          {
+            "type": "NODE",
+            "to": "4557:25531"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:5",
+            "value": true
+          },
+          {
+            "type": "NODE",
+            "to": "4557:25531"
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:3243:5",
+            "value": true
+          },
+          {
+            "type": "SET_VARIABLE",
+            "id": "VariableID:830:2",
+            "value": "before"
+          },
+          {
+            "type": "NODE",
+            "to": "2525:3700"
+          }
+        ]
+      },
+      {
+        "key": "q01failed",
+        "id": "4557:25422",
+        "bottom": 376,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "cookie",
+        "id": "4557:25431",
+        "bottom": 376,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "recovery",
+        "id": "4557:25440",
+        "bottom": 484,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "recoverypending",
+        "id": "4557:25451",
+        "bottom": 312,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "reenroll",
+        "id": "4557:25458",
+        "bottom": 464,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "manageoff",
+        "id": "4557:25469",
+        "bottom": 376,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "manageon",
+        "id": "4557:25478",
+        "bottom": 376,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "enrollemail",
+        "id": "4557:25487",
+        "bottom": 464,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "enroll",
+        "id": "4557:25498",
+        "bottom": 504,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "disableemail",
+        "id": "4557:25509",
+        "bottom": 464,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "disable",
+        "id": "4557:25520",
+        "bottom": 464,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "claim",
+        "id": "4557:25531",
+        "bottom": 376,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "claimunknown",
+        "id": "4557:25540",
+        "bottom": 312,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "claimdone",
+        "id": "4557:25547",
+        "bottom": 376,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      },
+      {
+        "key": "claimfailed",
+        "id": "4557:25556",
+        "bottom": 312,
+        "height": 960,
+        "overflow": false,
+        "actions": []
+      }
+    ]
+  }
+]

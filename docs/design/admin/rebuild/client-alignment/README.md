@@ -1,5 +1,9 @@
 # Клиент и админка: общая логика и данные
 
+## Актуальная передача X07–X09
+
+Ниже сохранена октябрьская сверка общих учебных данных. Для приёмки Q04 ↔ Q06 используется сохранённый пустой снимок AP09 и отдельные состояния отсутствия и ошибок. [Актуальные сценарии Figma](../contract-review/README.md).
+
 27.10.2026 · исправления CA-01–CA-05 после адресной сверки. Основа Git: `4c82445a6dcd1e48d9e7ae8e20134c340b962e9d`.
 
 [Публичный сайт](https://shadow-admin-demo.denisfedko.chatgpt.site) · [Figma desktop](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=3990-108&starting-point-node-id=3990-108&scaling=scale-down) · [Figma mobile](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=4160-650&starting-point-node-id=4160-650&scaling=scale-down).

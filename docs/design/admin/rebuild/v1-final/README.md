@@ -8,7 +8,7 @@
 
 ## Точки входа
 
-- [Публичный сайт](https://shadow-admin-demo.denisfedko.chatgpt.site) — основной интерактивный пример со свободным вводом учебных данных.
+- [Актуальная проверка X07–X09 в Figma](../contract-review/README.md) · [исторический HTML v21](https://shadow-admin-demo.denisfedko.chatgpt.site). Для передачи Q06, восстановления владельцев и входов сотрудника используйте актуальные кадры.
 - [Figma · настольный прототип](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=3990-108&starting-point-node-id=3990-108&scaling=scale-down).
 - [Figma · мобильный прототип](https://www.figma.com/proto/lxPP2um7FvIbt02K8eeH4T?node-id=4160-650&starting-point-node-id=4160-650&scaling=scale-down).
 - [Короткая инструкция](review-guide.md), [покрытие требований](coverage.md), [проверка и границы](verification.md), [условия реализации и запуска](backlog.md), [пожелания следующих версий](next-versions.md).

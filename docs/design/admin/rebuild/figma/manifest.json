@@ -1,6 +1,6 @@
 {
-  "version": "0.22",
-  "date": "2026-10-27",
+  "version": "0.23",
+  "date": "2026-11-03",
   "status": "design-v1-frozen-for-implementation-with-explicit-gates",
   "baseline": "9ae9bc5ae65a1900fbda86011850d560b8ee3f7e",
   "fileKey": "lxPP2um7FvIbt02K8eeH4T",
@@ -2877,5 +2877,32 @@
     "decision": "../../../../decisions/0061_owner_external_wallet_funding.md",
     "verification": "../external-funding/verification.md",
     "scope": "Owner-only synthetic inbound observations; no real transfers"
+  },
+  "contractReview": {
+    "baseline": "2c22c72",
+    "scope": [
+      "X07",
+      "X08",
+      "X09"
+    ],
+    "entry": "3990:108",
+    "mobileEntry": "4160:650",
+    "map": "../contract-review/figma-map.json",
+    "handoff": "../contract-review/README.md",
+    "evidence": "../contract-review/verification.md",
+    "historicalHtml": "../prototype/README.md",
+    "qaAnnex": [
+      "4532:6665",
+      "4532:6687"
+    ],
+    "activeProductRoots": [
+      "3971:5",
+      "4160:506",
+      "4028:175",
+      "4161:63198",
+      "3990:109",
+      "4160:684"
+    ],
+    "productNodes": "../contract-review/product-nodes.json"
   }
 }
