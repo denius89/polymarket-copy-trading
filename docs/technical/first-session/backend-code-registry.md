@@ -1,3 +1,7 @@
+03.11.2026 · **D02/v6 принят владельцем пакетно после повторной вычитки БД.** См. [акт принятия D02/v6](backend-auth-d02-acceptance-2026-11-03.md): проверенный baseline main f3cd7c8, текущий документальный реестр first-session-registry-v6. Предметное содержание вычитанного пакета сохранено; дальнейшие D03/BR08/M04/M05/H06, scoped-состояния78 и D04 открыты. Только документы; реализация и поведенческие испытания не разрешены этим принятием.
+
+История изданий до пакетного принятия v6 (датированные записи сохранены):
+
 02.11.2026 · **Подготовлен полный проект first-session-registry-v6, current пока v5.** [Точная дельта D02](backend-auth-d02-registry.md) и [API](backend-auth-d02-contracts.md): actions/results/context purposes/stages/grants/audit/record formats и AC-отображение. Принятие U01–U03 не объявляется автоматическим принятием всех новых DTO/технических уточнений D02; нужен единый итог вычитки. История v1–v5 сохранена.
 
 # Закрытые реестры кодов первого сценария — H02 и H03
@@ -239,10 +243,10 @@ V1 нового audit-kind — его собственный первый вар
 
 Stages user Auth-context: ready, email_verification, totp_verification, totp_enrollment, completed. Continuation.kind: default/setup_draft. Logout continuation authorizationMode: original_login/current_user. Другие закрытые значения и области прежних изданий неизменны. Новые DTO/типы для TOTP-management/staff и имена их audit-events ещё не выбраны, не выводятся из названий глав этого пакета.
 
-## 15. Проект v6: полный D02, ещё не текущее издание
+## 15. Издание v6: принятый D02
 
-Полный единственный whitelist дельты находится в [D02 registry](backend-auth-d02-registry.md), формы — [D02 API](backend-auth-d02-contracts.md). Это кандидат v6, не выборочное добавление пары кодов в v5. После единого принятия указатель current меняется явной записью, старые издания не переписываются.
+Полный единственный whitelist дельты находится в [D02 registry](backend-auth-d02-registry.md), формы — [D02 API](backend-auth-d02-contracts.md). 03.11.2026 владелец принял весь проверенный пакет: [акт принятия](backend-auth-d02-acceptance-2026-11-03.md). Current = first-session-registry-v6: вся адресная дельта вместе с прежними принятыми значениями v1–v5; старые издания не переписываются.
 
-Дельта включает AUTH_EMAIL_LINK_VERIFY и auth_completion_not_issued только в указанных user Auth scopes; отдельные MFA/staff/guest namespaces; новые actions/results/proof/stage; принятые reset grants и проект точного staff_recovery_approve; закрытые Auth audit kinds; специфические record formats/typed refs. Top-level reasonCode не добавляются; четыре Shadow формата, command_receipts и Q06 audit не расширены. Login-cookie NOT_APPLICABLE для новых scopes относится только к их собственным completion kinds. CATALOG_CHANGED остаётся Q02-only.
+Дельта включает AUTH_EMAIL_LINK_VERIFY и auth_completion_not_issued только в указанных user Auth scopes; отдельные MFA/staff/guest namespaces; новые actions/results/proof/stage; принятые reset grants и точный staff_recovery_approve; закрытые Auth audit kinds; специфические record formats/typed refs. Top-level reasonCode не добавляются; четыре Shadow формата, command_receipts и Q06 audit не расширены. Login-cookie NOT_APPLICABLE для новых scopes относится только к их собственным completion kinds. CATALOG_CHANGED остаётся Q02-only.
 
-D02 перечисляет дополнительные технические решения для вычитки: NRef до context, pair approver selector и role rows, current-case GET, proof reissuance profile, поздний outcome DTO/HTTP. U01–U03 уже приняты, их физический итог78 отдельно отражён. Ни одного codec/endpoint/grant assignment/испытания этой работой не создано.
+D02 включает принятые пакетно дополнительные технические решения: NRef до context, pair approver selector и role rows, current-case GET, proof reissuance profile, поздний outcome DTO/HTTP. U01–U03 уже приняты, их физический итог78 отдельно отражён. Ни одного codec/endpoint/grant assignment/испытания этой работой не создано.
