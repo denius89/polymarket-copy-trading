@@ -4,6 +4,8 @@
 
 Принятая физическая основа — [42 Auth +36 Shadow](auth-storage-unified.md). Первоначальный [API review](backend-review-api-spec.md) сохраняется как источник требований; при расхождении в точности новых форм применяется этот D02-проект. Формы C04/C05/C06/Q01–Q06, финансовые правила, CommandReceipt/Q05, claim и user logout не расширяются неявно. Владелец 1 и владелец 2 равноправны. Код, SQL, миграции, установка, база и предметные испытания не выполнялись.
 
+03.11.2026 · Адресная редакция по [BDR01–BDR08](database-auth-d02-review-2026-11-03.md): [ответ и границы решений](backend-auth-d02-bdr-response.md). Основа a967c50/PR №211; U01–U03 и 78 таблиц сохранены, D02/v6 остаётся проектом.
+
 ## 1. Типы, оболочки и проверка
 
 U — канонический UUIDv4; V — десятичная строка положительного signed bigint без ведущих нулей; T — UTC Z с ровно3 десятичными знаками миллисекунд; B — JSON boolean. Все поля обязательны, только явно указанные `|null` допускают null. Перечень полей закрыт на каждом уровне; массивы без лишних/повторных идентификаторов, порядок задан формой. Неподдерживаемое значение не ближайший известный enum.
@@ -86,7 +88,7 @@ U — канонический UUIDv4; V — десятичная строка �
 | R39 POST K/{id}/approval-options либо P/{id}/approval-options | operationId,requestVersion; single SL второго владельца; pair оба SR + выбранный approverContextId только для pair |200 NReply staff_recovery_approval_options; security_case/recovery_options |
 | R40 POST K/{id}/approve либо P/{id}/approve | operationId,requestVersion,challengeId,assertion; тот же proof; pair дополнительно approverContextId |200 NReply staff_recovery_approved; security_case/recovery_approve |
 | R41 POST K/{id}/complete либо P/{id}/complete | operationId,requestVersion; single SR subject; pair оба SR |200 NReply staff_recovery_completed; security_case/recovery_complete |
-| R42 GET K/{id}/operations/{op} либо P/{id}/operations/{op} | action из whitelist recovery соответствующего пути; SR/оба SR; SL второго владельца только его options/approve |200/202 NReply; исходный namespace восстанавливается через typed refs |
+| R42 GET K/{id}/operations/{op} либо P/{id}/operations/{op} | action из whitelist recovery соответствующего пути; SR/оба SR; SL второго владельца только его options/approve |200/202 NReply; исходный namespace определяется закрытым resolver §6.1, включая unresolved; K не следует current pair pointer |
 | R43 POST Z | operationId; SL |201/повтор200 R(contextId,createdAt,expiresAt); login/recovery_code_context_create; SC cookie |
 | R44 POST Z/{id}/options | operationId; SC |200 NReply recovery_code_options; context/recovery_code_options |
 | R45 POST Z/{id}/issue | operationId,challengeId,assertion; SC |200 R(contextId,recoveryHandle,setVersion,codes,issuedAt,secretExpiresAt); context/recovery_code_issue; history без codes |
@@ -162,7 +164,7 @@ TotpUri — только серверный otpauth из подготовлен�
 
 **Потеря ответа до context:** R29/R33 повторяются только с тем же operationId и исходным handle/code; replay проверяет право восстановления того же result, а не повторно расходует одноразовый proof. Применимость первоначального code не восстанавливается для другой операции. Unknown сначала разрешается по этому исходному namespace, публичный ID не proof. R43 использует тот же current SL и operationId. При missing исходного proof новый контекст по ID не выдаётся.
 
-Чтобы повтор R29/R33/R43 мог повторить cookie без хранения её plaintext, D02 задаёт отдельный профиль выдачи proof: HMAC-SHA256 закрытым derivation key над domain/env/context-kind/context-id/source-namespace/source-id и исходным secret proof с length-prefix. Отдельный domain/key от verifier, secret_comparison и full-login cookie; результат32 bytes. AC06.digest_format фиксирует профиль и key_id; verifier отдельно HMAC полученного секрета. При replay нужен тот же исходный secret, версия ключа и тот же result_context; новый secret не генерируется. Невозможность получить ключ/проверить исходный proof503, не новая cookie. Эта детализация относится к проекту D02/проверке D03 и не обещает восстановление потерянного исходного proof. Нельзя применять её к full-login cookie, которую возвращает только AC07 по AC16.
+Чтобы повтор R29/R33/R43 вернул ту же cookie ограниченного context, применяется единственный нормативный байтовый профиль [реестра §3.1](backend-auth-d02-registry.md). Он задаёт literal domains, encoding, исходный proof каждого маршрута, derivation и отдельный verifier; альтернативная формула здесь не допускается. AC06 закрепляет профиль/key-bundle. При replay нужны тот же исходный secret, исходная версия ключей и тот же result_context; новый secret не генерируется. Недоступный ключ/невозможность технической проверки —503, доказанно неверный proof — прежний отказ доступа. Эта точность остаётся проектом D02; D03 проверит заданный профиль. Full-login cookie этим способом не восстанавливается: только AC07/AC16.
 
 ## 6. Состояния, право повторов и атомарные комплекты
 
@@ -180,6 +182,22 @@ Recovery SR создаётся limited с version1; успешная registratio
 
 Atomic sets: context-create+proof+source-consume+result; dispatch seal+operation pointer; verify+used steps/counters+result/stage; full login+AC05+AC38+AC16+AC07+source context (и staff slot/revoke); claim остаётся своим прежним полным комплектом с AC19/40; approval+consumed challenge+result+audit; reset/recovery effect+security/revokes+result+audit+notification; issue codes+10 rows+old-set revoke+result; local witness change-set с каждым защищённым эффектом. Ни один partial parent не успех. Network effect не атомарен с локальной T.
 
+### 6.1. Исторический resolver K/P и scope операции
+
+Эта редакция BDR03 использует существующие immutable связи; новых колонок, wire-полей и глобальной уникальности operationId нет. Перед поиском — текущий разрешённый reader; ошибки чтения/неоднозначная обязательная связь —503 RECORD_UNAVAILABLE, не поиск «первого подходящего» результата.
+
+| Путь/action R42 | Единственный исходный scope и источник |
+| --- | --- |
+| K: recovery_create | recovery_handle / AC23.id из AC03.recovery_code_set_id. Исходная AC04 найдена по scope/action/client_operation_id; её AC05.result_context_id должен равняться K context |
+| K: recovery_registration_options / recovery_registration_verify | context / сам K context ID. Наличие AC05 не требуется для поиска AC04 |
+| K: recovery_options / recovery_approve / recovery_complete | Только исторический **single** case. Найти единственный AC20, зарегистрированный action=recovery_registration_verify с AC04.namespace=context/context_id=K. По неизменяемому AC20.source_case_version_id → AC26.case_id → AC25(kind=staff_recovery_single). AC27 subject той исходной версии обязан связывать тот же staff/context/credential. По этому AC25.id ищется AC04 security_case/action/client_operation_id, в том числе до AC05 |
+| P: pair_create | context / min двух исходных SR ID по байтам UUID, через subject rows исходной AC26 pairId=AC25.id. First/second в сохранённом payload не сортируются заново |
+| P: recovery_options / recovery_approve / recovery_complete | security_case / сам pairId=AC25.id, kind=staff_recovery_pair. Исторический requestVersion из AC04.nonsecret_payload разрешается в AC26 того case; для исполнения дополнительно exact execution_case_version_id |
+
+K case-POST после привязки к pair не начинает новое single-действие:409 AUTH_CONTEXT_STATE_CONFLICT. При exact replay сначала ищется прежняя операция в историческом single scope, её текущий допуск чтения всё равно обязателен. Работа с pair выполняется через P; старый K GET никогда не переключается на pair. Новая версия внутри того же case не меняет namespace/ключ операции. SL второго владельца через K читает только собственные options/approve при текущем праве; ни prior approval, ни прежний grant сами по себе не bearer.
+
+До успешной recovery registration отсутствие single case законно: на K ещё нет допустимой case-operation; соответствующий lookup —404 RESOURCE_NOT_FOUND, без создания case. После registration нет AC20/source case/обязательного participant либо найдено несколько credentials вместо единственного исходного —503 RECORD_UNAVAILABLE. Существующая незавершённая AC04 даёт202 по прежнему правилу; запись, отсутствующая после достоверного поиска в разрешённом единственном scope, не доказывает откат/отсутствие внешнего эффекта и не разрешает новый ключ. AC05 используется только после нахождения AC04 и проверки её целостности, а не как единственный locator.
+
 ## 7. Матрица ошибок и восстановления
 
 | Случай | Точный ответ/дальнейшее действие |
@@ -190,7 +208,7 @@ Atomic sets: context-create+proof+source-consume+result; dispatch seal+operation
 | Иной payload того же ключа |409 KEY_REUSE_CONFLICT после целостности записи и сравнения sensitive bytes; нет нового dispatch |
 | Stale version/не та стадия/заменённый challenge |409 AUTH_CONTEXT_STATE_CONFLICT; новый explicit action только после разрешения прежнего unknown |
 | Действующий challenge, неправильный OTP/assertion |401 AUTH_VERIFICATION_FAILED, result verification_rejected; один предметный учёт. GET такого результата200 resolved |
-| Текущий challenge истёк |401 AUTH_VERIFICATION_FAILED, без bad-code increment; разрешённый final rejected result неизменяем. Resend/renew только по своей явной команде |
+| Текущий challenge истёк |Точная развёртка §7.1 ниже; email, TOTP и WebAuthn не объединяются в один отказ |
 | Пауза OTP/TOTP либо transport quota |429 RATE_LIMITED/retry_later; retryAt только достоверный внутри context срока, иначе{}; replay найден до предметной паузы, но после transport quota |
 | Unknown исполнения/нет provider proof |Direct503 SERVICE_UNAVAILABLE; authorized GET202 unresolved только после достоверного scoped чтения. Не новый key/неверный код |
 | Доказанно closed_without_dispatch, окончательного result нет |GET409 AUTH_CONTEXT_STATE_CONFLICT, не202; нет эффекта доказано closure evidence, новый вход/действие только явно по действующему допуску. Это не verification_rejected и не неизвестность |
@@ -204,6 +222,19 @@ Atomic sets: context-create+proof+source-consume+result; dispatch seal+operation
 
 Q01/recovery/revoke сериализуются по X AC16, window→secret. Первый доказанный Q01/admin-me закрывает окно до200, idle не продлевает. Поздний уже подготовленный HTTP может доставить ту же cookie после закрытия окна; серверный current guard сильнее. Первый Q01 позже expiry recovery разрешён по действующей cookie/AC38, отсутствие законно стёртого cipher не повреждение login. Logout target A и authorization B раздельны.
 
+### 7.1. Истечение и отрицательная проверка по маршрутам
+
+Для прежних C02/AUTH_TOTP_VERIFY действуют [Auth §§5–6](backend-auth-contracts-addendum.md); D02 не меняет их семантику. Порядок §1 сохраняется: replay доказанного результата раньше текущей стадии/срока challenge, но после текущего proof/доступа и transport quota. Применимая предметная пауза429 проверяется по прежнему профилю до новой проверки. Таблица ниже — случай, когда более ранний отказ не сработал; новые маршруты отмечены как точность проекта D02.
+
+| Kind / маршруты | Истёкший текущий challenge при живом контексте | AC05 / counter / challenge для нового ID |
+| --- | --- | --- |
+| Email: прежний C02; новый R49 email-link и MC email_verify R05 |401 AUTH_VERIFICATION_FAILED | Один verification_rejected в разрешённом исходном scope; counter не увеличивается, code/link не потребляются, stage/срок не продлеваются. Для новых R49/R05 это явный профиль D02; C02 прежний |
+| TOTP: прежний AUTH_TOTP_VERIFY |409 AUTH_CONTEXT_STATE_CONFLICT до проверки кода | Нет verification_rejected/новой AC05, нет dispatch/used steps/counter increment/consume; expiry не закрывает старый unknown. Только разрешённый explicit renew |
+| TOTP: новый mfa_confirm R09, enroll/disable/reenroll |409 AUTH_CONTEXT_STATE_CONFLICT до проверки кода | Та же нулевая предметная дельта AC05/09/11/12; подготовленный factor не активируется/отключается. Это профиль D02, не переопределение user login |
+| WebAuthn: R19 reset approve, R25 staff login, R31/R36 registration, R40 recovery approve, R45 code issue |409 AUTH_CONTEXT_STATE_CONFLICT до криптографической проверки | Нет verification_rejected/новой AC05/consume/credential/codes; не выдумывать TOTP counter. Новые options только по своему разрешённому пути |
+
+Для действительного challenge доказанно неверный OTP/повторный использованный TOTP step или неверная подпись в **разрешённом** verify action дают401 и один verification_rejected; предметный counter меняется только там, где его scope/purpose предусмотрен. WebAuthn не увеличивает AC12 TOTP. Синтаксически невалидный assertion/credential отклоняется раньше400, техническая невозможность проверить —503 без ложного verification_rejected. Ошибка регистрации не создаёт credential/single case. Expired/consumed recovery code R33 — не challenge AC09: действует его самостоятельный source-proof/replay профиль, не строка WebAuthn. Нулевая предметная дельта не означает отсутствие transport quota или безопасной технической телеметрии.
+
 ## 8. U03: точный поздний исход без выдачи login
 
 Новый result.kind=auth_completion_not_issued относится только к C02/AUTH_TOTP_VERIFY/AUTH_EMAIL_LINK_VERIFY, staff_login или mfa_confirm purpose=reenroll, когда доказано подтверждение, но **локальный полный login ещё не создан** и finalizer доказанно закрыл возможность его выдать. Сохранённый успешный completion после revoke не переписывается. Timeout/лишь закрытый gate без завершённой сверки не основание final result.
@@ -216,10 +247,12 @@ Direct после фиксации: если текущий reader ещё име
 
 Реестр user GET §7 явно расширяется только AUTH_EMAIL_LINK_VERIFY и auth_completion_not_issued, не staff/MFA kinds. User login-cookie POST дополнительно допускает commandType=AUTH_EMAIL_LINK_VERIFY для доказанного login_completed того же context; прочие прежние поля/5min/first-Q01 неизменны. Для auth_completion_not_issued recovery409 NOT_APPLICABLE при разрешённом чтении. MFA/staff GET используют свои NReply, не user UReply. После этого результата новый вход возможен только новым явным разрешённым процессом; он не возобновляет исходный operation ID.
 
+Для reenroll полная таблица factor/security/result/audit/notification — [реестр §4.3](backend-auth-d02-registry.md). Подтверждённая активация сохраняется и при auth_completion_not_issued; отсутствие login не заменяет аудит изменения фактора.
+
 ## 9. Activity и аудит, проверка полноты D02
 
 Activity routes: user_catalog targetId=null; user_setup/user_review draftId; user_session/staff_session_view sessionId. Билет30s — AC31 с typed target, выбранным login и current access, consume+один допустимый idle touch одной T с Q02/Q03/C05/Q04/Q06 соответственно. Staff ticket не продлевает user. C04 с реальным изменением/C06 могут touch в своей T без билета. Q01/refresh/poll/observer/replay без нового интерактивного допуска не touch. Невалидный ticket не даёт idle touch; обязательность и отказ400/404/401 следует его форме/цели/current login, не скрытому fallback. Билет не доказывает присутствие человека.
 
 [Реестр v6](backend-auth-d02-registry.md) перечисляет action/result/proof-purpose/stage/audit/grant и AC-отображение, включая все маршруты §3 и staff logout. Проверяются разные направления: route→schema/proof/result/storage; result→разрешённые actions; stored ref→тот же environment/subject/context/version; нет недостижимого публичного enum или неучтённого endpoint. Секретные ответы R07/R45 отдельно от исторического result. Не создаются новые Shadow command types/audit_events/recordSchemaVersion.
 
-Документальная готовность: все описанные новые маршруты получили точные request/success/error/replay/expiry/unknown/proof и источник хранения. Особые уточнения D02 (NRef до context, GET текущего case, pair approver selector/четыре participant rows, proof re-issuance profile, отдельные recovery grants, late-outcome wire) выделены в реестре для единой вычитки. Их подготовка не означает независимое принятие всего RD02 без просмотра. Принятые U01–U03/73→78 от этого не откатываются. D03 — будущие реальные capability/crypto/lock/budget/restore проверки; D04 после согласованного D02 и паспорта D03. Все испытания пока «не выполнялось».
+Адресная редакция BDR01–BDR08 подготовлена к повторной вычитке; автоматического закрытия замечаний нет. Новые маршруты описаны по request/success/error/replay/expiry/unknown/proof и источникам хранения; полнота теперь проверяется также по реестру §§1.1/3.1/4.1–4.3. Особые уточнения D02 (NRef до context, GET текущего case, pair approver selector/четыре participant rows, proof re-issuance profile, отдельные recovery grants, late-outcome wire) выделены в реестре для единой вычитки. Их подготовка не означает независимое принятие всего RD02 без просмотра. Принятые U01–U03/73→78 от этого не откатываются. D03 — будущие реальные capability/crypto/lock/budget/restore проверки; D04 после согласованного D02 и паспорта D03. Все испытания пока «не выполнялось».
