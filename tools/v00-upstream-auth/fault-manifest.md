@@ -7,9 +7,9 @@ synthetic fixtures, internal networks, zero extra cost; no production or V01.
 
 Prior scenario results do not establish the new A/B cases. Runtime evidence is a
 separate operator/DB artifact, not embedded in this code package. New harness
-scenarios start as **NOT RUN**. Nineteen local boundary tests cover proxy acceptance,
+scenarios start as **NOT RUN**. Twenty local boundary tests cover proxy acceptance,
 duplicate concurrency, source matching, bound psql relay and one-shot COMMIT loss;
-they are not real provider/DB/browser tests. Local total is62, including43 existing
+they are not real provider/DB/browser tests. Local total is63, including43 existing
 runtime/protocol tests. New runtime artifacts require their own publication review;
 the earlier PR245 permission does not automatically publish this run's raw evidence.
 
@@ -165,6 +165,8 @@ unchanged executor psql/service array. Keep ingress on its original separate com
 do not wrap capture or use an admin DB connection. The wrapper inherits the runtime
 DB timeouts and receives the ordinary appended psql flags. It supports upstream's
 three-line SELECT/bind/execute protocol; the old session shim is not interchangeable.
+Method names containing digits, including `q01`, pass through without arming the
+fault, both before and after the selected completion marker has been written.
 
 Marker directory is operator-owned0700; file must initially be absent. The wrapper
 uses atomic exclusive creation0600 and will suppress only the first matching

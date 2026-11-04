@@ -15,7 +15,7 @@ import sys
 import uuid
 
 
-SELECT = re.compile(rb"SELECT v00_upstream\.([a-z_]+)\(convert_from\(decode\(\$1,'base64'\),'UTF8'\)::jsonb\)::text\n")
+SELECT = re.compile(rb"SELECT v00_upstream\.([a-z_][a-z0-9_]*)\(convert_from\(decode\(\$1,'base64'\),'UTF8'\)::jsonb\)::text\n")
 BIND = re.compile(rb"\\bind '([A-Za-z0-9+/=]+)'\n")
 
 
