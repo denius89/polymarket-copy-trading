@@ -101,7 +101,7 @@ class App(SessionController):
                 outcome = self.bridge.verify_email(ref, challenge, admission, executor_proof,
                     f["email"], body["code"], f.get("provider_fault", "none"), deadline=deadline)
             else:
-                outcome = self.bridge.verify_totp(ref, challenge, admission, executor_proof, body["code"])
+                outcome = self.bridge.verify_totp(ref, challenge, admission, executor_proof, body["code"], deadline=deadline)
             status, value, extra, _ = self.public(outcome, ref)
             return status, value, extra, f.get("response_fault")
         operation = re.fullmatch(r"/api/auth/contexts/([^/]+)/operations/([^/]+)(/login-cookie)?", path)

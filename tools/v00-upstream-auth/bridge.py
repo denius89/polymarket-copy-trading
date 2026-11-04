@@ -53,7 +53,7 @@ class Bridge:
                                 {"challenge_id": challenge_id, "admission_id": admission_id,
                                  "executor_proof": executor_proof})
             tx.commit()
-        if seal["dispatch_allowed"]:
+        if seal.get("dispatch_allowed", False):
             if deadline is not None and time.monotonic() >= deadline:
                 raise Unavailable("dispatch budget exhausted")
             try:
@@ -62,22 +62,24 @@ class Bridge:
                 self.provider.verify_email(email, code, seal["dispatch_id"], fault=fault)
             except (UnknownOutcome, ConfirmedNotSent):
                 pass  # No retry and no inferred rejection/rollback. Consult original witness.
-        return self.plan("plan_email", ref)
+        return self.plan("plan_email", ref, deadline=deadline)
 
-    def verify_totp(self, ref, challenge_id, admission_id, executor_proof, code):
+    def verify_totp(self, ref, challenge_id, admission_id, executor_proof, code, deadline=None):
         require(ref["action"] == "AUTH_TOTP_VERIFY")
         six_digits(code)
         return self.plan("plan_totp", ref,
                          {"challenge_id": challenge_id, "admission_id": admission_id,
-                          "executor_proof": executor_proof, "code": code})
+                          "executor_proof": executor_proof, "code": code}, deadline=deadline)
 
-    def plan(self, method, ref, extra=None):
+    def plan(self, method, ref, extra=None, deadline=None):
         ids = {"login_id": str(uuid.uuid4()), "secret_id": str(uuid.uuid4())}
         with self.transaction() as tx:
             variant, value = self.call(tx, method, ref, ids | (extra or {}), ids)
+            if variant != "replay":
+                self.check_budget(deadline)
             cookie = expires = None
             if variant == "plan":
-                result, cookie, expires = self.finish(tx, ref, value)
+                result, cookie, expires = self.finish(tx, ref, value, deadline)
                 status = 200
             elif variant in {"replay", "intermediate"}:
                 result = value["result"]
@@ -96,10 +98,17 @@ class Bridge:
                         # Deadline closure may mutate window/erasure and must COMMIT.
             else:
                 raise Unavailable("unexpected plan outcome")
+            if variant != "replay":
+                self.check_budget(deadline)
             tx.commit()
         return Outcome(status, result, cookie, expires)
 
-    def finish(self, tx, ref, plan):
+    @staticmethod
+    def check_budget(deadline):
+        if deadline is not None and time.monotonic() >= deadline:
+            raise Unavailable("original handler budget exhausted")
+
+    def finish(self, tx, ref, plan, deadline=None):
         meta = plan["metadata"]
         value = b64url(os.urandom(32))
         ciphertext, nonce = self.sodium.encrypt(value.encode("ascii"), aad(meta),
@@ -107,6 +116,7 @@ class Bridge:
         material = {"cookie_digest": self.keys.login(meta["login_id"], value),
                     "ciphertext": ciphertext, "nonce": nonce, "key_id": "cipher-1",
                     "credential_key_id": "credential-1"}
+        self.check_budget(deadline)
         _, completed = self.call(tx, "complete", ref, material)
         c = completed["result"]["completion"]
         require(c["loginId"] == meta["login_id"] and c["completedAt"] == plan["completed_at"]

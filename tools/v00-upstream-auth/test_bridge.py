@@ -173,6 +173,19 @@ class BridgeTests(unittest.TestCase):
         self.assertEqual([m for m, _ in tx.calls], ["plan_email"])
         self.assertTrue(tx.closed and not tx.committed)
 
+    def test_handler_budget_expiry_rolls_back_new_plan(self):
+        tx = Tx([("plan_email", self.plan)])
+        with patch("bridge.time.monotonic", return_value=11), self.assertRaises(Unavailable):
+            self.bridge(tx).plan("plan_email", self.ref, deadline=10)
+        self.assertFalse(tx.committed)
+
+    def test_handler_budget_expiry_does_not_hide_historical_result(self):
+        tx = Tx([("plan_email", {"http": 200, "replay": True, "result": self.stage})])
+        with patch("bridge.time.monotonic", return_value=11):
+            outcome = self.bridge(tx).plan("plan_email", self.ref, deadline=10)
+        self.assertEqual(outcome.value, self.stage)
+        self.assertTrue(tx.committed)
+
     def test_wrong_completed_login_rolls_back(self):
         def wrong(fields):
             value = self.complete(fields)
@@ -214,6 +227,14 @@ class BridgeTests(unittest.TestCase):
         seal = Tx([("seal_email", self.seal)])
         plan = Tx([("plan_email", {"http": 200, "replay": True, "result": self.stage})])
         self.email(self.bridge(seal, plan))
+        self.assertEqual(self.provider.calls, 0)
+
+    def test_seal_final_result_replay_without_dispatch_variant(self):
+        replay = {"http": 200, "replay": True, "result": self.stage}
+        seal = Tx([("seal_email", replay)])
+        plan = Tx([("plan_email", replay)])
+        outcome = self.email(self.bridge(seal, plan))
+        self.assertEqual(outcome.value, self.stage)
         self.assertEqual(self.provider.calls, 0)
 
     def test_recovery_closed_commits_erasure(self):

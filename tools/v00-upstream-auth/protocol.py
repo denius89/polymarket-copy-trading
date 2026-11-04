@@ -97,6 +97,11 @@ def decode(method, value, ref=None, ids=None):
         require(http in ERRORS and type(value["reason"]) is str and value["reason"] in ERRORS[http])
         return "error"
     if method == "seal_email":
+        if "replay" in value:
+            exact(value, "http replay result")
+            require(http == 200 and value["replay"] is True)
+            result(value["result"], ref)
+            return "replay"
         exact(value, "http dispatch_allowed dispatch_id")
         require(http == 200 and type(value["dispatch_allowed"]) is bool)
         uid(value["dispatch_id"])

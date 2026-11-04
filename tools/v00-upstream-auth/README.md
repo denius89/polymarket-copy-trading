@@ -49,7 +49,7 @@ python3 -m unittest discover -s tools/v00-upstream-auth -p 'test_*.py'
 python3 -m compileall -q tools/v00-upstream-auth
 ```
 
-37 local checks passed at the first candidate: injected provider/COMMIT loss,
+42 local checks passed at the updated candidate: injected provider/COMMIT loss,
 rejection commit, crypto rollback, source mismatch, closed recovery, parser and
 role allowlists, and separation of bound values from server SQL. These are local
 protocol tests with doubles, **not** PostgreSQL/Auth/browser tests or UB passes.
@@ -94,6 +94,38 @@ python3 tools/v00-upstream-auth/serve.py
 
 No service setup, image build, role assignment or secret generation happens on import
 or in this launch command. The operator supplies the environment and matching DB.
+
+### Fixture and client commands
+
+The operator supplies a private mode0600 provider mapping with root `fixtures`
+array. Each item contains exactly `name`, `email`, `provider_user_id`,
+`provider_factor_id` (null for a verified no-MFA subject). Provider accounts and
+verified factors must already exist from real provider setup; these commands do
+not create them. A repeated provider user shares one Shadow actor across contexts.
+
+```sh
+python3 tools/v00-upstream-auth/prepare.py /private/provider-map.json /private/upstream-fixtures
+python3 scripts/v00-upstream-db/seed_adapter.py /private/upstream-fixtures/seed.json
+```
+
+The second command uses the operator-only loader connection from the DB manifest;
+never reuse that privileged connection when launching the runtime adapter.
+The output directory is new (no overwrite), with private keys/server/client/seed
+files. The operator now issues the single real fixture OTP while hooks are active.
+Copy only client.json and the public CA into the isolated client environment.
+
+```sh
+python3 tools/v00-upstream-auth/client_probe.py /private/client.json --ca /private/ca.pem --fixture basic
+python3 tools/v00-upstream-auth/client_probe.py /private/client.json --ca /private/ca.pem --fixture mfa --mfa
+```
+
+At each safe `need_code` event, supply one private JSON line on stdin with exactly
+`code` containing the fresh six-digit code. The operator reads test email or computes
+the fixture TOTP privately; do not print the line, put it in argv, or give the client
+provider/DB credentials or a seed. The probe emits only safe checks and source IDs.
+`--allow-response-loss` is only for a fixture configured to drop its HTTP response;
+it reads the original operation and checks Q01 before an explicit cookie recovery.
+It never repeats a verify POST automatically. Transport results are not browser proof.
 
 ## Actual scope and open dependencies
 
