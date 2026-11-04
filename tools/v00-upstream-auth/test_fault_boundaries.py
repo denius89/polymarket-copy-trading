@@ -84,6 +84,18 @@ class CommitGapTests(unittest.TestCase):
         self.assertTrue(output.endswith(b"COMMIT\n"))
         self.assertFalse(Path(self.marker).exists())
 
+    def test_q01_with_digits_passes_without_arming_commit_fault(self):
+        code, output = self.run_wire(["q01"], "complete")
+        self.assertEqual(code, 0)
+        self.assertTrue(output.endswith(b"COMMIT\n"))
+        self.assertFalse(Path(self.marker).exists())
+        self.assertEqual(self.run_wire(["complete"], "complete")[0], 97)
+        marker = Path(self.marker).read_bytes()
+        code, output = self.run_wire(["q01"], "complete")
+        self.assertEqual(code, 0)
+        self.assertTrue(output.endswith(b"COMMIT\n"))
+        self.assertEqual(Path(self.marker).read_bytes(), marker)
+
     def test_one_shot_marker_does_not_suppress_second_commit(self):
         self.assertEqual(self.run_wire(["seal_email"])[0], 97)
         first = Path(self.marker).read_bytes()

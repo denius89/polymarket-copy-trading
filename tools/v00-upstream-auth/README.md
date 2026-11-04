@@ -49,8 +49,8 @@ python3 -m unittest discover -s tools/v00-upstream-auth -p 'test_*.py'
 python3 -m compileall -q tools/v00-upstream-auth
 ```
 
-62 local checks passed after adding the separate fault harness (43 runtime/protocol
-checks plus19 operator-boundary checks): injected provider/COMMIT loss,
+63 local checks passed after adding the separate fault harness (43 runtime/protocol
+checks plus20 operator-boundary checks): injected provider/COMMIT loss,
 rejection commit, crypto rollback, source mismatch, closed recovery, parser and
 role allowlists, and separation of bound values from server SQL. These are local
 protocol tests with doubles, **not** PostgreSQL/Auth/browser tests or UB passes.
