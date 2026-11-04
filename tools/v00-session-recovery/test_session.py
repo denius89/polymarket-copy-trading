@@ -268,6 +268,29 @@ class PsqlProtocolTests(unittest.TestCase):
         with Transaction(self.script("COMMIT")) as tx, self.assertRaises(Unavailable):
             tx.call("revoke", {})
 
+    def test_pipe_loss_after_real_child_commit_tag(self):
+        with tempfile.TemporaryDirectory() as directory:
+            marker = Path(directory) / "commit.jsonl"
+            command = [sys.executable, str(Path(__file__).with_name("psql_commit_loss.py")),
+                       "--action", "q01", "--marker", str(marker), "--"]
+            with patch.dict(os.environ, {"V00_REAL_PSQL_COMMAND_JSON": json.dumps(self.script("COMMIT"))}):
+                with Transaction(command) as tx:
+                    self.assertEqual(tx.call("q01", {"private": "not-in-marker"}), {"http": 200})
+                    with self.assertRaises(Unavailable):
+                        tx.commit()
+                    self.assertFalse(tx.finished)
+            data = json.loads(marker.read_text())
+            self.assertEqual(data, {"fault": "commit_ack_pipe_loss", "action": "q01", "real_commit_tag_seen": True})
+            self.assertNotIn("private", marker.read_text())
+
+    def test_pipe_fault_does_not_drop_other_action_commit(self):
+        command = [sys.executable, str(Path(__file__).with_name("psql_commit_loss.py")), "--action", "complete", "--"]
+        with patch.dict(os.environ, {"V00_REAL_PSQL_COMMAND_JSON": json.dumps(self.script("COMMIT"))}):
+            with Transaction(command) as tx:
+                tx.call("q01", {})
+                tx.commit()
+                self.assertTrue(tx.finished)
+
 
 if __name__ == "__main__":
     unittest.main()

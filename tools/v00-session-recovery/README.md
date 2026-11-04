@@ -16,7 +16,7 @@ owner/observer or operator revoke/time privileges.
 
 | Layer | Checks | Status at preparation |
 | --- | --- | --- |
-| Offline | 23 tests: single transaction, commit uncertainty, key/verifier failure, history, closed recovery, completion replay, selected target, parsing, private generator, psql command tags | Passed locally; crypto is mocked here |
+| Offline | 25 tests: single transaction, commit uncertainty, key/verifier failure, history, closed recovery, completion replay, selected target, parsing, private generator, psql command tags and pipe fault | Passed locally; crypto is mocked here |
 | Library | `crypto_probe.py`: actual libsodium roundtrip and rejected wrong key/AAD | Operator run required; not independent crypto certification |
 | HTTP | `client_probe.py`: completion/history/recovery/Q01/erasure/logout/read/repeat/selected header | Operator run required; not browser evidence |
 | Browser | `browser_probe.py`: actual cookie store/HttpOnly/Strict/expiry, lost cookie, recovery, A/B logout/continuation, both completion-response loss cases | Operator run required with trusted CA |
@@ -146,6 +146,22 @@ cookie cannot override server revoke. `loss_before/after` faults close the real
 connection after commit before headers / after flushed headers before body.
 `logout_lost` drops its response before headers after committed logout. Faults
 are operator fixture settings, never client request flags.
+
+### Separate COMMIT acknowledgement loss
+
+For one unused fixture on a separate fault-adapter process, set the trusted
+`V00_PSQL_COMMAND_JSON` argv to Python + `psql_commit_loss.py --action complete
+--marker /run/private/commit-loss.jsonl --`. The shim relays real psql commands
+and results, sees a real COMMIT tag, then closes the pipe without forwarding it.
+The adapter must return503 without Set-Cookie. The private marker contains only
+action/fault/commit-tag observation, never the SQL or result. An independent DB
+observer must confirm exactly one complete original bundle, after which the
+normal adapter reads the original operation and explicitly recovers its cookie.
+Do not re-execute completion or introduce another operation ID to resolve this.
+The same shim can target recover/Q01/logout separately with fresh fixtures.
+This is actual acknowledgement loss at the psql-to-controller boundary after
+DB commit, not a database crash/before-commit test. The offline shim tests use a
+fake child process; only the operator's real PostgreSQL run counts as DB evidence.
 
 ## Pinned test crypto profile and D03-08 gap
 
