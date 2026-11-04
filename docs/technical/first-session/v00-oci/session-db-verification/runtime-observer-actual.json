@@ -1,0 +1,939 @@
+{
+  "wall": {
+    "synthetic_ids": {
+      "actor_id": "36cccfcd-5671-4020-9fd3-fb3573f013b2",
+      "context_id": "28ee4099-8fa8-470b-a45d-c24f256e666e",
+      "operation_id": "3562c1c3-ea43-40e2-bea1-56a63a57c304",
+      "login_id": "a92a691a-c9fb-40b1-9e2a-416fcbdc68f3"
+    },
+    "snapshot": {
+      "audit": [
+        {
+          "kind": "completion",
+          "reason": null,
+          "login_id": "a92a691a-c9fb-40b1-9e2a-416fcbdc68f3",
+          "recorded_at": "2026-11-04T12:29:30.257Z",
+          "operation_id": "3562c1c3-ea43-40e2-bea1-56a63a57c304"
+        },
+        {
+          "kind": "window_closed",
+          "reason": "first_confirmation",
+          "login_id": "a92a691a-c9fb-40b1-9e2a-416fcbdc68f3",
+          "recorded_at": "2026-11-04T12:29:30.572Z",
+          "operation_id": null
+        },
+        {
+          "kind": "first_confirmation",
+          "reason": null,
+          "login_id": "a92a691a-c9fb-40b1-9e2a-416fcbdc68f3",
+          "recorded_at": "2026-11-04T12:29:30.572Z",
+          "operation_id": null
+        }
+      ],
+      "plans": 1,
+      "logins": [
+        {
+          "id": "a92a691a-c9fb-40b1-9e2a-416fcbdc68f3",
+          "deadline": "2026-11-04T12:34:30.257Z",
+          "closed_at": "2026-11-04T12:29:30.572Z",
+          "erased_at": "2026-11-04T12:29:30.572Z",
+          "context_id": "28ee4099-8fa8-470b-a45d-c24f256e666e",
+          "expires_at": "2026-12-04T12:27:08.925Z",
+          "revoked_at": null,
+          "close_reason": "first_confirmation",
+          "completed_at": "2026-11-04T12:29:30.257Z",
+          "operation_id": "3562c1c3-ea43-40e2-bea1-56a63a57c304",
+          "secret_present": false,
+          "idle_expires_at": "2026-11-11T12:27:08.925Z",
+          "credential_present": true,
+          "first_confirmed_at": "2026-11-04T12:29:30.572Z",
+          "secret_row_present": true
+        }
+      ],
+      "blocked": false,
+      "results": [
+        {
+          "valid": true,
+          "result": {
+            "kind": "login_completed",
+            "completion": {
+              "realm": "user",
+              "loginId": "a92a691a-c9fb-40b1-9e2a-416fcbdc68f3",
+              "completedAt": "2026-11-04T12:29:30.257Z",
+              "authContextId": "28ee4099-8fa8-470b-a45d-c24f256e666e",
+              "authOperationId": "3562c1c3-ea43-40e2-bea1-56a63a57c304"
+            }
+          },
+          "login_id": "a92a691a-c9fb-40b1-9e2a-416fcbdc68f3",
+          "context_id": "28ee4099-8fa8-470b-a45d-c24f256e666e",
+          "resolved_at": "2026-11-04T12:29:30.260Z",
+          "operation_id": "3562c1c3-ea43-40e2-bea1-56a63a57c304"
+        }
+      ],
+      "actor_id": "36cccfcd-5671-4020-9fd3-fb3573f013b2",
+      "contexts": [
+        {
+          "id": "28ee4099-8fa8-470b-a45d-c24f256e666e",
+          "expires_at": "2026-11-04T12:57:08.925Z",
+          "revoked_at": null,
+          "completed_login_id": "a92a691a-c9fb-40b1-9e2a-416fcbdc68f3",
+          "completed_operation_id": "3562c1c3-ea43-40e2-bea1-56a63a57c304"
+        }
+      ],
+      "fixed_time": null,
+      "logout_results": [],
+      "logout_contexts": []
+    }
+  },
+  "basic": {
+    "synthetic_ids": {
+      "actor_id": "6600c373-bd7c-4708-b32e-f66b0f8ded2a",
+      "context_id": "17f2242a-2671-45f1-a5ba-0962dfa12ae9",
+      "operation_id": "9b7e9b7c-660e-4b59-973b-a24072fef7d8",
+      "login_id": "590bfa91-6bfd-4d3f-ab3b-662b78830df0"
+    },
+    "snapshot": {
+      "audit": [
+        {
+          "kind": "completion",
+          "reason": null,
+          "login_id": "590bfa91-6bfd-4d3f-ab3b-662b78830df0",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "9b7e9b7c-660e-4b59-973b-a24072fef7d8"
+        },
+        {
+          "kind": "window_closed",
+          "reason": "first_confirmation",
+          "login_id": "590bfa91-6bfd-4d3f-ab3b-662b78830df0",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": null
+        },
+        {
+          "kind": "first_confirmation",
+          "reason": null,
+          "login_id": "590bfa91-6bfd-4d3f-ab3b-662b78830df0",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": null
+        },
+        {
+          "kind": "login_revoked",
+          "reason": null,
+          "login_id": "590bfa91-6bfd-4d3f-ab3b-662b78830df0",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": null
+        },
+        {
+          "kind": "logout_confirmed",
+          "reason": null,
+          "login_id": "590bfa91-6bfd-4d3f-ab3b-662b78830df0",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "611a16d8-6e73-4c5b-9d92-bb902412ffd7"
+        }
+      ],
+      "plans": 1,
+      "logins": [
+        {
+          "id": "590bfa91-6bfd-4d3f-ab3b-662b78830df0",
+          "deadline": "2026-11-04T12:32:08.925Z",
+          "closed_at": "2026-11-04T12:27:08.925Z",
+          "erased_at": "2026-11-04T12:27:08.925Z",
+          "context_id": "17f2242a-2671-45f1-a5ba-0962dfa12ae9",
+          "expires_at": "2026-12-04T12:27:08.925Z",
+          "revoked_at": "2026-11-04T12:27:08.925Z",
+          "close_reason": "first_confirmation",
+          "completed_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "9b7e9b7c-660e-4b59-973b-a24072fef7d8",
+          "secret_present": false,
+          "idle_expires_at": "2026-11-11T12:27:08.925Z",
+          "credential_present": true,
+          "first_confirmed_at": "2026-11-04T12:27:08.925Z",
+          "secret_row_present": true
+        }
+      ],
+      "blocked": false,
+      "results": [
+        {
+          "valid": true,
+          "result": {
+            "kind": "login_completed",
+            "completion": {
+              "realm": "user",
+              "loginId": "590bfa91-6bfd-4d3f-ab3b-662b78830df0",
+              "completedAt": "2026-11-04T12:27:08.925Z",
+              "authContextId": "17f2242a-2671-45f1-a5ba-0962dfa12ae9",
+              "authOperationId": "9b7e9b7c-660e-4b59-973b-a24072fef7d8"
+            }
+          },
+          "login_id": "590bfa91-6bfd-4d3f-ab3b-662b78830df0",
+          "context_id": "17f2242a-2671-45f1-a5ba-0962dfa12ae9",
+          "resolved_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "9b7e9b7c-660e-4b59-973b-a24072fef7d8"
+        }
+      ],
+      "actor_id": "6600c373-bd7c-4708-b32e-f66b0f8ded2a",
+      "contexts": [
+        {
+          "id": "17f2242a-2671-45f1-a5ba-0962dfa12ae9",
+          "expires_at": "2026-11-04T12:57:08.925Z",
+          "revoked_at": null,
+          "completed_login_id": "590bfa91-6bfd-4d3f-ab3b-662b78830df0",
+          "completed_operation_id": "9b7e9b7c-660e-4b59-973b-a24072fef7d8"
+        }
+      ],
+      "fixed_time": "2026-11-04T12:27:08.925Z",
+      "logout_results": [
+        {
+          "valid": true,
+          "context_id": "ff38c204-d971-4b22-8eef-b728d8ebc46f",
+          "confirmed_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "611a16d8-6e73-4c5b-9d92-bb902412ffd7",
+          "target_login_id": "590bfa91-6bfd-4d3f-ab3b-662b78830df0"
+        }
+      ],
+      "logout_contexts": [
+        {
+          "id": "ff38c204-d971-4b22-8eef-b728d8ebc46f",
+          "created_at": "2026-11-04T12:27:08.925Z",
+          "expires_at": "2026-11-04T12:42:08.925Z",
+          "revoked_at": null,
+          "target_login_id": "590bfa91-6bfd-4d3f-ab3b-662b78830df0",
+          "source_context_id": null,
+          "authorization_login_id": "590bfa91-6bfd-4d3f-ab3b-662b78830df0"
+        }
+      ]
+    }
+  },
+  "recovery": {
+    "synthetic_ids": {
+      "actor_id": "73e2437f-dcea-41c5-ba8b-febdf82647d1",
+      "context_id": "794dca04-907c-44aa-990c-9f128692f66e",
+      "operation_id": "acc17056-d85a-4914-b986-9c169cbace0e",
+      "login_id": "22b85b10-d3b6-43ed-a178-7498afecca58"
+    },
+    "snapshot": {
+      "audit": [
+        {
+          "kind": "completion",
+          "reason": null,
+          "login_id": "22b85b10-d3b6-43ed-a178-7498afecca58",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "acc17056-d85a-4914-b986-9c169cbace0e"
+        },
+        {
+          "kind": "window_closed",
+          "reason": "first_confirmation",
+          "login_id": "22b85b10-d3b6-43ed-a178-7498afecca58",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": null
+        },
+        {
+          "kind": "first_confirmation",
+          "reason": null,
+          "login_id": "22b85b10-d3b6-43ed-a178-7498afecca58",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": null
+        }
+      ],
+      "plans": 1,
+      "logins": [
+        {
+          "id": "22b85b10-d3b6-43ed-a178-7498afecca58",
+          "deadline": "2026-11-04T12:32:08.925Z",
+          "closed_at": "2026-11-04T12:27:08.925Z",
+          "erased_at": "2026-11-04T12:27:08.925Z",
+          "context_id": "794dca04-907c-44aa-990c-9f128692f66e",
+          "expires_at": "2026-12-04T12:27:08.925Z",
+          "revoked_at": null,
+          "close_reason": "first_confirmation",
+          "completed_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "acc17056-d85a-4914-b986-9c169cbace0e",
+          "secret_present": false,
+          "idle_expires_at": "2026-11-11T12:27:08.925Z",
+          "credential_present": true,
+          "first_confirmed_at": "2026-11-04T12:27:08.925Z",
+          "secret_row_present": true
+        }
+      ],
+      "blocked": false,
+      "results": [
+        {
+          "valid": true,
+          "result": {
+            "kind": "login_completed",
+            "completion": {
+              "realm": "user",
+              "loginId": "22b85b10-d3b6-43ed-a178-7498afecca58",
+              "completedAt": "2026-11-04T12:27:08.925Z",
+              "authContextId": "794dca04-907c-44aa-990c-9f128692f66e",
+              "authOperationId": "acc17056-d85a-4914-b986-9c169cbace0e"
+            }
+          },
+          "login_id": "22b85b10-d3b6-43ed-a178-7498afecca58",
+          "context_id": "794dca04-907c-44aa-990c-9f128692f66e",
+          "resolved_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "acc17056-d85a-4914-b986-9c169cbace0e"
+        }
+      ],
+      "actor_id": "73e2437f-dcea-41c5-ba8b-febdf82647d1",
+      "contexts": [
+        {
+          "id": "794dca04-907c-44aa-990c-9f128692f66e",
+          "expires_at": "2026-11-04T12:57:08.925Z",
+          "revoked_at": null,
+          "completed_login_id": "22b85b10-d3b6-43ed-a178-7498afecca58",
+          "completed_operation_id": "acc17056-d85a-4914-b986-9c169cbace0e"
+        }
+      ],
+      "fixed_time": "2026-11-04T12:27:08.925Z",
+      "logout_results": [],
+      "logout_contexts": []
+    }
+  },
+  "logout_a": {
+    "synthetic_ids": {
+      "actor_id": "eb723fba-cb77-433f-87d7-bc092b3e9322",
+      "context_id": "3990c5a9-b8dd-4849-9fb5-26b685d85838",
+      "operation_id": "4c2a50a1-9f46-4ae1-90e5-cd0e35548159",
+      "login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f"
+    },
+    "snapshot": {
+      "audit": [
+        {
+          "kind": "completion",
+          "reason": null,
+          "login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "4c2a50a1-9f46-4ae1-90e5-cd0e35548159"
+        },
+        {
+          "kind": "completion",
+          "reason": null,
+          "login_id": "1e9c9b7a-5bee-4646-94f5-0e31da7f9c2b",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "f0aeb22c-4684-45be-8026-4b1c11be01aa"
+        },
+        {
+          "kind": "window_closed",
+          "reason": "first_confirmation",
+          "login_id": "1e9c9b7a-5bee-4646-94f5-0e31da7f9c2b",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": null
+        },
+        {
+          "kind": "first_confirmation",
+          "reason": null,
+          "login_id": "1e9c9b7a-5bee-4646-94f5-0e31da7f9c2b",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": null
+        },
+        {
+          "kind": "login_revoked",
+          "reason": null,
+          "login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": null
+        },
+        {
+          "kind": "window_closed",
+          "reason": "login_revoked",
+          "login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": null
+        },
+        {
+          "kind": "logout_confirmed",
+          "reason": null,
+          "login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "fcee692c-8251-412a-aa75-1a2ed1e0a387"
+        }
+      ],
+      "plans": 2,
+      "logins": [
+        {
+          "id": "1dfd6450-db5f-471a-a841-05875eaaf91f",
+          "deadline": "2026-11-04T12:32:08.925Z",
+          "closed_at": "2026-11-04T12:27:08.925Z",
+          "erased_at": "2026-11-04T12:27:08.925Z",
+          "context_id": "3990c5a9-b8dd-4849-9fb5-26b685d85838",
+          "expires_at": "2026-12-04T12:27:08.925Z",
+          "revoked_at": "2026-11-04T12:27:08.925Z",
+          "close_reason": "login_revoked",
+          "completed_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "4c2a50a1-9f46-4ae1-90e5-cd0e35548159",
+          "secret_present": false,
+          "idle_expires_at": "2026-11-11T12:27:08.925Z",
+          "credential_present": true,
+          "first_confirmed_at": null,
+          "secret_row_present": true
+        },
+        {
+          "id": "1e9c9b7a-5bee-4646-94f5-0e31da7f9c2b",
+          "deadline": "2026-11-04T12:32:08.925Z",
+          "closed_at": "2026-11-04T12:27:08.925Z",
+          "erased_at": "2026-11-04T12:27:08.925Z",
+          "context_id": "3e44ebd4-07cb-45c4-8ed8-73ab378fdb8f",
+          "expires_at": "2026-12-04T12:27:08.925Z",
+          "revoked_at": null,
+          "close_reason": "first_confirmation",
+          "completed_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "f0aeb22c-4684-45be-8026-4b1c11be01aa",
+          "secret_present": false,
+          "idle_expires_at": "2026-11-11T12:27:08.925Z",
+          "credential_present": true,
+          "first_confirmed_at": "2026-11-04T12:27:08.925Z",
+          "secret_row_present": true
+        }
+      ],
+      "blocked": false,
+      "results": [
+        {
+          "valid": true,
+          "result": {
+            "kind": "login_completed",
+            "completion": {
+              "realm": "user",
+              "loginId": "1dfd6450-db5f-471a-a841-05875eaaf91f",
+              "completedAt": "2026-11-04T12:27:08.925Z",
+              "authContextId": "3990c5a9-b8dd-4849-9fb5-26b685d85838",
+              "authOperationId": "4c2a50a1-9f46-4ae1-90e5-cd0e35548159"
+            }
+          },
+          "login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f",
+          "context_id": "3990c5a9-b8dd-4849-9fb5-26b685d85838",
+          "resolved_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "4c2a50a1-9f46-4ae1-90e5-cd0e35548159"
+        },
+        {
+          "valid": true,
+          "result": {
+            "kind": "login_completed",
+            "completion": {
+              "realm": "user",
+              "loginId": "1e9c9b7a-5bee-4646-94f5-0e31da7f9c2b",
+              "completedAt": "2026-11-04T12:27:08.925Z",
+              "authContextId": "3e44ebd4-07cb-45c4-8ed8-73ab378fdb8f",
+              "authOperationId": "f0aeb22c-4684-45be-8026-4b1c11be01aa"
+            }
+          },
+          "login_id": "1e9c9b7a-5bee-4646-94f5-0e31da7f9c2b",
+          "context_id": "3e44ebd4-07cb-45c4-8ed8-73ab378fdb8f",
+          "resolved_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "f0aeb22c-4684-45be-8026-4b1c11be01aa"
+        }
+      ],
+      "actor_id": "eb723fba-cb77-433f-87d7-bc092b3e9322",
+      "contexts": [
+        {
+          "id": "3990c5a9-b8dd-4849-9fb5-26b685d85838",
+          "expires_at": "2026-11-04T12:57:08.925Z",
+          "revoked_at": null,
+          "completed_login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f",
+          "completed_operation_id": "4c2a50a1-9f46-4ae1-90e5-cd0e35548159"
+        },
+        {
+          "id": "3e44ebd4-07cb-45c4-8ed8-73ab378fdb8f",
+          "expires_at": "2026-11-04T12:57:08.925Z",
+          "revoked_at": null,
+          "completed_login_id": "1e9c9b7a-5bee-4646-94f5-0e31da7f9c2b",
+          "completed_operation_id": "f0aeb22c-4684-45be-8026-4b1c11be01aa"
+        }
+      ],
+      "fixed_time": "2026-11-04T12:27:08.925Z",
+      "logout_results": [
+        {
+          "valid": true,
+          "context_id": "6077dfa5-cb48-4376-b709-6b2fce7d2e98",
+          "confirmed_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "fcee692c-8251-412a-aa75-1a2ed1e0a387",
+          "target_login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f"
+        }
+      ],
+      "logout_contexts": [
+        {
+          "id": "6077dfa5-cb48-4376-b709-6b2fce7d2e98",
+          "created_at": "2026-11-04T12:27:08.925Z",
+          "expires_at": "2026-11-04T12:42:08.925Z",
+          "revoked_at": null,
+          "target_login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f",
+          "source_context_id": "880cafb2-e270-4710-8a83-ad30f9836b57",
+          "authorization_login_id": "1e9c9b7a-5bee-4646-94f5-0e31da7f9c2b"
+        },
+        {
+          "id": "880cafb2-e270-4710-8a83-ad30f9836b57",
+          "created_at": "2026-11-04T12:27:08.925Z",
+          "expires_at": "2026-11-04T12:42:08.925Z",
+          "revoked_at": null,
+          "target_login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f",
+          "source_context_id": null,
+          "authorization_login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f"
+        }
+      ]
+    }
+  },
+  "logout_b": {
+    "synthetic_ids": {
+      "actor_id": "eb723fba-cb77-433f-87d7-bc092b3e9322",
+      "context_id": "3e44ebd4-07cb-45c4-8ed8-73ab378fdb8f",
+      "operation_id": "f0aeb22c-4684-45be-8026-4b1c11be01aa",
+      "login_id": "1e9c9b7a-5bee-4646-94f5-0e31da7f9c2b"
+    },
+    "snapshot": {
+      "audit": [
+        {
+          "kind": "completion",
+          "reason": null,
+          "login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "4c2a50a1-9f46-4ae1-90e5-cd0e35548159"
+        },
+        {
+          "kind": "completion",
+          "reason": null,
+          "login_id": "1e9c9b7a-5bee-4646-94f5-0e31da7f9c2b",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "f0aeb22c-4684-45be-8026-4b1c11be01aa"
+        },
+        {
+          "kind": "window_closed",
+          "reason": "first_confirmation",
+          "login_id": "1e9c9b7a-5bee-4646-94f5-0e31da7f9c2b",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": null
+        },
+        {
+          "kind": "first_confirmation",
+          "reason": null,
+          "login_id": "1e9c9b7a-5bee-4646-94f5-0e31da7f9c2b",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": null
+        },
+        {
+          "kind": "login_revoked",
+          "reason": null,
+          "login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": null
+        },
+        {
+          "kind": "window_closed",
+          "reason": "login_revoked",
+          "login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": null
+        },
+        {
+          "kind": "logout_confirmed",
+          "reason": null,
+          "login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "fcee692c-8251-412a-aa75-1a2ed1e0a387"
+        }
+      ],
+      "plans": 2,
+      "logins": [
+        {
+          "id": "1dfd6450-db5f-471a-a841-05875eaaf91f",
+          "deadline": "2026-11-04T12:32:08.925Z",
+          "closed_at": "2026-11-04T12:27:08.925Z",
+          "erased_at": "2026-11-04T12:27:08.925Z",
+          "context_id": "3990c5a9-b8dd-4849-9fb5-26b685d85838",
+          "expires_at": "2026-12-04T12:27:08.925Z",
+          "revoked_at": "2026-11-04T12:27:08.925Z",
+          "close_reason": "login_revoked",
+          "completed_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "4c2a50a1-9f46-4ae1-90e5-cd0e35548159",
+          "secret_present": false,
+          "idle_expires_at": "2026-11-11T12:27:08.925Z",
+          "credential_present": true,
+          "first_confirmed_at": null,
+          "secret_row_present": true
+        },
+        {
+          "id": "1e9c9b7a-5bee-4646-94f5-0e31da7f9c2b",
+          "deadline": "2026-11-04T12:32:08.925Z",
+          "closed_at": "2026-11-04T12:27:08.925Z",
+          "erased_at": "2026-11-04T12:27:08.925Z",
+          "context_id": "3e44ebd4-07cb-45c4-8ed8-73ab378fdb8f",
+          "expires_at": "2026-12-04T12:27:08.925Z",
+          "revoked_at": null,
+          "close_reason": "first_confirmation",
+          "completed_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "f0aeb22c-4684-45be-8026-4b1c11be01aa",
+          "secret_present": false,
+          "idle_expires_at": "2026-11-11T12:27:08.925Z",
+          "credential_present": true,
+          "first_confirmed_at": "2026-11-04T12:27:08.925Z",
+          "secret_row_present": true
+        }
+      ],
+      "blocked": false,
+      "results": [
+        {
+          "valid": true,
+          "result": {
+            "kind": "login_completed",
+            "completion": {
+              "realm": "user",
+              "loginId": "1dfd6450-db5f-471a-a841-05875eaaf91f",
+              "completedAt": "2026-11-04T12:27:08.925Z",
+              "authContextId": "3990c5a9-b8dd-4849-9fb5-26b685d85838",
+              "authOperationId": "4c2a50a1-9f46-4ae1-90e5-cd0e35548159"
+            }
+          },
+          "login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f",
+          "context_id": "3990c5a9-b8dd-4849-9fb5-26b685d85838",
+          "resolved_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "4c2a50a1-9f46-4ae1-90e5-cd0e35548159"
+        },
+        {
+          "valid": true,
+          "result": {
+            "kind": "login_completed",
+            "completion": {
+              "realm": "user",
+              "loginId": "1e9c9b7a-5bee-4646-94f5-0e31da7f9c2b",
+              "completedAt": "2026-11-04T12:27:08.925Z",
+              "authContextId": "3e44ebd4-07cb-45c4-8ed8-73ab378fdb8f",
+              "authOperationId": "f0aeb22c-4684-45be-8026-4b1c11be01aa"
+            }
+          },
+          "login_id": "1e9c9b7a-5bee-4646-94f5-0e31da7f9c2b",
+          "context_id": "3e44ebd4-07cb-45c4-8ed8-73ab378fdb8f",
+          "resolved_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "f0aeb22c-4684-45be-8026-4b1c11be01aa"
+        }
+      ],
+      "actor_id": "eb723fba-cb77-433f-87d7-bc092b3e9322",
+      "contexts": [
+        {
+          "id": "3990c5a9-b8dd-4849-9fb5-26b685d85838",
+          "expires_at": "2026-11-04T12:57:08.925Z",
+          "revoked_at": null,
+          "completed_login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f",
+          "completed_operation_id": "4c2a50a1-9f46-4ae1-90e5-cd0e35548159"
+        },
+        {
+          "id": "3e44ebd4-07cb-45c4-8ed8-73ab378fdb8f",
+          "expires_at": "2026-11-04T12:57:08.925Z",
+          "revoked_at": null,
+          "completed_login_id": "1e9c9b7a-5bee-4646-94f5-0e31da7f9c2b",
+          "completed_operation_id": "f0aeb22c-4684-45be-8026-4b1c11be01aa"
+        }
+      ],
+      "fixed_time": "2026-11-04T12:27:08.925Z",
+      "logout_results": [
+        {
+          "valid": true,
+          "context_id": "6077dfa5-cb48-4376-b709-6b2fce7d2e98",
+          "confirmed_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "fcee692c-8251-412a-aa75-1a2ed1e0a387",
+          "target_login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f"
+        }
+      ],
+      "logout_contexts": [
+        {
+          "id": "6077dfa5-cb48-4376-b709-6b2fce7d2e98",
+          "created_at": "2026-11-04T12:27:08.925Z",
+          "expires_at": "2026-11-04T12:42:08.925Z",
+          "revoked_at": null,
+          "target_login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f",
+          "source_context_id": "880cafb2-e270-4710-8a83-ad30f9836b57",
+          "authorization_login_id": "1e9c9b7a-5bee-4646-94f5-0e31da7f9c2b"
+        },
+        {
+          "id": "880cafb2-e270-4710-8a83-ad30f9836b57",
+          "created_at": "2026-11-04T12:27:08.925Z",
+          "expires_at": "2026-11-04T12:42:08.925Z",
+          "revoked_at": null,
+          "target_login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f",
+          "source_context_id": null,
+          "authorization_login_id": "1dfd6450-db5f-471a-a841-05875eaaf91f"
+        }
+      ]
+    }
+  },
+  "loss_before": {
+    "synthetic_ids": {
+      "actor_id": "4cd84655-c545-4173-b81d-54206d6406c1",
+      "context_id": "c64f0d81-10b3-446d-8113-5f1036c2c921",
+      "operation_id": "76e05ccc-ac5a-4302-9dce-bdbc6896b78f",
+      "login_id": "c0318ec4-6862-4748-be6a-202cc582235f"
+    },
+    "snapshot": {
+      "audit": [
+        {
+          "kind": "completion",
+          "reason": null,
+          "login_id": "c0318ec4-6862-4748-be6a-202cc582235f",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "76e05ccc-ac5a-4302-9dce-bdbc6896b78f"
+        },
+        {
+          "kind": "window_closed",
+          "reason": "first_confirmation",
+          "login_id": "c0318ec4-6862-4748-be6a-202cc582235f",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": null
+        },
+        {
+          "kind": "first_confirmation",
+          "reason": null,
+          "login_id": "c0318ec4-6862-4748-be6a-202cc582235f",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": null
+        }
+      ],
+      "plans": 1,
+      "logins": [
+        {
+          "id": "c0318ec4-6862-4748-be6a-202cc582235f",
+          "deadline": "2026-11-04T12:32:08.925Z",
+          "closed_at": "2026-11-04T12:27:08.925Z",
+          "erased_at": "2026-11-04T12:27:08.925Z",
+          "context_id": "c64f0d81-10b3-446d-8113-5f1036c2c921",
+          "expires_at": "2026-12-04T12:27:08.925Z",
+          "revoked_at": null,
+          "close_reason": "first_confirmation",
+          "completed_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "76e05ccc-ac5a-4302-9dce-bdbc6896b78f",
+          "secret_present": false,
+          "idle_expires_at": "2026-11-11T12:27:08.925Z",
+          "credential_present": true,
+          "first_confirmed_at": "2026-11-04T12:27:08.925Z",
+          "secret_row_present": true
+        }
+      ],
+      "blocked": false,
+      "results": [
+        {
+          "valid": true,
+          "result": {
+            "kind": "login_completed",
+            "completion": {
+              "realm": "user",
+              "loginId": "c0318ec4-6862-4748-be6a-202cc582235f",
+              "completedAt": "2026-11-04T12:27:08.925Z",
+              "authContextId": "c64f0d81-10b3-446d-8113-5f1036c2c921",
+              "authOperationId": "76e05ccc-ac5a-4302-9dce-bdbc6896b78f"
+            }
+          },
+          "login_id": "c0318ec4-6862-4748-be6a-202cc582235f",
+          "context_id": "c64f0d81-10b3-446d-8113-5f1036c2c921",
+          "resolved_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "76e05ccc-ac5a-4302-9dce-bdbc6896b78f"
+        }
+      ],
+      "actor_id": "4cd84655-c545-4173-b81d-54206d6406c1",
+      "contexts": [
+        {
+          "id": "c64f0d81-10b3-446d-8113-5f1036c2c921",
+          "expires_at": "2026-11-04T12:57:08.925Z",
+          "revoked_at": null,
+          "completed_login_id": "c0318ec4-6862-4748-be6a-202cc582235f",
+          "completed_operation_id": "76e05ccc-ac5a-4302-9dce-bdbc6896b78f"
+        }
+      ],
+      "fixed_time": "2026-11-04T12:27:08.925Z",
+      "logout_results": [],
+      "logout_contexts": []
+    }
+  },
+  "loss_after": {
+    "synthetic_ids": {
+      "actor_id": "42636b6e-08f5-4abd-81db-5186f637afac",
+      "context_id": "c000d88a-86ca-4d45-b18a-fc0016b5e588",
+      "operation_id": "52a23fee-9eec-4cc8-8387-8be527458e41",
+      "login_id": "5dfa9d31-e24c-4e1d-8b64-381cbcb448ee"
+    },
+    "snapshot": {
+      "audit": [
+        {
+          "kind": "completion",
+          "reason": null,
+          "login_id": "5dfa9d31-e24c-4e1d-8b64-381cbcb448ee",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "52a23fee-9eec-4cc8-8387-8be527458e41"
+        },
+        {
+          "kind": "window_closed",
+          "reason": "first_confirmation",
+          "login_id": "5dfa9d31-e24c-4e1d-8b64-381cbcb448ee",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": null
+        },
+        {
+          "kind": "first_confirmation",
+          "reason": null,
+          "login_id": "5dfa9d31-e24c-4e1d-8b64-381cbcb448ee",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": null
+        }
+      ],
+      "plans": 1,
+      "logins": [
+        {
+          "id": "5dfa9d31-e24c-4e1d-8b64-381cbcb448ee",
+          "deadline": "2026-11-04T12:32:08.925Z",
+          "closed_at": "2026-11-04T12:27:08.925Z",
+          "erased_at": "2026-11-04T12:27:08.925Z",
+          "context_id": "c000d88a-86ca-4d45-b18a-fc0016b5e588",
+          "expires_at": "2026-12-04T12:27:08.925Z",
+          "revoked_at": null,
+          "close_reason": "first_confirmation",
+          "completed_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "52a23fee-9eec-4cc8-8387-8be527458e41",
+          "secret_present": false,
+          "idle_expires_at": "2026-11-11T12:27:08.925Z",
+          "credential_present": true,
+          "first_confirmed_at": "2026-11-04T12:27:08.925Z",
+          "secret_row_present": true
+        }
+      ],
+      "blocked": false,
+      "results": [
+        {
+          "valid": true,
+          "result": {
+            "kind": "login_completed",
+            "completion": {
+              "realm": "user",
+              "loginId": "5dfa9d31-e24c-4e1d-8b64-381cbcb448ee",
+              "completedAt": "2026-11-04T12:27:08.925Z",
+              "authContextId": "c000d88a-86ca-4d45-b18a-fc0016b5e588",
+              "authOperationId": "52a23fee-9eec-4cc8-8387-8be527458e41"
+            }
+          },
+          "login_id": "5dfa9d31-e24c-4e1d-8b64-381cbcb448ee",
+          "context_id": "c000d88a-86ca-4d45-b18a-fc0016b5e588",
+          "resolved_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "52a23fee-9eec-4cc8-8387-8be527458e41"
+        }
+      ],
+      "actor_id": "42636b6e-08f5-4abd-81db-5186f637afac",
+      "contexts": [
+        {
+          "id": "c000d88a-86ca-4d45-b18a-fc0016b5e588",
+          "expires_at": "2026-11-04T12:57:08.925Z",
+          "revoked_at": null,
+          "completed_login_id": "5dfa9d31-e24c-4e1d-8b64-381cbcb448ee",
+          "completed_operation_id": "52a23fee-9eec-4cc8-8387-8be527458e41"
+        }
+      ],
+      "fixed_time": "2026-11-04T12:27:08.925Z",
+      "logout_results": [],
+      "logout_contexts": []
+    }
+  },
+  "logout_lost": {
+    "synthetic_ids": {
+      "actor_id": "0419a53f-481e-4f5a-8e9b-66087e9d9021",
+      "context_id": "cc1c9374-444a-4dbc-9da0-16444a052b2b",
+      "operation_id": "033b970c-048f-4549-a0cc-f1e46f7112eb",
+      "login_id": "bab3c3a0-a694-484b-97bd-5c49692e52bf"
+    },
+    "snapshot": {
+      "audit": [
+        {
+          "kind": "completion",
+          "reason": null,
+          "login_id": "bab3c3a0-a694-484b-97bd-5c49692e52bf",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "033b970c-048f-4549-a0cc-f1e46f7112eb"
+        },
+        {
+          "kind": "login_revoked",
+          "reason": null,
+          "login_id": "bab3c3a0-a694-484b-97bd-5c49692e52bf",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": null
+        },
+        {
+          "kind": "window_closed",
+          "reason": "login_revoked",
+          "login_id": "bab3c3a0-a694-484b-97bd-5c49692e52bf",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": null
+        },
+        {
+          "kind": "logout_confirmed",
+          "reason": null,
+          "login_id": "bab3c3a0-a694-484b-97bd-5c49692e52bf",
+          "recorded_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "eaaa6c8b-0e7b-4a0a-ae77-5a6b3ca23e49"
+        }
+      ],
+      "plans": 1,
+      "logins": [
+        {
+          "id": "bab3c3a0-a694-484b-97bd-5c49692e52bf",
+          "deadline": "2026-11-04T12:32:08.925Z",
+          "closed_at": "2026-11-04T12:27:08.925Z",
+          "erased_at": "2026-11-04T12:27:08.925Z",
+          "context_id": "cc1c9374-444a-4dbc-9da0-16444a052b2b",
+          "expires_at": "2026-12-04T12:27:08.925Z",
+          "revoked_at": "2026-11-04T12:27:08.925Z",
+          "close_reason": "login_revoked",
+          "completed_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "033b970c-048f-4549-a0cc-f1e46f7112eb",
+          "secret_present": false,
+          "idle_expires_at": "2026-11-11T12:27:08.925Z",
+          "credential_present": true,
+          "first_confirmed_at": null,
+          "secret_row_present": true
+        }
+      ],
+      "blocked": false,
+      "results": [
+        {
+          "valid": true,
+          "result": {
+            "kind": "login_completed",
+            "completion": {
+              "realm": "user",
+              "loginId": "bab3c3a0-a694-484b-97bd-5c49692e52bf",
+              "completedAt": "2026-11-04T12:27:08.925Z",
+              "authContextId": "cc1c9374-444a-4dbc-9da0-16444a052b2b",
+              "authOperationId": "033b970c-048f-4549-a0cc-f1e46f7112eb"
+            }
+          },
+          "login_id": "bab3c3a0-a694-484b-97bd-5c49692e52bf",
+          "context_id": "cc1c9374-444a-4dbc-9da0-16444a052b2b",
+          "resolved_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "033b970c-048f-4549-a0cc-f1e46f7112eb"
+        }
+      ],
+      "actor_id": "0419a53f-481e-4f5a-8e9b-66087e9d9021",
+      "contexts": [
+        {
+          "id": "cc1c9374-444a-4dbc-9da0-16444a052b2b",
+          "expires_at": "2026-11-04T12:57:08.925Z",
+          "revoked_at": null,
+          "completed_login_id": "bab3c3a0-a694-484b-97bd-5c49692e52bf",
+          "completed_operation_id": "033b970c-048f-4549-a0cc-f1e46f7112eb"
+        }
+      ],
+      "fixed_time": "2026-11-04T12:27:08.925Z",
+      "logout_results": [
+        {
+          "valid": true,
+          "context_id": "5fa9cbc6-fcdd-4166-b5ee-d617a9f37a6c",
+          "confirmed_at": "2026-11-04T12:27:08.925Z",
+          "operation_id": "eaaa6c8b-0e7b-4a0a-ae77-5a6b3ca23e49",
+          "target_login_id": "bab3c3a0-a694-484b-97bd-5c49692e52bf"
+        }
+      ],
+      "logout_contexts": [
+        {
+          "id": "5fa9cbc6-fcdd-4166-b5ee-d617a9f37a6c",
+          "created_at": "2026-11-04T12:27:08.925Z",
+          "expires_at": "2026-11-04T12:42:08.925Z",
+          "revoked_at": null,
+          "target_login_id": "bab3c3a0-a694-484b-97bd-5c49692e52bf",
+          "source_context_id": null,
+          "authorization_login_id": "bab3c3a0-a694-484b-97bd-5c49692e52bf"
+        }
+      ]
+    }
+  }
+}
