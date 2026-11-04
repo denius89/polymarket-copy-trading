@@ -14,17 +14,41 @@ They are not public Auth credentials, and the fixture endpoints must never be
 deployed as a product login route. The service has the DB executor role, not the
 owner/observer or operator revoke/time privileges.
 
-| Layer | Checks | Status at preparation |
+| Layer | Checks | Recorded result, 04.11.2026 |
 | --- | --- | --- |
 | Offline | 25 tests: single transaction, commit uncertainty, key/verifier failure, history, closed recovery, completion replay, selected target, parsing, private generator, psql command tags and pipe fault | Passed locally; crypto is mocked here |
-| Library | `crypto_probe.py`: actual libsodium roundtrip and rejected wrong key/AAD | Operator run required; not independent crypto certification |
-| HTTP | `client_probe.py`: completion/history/recovery/Q01/erasure/logout/read/repeat/selected header | Operator run required; not browser evidence |
-| Browser | `browser_probe.py`: actual cookie store/HttpOnly/Strict/expiry, lost cookie, recovery, A/B logout/continuation, both completion-response loss cases | Operator run required with trusted CA |
-| DB and races | Independent `scripts/v00-session-db` checks/observer/lock barriers | DB/server owned; concurrent HTTP starts alone do not prove serialization |
+| Library | `crypto_probe.py`: actual libsodium roundtrip and rejected wrong key/AAD | Passed on Oracle, libsodium1.0.18; not independent crypto certification |
+| HTTP | `client_probe.py`: completion/history/recovery/Q01/erasure/logout/read/repeat/selected header |12 passed on Oracle, plus12 targeted operator cases; not browser evidence |
+| Browser | `browser_probe.py`: actual cookie store/HttpOnly/Strict/expiry, lost cookie, recovery, A/B logout/continuation, both completion-response loss cases and lost logout |37 passed on Chromium156.0.8078.79 with trusted CA |
+| DB and races | Independent `scripts/v00-session-db` checks/observer/lock barriers | PostgreSQL17.11:39 pass/0 fail/3 not_run at SQL layer, in each of two runs; independent runtime observer review separate |
 
 Runtime results must be appended with tested commit, image/library/browser/DB
 versions and exact scope. A failed run remains evidence; use fresh fixtures for
 another complete run, never clear history to make a rerun pass.
+
+The actual adapter revision is **`8da826db08043201daf343fe9868b4fd464b6d95`**.
+Later additions of `psql_commit_loss.py`, its offline tests and this report do
+not change the tested controller/crypto/storage/client/browser runtime. See the
+[operator's sanitized actual](https://github.com/denius89/polymarket-copy-trading/blob/main/docs/technical/first-session/v00-oci/d0307-operator-actual-2026-11-04.json),
+[S01–S10 matrix](https://github.com/denius89/polymarket-copy-trading/blob/main/docs/technical/first-session/v00-oci/d0307-matrix.md)
+and [independent DB package](https://github.com/denius89/polymarket-copy-trading/blob/main/docs/technical/first-session/v00-oci/session-db-verification/README.md).
+
+Targeted HTTP cases cover just before/exactly at/after the recovery deadline,
+earlier context expiry, missing cipher key, corrupt ciphertext, revoked/expired
+login, known noncompletion, rejected-result historical timestamp and wrong/neighbor
+context proofs. Negative recovery responses did not issue cookies. SQL-only
+not_run flags remain in their original report; cross-layer evidence is linked
+separately rather than rewriting those historical flags.
+
+Actual COMMIT-loss used a **temporary operator-authored pipe shim**, not this
+repository's later reusable shim. After observing real psql COMMIT it withheld
+the acknowledgement from the adapter. Observed:503 without cookie, original GET
+resolved without cookie, Q01 denied, explicit recovery, Q01 success. Independent
+DB observations found one original valid completion/login/plan, matching source
+links, then window closure and lawful cipher erasure; permanent credential stayed.
+No before-snapshot existed for that observer pass: the observation proves the
+final persistent bundle, not the number of Set-Cookie transmissions. Transport
+and browser evidence establish their own cookie observations separately.
 
 **Not implemented/claimed:** full D02, all78 tables, actual upstream Auth/MFA,
 staff, claim, trusted clock infrastructure, external witness, full audit schema,
