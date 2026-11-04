@@ -76,7 +76,7 @@ Observer расширяет наблюдаемость provider транзакц
 | ID | Исходное состояние / действие | Ожидается |
 | --- | --- | --- |
 | DB01 | Public RFC seed, eval153568, code468457; совпадают153567 и153569 | success200, ровно2 steps,1 result,0 failures; оба шага в одном commit |
-| DB02 | После DB01 фактор отключён и время сдвинуто | lookup/replay дают byte-equivalent JSON исходного результата; нет повторного расхода |
+| DB02 | После DB01 фактор отключён и время сдвинуто | lookup/replay дают тот же JSON исходного результата; нет повторного расхода; raw wire bytes не сравнивались |
 | DB03 | Тот же context+operation, другой fingerprint |409, прежний result единственный |
 | DB04 |153567 уже использован; новый context и совпадение[153567,153569] |401,153569 не расходуется;1 increment, повтор не increment |
 | DB05 | Два context одной factor version, один step; admin barrier удерживает actor lock | Наблюдаются2 ожидающих lock; ответы200/401,1 step,2 results,1 failure |
@@ -161,3 +161,71 @@ Auth/наш namespace и не RPO/RTO продукта. Внешний объе�
 Следующий шаг передан оператору напрямую: установить003, захватить один безопасный
 source snapshot после остановки writers, восстановить весь integrated namespace и
 Auth на отдельной цели, сопоставить снимки; затем связать с внешней копией/журналом.
+
+### Уточнение по фактическому RLS провайдера
+
+Первый сетевой прогон выявил, что auth.users/auth.sessions имеют RLS=true и ни
+одной подходящей policy. Поэтому observer-owner законно не видел существующий
+synthetic user; seal завершался ошибкой и локальным rollback. Это не успешный
+provider outcome и не случай «пользователь отсутствовал».
+
+`004-provider-rls.sql` добавляет **только на isolated integrated stand** admin-only
+allowlist конкретных UUID. Owner получает SELECT пользователей из allowlist с
+email в `.invalid`, SELECT связанных sessions и UPDATE-policy для row lock с
+`WITH CHECK(false)`, запрещающим реальное обновление. RLS не отключается, BYPASSRLS
+не выдаётся, executor не может менять allowlist/читать provider rows. Оператор
+пополняет allowlist только проверенными UUID из private fixture; число вставок
+должно совпасть с заранее выбранным набором. Секретные значения не выводятся.
+
+`verify_rls.py` требует **существующего** listed и unlisted user; несуществующий UUID
+не годится отрицательным контролем. RLS01–08 проверяют visible/hidden/read-lock/
+write denial/role denial и сохранение RLS без bypass. Оператор исполнил8 условий:
+listed read=1, existing unlisted=0, listed rowlock успешен; owner UPDATE, executor
+SELECT provider и INSERT allowlist запрещены; RLS обеих таблиц включён, bypass=0.
+БД сверила эти actual с критериями и хешами испытанных файлов:
+004 `0f2e1e621b6b59b31ec24e7efac85e5bc2c9e92f77a0e20f27e5b4019d2a8d42`;
+verify_rls `34970e33d78cd4a69cfe8bc0f4ace0f4996c2e800888910ff4284bc791154d55`.
+Перед restore отдельно сверяются allowlist, policy definitions, grants,
+membership и trigger enable; они не входят в таблицу из10 групп snapshot003.
+К seed добавлен fresh `lost_client_reply` для отдельного будущего сетевого прогона
+TOTP; исходный сетевой профиль не объявляется проверенным задним числом.
+
+## Итог независимой проверки восстановленных строк
+
+После27 сетевых случаев на controller111c85e оператор дополнительно проверил
+потерю ответа TOTP: сокет закрыт до чтения headers; только lookup вернул200/resolved,
+в точном context+operation остались1 result и два шага153567/153569. Это отдельное
+наблюдение, а не заднее расширение прежних27 случаев.
+
+Финальная физическая копия integrated восстановлена на отдельной цели после quiesce.
+Оператор сообщил `pg_verifybackup=pass`, совпадение каталога ролей/trigger/policy/
+allowlist/видимости и5.244s от quiesce до локальной сверки. Отказ из-за read-only
+режима не принимается за доказательство RLS: отрицательные write-пробы выполнены
+на primary с rollback; на restore сравнен каталог и допустимые read-only наблюдения.
+
+БД получила [source](restore-source-aliased.json) и [restored](restore-restored-aliased.json)
+со стабильными синтетическими алиасами UUID и удалёнными fingerprints. Самостоятельно
+запущен `compare_snapshots.py`: все10 групп совпали. Затем независимо пересчитаны
+по самим строкам9 проверок: уникальность factor+step и context+operation; соответствие
+step исходному result, factor контекста, полного набора consumed_steps; actor/factor
+родители контекста; confirmation user исходного seal; txid outcome; exact session
+провайдера с подтверждённым user. Нарушений0 в обоих файлах.
+
+[Воспроизводимый вход и результат сверки](independent-restore-audit.json) содержит
+SHA256 именно **обезличенных** файлов. Эти хеши не выдаются за хеши raw backup,
+подпись внешнего получателя или независимое наблюдение самого Oracle-процесса.
+Финальный состав:21 actors,24 factors,33 contexts,33 challenges,38 results,23 steps,
+4 seals,2 confirmations,2 outcomes,4 provider observations. По сравнению с первым
+restore до lost-TOTP добавились ровно1 result и2 steps.
+
+Сопоставлены также scoped actual оператора: partial overlap не расходует153569;
+concurrent winner сохраняет оба шага, loser получает401; wrong-code серия имеет5
+durable отказов и counter5; четыре email seal дают два точных confirmed комплекта
+и два uncertain без новых отправок/полного login. Полные сетевые/эксплуатационные
+actual публикует ведущий серверный чат в общем V00 пакете; это не новый product DTO.
+
+Итог в указанном охвате: **DB01–12 pass; RLS01–08 pass; локальная REST04 pass**.
+Внешняя защищённая копия/разделение реальных полномочий/свежий внешний witness и
+приёмка полного Auth восстановления остаются зависимостями REST01/07 и H06.
+Три возможности V00 не объявляются целиком закрытыми; полный D03/BR08 и V01
+сохраняют прежние условия допуска.5.244s — измерение локального прогона, не RTO продукта.

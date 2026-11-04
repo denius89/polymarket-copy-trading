@@ -45,6 +45,7 @@ def main():
         bind('concurrent_a', c)
         bind('concurrent_b', fixture(actor=c['actor'], factor=c['factor']))
         bind('wrong_codes', fixture())
+        bind('lost_client_reply', fixture())
         d = fixture()
         sql('UPDATE v00_db.challenges SET expires_at=to_timestamp(153568*30) WHERE id=' + quote(d['challenge']) + ';')
         bind('expired_challenge', d)

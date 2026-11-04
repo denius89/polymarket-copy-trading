@@ -1,0 +1,63 @@
+{
+  "profile": "independent-alias-restore-audit-v1",
+  "date": "2026-11-04",
+  "provenance": "Operator provided stable UUID aliases and removed fingerprints; DB independently compares and recomputes links. Hashes apply to sanitized files, not raw backup.",
+  "files": {
+    "source": {
+      "sha256": "d8764491ca0028495a06e0669f92be49cd2b6add0d264aa9162bb7a94ecca3bd",
+      "row_counts": {
+        "actors": 21,
+        "factors": 24,
+        "contexts": 33,
+        "challenges": 33,
+        "used_steps": 23,
+        "totp_results": 38,
+        "email_outcomes": 2,
+        "email_confirmations": 2,
+        "email_seals_redacted": 4,
+        "provider_observations": 4
+      },
+      "recomputed_errors": {
+        "duplicate_factor_step": 0,
+        "used_step_wrong_result": 0,
+        "step_factor_context_mismatch": 0,
+        "success_step_count_mismatch": 0,
+        "duplicate_result_key": 0,
+        "context_parent_mismatch": 0,
+        "confirmation_wrong_user": 0,
+        "outcome_wrong_txid": 0,
+        "outcome_missing_provider_session": 0
+      },
+      "verdict": "pass"
+    },
+    "restored": {
+      "sha256": "23447a423bc524bf9e47a71d7211124e296228fb93ababd26127102848df2898",
+      "row_counts": {
+        "actors": 21,
+        "factors": 24,
+        "contexts": 33,
+        "challenges": 33,
+        "used_steps": 23,
+        "totp_results": 38,
+        "email_outcomes": 2,
+        "email_confirmations": 2,
+        "email_seals_redacted": 4,
+        "provider_observations": 4
+      },
+      "recomputed_errors": {
+        "duplicate_factor_step": 0,
+        "used_step_wrong_result": 0,
+        "step_factor_context_mismatch": 0,
+        "success_step_count_mismatch": 0,
+        "duplicate_result_key": 0,
+        "context_parent_mismatch": 0,
+        "confirmation_wrong_user": 0,
+        "outcome_wrong_txid": 0,
+        "outcome_missing_provider_session": 0
+      },
+      "verdict": "pass"
+    }
+  },
+  "exact_sanitized_tables_equal": true,
+  "verdict": "pass"
+}
