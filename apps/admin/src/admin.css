@@ -1,0 +1,43 @@
+.admin-entry {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+.admin-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px clamp(16px, 4vw, 48px);
+}
+.admin-wordmark {
+  font-size: 22px;
+  font-weight: 750;
+}
+.admin-language {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+.admin-language select {
+  width: auto;
+}
+.admin-entry-content {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  padding: 16px 16px clamp(24px, 9vh, 96px);
+}
+.admin-sign-in {
+  width: min(100%, 480px);
+  display: grid;
+  gap: 16px;
+  padding: clamp(20px, 5vw, 32px);
+}
+.admin-sign-in h1 {
+  font-size: clamp(24px, 4vw, 30px);
+  font-weight: 700;
+  line-height: 1.2;
+}
