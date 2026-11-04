@@ -49,8 +49,8 @@ python3 -m unittest discover -s tools/v00-upstream-auth -p 'test_*.py'
 python3 -m compileall -q tools/v00-upstream-auth
 ```
 
-49 local checks passed after adding the separate fault harness (43 runtime/protocol
-checks plus6 proxy checks): injected provider/COMMIT loss,
+62 local checks passed after adding the separate fault harness (43 runtime/protocol
+checks plus19 operator-boundary checks): injected provider/COMMIT loss,
 rejection commit, crypto rollback, source mismatch, closed recovery, parser and
 role allowlists, and separation of bound values from server SQL. These are local
 protocol tests with doubles, **not** PostgreSQL/Auth/browser tests or UB passes.
@@ -161,10 +161,12 @@ Late-result decoding supports the accepted U03 union; the operator reconciliatio
 writer still needs its own implemented/proved path.
 
 Runtime revision `210044b` and DB008 are the current integration baseline. Actual
-operator results and independent DB review are separate evidence artifacts; their
-publication is being handled through the administrative chat. They are not embedded
-or republished by this harness update. Full V00/D03 acceptance remains open.
+operator results and independent DB review are separate evidence artifacts in
+[the accepted DB review](https://github.com/denius89/polymarket-copy-trading/blob/main/docs/technical/first-session/v00-oci/upstream-db-verification/runtime-review.md).
+They are not embedded or republished by this harness update. Full V00/D03 acceptance
+remains open.
 
-[Separate fault harness A/B](fault-manifest.md) supplies same-user race and unresolved
-dispatch probes without changing that runtime. These added scenarios remain
+[Separate fault harness A–E](fault-manifest.md) supplies same-user/independent-actor
+race, no-forward unknown, seal/completion COMMIT loss and late-outcome probes without
+changing that runtime. These added scenarios remain
 NOT RUN until the operator records their actual overlap, proxy and DB evidence.
