@@ -26,6 +26,7 @@ def audit_fault(value):
             raise Mismatch(label)
 
     def instant(text):
+        need(type(text) is str, 'timestamp-type')
         result = datetime.datetime.fromisoformat(text.replace('Z', '+00:00'))
         need(result.tzinfo is not None, 'timestamp-zone')
         return result

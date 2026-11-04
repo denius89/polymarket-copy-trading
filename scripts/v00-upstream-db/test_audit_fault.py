@@ -95,6 +95,9 @@ class FaultStorage(unittest.TestCase):
         self.assertEqual(audit_fault(v)['storage_verdict'],'fail')
         v['after']['email_outcomes'][0]['observed_at']=DEADLINE
         self.assertEqual(audit_fault(v)['storage_verdict'],'pass')
+        for invalid in [17, [], None]:
+            v['after']['email_outcomes'][0]['observed_at']=invalid
+            self.assertEqual(audit_fault(v)['errors'],['timestamp-type'])
 
     def test_replay_cannot_mutate_deadline_or_executor(self):
         for field,value in [('deadline_at','2026-11-04T12:01:10Z'),('executor_id','replacement')]:
