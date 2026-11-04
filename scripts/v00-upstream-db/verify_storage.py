@@ -187,6 +187,11 @@ def run():
         +','.join([q(uid()),q(e['user']),'clock_timestamp()','clock_timestamp()',"'aal1'"])+'); COMMIT;')
     er=full(e,'plan_email'); es=snapshot(e)
     check('storage-email-witness-bound-completion',er['http']==200 and len(es['email_outcomes'])==1 and es['email_outcomes'][0]['consumption_txid']==es['email_outcomes'][0]['outcome_txid'] and len(es['results'])==1)
+    prior_generation=es['email_outcomes'][0]['generation_id']
+    sql("UPDATE auth.users SET recovery_token='public-next-storage-fixture',recovery_sent_at=clock_timestamp() WHERE id="+q(e['user'])+';')
+    after_issuance=snapshot(e)
+    check('new-issuance-preserves-consumed-history',next(x for x in after_issuance['generations'] if x['id']==prior_generation)['state']=='consumed'
+          and after_issuance['email_outcomes']==es['email_outcomes'] and len(after_issuance['generations'])==2)
     # Current no-MFA source must not bypass a real verified provider factor.
     check('observer-no-secret-material',not any(k in json.dumps(es) for k in ['executor_proof','comparison_hmac','ciphertext','cookie_digest']))
     h=fixture(); capture(h)

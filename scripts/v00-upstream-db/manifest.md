@@ -27,6 +27,13 @@ it replaces the function with the corrected body already present in fresh001.
 Then run the current harness with fresh UUID fixtures. Preserve the incomplete
 first run as evidence, not a pass for the rest of the package.
 
+After007 the next run passed17 checks, then complete COMMIT hit `permission denied`
+in the deferred check_bundle trigger: the trigger ran after the definer call had
+returned. `008-bridge-fixes.sql` makes only this fixed-search-path trigger SECURITY
+DEFINER under the existing NOLOGIN owner; no new runtime table grants. The same
+delta preserves consumed generation history when a later token is issued. Fresh
+002/004 contain the corrected definitions; installed candidates apply008 forward.
+
 RLS stays enabled. Owner has SELECT/row-lock privileges only on allowlisted provider
 users/factors and scoped policies. Runtime has function execution only, no seed
 read/fixture/global control. Do not grant runtime `v00_session_executor`, either

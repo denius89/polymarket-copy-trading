@@ -57,7 +57,7 @@ BEGIN
     WHERE c.user_id=uid AND c.family=fam FOR UPDATE OF c,g;
   IF COALESCE(new_token,'')<>'' THEN
     IF old_token IS DISTINCT FROM new_token OR old_sent IS DISTINCT FROM new_sent THEN
-      IF current_gen.id IS NOT NULL THEN UPDATE v00_upstream.generations SET state='replaced' WHERE id=current_gen.id; END IF;
+      IF current_gen.id IS NOT NULL THEN UPDATE v00_upstream.generations SET state='replaced' WHERE id=current_gen.id AND state='issued'; END IF;
       INSERT INTO v00_upstream.generations(user_id,family,issued_at,issuing_txid,state)
         VALUES(uid,fam,COALESCE(new_sent,clock_timestamp()),txid_current(),CASE WHEN new_sent IS NULL THEN 'ambiguous' ELSE 'issued' END) RETURNING id INTO fresh_id;
       INSERT INTO v00_upstream.current_generations VALUES(uid,fam,fresh_id)

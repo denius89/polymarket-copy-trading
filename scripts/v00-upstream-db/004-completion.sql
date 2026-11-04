@@ -123,7 +123,7 @@ BEGIN
   INSERT INTO v00_upstream.audit(context_id,operation_id,kind,recorded_at) VALUES(r.context_id,r.operation_id,'completion',r.resolved_at);
   RETURN reply;
 END $$;
-CREATE FUNCTION v00_upstream.check_bundle() RETURNS trigger LANGUAGE plpgsql SET search_path=pg_catalog AS $$
+CREATE FUNCTION v00_upstream.check_bundle() RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path=pg_catalog AS $$
 DECLARE r v00_upstream.results;
 BEGIN
   SELECT * INTO r FROM v00_upstream.results WHERE context_id=NEW.context_id AND operation_id=NEW.operation_id;
