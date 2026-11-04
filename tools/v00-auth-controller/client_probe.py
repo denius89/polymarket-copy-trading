@@ -17,6 +17,12 @@ def run(config):
     if len(config.get("forbidden_tcp", [])) != 2 or sorted(t["port"] for t in config["forbidden_tcp"]) != [5432, 9999]:
         raise ValueError("both actual provider and database negative controls required")
 
+    def record(row):
+        evidence["cases"].append(row)
+        # JSONL progress preserves completed cases even if a later case aborts.
+        # Only the operator's nonsecret label and closed response diagnostics.
+        print(json.dumps({"event": "case", **row}, sort_keys=True), flush=True)
+
     def post(case, discard=False):
         conn = http.client.HTTPConnection(origin.hostname, origin.port, timeout=8)
         try:
@@ -28,6 +34,9 @@ def run(config):
             response = conn.getresponse()
             body = json.loads(response.read())
             return response.status, body
+        except Exception as exc:
+            record({"id": case["id"], "passed": False, "error_type": type(exc).__name__})
+            raise
         finally:
             conn.close()
 
@@ -39,7 +48,7 @@ def run(config):
                 pass
         except OSError:
             denied = True
-        evidence["cases"].append({"id": target["label"], "passed": denied})
+        record({"id": target["label"], "passed": denied})
         if not denied:
             raise AssertionError("provider/database reachable from client-only network")
 
@@ -51,7 +60,7 @@ def run(config):
         if case.get("same_as"):
             passed = passed and (status, body) == responses[case["same_as"]]
         responses[case["id"]] = (status, body)
-        evidence["cases"].append({"id": case["id"], "passed": passed, "http": status,
+        record({"id": case["id"], "passed": passed, "http": status,
             "kind": body.get("kind"), "status": body.get("status"), "reason": body.get("reason"),
             "consumed_steps": body.get("consumed_steps")})
         if not passed:
@@ -68,7 +77,7 @@ def run(config):
             results = list(pool.map(contender, group["requests"]))
         statuses = sorted(status for status, _ in results)
         passed = statuses == sorted(group["expected_http"])
-        evidence["cases"].append({"id": group["id"], "passed": passed, "http": statuses,
+        record({"id": group["id"], "passed": passed, "http": statuses,
                                   "scope": "simultaneous_client_start; DB lock observation is separate"})
         if not passed: raise AssertionError("race result mismatch: " + group["id"])
 
@@ -82,7 +91,7 @@ def run(config):
                 break
             time.sleep(0.2)
         passed = status == case["expected_http"] and body.get("status") == case["expected_status"]
-        evidence["cases"].append({"id": case["id"], "passed": passed, "http": status,
+        record({"id": case["id"], "passed": passed, "http": status,
                                   "status": body.get("status"), "client_read_headers": False})
         if not passed: raise AssertionError("lost response unresolved: " + case["id"])
     return evidence
