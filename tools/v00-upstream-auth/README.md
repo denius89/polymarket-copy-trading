@@ -49,7 +49,8 @@ python3 -m unittest discover -s tools/v00-upstream-auth -p 'test_*.py'
 python3 -m compileall -q tools/v00-upstream-auth
 ```
 
-43 local checks passed at the updated candidate: injected provider/COMMIT loss,
+49 local checks passed after adding the separate fault harness (43 runtime/protocol
+checks plus6 proxy checks): injected provider/COMMIT loss,
 rejection commit, crypto rollback, source mismatch, closed recovery, parser and
 role allowlists, and separation of bound values from server SQL. These are local
 protocol tests with doubles, **not** PostgreSQL/Auth/browser tests or UB passes.
@@ -159,7 +160,11 @@ resolution is not claimed. It must be addressed before claiming complete API fid
 Late-result decoding supports the accepted U03 union; the operator reconciliation
 writer still needs its own implemented/proved path.
 
-The new bridge has not yet been run on Oracle. PC observations reported by the server
-are separate component evidence; existing D03-07 passes do not count as new passes.
-Next: matching DB wrappers/fixtures → operator run with real email/active factor →
-loss/concurrency/redaction/browser checks → independent DB review and bounded report.
+Runtime revision `210044b` and DB008 are the current integration baseline. Actual
+operator results and independent DB review are separate evidence artifacts; their
+publication is being handled through the administrative chat. They are not embedded
+or republished by this harness update. Full V00/D03 acceptance remains open.
+
+[Separate fault harness A/B](fault-manifest.md) supplies same-user race and unresolved
+dispatch probes without changing that runtime. These added scenarios remain
+NOT RUN until the operator records their actual overlap, proxy and DB evidence.
