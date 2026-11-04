@@ -1,5 +1,15 @@
 # V00 upstream Auth: границы БД и ожидаемые доказательства
 
+04.11.2026 · **Продолжение реализации по V00-06:** после прямого поручения
+`01a1a6f3-387b-7cf0-82a2-66936cd8a3be` создан [исполняемый кандидат](../../../../../scripts/v00-upstream-db/manifest.md):
+core/admission, provider generation hooks, SQL TOTP, атомарный completion и wrappers,
+safe snapshot, bound fixture loader и Oracle harness. Шесть локальных групп
+RFC/encoding/window oracle прошли; это ещё не SQL/provider/HTTP PASS. Сервер
+подтвердил минимальные actual metadata, отдельный base32-looking synthetic factor,
+доступность pgcrypto1.3 и подготовил свежий dependency. Новый bridge ожидает
+установки и адресного прогона серверным оператором. Ниже — история PR239;
+её «SQL/verifier не создан» относится к предыдущему документальному блоку.
+
 04.11.2026, исходный baseline `41123ec`, повторная сверка main `373bf2a` / PR238.
 Прямое «вперед» владельца в административном чате
 `01a1a6a7-d0fc-7f00-8fda-baf79ebc3d93` относится к реальной цепочке тестовая почта →
