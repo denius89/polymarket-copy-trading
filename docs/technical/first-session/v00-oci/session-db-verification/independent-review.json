@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-04",
+  "baseline": "3e31e5d3bf4efad35abd5191abbdb95ee3e2337b",
+  "database": "isolated shadow_d0307",
+  "postgresql": "17.11",
+  "runtime_path": "initial candidate 001-004, then forward-only 005; fresh revised install not separately executed",
+  "independent_review": {
+    "unique_cases": 42,
+    "actual_equals_expected": 39,
+    "failed": 0,
+    "not_run": 3,
+    "credential_fields_in_published_actual": false
+  },
+  "upgrade_operator_observation": {
+    "legacy_rows_preserved": 20,
+    "unknown_resolution_preserved": 20,
+    "legacy_results_fail_closed": true,
+    "legacy_live_context_results": 19,
+    "legacy_history_http_503": 19
+  },
+  "files": {
+    "scripts/v00-session-db/001-storage.sql": "efd0815028966e985d313473f21fdbdc48e2cba86011bb7235e3290b24bc9765",
+    "scripts/v00-session-db/002-api.sql": "c4045363025b397448c500e19f2bbb7411ff817e3dc798d5ab344ee807fbdf6e",
+    "scripts/v00-session-db/003-logout.sql": "b565b312e3dceb0913cb5ab9296704b44e916c3ae8535cdabb6405525f34d82a",
+    "scripts/v00-session-db/004-observer.sql": "21066125a1933650adf4035fd79a28cd84763aba223536ff97c7c72be3b805bb",
+    "scripts/v00-session-db/005-candidate-upgrade.sql": "6e0be25231831116991803dc6d4eb53c0f02b6029fccbe3e5515d82693f2619d",
+    "scripts/v00-session-db/manifest.md": "77d5e42aec435e067ba18e37be8b939efa70f31cfd16d1d90a3ab7a7ae2d7b66",
+    "scripts/v00-session-db/seed_adapter.py": "a881a5438e010eb005527e15bc63e8066213182fc76a938a55590af947cd08d2",
+    "scripts/v00-session-db/verify_storage.py": "22dd44c30d3a7d07fef33ddf6c1f7afe1899c243834b97e7ca286044c7066ffb"
+  },
+  "actual_files": {
+    "candidate-v1-storage-actual.json": "3e35960ed528210d45db42e1bb4c87097c02dba57f778cc5787391764e37152c",
+    "storage-actual.json": "dc376e278380c385af9b2fe571cb55f5b4bb2c3e05acd426c6253c991aebe160"
+  },
+  "not_proved": [
+    "authenticated crypto codec",
+    "network COMMIT uncertainty",
+    "browser cookie/cache behavior",
+    "persistent quotas D03-10",
+    "production byte codec AC07/AC38 D03-08",
+    "full Auth catalog78",
+    "V01"
+  ]
+}
