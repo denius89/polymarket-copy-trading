@@ -51,6 +51,9 @@ def prepare():
         "expected_http": 400, "expected": {"reason": "invalid_request"}})
     client["races"].append({"id": "two_device_same_factor", "requests": [
         case("concurrent_a", 200, {}), case("concurrent_b", 401, {})], "expected_http": [200, 401]})
+    if "lost_client_reply" in controller["cases"]:
+        client["lost_client_reply"].append(case("lost_client_reply", 200, {"kind": "totp_consumed"}) | {
+            "result_route": "/v00/totp/result", "expected_status": "resolved"})
 
     if os.environ.get("V00_EMAIL_FIXTURES"):
         controller["provider_origin"] = os.environ["V00_PROVIDER_ORIGIN"]
@@ -74,6 +77,11 @@ def prepare():
             elif fault == "none":
                 client["lost_client_reply"].append(base | {"result_route": "/v00/email/result",
                     "expected_http": 200, "expected_status": "confirmed_effect"})
+    if os.environ.get("V00_ONLY_LOST_TOTP") == "1":
+        selected = [entry for entry in client["lost_client_reply"] if entry["id"] == "lost_client_reply"]
+        if len(selected) != 1:
+            raise ValueError("fresh lost_client_reply fixture required")
+        client["cases"], client["races"], client["lost_client_reply"] = [], [], selected
     save_new(os.environ["V00_CONTROLLER_OUTPUT"], controller)
     save_new(os.environ["V00_CLIENT_OUTPUT"], client)
     print(json.dumps({"prepared_cases": len(client["cases"]), "prepared_races": len(client["races"]),
