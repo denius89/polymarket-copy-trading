@@ -1,0 +1,304 @@
+{
+  "date": "2026-11-04",
+  "profile": "isolated-v00-d0307-oracle-arm64",
+  "adapter_revision": "8da826db08043201daf343fe9868b4fd464b6d95",
+  "storage_upgrade_sha256": "6e0be25231831116991803dc6d4eb53c0f02b6029fccbe3e5515d82693f2619d",
+  "storage": {
+    "postgresql": "17.11",
+    "passed": 39,
+    "failed": 0,
+    "not_run_at_sql_layer": 3,
+    "legacy_rows_preserved": 20,
+    "legacy_live_contexts_returning_503": 19
+  },
+  "crypto": {
+    "version": "1.0.18",
+    "roundtrip": true,
+    "wrong_aad_rejected": true,
+    "wrong_key_rejected": true
+  },
+  "http": [
+    {
+      "case": "completion_cookie_attributes",
+      "passed": true
+    },
+    {
+      "case": "history_no_cookie",
+      "passed": true
+    },
+    {
+      "case": "recovery_exact_cookie",
+      "passed": true
+    },
+    {
+      "case": "q01_selected_login",
+      "passed": true
+    },
+    {
+      "case": "q01_closes_recovery",
+      "passed": true
+    },
+    {
+      "case": "erasure_keeps_login",
+      "passed": true
+    },
+    {
+      "case": "history_immutable_after_close",
+      "passed": true
+    },
+    {
+      "case": "selected_header_required",
+      "passed": true
+    },
+    {
+      "case": "logout_exact_cookie",
+      "passed": true
+    },
+    {
+      "case": "logout_history_no_cookie",
+      "passed": true
+    },
+    {
+      "case": "logout_replay",
+      "passed": true
+    },
+    {
+      "case": "revoked_not_current",
+      "passed": true
+    }
+  ],
+  "browser": [
+    {
+      "browser": {
+        "browser": "chrome",
+        "version": "156.0.8078.79"
+      }
+    },
+    {
+      "case": "recovery_context",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "completion",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "full_cookie_security",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "context_session_cookie",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "javascript_cannot_read_auth_cookies",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "lost_cookie_q01",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "history_does_not_restore_cookie",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "explicit_recovery",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "same_secret_and_expiry",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "q01_verifies_selected",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "q01_closes_new_issuance",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "existing_cookie_survives_erasure",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "historical_result_stable",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "logout_a_context",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "logout_b_context",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "separate_tab_selection",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "continue_keeps_original_target",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "wrong_selected_logout_target_rejected",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "logout_a_only",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "b_still_current",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "logout_history",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "loss_before_context",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "loss_before_response_lost",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "loss_before_cookie_observation",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "loss_before_history_confirmed",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "loss_before_q01_missing",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "loss_before_recovery",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "loss_before_eventual_q01",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "loss_after_context",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "loss_after_response_lost",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "loss_after_cookie_observation",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "loss_after_history_confirmed",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "loss_after_eventual_q01",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "logout_lost_context",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "logout_response_lost",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "stale_browser_cookie_does_not_revive",
+      "passed": true,
+      "layer": "browser"
+    },
+    {
+      "case": "lost_logout_result_recovered",
+      "passed": true,
+      "layer": "browser"
+    }
+  ],
+  "observer": {
+    "basic_one_login_one_result": true,
+    "basic_recovery_material_erased": true,
+    "basic_revocation_and_outcome": true,
+    "logout_lost_one_login_one_result": true,
+    "logout_lost_recovery_material_erased": true,
+    "logout_lost_revocation_and_outcome": true,
+    "loss_after_one_login_one_result": true,
+    "loss_after_recovery_material_erased": true,
+    "loss_before_one_login_one_result": true,
+    "loss_before_recovery_material_erased": true,
+    "recovery_one_login_one_result": true,
+    "recovery_recovery_material_erased": true,
+    "tabs_only_a_revoked": true,
+    "tabs_two_valid_results": true
+  },
+  "targeted_http": {
+    "boundary_before": true,
+    "boundary_at": true,
+    "boundary_after": true,
+    "context_expiry": true,
+    "key_loss": true,
+    "corrupt_cipher": true,
+    "revoke": true,
+    "expired_login": true,
+    "not_applicable": true,
+    "rejected_history_timestamp": true,
+    "neighbor_context_proof": true,
+    "wrong_context_proof": true
+  },
+  "commit_gap": {
+    "completion_commit_confirmation_discarded": true,
+    "http_503_no_cookie": true,
+    "historical_outcome_resolved": true,
+    "explicit_recovery_and_q01": true,
+    "observer": {
+      "one_original_completion": true,
+      "one_plan": true,
+      "q01_closed_and_erased": true
+    }
+  }
+}
