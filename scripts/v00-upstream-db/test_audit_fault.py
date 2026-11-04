@@ -56,7 +56,7 @@ def race(rejected=True):
     au = copy.deepcopy(after['audit'][0]); au.update(ordinal=3,context_id='ctx-b',operation_id='email-b')
     after['audit'].append(au)
     gen = copy.deepcopy(after['generations'][0]); gen['id']='generation-b';after['generations'].append(gen)
-    seal = copy.deepcopy(after['email_outcomes'][0]);seal.update(seal_id='seal-b',admission_id='email-b-admission',generation_id='generation-b');after['email_outcomes'].append(seal)
+    seal = copy.deepcopy(after['email_outcomes'][0]);seal.update(seal_id='seal-b',admission_id='email-b-admission',generation_id='generation-b',provider_session_id='provider-session-b');after['email_outcomes'].append(seal)
     before = copy.deepcopy(after)
     for group in ['admissions','results','plans','audit']:
         before[group] = [r for r in before[group] if r['operation_id'] != 'totp']
@@ -109,6 +109,8 @@ class FaultStorage(unittest.TestCase):
 
     def test_unrelated_issuance_or_seal_rejected(self):
         v=envelope('UB04');g=copy.deepcopy(v['after']['generations'][0]);g['id']='new';v['after']['generations'].append(g)
+        self.assertEqual(audit_fault(v)['storage_verdict'],'fail')
+        v=race();v['after']['email_outcomes'][1]['provider_session_id']=v['after']['email_outcomes'][0]['provider_session_id']
         self.assertEqual(audit_fault(v)['storage_verdict'],'fail')
 
     def test_report_contains_no_identifiers_and_names_limits(self):

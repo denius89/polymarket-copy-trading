@@ -75,7 +75,15 @@ def audit_fault(value):
         need({g['id'] for g in before['generations']} == {g['id'] for g in after['generations']}, 'no-new-issuance-during-case')
         old_seals = {s['seal_id']: s for s in before['email_outcomes']}
         new_seals = {s['seal_id']: s for s in after['email_outcomes']}
+        need(len(old_seals) == len(before['email_outcomes']) and len(new_seals) == len(after['email_outcomes']), 'unique-seal-identities')
         need(set(old_seals) <= set(new_seals), 'old-seals-retained')
+        sessions = [s['provider_session_id'] for s in new_seals.values() if s['provider_session_id'] is not None]
+        need(len(sessions) == len(set(sessions)), 'unique-provider-session-witness')
+        for sid, old in old_seals.items():
+            new = new_seals[sid]
+            need(all(new[k] == old[k] for k in ('seal_id','admission_id','generation_id','family','sealed_at')), 'old-seal-source-immutable')
+            if old['provider_session_id'] is not None:
+                need(old == new, 'old-consumed-witness-immutable')
         own_admission_ids = {a['id'] for k, a in after_adm.items() if k in keys}
         need(all(s['admission_id'] in own_admission_ids for k, s in new_seals.items() if k not in old_seals), 'no-unrelated-new-seal')
         old_logins = {r['id']: r for r in before['dependency']['logins']}
