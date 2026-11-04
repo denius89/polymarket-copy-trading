@@ -80,6 +80,15 @@ admission/executor/deadline и отсутствие результата дол�
 до и после exact repeat; первоначальный verifier envelope не переименовывается
 в такой сценарий. Q01/erasure могут менять recovery state законно и отмечаются явно.
 
+Каждую выгрузку `v00_upstream.snapshot(actor)` выполнять в отдельной короткой
+`BEGIN ISOLATION LEVEL REPEATABLE READ READ ONLY` транзакции и завершать COMMIT.
+Это распространяется и на промежуточный snapshot независимого actor до release.
+В текущем V00 SQL outer snapshot и вложенная dependency snapshot объявлены VOLATILE;
+READ COMMITTED не гарантирует им один MVCC snapshot. Нельзя считать смесь состояния
+до и после COMMIT доказательством ни частичной записи, ни целостного bundle. Verifier
+такую смесь отклоняет; сравнение не ослаблять. Read-only транзакцию не держать через
+сетевые действия и не менять runtime functions/grants ради наблюдателя.
+
 Команда offline: `python3 -B scripts/v00-upstream-db/audit_fault.py /private/case.json`.
 Результат содержит только case, постоянные labels, counts и границы. Нет идентификаторов,
 таймстампов, исходных исключений, тела запроса или секретов. Verifier не подключается
