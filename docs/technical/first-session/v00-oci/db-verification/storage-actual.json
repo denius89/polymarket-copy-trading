@@ -1,0 +1,32 @@
+{
+  "profile": "v00-storage-primitive-v1",
+  "date": "2026-11-04",
+  "source": "Sanitized actual supplied directly by the sole stand operator, server chat 01a1a613-98ac-7221-95df-5ac76fdc8c09; independently compared with predetermined DB01-DB12 expected by the DB chat",
+  "environment": "shadow-v00-integrated, PostgreSQL 17.11, Supabase Auth 2.197.0",
+  "clock_mode": "fixed_fixture",
+  "file_sha256": {
+    "001-storage.sql": "495f6edaf13f90a9687921db49f00225859ea39f062e732c0d02d15c9b856ec3",
+    "002-provider-observer.sql": "4f5e41d93c293367210e2af34cf93fae9a7a19fc3439dd0feabe28e9dfc59ba2",
+    "verify_storage.py": "70d3a6cab7fe6bfaddd08d9bd3ec2163335629d2803af38bd0ea37f3e22cd817"
+  },
+  "cases": [
+    {"case":"DB01-all-matching","expected":[200,[153567,153569],1,0],"actual":[200,[153567,153569],1,0],"verdict":"pass"},
+    {"case":"DB02-replay-after-change","expected":[{"http":200,"kind":"totp_consumed","status":"resolved","resolved_at":"1970-02-23T07:44:00+00:00","consumed_steps":[153567,153569]},{"http":200,"kind":"totp_consumed","status":"resolved","resolved_at":"1970-02-23T07:44:00+00:00","consumed_steps":[153567,153569]}],"actual":[{"http":200,"kind":"totp_consumed","status":"resolved","resolved_at":"1970-02-23T07:44:00+00:00","consumed_steps":[153567,153569]},{"http":200,"kind":"totp_consumed","status":"resolved","resolved_at":"1970-02-23T07:44:00+00:00","consumed_steps":[153567,153569]}],"verdict":"pass"},
+    {"case":"DB03-key-conflict","expected":[409,1],"actual":[409,1],"verdict":"pass"},
+    {"case":"DB04-partial-overlap","expected":[401,[153567],1,2,true],"actual":[401,[153567],1,2,true],"verdict":"pass"},
+    {"case":"DB05-concurrent-reuse","expected":[true,[200,401],[153568],2,1],"actual":[true,[200,401],[153568],2,1],"verdict":"pass"},
+    {"case":"DB06-user-pause","expected":[[401,401,401,401,401,429],5,5,[]],"actual":[[401,401,401,401,401,429],5,5,[]],"verdict":"pass"},
+    {"case":"DB07-pause-boundary","expected":[200,0,false],"actual":[200,0,false],"verdict":"pass"},
+    {"case":"DB08-precheck-no-mutation","expected":[[503,503,404],{"steps":[],"paused":false,"results":0,"failures":0}],"actual":[[503,503,404],{"steps":[],"paused":false,"results":0,"failures":0}],"verdict":"pass"},
+    {"case":"DB09-rollback","expected":[[],0,0,null],"actual":[[],0,0,null],"verdict":"pass"},
+    {"case":"DB10-after-rollback","expected":200,"actual":200,"verdict":"pass"},
+    {"case":"DB11-factor-version-isolation","expected":[200,[153568]],"actual":[200,[153568]],"verdict":"pass"},
+    {"case":"DB12-role-and-history-denials","expected":[true,true,true,true],"actual":[true,true,true,true],"verdict":"pass"}
+  ],
+  "limits": [
+    "Standalone storage primitive, no full Auth login/cookie/audit/witness transition",
+    "Fixed fixture clock, not trusted live wall-clock validation",
+    "No provider fault or backup restore is proved by these twelve cases",
+    "Operator-supplied actual; no claim that DB chat operated Oracle or independently captured its live traffic"
+  ]
+}
