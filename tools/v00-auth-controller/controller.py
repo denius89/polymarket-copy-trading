@@ -137,7 +137,22 @@ class Controller:
                 if fixture.get("fault") == "after_effect_before_result":
                     raise Unavailable("injected loss before local result read")
         result = self.db.call("outcome", {"operation_id": operation})
-        return (200 if result.get("status") == "confirmed_effect" else 202), result | {"full_login_issued": False}
+        if not isinstance(result, dict) or result.get("status") not in {"confirmed_effect", "uncertain"}:
+            raise Unavailable("invalid outcome record")
+        if result["status"] == "confirmed_effect":
+            if (result.get("operation_id") != operation or type(result.get("provider_txid")) is not int
+                    or result.get("http") != 200 or not result.get("observed_at")):
+                raise Unavailable("incomplete confirmed outcome")
+            try:
+                canonical_uuid(result.get("session_id"))
+            except InvalidRequest as exc:
+                raise Unavailable("invalid confirmed session") from exc
+            status = 200
+        else:
+            if result.get("http") != 202:
+                raise Unavailable("invalid uncertain outcome")
+            status = 202
+        return status, result | {"full_login_issued": False}
 
     def dispatch(self, fixture):
         # Operator-bound origin/path/fault mode; none can be supplied by HTTP callers.

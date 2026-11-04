@@ -26,7 +26,7 @@ class StubDatabase:
         if action == "seal":
             allowed, self.dispatch_allowed = self.dispatch_allowed, False
             return {"http": 200, "dispatch_allowed": allowed}
-        if action == "outcome": return {"status": "uncertain"}
+        if action == "outcome": return {"status": "uncertain", "http": 202}
         raise AssertionError(action)
 
 
@@ -108,6 +108,13 @@ class ControllerBoundary(unittest.TestCase):
             connection.return_value.sock.shutdown.assert_called_once()
             connection.return_value.getresponse.assert_not_called()
             connection.return_value.close.assert_called_once()
+
+    def test_malformed_outcome_never_becomes_pending(self):
+        for damaged in [None, {}, {"status": "future"}, {"status": "uncertain"},
+                        {"status": "confirmed_effect", "http": 200}]:
+            with patch.object(self.db, "call", return_value=damaged):
+                with self.assertRaises(Unavailable):
+                    self.controller.email("u1", {"operationId": OP}, lookup_only=True)
 
 
 if __name__ == "__main__":

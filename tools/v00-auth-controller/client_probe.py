@@ -1,6 +1,7 @@
 """Run inside the CLIENT-ONLY network. Config is private and operator generated."""
 import concurrent.futures
 import http.client
+import ipaddress
 import json
 import os
 from pathlib import Path
@@ -31,6 +32,7 @@ def run(config):
             conn.close()
 
     for target in config["forbidden_tcp"]:
+        ipaddress.ip_address(target["host"])  # DNS failure is not evidence of isolation.
         denied = False
         try:
             with socket.create_connection((target["host"], target["port"]), timeout=3):
