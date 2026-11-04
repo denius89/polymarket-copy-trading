@@ -127,6 +127,24 @@ provider/DB credentials or a seed. The probe emits only safe checks and source I
 it reads the original operation and checks Q01 before an explicit cookie recovery.
 It never repeats a verify POST automatically. Transport results are not browser proof.
 
+For real Chrome cookie observations, start the already prepared ChromeDriver in
+the isolated client container with trusted CA and without verbose request logging:
+
+```sh
+python3 tools/v00-upstream-auth/browser_probe.py /private/client.json --fixture browser_basic
+python3 tools/v00-upstream-auth/browser_probe.py /private/client.json --fixture browser_mfa --mfa
+python3 tools/v00-upstream-auth/browser_probe.py /private/client.json --fixture loss_before --response-loss
+python3 tools/v00-upstream-auth/browser_probe.py /private/client.json --fixture loss_after --response-loss
+```
+
+Codes again arrive only on private stdin. The browser driver forbids insecure
+certificate acceptance; it observes actual cookie attributes, JavaScript isolation,
+explicit recovery after loss, unchanged secret/expiry, Q01 closure and selected
+logout. Cookie values stay in memory and are never emitted in the report. Run each
+fixture once with its original operation flow; do not reuse a consumed OTP across
+separate probes. Browser and transport fixtures are separate unless a run explicitly
+shares one original operation rather than starting another.
+
 ## Actual scope and open dependencies
 
 The first bridge starts after real fixture email delivery. Public C01/C03, resend,
