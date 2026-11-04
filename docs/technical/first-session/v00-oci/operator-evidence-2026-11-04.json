@@ -1,0 +1,583 @@
+{
+  "schema": "shadow-v00-operator-evidence-v1",
+  "date": "2026-11-04",
+  "baseline": "01233d7a66b891aed70dc0506e9495070fafaf92",
+  "scope": "isolated synthetic V00",
+  "controller_head": "111c85e2629384206cdf8fae49a7242daee7a7b9",
+  "runner_image": "sha256:e45473afeeddd4a12da5a1842c22b754a72438c47c02acffab97dc8a72e1faae",
+  "database_storage": {
+    "reference": "PR 227",
+    "cases_passed": 12,
+    "lock_waiters_observed": 2
+  },
+  "rls": {
+    "sql_sha256": "0f2e1e621b6b59b31ec24e7efac85e5bc2c9e92f77a0e20f27e5b4019d2a8d42",
+    "probe_sha256": "34970e33d78cd4a69cfe8bc0f4ace0f4996c2e800888910ff4284bc791154d55",
+    "actual": {
+      "profile": "v00-provider-rls-v1",
+      "cases": [
+        {
+          "case": "RLS01-listed-read",
+          "expected": "1",
+          "actual": "1",
+          "verdict": "pass"
+        },
+        {
+          "case": "RLS02-existing-unlisted-hidden",
+          "expected": "0",
+          "actual": "0",
+          "verdict": "pass"
+        },
+        {
+          "case": "RLS03-listed-rowlock",
+          "expected": "[synthetic-id]",
+          "actual": "[synthetic-id]",
+          "verdict": "pass"
+        },
+        {
+          "case": "RLS04-owner-write-denied",
+          "expected": true,
+          "actual": true,
+          "verdict": "pass"
+        },
+        {
+          "case": "RLS05-executor-provider-read-denied",
+          "expected": true,
+          "actual": true,
+          "verdict": "pass"
+        },
+        {
+          "case": "RLS06-executor-allowlist-write-denied",
+          "expected": true,
+          "actual": true,
+          "verdict": "pass"
+        },
+        {
+          "case": "RLS07-provider-RLS-remains-on",
+          "expected": [
+            {
+              "table": "sessions",
+              "rls": true
+            },
+            {
+              "table": "users",
+              "rls": true
+            }
+          ],
+          "actual": [
+            {
+              "rls": true,
+              "table": "sessions"
+            },
+            {
+              "rls": true,
+              "table": "users"
+            }
+          ],
+          "verdict": "pass"
+        },
+        {
+          "case": "RLS08-no-bypass",
+          "expected": "0",
+          "actual": "0",
+          "verdict": "pass"
+        }
+      ]
+    }
+  },
+  "controller": {
+    "cases": [
+      {
+        "id": "direct_auth_denied",
+        "passed": true
+      },
+      {
+        "id": "direct_db_denied",
+        "passed": true
+      },
+      {
+        "consumed_steps": [
+          59793023
+        ],
+        "http": 200,
+        "id": "wall_clock",
+        "kind": "totp_consumed",
+        "passed": true,
+        "reason": null,
+        "status": "resolved"
+      },
+      {
+        "consumed_steps": [
+          153567,
+          153569
+        ],
+        "http": 200,
+        "id": "collision",
+        "kind": "totp_consumed",
+        "passed": true,
+        "reason": null,
+        "status": "resolved"
+      },
+      {
+        "consumed_steps": [
+          153567,
+          153569
+        ],
+        "http": 200,
+        "id": "exact_replay",
+        "kind": "totp_consumed",
+        "passed": true,
+        "reason": null,
+        "status": "resolved"
+      },
+      {
+        "consumed_steps": null,
+        "http": 409,
+        "id": "key_conflict",
+        "kind": null,
+        "passed": true,
+        "reason": "payload_conflict",
+        "status": "rejected_precheck"
+      },
+      {
+        "consumed_steps": [],
+        "http": 401,
+        "id": "collision_reuse",
+        "kind": "verification_rejected",
+        "passed": true,
+        "reason": "AUTH_VERIFICATION_FAILED",
+        "status": "resolved"
+      },
+      {
+        "consumed_steps": [],
+        "http": 401,
+        "id": "partial_overlap",
+        "kind": "verification_rejected",
+        "passed": true,
+        "reason": "AUTH_VERIFICATION_FAILED",
+        "status": "resolved"
+      },
+      {
+        "consumed_steps": [
+          153567,
+          153569
+        ],
+        "http": 200,
+        "id": "new_factor_version",
+        "kind": "totp_consumed",
+        "passed": true,
+        "reason": null,
+        "status": "resolved"
+      },
+      {
+        "consumed_steps": null,
+        "http": 409,
+        "id": "expired_challenge",
+        "kind": null,
+        "passed": true,
+        "reason": "challenge_unavailable",
+        "status": "rejected_precheck"
+      },
+      {
+        "consumed_steps": null,
+        "http": 409,
+        "id": "missing_current_challenge",
+        "kind": null,
+        "passed": true,
+        "reason": "challenge_unavailable",
+        "status": "rejected_precheck"
+      },
+      {
+        "consumed_steps": [],
+        "http": 401,
+        "id": "wrong_1",
+        "kind": "verification_rejected",
+        "passed": true,
+        "reason": "AUTH_VERIFICATION_FAILED",
+        "status": "resolved"
+      },
+      {
+        "consumed_steps": [],
+        "http": 401,
+        "id": "wrong_2",
+        "kind": "verification_rejected",
+        "passed": true,
+        "reason": "AUTH_VERIFICATION_FAILED",
+        "status": "resolved"
+      },
+      {
+        "consumed_steps": [],
+        "http": 401,
+        "id": "wrong_3",
+        "kind": "verification_rejected",
+        "passed": true,
+        "reason": "AUTH_VERIFICATION_FAILED",
+        "status": "resolved"
+      },
+      {
+        "consumed_steps": [],
+        "http": 401,
+        "id": "wrong_4",
+        "kind": "verification_rejected",
+        "passed": true,
+        "reason": "AUTH_VERIFICATION_FAILED",
+        "status": "resolved"
+      },
+      {
+        "consumed_steps": [],
+        "http": 401,
+        "id": "wrong_5",
+        "kind": "verification_rejected",
+        "passed": true,
+        "reason": "AUTH_VERIFICATION_FAILED",
+        "status": "resolved"
+      },
+      {
+        "consumed_steps": [],
+        "http": 401,
+        "id": "wrong_replay_no_counter",
+        "kind": "verification_rejected",
+        "passed": true,
+        "reason": "AUTH_VERIFICATION_FAILED",
+        "status": "resolved"
+      },
+      {
+        "consumed_steps": null,
+        "http": 429,
+        "id": "paused",
+        "kind": null,
+        "passed": true,
+        "reason": "verification_paused",
+        "status": "rejected_precheck"
+      },
+      {
+        "consumed_steps": null,
+        "http": 400,
+        "id": "caller_cannot_choose_time",
+        "kind": null,
+        "passed": true,
+        "reason": "invalid_request",
+        "status": null
+      },
+      {
+        "consumed_steps": null,
+        "http": 202,
+        "id": "email_before_headers",
+        "kind": null,
+        "passed": true,
+        "reason": null,
+        "status": "uncertain"
+      },
+      {
+        "consumed_steps": null,
+        "http": 202,
+        "id": "email_before_headers_read",
+        "kind": null,
+        "passed": true,
+        "reason": null,
+        "status": "uncertain"
+      },
+      {
+        "consumed_steps": null,
+        "http": 503,
+        "id": "email_after_effect_before_result",
+        "kind": null,
+        "passed": true,
+        "reason": "outcome_unavailable",
+        "status": null
+      },
+      {
+        "consumed_steps": null,
+        "http": 200,
+        "id": "email_after_effect_before_result_read",
+        "kind": null,
+        "passed": true,
+        "reason": null,
+        "status": "confirmed_effect"
+      },
+      {
+        "consumed_steps": null,
+        "http": 202,
+        "id": "email_before_send",
+        "kind": null,
+        "passed": true,
+        "reason": null,
+        "status": "uncertain"
+      },
+      {
+        "consumed_steps": null,
+        "http": 202,
+        "id": "email_before_send_replay_no_dispatch",
+        "kind": null,
+        "passed": true,
+        "reason": null,
+        "status": "uncertain"
+      },
+      {
+        "http": [
+          200,
+          401
+        ],
+        "id": "two_device_same_factor",
+        "passed": true,
+        "scope": "simultaneous_client_start; DB lock observation is separate"
+      },
+      {
+        "client_read_headers": false,
+        "http": 200,
+        "id": "email_none",
+        "passed": true,
+        "status": "confirmed_effect"
+      }
+    ],
+    "full_login_issued": false,
+    "schema": "v00-controller-evidence-v1"
+  },
+  "lost_totp": {
+    "actual": {
+      "cases": [
+        {
+          "id": "direct_auth_denied",
+          "passed": true
+        },
+        {
+          "id": "direct_db_denied",
+          "passed": true
+        },
+        {
+          "client_read_headers": false,
+          "http": 200,
+          "id": "totp_lost_client_reply",
+          "passed": true,
+          "status": "resolved"
+        }
+      ],
+      "full_login_issued": false,
+      "schema": "v00-controller-evidence-v1"
+    },
+    "probe_config": "operator scoped, fixed fixture, no email calls",
+    "durable_results": 1,
+    "used_steps": [
+      153567,
+      153569
+    ]
+  },
+  "auth_storage": {
+    "before_headers": {
+      "seals": 1,
+      "confirmed_users": 0,
+      "sessions": 0,
+      "outcomes": 0,
+      "status": "uncertain"
+    },
+    "before_send": {
+      "seals": 1,
+      "confirmed_users": 0,
+      "sessions": 0,
+      "outcomes": 0,
+      "status": "uncertain"
+    },
+    "after_effect_before_result": {
+      "seals": 1,
+      "confirmed_users": 1,
+      "sessions": 1,
+      "outcomes": 1,
+      "same_transaction_and_session": true
+    },
+    "none": {
+      "seals": 1,
+      "confirmed_users": 1,
+      "sessions": 1,
+      "outcomes": 1,
+      "same_transaction_and_session": true
+    }
+  },
+  "pitr_rehearsal": {
+    "base_backup_verified": true,
+    "local_manifest_verified": true,
+    "before_revoke": {
+      "replay_lsn": "0/40001E8",
+      "state": "active",
+      "events": [
+        "seed",
+        "start"
+      ],
+      "update_allowed": false,
+      "read_only": true,
+      "elapsed_seconds": 3.426
+    },
+    "after_revoke": {
+      "replay_lsn": "0/50001F8",
+      "state": "revoked",
+      "events": [
+        "seed",
+        "start",
+        "revoke"
+      ],
+      "update_allowed": false,
+      "read_only": true,
+      "elapsed_seconds": 1.836
+    },
+    "missing_wal_target_refused": true,
+    "fixture_target_incident_gap_seconds": 1.439
+  },
+  "physical_restore": {
+    "verified": true,
+    "policy_role_trigger_allowlist_visibility_match": true,
+    "local_quiesce_to_verified_seconds": 5.244,
+    "comparison": {
+      "profile": "v00-db-restore-comparison-v1",
+      "source_lsn": "0/3009470",
+      "restore_lsn": "0/50000A0",
+      "checks": [
+        {
+          "criterion": "snapshot-profile",
+          "verdict": "pass",
+          "detail": null
+        },
+        {
+          "criterion": "table-inventory",
+          "verdict": "pass",
+          "detail": null
+        },
+        {
+          "criterion": "actors",
+          "verdict": "pass",
+          "detail": {
+            "before_count": 21,
+            "after_count": 21,
+            "behavioral_coverage": "not_asserted",
+            "before_digest": "7721b8838ba397576f00448374e44353db5431aeb00c60a2d81957b07abe8c21",
+            "after_digest": "7721b8838ba397576f00448374e44353db5431aeb00c60a2d81957b07abe8c21"
+          }
+        },
+        {
+          "criterion": "challenges",
+          "verdict": "pass",
+          "detail": {
+            "before_count": 33,
+            "after_count": 33,
+            "behavioral_coverage": "not_asserted",
+            "before_digest": "244a9a903d9d9d20d6fb3a8f149f208133db95e1502d0aa9d50eab720630c6ea",
+            "after_digest": "244a9a903d9d9d20d6fb3a8f149f208133db95e1502d0aa9d50eab720630c6ea"
+          }
+        },
+        {
+          "criterion": "contexts",
+          "verdict": "pass",
+          "detail": {
+            "before_count": 33,
+            "after_count": 33,
+            "behavioral_coverage": "not_asserted",
+            "before_digest": "82340942228a0495830c8e96577701abd6dad328281024c3a9c735b99a6df0d8",
+            "after_digest": "82340942228a0495830c8e96577701abd6dad328281024c3a9c735b99a6df0d8"
+          }
+        },
+        {
+          "criterion": "email_confirmations",
+          "verdict": "pass",
+          "detail": {
+            "before_count": 2,
+            "after_count": 2,
+            "behavioral_coverage": "not_asserted",
+            "before_digest": "f7223180f1c0e31504852425b7aea0f3cf2db1d7970fc4d53be976a493df8f69",
+            "after_digest": "f7223180f1c0e31504852425b7aea0f3cf2db1d7970fc4d53be976a493df8f69"
+          }
+        },
+        {
+          "criterion": "email_outcomes",
+          "verdict": "pass",
+          "detail": {
+            "before_count": 2,
+            "after_count": 2,
+            "behavioral_coverage": "not_asserted",
+            "before_digest": "a87c0278c1a32b4fc0ec35d38783f33dd299de4cccd82a57d71155725ae85197",
+            "after_digest": "a87c0278c1a32b4fc0ec35d38783f33dd299de4cccd82a57d71155725ae85197"
+          }
+        },
+        {
+          "criterion": "email_seals_redacted",
+          "verdict": "pass",
+          "detail": {
+            "before_count": 4,
+            "after_count": 4,
+            "behavioral_coverage": "not_asserted",
+            "before_digest": "db4d8e7af1d6d0e0cfb25750a70bc4dce8c249c2328efcdc2d1da142b410053b",
+            "after_digest": "db4d8e7af1d6d0e0cfb25750a70bc4dce8c249c2328efcdc2d1da142b410053b"
+          }
+        },
+        {
+          "criterion": "factors",
+          "verdict": "pass",
+          "detail": {
+            "before_count": 24,
+            "after_count": 24,
+            "behavioral_coverage": "not_asserted",
+            "before_digest": "0004248d6a5ac2a05b6a24eb0b9780d59416b11fb5215afd5c1c45d20e638bb7",
+            "after_digest": "0004248d6a5ac2a05b6a24eb0b9780d59416b11fb5215afd5c1c45d20e638bb7"
+          }
+        },
+        {
+          "criterion": "provider_observations",
+          "verdict": "pass",
+          "detail": {
+            "before_count": 4,
+            "after_count": 4,
+            "behavioral_coverage": "not_asserted",
+            "before_digest": "339a847cc41e8b3ab04f4ca1e60a43c293c8b8ebddf4fcb8cd7ebe1631d36bb1",
+            "after_digest": "339a847cc41e8b3ab04f4ca1e60a43c293c8b8ebddf4fcb8cd7ebe1631d36bb1"
+          }
+        },
+        {
+          "criterion": "totp_results",
+          "verdict": "pass",
+          "detail": {
+            "before_count": 38,
+            "after_count": 38,
+            "behavioral_coverage": "not_asserted",
+            "before_digest": "74d0ad010d82af81b13bfc0e9b40050164fca407e9086746730c5eec2d58af15",
+            "after_digest": "74d0ad010d82af81b13bfc0e9b40050164fca407e9086746730c5eec2d58af15"
+          }
+        },
+        {
+          "criterion": "used_steps",
+          "verdict": "pass",
+          "detail": {
+            "before_count": 23,
+            "after_count": 23,
+            "behavioral_coverage": "not_asserted",
+            "before_digest": "104e3bcdc902898347653986826523edeba36f1b4acfe54ac4b410e61525e0a7",
+            "after_digest": "104e3bcdc902898347653986826523edeba36f1b4acfe54ac4b410e61525e0a7"
+          }
+        },
+        {
+          "criterion": "source-integrity",
+          "verdict": "pass",
+          "detail": null
+        },
+        {
+          "criterion": "restore-integrity",
+          "verdict": "pass",
+          "detail": null
+        }
+      ],
+      "verdict": "pass",
+      "limits": [
+        "row equality only; empty tables carry no behavioral coverage",
+        "requires same quiescent capture point; later effects require separate external reconciliation",
+        "does not authorize gate reopening or assert RPO/RTO"
+      ]
+    }
+  },
+  "external_restore": {
+    "verdict": "not_run",
+    "pending": [
+      "OCI account quota and private bucket access",
+      "custodian, independent verifier and recipients",
+      "encrypted delivery, signed manifest and external WAL chain",
+      "external recovery drill and measured RPO/RTO"
+    ]
+  },
+  "full_br08": "open",
+  "v01": "closed"
+}
