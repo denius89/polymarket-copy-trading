@@ -20,6 +20,13 @@ provider instrumentation and explicit private pgcrypto installation are separate
 On installation failure do not reset any old stand or silently continue. Correct
 the candidate in this fresh test database under operator control and record it.
 
+Existing candidate `43bb6f5` installed001–006 successfully, then runner stopped after
+10 pass checks at capture: PL/pgSQL row variable `r` collided with query alias `r`.
+Apply `007-capture-fix.sql` only to that installed candidate, no reset/data rewrite;
+it replaces the function with the corrected body already present in fresh001.
+Then run the current harness with fresh UUID fixtures. Preserve the incomplete
+first run as evidence, not a pass for the rest of the package.
+
 RLS stays enabled. Owner has SELECT/row-lock privileges only on allowlisted provider
 users/factors and scoped policies. Runtime has function execution only, no seed
 read/fixture/global control. Do not grant runtime `v00_session_executor`, either

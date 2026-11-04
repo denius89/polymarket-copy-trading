@@ -143,7 +143,7 @@ BEGIN
 END $$;
 CREATE FUNCTION v00_upstream.capture(p jsonb) RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path=pg_catalog AS $$
 DECLARE started timestamptz:=clock_timestamp(); initial_epoch bigint; g v00_upstream.gate;
-  a v00_upstream.admissions; cmp v00_upstream.comparisons; r v00_upstream.results; e jsonb; expiry timestamptz;
+  a v00_upstream.admissions; cmp v00_upstream.comparisons; prior_result v00_upstream.results; e jsonb; expiry timestamptz;
 BEGIN
   -- This role is called before the trusted ingress queues/dispatches the handler.
   SELECT epoch INTO STRICT initial_epoch FROM v00_upstream.gate WHERE singleton;
@@ -152,8 +152,8 @@ BEGIN
   e:=v00_upstream.lock_scope(p); IF e IS NOT NULL THEN RETURN e; END IF;
   SELECT * INTO a FROM v00_upstream.admissions WHERE context_id=(p->>'context_id')::uuid AND operation_id=(p->>'operation_id')::uuid;
   IF FOUND THEN
-    SELECT * INTO r FROM v00_upstream.results WHERE context_id=a.context_id AND operation_id=a.operation_id;
-    IF FOUND AND v00_upstream.valid_result(r) IS DISTINCT FROM true THEN RETURN v00_session.error(503,'RECORD_UNAVAILABLE'); END IF;
+    SELECT * INTO prior_result FROM v00_upstream.results WHERE context_id=a.context_id AND operation_id=a.operation_id;
+    IF FOUND AND v00_upstream.valid_result(prior_result) IS DISTINCT FROM true THEN RETURN v00_session.error(503,'RECORD_UNAVAILABLE'); END IF;
     SELECT * INTO STRICT cmp FROM v00_upstream.comparisons WHERE admission_id=a.id;
     IF a.action<>p->>'action' OR a.fingerprint<>p->>'fingerprint' OR cmp.hmac<>p->>'comparison_hmac' OR cmp.key_id<>p->>'comparison_key_id' THEN
       RETURN v00_session.error(409,'KEY_REUSE_CONFLICT');
