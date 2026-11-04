@@ -1,0 +1,347 @@
+{
+  "schema": "v00-upstream-independent-review-v1",
+  "date": "2026-11-04",
+  "verdict": "pass_with_scope_limits",
+  "db_runtime_head": "2747516132a8bbc585eb2343dca52952e993850c",
+  "backend_runtime_head": "210044b3ecee092499baa4602f3a36f0344a6cf4",
+  "snapshot_audits": {
+    "basic": {
+      "schema": "v00-upstream-independent-audit-v1",
+      "verdict": "pass",
+      "conditions_checked": 98,
+      "counts": {
+        "contexts": 1,
+        "admissions": 1,
+        "results": 1,
+        "steps": 0,
+        "full_logins": 1,
+        "provider_seals": 1,
+        "logout_results": 1
+      },
+      "errors": [],
+      "limits": [
+        "safe projection only; no HTTP/crypto/provider dispatch or independent clock proof",
+        "zero rows are no-data, not behavioral coverage"
+      ]
+    },
+    "mfa": {
+      "schema": "v00-upstream-independent-audit-v1",
+      "verdict": "pass",
+      "conditions_checked": 140,
+      "counts": {
+        "contexts": 1,
+        "admissions": 2,
+        "results": 2,
+        "steps": 1,
+        "full_logins": 1,
+        "provider_seals": 1,
+        "logout_results": 1
+      },
+      "errors": [],
+      "limits": [
+        "safe projection only; no HTTP/crypto/provider dispatch or independent clock proof",
+        "zero rows are no-data, not behavioral coverage"
+      ]
+    },
+    "provider_loss_mfa": {
+      "schema": "v00-upstream-independent-audit-v1",
+      "verdict": "pass",
+      "conditions_checked": 140,
+      "counts": {
+        "contexts": 1,
+        "admissions": 2,
+        "results": 2,
+        "steps": 1,
+        "full_logins": 1,
+        "provider_seals": 1,
+        "logout_results": 1
+      },
+      "errors": [],
+      "limits": [
+        "safe projection only; no HTTP/crypto/provider dispatch or independent clock proof",
+        "zero rows are no-data, not behavioral coverage"
+      ]
+    },
+    "loss_before": {
+      "schema": "v00-upstream-independent-audit-v1",
+      "verdict": "pass",
+      "conditions_checked": 98,
+      "counts": {
+        "contexts": 1,
+        "admissions": 1,
+        "results": 1,
+        "steps": 0,
+        "full_logins": 1,
+        "provider_seals": 1,
+        "logout_results": 1
+      },
+      "errors": [],
+      "limits": [
+        "safe projection only; no HTTP/crypto/provider dispatch or independent clock proof",
+        "zero rows are no-data, not behavioral coverage"
+      ]
+    },
+    "loss_after": {
+      "schema": "v00-upstream-independent-audit-v1",
+      "verdict": "pass",
+      "conditions_checked": 98,
+      "counts": {
+        "contexts": 1,
+        "admissions": 1,
+        "results": 1,
+        "steps": 0,
+        "full_logins": 1,
+        "provider_seals": 1,
+        "logout_results": 1
+      },
+      "errors": [],
+      "limits": [
+        "safe projection only; no HTTP/crypto/provider dispatch or independent clock proof",
+        "zero rows are no-data, not behavioral coverage"
+      ]
+    },
+    "browser_basic": {
+      "schema": "v00-upstream-independent-audit-v1",
+      "verdict": "pass",
+      "conditions_checked": 98,
+      "counts": {
+        "contexts": 1,
+        "admissions": 1,
+        "results": 1,
+        "steps": 0,
+        "full_logins": 1,
+        "provider_seals": 1,
+        "logout_results": 1
+      },
+      "errors": [],
+      "limits": [
+        "safe projection only; no HTTP/crypto/provider dispatch or independent clock proof",
+        "zero rows are no-data, not behavioral coverage"
+      ]
+    },
+    "browser_mfa": {
+      "schema": "v00-upstream-independent-audit-v1",
+      "verdict": "pass",
+      "conditions_checked": 140,
+      "counts": {
+        "contexts": 1,
+        "admissions": 2,
+        "results": 2,
+        "steps": 1,
+        "full_logins": 1,
+        "provider_seals": 1,
+        "logout_results": 1
+      },
+      "errors": [],
+      "limits": [
+        "safe projection only; no HTTP/crypto/provider dispatch or independent clock proof",
+        "zero rows are no-data, not behavioral coverage"
+      ]
+    }
+  },
+  "conditions_checked": 812,
+  "source_bindings": {
+    "basic": {
+      "source_tuple_equal": true,
+      "reported_assertions": 16
+    },
+    "mfa": {
+      "source_tuple_equal": true,
+      "reported_assertions": 21
+    },
+    "provider_loss_mfa": {
+      "source_tuple_equal": true,
+      "reported_assertions": 21
+    },
+    "browser_basic": {
+      "source_tuple_equal": true,
+      "reported_assertions": 17
+    },
+    "browser_mfa": {
+      "source_tuple_equal": true,
+      "reported_assertions": 20
+    },
+    "loss_before": {
+      "source_tuple_equal": true,
+      "reported_assertions": 14
+    },
+    "loss_after": {
+      "source_tuple_equal": true,
+      "reported_assertions": 14
+    }
+  },
+  "operator_reported_assertions": {
+    "transport-actual.json": 58,
+    "browser-actual.json": 65
+  },
+  "limits": [
+    "DB reviewer ran offline reconciliation only; server chat executed Oracle/provider/HTTP/Chrome",
+    "Snapshot comparisons are not additional end-to-end tests or independent provider source observations",
+    "SQL harness used constructed provider fixtures and synthetic cipher; real chain is separate evidence",
+    "7 actors, 7 original full logins, 3 MFA stages/used steps, 7 selected logout results; not a concurrency run",
+    "Milliseconds dependency projection compared by exact truncation of raw upstream microseconds",
+    "Full race/unknown/late effect/global drain and reopening not established by this evidence",
+    "No production Auth readiness, full 78-table implementation, V01 admission or real trades"
+  ],
+  "original_operator_evidence_sha256": {
+    "observer-actual.json": "cc18c0856ba692117d03cc57b574b0baf9ad523e14d25b8ff9f1ccd5677845e2",
+    "transport-actual.json": "68f53d518f031256b6f49ec51dc5a00ce93b6a5fbf5429240f6ab9e2dd59b250",
+    "browser-actual.json": "a978e1bd8e96b660906dfa2a00255959728e32c8d80b5235e0a4b9f10361a964",
+    "redaction-actual.json": "d44e59041793103b891b3642acb1bf043947c6bea2c268f5d13b1632fe5e21ce",
+    "storage-initial-incomplete.json": "90a995cc609f53b1d79d8491d529ef1ddf02953ba3f74948f2359039ec2510a9",
+    "storage-after-007-incomplete.json": "924b1b0e1bb5a790947297de5ac1863dc4f58970838fc6a2cc3b0b0d57d1c5ff",
+    "storage-after-008.json": "b7e7a180d68a48954bb598025f280354e5f0b03a52ec5fa4f8a549120d396897"
+  },
+  "published_evidence_sha256": {
+    "browser-anonymized.json": "7782a27462afdc575a09ded0adfd5d98918222665e007925fed81e0703cc4207",
+    "transport-anonymized.json": "c7f6d281a6ddf93d47beb251c4e17cca35a83a00e3df6841062d2621f9e8904a",
+    "storage-after-008.json": "b7e7a180d68a48954bb598025f280354e5f0b03a52ec5fa4f8a549120d396897",
+    "storage-initial-incomplete.json": "90a995cc609f53b1d79d8491d529ef1ddf02953ba3f74948f2359039ec2510a9",
+    "storage-after-007-incomplete.json": "924b1b0e1bb5a790947297de5ac1863dc4f58970838fc6a2cc3b0b0d57d1c5ff",
+    "observer-anonymized.json": "8187e5b4a7239716a073b401041a9e236bb633d1dcc612862ca7f0fb17343d15",
+    "redaction-anonymized.json": "e7ec7b698b8d1a4200d2ffca55fa6ff8daad91e24a37dfca06b0c7e1d55b68e6"
+  },
+  "anonymized_snapshot_audits": {
+    "basic": {
+      "schema": "v00-upstream-independent-audit-v1",
+      "verdict": "pass",
+      "conditions_checked": 98,
+      "counts": {
+        "contexts": 1,
+        "admissions": 1,
+        "results": 1,
+        "steps": 0,
+        "full_logins": 1,
+        "provider_seals": 1,
+        "logout_results": 1
+      },
+      "errors": [],
+      "limits": [
+        "safe projection only; no HTTP/crypto/provider dispatch or independent clock proof",
+        "zero rows are no-data, not behavioral coverage"
+      ]
+    },
+    "mfa": {
+      "schema": "v00-upstream-independent-audit-v1",
+      "verdict": "pass",
+      "conditions_checked": 140,
+      "counts": {
+        "contexts": 1,
+        "admissions": 2,
+        "results": 2,
+        "steps": 1,
+        "full_logins": 1,
+        "provider_seals": 1,
+        "logout_results": 1
+      },
+      "errors": [],
+      "limits": [
+        "safe projection only; no HTTP/crypto/provider dispatch or independent clock proof",
+        "zero rows are no-data, not behavioral coverage"
+      ]
+    },
+    "provider_loss_mfa": {
+      "schema": "v00-upstream-independent-audit-v1",
+      "verdict": "pass",
+      "conditions_checked": 140,
+      "counts": {
+        "contexts": 1,
+        "admissions": 2,
+        "results": 2,
+        "steps": 1,
+        "full_logins": 1,
+        "provider_seals": 1,
+        "logout_results": 1
+      },
+      "errors": [],
+      "limits": [
+        "safe projection only; no HTTP/crypto/provider dispatch or independent clock proof",
+        "zero rows are no-data, not behavioral coverage"
+      ]
+    },
+    "loss_before": {
+      "schema": "v00-upstream-independent-audit-v1",
+      "verdict": "pass",
+      "conditions_checked": 98,
+      "counts": {
+        "contexts": 1,
+        "admissions": 1,
+        "results": 1,
+        "steps": 0,
+        "full_logins": 1,
+        "provider_seals": 1,
+        "logout_results": 1
+      },
+      "errors": [],
+      "limits": [
+        "safe projection only; no HTTP/crypto/provider dispatch or independent clock proof",
+        "zero rows are no-data, not behavioral coverage"
+      ]
+    },
+    "loss_after": {
+      "schema": "v00-upstream-independent-audit-v1",
+      "verdict": "pass",
+      "conditions_checked": 98,
+      "counts": {
+        "contexts": 1,
+        "admissions": 1,
+        "results": 1,
+        "steps": 0,
+        "full_logins": 1,
+        "provider_seals": 1,
+        "logout_results": 1
+      },
+      "errors": [],
+      "limits": [
+        "safe projection only; no HTTP/crypto/provider dispatch or independent clock proof",
+        "zero rows are no-data, not behavioral coverage"
+      ]
+    },
+    "browser_basic": {
+      "schema": "v00-upstream-independent-audit-v1",
+      "verdict": "pass",
+      "conditions_checked": 98,
+      "counts": {
+        "contexts": 1,
+        "admissions": 1,
+        "results": 1,
+        "steps": 0,
+        "full_logins": 1,
+        "provider_seals": 1,
+        "logout_results": 1
+      },
+      "errors": [],
+      "limits": [
+        "safe projection only; no HTTP/crypto/provider dispatch or independent clock proof",
+        "zero rows are no-data, not behavioral coverage"
+      ]
+    },
+    "browser_mfa": {
+      "schema": "v00-upstream-independent-audit-v1",
+      "verdict": "pass",
+      "conditions_checked": 140,
+      "counts": {
+        "contexts": 1,
+        "admissions": 2,
+        "results": 2,
+        "steps": 1,
+        "full_logins": 1,
+        "provider_seals": 1,
+        "logout_results": 1
+      },
+      "errors": [],
+      "limits": [
+        "safe projection only; no HTTP/crypto/provider dispatch or independent clock proof",
+        "zero rows are no-data, not behavioral coverage"
+      ]
+    }
+  },
+  "anonymization": {
+    "ids": "consistent ordinal labels, mapping not published",
+    "timestamps": "one whole-day offset shared by all files; intervals and microseconds preserved; displayed dates synthetic",
+    "transaction_ids": "consistent ordered integer labels",
+    "totp_steps": "one shared integer offset; differences retained, original absolute step not published",
+    "source_bytes": "original four runtime JSON are not published; hashes identify local evidence",
+    "audit": "same812conditions pass before and after transformation; this is not new runtime execution"
+  }
+}

@@ -1,0 +1,1561 @@
+{
+  "basic": {
+    "gate": {
+      "open": true,
+      "epoch": 2,
+      "clock_trusted": true
+    },
+    "audit": [
+      {
+        "kind": "completion",
+        "ordinal": 5,
+        "context_id": "reference-068",
+        "recorded_at": "2000-01-01T15:00:47.718772+00:00",
+        "operation_id": "reference-013"
+      }
+    ],
+    "plans": [
+      {
+        "action": "C02",
+        "context_id": "reference-068",
+        "admission_id": "reference-087",
+        "operation_id": "reference-013",
+        "transaction_id": 108
+      }
+    ],
+    "steps": [],
+    "schema": "v00-upstream-snapshot-v1",
+    "results": [
+      {
+        "valid": true,
+        "action": "C02",
+        "result": {
+          "kind": "login_completed",
+          "completion": {
+            "realm": "user",
+            "loginId": "reference-050",
+            "completedAt": "2000-01-01T15:00:47.714000+00:00",
+            "authContextId": "reference-068",
+            "authOperationId": "reference-013"
+          }
+        },
+        "login_id": "reference-050",
+        "context_id": "reference-068",
+        "resolved_at": "2000-01-01T15:00:47.718772+00:00",
+        "operation_id": "reference-013"
+      }
+    ],
+    "actor_id": "reference-032",
+    "contexts": [
+      {
+        "id": "reference-068",
+        "stage": "completed",
+        "factor_version": null,
+        "totp_issued_at": null,
+        "totp_expires_at": null,
+        "totp_challenge_id": null,
+        "email_challenge_id": "reference-053"
+      }
+    ],
+    "failures": 0,
+    "admissions": [
+      {
+        "id": "reference-087",
+        "epoch": 2,
+        "action": "C02",
+        "context_id": "reference-068",
+        "captured_at": "2000-01-01T15:00:47.581445+00:00",
+        "deadline_at": "2000-01-01T15:00:57.581445+00:00",
+        "executor_id": "reference-042",
+        "operation_id": "reference-013"
+      }
+    ],
+    "dependency": {
+      "audit": [
+        {
+          "kind": "completion",
+          "reason": null,
+          "login_id": "reference-050",
+          "recorded_at": "2000-01-01T15:00:47.714000+00:00",
+          "operation_id": "reference-013"
+        },
+        {
+          "kind": "window_closed",
+          "reason": "first_confirmation",
+          "login_id": "reference-050",
+          "recorded_at": "2000-01-01T15:00:47.899000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "first_confirmation",
+          "reason": null,
+          "login_id": "reference-050",
+          "recorded_at": "2000-01-01T15:00:47.899000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "login_revoked",
+          "reason": null,
+          "login_id": "reference-050",
+          "recorded_at": "2000-01-01T15:00:48.135000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "logout_confirmed",
+          "reason": null,
+          "login_id": "reference-050",
+          "recorded_at": "2000-01-01T15:00:48.136000+00:00",
+          "operation_id": "reference-079"
+        }
+      ],
+      "plans": 1,
+      "logins": [
+        {
+          "id": "reference-050",
+          "deadline": "2000-01-01T15:05:47.714000+00:00",
+          "closed_at": "2000-01-01T15:00:47.899000+00:00",
+          "erased_at": "2000-01-01T15:00:47.899000+00:00",
+          "context_id": "reference-068",
+          "expires_at": "2000-01-31T14:51:11.868000+00:00",
+          "revoked_at": "2000-01-01T15:00:48.135000+00:00",
+          "close_reason": "first_confirmation",
+          "completed_at": "2000-01-01T15:00:47.714000+00:00",
+          "operation_id": "reference-013",
+          "secret_present": false,
+          "idle_expires_at": "2000-01-08T14:51:11.868000+00:00",
+          "credential_present": true,
+          "first_confirmed_at": "2000-01-01T15:00:47.899000+00:00",
+          "secret_row_present": true
+        }
+      ],
+      "blocked": false,
+      "results": [
+        {
+          "valid": true,
+          "result": {
+            "kind": "login_completed",
+            "completion": {
+              "realm": "user",
+              "loginId": "reference-050",
+              "completedAt": "2000-01-01T15:00:47.714000+00:00",
+              "authContextId": "reference-068",
+              "authOperationId": "reference-013"
+            }
+          },
+          "login_id": "reference-050",
+          "context_id": "reference-068",
+          "resolved_at": "2000-01-01T15:00:47.718000+00:00",
+          "operation_id": "reference-013"
+        }
+      ],
+      "actor_id": "reference-032",
+      "contexts": [
+        {
+          "id": "reference-068",
+          "expires_at": "2000-01-01T15:21:11.868000+00:00",
+          "revoked_at": null,
+          "completed_login_id": "reference-050",
+          "completed_operation_id": "reference-013"
+        }
+      ],
+      "fixed_time": null,
+      "logout_results": [
+        {
+          "valid": true,
+          "context_id": "reference-028",
+          "confirmed_at": "2000-01-01T15:00:48.136000+00:00",
+          "operation_id": "reference-079",
+          "target_login_id": "reference-050"
+        }
+      ],
+      "logout_contexts": [
+        {
+          "id": "reference-028",
+          "created_at": "2000-01-01T15:00:48.075000+00:00",
+          "expires_at": "2000-01-01T15:15:48.075000+00:00",
+          "revoked_at": null,
+          "target_login_id": "reference-050",
+          "source_context_id": null,
+          "authorization_login_id": "reference-050"
+        }
+      ]
+    },
+    "generations": [
+      {
+        "id": "reference-066",
+        "state": "consumed",
+        "family": "recovery",
+        "issued_at": "2000-01-01T15:00:17.618985+00:00",
+        "issuing_txid": 100
+      }
+    ],
+    "paused_until": null,
+    "current_factor": null,
+    "email_outcomes": [
+      {
+        "family": "recovery",
+        "seal_id": "reference-061",
+        "sealed_at": "2000-01-01T15:00:47.638324+00:00",
+        "observed_at": "2000-01-01T15:00:47.657641+00:00",
+        "admission_id": "reference-087",
+        "outcome_txid": 107,
+        "generation_id": "reference-066",
+        "consumption_txid": 107,
+        "provider_session_id": "reference-006"
+      }
+    ]
+  },
+  "mfa": {
+    "gate": {
+      "open": true,
+      "epoch": 2,
+      "clock_trusted": true
+    },
+    "audit": [
+      {
+        "kind": "email_stage",
+        "ordinal": 6,
+        "context_id": "reference-080",
+        "recorded_at": "2000-01-01T15:00:48.761000+00:00",
+        "operation_id": "reference-002"
+      },
+      {
+        "kind": "completion",
+        "ordinal": 7,
+        "context_id": "reference-080",
+        "recorded_at": "2000-01-01T15:00:49.016925+00:00",
+        "operation_id": "reference-019"
+      }
+    ],
+    "plans": [
+      {
+        "action": "AUTH_TOTP_VERIFY",
+        "context_id": "reference-080",
+        "admission_id": "reference-025",
+        "operation_id": "reference-019",
+        "transaction_id": 110
+      }
+    ],
+    "steps": [
+      {
+        "step": 1000,
+        "context_id": "reference-080",
+        "operation_id": "reference-019",
+        "factor_version": "reference-004"
+      }
+    ],
+    "schema": "v00-upstream-snapshot-v1",
+    "results": [
+      {
+        "valid": true,
+        "action": "C02",
+        "result": {
+          "kind": "auth_step_required",
+          "stage": "totp_verification",
+          "challengeId": "reference-030",
+          "challengeIssuedAt": "2000-01-01T15:00:48.761000+00:00",
+          "challengeExpiresAt": "2000-01-01T15:05:48.761000+00:00"
+        },
+        "login_id": null,
+        "context_id": "reference-080",
+        "resolved_at": "2000-01-01T15:00:48.761000+00:00",
+        "operation_id": "reference-002"
+      },
+      {
+        "valid": true,
+        "action": "AUTH_TOTP_VERIFY",
+        "result": {
+          "kind": "login_completed",
+          "completion": {
+            "realm": "user",
+            "loginId": "reference-070",
+            "completedAt": "2000-01-01T15:00:49.012000+00:00",
+            "authContextId": "reference-080",
+            "authOperationId": "reference-019"
+          }
+        },
+        "login_id": "reference-070",
+        "context_id": "reference-080",
+        "resolved_at": "2000-01-01T15:00:49.016925+00:00",
+        "operation_id": "reference-019"
+      }
+    ],
+    "actor_id": "reference-071",
+    "contexts": [
+      {
+        "id": "reference-080",
+        "stage": "completed",
+        "factor_version": "reference-004",
+        "totp_issued_at": "2000-01-01T15:00:48.761000+00:00",
+        "totp_expires_at": "2000-01-01T15:05:48.761000+00:00",
+        "totp_challenge_id": "reference-030",
+        "email_challenge_id": "reference-073"
+      }
+    ],
+    "failures": 0,
+    "admissions": [
+      {
+        "id": "reference-025",
+        "epoch": 2,
+        "action": "AUTH_TOTP_VERIFY",
+        "context_id": "reference-080",
+        "captured_at": "2000-01-01T15:00:48.943500+00:00",
+        "deadline_at": "2000-01-01T15:00:58.943500+00:00",
+        "executor_id": "reference-058",
+        "operation_id": "reference-019"
+      },
+      {
+        "id": "reference-096",
+        "epoch": 2,
+        "action": "C02",
+        "context_id": "reference-080",
+        "captured_at": "2000-01-01T15:00:48.600853+00:00",
+        "deadline_at": "2000-01-01T15:00:58.600853+00:00",
+        "executor_id": "reference-052",
+        "operation_id": "reference-002"
+      }
+    ],
+    "dependency": {
+      "audit": [
+        {
+          "kind": "completion",
+          "reason": null,
+          "login_id": "reference-070",
+          "recorded_at": "2000-01-01T15:00:49.012000+00:00",
+          "operation_id": "reference-019"
+        },
+        {
+          "kind": "window_closed",
+          "reason": "first_confirmation",
+          "login_id": "reference-070",
+          "recorded_at": "2000-01-01T15:00:49.229000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "first_confirmation",
+          "reason": null,
+          "login_id": "reference-070",
+          "recorded_at": "2000-01-01T15:00:49.229000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "login_revoked",
+          "reason": null,
+          "login_id": "reference-070",
+          "recorded_at": "2000-01-01T15:00:49.554000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "logout_confirmed",
+          "reason": null,
+          "login_id": "reference-070",
+          "recorded_at": "2000-01-01T15:00:49.556000+00:00",
+          "operation_id": "reference-076"
+        }
+      ],
+      "plans": 1,
+      "logins": [
+        {
+          "id": "reference-070",
+          "deadline": "2000-01-01T15:05:49.012000+00:00",
+          "closed_at": "2000-01-01T15:00:49.229000+00:00",
+          "erased_at": "2000-01-01T15:00:49.229000+00:00",
+          "context_id": "reference-080",
+          "expires_at": "2000-01-31T14:51:11.868000+00:00",
+          "revoked_at": "2000-01-01T15:00:49.554000+00:00",
+          "close_reason": "first_confirmation",
+          "completed_at": "2000-01-01T15:00:49.012000+00:00",
+          "operation_id": "reference-019",
+          "secret_present": false,
+          "idle_expires_at": "2000-01-08T14:51:11.868000+00:00",
+          "credential_present": true,
+          "first_confirmed_at": "2000-01-01T15:00:49.229000+00:00",
+          "secret_row_present": true
+        }
+      ],
+      "blocked": false,
+      "results": [
+        {
+          "valid": true,
+          "result": {
+            "kind": "login_completed",
+            "completion": {
+              "realm": "user",
+              "loginId": "reference-070",
+              "completedAt": "2000-01-01T15:00:49.012000+00:00",
+              "authContextId": "reference-080",
+              "authOperationId": "reference-019"
+            }
+          },
+          "login_id": "reference-070",
+          "context_id": "reference-080",
+          "resolved_at": "2000-01-01T15:00:49.016000+00:00",
+          "operation_id": "reference-019"
+        }
+      ],
+      "actor_id": "reference-071",
+      "contexts": [
+        {
+          "id": "reference-080",
+          "expires_at": "2000-01-01T15:21:11.868000+00:00",
+          "revoked_at": null,
+          "completed_login_id": "reference-070",
+          "completed_operation_id": "reference-019"
+        }
+      ],
+      "fixed_time": null,
+      "logout_results": [
+        {
+          "valid": true,
+          "context_id": "reference-047",
+          "confirmed_at": "2000-01-01T15:00:49.556000+00:00",
+          "operation_id": "reference-076",
+          "target_login_id": "reference-070"
+        }
+      ],
+      "logout_contexts": [
+        {
+          "id": "reference-047",
+          "created_at": "2000-01-01T15:00:49.486000+00:00",
+          "expires_at": "2000-01-01T15:15:49.486000+00:00",
+          "revoked_at": null,
+          "target_login_id": "reference-070",
+          "source_context_id": null,
+          "authorization_login_id": "reference-070"
+        }
+      ]
+    },
+    "generations": [
+      {
+        "id": "reference-003",
+        "state": "consumed",
+        "family": "recovery",
+        "issued_at": "2000-01-01T15:00:17.682992+00:00",
+        "issuing_txid": 101
+      }
+    ],
+    "paused_until": null,
+    "current_factor": "reference-004",
+    "email_outcomes": [
+      {
+        "family": "recovery",
+        "seal_id": "reference-067",
+        "sealed_at": "2000-01-01T15:00:48.670675+00:00",
+        "observed_at": "2000-01-01T15:00:48.694831+00:00",
+        "admission_id": "reference-096",
+        "outcome_txid": 109,
+        "generation_id": "reference-003",
+        "consumption_txid": 109,
+        "provider_session_id": "reference-009"
+      }
+    ]
+  },
+  "provider_loss_mfa": {
+    "gate": {
+      "open": true,
+      "epoch": 2,
+      "clock_trusted": true
+    },
+    "audit": [
+      {
+        "kind": "email_stage",
+        "ordinal": 9,
+        "context_id": "reference-049",
+        "recorded_at": "2000-01-01T15:00:50.256000+00:00",
+        "operation_id": "reference-072"
+      },
+      {
+        "kind": "completion",
+        "ordinal": 10,
+        "context_id": "reference-049",
+        "recorded_at": "2000-01-01T15:00:50.486069+00:00",
+        "operation_id": "reference-075"
+      }
+    ],
+    "plans": [
+      {
+        "action": "AUTH_TOTP_VERIFY",
+        "context_id": "reference-049",
+        "admission_id": "reference-012",
+        "operation_id": "reference-075",
+        "transaction_id": 114
+      }
+    ],
+    "steps": [
+      {
+        "step": 1000,
+        "context_id": "reference-049",
+        "operation_id": "reference-075",
+        "factor_version": "reference-097"
+      }
+    ],
+    "schema": "v00-upstream-snapshot-v1",
+    "results": [
+      {
+        "valid": true,
+        "action": "C02",
+        "result": {
+          "kind": "auth_step_required",
+          "stage": "totp_verification",
+          "challengeId": "reference-088",
+          "challengeIssuedAt": "2000-01-01T15:00:50.256000+00:00",
+          "challengeExpiresAt": "2000-01-01T15:05:50.256000+00:00"
+        },
+        "login_id": null,
+        "context_id": "reference-049",
+        "resolved_at": "2000-01-01T15:00:50.256000+00:00",
+        "operation_id": "reference-072"
+      },
+      {
+        "valid": true,
+        "action": "AUTH_TOTP_VERIFY",
+        "result": {
+          "kind": "login_completed",
+          "completion": {
+            "realm": "user",
+            "loginId": "reference-045",
+            "completedAt": "2000-01-01T15:00:50.480000+00:00",
+            "authContextId": "reference-049",
+            "authOperationId": "reference-075"
+          }
+        },
+        "login_id": "reference-045",
+        "context_id": "reference-049",
+        "resolved_at": "2000-01-01T15:00:50.486069+00:00",
+        "operation_id": "reference-075"
+      }
+    ],
+    "actor_id": "reference-054",
+    "contexts": [
+      {
+        "id": "reference-049",
+        "stage": "completed",
+        "factor_version": "reference-097",
+        "totp_issued_at": "2000-01-01T15:00:50.256000+00:00",
+        "totp_expires_at": "2000-01-01T15:05:50.256000+00:00",
+        "totp_challenge_id": "reference-088",
+        "email_challenge_id": "reference-017"
+      }
+    ],
+    "failures": 0,
+    "admissions": [
+      {
+        "id": "reference-012",
+        "epoch": 2,
+        "action": "AUTH_TOTP_VERIFY",
+        "context_id": "reference-049",
+        "captured_at": "2000-01-01T15:00:50.416961+00:00",
+        "deadline_at": "2000-01-01T15:01:00.416961+00:00",
+        "executor_id": "reference-008",
+        "operation_id": "reference-075"
+      },
+      {
+        "id": "reference-043",
+        "epoch": 2,
+        "action": "C02",
+        "context_id": "reference-049",
+        "captured_at": "2000-01-01T15:00:50.124901+00:00",
+        "deadline_at": "2000-01-01T15:01:00.124901+00:00",
+        "executor_id": "reference-069",
+        "operation_id": "reference-072"
+      }
+    ],
+    "dependency": {
+      "audit": [
+        {
+          "kind": "completion",
+          "reason": null,
+          "login_id": "reference-045",
+          "recorded_at": "2000-01-01T15:00:50.480000+00:00",
+          "operation_id": "reference-075"
+        },
+        {
+          "kind": "window_closed",
+          "reason": "first_confirmation",
+          "login_id": "reference-045",
+          "recorded_at": "2000-01-01T15:00:50.709000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "first_confirmation",
+          "reason": null,
+          "login_id": "reference-045",
+          "recorded_at": "2000-01-01T15:00:50.709000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "login_revoked",
+          "reason": null,
+          "login_id": "reference-045",
+          "recorded_at": "2000-01-01T15:00:50.961000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "logout_confirmed",
+          "reason": null,
+          "login_id": "reference-045",
+          "recorded_at": "2000-01-01T15:00:50.963000+00:00",
+          "operation_id": "reference-015"
+        }
+      ],
+      "plans": 1,
+      "logins": [
+        {
+          "id": "reference-045",
+          "deadline": "2000-01-01T15:05:50.480000+00:00",
+          "closed_at": "2000-01-01T15:00:50.709000+00:00",
+          "erased_at": "2000-01-01T15:00:50.709000+00:00",
+          "context_id": "reference-049",
+          "expires_at": "2000-01-31T14:51:11.868000+00:00",
+          "revoked_at": "2000-01-01T15:00:50.961000+00:00",
+          "close_reason": "first_confirmation",
+          "completed_at": "2000-01-01T15:00:50.480000+00:00",
+          "operation_id": "reference-075",
+          "secret_present": false,
+          "idle_expires_at": "2000-01-08T14:51:11.868000+00:00",
+          "credential_present": true,
+          "first_confirmed_at": "2000-01-01T15:00:50.709000+00:00",
+          "secret_row_present": true
+        }
+      ],
+      "blocked": false,
+      "results": [
+        {
+          "valid": true,
+          "result": {
+            "kind": "login_completed",
+            "completion": {
+              "realm": "user",
+              "loginId": "reference-045",
+              "completedAt": "2000-01-01T15:00:50.480000+00:00",
+              "authContextId": "reference-049",
+              "authOperationId": "reference-075"
+            }
+          },
+          "login_id": "reference-045",
+          "context_id": "reference-049",
+          "resolved_at": "2000-01-01T15:00:50.486000+00:00",
+          "operation_id": "reference-075"
+        }
+      ],
+      "actor_id": "reference-054",
+      "contexts": [
+        {
+          "id": "reference-049",
+          "expires_at": "2000-01-01T15:21:11.868000+00:00",
+          "revoked_at": null,
+          "completed_login_id": "reference-045",
+          "completed_operation_id": "reference-075"
+        }
+      ],
+      "fixed_time": null,
+      "logout_results": [
+        {
+          "valid": true,
+          "context_id": "reference-026",
+          "confirmed_at": "2000-01-01T15:00:50.963000+00:00",
+          "operation_id": "reference-015",
+          "target_login_id": "reference-045"
+        }
+      ],
+      "logout_contexts": [
+        {
+          "id": "reference-026",
+          "created_at": "2000-01-01T15:00:50.903000+00:00",
+          "expires_at": "2000-01-01T15:15:50.903000+00:00",
+          "revoked_at": null,
+          "target_login_id": "reference-045",
+          "source_context_id": null,
+          "authorization_login_id": "reference-045"
+        }
+      ]
+    },
+    "generations": [
+      {
+        "id": "reference-059",
+        "state": "consumed",
+        "family": "recovery",
+        "issued_at": "2000-01-01T15:00:17.740114+00:00",
+        "issuing_txid": 102
+      }
+    ],
+    "paused_until": null,
+    "current_factor": "reference-097",
+    "email_outcomes": [
+      {
+        "family": "recovery",
+        "seal_id": "reference-011",
+        "sealed_at": "2000-01-01T15:00:50.181824+00:00",
+        "observed_at": "2000-01-01T15:00:50.201816+00:00",
+        "admission_id": "reference-043",
+        "outcome_txid": 113,
+        "generation_id": "reference-059",
+        "consumption_txid": 113,
+        "provider_session_id": "reference-036"
+      }
+    ]
+  },
+  "loss_before": {
+    "gate": {
+      "open": true,
+      "epoch": 2,
+      "clock_trusted": true
+    },
+    "audit": [
+      {
+        "kind": "completion",
+        "ordinal": 13,
+        "context_id": "reference-095",
+        "recorded_at": "2000-01-01T15:00:53.744223+00:00",
+        "operation_id": "reference-031"
+      }
+    ],
+    "plans": [
+      {
+        "action": "C02",
+        "context_id": "reference-095",
+        "admission_id": "reference-081",
+        "operation_id": "reference-031",
+        "transaction_id": 118
+      }
+    ],
+    "steps": [],
+    "schema": "v00-upstream-snapshot-v1",
+    "results": [
+      {
+        "valid": true,
+        "action": "C02",
+        "result": {
+          "kind": "login_completed",
+          "completion": {
+            "realm": "user",
+            "loginId": "reference-092",
+            "completedAt": "2000-01-01T15:00:53.739000+00:00",
+            "authContextId": "reference-095",
+            "authOperationId": "reference-031"
+          }
+        },
+        "login_id": "reference-092",
+        "context_id": "reference-095",
+        "resolved_at": "2000-01-01T15:00:53.744223+00:00",
+        "operation_id": "reference-031"
+      }
+    ],
+    "actor_id": "reference-063",
+    "contexts": [
+      {
+        "id": "reference-095",
+        "stage": "completed",
+        "factor_version": null,
+        "totp_issued_at": null,
+        "totp_expires_at": null,
+        "totp_challenge_id": null,
+        "email_challenge_id": "reference-001"
+      }
+    ],
+    "failures": 0,
+    "admissions": [
+      {
+        "id": "reference-081",
+        "epoch": 2,
+        "action": "C02",
+        "context_id": "reference-095",
+        "captured_at": "2000-01-01T15:00:53.587254+00:00",
+        "deadline_at": "2000-01-01T15:01:03.587254+00:00",
+        "executor_id": "reference-086",
+        "operation_id": "reference-031"
+      }
+    ],
+    "dependency": {
+      "audit": [
+        {
+          "kind": "completion",
+          "reason": null,
+          "login_id": "reference-092",
+          "recorded_at": "2000-01-01T15:00:53.739000+00:00",
+          "operation_id": "reference-031"
+        },
+        {
+          "kind": "window_closed",
+          "reason": "first_confirmation",
+          "login_id": "reference-092",
+          "recorded_at": "2000-01-01T15:00:54.025000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "first_confirmation",
+          "reason": null,
+          "login_id": "reference-092",
+          "recorded_at": "2000-01-01T15:00:54.025000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "login_revoked",
+          "reason": null,
+          "login_id": "reference-092",
+          "recorded_at": "2000-01-01T15:00:54.266000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "logout_confirmed",
+          "reason": null,
+          "login_id": "reference-092",
+          "recorded_at": "2000-01-01T15:00:54.267000+00:00",
+          "operation_id": "reference-037"
+        }
+      ],
+      "plans": 1,
+      "logins": [
+        {
+          "id": "reference-092",
+          "deadline": "2000-01-01T15:05:53.739000+00:00",
+          "closed_at": "2000-01-01T15:00:54.025000+00:00",
+          "erased_at": "2000-01-01T15:00:54.025000+00:00",
+          "context_id": "reference-095",
+          "expires_at": "2000-01-31T14:51:11.868000+00:00",
+          "revoked_at": "2000-01-01T15:00:54.266000+00:00",
+          "close_reason": "first_confirmation",
+          "completed_at": "2000-01-01T15:00:53.739000+00:00",
+          "operation_id": "reference-031",
+          "secret_present": false,
+          "idle_expires_at": "2000-01-08T14:51:11.868000+00:00",
+          "credential_present": true,
+          "first_confirmed_at": "2000-01-01T15:00:54.025000+00:00",
+          "secret_row_present": true
+        }
+      ],
+      "blocked": false,
+      "results": [
+        {
+          "valid": true,
+          "result": {
+            "kind": "login_completed",
+            "completion": {
+              "realm": "user",
+              "loginId": "reference-092",
+              "completedAt": "2000-01-01T15:00:53.739000+00:00",
+              "authContextId": "reference-095",
+              "authOperationId": "reference-031"
+            }
+          },
+          "login_id": "reference-092",
+          "context_id": "reference-095",
+          "resolved_at": "2000-01-01T15:00:53.744000+00:00",
+          "operation_id": "reference-031"
+        }
+      ],
+      "actor_id": "reference-063",
+      "contexts": [
+        {
+          "id": "reference-095",
+          "expires_at": "2000-01-01T15:21:11.868000+00:00",
+          "revoked_at": null,
+          "completed_login_id": "reference-092",
+          "completed_operation_id": "reference-031"
+        }
+      ],
+      "fixed_time": null,
+      "logout_results": [
+        {
+          "valid": true,
+          "context_id": "reference-078",
+          "confirmed_at": "2000-01-01T15:00:54.267000+00:00",
+          "operation_id": "reference-037",
+          "target_login_id": "reference-092"
+        }
+      ],
+      "logout_contexts": [
+        {
+          "id": "reference-078",
+          "created_at": "2000-01-01T15:00:54.203000+00:00",
+          "expires_at": "2000-01-01T15:15:54.203000+00:00",
+          "revoked_at": null,
+          "target_login_id": "reference-092",
+          "source_context_id": null,
+          "authorization_login_id": "reference-092"
+        }
+      ]
+    },
+    "generations": [
+      {
+        "id": "reference-014",
+        "state": "consumed",
+        "family": "recovery",
+        "issued_at": "2000-01-01T15:00:17.797401+00:00",
+        "issuing_txid": 103
+      }
+    ],
+    "paused_until": null,
+    "current_factor": null,
+    "email_outcomes": [
+      {
+        "family": "recovery",
+        "seal_id": "reference-005",
+        "sealed_at": "2000-01-01T15:00:53.652733+00:00",
+        "observed_at": "2000-01-01T15:00:53.679384+00:00",
+        "admission_id": "reference-081",
+        "outcome_txid": 117,
+        "generation_id": "reference-014",
+        "consumption_txid": 117,
+        "provider_session_id": "reference-065"
+      }
+    ]
+  },
+  "loss_after": {
+    "gate": {
+      "open": true,
+      "epoch": 2,
+      "clock_trusted": true
+    },
+    "audit": [
+      {
+        "kind": "completion",
+        "ordinal": 14,
+        "context_id": "reference-046",
+        "recorded_at": "2000-01-01T15:00:55.518729+00:00",
+        "operation_id": "reference-056"
+      }
+    ],
+    "plans": [
+      {
+        "action": "C02",
+        "context_id": "reference-046",
+        "admission_id": "reference-010",
+        "operation_id": "reference-056",
+        "transaction_id": 120
+      }
+    ],
+    "steps": [],
+    "schema": "v00-upstream-snapshot-v1",
+    "results": [
+      {
+        "valid": true,
+        "action": "C02",
+        "result": {
+          "kind": "login_completed",
+          "completion": {
+            "realm": "user",
+            "loginId": "reference-094",
+            "completedAt": "2000-01-01T15:00:55.514000+00:00",
+            "authContextId": "reference-046",
+            "authOperationId": "reference-056"
+          }
+        },
+        "login_id": "reference-094",
+        "context_id": "reference-046",
+        "resolved_at": "2000-01-01T15:00:55.518729+00:00",
+        "operation_id": "reference-056"
+      }
+    ],
+    "actor_id": "reference-035",
+    "contexts": [
+      {
+        "id": "reference-046",
+        "stage": "completed",
+        "factor_version": null,
+        "totp_issued_at": null,
+        "totp_expires_at": null,
+        "totp_challenge_id": null,
+        "email_challenge_id": "reference-023"
+      }
+    ],
+    "failures": 0,
+    "admissions": [
+      {
+        "id": "reference-010",
+        "epoch": 2,
+        "action": "C02",
+        "context_id": "reference-046",
+        "captured_at": "2000-01-01T15:00:55.371742+00:00",
+        "deadline_at": "2000-01-01T15:01:05.371742+00:00",
+        "executor_id": "reference-077",
+        "operation_id": "reference-056"
+      }
+    ],
+    "dependency": {
+      "audit": [
+        {
+          "kind": "completion",
+          "reason": null,
+          "login_id": "reference-094",
+          "recorded_at": "2000-01-01T15:00:55.514000+00:00",
+          "operation_id": "reference-056"
+        },
+        {
+          "kind": "window_closed",
+          "reason": "first_confirmation",
+          "login_id": "reference-094",
+          "recorded_at": "2000-01-01T15:00:55.661000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "first_confirmation",
+          "reason": null,
+          "login_id": "reference-094",
+          "recorded_at": "2000-01-01T15:00:55.661000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "login_revoked",
+          "reason": null,
+          "login_id": "reference-094",
+          "recorded_at": "2000-01-01T15:00:56.025000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "logout_confirmed",
+          "reason": null,
+          "login_id": "reference-094",
+          "recorded_at": "2000-01-01T15:00:56.027000+00:00",
+          "operation_id": "reference-024"
+        }
+      ],
+      "plans": 1,
+      "logins": [
+        {
+          "id": "reference-094",
+          "deadline": "2000-01-01T15:05:55.514000+00:00",
+          "closed_at": "2000-01-01T15:00:55.661000+00:00",
+          "erased_at": "2000-01-01T15:00:55.661000+00:00",
+          "context_id": "reference-046",
+          "expires_at": "2000-01-31T14:51:11.868000+00:00",
+          "revoked_at": "2000-01-01T15:00:56.025000+00:00",
+          "close_reason": "first_confirmation",
+          "completed_at": "2000-01-01T15:00:55.514000+00:00",
+          "operation_id": "reference-056",
+          "secret_present": false,
+          "idle_expires_at": "2000-01-08T14:51:11.868000+00:00",
+          "credential_present": true,
+          "first_confirmed_at": "2000-01-01T15:00:55.661000+00:00",
+          "secret_row_present": true
+        }
+      ],
+      "blocked": false,
+      "results": [
+        {
+          "valid": true,
+          "result": {
+            "kind": "login_completed",
+            "completion": {
+              "realm": "user",
+              "loginId": "reference-094",
+              "completedAt": "2000-01-01T15:00:55.514000+00:00",
+              "authContextId": "reference-046",
+              "authOperationId": "reference-056"
+            }
+          },
+          "login_id": "reference-094",
+          "context_id": "reference-046",
+          "resolved_at": "2000-01-01T15:00:55.518000+00:00",
+          "operation_id": "reference-056"
+        }
+      ],
+      "actor_id": "reference-035",
+      "contexts": [
+        {
+          "id": "reference-046",
+          "expires_at": "2000-01-01T15:21:11.868000+00:00",
+          "revoked_at": null,
+          "completed_login_id": "reference-094",
+          "completed_operation_id": "reference-056"
+        }
+      ],
+      "fixed_time": null,
+      "logout_results": [
+        {
+          "valid": true,
+          "context_id": "reference-055",
+          "confirmed_at": "2000-01-01T15:00:56.027000+00:00",
+          "operation_id": "reference-024",
+          "target_login_id": "reference-094"
+        }
+      ],
+      "logout_contexts": [
+        {
+          "id": "reference-055",
+          "created_at": "2000-01-01T15:00:55.962000+00:00",
+          "expires_at": "2000-01-01T15:15:55.962000+00:00",
+          "revoked_at": null,
+          "target_login_id": "reference-094",
+          "source_context_id": null,
+          "authorization_login_id": "reference-094"
+        }
+      ]
+    },
+    "generations": [
+      {
+        "id": "reference-034",
+        "state": "consumed",
+        "family": "recovery",
+        "issued_at": "2000-01-01T15:00:17.854109+00:00",
+        "issuing_txid": 104
+      }
+    ],
+    "paused_until": null,
+    "current_factor": null,
+    "email_outcomes": [
+      {
+        "family": "recovery",
+        "seal_id": "reference-038",
+        "sealed_at": "2000-01-01T15:00:55.434103+00:00",
+        "observed_at": "2000-01-01T15:00:55.456913+00:00",
+        "admission_id": "reference-010",
+        "outcome_txid": 119,
+        "generation_id": "reference-034",
+        "consumption_txid": 119,
+        "provider_session_id": "reference-044"
+      }
+    ]
+  },
+  "browser_basic": {
+    "gate": {
+      "open": true,
+      "epoch": 2,
+      "clock_trusted": true
+    },
+    "audit": [
+      {
+        "kind": "completion",
+        "ordinal": 8,
+        "context_id": "reference-057",
+        "recorded_at": "2000-01-01T15:00:49.761387+00:00",
+        "operation_id": "reference-029"
+      }
+    ],
+    "plans": [
+      {
+        "action": "C02",
+        "context_id": "reference-057",
+        "admission_id": "reference-021",
+        "operation_id": "reference-029",
+        "transaction_id": 112
+      }
+    ],
+    "steps": [],
+    "schema": "v00-upstream-snapshot-v1",
+    "results": [
+      {
+        "valid": true,
+        "action": "C02",
+        "result": {
+          "kind": "login_completed",
+          "completion": {
+            "realm": "user",
+            "loginId": "reference-027",
+            "completedAt": "2000-01-01T15:00:49.757000+00:00",
+            "authContextId": "reference-057",
+            "authOperationId": "reference-029"
+          }
+        },
+        "login_id": "reference-027",
+        "context_id": "reference-057",
+        "resolved_at": "2000-01-01T15:00:49.761387+00:00",
+        "operation_id": "reference-029"
+      }
+    ],
+    "actor_id": "reference-064",
+    "contexts": [
+      {
+        "id": "reference-057",
+        "stage": "completed",
+        "factor_version": null,
+        "totp_issued_at": null,
+        "totp_expires_at": null,
+        "totp_challenge_id": null,
+        "email_challenge_id": "reference-083"
+      }
+    ],
+    "failures": 0,
+    "admissions": [
+      {
+        "id": "reference-021",
+        "epoch": 2,
+        "action": "C02",
+        "context_id": "reference-057",
+        "captured_at": "2000-01-01T15:00:49.580414+00:00",
+        "deadline_at": "2000-01-01T15:00:59.580414+00:00",
+        "executor_id": "reference-048",
+        "operation_id": "reference-029"
+      }
+    ],
+    "dependency": {
+      "audit": [
+        {
+          "kind": "completion",
+          "reason": null,
+          "login_id": "reference-027",
+          "recorded_at": "2000-01-01T15:00:49.757000+00:00",
+          "operation_id": "reference-029"
+        },
+        {
+          "kind": "window_closed",
+          "reason": "first_confirmation",
+          "login_id": "reference-027",
+          "recorded_at": "2000-01-01T15:00:50.104000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "first_confirmation",
+          "reason": null,
+          "login_id": "reference-027",
+          "recorded_at": "2000-01-01T15:00:50.104000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "login_revoked",
+          "reason": null,
+          "login_id": "reference-027",
+          "recorded_at": "2000-01-01T15:00:50.349000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "logout_confirmed",
+          "reason": null,
+          "login_id": "reference-027",
+          "recorded_at": "2000-01-01T15:00:50.350000+00:00",
+          "operation_id": "reference-074"
+        }
+      ],
+      "plans": 1,
+      "logins": [
+        {
+          "id": "reference-027",
+          "deadline": "2000-01-01T15:05:49.757000+00:00",
+          "closed_at": "2000-01-01T15:00:50.104000+00:00",
+          "erased_at": "2000-01-01T15:00:50.104000+00:00",
+          "context_id": "reference-057",
+          "expires_at": "2000-01-31T14:51:11.868000+00:00",
+          "revoked_at": "2000-01-01T15:00:50.349000+00:00",
+          "close_reason": "first_confirmation",
+          "completed_at": "2000-01-01T15:00:49.757000+00:00",
+          "operation_id": "reference-029",
+          "secret_present": false,
+          "idle_expires_at": "2000-01-08T14:51:11.868000+00:00",
+          "credential_present": true,
+          "first_confirmed_at": "2000-01-01T15:00:50.104000+00:00",
+          "secret_row_present": true
+        }
+      ],
+      "blocked": false,
+      "results": [
+        {
+          "valid": true,
+          "result": {
+            "kind": "login_completed",
+            "completion": {
+              "realm": "user",
+              "loginId": "reference-027",
+              "completedAt": "2000-01-01T15:00:49.757000+00:00",
+              "authContextId": "reference-057",
+              "authOperationId": "reference-029"
+            }
+          },
+          "login_id": "reference-027",
+          "context_id": "reference-057",
+          "resolved_at": "2000-01-01T15:00:49.761000+00:00",
+          "operation_id": "reference-029"
+        }
+      ],
+      "actor_id": "reference-064",
+      "contexts": [
+        {
+          "id": "reference-057",
+          "expires_at": "2000-01-01T15:21:11.868000+00:00",
+          "revoked_at": null,
+          "completed_login_id": "reference-027",
+          "completed_operation_id": "reference-029"
+        }
+      ],
+      "fixed_time": null,
+      "logout_results": [
+        {
+          "valid": true,
+          "context_id": "reference-033",
+          "confirmed_at": "2000-01-01T15:00:50.350000+00:00",
+          "operation_id": "reference-074",
+          "target_login_id": "reference-027"
+        }
+      ],
+      "logout_contexts": [
+        {
+          "id": "reference-033",
+          "created_at": "2000-01-01T15:00:50.286000+00:00",
+          "expires_at": "2000-01-01T15:15:50.286000+00:00",
+          "revoked_at": null,
+          "target_login_id": "reference-027",
+          "source_context_id": null,
+          "authorization_login_id": "reference-027"
+        }
+      ]
+    },
+    "generations": [
+      {
+        "id": "reference-022",
+        "state": "consumed",
+        "family": "recovery",
+        "issued_at": "2000-01-01T15:00:17.910637+00:00",
+        "issuing_txid": 105
+      }
+    ],
+    "paused_until": null,
+    "current_factor": null,
+    "email_outcomes": [
+      {
+        "family": "recovery",
+        "seal_id": "reference-007",
+        "sealed_at": "2000-01-01T15:00:49.643706+00:00",
+        "observed_at": "2000-01-01T15:00:49.670463+00:00",
+        "admission_id": "reference-021",
+        "outcome_txid": 111,
+        "generation_id": "reference-022",
+        "consumption_txid": 111,
+        "provider_session_id": "reference-041"
+      }
+    ]
+  },
+  "browser_mfa": {
+    "gate": {
+      "open": true,
+      "epoch": 2,
+      "clock_trusted": true
+    },
+    "audit": [
+      {
+        "kind": "email_stage",
+        "ordinal": 11,
+        "context_id": "reference-099",
+        "recorded_at": "2000-01-01T15:00:51.682000+00:00",
+        "operation_id": "reference-084"
+      },
+      {
+        "kind": "completion",
+        "ordinal": 12,
+        "context_id": "reference-099",
+        "recorded_at": "2000-01-01T15:00:51.929986+00:00",
+        "operation_id": "reference-018"
+      }
+    ],
+    "plans": [
+      {
+        "action": "AUTH_TOTP_VERIFY",
+        "context_id": "reference-099",
+        "admission_id": "reference-039",
+        "operation_id": "reference-018",
+        "transaction_id": 116
+      }
+    ],
+    "steps": [
+      {
+        "step": 1000,
+        "context_id": "reference-099",
+        "operation_id": "reference-018",
+        "factor_version": "reference-089"
+      }
+    ],
+    "schema": "v00-upstream-snapshot-v1",
+    "results": [
+      {
+        "valid": true,
+        "action": "AUTH_TOTP_VERIFY",
+        "result": {
+          "kind": "login_completed",
+          "completion": {
+            "realm": "user",
+            "loginId": "reference-051",
+            "completedAt": "2000-01-01T15:00:51.925000+00:00",
+            "authContextId": "reference-099",
+            "authOperationId": "reference-018"
+          }
+        },
+        "login_id": "reference-051",
+        "context_id": "reference-099",
+        "resolved_at": "2000-01-01T15:00:51.929986+00:00",
+        "operation_id": "reference-018"
+      },
+      {
+        "valid": true,
+        "action": "C02",
+        "result": {
+          "kind": "auth_step_required",
+          "stage": "totp_verification",
+          "challengeId": "reference-085",
+          "challengeIssuedAt": "2000-01-01T15:00:51.682000+00:00",
+          "challengeExpiresAt": "2000-01-01T15:05:51.682000+00:00"
+        },
+        "login_id": null,
+        "context_id": "reference-099",
+        "resolved_at": "2000-01-01T15:00:51.682000+00:00",
+        "operation_id": "reference-084"
+      }
+    ],
+    "actor_id": "reference-062",
+    "contexts": [
+      {
+        "id": "reference-099",
+        "stage": "completed",
+        "factor_version": "reference-089",
+        "totp_issued_at": "2000-01-01T15:00:51.682000+00:00",
+        "totp_expires_at": "2000-01-01T15:05:51.682000+00:00",
+        "totp_challenge_id": "reference-085",
+        "email_challenge_id": "reference-040"
+      }
+    ],
+    "failures": 0,
+    "admissions": [
+      {
+        "id": "reference-020",
+        "epoch": 2,
+        "action": "C02",
+        "context_id": "reference-099",
+        "captured_at": "2000-01-01T15:00:51.536114+00:00",
+        "deadline_at": "2000-01-01T15:01:01.536114+00:00",
+        "executor_id": "reference-098",
+        "operation_id": "reference-084"
+      },
+      {
+        "id": "reference-039",
+        "epoch": 2,
+        "action": "AUTH_TOTP_VERIFY",
+        "context_id": "reference-099",
+        "captured_at": "2000-01-01T15:00:51.864194+00:00",
+        "deadline_at": "2000-01-01T15:01:01.864194+00:00",
+        "executor_id": "reference-016",
+        "operation_id": "reference-018"
+      }
+    ],
+    "dependency": {
+      "audit": [
+        {
+          "kind": "completion",
+          "reason": null,
+          "login_id": "reference-051",
+          "recorded_at": "2000-01-01T15:00:51.925000+00:00",
+          "operation_id": "reference-018"
+        },
+        {
+          "kind": "window_closed",
+          "reason": "first_confirmation",
+          "login_id": "reference-051",
+          "recorded_at": "2000-01-01T15:00:52.234000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "first_confirmation",
+          "reason": null,
+          "login_id": "reference-051",
+          "recorded_at": "2000-01-01T15:00:52.234000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "login_revoked",
+          "reason": null,
+          "login_id": "reference-051",
+          "recorded_at": "2000-01-01T15:00:52.476000+00:00",
+          "operation_id": null
+        },
+        {
+          "kind": "logout_confirmed",
+          "reason": null,
+          "login_id": "reference-051",
+          "recorded_at": "2000-01-01T15:00:52.477000+00:00",
+          "operation_id": "reference-060"
+        }
+      ],
+      "plans": 1,
+      "logins": [
+        {
+          "id": "reference-051",
+          "deadline": "2000-01-01T15:05:51.925000+00:00",
+          "closed_at": "2000-01-01T15:00:52.234000+00:00",
+          "erased_at": "2000-01-01T15:00:52.234000+00:00",
+          "context_id": "reference-099",
+          "expires_at": "2000-01-31T14:51:11.868000+00:00",
+          "revoked_at": "2000-01-01T15:00:52.476000+00:00",
+          "close_reason": "first_confirmation",
+          "completed_at": "2000-01-01T15:00:51.925000+00:00",
+          "operation_id": "reference-018",
+          "secret_present": false,
+          "idle_expires_at": "2000-01-08T14:51:11.868000+00:00",
+          "credential_present": true,
+          "first_confirmed_at": "2000-01-01T15:00:52.234000+00:00",
+          "secret_row_present": true
+        }
+      ],
+      "blocked": false,
+      "results": [
+        {
+          "valid": true,
+          "result": {
+            "kind": "login_completed",
+            "completion": {
+              "realm": "user",
+              "loginId": "reference-051",
+              "completedAt": "2000-01-01T15:00:51.925000+00:00",
+              "authContextId": "reference-099",
+              "authOperationId": "reference-018"
+            }
+          },
+          "login_id": "reference-051",
+          "context_id": "reference-099",
+          "resolved_at": "2000-01-01T15:00:51.929000+00:00",
+          "operation_id": "reference-018"
+        }
+      ],
+      "actor_id": "reference-062",
+      "contexts": [
+        {
+          "id": "reference-099",
+          "expires_at": "2000-01-01T15:21:11.868000+00:00",
+          "revoked_at": null,
+          "completed_login_id": "reference-051",
+          "completed_operation_id": "reference-018"
+        }
+      ],
+      "fixed_time": null,
+      "logout_results": [
+        {
+          "valid": true,
+          "context_id": "reference-090",
+          "confirmed_at": "2000-01-01T15:00:52.477000+00:00",
+          "operation_id": "reference-060",
+          "target_login_id": "reference-051"
+        }
+      ],
+      "logout_contexts": [
+        {
+          "id": "reference-090",
+          "created_at": "2000-01-01T15:00:52.413000+00:00",
+          "expires_at": "2000-01-01T15:15:52.413000+00:00",
+          "revoked_at": null,
+          "target_login_id": "reference-051",
+          "source_context_id": null,
+          "authorization_login_id": "reference-051"
+        }
+      ]
+    },
+    "generations": [
+      {
+        "id": "reference-093",
+        "state": "consumed",
+        "family": "recovery",
+        "issued_at": "2000-01-01T15:00:17.966869+00:00",
+        "issuing_txid": 106
+      }
+    ],
+    "paused_until": null,
+    "current_factor": "reference-089",
+    "email_outcomes": [
+      {
+        "family": "recovery",
+        "seal_id": "reference-091",
+        "sealed_at": "2000-01-01T15:00:51.603487+00:00",
+        "observed_at": "2000-01-01T15:00:51.625442+00:00",
+        "admission_id": "reference-020",
+        "outcome_txid": 115,
+        "generation_id": "reference-093",
+        "consumption_txid": 115,
+        "provider_session_id": "reference-082"
+      }
+    ]
+  }
+}

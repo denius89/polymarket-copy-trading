@@ -1,14 +1,13 @@
 # V00 upstream Auth: границы БД и ожидаемые доказательства
 
-04.11.2026 · **Продолжение реализации по V00-06:** после прямого поручения
-`01a1a6f3-387b-7cf0-82a2-66936cd8a3be` создан [исполняемый кандидат](../../../../../scripts/v00-upstream-db/manifest.md):
-core/admission, provider generation hooks, SQL TOTP, атомарный completion и wrappers,
-safe snapshot, bound fixture loader и Oracle harness. Шесть локальных групп
-RFC/encoding/window oracle прошли; это ещё не SQL/provider/HTTP PASS. Сервер
-подтвердил минимальные actual metadata, отдельный base32-looking synthetic factor,
-доступность pgcrypto1.3 и подготовил свежий dependency. Новый bridge ожидает
-установки и адресного прогона серверным оператором. Ниже — история PR239;
-её «SQL/verifier не создан» относится к предыдущему документальному блоку.
+04.11.2026 · **Реализация по V00-06 и узкий actual завершены:**
+[исполняемый пакет](../../../../../scripts/v00-upstream-db/manifest.md),
+[результаты и границы](runtime-review.md). SQL32 pass/3 not_run; отдельно серверный
+оператор получил58 HTTP и65 Chrome утверждений. БД независимо сверила7 safe snapshots:
+812 условий,0 несовпадений. Это не812 новых сквозных тестов и не допуск V01.
+14 локальных групп RFC/auditor прошли. История двух незавершённых SQL-прогонов
+сохранена. Ниже — исторический документальный блок PR239; его «SQL/verifier не
+создан» и «NOT RUN» относятся к тому baseline, а не отменяют новый узкий actual.
 
 04.11.2026, исходный baseline `41123ec`, повторная сверка main `373bf2a` / PR238.
 Прямое «вперед» владельца в административном чате

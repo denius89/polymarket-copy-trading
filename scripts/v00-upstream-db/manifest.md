@@ -111,3 +111,15 @@ Oracle runner results and actual real-provider HTTP evidence must be recorded
 separately. Python RFC oracle pass is not SQL/HTTP/provider PASS. SQL harness uses
 public RFC seeds and synthetic cipher bytes; it does not prove authenticated
 encryption, real enrollment, provider dispatch count or browser behavior.
+
+## Recorded actual, 04.11.2026
+
+DB runtime head2747516132a8bbc585eb2343dca52952e993850c: installed001–006 plus
+forward007/008, 32 SQL pass,3 harness not_run. Separate operator runs58 HTTP and65
+Chrome assertions on backend210044b3ecee092499baa4602f3a36f0344a6cf4. See
+[runtime review](../../docs/technical/first-session/v00-oci/upstream-db-verification/runtime-review.md)
+for unchanged incomplete10/17 runs, source JSON/SHA256, 7 offline snapshot audits
+(812 conditions,0 differences) and remaining scope. Offline auditor does not run
+SQL/network and its14 local RFC/audit test groups are separate from actual.
+Dependency snapshot MS timestamps are compared by exact truncation, not tolerance.
+Global drain/reopening and full concurrent/unknown/late matrix remain open.
