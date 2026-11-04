@@ -1,0 +1,395 @@
+{
+  "browser_basic": {
+    "profile": "upstream-browser-v1",
+    "fixture": "browser_basic",
+    "checks": [
+      {
+        "case": "context_bootstrap",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "C02_direct",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "C02_original_result",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "login_completed",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "javascript_cannot_read_auth",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "full_cookie_attributes",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "full_cookie_present",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "lost_cookie_q01",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "history_never_reissues",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "explicit_recovery",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "same_secret_and_expiry",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "q01_selected_login",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "q01_closes_recovery",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "erasure_keeps_login",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "logout_target",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "logout_clears_selected_cookie",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "logged_out_not_current",
+        "passed": true,
+        "layer": "browser"
+      }
+    ],
+    "browser": {
+      "name": "chrome",
+      "version": "156.0.8078.79"
+    },
+    "source": {
+      "context_id": "reference-057",
+      "operation_id": "reference-029",
+      "action": "C02",
+      "login_id": "reference-027"
+    },
+    "cookie_delivered_with_lost_response": null
+  },
+  "browser_mfa": {
+    "profile": "upstream-browser-v1",
+    "fixture": "browser_mfa",
+    "checks": [
+      {
+        "case": "context_bootstrap",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "C02_direct",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "C02_original_result",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "email_without_full_login",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "AUTH_TOTP_VERIFY_direct",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "AUTH_TOTP_VERIFY_original_result",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "login_completed",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "javascript_cannot_read_auth",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "full_cookie_attributes",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "full_cookie_present",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "lost_cookie_q01",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "history_never_reissues",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "explicit_recovery",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "same_secret_and_expiry",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "q01_selected_login",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "q01_closes_recovery",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "erasure_keeps_login",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "logout_target",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "logout_clears_selected_cookie",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "logged_out_not_current",
+        "passed": true,
+        "layer": "browser"
+      }
+    ],
+    "browser": {
+      "name": "chrome",
+      "version": "156.0.8078.79"
+    },
+    "source": {
+      "context_id": "reference-099",
+      "operation_id": "reference-018",
+      "action": "AUTH_TOTP_VERIFY",
+      "login_id": "reference-051"
+    },
+    "cookie_delivered_with_lost_response": null
+  },
+  "loss_before": {
+    "profile": "upstream-browser-v1",
+    "fixture": "loss_before",
+    "checks": [
+      {
+        "case": "context_bootstrap",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "C02_direct",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "C02_original_result",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "login_completed",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "javascript_cannot_read_auth",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "loss_q01_first",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "loss_history_stable",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "loss_explicit_recovery",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "q01_selected_login",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "q01_closes_recovery",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "erasure_keeps_login",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "logout_target",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "logout_clears_selected_cookie",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "logged_out_not_current",
+        "passed": true,
+        "layer": "browser"
+      }
+    ],
+    "browser": {
+      "name": "chrome",
+      "version": "156.0.8078.79"
+    },
+    "source": {
+      "context_id": "reference-095",
+      "operation_id": "reference-031",
+      "action": "C02",
+      "login_id": "reference-092"
+    },
+    "cookie_delivered_with_lost_response": false
+  },
+  "loss_after": {
+    "profile": "upstream-browser-v1",
+    "fixture": "loss_after",
+    "checks": [
+      {
+        "case": "context_bootstrap",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "C02_direct",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "C02_original_result",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "login_completed",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "javascript_cannot_read_auth",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "full_cookie_attributes",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "loss_q01_first",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "loss_history_stable",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "q01_selected_login",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "q01_closes_recovery",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "erasure_keeps_login",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "logout_target",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "logout_clears_selected_cookie",
+        "passed": true,
+        "layer": "browser"
+      },
+      {
+        "case": "logged_out_not_current",
+        "passed": true,
+        "layer": "browser"
+      }
+    ],
+    "browser": {
+      "name": "chrome",
+      "version": "156.0.8078.79"
+    },
+    "source": {
+      "context_id": "reference-046",
+      "operation_id": "reference-056",
+      "action": "C02",
+      "login_id": "reference-094"
+    },
+    "cookie_delivered_with_lost_response": true
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "basic": {
+    "profile": "upstream-transport-v1",
+    "fixture": "basic",
+    "checks": [
+      {
+        "case": "context_only_bootstrap",
+        "passed": true
+      },
+      {
+        "case": "C02_resolved_original",
+        "passed": true
+      },
+      {
+        "case": "C02_history_no_cookie",
+        "passed": true
+      },
+      {
+        "case": "C02_direct_success",
+        "passed": true
+      },
+      {
+        "case": "full_completion",
+        "passed": true
+      },
+      {
+        "case": "completion_original_operation",
+        "passed": true
+      },
+      {
+        "case": "completion_cookie_attributes",
+        "passed": true
+      },
+      {
+        "case": "recovery_original_completion",
+        "passed": true
+      },
+      {
+        "case": "recovery_same_cookie_and_expiry",
+        "passed": true
+      },
+      {
+        "case": "q01_verified_login",
+        "passed": true
+      },
+      {
+        "case": "q01_closes_recovery",
+        "passed": true
+      },
+      {
+        "case": "cipher_erasure_keeps_login",
+        "passed": true
+      },
+      {
+        "case": "logout_context",
+        "passed": true
+      },
+      {
+        "case": "logout_exact_cookie",
+        "passed": true
+      },
+      {
+        "case": "logout_replay",
+        "passed": true
+      },
+      {
+        "case": "logout_revokes_selected_login",
+        "passed": true
+      }
+    ],
+    "source": {
+      "context_id": "reference-068",
+      "operation_id": "reference-013",
+      "action": "C02",
+      "login_id": "reference-050"
+    }
+  },
+  "mfa": {
+    "profile": "upstream-transport-v1",
+    "fixture": "mfa",
+    "checks": [
+      {
+        "case": "context_only_bootstrap",
+        "passed": true
+      },
+      {
+        "case": "C02_resolved_original",
+        "passed": true
+      },
+      {
+        "case": "C02_history_no_cookie",
+        "passed": true
+      },
+      {
+        "case": "C02_direct_success",
+        "passed": true
+      },
+      {
+        "case": "email_requires_real_totp",
+        "passed": true
+      },
+      {
+        "case": "email_stage_no_login_cookie",
+        "passed": true
+      },
+      {
+        "case": "AUTH_TOTP_VERIFY_resolved_original",
+        "passed": true
+      },
+      {
+        "case": "AUTH_TOTP_VERIFY_history_no_cookie",
+        "passed": true
+      },
+      {
+        "case": "AUTH_TOTP_VERIFY_direct_success",
+        "passed": true
+      },
+      {
+        "case": "full_completion",
+        "passed": true
+      },
+      {
+        "case": "completion_original_operation",
+        "passed": true
+      },
+      {
+        "case": "completion_cookie_attributes",
+        "passed": true
+      },
+      {
+        "case": "recovery_original_completion",
+        "passed": true
+      },
+      {
+        "case": "recovery_same_cookie_and_expiry",
+        "passed": true
+      },
+      {
+        "case": "q01_verified_login",
+        "passed": true
+      },
+      {
+        "case": "q01_closes_recovery",
+        "passed": true
+      },
+      {
+        "case": "cipher_erasure_keeps_login",
+        "passed": true
+      },
+      {
+        "case": "logout_context",
+        "passed": true
+      },
+      {
+        "case": "logout_exact_cookie",
+        "passed": true
+      },
+      {
+        "case": "logout_replay",
+        "passed": true
+      },
+      {
+        "case": "logout_revokes_selected_login",
+        "passed": true
+      }
+    ],
+    "source": {
+      "context_id": "reference-080",
+      "operation_id": "reference-019",
+      "action": "AUTH_TOTP_VERIFY",
+      "login_id": "reference-070"
+    }
+  },
+  "provider_loss_mfa": {
+    "profile": "upstream-transport-v1",
+    "fixture": "provider_loss_mfa",
+    "checks": [
+      {
+        "case": "context_only_bootstrap",
+        "passed": true
+      },
+      {
+        "case": "C02_resolved_original",
+        "passed": true
+      },
+      {
+        "case": "C02_history_no_cookie",
+        "passed": true
+      },
+      {
+        "case": "C02_direct_success",
+        "passed": true
+      },
+      {
+        "case": "email_requires_real_totp",
+        "passed": true
+      },
+      {
+        "case": "email_stage_no_login_cookie",
+        "passed": true
+      },
+      {
+        "case": "AUTH_TOTP_VERIFY_resolved_original",
+        "passed": true
+      },
+      {
+        "case": "AUTH_TOTP_VERIFY_history_no_cookie",
+        "passed": true
+      },
+      {
+        "case": "AUTH_TOTP_VERIFY_direct_success",
+        "passed": true
+      },
+      {
+        "case": "full_completion",
+        "passed": true
+      },
+      {
+        "case": "completion_original_operation",
+        "passed": true
+      },
+      {
+        "case": "completion_cookie_attributes",
+        "passed": true
+      },
+      {
+        "case": "recovery_original_completion",
+        "passed": true
+      },
+      {
+        "case": "recovery_same_cookie_and_expiry",
+        "passed": true
+      },
+      {
+        "case": "q01_verified_login",
+        "passed": true
+      },
+      {
+        "case": "q01_closes_recovery",
+        "passed": true
+      },
+      {
+        "case": "cipher_erasure_keeps_login",
+        "passed": true
+      },
+      {
+        "case": "logout_context",
+        "passed": true
+      },
+      {
+        "case": "logout_exact_cookie",
+        "passed": true
+      },
+      {
+        "case": "logout_replay",
+        "passed": true
+      },
+      {
+        "case": "logout_revokes_selected_login",
+        "passed": true
+      }
+    ],
+    "source": {
+      "context_id": "reference-049",
+      "operation_id": "reference-075",
+      "action": "AUTH_TOTP_VERIFY",
+      "login_id": "reference-045"
+    }
+  }
+}
