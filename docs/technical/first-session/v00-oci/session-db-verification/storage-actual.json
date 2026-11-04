@@ -1,0 +1,1127 @@
+{
+  "profile": "v00-session-storage-v1",
+  "tests": [
+    {
+      "case": "D07-DB01-atomic-bundle",
+      "expected": [
+        200,
+        [
+          1,
+          1,
+          1
+        ],
+        true,
+        "2026-11-04T12:05:00.000Z",
+        true,
+        true
+      ],
+      "actual": [
+        200,
+        [
+          1,
+          1,
+          1
+        ],
+        true,
+        "2026-11-04T12:05:00.000Z",
+        true,
+        true
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB02-replay",
+      "expected": [
+        {
+          "kind": "login_completed",
+          "completion": {
+            "realm": "user",
+            "loginId": "90908803-5d5f-4bbf-b354-525f03d0c203",
+            "completedAt": "2026-11-04T12:00:00.000Z",
+            "authContextId": "4e352500-dc61-4c3c-b8ae-1564f84117d3",
+            "authOperationId": "7fef9898-d89d-4c41-ac46-56d2dd50f885"
+          }
+        },
+        409,
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "actual": [
+        {
+          "kind": "login_completed",
+          "completion": {
+            "realm": "user",
+            "loginId": "90908803-5d5f-4bbf-b354-525f03d0c203",
+            "completedAt": "2026-11-04T12:00:00.000Z",
+            "authContextId": "4e352500-dc61-4c3c-b8ae-1564f84117d3",
+            "authOperationId": "7fef9898-d89d-4c41-ac46-56d2dd50f885"
+          }
+        },
+        409,
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB03-payload",
+      "expected": [
+        409,
+        "KEY_REUSE_CONFLICT",
+        {
+          "kind": "login_completed",
+          "completion": {
+            "realm": "user",
+            "loginId": "90908803-5d5f-4bbf-b354-525f03d0c203",
+            "completedAt": "2026-11-04T12:00:00.000Z",
+            "authContextId": "4e352500-dc61-4c3c-b8ae-1564f84117d3",
+            "authOperationId": "7fef9898-d89d-4c41-ac46-56d2dd50f885"
+          }
+        }
+      ],
+      "actual": [
+        409,
+        "KEY_REUSE_CONFLICT",
+        {
+          "kind": "login_completed",
+          "completion": {
+            "realm": "user",
+            "loginId": "90908803-5d5f-4bbf-b354-525f03d0c203",
+            "completedAt": "2026-11-04T12:00:00.000Z",
+            "authContextId": "4e352500-dc61-4c3c-b8ae-1564f84117d3",
+            "authOperationId": "7fef9898-d89d-4c41-ac46-56d2dd50f885"
+          }
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB02-concurrent-absent-result",
+      "expected": [
+        true,
+        {
+          "kind": "login_completed",
+          "completion": {
+            "realm": "user",
+            "loginId": "439099f7-47a4-403b-b3aa-89024813a223",
+            "completedAt": "2026-11-04T12:00:00.000Z",
+            "authContextId": "4c3b73ae-7a49-48b9-a00c-f5d790e05902",
+            "authOperationId": "203068fe-6420-409d-a7c5-c807948eff6e"
+          }
+        },
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "actual": [
+        true,
+        {
+          "kind": "login_completed",
+          "completion": {
+            "realm": "user",
+            "loginId": "439099f7-47a4-403b-b3aa-89024813a223",
+            "completedAt": "2026-11-04T12:00:00.000Z",
+            "authContextId": "4c3b73ae-7a49-48b9-a00c-f5d790e05902",
+            "authOperationId": "203068fe-6420-409d-a7c5-c807948eff6e"
+          }
+        },
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB04-before-boundary",
+      "expected": [
+        200,
+        true,
+        [
+          1,
+          1,
+          1
+        ],
+        "2026-11-04T12:05:00.000Z"
+      ],
+      "actual": [
+        200,
+        true,
+        [
+          1,
+          1,
+          1
+        ],
+        "2026-11-04T12:05:00.000Z"
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB05-boundary-300",
+      "expected": [
+        409,
+        "AUTH_COOKIE_RECOVERY_CLOSED",
+        false,
+        true,
+        true,
+        "deadline"
+      ],
+      "actual": [
+        409,
+        "AUTH_COOKIE_RECOVERY_CLOSED",
+        false,
+        true,
+        true,
+        "deadline"
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB13-late-q01-300",
+      "expected": [
+        200,
+        "deadline",
+        "2026-11-04T12:05:00.000Z",
+        true
+      ],
+      "actual": [
+        200,
+        "deadline",
+        "2026-11-04T12:05:00.000Z",
+        true
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB05-boundary-300.001",
+      "expected": [
+        409,
+        "AUTH_COOKIE_RECOVERY_CLOSED",
+        false,
+        true,
+        true,
+        "deadline"
+      ],
+      "actual": [
+        409,
+        "AUTH_COOKIE_RECOVERY_CLOSED",
+        false,
+        true,
+        true,
+        "deadline"
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB13-late-q01-300.001",
+      "expected": [
+        200,
+        "deadline",
+        "2026-11-04T12:05:00.000Z",
+        true
+      ],
+      "actual": [
+        200,
+        "deadline",
+        "2026-11-04T12:05:00.000Z",
+        true
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB06-context-min",
+      "expected": [
+        "2026-11-04T12:02:00.000Z",
+        401,
+        200
+      ],
+      "actual": [
+        "2026-11-04T12:02:00.000Z",
+        401,
+        200
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB07-q01",
+      "expected": [
+        200,
+        200,
+        "2026-11-04T14:00:00.000Z",
+        "2026-11-04T12:05:00.000Z",
+        false,
+        1,
+        1
+      ],
+      "actual": [
+        200,
+        200,
+        "2026-11-04T14:00:00.000Z",
+        "2026-11-04T12:05:00.000Z",
+        false,
+        1,
+        1
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB08-q01-before-recovery",
+      "expected": [
+        true,
+        200,
+        409,
+        200,
+        1,
+        false
+      ],
+      "actual": [
+        true,
+        200,
+        409,
+        200,
+        1,
+        false
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB09-recovery-before-q01",
+      "expected": [
+        true,
+        200,
+        200,
+        200,
+        1,
+        false
+      ],
+      "actual": [
+        true,
+        200,
+        200,
+        200,
+        1,
+        false
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB10-revoke-before-recovery",
+      "expected": [
+        true,
+        204,
+        401,
+        401,
+        1,
+        false
+      ],
+      "actual": [
+        true,
+        204,
+        401,
+        401,
+        1,
+        false
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB11-recovery-before-revoke",
+      "expected": [
+        true,
+        200,
+        204,
+        401,
+        1,
+        false
+      ],
+      "actual": [
+        true,
+        200,
+        204,
+        401,
+        1,
+        false
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB12-q01-before-revoke",
+      "expected": [
+        true,
+        200,
+        204,
+        401,
+        1,
+        false
+      ],
+      "actual": [
+        true,
+        200,
+        204,
+        401,
+        1,
+        false
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB12-revoke-before-q01",
+      "expected": [
+        true,
+        204,
+        401,
+        401,
+        1,
+        false
+      ],
+      "actual": [
+        true,
+        204,
+        401,
+        401,
+        1,
+        false
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB16-history-after-revoke",
+      "expected": [
+        {
+          "kind": "login_completed",
+          "completion": {
+            "realm": "user",
+            "loginId": "ef8d0bee-3c9e-4b9a-aa23-d0522e813472",
+            "completedAt": "2026-11-04T12:00:00.000Z",
+            "authContextId": "51f37b71-9011-4bac-9526-b984c1ed826d",
+            "authOperationId": "9b542fb6-527b-42c1-929f-b4ade9ee2287"
+          }
+        },
+        401,
+        401
+      ],
+      "actual": [
+        {
+          "kind": "login_completed",
+          "completion": {
+            "realm": "user",
+            "loginId": "ef8d0bee-3c9e-4b9a-aa23-d0522e813472",
+            "completedAt": "2026-11-04T12:00:00.000Z",
+            "authContextId": "51f37b71-9011-4bac-9526-b984c1ed826d",
+            "authOperationId": "9b542fb6-527b-42c1-929f-b4ade9ee2287"
+          }
+        },
+        401,
+        401
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB17-wrong-proofs",
+      "expected": [
+        404,
+        404,
+        401
+      ],
+      "actual": [
+        404,
+        404,
+        401
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB18-trusted-absence",
+      "expected": [
+        202,
+        503,
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "actual": [
+        202,
+        503,
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB14-corrupt-missing-completion",
+      "expected": [
+        503,
+        503,
+        503
+      ],
+      "actual": [
+        503,
+        503,
+        503
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB14-corrupt-wrong-login",
+      "expected": [
+        503,
+        503,
+        503
+      ],
+      "actual": [
+        503,
+        503,
+        503
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB14-known-rejection",
+      "expected": [
+        200,
+        "2026-11-04T12:00:00.000Z",
+        409,
+        "AUTH_COOKIE_RECOVERY_NOT_APPLICABLE"
+      ],
+      "actual": [
+        200,
+        "2026-11-04T12:00:00.000Z",
+        409,
+        "AUTH_COOKIE_RECOVERY_NOT_APPLICABLE"
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB14-corrupt-rejection",
+      "expected": [
+        503,
+        503,
+        503
+      ],
+      "actual": [
+        503,
+        503,
+        503
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB14-unlawful-erasure",
+      "expected": [
+        503
+      ],
+      "actual": [
+        503
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB22-read-absence",
+      "expected": [
+        202,
+        null,
+        null
+      ],
+      "actual": [
+        202,
+        null,
+        null
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB20-continue-target",
+      "expected": [
+        201,
+        "e28898a6-509d-4350-a34b-013af9fb432b",
+        "8e3fff6c-cc03-4f57-84ce-62f6b1feff57",
+        "2026-11-04T12:15:00.000Z"
+      ],
+      "actual": [
+        201,
+        "e28898a6-509d-4350-a34b-013af9fb432b",
+        "8e3fff6c-cc03-4f57-84ce-62f6b1feff57",
+        "2026-11-04T12:15:00.000Z"
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB19-target-only",
+      "expected": [
+        204,
+        "e28898a6-509d-4350-a34b-013af9fb432b",
+        {
+          "id": "823d266f-5d44-4243-9d09-68bc0d148650",
+          "deadline": "2026-11-04T12:05:00.000Z",
+          "closed_at": null,
+          "erased_at": null,
+          "context_id": "a26a1b88-0cfe-40cf-9134-22709e33380c",
+          "expires_at": "2026-11-04T20:00:00.000Z",
+          "revoked_at": null,
+          "close_reason": null,
+          "completed_at": "2026-11-04T12:00:00.000Z",
+          "operation_id": "e962f28f-8185-489c-8e38-caaac9754190",
+          "secret_present": true,
+          "idle_expires_at": "2026-11-04T14:00:00.000Z",
+          "credential_present": true,
+          "first_confirmed_at": null,
+          "secret_row_present": true
+        },
+        202
+      ],
+      "actual": [
+        204,
+        "e28898a6-509d-4350-a34b-013af9fb432b",
+        {
+          "id": "823d266f-5d44-4243-9d09-68bc0d148650",
+          "deadline": "2026-11-04T12:05:00.000Z",
+          "closed_at": null,
+          "erased_at": null,
+          "context_id": "a26a1b88-0cfe-40cf-9134-22709e33380c",
+          "expires_at": "2026-11-04T20:00:00.000Z",
+          "revoked_at": null,
+          "close_reason": null,
+          "completed_at": "2026-11-04T12:00:00.000Z",
+          "operation_id": "e962f28f-8185-489c-8e38-caaac9754190",
+          "secret_present": true,
+          "idle_expires_at": "2026-11-04T14:00:00.000Z",
+          "credential_present": true,
+          "first_confirmed_at": null,
+          "secret_row_present": true
+        },
+        202
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB21-logout-replay",
+      "expected": [
+        {
+          "http": 204,
+          "result": {
+            "confirmed_at": "2026-11-04T12:00:00.000Z",
+            "operation_id": "e4dd5886-36a1-44a2-b319-bba454ee8ac8",
+            "target_login_id": "e28898a6-509d-4350-a34b-013af9fb432b",
+            "logout_context_id": "c09358f7-907b-4295-8e21-58918c539429"
+          }
+        },
+        409,
+        {
+          "confirmed_at": "2026-11-04T12:00:00.000Z",
+          "operation_id": "e4dd5886-36a1-44a2-b319-bba454ee8ac8",
+          "target_login_id": "e28898a6-509d-4350-a34b-013af9fb432b",
+          "logout_context_id": "c09358f7-907b-4295-8e21-58918c539429"
+        }
+      ],
+      "actual": [
+        {
+          "http": 204,
+          "result": {
+            "confirmed_at": "2026-11-04T12:00:00.000Z",
+            "operation_id": "e4dd5886-36a1-44a2-b319-bba454ee8ac8",
+            "target_login_id": "e28898a6-509d-4350-a34b-013af9fb432b",
+            "logout_context_id": "c09358f7-907b-4295-8e21-58918c539429"
+          }
+        },
+        409,
+        {
+          "confirmed_at": "2026-11-04T12:00:00.000Z",
+          "operation_id": "e4dd5886-36a1-44a2-b319-bba454ee8ac8",
+          "target_login_id": "e28898a6-509d-4350-a34b-013af9fb432b",
+          "logout_context_id": "c09358f7-907b-4295-8e21-58918c539429"
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB23-revoked-original-limited",
+      "expected": [
+        401,
+        204
+      ],
+      "actual": [
+        401,
+        204
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB23-expired-context-continue",
+      "expected": [
+        401,
+        201,
+        "e28898a6-509d-4350-a34b-013af9fb432b"
+      ],
+      "actual": [
+        401,
+        201,
+        "e28898a6-509d-4350-a34b-013af9fb432b"
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB20-foreign-actor",
+      "expected": [
+        404
+      ],
+      "actual": [
+        404
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB24-rollback-completion",
+      "expected": [
+        {
+          "audit": [],
+          "plans": 0,
+          "logins": [],
+          "blocked": false,
+          "results": [],
+          "actor_id": "c3b1a3c7-3862-4f1e-8cbd-7830b5b05437",
+          "contexts": [
+            {
+              "id": "57650fe5-1826-4575-891c-075928bfbb10",
+              "expires_at": "2026-11-04T13:00:00.000Z",
+              "revoked_at": null,
+              "completed_login_id": null,
+              "completed_operation_id": null
+            }
+          ],
+          "fixed_time": "2026-11-04T12:00:00.000Z",
+          "logout_results": [],
+          "logout_contexts": []
+        }
+      ],
+      "actual": [
+        {
+          "audit": [],
+          "plans": 0,
+          "logins": [],
+          "blocked": false,
+          "results": [],
+          "actor_id": "c3b1a3c7-3862-4f1e-8cbd-7830b5b05437",
+          "contexts": [
+            {
+              "id": "57650fe5-1826-4575-891c-075928bfbb10",
+              "expires_at": "2026-11-04T13:00:00.000Z",
+              "revoked_at": null,
+              "completed_login_id": null,
+              "completed_operation_id": null
+            }
+          ],
+          "fixed_time": "2026-11-04T12:00:00.000Z",
+          "logout_results": [],
+          "logout_contexts": []
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB24-rollback-q01",
+      "expected": [
+        {
+          "audit": [
+            {
+              "kind": "completion",
+              "reason": null,
+              "login_id": "cca0f452-5e93-415e-83dc-dccb8fa6f613",
+              "recorded_at": "2026-11-04T12:00:00.000Z",
+              "operation_id": "35d6a84f-b0c7-4279-a41d-f2c62c812d0f"
+            }
+          ],
+          "plans": 1,
+          "logins": [
+            {
+              "id": "cca0f452-5e93-415e-83dc-dccb8fa6f613",
+              "deadline": "2026-11-04T12:05:00.000Z",
+              "closed_at": null,
+              "erased_at": null,
+              "context_id": "d9e1ea71-c4fd-42d4-a8a0-19252ab09abe",
+              "expires_at": "2026-11-04T20:00:00.000Z",
+              "revoked_at": null,
+              "close_reason": null,
+              "completed_at": "2026-11-04T12:00:00.000Z",
+              "operation_id": "35d6a84f-b0c7-4279-a41d-f2c62c812d0f",
+              "secret_present": true,
+              "idle_expires_at": "2026-11-04T14:00:00.000Z",
+              "credential_present": true,
+              "first_confirmed_at": null,
+              "secret_row_present": true
+            }
+          ],
+          "blocked": false,
+          "results": [
+            {
+              "valid": true,
+              "result": {
+                "kind": "login_completed",
+                "completion": {
+                  "realm": "user",
+                  "loginId": "cca0f452-5e93-415e-83dc-dccb8fa6f613",
+                  "completedAt": "2026-11-04T12:00:00.000Z",
+                  "authContextId": "d9e1ea71-c4fd-42d4-a8a0-19252ab09abe",
+                  "authOperationId": "35d6a84f-b0c7-4279-a41d-f2c62c812d0f"
+                }
+              },
+              "login_id": "cca0f452-5e93-415e-83dc-dccb8fa6f613",
+              "context_id": "d9e1ea71-c4fd-42d4-a8a0-19252ab09abe",
+              "resolved_at": "2026-11-04T12:00:00.000Z",
+              "operation_id": "35d6a84f-b0c7-4279-a41d-f2c62c812d0f"
+            }
+          ],
+          "actor_id": "7d533d10-4484-4e27-a15b-82c974bf9cd0",
+          "contexts": [
+            {
+              "id": "d9e1ea71-c4fd-42d4-a8a0-19252ab09abe",
+              "expires_at": "2026-11-04T13:00:00.000Z",
+              "revoked_at": null,
+              "completed_login_id": "cca0f452-5e93-415e-83dc-dccb8fa6f613",
+              "completed_operation_id": "35d6a84f-b0c7-4279-a41d-f2c62c812d0f"
+            }
+          ],
+          "fixed_time": "2026-11-04T12:00:00.000Z",
+          "logout_results": [],
+          "logout_contexts": []
+        }
+      ],
+      "actual": [
+        {
+          "audit": [
+            {
+              "kind": "completion",
+              "reason": null,
+              "login_id": "cca0f452-5e93-415e-83dc-dccb8fa6f613",
+              "recorded_at": "2026-11-04T12:00:00.000Z",
+              "operation_id": "35d6a84f-b0c7-4279-a41d-f2c62c812d0f"
+            }
+          ],
+          "plans": 1,
+          "logins": [
+            {
+              "id": "cca0f452-5e93-415e-83dc-dccb8fa6f613",
+              "deadline": "2026-11-04T12:05:00.000Z",
+              "closed_at": null,
+              "erased_at": null,
+              "context_id": "d9e1ea71-c4fd-42d4-a8a0-19252ab09abe",
+              "expires_at": "2026-11-04T20:00:00.000Z",
+              "revoked_at": null,
+              "close_reason": null,
+              "completed_at": "2026-11-04T12:00:00.000Z",
+              "operation_id": "35d6a84f-b0c7-4279-a41d-f2c62c812d0f",
+              "secret_present": true,
+              "idle_expires_at": "2026-11-04T14:00:00.000Z",
+              "credential_present": true,
+              "first_confirmed_at": null,
+              "secret_row_present": true
+            }
+          ],
+          "blocked": false,
+          "results": [
+            {
+              "valid": true,
+              "result": {
+                "kind": "login_completed",
+                "completion": {
+                  "realm": "user",
+                  "loginId": "cca0f452-5e93-415e-83dc-dccb8fa6f613",
+                  "completedAt": "2026-11-04T12:00:00.000Z",
+                  "authContextId": "d9e1ea71-c4fd-42d4-a8a0-19252ab09abe",
+                  "authOperationId": "35d6a84f-b0c7-4279-a41d-f2c62c812d0f"
+                }
+              },
+              "login_id": "cca0f452-5e93-415e-83dc-dccb8fa6f613",
+              "context_id": "d9e1ea71-c4fd-42d4-a8a0-19252ab09abe",
+              "resolved_at": "2026-11-04T12:00:00.000Z",
+              "operation_id": "35d6a84f-b0c7-4279-a41d-f2c62c812d0f"
+            }
+          ],
+          "actor_id": "7d533d10-4484-4e27-a15b-82c974bf9cd0",
+          "contexts": [
+            {
+              "id": "d9e1ea71-c4fd-42d4-a8a0-19252ab09abe",
+              "expires_at": "2026-11-04T13:00:00.000Z",
+              "revoked_at": null,
+              "completed_login_id": "cca0f452-5e93-415e-83dc-dccb8fa6f613",
+              "completed_operation_id": "35d6a84f-b0c7-4279-a41d-f2c62c812d0f"
+            }
+          ],
+          "fixed_time": "2026-11-04T12:00:00.000Z",
+          "logout_results": [],
+          "logout_contexts": []
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB24-rollback-logout",
+      "expected": [
+        {
+          "audit": [
+            {
+              "kind": "completion",
+              "reason": null,
+              "login_id": "e6a5e7e5-7808-4762-ba54-7ec984674aa1",
+              "recorded_at": "2026-11-04T12:00:00.000Z",
+              "operation_id": "c5f06951-391b-4c9b-91ad-2307d140c193"
+            }
+          ],
+          "plans": 1,
+          "logins": [
+            {
+              "id": "e6a5e7e5-7808-4762-ba54-7ec984674aa1",
+              "deadline": "2026-11-04T12:05:00.000Z",
+              "closed_at": null,
+              "erased_at": null,
+              "context_id": "be5fd896-1b04-45cd-ac50-fe769fe92047",
+              "expires_at": "2026-11-04T20:00:00.000Z",
+              "revoked_at": null,
+              "close_reason": null,
+              "completed_at": "2026-11-04T12:00:00.000Z",
+              "operation_id": "c5f06951-391b-4c9b-91ad-2307d140c193",
+              "secret_present": true,
+              "idle_expires_at": "2026-11-04T14:00:00.000Z",
+              "credential_present": true,
+              "first_confirmed_at": null,
+              "secret_row_present": true
+            }
+          ],
+          "blocked": false,
+          "results": [
+            {
+              "valid": true,
+              "result": {
+                "kind": "login_completed",
+                "completion": {
+                  "realm": "user",
+                  "loginId": "e6a5e7e5-7808-4762-ba54-7ec984674aa1",
+                  "completedAt": "2026-11-04T12:00:00.000Z",
+                  "authContextId": "be5fd896-1b04-45cd-ac50-fe769fe92047",
+                  "authOperationId": "c5f06951-391b-4c9b-91ad-2307d140c193"
+                }
+              },
+              "login_id": "e6a5e7e5-7808-4762-ba54-7ec984674aa1",
+              "context_id": "be5fd896-1b04-45cd-ac50-fe769fe92047",
+              "resolved_at": "2026-11-04T12:00:00.000Z",
+              "operation_id": "c5f06951-391b-4c9b-91ad-2307d140c193"
+            }
+          ],
+          "actor_id": "9b3b460f-8087-432d-a77a-f61ea5689d45",
+          "contexts": [
+            {
+              "id": "be5fd896-1b04-45cd-ac50-fe769fe92047",
+              "expires_at": "2026-11-04T13:00:00.000Z",
+              "revoked_at": null,
+              "completed_login_id": "e6a5e7e5-7808-4762-ba54-7ec984674aa1",
+              "completed_operation_id": "c5f06951-391b-4c9b-91ad-2307d140c193"
+            }
+          ],
+          "fixed_time": "2026-11-04T12:00:00.000Z",
+          "logout_results": [],
+          "logout_contexts": [
+            {
+              "id": "c9738188-04bd-4a2e-b919-7c7251f8ba75",
+              "created_at": "2026-11-04T12:00:00.000Z",
+              "expires_at": "2026-11-04T12:15:00.000Z",
+              "revoked_at": null,
+              "target_login_id": "e6a5e7e5-7808-4762-ba54-7ec984674aa1",
+              "source_context_id": null,
+              "authorization_login_id": "e6a5e7e5-7808-4762-ba54-7ec984674aa1"
+            }
+          ]
+        }
+      ],
+      "actual": [
+        {
+          "audit": [
+            {
+              "kind": "completion",
+              "reason": null,
+              "login_id": "e6a5e7e5-7808-4762-ba54-7ec984674aa1",
+              "recorded_at": "2026-11-04T12:00:00.000Z",
+              "operation_id": "c5f06951-391b-4c9b-91ad-2307d140c193"
+            }
+          ],
+          "plans": 1,
+          "logins": [
+            {
+              "id": "e6a5e7e5-7808-4762-ba54-7ec984674aa1",
+              "deadline": "2026-11-04T12:05:00.000Z",
+              "closed_at": null,
+              "erased_at": null,
+              "context_id": "be5fd896-1b04-45cd-ac50-fe769fe92047",
+              "expires_at": "2026-11-04T20:00:00.000Z",
+              "revoked_at": null,
+              "close_reason": null,
+              "completed_at": "2026-11-04T12:00:00.000Z",
+              "operation_id": "c5f06951-391b-4c9b-91ad-2307d140c193",
+              "secret_present": true,
+              "idle_expires_at": "2026-11-04T14:00:00.000Z",
+              "credential_present": true,
+              "first_confirmed_at": null,
+              "secret_row_present": true
+            }
+          ],
+          "blocked": false,
+          "results": [
+            {
+              "valid": true,
+              "result": {
+                "kind": "login_completed",
+                "completion": {
+                  "realm": "user",
+                  "loginId": "e6a5e7e5-7808-4762-ba54-7ec984674aa1",
+                  "completedAt": "2026-11-04T12:00:00.000Z",
+                  "authContextId": "be5fd896-1b04-45cd-ac50-fe769fe92047",
+                  "authOperationId": "c5f06951-391b-4c9b-91ad-2307d140c193"
+                }
+              },
+              "login_id": "e6a5e7e5-7808-4762-ba54-7ec984674aa1",
+              "context_id": "be5fd896-1b04-45cd-ac50-fe769fe92047",
+              "resolved_at": "2026-11-04T12:00:00.000Z",
+              "operation_id": "c5f06951-391b-4c9b-91ad-2307d140c193"
+            }
+          ],
+          "actor_id": "9b3b460f-8087-432d-a77a-f61ea5689d45",
+          "contexts": [
+            {
+              "id": "be5fd896-1b04-45cd-ac50-fe769fe92047",
+              "expires_at": "2026-11-04T13:00:00.000Z",
+              "revoked_at": null,
+              "completed_login_id": "e6a5e7e5-7808-4762-ba54-7ec984674aa1",
+              "completed_operation_id": "c5f06951-391b-4c9b-91ad-2307d140c193"
+            }
+          ],
+          "fixed_time": "2026-11-04T12:00:00.000Z",
+          "logout_results": [],
+          "logout_contexts": [
+            {
+              "id": "c9738188-04bd-4a2e-b919-7c7251f8ba75",
+              "created_at": "2026-11-04T12:00:00.000Z",
+              "expires_at": "2026-11-04T12:15:00.000Z",
+              "revoked_at": null,
+              "target_login_id": "e6a5e7e5-7808-4762-ba54-7ec984674aa1",
+              "source_context_id": null,
+              "authorization_login_id": "e6a5e7e5-7808-4762-ba54-7ec984674aa1"
+            }
+          ]
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB24-plan-alone",
+      "expected": [
+        true,
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "actual": [
+        true,
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB24-partial-bundle",
+      "expected": [
+        true,
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "actual": [
+        true,
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB24-time-after-crypto-phase",
+      "expected": [
+        200,
+        401,
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "actual": [
+        200,
+        401,
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-roles-no-secret-or-mutation",
+      "expected": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "actual": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "D07-DB15-authenticated-crypto",
+      "verdict": "not_run",
+      "reason": "separate backend/operator actual required"
+    },
+    {
+      "case": "D07-DB18-network-commit-uncertainty",
+      "verdict": "not_run",
+      "reason": "separate backend/operator actual required"
+    },
+    {
+      "case": "D07-browser-cookie-and-cache",
+      "verdict": "not_run",
+      "reason": "separate backend/operator actual required"
+    }
+  ],
+  "passed": 39,
+  "failed": 0,
+  "not_run": 3
+}
