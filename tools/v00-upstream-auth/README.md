@@ -49,7 +49,7 @@ python3 -m unittest discover -s tools/v00-upstream-auth -p 'test_*.py'
 python3 -m compileall -q tools/v00-upstream-auth
 ```
 
-42 local checks passed at the updated candidate: injected provider/COMMIT loss,
+43 local checks passed at the updated candidate: injected provider/COMMIT loss,
 rejection commit, crypto rollback, source mismatch, closed recovery, parser and
 role allowlists, and separation of bound values from server SQL. These are local
 protocol tests with doubles, **not** PostgreSQL/Auth/browser tests or UB passes.

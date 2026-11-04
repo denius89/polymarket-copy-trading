@@ -39,6 +39,11 @@ class App(SessionController):
         # The parent has synthetic routes, but handle() below never delegates them.
         super().__init__(config, keys, sodium, lambda: CheckedLogout(transaction()))
         self.bridge, self.ingress = bridge, ingress
+        # Legacy logout's optional synthetic fault lookup expects preselected
+        # fixture login IDs. Upstream login IDs are generated only on completion;
+        # never pass upstream fixtures into that unrelated lookup.
+        self.logout_projection = SessionController({"fixtures": {}}, keys, sodium,
+                                                    lambda: CheckedLogout(transaction()))
 
     def context_fixture(self, ctx):
         matches = [f for f in self.config["fixtures"].values() if f["context_id"] == ctx]
@@ -130,5 +135,5 @@ class App(SessionController):
                          "nextAction": "select_trader", "nextActionParams": {}}, [("X-Shadow-Login-Id", login)], None
         if (method == "POST" and path in {"/api/auth/logout-contexts", "/api/auth/logout-contexts/continue", "/api/auth/logout"}) or (
                 method == "GET" and re.fullmatch(r"/api/auth/logout-contexts/[^/]+/operations/[^/]+", path)):
-            return super().handle(method, path, query, body, headers)
+            return self.logout_projection.handle(method, path, query, body, headers)
         raise Rejection(404, "RESOURCE_NOT_FOUND")

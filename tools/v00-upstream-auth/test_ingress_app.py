@@ -14,6 +14,9 @@ class ProofKeys(Keys):
     def proof(self, *_):
         return "b" * 64
 
+    def fingerprint(self, *_):
+        return "c" * 64
+
 
 class InputTests(unittest.TestCase):
     def setUp(self):
@@ -82,6 +85,24 @@ class InputTests(unittest.TestCase):
             with self.subTest(body=body), self.assertRaises(Rejection) as denied:
                 self.app().handle("POST", "/api/auth/verify", {}, body, Message())
             self.assertEqual(denied.exception.status, 400)
+
+    def test_logout_does_not_require_preselected_fixture_login(self):
+        logout_ctx, logout_op, login = uid(), uid(), uid()
+        tx = Tx([
+            ("logout_result", {"http": 202, "status": "unresolved", "result": None, "target_login_id": login}),
+            ("logout", {"http": 204, "result": {"logout_context_id": logout_ctx,
+                "operation_id": logout_op, "target_login_id": login, "confirmed_at": "2026-11-04T12:00:00.000Z"}})])
+        config = {"fixtures": {"basic": {"context_id": self.ctx}}}
+        app = App(config, self.keys, Cipher(), None, None, Factory(tx))
+        headers = Message()
+        headers["Cookie"] = "__Host-shadow-logoutctx-" + logout_ctx + "=" + b64url(b"l" * 32)
+        status, body, extra, _ = app.handle("POST", "/api/auth/logout", {},
+            {"requestSchemaVersion": "v1", "commandType": "C07", "logoutContextId": logout_ctx,
+             "authOperationId": logout_op}, headers)
+        self.assertEqual(status, 204)
+        self.assertIsNone(body)
+        self.assertTrue(extra[0][1].startswith("__Host-shadow-user-login-" + login + "=;"))
+        self.assertTrue(tx.committed)
 
 
 if __name__ == "__main__":
