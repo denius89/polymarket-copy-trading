@@ -215,6 +215,11 @@ def run_gap(config, ca, name, mode):
         check("original_source_retained", completion["authContextId"] == request["authContextId"]
               and completion["authOperationId"] == request["authOperationId"])
         check("no_login_cookie_before_recovery", client.me(login)[0] == 401)
+        emit({"event": "await_completion_snapshot", "source": source(request), "login_id": login,
+              "requirement": "capture_committed_bundle_and_original_recovery_window_before_q01_erasure"})
+        captured = receive({"snapshot_captured", "evidence_id"})
+        if captured["snapshot_captured"] is not True or not isinstance(captured["evidence_id"], str) or not captured["evidence_id"]:
+            raise ValueError("original completion snapshot required")
         recovered = client.operation(request["authContextId"], request["authOperationId"], "C02", recover=True)
         check("explicit_recovery_original_login", recovered[0] == 200 and recovered[1]["completion"] == completion
               and recovered[2].get("Set-Cookie") is not None)
@@ -246,6 +251,7 @@ def run_gap(config, ca, name, mode):
             "source": source(request), "login_id": login,
             "denied_probe_source": source(forbidden) if mode != "completion_gap" else None,
             "late_evidence_id": ready["evidence_id"] if mode == "late" else None,
+            "completion_evidence_id": captured["evidence_id"] if mode == "completion_gap" else None,
             "db_and_dispatch_evidence": "external_required"}
 
 

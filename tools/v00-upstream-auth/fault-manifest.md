@@ -199,7 +199,10 @@ python3 tools/v00-upstream-auth/fault_probe.py completion_gap /private/client.js
 ```
 
 Expected: initial503/no cookie, GET original resolved login_completed with no cookie.
-The client first checks Q01 without a login cookie (401), then explicitly recovers
+The client first checks Q01 without a login cookie (401), then emits
+`await_completion_snapshot` and pauses. Capture the committed bundle and original
+recovery window before Q01 erasure; supply private JSON with exactly
+`snapshot_captured: true` and a safe `evidence_id`. Only then it explicitly recovers
 the original login. Exact original POST replay returns the same completion and exact
 cookie/expiry; no new provider request or login. Successful Q01 closes recovery;
 later recovery409. Snapshot requirements: one full linked bundle and source, immutable
