@@ -62,5 +62,38 @@ export interface Review {reviewId:string;draftId:string;draftVersion:string;owne
 export async function validateDraft(draftId:string,draftVersion:string,proposedTimezone:string|null):Promise<Review> {const r=await post('/api/demo/validate',{requestSchemaVersion:'v1',draftId,expectedDraftVersion:draftVersion,proposedTimezone});return r.data.review;}
 export async function launchSession(review:Review,commandId:string):Promise<CommandReply> {const r=await post('/api/sessions',{requestSchemaVersion:'v1',clientCommandId:commandId,reviewId:review.reviewId,expectedDraftVersion:review.draftVersion,expectedSlot:review.expectedSlot});return r.data;}
 export async function resolveCommand(ref:CommandRef):Promise<{status:'committed'|'rejected'|'pending';receipt:CommandReceipt|null}> { const params=new URLSearchParams({requestSchemaVersion:'v1',commandType:ref.commandType,actorRealm:ref.actorRealm,actorId:ref.actorId});const r=await api<{status:'committed'|'rejected'|'pending';receipt:CommandReceipt|null}>(`/api/commands/${ref.clientCommandId}?${params}`);return r.data; }
-export async function currentSession():Promise<unknown> {const r=await api(`/api/sessions/current${q}`);return r.data;}
+export interface MoneyValue { n:string; d:string }
+export interface CurrentSession {
+  summary:{mode:'paper';dataOrigin:'synthetic';traderDisplayName:string;venueId:string;controlState:string;contentState:string;asOf:string};
+  settings:{sizingMode:'fixed'|'percent';budget:MoneyValue;fixedAmount:MoneyValue|null;copyPercent:string|null;marketLimitPercent:string;dailyBuyLimitPercent:string};
+  financialSnapshot:{dataOrigin:'synthetic';controlState:string;free:MoneyValue;equity:MoneyValue;reserved:MoneyValue;positionValue:MoneyValue;tradingResult:MoneyValue;positionCount:string;orderCount:string;contentState:string;coverageState:string};
+}
+export interface CurrentSessionResponse { session:CurrentSession|null }
+const record=(value:unknown):value is Record<string,unknown>=>typeof value==='object'&&value!==null&&!Array.isArray(value);
+const moneyValue=(value:unknown):value is MoneyValue=>record(value)&&typeof value.n==='string'&&/^\d+$/.test(value.n)&&typeof value.d==='string'&&/^[1-9]\d*$/.test(value.d);
+export async function currentSession(signal?:AbortSignal):Promise<CurrentSessionResponse> {
+  const r=await api<unknown>(`/api/sessions/current${q}`,{}, {signal});
+  const body=r.data;
+  if(!record(body)||!('session' in body))throw new ApiError(502,'INVALID_SESSION_RESPONSE');
+  if(body.session===null)return {session:null};
+  if(!record(body.session))throw new ApiError(502,'INVALID_SESSION_RESPONSE');
+  const {summary,settings,financialSnapshot}=body.session;
+  if(!record(summary)||!record(settings)||!record(financialSnapshot)||
+    summary.mode!=='paper'||summary.dataOrigin!=='synthetic'||typeof summary.traderDisplayName!=='string'||typeof summary.venueId!=='string'||
+    typeof summary.controlState!=='string'||typeof summary.contentState!=='string'||typeof summary.asOf!=='string'||Number.isNaN(Date.parse(summary.asOf))||
+    !['fixed','percent'].includes(String(settings.sizingMode))||!moneyValue(settings.budget)||
+    (settings.fixedAmount!==null&&!moneyValue(settings.fixedAmount))||
+    (settings.copyPercent!==null&&typeof settings.copyPercent!=='string')||
+    typeof settings.marketLimitPercent!=='string'||typeof settings.dailyBuyLimitPercent!=='string'||
+    !moneyValue(financialSnapshot.free)||!moneyValue(financialSnapshot.equity)||
+    !moneyValue(financialSnapshot.reserved)||!moneyValue(financialSnapshot.positionValue)||
+    !moneyValue(financialSnapshot.tradingResult)||!/^\d+$/.test(String(financialSnapshot.positionCount))||
+    !/^\d+$/.test(String(financialSnapshot.orderCount))||typeof financialSnapshot.contentState!=='string'||
+    financialSnapshot.dataOrigin!=='synthetic'||typeof financialSnapshot.controlState!=='string'||
+    typeof financialSnapshot.coverageState!=='string'||summary.contentState!==financialSnapshot.contentState||
+    summary.controlState!==financialSnapshot.controlState||
+    (summary.contentState==='EMPTY'&&(summary.controlState!=='copying_not_connected'||financialSnapshot.positionCount!=='0'||financialSnapshot.orderCount!=='0'))
+  )throw new ApiError(502,'INVALID_SESSION_RESPONSE');
+  return body as unknown as CurrentSessionResponse;
+}
 export async function readDraft(draftId:string):Promise<{draft:{draftId:string;draftVersion:string;proposedTimezone:string|null}}>{const r=await api<{draft:{draftId:string;draftVersion:string;proposedTimezone:string|null}}>(`/api/demo/drafts/${draftId}${q}`);return r.data;}
