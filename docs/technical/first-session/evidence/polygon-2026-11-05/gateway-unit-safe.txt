@@ -1,0 +1,31 @@
+test_slow_upstream_headers_cannot_reset_idle_timeout (test_gateway_core.ActualUpstreamDeadlineTests.test_slow_upstream_headers_cannot_reset_idle_timeout) ... ok
+test_invalid_key_is_technical_refusal_before_connection (test_gateway_core.AdditionalBoundaryTests.test_invalid_key_is_technical_refusal_before_connection) ... ok
+test_parallel_q01_contexts_do_not_share_deadlines (test_gateway_core.AdditionalBoundaryTests.test_parallel_q01_contexts_do_not_share_deadlines) ... ok
+test_slow_header_absolute_deadline_prevents_next_read (test_gateway_core.AdditionalBoundaryTests.test_slow_header_absolute_deadline_prevents_next_read) ... ok
+test_allowlist_includes_patch_excludes_internal_absolute_and_unknown (test_gateway_core.GatewayTests.test_allowlist_includes_patch_excludes_internal_absolute_and_unknown) ... ok
+test_ambiguous_framing_and_credentials_rejected (test_gateway_core.GatewayTests.test_ambiguous_framing_and_credentials_rejected) ... ok
+test_caller_internal_headers_never_forward (test_gateway_core.GatewayTests.test_caller_internal_headers_never_forward) ... ok
+test_empty_body_and_queued_expired_request_refused (test_gateway_core.GatewayTests.test_empty_body_and_queued_expired_request_refused) ... ok
+test_hmac_wire_matches_independent_framing (test_gateway_core.GatewayTests.test_hmac_wire_matches_independent_framing) ... ok
+test_identity_failure_has_no_actor_fallback (test_gateway_core.GatewayTests.test_identity_failure_has_no_actor_fallback) ... ok
+test_post_origin_marker_and_media_checked_before_forward (test_gateway_core.GatewayTests.test_post_origin_marker_and_media_checked_before_forward) ... ok
+test_q01_cap_is_request_local_and_factory_time_is_charged (test_gateway_core.GatewayTests.test_q01_cap_is_request_local_and_factory_time_is_charged) ... ok
+test_slow_body_exhaustion_does_not_renew_budget (test_gateway_core.GatewayTests.test_slow_body_exhaustion_does_not_renew_budget) ... ok
+test_expired_q01_never_calls_real_auth_or_mapping (test_gateway_core.HandlerTests.test_expired_q01_never_calls_real_auth_or_mapping) ... ok
+test_mapping_failure_never_emits_legacy_actor_or_success (test_gateway_core.HandlerTests.test_mapping_failure_never_emits_legacy_actor_or_success) ... ok
+test_mapping_replaces_only_product_id_and_preserves_login_header (test_gateway_core.HandlerTests.test_mapping_replaces_only_product_id_and_preserves_login_header) ... ok
+test_public_internal_bridge_never_reaches_base_or_upstream (test_gateway_core.HandlerTests.test_public_internal_bridge_never_reaches_base_or_upstream) ... ok
+test_actual_body_uses_remaining_wallclock (test_gateway_core.SocketHandlerTests.test_actual_body_uses_remaining_wallclock) ... ok
+test_actual_downstream_backpressure_keeps_deadline_and_one_response (test_gateway_core.SocketHandlerTests.test_actual_downstream_backpressure_keeps_deadline_and_one_response) ... ok
+test_actual_expired_dispatch_never_authenticates (test_gateway_core.SocketHandlerTests.test_actual_expired_dispatch_never_authenticates) ... ok
+test_actual_headers_use_remaining_wallclock (test_gateway_core.SocketHandlerTests.test_actual_headers_use_remaining_wallclock) ... ok
+test_actual_patch_preserves_body_and_diagnostic_id (test_gateway_core.SocketHandlerTests.test_actual_patch_preserves_body_and_diagnostic_id) ... ok
+test_actual_private_bridge_404_has_no_auth_or_mapping (test_gateway_core.SocketHandlerTests.test_actual_private_bridge_404_has_no_auth_or_mapping) ... ok
+test_actual_q01_mapping_occurs_after_auth (test_gateway_core.SocketHandlerTests.test_actual_q01_mapping_occurs_after_auth) ... ok
+test_ambiguous_or_missing_diagnostics_refuse_response (test_gateway_core.UpstreamResponseTests.test_ambiguous_or_missing_diagnostics_refuse_response) ... ok
+test_diagnostic_whitelist_preserves_only_valid_ids (test_gateway_core.UpstreamResponseTests.test_diagnostic_whitelist_preserves_only_valid_ids) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 1.045s
+
+OK

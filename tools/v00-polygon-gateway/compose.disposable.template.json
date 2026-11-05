@@ -1,0 +1,270 @@
+{
+  "name": "shadow-browser-e2e-${SHADOW_E2E_ID:?explicit run id required}",
+  "services": {
+    "db": {
+      "restart": "no",
+      "pull_policy": "never",
+      "read_only": false,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "labels": {
+        "shadow.scope": "browser-e2e",
+        "shadow.run-id": "${SHADOW_E2E_ID:?explicit run id required}"
+      },
+      "networks": [
+        "lab"
+      ],
+      "image": "sha256:839fbb5a4942a7758dd93e18b42ea5649807491a0545b5eeeb8f0b8bb11857a5",
+      "mem_limit": "1g",
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "${SHADOW_E2E_ROOT:?explicit disposable root required}/base",
+          "target": "/var/lib/postgresql/data",
+          "read_only": false,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ],
+      "command": [
+        "postgres",
+        "-c",
+        "listen_addresses=*"
+      ],
+      "tmpfs": [
+        "/tmp",
+        "/var/run/postgresql"
+      ],
+      "user": "postgres"
+    },
+    "auth": {
+      "restart": "no",
+      "pull_policy": "never",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "labels": {
+        "shadow.scope": "browser-e2e",
+        "shadow.run-id": "${SHADOW_E2E_ID:?explicit run id required}"
+      },
+      "networks": [
+        "lab"
+      ],
+      "image": "sha256:1736a63078f5922b198c4cbe50f80ab9a2d3b54fe8b7b6cfb2e9dc5dbbc12c6b",
+      "mem_limit": "512m",
+      "env_file": [
+        "${SHADOW_E2E_ROOT:?explicit disposable root required}/private/auth.env"
+      ],
+      "tmpfs": [
+        "/tmp"
+      ]
+    },
+    "mail": {
+      "restart": "no",
+      "pull_policy": "never",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "labels": {
+        "shadow.scope": "browser-e2e",
+        "shadow.run-id": "${SHADOW_E2E_ID:?explicit run id required}"
+      },
+      "networks": [
+        "lab"
+      ],
+      "image": "sha256:0790692be935ea4420d085694f7985b1f692ca6a8771ab0e0bd8ba75ac180498",
+      "mem_limit": "128m",
+      "environment": {
+        "MP_SMTP_BIND_ADDR": "0.0.0.0:1025",
+        "MP_UI_BIND_ADDR": "0.0.0.0:8025"
+      },
+      "tmpfs": [
+        "/tmp"
+      ]
+    },
+    "otp-template": {
+      "restart": "no",
+      "pull_policy": "never",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "labels": {
+        "shadow.scope": "browser-e2e",
+        "shadow.run-id": "${SHADOW_E2E_ID:?explicit run id required}"
+      },
+      "networks": [
+        "lab"
+      ],
+      "image": "sha256:e45473afeeddd4a12da5a1842c22b754a72438c47c02acffab97dc8a72e1faae",
+      "user": "65534:65534",
+      "mem_limit": "64m",
+      "entrypoint": [
+        "python3"
+      ],
+      "command": [
+        "-m",
+        "http.server",
+        "8080",
+        "--bind",
+        "0.0.0.0",
+        "--directory",
+        "/templates"
+      ],
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "${SHADOW_E2E_ROOT:?explicit disposable root required}/templates",
+          "target": "/templates",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ],
+      "tmpfs": [
+        "/tmp",
+        "/var/lib/postgresql/data"
+      ]
+    },
+    "gateway": {
+      "restart": "no",
+      "pull_policy": "never",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "labels": {
+        "shadow.scope": "browser-e2e",
+        "shadow.run-id": "${SHADOW_E2E_ID:?explicit run id required}"
+      },
+      "networks": [
+        "lab"
+      ],
+      "image": "sha256:5981ac5b703b70c1bd0d940514007b47f7d7c81daa1e2ff666a8305bab69fc73",
+      "user": "65534:65534",
+      "mem_limit": "384m",
+      "entrypoint": [
+        "python3"
+      ],
+      "command": [
+        "/app/tools/v00-polygon/gateway_serve.py"
+      ],
+      "env_file": [
+        "${SHADOW_E2E_ROOT:?explicit disposable root required}/private/gateway.env"
+      ],
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "V00_BIND_HOST": "0.0.0.0",
+        "PORT": "8443",
+        "V00_ORIGIN": "https://localhost:18444"
+      },
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "${SHADOW_E2E_ROOT:?explicit disposable root required}/gateway",
+          "target": "/app",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "${SHADOW_E2E_ROOT:?explicit disposable root required}/private/gateway",
+          "target": "/runtime",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ],
+      "tmpfs": [
+        "/tmp",
+        "/var/lib/postgresql/data"
+      ]
+    },
+    "api": {
+      "restart": "no",
+      "pull_policy": "never",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "labels": {
+        "shadow.scope": "browser-e2e",
+        "shadow.run-id": "${SHADOW_E2E_ID:?explicit run id required}"
+      },
+      "networks": [
+        "lab"
+      ],
+      "image": "docker.io/library/node@sha256:e80dee4ed3709cf1f8004e34ecfb90df71b7eac8ba0d7d6222ba238a823d1eea",
+      "user": "1000:1000",
+      "mem_limit": "512m",
+      "working_dir": "/api",
+      "entrypoint": [
+        "node"
+      ],
+      "command": [
+        "apps/api/src/runtime.ts"
+      ],
+      "environment": {
+        "POLYGON_API_CONFIG": "/private/api-config.json"
+      },
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "${SHADOW_E2E_ROOT:?explicit disposable root required}/api",
+          "target": "/api",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "${SHADOW_E2E_ROOT:?explicit disposable root required}/private/api",
+          "target": "/private",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ],
+      "tmpfs": [
+        "/tmp"
+      ]
+    }
+  },
+  "networks": {
+    "lab": {
+      "internal": true,
+      "labels": {
+        "shadow.scope": "browser-e2e",
+        "shadow.run-id": "${SHADOW_E2E_ID:?explicit run id required}"
+      }
+    }
+  }
+}

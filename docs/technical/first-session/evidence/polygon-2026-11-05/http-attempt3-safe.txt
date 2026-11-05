@@ -1,0 +1,24 @@
+backup successfully verified
+installed=001-storage.sql
+installed=002-guards-numbers.sql
+installed=003-drafts-reviews.sql
+installed=004-start.sql
+installed=005-integrity.sql
+installed=006-reads.sql
+installed=007-operator-seed.sql
+disposable_fixture_prepared=true; users=2; secrets_not_printed=true
+DO
+/opt/shadow-polygon/operator/http-stages/bca53730dc0abd724b8dd823fd0a48bd872fe13a815b2c08010d0bb7407d4d0a/fixture-config.py:24: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+  setup="\set fixture_input '"+json.dumps(fixture,separators=(',',':'))+"'\n\set runtime_role '"+role+"'\n"
+/opt/shadow-polygon/operator/http-stages/bca53730dc0abd724b8dd823fd0a48bd872fe13a815b2c08010d0bb7407d4d0a/fixture-config.py:24: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+  setup="\set fixture_input '"+json.dumps(fixture,separators=(',',':'))+"'\n\set runtime_role '"+role+"'\n"
+fixture setup committed; users=2; dedicated runtime ready
+postgres_peer_denied
+owner_denied
+auth_owner_denied
+auth_role_denied
+wrong_runtime_password_denied
+correct_runtime_login_authenticated
+{"keys": 8, "audit": 2, "drafts": 2, "format": "polygon-http-effects-v1", "outbox": 2, "entries": 4, "reviews": 3, "fundings": 2, "journals": 2, "receipts": 8, "sessions": 2, "settings": 2, "freeTotal": "400.0000000000000000", "ledgerNet": "0.0000000000000000", "snapshots": 2, "equityTotal": "400.0000000000000000", "fundingTotal": "400.0000000000000000", "receiptDetails": 8, "financialTupleCheck": "passed", "runtimeConnectionCheck": "passed"}
+{"suite":"polygon-http-db-v1","passed":46,"labels":["user1_product_identity","user1_empty_current","user1_catalog_first_page","user1_full_final_page","user1_cursor_reader_isolation","user1_card","user1_origin_denied","user1_unknown_field_denied","user1_missing_cookie_denied","user1_create","user1_exact_create_replay","user1_key_reuse_denied","nul_raw_and_error_provenance","invalid_review_persisted","real_update","unchanged_new_key","unchanged_preserves_input_source","durable_version_refusal","q05_rejected_is_200","historical_receipt_after_edit","user1_valid_review","user1_same_key_concurrent_start","user1_same_empty_session","user1_read_same_by_id","user1_q05_start_history","user2_product_identity","user2_empty_current","user2_catalog_first_page","user2_full_final_page","user2_cursor_reader_isolation","user2_card","user2_origin_denied","user2_unknown_field_denied","user2_missing_cookie_denied","user2_create","user2_exact_create_replay","user2_key_reuse_denied","user2_valid_review","user2_same_key_concurrent_start","user2_same_empty_session","user2_read_same_by_id","user2_q05_start_history","cross_user_draft_hidden","cross_user_session_hidden","cross_user_command_hidden","used_draft_priority"],"independentObserverAcknowledged":true,"scope":"real internal HTTP and PostgreSQL; synthetic Auth fixture; no provider/browser/gateway/unknown-COMMIT proof"}
+integration container exits successfully
