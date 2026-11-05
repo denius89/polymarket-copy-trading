@@ -1,6 +1,7 @@
 import { randomInt } from 'node:crypto';
 import { performance } from 'node:perf_hooks';
 import type { Pool, PoolClient, QueryConfig, QueryResult } from 'pg';
+import { InputError } from '../http/input.ts';
 
 const functions = ['current_identity', 'catalog_read', 'c04_save', 'c05_validate', 'c06_prepare',
   'c06_finish', 'q03_draft', 'q04_session', 'q05_command'] as const;
@@ -143,6 +144,9 @@ export async function withPolygonTransaction<T>(
         await new Promise(resolve => setTimeout(resolve, pause));
         continue;
       }
+      // A known callback refusal is safe to expose only after rollback acknowledgement.
+      // In particular, Q02 cursor errors must retain their 400/409 instead of becoming 503.
+      if (error instanceof InputError && rollbackConfirmed) throw error;
       if (error instanceof RpcRefusal || error instanceof StorageRecordUnavailable) throw error;
       throw new StorageUnavailable();
     } finally {

@@ -174,3 +174,41 @@ startup. Только оператор на свежей изолированн�
 HTTPS gateway, достоверный lock wait, lost COMMIT, restart или restore. Для них
 нужны отдельные адресные наблюдения. Даже успешные параллельные HTTP ответы не
 доказывают, что PostgreSQL успел заблокировать вторую транзакцию.
+
+### Подтверждённая внутренняя интеграция 05.11.2026
+
+На новой изолированной копии Oracle серверный оператор выполнил harness:
+46/46 HTTP labels, `independentObserverAcknowledged=true`. Бэкенд отдельно
+прочитал безопасный журнал и свидетельство очистки. Проверенный API source
+`fb14cf0cae4846a3ccd21426b06dd699e4c36060`; paper DB candidate5/HTTP fixtures
+не менялись. Operator manifest
+`bca53730dc0abd724b8dd823fd0a48bd872fe13a815b2c08010d0bb7407d4d0a`.
+
+Независимый SQL observer подтвердил8 command keys/receipts/details,3 reviews,
+2 sessions/settings/fundings/journals/snapshots/audit/outbox и4 ledger entries.
+Суммы funding/free/equity400, ledger net0; runtime connection и financial tuple
+checks прошли. Пять запрещённых socket-login попыток отклонены, выделенный
+runtime LOGIN принят. Очистка копии и отсутствие polygon schema в постоянной
+БД подтверждены оператором; backend не подключался к Oracle.
+
+Первый прогон остановился до HTTP на правах каталога source. Второй нашёл
+API дефект: transaction wrapper превращал cursor InputError400 в503.
+Исправление сохраняет400/409/404 только после подтверждённого ROLLBACK;
+неизвестный COMMIT/ошибка ROLLBACK остаются503. Шесть добавленных проверок
+проходят через настоящий cursor codec, service и transaction wrapper с
+подставным PG client; три из них воспроизводили дефект до правки. Всего85
+локальных API tests, typecheck и repository checks прошли.
+
+SHA256 safe integration log:
+`9244320dd4eef25e2f64f2de539899e7b1256885538a162eaa512b7de5f2319a`.
+SHA256 cleanup evidence:
+`59d77c1017d399383418eb6581c9ceb2b27b9019daa941ef76bdc6a1be6e1f36`.
+Вход в этом прогоне — synthetic Auth fixture. Browser/HTTPS gateway/provider,
+реальный lock wait/потеря COMMIT/restore и staff-вход не испытаны этим набором.
+008 и постоянная активация не выполнялись.
+
+После этого прогона дополнительно восстановлена точная навигация отказа
+CATALOG_CHANGED: select_trader с venueId из проверенного snapshot, по API §5.
+Усиленная локальная регрессия воспроизводила прежние null/{} и теперь проходит.
+Этот дополнительный вариант не проверялся в указанном Oracle attempt3;
+его85 локальных PASS не расширяют охват исторических46 HTTP labels.

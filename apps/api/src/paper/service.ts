@@ -48,6 +48,7 @@ export class PaperService {
   }
   async execute(auth: TrustedUserProof, operation: PaperOperation, executionStartedAt=performance.now()): Promise<ApiReply> {
     let reference:Record<string,unknown>|undefined;
+    let catalogVenueId:string|undefined;
     const write=['save','validate','start'].includes(operation.kind);
     try {
       let body: Record<string,unknown>|undefined;
@@ -64,6 +65,7 @@ export class PaperService {
         }
         if(operation.kind==='catalog-list'||operation.kind==='catalog-card'){
           const snapshot=decodeSnapshot(await tx.call('catalog_read',{auth,venue_code:operation.request.venueCode}),operation.request.venueCode);
+          catalogVenueId=snapshot.venueId;
           if(operation.kind==='catalog-list')return {status:200,body:{...this.cursor.page(operation.request,snapshot),...navigation()}};
           const trader=snapshot.items.find(t=>t.traderId===operation.request.traderId);
           if(!trader)throw new InputError(404,'RESOURCE_NOT_FOUND');
@@ -105,7 +107,12 @@ export class PaperService {
         return {status:reply.http,body:{...result,...await this.resultNavigation(tx,auth,result)}};
       },executionStartedAt);
     } catch(error) {
-      if(error instanceof InputError)return apiError(error.status,error.reasonCode);
+      if(error instanceof InputError){
+        if(error.reasonCode==='CATALOG_CHANGED')return catalogVenueId
+          ?apiError(409,'CATALOG_CHANGED','select_trader',{venueId:catalogVenueId})
+          :apiError(503,'RECORD_UNAVAILABLE');
+        return apiError(error.status,error.reasonCode);
+      }
       if(error instanceof RpcRefusal){
         const code=error.response.reason as string;
         return apiError(error.response.http,code,code.startsWith('AUTH_')?'authenticate':code==='SERVICE_UNAVAILABLE'?'retry_later':null);
