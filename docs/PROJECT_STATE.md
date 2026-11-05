@@ -994,3 +994,13 @@
 [Пакет дизайна](design/admin/commands-scoped-controls-2026-10-19/README.md): девять команд сборщиков, проверки и рейтинга; восемь областей ограничения с точными объектами, подтверждённым применением и независимым восстановлением. Первый участник после согласия видит ожидание; пример второго участника отделён от рабочих действий. Публикация методики не переключает каталог до полного пригодного расчёта. Неизвестный результат запрещает повтор.
 
 87 новых и 8 обновлённых состояний на язык. Карта 0.24: 776 RU +776 EN, по 771 основному состоянию; UI kit 0.4.21 сохранён. T05/E04 покрыты дизайном: 93 покрыто, 11 частично, 6 отложено. Полные проверки X01/X04 и реальное исполнение остаются открыты. Paper Alpha: комиссия Shadow 0%; 1% — только неактивный пример будущей версии.
+
+
+## 05.11.2026 — исходники БД синтетического демо и подтверждённый SQL/ACL результат
+
+В отдельном source-пакете сохранены [paper DB](../scripts/polygon-paper-db/README.md), [отчёт candidate5](technical/first-session/polygon-paper-db-candidate5-results.md) и [HTTP↔БД fixtures](../scripts/polygon-http-db/README.md). Включены ранее локальные [email-entry DB зависимости](technical/first-session/v00-oci/email-entry-db/private-contract.md) baseline2407684; их сохранение не означает повторной установки Auth или запуска recovery009 на населённой базе.
+
+На fresh offline DB-only Oracle clone candidate5, source4deb119971bb1b57f781b1ccb77882fabcbaf86c, manifest e7a856711a1b8edf6275084c9b608d592f737efe464217584285cb30d7b1bc7d, прошёл51+40 SQL assertions. БД независимо сверил15 hashes, оба final JSON/уникальные labels, rollback/seed-only disabled guard и операторское cleanup свидетельство. Исправлены syntax CASE, effective PUBLIC EXECUTE и syntax новой assertion; старые ошибки не скрыты.008 и постоянная активация не выполнялись.
+
+Следующий integration-пакет source e4224c6bb416507cf2ab567ab0c40d8dba35db44, manifest30c0a60bd163fa057c26ca72e029ac0b7ebe5bd39529ce2f9009cc88e41df7f4, подготовлен с бэкендом:46 ожидаемых HTTP labels,2synthetic auth fixtures, dedicated runtime LOGIN/SCRAM, отрицательные подключения, независимый read-only observer2sessions/400 и bounded handshake. Пока это подготовка и source review; фактический HTTP PASS не заявлен. Существующая БД,008, external witness/P04, claim, Q06, staff/Owner grants, live/public/расходы не входят в этот пакет. Статический review не заменяет проверки поведения, а source PR не является deploy.
+
