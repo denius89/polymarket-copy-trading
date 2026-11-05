@@ -46,6 +46,7 @@ test('foreign reader cursor survives actual codec, service and transaction bound
 test('changed permitted catalog scope survives transaction as CATALOG_CHANGED409',async()=>{
   const f=await setup();f.raw.read_binding.scope_revision=`q02-read-scope-v1:${id(60)}:2`;
   const reply=await follow(f);assert.equal(reply.status,409);assert.equal(reply.body.reasonCode,'CATALOG_CHANGED');rolledBack(f);
+  assert.equal(reply.body.nextAction,'select_trader');assert.deepEqual(reply.body.nextActionParams,{venueId:id(10)});
 });
 test('absent catalog card survives transaction as RESOURCE_NOT_FOUND404',async()=>{
   const f=await setup();const reply=await f.service.execute(proof,{kind:'catalog-card',request:{venueCode:'polymarket',traderId:id(999)}});

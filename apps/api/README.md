@@ -206,3 +206,9 @@ SHA256 cleanup evidence:
 Вход в этом прогоне — synthetic Auth fixture. Browser/HTTPS gateway/provider,
 реальный lock wait/потеря COMMIT/restore и staff-вход не испытаны этим набором.
 008 и постоянная активация не выполнялись.
+
+После этого прогона дополнительно восстановлена точная навигация отказа
+CATALOG_CHANGED: select_trader с venueId из проверенного snapshot, по API §5.
+Усиленная локальная регрессия воспроизводила прежние null/{} и теперь проходит.
+Этот дополнительный вариант не проверялся в указанном Oracle attempt3;
+его85 локальных PASS не расширяют охват исторических46 HTTP labels.
