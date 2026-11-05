@@ -24,6 +24,35 @@
 .web-kv dd { margin:0; font-weight:600; text-align:right; font-variant-numeric:tabular-nums; }
 .web-meta { font-size:12px; line-height:1.45; color:#a3adc2; }
 .web-note { border:1px solid #7044e0; background:#282044; border-radius:14px; padding:16px; }
+.web-inline-action { width:fit-content; }
+.web-home-grid,.web-list-grid { display:grid; gap:16px; }
+.web-home-grid .ui-card,.web-list-grid .ui-card { min-width:0; }
+.web-home-trader,.web-home-summary,.web-home-balance,.web-home-positions,.web-home-actions,.web-list-card,.web-list-actions { padding:20px; }
+.web-home-trader { min-height:56px; display:flex; align-items:center; }
+.web-home-summary h2,.web-home-positions h2,.web-home-actions h2,.web-list-card h2,.web-list-actions h2 { margin:0; font-size:16px; line-height:24px; font-weight:650; }
+.web-home-summary p,.web-home-positions p,.web-empty-list p { margin:12px 0 0; color:#a3adc2; font-size:14px; line-height:1.5; }
+.web-home-summary .web-home-mobile-summary { color:#e1e5ef; }
+.web-home-balance,.web-home-positions,.web-home-desktop-summary { display:none; }
+.web-home-actions { display:grid; gap:12px; }
+.web-home-actions h2 { display:none; }
+.web-settings-details summary { display:flex; align-items:center; justify-content:center; gap:8px; min-height:48px; border:1px solid #333b50; border-radius:10px; padding:10px 14px; list-style:none; text-align:center; font-size:14px; font-weight:600; cursor:pointer; }
+.web-settings-details summary::-webkit-details-marker { display:none; }
+.web-settings-details summary::after { content:'⌄'; color:#a3adc2; font-size:18px; line-height:1; }
+.web-settings-details[open] summary { border-color:#7044e0; }
+.web-settings-details dl { margin:12px 0 0; }
+.web-settings-details .web-meta { margin:12px 0 0; }
+.web-list-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.web-list-heading span { color:#a3adc2; font-size:12px; white-space:nowrap; }
+.web-empty-list { margin-top:12px; padding:4px 0 0; }
+.web-empty-list strong { font-size:14px; }
+.web-list-actions { display:grid; gap:12px; align-content:start; }
+@media(max-width:759px) {
+  .web-home-page>.web-subtitle,.web-list-page>.web-subtitle { display:none; }
+  .web-home-grid { gap:16px; }
+  .web-home-actions { border:0; background:transparent; padding:0; }
+  .web-home-summary p { margin-top:12px; }
+  .web-list-actions { border:0; background:transparent; padding:0; }
+}
 @media(min-width:760px) {
   .web-topbar { padding:0 max(32px,calc((100vw - 1280px)/2)); height:72px; }
   .web-content { padding:48px 32px 80px 248px; width:min(100%,1440px); }
@@ -32,6 +61,19 @@
   .web-nav a { display:flex; align-items:center; gap:12px; min-height:44px; padding:0 12px; border-radius:10px; color:#a3adc2; text-decoration:none; font-size:14px; }
   .web-nav a[aria-current="page"] { background:#282044; color:#c4b5fd; }
   .web-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .web-home-grid { grid-template-columns:minmax(0,2fr) minmax(280px,1fr); grid-template-areas:'balance summary' 'balance actions' 'positions positions'; align-items:start; }
+  .web-home-trader,.web-home-mobile-summary { display:none!important; }
+  .web-home-balance { grid-area:balance; display:block; min-height:215px; padding:28px; }
+  .web-home-balance .web-meta { margin:0; }
+  .web-home-value { display:block; margin:6px 0 16px; font-size:40px; line-height:1.1; }
+  .web-home-breakdown { margin:0 0 6px; font-size:14px; }
+  .web-home-summary { grid-area:summary; }
+  .web-home-desktop-summary { display:block; }
+  .web-home-actions { grid-area:actions; }
+  .web-home-actions h2 { display:block; }
+  .web-home-positions { grid-area:positions; display:block; }
+  .web-list-grid { grid-template-columns:minmax(0,2fr) minmax(280px,1fr); align-items:start; }
+  .web-list-card,.web-list-actions { padding:22px; }
 }
 @media(max-width:359px) { .web-content { padding-inline:16px; } .web-bottom-nav { left:16px; right:16px; } .web-bottom-nav a { font-size:10px; } }
 .landing { min-height:100vh; width:min(100%,1440px); margin:0 auto; padding:20px 20px 40px; }
