@@ -58,10 +58,10 @@ def marker(root, run_id, release_sha, *, base=OPERATOR_BASE):
     return expected
 
 
-def private_tree(root, *, bound=False):
+def private_tree(root, *, bound=False, tls_ready=False):
     """Actual UID/mode/shape proof; invoke only on Oracle, never infer from mocks."""
     root = Path(root)
-    expected = PRIVATE_OWNERS | (BOUND_OWNERS if bound else {})
+    expected = PRIVATE_OWNERS | (BOUND_OWNERS if bound else ({k:v for k,v in BOUND_OWNERS.items() if k != 'gateway/gateway-api.json'} if tls_ready else {}))
     private = root / 'private'
     no_symlinks(private)
     for rel, uid in [('', 0), ('gateway', 65534), ('api', 1000)]:

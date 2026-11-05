@@ -16,11 +16,11 @@
 
 | Артефакт | Проверяемое требование | Состояние |
 | --- | --- | --- |
-| Gateway source | Точный commit/archive/hash; существующие Auth/static сохранены; PATCH не теряется при маршрутизации | Контракт API README есть; Подготовлен `tools/v00-polygon-gateway/`, 26 локальных компонентных/transport проверки; независимая вычитка и окончательная композиция ещё открыты |
-| Identity bridge | Настоящий Q01, затем внутренний `/__polygon__/identity?requestSchemaVersion=v1`; только mapped product userId, без fallback к actor UUID | Требуется компонентный и интеграционный тест |
+| Gateway source | Точный commit/archive/hash; существующие Auth/static сохранены; PATCH не теряется при маршрутизации | Контракт API README есть; Подготовлен `tools/v00-polygon-gateway/`; gateway26 и полный пакет80 локальных source/mock проверок независимо повторены backend. Реальный Oracle/browser стык ещё не исполнен |
+| Identity bridge | Настоящий Q01, затем внутренний `/__polygon__/identity?requestSchemaVersion=v1`; только mapped product userId, без fallback к actor UUID | Компонентные границы вычитаны/проверены; настоящий Q01→mapping в новой копии ещё предстоит |
 | Ingress | Отдельный HMAC key; исходный monotonic deadline до чтения body; Q01+mapping используют остаток того же 5s; клиентские internal headers не доверенные | Node контракт реализован; Python candidate ограничивает headers/body/Q01/mapping; сквозной Oracle тест ещё не выполнен |
 | Web | Source и каждый build hash; полный маршрут выбора/настройки/проверки/старта/повторного открытия; обе локали | Подтверждение frontend запрошено |
-| Compose/operator | Отдельный disposable проект/том/внутренняя сеть; ограниченные LOGIN; no public ports; только тестовая почта внутри копии | Подготовить после фиксации gateway и проверки фактического Auth DSN/mounts |
+| Compose/operator | Отдельный disposable проект/том/внутренняя сеть; ограниченные LOGIN; no public ports; только тестовая почта внутри копии | Полный source-only operator, private generator и guards готовы; финальная effectiveACL интеграция и PACKAGE pin перед единым допуском |
 | Observer | Read-only scoped counts до/после, журнал и runtime ACL; без секретов и cookie в выводе | Основа attempt3 есть; адаптировать к real Auth |
 
 Не собирать новый пакет из изменяющегося рабочего дерева. Зафиксировать все hashes, отдельный manifest и независимую вычитку до запуска. Каталоги private/base/key не попадают в source-permissions sweep или исходный архив.
@@ -86,3 +86,11 @@ GW05: downstream headers/body ограничены остатком того ж�
 
 
 Текущий source manifest: `f8f45d3b69a672a1ff7e602f0d910eee80e65baaae40821135ed59e0b971fa9f`. Подготовленная композиция source-only имеет SHA256 `2db10029126f83c2c6b3ba1f851f8caa416a2335a391eb7383c65439bf739dca`; проверен import точки входа без вызова serve. Приватная конфигурация и запуск не создавались. Cloud locator пяти recovery-файлов подтверждён: PR263, dc32b7212b7e12402719c687a510fed550d5b840, все пять скачаны и побайтово сверены серверным чатом. Вместе с21 файлами PR251 и2 операторскими файлами PR262 это закрывает28 baseline Python source files; единый checkout и полностью готовый runtime пока не заявлены.
+
+
+### Полный оператор · source-only, продолжение 05.11
+
+Подготовлены `browser_operator.py`, строгий decoder eligibility и [операторский порядок](../../../tools/v00-polygon-gateway/BROWSER-OPERATOR.md). Backend независимо повторил80/80 source/mock тестов и вычитал полный prepare/cleanup/state/binding. OP01/OP02 исправлены: negative LOGIN требует typed authentication FATAL, safety/alias binding повторяются в самой копии до role SQL. [Адресная вычитка](../../../tools/v00-polygon-gateway/OPERATOR-REVIEW.md) отделяет это от реального исполнения. Новая копия, configs/keys,008 и browser этим этапом не исполнялись. Финальный PACKAGE hash и effectiveACL delta фиксируются перед единым запросом административному чату; постоянная активация не включена.
+
+
+Финальная source-only SQL/ACL интеграция приостановлена после двух отказов автоматической проверки, сославшейся на прежнее «только документы, без кода и SQL». Проверка свежего CURRENT_AUTHORIZATIONS не сняла отказ. Точный вопрос передан владельцу через административный чат; запрещённое действие не передаётся другому исполнителю. PACKAGE.json не заморожен, новый запуск не разрешён этим отчётом. Сохранение уже подготовленных исходников в draft отделено от этого действия.

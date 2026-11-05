@@ -1,6 +1,6 @@
 # Private configuration and resource guards · proposed preparation
 
-These helpers are draft source only. They have not created real private files, changed keys/passwords, executed SQL, activated008 or started a new profile. `private_config.py` has no CLI/default execution; `operator_guards.py` is read-only. A complete operator driver and explicit approval of its exact disposable scope are still required.
+These helpers are draft source only. They have not created real private files, changed keys/passwords, executed SQL, activated008 or started a new profile. `private_config.py` has no CLI/default execution; `operator_guards.py` is read-only. The full operator driver is now prepared alongside these helpers; exact package review and execution approval remain required.
 
 ## Clone-only key proposal
 
@@ -22,8 +22,8 @@ The exact purpose→ID map and distinct source material are checked before outpu
 
 Immutable Docker IDs are returned only after exact project/run/service/name, bind source/destination/RW, network, capabilities, no public ports and no-new-privileges match. An owner label alone cannot make a permanent volume, Docker socket or unrelated mount eligible. Runtime image, UID, read-only mode and restart are a separate check. Network cleanup requires ownership, internal bridge and no endpoints; preflight refuses unknown endpoints even on an owned network. The future driver must validate actual network membership, not merely accept an IP inside a CIDR, and recheck all canonical mount paths.
 
-No helper currently removes a container/network/directory. The future driver must remove by the proven immutable ID, refuse uncertain inspection, prove all references absent before root removal and independently confirm permanent Auth/UI/schema state.
+The helpers themselves do not remove resources. The prepared browser operator removes by the proven immutable ID, refuse uncertain inspection, prove all references absent before root removal and independently confirm permanent Auth/UI/schema state.
 
 ## Evidence and limits
 
-59 local tests:26 gateway,22 private-plan/writer and11 resource guards. Synthetic material and temporary files only; no Mac stand/listener/database. Source codec probe inherits the actual fixed crypto.py framing and confirms old/new context/login HMAC differ. Native libsodium is unavailable on the Mac, explicitly not run there. `clone_codec_probe.py` requires native support by default for a future separately approved test; it uses only deterministic public synthetic material and never reads real keys, cookies, database or provider state. No negative/positive DB/Auth/browser result follows from these component tests.
+80 local tests:26 gateway,22 private-plan/writer,11 resource guards,9 eligibility decoder and12 operator boundary tests. Synthetic material and temporary files only; no Mac stand/listener/database. Source codec probe inherits the actual fixed crypto.py framing and confirms old/new context/login HMAC differ. Native libsodium is unavailable on the Mac, explicitly not run there. `clone_codec_probe.py` requires native support by default for a future separately approved test; it uses only deterministic public synthetic material and never reads real keys, cookies, database or provider state. No negative/positive DB/Auth/browser result follows from these component tests.
