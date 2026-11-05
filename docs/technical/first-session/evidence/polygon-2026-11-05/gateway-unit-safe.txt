@@ -16,6 +16,7 @@ test_mapping_failure_never_emits_legacy_actor_or_success (test_gateway_core.Hand
 test_mapping_replaces_only_product_id_and_preserves_login_header (test_gateway_core.HandlerTests.test_mapping_replaces_only_product_id_and_preserves_login_header) ... ok
 test_public_internal_bridge_never_reaches_base_or_upstream (test_gateway_core.HandlerTests.test_public_internal_bridge_never_reaches_base_or_upstream) ... ok
 test_actual_body_uses_remaining_wallclock (test_gateway_core.SocketHandlerTests.test_actual_body_uses_remaining_wallclock) ... ok
+test_actual_downstream_backpressure_keeps_deadline_and_one_response (test_gateway_core.SocketHandlerTests.test_actual_downstream_backpressure_keeps_deadline_and_one_response) ... ok
 test_actual_expired_dispatch_never_authenticates (test_gateway_core.SocketHandlerTests.test_actual_expired_dispatch_never_authenticates) ... ok
 test_actual_headers_use_remaining_wallclock (test_gateway_core.SocketHandlerTests.test_actual_headers_use_remaining_wallclock) ... ok
 test_actual_patch_preserves_body_and_diagnostic_id (test_gateway_core.SocketHandlerTests.test_actual_patch_preserves_body_and_diagnostic_id) ... ok
@@ -25,6 +26,6 @@ test_ambiguous_or_missing_diagnostics_refuse_response (test_gateway_core.Upstrea
 test_diagnostic_whitelist_preserves_only_valid_ids (test_gateway_core.UpstreamResponseTests.test_diagnostic_whitelist_preserves_only_valid_ids) ... ok
 
 ----------------------------------------------------------------------
-Ran 25 tests in 0.638s
+Ran 26 tests in 1.045s
 
 OK

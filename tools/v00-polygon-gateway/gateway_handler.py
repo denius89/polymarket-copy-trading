@@ -43,6 +43,36 @@ class HeaderDeadlineReader(io.RawIOBase):
             super().close()
 
 
+class DownstreamDeadlineWriter(io.BufferedIOBase):
+    """Do not grant a fresh timeout to response headers/body or send a second reply."""
+    def __init__(self, raw, handler):
+        self.raw, self.handler = raw, handler
+
+    def writable(self):
+        return True
+
+    def write(self, data):
+        if getattr(self.handler, '_paper_reply_active', False):
+            self.handler.connection.settimeout(remaining(self.handler._paper_deadline_ns))
+            self.handler._paper_response_started = True
+        written = self.raw.write(data)
+        if getattr(self.handler, '_paper_reply_active', False):
+            remaining(self.handler._paper_deadline_ns)
+        return written
+
+    def flush(self):
+        return self.raw.flush()
+
+    def fileno(self):
+        return self.raw.fileno()
+
+    def close(self):
+        try:
+            super().close()
+        finally:
+            self.raw.close()
+
+
 class GatewayServerMixin:
     def process_request(self, request, client_address):
         # Before ThreadingMixIn schedules a handler thread. First request includes
@@ -65,6 +95,7 @@ def paper_gateway_handler(base, app, upstream):
         def setup(self):
             super().setup()
             self._reading_headers = False
+            self.wfile = DownstreamDeadlineWriter(self.wfile, self)
             raw = self.rfile.detach()
             self.rfile = io.BufferedReader(HeaderDeadlineReader(raw, self))
 
@@ -77,6 +108,8 @@ def paper_gateway_handler(base, app, upstream):
                 self.connection.settimeout(5)
 
         def handle_one_request(self):
+            self._paper_reply_active = False
+            self._paper_response_started = False
             self._paper_deadline_ns = getattr(self.connection, '_shadow_gateway_accepted_ns', None)
             if self._paper_deadline_ns is None:
                 self._paper_deadline_ns = time.monotonic_ns()
@@ -89,7 +122,25 @@ def paper_gateway_handler(base, app, upstream):
             finally:
                 self._reading_headers = False
 
+        def gateway_reply(self, status, body):
+            self.close_connection = True
+            if getattr(self, '_paper_response_started', False):
+                return
+            self._paper_reply_active = True
+            try:
+                remaining(self._paper_deadline_ns)
+                return super().reply(status, body)
+            except (GatewayUnavailable, OSError):
+                # An expired or partly written response can only be closed.
+                return
+
         def reply(self, status, body, headers=(), fault=None):
+            is_q01 = self.command == 'GET' and urlsplit(self.path).path == '/api/me'
+            if is_q01:
+                if getattr(self, '_paper_response_started', False):
+                    self.close_connection = True
+                    return
+                self._paper_reply_active = True
             # The original app has already authenticated and committed real Q01.
             if (self.command == 'GET' and urlsplit(self.path).path == '/api/me'
                     and status == 200):
@@ -109,7 +160,7 @@ def paper_gateway_handler(base, app, upstream):
                 target = urlsplit(self.path)
                 if target.path.startswith('/__polygon__/'):
                     self.close_connection = True
-                    return super().reply(404, gateway_error('RESOURCE_NOT_FOUND', auth=True))
+                    return self.gateway_reply(404, gateway_error('RESOURCE_NOT_FOUND', auth=True))
                 if self.command == 'GET' and target.path == '/api/me':
                     with q01_budget(self._paper_deadline_ns):
                         return super().dispatch()
@@ -125,6 +176,7 @@ def paper_gateway_handler(base, app, upstream):
                 status, raw, diagnostics = upstream.exchange(self.command, self.path, body, self.headers,
                                                 self._paper_deadline_ns)
                 remaining(self._paper_deadline_ns)
+                self._paper_reply_active = True
                 self.send_response(status)
                 self.send_header('Content-Type', 'application/json; charset=utf-8')
                 self.send_header('Cache-Control', 'no-store')
@@ -136,15 +188,15 @@ def paper_gateway_handler(base, app, upstream):
                 self.wfile.write(raw)
             except (ValueError, UnicodeError):
                 self.close_connection = True
-                return super().reply(400, gateway_error('INVALID_REQUEST'))
+                return self.gateway_reply(400, gateway_error('INVALID_REQUEST'))
             except InvalidRequest as exc:
                 self.close_connection = True
                 reason = {403: 'ACCESS_DENIED', 413: 'REQUEST_TOO_LARGE',
                           415: 'UNSUPPORTED_MEDIA_TYPE'}.get(exc.status, 'INVALID_REQUEST')
-                return super().reply(exc.status, gateway_error(reason))
+                return self.gateway_reply(exc.status, gateway_error(reason))
             except (GatewayUnavailable, OSError):
                 self.close_connection = True
-                return super().reply(503, gateway_error('SERVICE_UNAVAILABLE', auth=urlsplit(self.path).path == '/api/me', retry=True))
+                return self.gateway_reply(503, gateway_error('SERVICE_UNAVAILABLE', auth=urlsplit(self.path).path == '/api/me', retry=True))
 
         do_GET = dispatch
         do_POST = dispatch

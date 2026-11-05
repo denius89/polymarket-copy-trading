@@ -142,7 +142,8 @@ class HandlerTests(unittest.TestCase):
     def test_expired_q01_never_calls_real_auth_or_mapping(self):
         handler = self.make_handler(SimpleNamespace());handler._paper_deadline_ns = 1
         handler.dispatch()
-        self.assertEqual(handler.observed[0], 503)
+        self.assertFalse(hasattr(handler, 'observed'))
+        self.assertTrue(handler.close_connection)
         self.assertFalse(hasattr(handler, 'called_base'))
 
 
@@ -185,7 +186,7 @@ class AdditionalBoundaryTests(unittest.TestCase):
 
 class SocketHandlerTests(unittest.TestCase):
     """Actual HTTP parsing over socketpair; legacy app/upstream are explicit stubs."""
-    def run_request(self, wire, *, accepted_age=0, await_limit=1):
+    def run_request(self, wire, *, accepted_age=0, await_limit=1, response_bytes=0, upstream_delay=0):
         import socket
         import threading
         from http.server import BaseHTTPRequestHandler
@@ -207,11 +208,12 @@ class SocketHandlerTests(unittest.TestCase):
             def map_identity(self, headers, deadline):
                 calls.append('mapping');g.remaining(deadline);return product
             def exchange(self, method, target, body, headers, deadline):
-                calls.append((method, target, body));g.remaining(deadline)
-                return 200, b'{"saved":true}', {'x-request-id': product}
+                calls.append((method, target, body));time.sleep(upstream_delay);g.remaining(deadline)
+                return 200, (b'x' * response_bytes if response_bytes else b'{"saved":true}'), {'x-request-id': product}
         class MarkedSocket(socket.socket):pass
         a, client = socket.socketpair()
         server = MarkedSocket(fileno=a.detach())
+        if response_bytes:server.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 1024)
         server._shadow_gateway_accepted_ns = time.monotonic_ns() - int(accepted_age * g.NS)
         app = SimpleNamespace(bridge=SimpleNamespace(transaction=lambda: None))
         Handler = paper_gateway_handler(Legacy, app, Upstream())
@@ -260,11 +262,21 @@ class SocketHandlerTests(unittest.TestCase):
         wire = (b'POST /api/demo/drafts HTTP/1.1\r\nHost: localhost:18444\r\nOrigin: https://localhost:18444\r\n'
                 b'Content-Type: application/json\r\nX-Shadow-Auth-Request: 1\r\nContent-Length: 2\r\n\r\n{')
         done, raw, calls = self.run_request(wire, accepted_age=4.8, await_limit=.7)
-        self.assertTrue(done, 'body read renewed an idle budget');self.assertIn(b'503', raw);self.assertEqual(calls, [])
+        self.assertTrue(done, 'body read renewed an idle budget');self.assertNotIn(b'200 OK', raw);self.assertEqual(calls, [])
 
     def test_actual_expired_dispatch_never_authenticates(self):
         done, raw, calls = self.run_request(b'GET /api/me HTTP/1.1\r\nHost: localhost:18444\r\n\r\n', accepted_age=6)
         self.assertTrue(done);self.assertEqual(calls, [])
+
+
+    def test_actual_downstream_backpressure_keeps_deadline_and_one_response(self):
+        wire = b'GET /api/traders?requestSchemaVersion=v1 HTTP/1.1\r\nHost: localhost:18444\r\n\r\n'
+        done, raw, calls = self.run_request(wire, accepted_age=4.6, await_limit=.8,
+                                            response_bytes=65536, upstream_delay=.15)
+        self.assertTrue(done, 'downstream body renewed its socket budget')
+        self.assertEqual(raw.count(b'HTTP/1.0'), 1)
+        self.assertNotIn(b'503 Service', raw)
+        self.assertLess(len(raw), 65536)
 
 
 class UpstreamResponseTests(unittest.TestCase):
