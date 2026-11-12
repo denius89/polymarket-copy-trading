@@ -1,0 +1,13 @@
+[
+  {"id":"utc-leap","start":"2024-02-20T12:34:56.789Z","zone":"UTC","expected":"2024-03-05T12:34:56.789Z","rule":"14 calendar days across leap day"},
+  {"id":"utc-year","start":"2025-12-25T23:59:59.999Z","zone":"UTC","expected":"2026-01-08T23:59:59.999Z","rule":"year rollover, exact milliseconds"},
+  {"id":"fixed-named-zone","start":"2026-11-04T12:00:00.000Z","zone":"Etc/GMT+3","expected":"2026-11-18T12:00:00.000Z","rule":"IANA fixed zone, not a numeric offset input"},
+  {"id":"warsaw-gap","start":"2026-03-15T01:30:12.345Z","zone":"Europe/Warsaw","expected":"2026-03-29T01:00:00.000Z","rule":"target 02:30:12.345 absent; first local instant 03:00 CEST"},
+  {"id":"warsaw-gap-before","start":"2026-03-15T00:59:59.999Z","zone":"Europe/Warsaw","expected":"2026-03-29T00:59:59.999Z","rule":"last millisecond before the gap is valid"},
+  {"id":"warsaw-gap-end","start":"2026-03-15T02:00:00.000Z","zone":"Europe/Warsaw","expected":"2026-03-29T01:00:00.000Z","rule":"target 03:00 is already valid"},
+  {"id":"warsaw-gap-after","start":"2026-03-15T02:00:00.001Z","zone":"Europe/Warsaw","expected":"2026-03-29T01:00:00.001Z","rule":"first millisecond beyond gap boundary retained"},
+  {"id":"warsaw-overlap","start":"2026-10-11T00:30:12.345Z","zone":"Europe/Warsaw","expected":"2026-10-25T00:30:12.345Z","rule":"target 02:30 repeats; first occurrence has UTC+02"},
+  {"id":"lord-howe-gap","start":"2026-09-19T15:45:00.123Z","zone":"Australia/Lord_Howe","expected":"2026-10-03T15:30:00.000Z","rule":"target 02:15:00.123 absent in half-hour gap; first 02:30 at UTC+11"},
+  {"id":"lord-howe-overlap","start":"2026-03-21T14:45:00.123Z","zone":"Australia/Lord_Howe","expected":"2026-04-04T14:45:00.123Z","rule":"target 01:45 repeats in half-hour overlap; first at UTC+11"},
+  {"id":"apia-skipped-date","start":"2011-12-16T22:34:56.789Z","zone":"Pacific/Apia","expected":"2011-12-30T10:00:00.000Z","rule":"target Dec30 entirely absent; first Dec31 00:00 at UTC+14"}
+]
