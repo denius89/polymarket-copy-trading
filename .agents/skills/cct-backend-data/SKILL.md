@@ -5,7 +5,7 @@ description: Review backend and database boundaries, concurrency, transactions, 
 
 # S07 · Backend, БД и целостность
 
-Применяй к указанному предмету и объёму задачи. [Общие правила](../../../docs/ai-system/OPERATING_RULES.md) прочитай при первом использовании в чате; повторно — если они изменились или возник конфликт. Навык не добавляет полномочий и не отменяет уже данное поручение.
+[Общие правила навыков](../../../docs/ai-system/OPERATING_RULES.md) открывай по вопросу, если нужного правила ещё нет в контексте или оно изменилось.
 
 ## Процедура
 
@@ -14,6 +14,8 @@ description: Review backend and database boundaries, concurrency, transactions, 
 3. Разбери конкурентные handlers, duplicate/late events, crash между commit и external side effect, timeout и повтор. Outbox даёт устойчивую запись намерения, не магический exactly-once внешнего действия.
 4. Оцени transactions/isolation/locks/unique keys и обоснованную стратегию retry; проверяй query plans до добавления индексов и лимиты pooling.
 5. Для изменения данных подготовь план совместимости миграций, backfill/retention, restore/reconciliation и независимые проверки. Выход — review/варианты и доказательства, не новая схема продукта без поручения.
+
+Сверяй [обязательные области проверки и применимость прежних результатов](../../../docs/CHAT_COORDINATION.md#расход-astra-и-сохранение-качества--19112026) с точной версией API, схемы и тестовых данных.
 
 ## Дополнительные материалы
 

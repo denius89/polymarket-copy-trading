@@ -1,0 +1,144 @@
+"""Serve a verified compatible UI through the already-running authenticated edge."""
+import base64
+from contextlib import closing
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import subprocess
+import tempfile
+import time
+from urllib.error import HTTPError
+from urllib.request import HTTPRedirectHandler, ProxyHandler, Request, build_opener
+
+EDGE = 'shadow-paper-e99162d8-edge'
+APP_HOME = Path('/opt/shadow-polygon/.browser-e2e.e99162d8')
+DIST = APP_HOME / 'gateway/distributions/app'
+CONFIG = Path('/var/tmp/shadow-public-9r2.URGHdhEI/real-traders-addon/bound-nginx.conf')
+INDEX_SHA = '21d978a4c313ab3d4cac1e9d6402d8552295b5ff6e522faa19a35a7ef9357662'
+EDGE_SHA = 'a52779cf365bc4eb916de86725e09cc59b5c45764f45ff7c47891a8128112d0d'
+ANCHOR = b'index-JLZmzSm1.js'
+ASSET = re.compile(rb'/app/assets/([A-Za-z0-9_-]+\.(?:css|js))')
+
+
+def run(*command):
+    return subprocess.run(command, check=True, capture_output=True, timeout=15).stdout
+
+
+def sha(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+def include_assets(config, new_names, anchor=ANCHOR):
+    old_rule = b'        "GET:/app/assets/' + anchor + b'" 1;'
+    old_location = b'        location = /app/assets/' + anchor + b' {'
+    if config.count(old_rule) != 1 or config.count(old_location) != 1:
+        raise ValueError('changed edge asset anchor')
+    for name in sorted(new_names):
+        path = b'/app/assets/' + name
+        if path in config or ASSET.fullmatch(path) is None:
+            raise ValueError('unexpected new asset path')
+        allow = b'        "GET:' + path + b'" 1;\n'
+        location = (b'        location = ' + path + b' {\n'
+                    b'            disable_symlinks on;\n'
+                    b'            root /run/paper-dist;\n'
+                    b'            try_files $uri =404;\n'
+                    b'        }\n')
+        config = config.replace(old_rule, allow + old_rule).replace(old_location, location + old_location)
+    return config
+
+
+def atomic(path, data, mode=0o644):
+    descriptor, temporary = tempfile.mkstemp(dir=path.parent, prefix='.app-buy-')
+    try:
+        with os.fdopen(descriptor, 'wb') as output:
+            os.fchmod(output.fileno(), mode)
+            output.write(data)
+            output.flush()
+            os.fsync(output.fileno())
+        os.replace(temporary, path)
+    finally:
+        Path(temporary).unlink(missing_ok=True)
+
+
+def configure(data):
+    with CONFIG.open('wb') as handle:
+        handle.write(data)
+        handle.flush()
+        os.fsync(handle.fileno())
+    run('docker', 'exec', EDGE, 'nginx', '-t')
+    run('docker', 'exec', EDGE, 'nginx', '-s', 'reload')
+
+
+class NoRedirect(HTTPRedirectHandler):
+    def redirect_request(self, *args, **kwargs):
+        return None
+
+
+def access_proof(routes):
+    opener = build_opener(ProxyHandler({}), NoRedirect())
+    profile = json.loads((APP_HOME/'participant-handoff/participant-a.json').read_text())
+    auth = base64.b64encode((profile['username']+':'+profile['password']).encode()).decode()
+
+    def read(path, authenticated):
+        headers = {'Authorization':'Basic '+auth} if authenticated else {}
+        try:
+            with closing(opener.open(Request('@@ORACLE_APP_ORIGIN@@'+path,headers=headers),timeout=5)) as response:
+                return response.status, sha(response.read(2_000_001))
+        except HTTPError as error:
+            return error.code, None
+
+    if read('/app/activity', False)[0] not in (401,403):
+        raise RuntimeError('edge route no longer requires the existing Basic scope')
+    result = {path: read(path, True) for path in routes}
+    if any(result[path] != (200, expected) for path, expected in routes.items()):
+        raise RuntimeError('public edge did not serve the pinned application files')
+    return result
+
+
+def install(index, assets, rollback, *, index_sha=INDEX_SHA, config_sha=EDGE_SHA, anchor=ANCHOR):
+    actual_pid = int(run('docker','inspect','-f','{{.State.Pid}}',EDGE))
+    if not CONFIG.samefile(f'/proc/{actual_pid}/root/etc/nginx/nginx.conf'):
+        raise RuntimeError('edge bind-mount inode changed')
+    old = (DIST/'index.html').read_bytes()
+    config = CONFIG.read_bytes()
+    if sha(old) != index_sha or sha(config) != config_sha:
+        raise RuntimeError('serving index or NGINX preimage changed')
+    old_names, targets = set(ASSET.findall(old)), set(ASSET.findall(index))
+    if not targets or set(assets) != targets - old_names:
+        raise ValueError('new index assets do not match the sealed files')
+    for name in targets & old_names:
+        if not (DIST/'assets'/name.decode()).is_file():
+            raise RuntimeError('existing index asset is missing')
+    new_config = include_assets(config, assets,anchor)
+    (rollback/'index.html').write_bytes(old)
+    (rollback/'nginx.conf').write_bytes(config)
+    changed = []
+    try:
+        for name,data in assets.items():
+            path = DIST/'assets'/name.decode()
+            if path.exists():
+                raise RuntimeError('new immutable asset path is taken')
+            atomic(path,data)
+            changed.append(path)
+        configure(new_config)
+        atomic(DIST/'index.html',index)
+        expected = {**{route:sha(index) for route in ('/app/home','/app/activity','/app/positions')},
+                    **{'/app/assets/'+name.decode():sha(raw) for name,raw in assets.items()}}
+        for attempt in range(3):
+            try:
+                return access_proof(expected)
+            except RuntimeError as error:
+                if str(error) != 'public edge did not serve the pinned application files' or attempt == 2:
+                    raise
+                time.sleep(.2)
+    except BaseException:
+        if (DIST/'index.html').read_bytes() == index:
+            atomic(DIST/'index.html',old)
+        if CONFIG.read_bytes() == new_config:
+            configure(config)
+        for path in changed:
+            if path.is_file() and sha(path.read_bytes()) == sha(assets[path.name.encode()]):
+                path.unlink()
+        raise
