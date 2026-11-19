@@ -1,8 +1,8 @@
 {
   "name": "controlled-copy-trading",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
-  "description": "Research and design workspace for controlled prediction-market copy trading",
+  "type": "module",
   "engines": {
     "node": ">=22"
   },
@@ -11,8 +11,16 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "echo 'Application scaffold will be added after UX and technical spikes'",
+    "dev": "npm run dev --workspace @cct/web",
+    "dev:web": "npm run dev --workspace @cct/web",
+    "build": "npm run build --workspace @cct/web",
+    "build:web": "npm run build --workspace @cct/web",
+    "typecheck:web": "npm run typecheck --workspace @cct/web",
     "check": "node scripts/check-project.mjs && node scripts/check-storage.mjs",
-    "test:repository": "node --test scripts/check-storage.test.mjs && python3 scripts/test_branch_cleanup.py"
+    "test:repository": "node --test scripts/check-storage.test.mjs && python3 scripts/test_branch_cleanup.py",
+    "dev:admin": "npm run dev --workspace @cct/admin",
+    "build:admin": "npm run build --workspace @cct/admin",
+    "typecheck:admin": "npm run typecheck --workspace @cct/admin",
+    "build:all": "npm run build:web && npm run build:admin"
   }
 }
