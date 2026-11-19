@@ -1,0 +1,463 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-11-19T18:43:42.514778+00:00",
+  "comparison_main": "f3d5c4962e97540218bf962480dd1d348dd3fa79",
+  "archive": {
+    "filename": "oracle-demo-api-gateway-source-20261119.bundle",
+    "format": "git-bundle",
+    "commit": "8f21f710355b135e2cc795416a9613ad9d8bb58e",
+    "tree": "37a8a6e74127eaf9b47fe51b56aaac6af6e3a18b",
+    "ref": "refs/heads/oracle-demo-api-gateway-20261119",
+    "sha256": "10c282c3f2923d09c3921e68f07aafd00d2f9b3c38474cdd6c74e8dcfdb3392e",
+    "size_bytes": 160744
+  },
+  "components": {
+    "api": {
+      "architecture": "arm64",
+      "code_mount": "/api",
+      "container_started_at_utc": "2026-11-18T18:35:39.384709056Z",
+      "entrypoint": [
+        "node",
+        "apps/api/src/runtime.ts"
+      ],
+      "image_id": "sha256:e80dee4ed3709cf1f8004e34ecfb90df71b7eac8ba0d7d6222ba238a823d1eea",
+      "os": "linux",
+      "repo_digests": [
+        "node@sha256:e80dee4ed3709cf1f8004e34ecfb90df71b7eac8ba0d7d6222ba238a823d1eea"
+      ],
+      "runtime_versions": {
+        "NODE_VERSION": "24.22.2",
+        "YARN_VERSION": "1.22.22"
+      }
+    },
+    "gateway": {
+      "architecture": "arm64",
+      "code_mount": "/app",
+      "container_started_at_utc": "2026-11-16T22:01:33.888990372Z",
+      "entrypoint": [
+        "python3",
+        "/app/tools/v00-polygon/gateway_serve.py"
+      ],
+      "image_id": "sha256:5981ac5b703b70c1bd0d940514007b47f7d7c81daa1e2ff666a8305bab69fc73",
+      "os": "linux",
+      "repo_digests": [
+        "shadow-v00-adapter@sha256:5981ac5b703b70c1bd0d940514007b47f7d7c81daa1e2ff666a8305bab69fc73"
+      ],
+      "runtime_versions": {
+        "python_observed_major_minor": "3.11"
+      }
+    }
+  },
+  "files": [
+    {
+      "path": "api/apps/api/package-lock.json",
+      "sha256": "e16cda853d9724036580e88ae4950b378b766b8cbcde71fb6f2254eb5487faba",
+      "git_blob": "0cc69f71f8193bd91410fcfac8c0ae33ad249e7e"
+    },
+    {
+      "path": "api/apps/api/package.json",
+      "sha256": "c868287cafcd64b9870a7e47f8557564e1d39fcf29e8bb4adc2bdcd0e083c747",
+      "git_blob": "6c01c62b8b1ac5bff19f79293529bfccfa6ee017"
+    },
+    {
+      "path": "api/apps/api/src/activity-live/reader.ts",
+      "sha256": "eefbc2151da0c86802dffeb2adf27a5e6d9e37d78ee51a7c374db7eba909e68c",
+      "git_blob": "d78f3439a3a5042008daf5e28d5ccdafc01aed9e"
+    },
+    {
+      "path": "api/apps/api/src/activity/collector.mjs",
+      "sha256": "38b3eb8a32bc5cd2b55bdb7cdcdc5601207ae5c89da3751353a3323d9e79ba6d",
+      "git_blob": "b6146cdb96ab379259a768e1abb4b90ccced8599"
+    },
+    {
+      "path": "api/apps/api/src/activity/source.mjs",
+      "sha256": "0605683c45f1f7e81d0ac3334bdd034543afcdc5adfb7919168f9eb029046b83",
+      "git_blob": "dcfdc639b56b01fc96eee7ceabe11bd009c67902"
+    },
+    {
+      "path": "api/apps/api/src/activity/writer.mjs",
+      "sha256": "b1d19e1613775bb39bd3ff162a379171066b07c49e29ae081cf6c6382b81c8e6",
+      "git_blob": "ae8fca811055e4d57f11127e5b9fc485f9224420"
+    },
+    {
+      "path": "api/apps/api/src/catalog/contracts.ts",
+      "sha256": "d7df74abe1312e486e613ebc12cf0d7bd3bcea51b6c70497e9f4bfc93f52f161",
+      "git_blob": "03e685c0f0b9b410707eacce01be1db828210faa"
+    },
+    {
+      "path": "api/apps/api/src/catalog/cursor.ts",
+      "sha256": "cdf06da61553695175a9c437c344939c1b0443bb6fded8338b822e4cd1c3bb8f",
+      "git_blob": "4c04f5d201d36f05094a826ea4d4e08a40efc1c2"
+    },
+    {
+      "path": "api/apps/api/src/catalog/snapshot.ts",
+      "sha256": "3035ee80fce367bd13460d2044984edbe399cc0124674f3efbc732e5fc79fd20",
+      "git_blob": "efde0a2a1173af91c5590bada57a70c17da4e411"
+    },
+    {
+      "path": "api/apps/api/src/completion/contracts.ts",
+      "sha256": "e0dca9f85e5d1d31aba3e6b4e3188b734ee51aac9c50338db8821e7f2b522f7d",
+      "git_blob": "86be6fbba5574f34828bc3624f592ec3721e77b4"
+    },
+    {
+      "path": "api/apps/api/src/completion/service.ts",
+      "sha256": "40d81c131a55cb91c8f7bb5e3426a0fdf5879b4ed4c8ccf7b0a747c8e6a7f96d",
+      "git_blob": "c934feb291b15aaa16c9bf71fa5bfae41b218d7d"
+    },
+    {
+      "path": "api/apps/api/src/http/handler.ts",
+      "sha256": "b41550932cda303dc10b51da6361ef19dadddf528db128c08ca436e73cc655f8",
+      "git_blob": "9a7cbdc7816b72ab6c6651b1aa8bdad30ebebfdc"
+    },
+    {
+      "path": "api/apps/api/src/http/ingress.ts",
+      "sha256": "e33fa5eb217d7520bb436ad94e9fb1fa9b517636265a2a5a925a7c8d359a094c",
+      "git_blob": "c53d6d6b9dc7b1cf51ecde7020a571f01586e010"
+    },
+    {
+      "path": "api/apps/api/src/http/input.ts",
+      "sha256": "3feea5650135282906afa334259897c46799c6e062ca41038c1f43f74c16be29",
+      "git_blob": "736cb8c82a182ba809178f7183b5435cff942fa3"
+    },
+    {
+      "path": "api/apps/api/src/http/user-proof.ts",
+      "sha256": "471fcbe7b4c175821939f6498e39674dc930bfeaee67f68247308f012372871c",
+      "git_blob": "4c928cbf63a9f8d0709f9e593362c2824f61511b"
+    },
+    {
+      "path": "api/apps/api/src/live-buy/core-adapter.mjs",
+      "sha256": "46d4bf1d5a4a99e227edc4cf9b5435e839edebb7a18953bb93ab54bb49b6aef0",
+      "git_blob": "8348d261848b9dbeeb6c28207c672491278d9d12"
+    },
+    {
+      "path": "api/apps/api/src/live-buy/reader.ts",
+      "sha256": "e8559a460b702b3db32efeaae2ebf5e4e82c3522f6b7f67aa457f7ab8a95e72e",
+      "git_blob": "8a73ee203f64ede25b046216aa1d558cc55a421c"
+    },
+    {
+      "path": "api/apps/api/src/live-buy/writer.ts",
+      "sha256": "adf98326c9dbb0785ad3d4a5e7e4fb2726abdae1605371fbc7de71bff0496acb",
+      "git_blob": "50cc7ba38f80ce74b61c77ca09784973c956638e"
+    },
+    {
+      "path": "api/apps/api/src/paper-buy/binding.mjs",
+      "sha256": "a66a98e4bb110cdb7e6621699d41ad8b3ef5d3f0d2356ac4bd6da9c388403957",
+      "git_blob": "f29c1fc572beb0d4a8d9e022809ac27d809fa177"
+    },
+    {
+      "path": "api/apps/api/src/paper-buy/fallback.mjs",
+      "sha256": "4fad70b1b65b0ff10826f8856d2eba2326b007e6b34c922c60b66a25eeaaf1dc",
+      "git_blob": "2063b60571b3d1c8d315d81a2172a607ad9d4f40"
+    },
+    {
+      "path": "api/apps/api/src/paper-buy/guard.mjs",
+      "sha256": "eae157f2d3706f37fcaa541dbf0398a3ccabd7944fe33971a1ec7eeeac393a66",
+      "git_blob": "c434c720e86cdf876dc9b922cacc927fc601471a"
+    },
+    {
+      "path": "api/apps/api/src/paper-buy/json.mjs",
+      "sha256": "2a7e17551e09cdc5396613f2f3c32469db6cec484da1dca9369ffefd9ad8324b",
+      "git_blob": "352e0ffb06fd9d4a5650f97b58bbafce5439c26f"
+    },
+    {
+      "path": "api/apps/api/src/paper/raw-codec.ts",
+      "sha256": "4c0d537c0b88c56aed1f7845a3f239aa4be537cfa6ae4d7a196ea22323aae0db",
+      "git_blob": "2663fde810688fc69c7763607c37ff8fb47b6ffd"
+    },
+    {
+      "path": "api/apps/api/src/paper/requests.ts",
+      "sha256": "634a77b3d057d3f6417e45e6e5c26dfa11e461f48ec34267916440d28766ae8d",
+      "git_blob": "5903e7a1d9084cc5ac7c272eec6ab19f8c33ef22"
+    },
+    {
+      "path": "api/apps/api/src/paper/responses.ts",
+      "sha256": "9184abc249025482f1bd99c3dc0c9a2ac26bf7858c20fba448ac5ba5acb75887",
+      "git_blob": "8f7b2e160c13a15f091d9ed010f8eaf217f9084b"
+    },
+    {
+      "path": "api/apps/api/src/paper/service.ts",
+      "sha256": "1bdec43b3c5e63134367d4233c96f0174baf04a92421554d91b0c393e9f28157",
+      "git_blob": "ee45b9d1129966c6ba370dd3cf495a76c4d28ac9"
+    },
+    {
+      "path": "api/apps/api/src/pilot/auth-responses.ts",
+      "sha256": "c6c12d960290dfe532b7359f5e8452215e9a2d9b49a12d916c8b46a8f775c747",
+      "git_blob": "5a96f265decb8c7b48bfadc4a8c9a54ec95b9bd5"
+    },
+    {
+      "path": "api/apps/api/src/pilot/crypto.ts",
+      "sha256": "61590fb3d09e03c0f15977abe2d72874112d5a0336ef6e8ffff09b044dd86132",
+      "git_blob": "cc9576c1a22c37e64e1b23d3e08bf4c4776fc09a"
+    },
+    {
+      "path": "api/apps/api/src/pilot/peer.ts",
+      "sha256": "0b810c3e885ecbaf4a6ba4217c9911d542bd605c5c52b40de7757a609ebadb92",
+      "git_blob": "9a983de6f8abe85e572c2a6da9bc167b813d63d4"
+    },
+    {
+      "path": "api/apps/api/src/pilot/requests.ts",
+      "sha256": "c304dcbb085a91c28a029dff52ff4cd24b050af39b31d770470f8c552798bd7b",
+      "git_blob": "0ff87bee4a6551018eda2920ca6ee34b81493675"
+    },
+    {
+      "path": "api/apps/api/src/pilot/responses.ts",
+      "sha256": "ddbc7c78dee686036c1a10ae297ef73430210ab1247319d93be01e4532f37f94",
+      "git_blob": "cd7c694b60dcfab34c3fb1d7d080e9303de328e6"
+    },
+    {
+      "path": "api/apps/api/src/pilot/runtime.ts",
+      "sha256": "f8aa6916dbf1ae556ffb201c174678662bd4b3642eb1032adbe1a1840c837ed5",
+      "git_blob": "e770cef33baf2c989cf40d6f2ee14e7fad0f1960"
+    },
+    {
+      "path": "api/apps/api/src/pilot/services.ts",
+      "sha256": "81d41990b71316335f0d9f635cc73dfaf83dfa327c965fd9cafa70eaf2379ae5",
+      "git_blob": "ed629776dc4fecbff27c69101a74c5456ff37444"
+    },
+    {
+      "path": "api/apps/api/src/pilot/transaction.ts",
+      "sha256": "e434f272a620c2334bdc1b8ee1bf30dd6895cd87f4b86aace3d93320531763b3",
+      "git_blob": "7fe59be7914f55e0fdd57e3f9f6e5d4521e631fd"
+    },
+    {
+      "path": "api/apps/api/src/real-demo/resolve.mjs",
+      "sha256": "55c1ad213cb71654e3aaf86494dac7dc6bdba324d0eeb0a4d9b3f3716511d0f3",
+      "git_blob": "335ed9fea50dea0f4a62cf1d75970ae014450212"
+    },
+    {
+      "path": "api/apps/api/src/real-demo/review-profile.mjs",
+      "sha256": "abb21413cc4b3ff4178005ad6bd53e302e93407da0291b52e71c19e220008c37",
+      "git_blob": "e3533d768ddafd15793677cf55534c26056c45d1"
+    },
+    {
+      "path": "api/apps/api/src/runtime.ts",
+      "sha256": "2d55ea6cdace2fa6c8978c645df3567a0544879d945619c78a32dec75daa05ee",
+      "git_blob": "3bfdd02681ec0a8e7be59e7f41c26e350b3667c6"
+    },
+    {
+      "path": "api/apps/api/src/staff/requests.ts",
+      "sha256": "ead5f260030dfe3b0a6903d2be64f131d3c5005ae6f81e1012f70ec78785e79a",
+      "git_blob": "e4a8bac57d34eee81166d7a781154e286e97e688"
+    },
+    {
+      "path": "api/apps/api/src/staff/webauthn-input.ts",
+      "sha256": "5eac85e464f032013db05026bc34b45f67a17b9c38d498ecebc88e56375ff624",
+      "git_blob": "6b26be5d192e910b8400ae46fdf153fe62ec2133"
+    },
+    {
+      "path": "api/apps/api/src/storage/transaction.ts",
+      "sha256": "0e2d8f30bc647df00a728e7747cb6f18e241cf7ee471c48ea11651b9e777b1f4",
+      "git_blob": "89c7ed59c5902cbb870533fb24a4f2b9b486b3c3"
+    },
+    {
+      "path": "api/apps/api/src/time/evaluation-deadline.ts",
+      "sha256": "71d75e4bd50ae7cb59ca4963a6a2b49f31e822b8146740a53b54d3b67ca851bb",
+      "git_blob": "38cfbbac32b6fb41bc40209bfc185df81758800d"
+    },
+    {
+      "path": "api/apps/api/test/pilot-boundaries.test.mjs",
+      "sha256": "9bf494fe8505e376bb1ad73320ab586bf11576c3b3163cbf23ac110fd9cc76d2",
+      "git_blob": "872a88b3ff6df4c1cb5fd8db9c88c486042bd681"
+    },
+    {
+      "path": "api/apps/api/test/pilot-crypto.test.mjs",
+      "sha256": "e3e3f70c90f66d17c2b7ee5baca5e6220bf35b68508c3d867b35ff4a4e078142",
+      "git_blob": "dc04d2800208e0c0b1905542404e65d6161f1a2f"
+    },
+    {
+      "path": "api/apps/api/test/pilot-services.test.mjs",
+      "sha256": "c728d0a294fd65d2a8e9c8cf675358bfc82db10677c128b5784ac04ce5dc376f",
+      "git_blob": "7bfcc865531a4d3464ed2bfa9a9984ce30c1e9a6"
+    },
+    {
+      "path": "api/apps/api/test/pilot-transaction.test.mjs",
+      "sha256": "434af405d13bc95554f445f577e18a9a2814428a53954394ba58d39f93b7b081",
+      "git_blob": "c6c63e9acaea4226d4707416a9382ea8e9b95a31"
+    },
+    {
+      "path": "api/apps/api/tsconfig.json",
+      "sha256": "dbbcf2c4ac5456ad055a10f189a1b1aa89298a2cf82f217758e5359cfa865538",
+      "git_blob": "2b92ab78ee71d73c95e920e92fb03cc71ffb5e56"
+    },
+    {
+      "path": "gateway/tools/v00-polygon/gateway_core.py",
+      "sha256": "9463a45fa591654d21d50cd9c1886517ff2ce7559288a5d5468ddca9ffcca441",
+      "git_blob": "ef9f2a19a37d5099ebc30deec187be29fdb04406"
+    },
+    {
+      "path": "gateway/tools/v00-polygon/gateway_handler.py",
+      "sha256": "58477bcdd8cd73396c719454e973bfc2f7e12b0613e0e9044eecb7b0a43c4721",
+      "git_blob": "ccfd1774741a025506447142a9eb229afd1911cf"
+    },
+    {
+      "path": "gateway/tools/v00-polygon/gateway_serve.py",
+      "sha256": "76580ddc309060d1bec4590f3bfd50a9589148c94275dc32385e4b64af5089c2",
+      "git_blob": "3b5a9e99af2245d50714969deb54cd965089b32b"
+    },
+    {
+      "path": "gateway/tools/v00-polygon/own_otp.py",
+      "sha256": "df18549549aa3c825165626bf014b2c21009d9aafb6683969b05a4f84a210c0d",
+      "git_blob": "25dca2a2e1e614c8df9eaaf4f1f0ef57c69926c9"
+    },
+    {
+      "path": "gateway/tools/v00-polygon/pilot_gateway.py",
+      "sha256": "47267ee534c6cf80cce7ce6b5094e3a36a6b0026a27c8e55e51775838a74768b",
+      "git_blob": "8c39006a70a378e89057def325b1bf6d5854a129"
+    },
+    {
+      "path": "gateway/tools/v00-polygon/pilot_gateway_wiring.py",
+      "sha256": "ddcd4eb264ec50744223c1833fe334b919d4ce7a43aa39dd02e3eee8eaf18254",
+      "git_blob": "9e63195b8fb347bff1f832954d390174adc7801a"
+    },
+    {
+      "path": "gateway/tools/v00-polygon/polygon_serve.py",
+      "sha256": "8c0a4e180b888a83081259d20d88ec067361e3973d8d1a4d34aed7c68d0f2fb2",
+      "git_blob": "1a0a5ac3cc22bd1d577e612e7d475758a2533199"
+    },
+    {
+      "path": "gateway/tools/v00-polygon/spa_mount.py",
+      "sha256": "38e5c154e79eae4a8f9c2c4d527445b6e191922b8d0e2c123699b9f8962143bc",
+      "git_blob": "c1a3b1065988379fef7df992360fc0b74763d0cf"
+    },
+    {
+      "path": "gateway/tools/v00-polygon/test_pilot_gateway.py",
+      "sha256": "b65ceee4b0912a925b02dd92da16052a203aa540dfce1f8f08aadeab0ca015c4",
+      "git_blob": "bfebf19ff8488e4f436a4aedb3d1952af92ae23f"
+    },
+    {
+      "path": "gateway/tools/v00-polygon/web/app.js",
+      "sha256": "08a622b96b2988cdd1bc1fb4a8b3774d7e5960668bf4c662e16364172753e75e",
+      "git_blob": "379942f2b32263b07580de99ab2f1fcd2ef123ba"
+    },
+    {
+      "path": "gateway/tools/v00-recovery-quota/bootstrap.py",
+      "sha256": "3fdcf9648541e5b4acad6da8c29209dae07136c581a8ed800fc7fa587e1a8f17",
+      "git_blob": "91005450c4e90b76b5fa56b22148a88c1b929e5a"
+    },
+    {
+      "path": "gateway/tools/v00-recovery-quota/recovery_app.py",
+      "sha256": "a312338cb16935f798fdfd7e1ae97100a4d17df05b951f83afa26e712c3b4e46",
+      "git_blob": "c76df621756d68eecd06b78850a37291b7fefe47"
+    },
+    {
+      "path": "gateway/tools/v00-recovery-quota/recovery_bridge.py",
+      "sha256": "bb9bb263f5c19179c395b71b4eb1f85cbd2b256498c4f3393e851d7eb209bd2c",
+      "git_blob": "b165f12a3d67e830bb4ea079d7bd361a10e475d6"
+    },
+    {
+      "path": "gateway/tools/v00-recovery-quota/recovery_database.py",
+      "sha256": "d745e10a24fa7aca640601aeeaca17ae6d1b29a1c2b9e7267bbabe121046d641",
+      "git_blob": "4781bf919f352647891c15969a6e663160d65d4a"
+    },
+    {
+      "path": "gateway/tools/v00-recovery-quota/recovery_serve.py",
+      "sha256": "617c3dd51647b69c3deba829daae08f86f7c8a287c60e0de19cc7e17313e4ac3",
+      "git_blob": "5755114beda4708dd76a0668d5bddcfd3d0273c3"
+    },
+    {
+      "path": "gateway/tools/v00-session-recovery/controller.py",
+      "sha256": "e8fe302f68ed89dd42c04237dd6ae2bcdbe18af7a8a852b9e4901bae931ffb48",
+      "git_blob": "9608c9e732e40c37682f9d97ef5077614239c8a5"
+    },
+    {
+      "path": "gateway/tools/v00-session-recovery/crypto.py",
+      "sha256": "e8f62a46bd1a491c596c8154249eefb9b30ac26f55859a12294260835edf1a1f",
+      "git_blob": "10844682885ac6a1380a149f6b40bc0da5736df7"
+    },
+    {
+      "path": "gateway/tools/v00-session-recovery/storage.py",
+      "sha256": "21b54780484898e64c8bb7f8af0cdb21028de4e1b0b4239e8d4ad4cb5ba78424",
+      "git_blob": "cf206d4bbdea463ba5cf1983318f19203ffe98ec"
+    },
+    {
+      "path": "gateway/tools/v00-upstream-auth/app.py",
+      "sha256": "e5d7ab213cc93be207741f51583c42612a2e887620191c4e4ef15f0ea02f526f",
+      "git_blob": "ccdeba27292ae774fa0b420253b02f5c7f88026e"
+    },
+    {
+      "path": "gateway/tools/v00-upstream-auth/bridge.py",
+      "sha256": "11c62d365b4f1af942c481e8c40b69d2f525e73951d9f5815092378b7b73f6e9",
+      "git_blob": "3f55de6fa72f703b41dce4eab0918148d8fb7a13"
+    },
+    {
+      "path": "gateway/tools/v00-upstream-auth/database.py",
+      "sha256": "3bc326dd46d1c4bea83fbf1c0020954b161c144b0b2669df311b5e28d52849b9",
+      "git_blob": "b65281ecc27663dde4826f6d8a6a163b25e41e50"
+    },
+    {
+      "path": "gateway/tools/v00-upstream-auth/dependency.py",
+      "sha256": "22a87626667af1227ca6790b18d1b4117ef60c6f640e66ced66857d4fddcc7d8",
+      "git_blob": "c87b0aef9ff7313deb75bc23628851b36b6acf8b"
+    },
+    {
+      "path": "gateway/tools/v00-upstream-auth/email_api.py",
+      "sha256": "7c35c2b86f0ad965f60d6b945a9d38ad7f540f95ad5dacaa8c365abac44d9a97",
+      "git_blob": "eb8dbe274e4b8740d5e83ed84fd237bbd9b9295b"
+    },
+    {
+      "path": "gateway/tools/v00-upstream-auth/email_app.py",
+      "sha256": "3ad04f3521cf1f704d09c91d2050413b789c443d61fe7cfd0230b3c4ac228817",
+      "git_blob": "fb0b6b6c5a869c775fd1e3896f03420d6d6c6651"
+    },
+    {
+      "path": "gateway/tools/v00-upstream-auth/email_bridge.py",
+      "sha256": "dfc1d4763ece0098204ca026ccb1f6e0b826f227c4cdad10511dd3032c3b09c2",
+      "git_blob": "7c56865c6054391971c7d60293784dc2910c414c"
+    },
+    {
+      "path": "gateway/tools/v00-upstream-auth/email_clock.py",
+      "sha256": "8ec1d0ce38f055d1d09da55687c24510248954a383e77877bd7ef0a57e8dc0cc",
+      "git_blob": "bfab74de7ceb520cf16be04f8a7b74935e2af067"
+    },
+    {
+      "path": "gateway/tools/v00-upstream-auth/email_crypto.py",
+      "sha256": "ad14edff241b597529916bb217ae917a9ddbc6457b229f831283d52b26542685",
+      "git_blob": "287339733a9f87a9b390878f6d1e589fba50a888"
+    },
+    {
+      "path": "gateway/tools/v00-upstream-auth/email_database.py",
+      "sha256": "94c1be5122585ed7b5ee5b86d86d6f35a3c084f8f4fec99efdd1f5d707c8f193",
+      "git_blob": "978aa06204a54d1757f00b519d5e576cecb549ca"
+    },
+    {
+      "path": "gateway/tools/v00-upstream-auth/email_ingress.py",
+      "sha256": "bb81d7ee6689f1539513b6abd9151c47f1bff989c9f139186a8160119b9b75f1",
+      "git_blob": "111f7c39a389cb3985574897297603a010f48fb7"
+    },
+    {
+      "path": "gateway/tools/v00-upstream-auth/email_input.py",
+      "sha256": "adfa5cfa77d5b68b4fe0a1ddf734b97c047db3ecab5bb5c56551be732b9b052f",
+      "git_blob": "82996599ed5f976f975f1cb61b76cbe5846c3d2b"
+    },
+    {
+      "path": "gateway/tools/v00-upstream-auth/email_protocol.py",
+      "sha256": "c6d34c8b1cc47b89ddfa70753b1cbe321ea949431d699e6ca9cd880a736fcea2",
+      "git_blob": "72b55b1ac33d312cacb320eb2b0a05923343036a"
+    },
+    {
+      "path": "gateway/tools/v00-upstream-auth/email_serve.py",
+      "sha256": "776e643c14d5bf7d4d6c00f72f1c3fbffa80b9ede6ac4545ff70d5cb27e6de52",
+      "git_blob": "49c75d41c19ab93fb2444492940ad0caccd865ea"
+    },
+    {
+      "path": "gateway/tools/v00-upstream-auth/ingress.py",
+      "sha256": "b6803e7f969e1f811f38b2a5b25a84cf9063c15f154bacf4dd6a28e7ebae604e",
+      "git_blob": "1111e96c1d696bb1f9814c1ce44caee6fe902615"
+    },
+    {
+      "path": "gateway/tools/v00-upstream-auth/protocol.py",
+      "sha256": "6185604efe18728151bf8b5a1e91857875bd2e657c18125fec1fd1767626042a",
+      "git_blob": "abe74b302b66ee9a75178352e488f96a402aba8a"
+    },
+    {
+      "path": "gateway/tools/v00-upstream-auth/provider.py",
+      "sha256": "aca62e48c616c6a0b2b646684c0c33a6e36c2289bb2487d3ea9cda0fb6dfefaf",
+      "git_blob": "ce07b2322ebd31e15b541d45ca91ca8ba47d778f"
+    },
+    {
+      "path": "gateway/tools/v00-upstream-auth/serve.py",
+      "sha256": "e72fdc402bedd3aab1893f7684036ec563a5fe68a395c9172e2e691bf5f658b1",
+      "git_blob": "aee781a746fdb4dc3e9bb0a8236aa63caf1987d0"
+    }
+  ]
+}

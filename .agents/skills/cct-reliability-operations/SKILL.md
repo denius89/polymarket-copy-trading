@@ -5,7 +5,7 @@ description: Assess SLOs, capacity, observability, DDoS resilience and incident 
 
 # S09 · Надёжность и эксплуатация
 
-Применяй к указанному предмету и объёму задачи. [Общие правила](../../../docs/ai-system/OPERATING_RULES.md) прочитай при первом использовании в чате; повторно — если они изменились или возник конфликт. Навык не добавляет полномочий и не отменяет уже данное поручение.
+[Общие правила навыков](../../../docs/ai-system/OPERATING_RULES.md) открывай по вопросу, если нужного правила ещё нет в контексте или оно изменилось.
 
 ## Процедура
 
@@ -15,6 +15,8 @@ description: Assess SLOs, capacity, observability, DDoS resilience and incident 
 4. Свяжи logs/metrics/traces с operation IDs, freshness и ledger/reconciliation, без keys/PII и неограниченной cardinality. Alert должен иметь actionable owner/runbook.
 5. Разбери dependency outage, DB saturation, stale controls, retry storm и unknown operations; safe degradation не должна рисовать финансовый успех.
 6. Подготовь incident/restore/drill и capacity/cost plan, recovery criteria и support escalation. Не включай настройки или рассылку алертов без соответствующего поручения.
+
+Для закрытого Oracle используй [рабочий порядок оператора](../../../docs/technical/first-session/v00-oci/workflow.md). Один раз зафиксируй среду, версию, состояние операции и последнюю подтверждённую отметку; для сравнения измерений используй одинаковые данные и окружение.
 
 ## Дополнительные материалы
 

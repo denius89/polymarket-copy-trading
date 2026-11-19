@@ -51,6 +51,18 @@ export async function getTraders(venueCode:VenueCode,cursor?:string,signal?:Abor
 export async function getTrader(venueCode:VenueCode,traderId:string,signal?:AbortSignal):Promise<Trader> { const r=await api<{trader:Trader}>(`/api/traders/${venueCode}/${traderId}${q}`,{}, {signal});return r.data.trader; }
 export interface CopyInputs {selectedMode:'fixed'|'percent';rawBudget:string;rawFixedAmount:string;rawCopyPercent:string;rawMarketLimitPercent:string;rawDailyBuyLimitPercent:string;proposedTimezone:string|null}
 export interface CommandRef {actorRealm:'user'|'guest';actorId:string;commandType:'C04'|'C06';clientCommandId:string}
+const uuidValue=(value:unknown):value is string=>typeof value==='string'&&/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/.test(value);
+export function parseCommandRef(value:unknown,type:'C04'|'C06',clientCommandId:string):CommandRef|null {
+  if(!value||typeof value!=='object'||Array.isArray(value))return null;
+  const ref=value as Record<string,unknown>;
+  if(ref.actorRealm!=='user'||!uuidValue(ref.actorId)||ref.commandType!==type||ref.clientCommandId!==clientCommandId)return null;
+  return ref as unknown as CommandRef;
+}
+export function commandRefFromError(error:unknown,type:'C04'|'C06',clientCommandId:string):CommandRef|null {
+  if(!(error instanceof ApiError)||error.nextAction!=='resolve_command'||!error.details||typeof error.details!=='object')return null;
+  const params=(error.details as ApiProblem).nextActionParams;
+  return params&&typeof params==='object'?parseCommandRef(params.commandRef,type,clientCommandId):null;
+}
 export interface CommandReceipt { outcome:'succeeded'|'rejected';reasonCode:string|null;result:Record<string,string>|null;fieldErrors?:{field:string;code:string}[] }
 export interface CommandReply {commandRef:CommandRef;receipt:CommandReceipt;nextAction:NextAction;nextActionParams:Record<string,unknown>}
 export async function saveDraft(inputs:CopyInputs, trader:Trader, locale:Locale, commandId:string, draft?:{draftId:string;draftVersion:string}):Promise<CommandReply> {
