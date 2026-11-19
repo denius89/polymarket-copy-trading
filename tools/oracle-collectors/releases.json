@@ -1,0 +1,376 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-11-19T13:33:12Z",
+  "scope": "Verified application source files from an Oracle read-only comparison. Environment-specific configuration and dependencies are supplied separately.",
+  "releases": {
+    "polymarket-v2": {
+      "oracle_release": "polymarket-v2-3b7e6943",
+      "entrypoint": "app_run.py",
+      "state_at_observation": "running",
+      "files": [
+        {
+          "path": "app_browser_relay.py",
+          "sha256": "e4860a80d3c4812021bba197d733404a4307a76127e8056feb9bb9bdf9a5fb4c",
+          "template": "app_browser_relay.py.in",
+          "template_sha256": "211e4d3095b4129214dacdc9597b27871bc3e3295e020fc048cbea6868e06ec8"
+        },
+        {
+          "path": "app_run.py",
+          "sha256": "088961df99e8ce53f4f4822055608adb5783e12fdfdc36f902ea303b04ee2f6c"
+        },
+        {
+          "path": "backup.py",
+          "sha256": "c93242700412bb3cad9de29db7fd8fd335ccf58a34f20351754dca80274487c9"
+        },
+        {
+          "path": "book_engine.py",
+          "sha256": "d32ce681927898d35c651ea7e756b63c77093d489afa2a100b9d4cf9f85966f7"
+        },
+        {
+          "path": "bridge.py",
+          "sha256": "48a03db0a58c4a7faf3417d466ca76e8022462513a5317e796fcf15cb8941569"
+        },
+        {
+          "path": "collectors.py",
+          "sha256": "6c45d1b9b2921ae2bc51e2bd867cd283ecb0009eb3566a18f81c44ebc03c110b"
+        },
+        {
+          "path": "edge.py",
+          "sha256": "27da9d4525952314d86516ef5c406987451a91ab9540b36245909d06538886a4",
+          "template": "edge.py.in",
+          "template_sha256": "28c61b2e189e9c1f7aa84144b7f0e179c1764e8da5e740250ad49ffe67469fb4"
+        },
+        {
+          "path": "follow_policy.py",
+          "sha256": "ec0d5c7d456b5196e3b9ca61ab1fb5c145973b46c3d4a08ba9e2d70bf527edc2"
+        },
+        {
+          "path": "handover_follow.py",
+          "sha256": "5ccfdb400db3f959cfc5ad5516919b17f6e31561c9889946207a71accc75a8a0"
+        },
+        {
+          "path": "handover_maker.py",
+          "sha256": "1bcacb62db33b1ce98adf385114147bdc3bf05a5dd690407ec2d9a4af44f2105"
+        },
+        {
+          "path": "handover_reconnect.py",
+          "sha256": "b0aa606b4d4371dec04bc7437b3a9ef755ccf01abc6a3f21c5c9afa43145b0f5"
+        },
+        {
+          "path": "hybrid_book.py",
+          "sha256": "1a4b34843b04d8ec61acd59cc9e27c3e83856aeedd123a0ad8524615b901d5fb"
+        },
+        {
+          "path": "legacy_worker.py",
+          "sha256": "7aa533a21c8f78fb0fa4e9aee5bbffbbffb9c8a01cc8b7eade645518872eed8e"
+        },
+        {
+          "path": "maker_collector.py",
+          "sha256": "27557bb676b9413c9b67956511f9710b95e81898d8b9f63a2051dd3ac07a31f0"
+        },
+        {
+          "path": "maker_core.py",
+          "sha256": "ec6af1dd8e157bfa3cc69f3810fcb6deba820bd81fa0eb4c9d0fe520d2a7d345"
+        },
+        {
+          "path": "maker_provenance.py",
+          "sha256": "d987780498fc8ad0de98dffe89487ef7f23a8ffd89f76eb31e4262b405ab60f9"
+        },
+        {
+          "path": "maker_resolver.py",
+          "sha256": "ed9456d6391726786e57e01ba5d872f5382fefc899164675fb5f8e3cb998caf5"
+        },
+        {
+          "path": "market_policy.py",
+          "sha256": "a5ef5e9ece202e94cb79e8531f0b06dd99db20237c358026bdd30a3ae622f697"
+        },
+        {
+          "path": "numeric_match.py",
+          "sha256": "b199633027bc5ace3944cf60c1e636ea50edfbda624870a2d9d396dcb4fd6bde"
+        },
+        {
+          "path": "observe.py",
+          "sha256": "adce18464867514f3ed4ad0b95f57f1f018ad521e6aeb1fafcaad3668a6f0c41"
+        },
+        {
+          "path": "pm_provenance.py",
+          "sha256": "8e55dbcd0cda65cb458ef5535180b5df0064aaeab67582958911fa3d99dded77"
+        },
+        {
+          "path": "poly_v2_settlement.py",
+          "sha256": "6a0f44835c69b68f6a22bc9fbe4e54166b8f38a9b3ea1cb06fe577c24cdef237"
+        },
+        {
+          "path": "pooled.py",
+          "sha256": "676461be5eea001de63719ab818503f9750b57211a04617bc9e44f52fbf0a2ea"
+        },
+        {
+          "path": "published_delay.py",
+          "sha256": "e21b740f8afff5b5ad38ae743c0fa55e0f6d785965e4163e052c1f7dd666a1d0"
+        },
+        {
+          "path": "release.py",
+          "sha256": "5ee57f970904446dbc9a97e029d9060bc21fa611e98d408fc97230e1cf40fa55"
+        },
+        {
+          "path": "resolver.py",
+          "sha256": "500eabb8e090c81fcd90d38180a433d9c9faedd3604f9fa208d01dcc35a45733"
+        },
+        {
+          "path": "route.py",
+          "sha256": "211b204aaebdd15e35d17d5cb94f7ca16c0ba4d523787ce8fb06c69da6cdf4d9"
+        },
+        {
+          "path": "rtds_operator.py",
+          "sha256": "c82a743c923b3572ed690c2bc3194eed06203c3c5beab1214d5d3afedd245d89"
+        },
+        {
+          "path": "rtds_provenance.py",
+          "sha256": "52af2eb5e69a05d5ada2a46e235aa3b0b54f27c6a2fc4b2cffe0df1be269a4fe"
+        },
+        {
+          "path": "sell.py",
+          "sha256": "32059ec49fee389453a73c2567e2face738244730f154107c0b0422cd1899dfa"
+        },
+        {
+          "path": "shared_checks.py",
+          "sha256": "100c7d671dff3bae740d83abb1a160aa39dc252fb81d561b1a746e57e486a23b"
+        },
+        {
+          "path": "source.py",
+          "sha256": "02a1be167369b667a9bbae0d39b7b5d0d3f39023d3f53904ee6e5c7a660a6728"
+        },
+        {
+          "path": "storage.py",
+          "sha256": "75c94138ab40ea6f86cf1b223fb64efd77bc5da6319634a6c8dd8ca0aed2a79b"
+        },
+        {
+          "path": "trader_address_probe.py",
+          "sha256": "32d71d84353e203f4ff202b0f871c58415227217a005a4c94316cefa1f2a1ec3"
+        },
+        {
+          "path": "trader_limitless.py",
+          "sha256": "1bf30dc394104a186d6da0d695f3a0ea981464b26c3bf10c1ad1f3c5f129fee9"
+        }
+      ]
+    },
+    "tradecraft": {
+      "oracle_release": "personal-buy-cc9ee9a7/worker",
+      "entrypoint": "personal_worker.py",
+      "state_at_observation": "running",
+      "files": [
+        {
+          "path": "book_engine.py",
+          "sha256": "d32ce681927898d35c651ea7e756b63c77093d489afa2a100b9d4cf9f85966f7"
+        },
+        {
+          "path": "collectors.py",
+          "sha256": "06f7002b2fb92623e16c091f358efd921e7a2d4f5f79834b1bd4cdeb6baa352f"
+        },
+        {
+          "path": "guarded_source.py",
+          "sha256": "031e40fc72b9046fc7fdb2fd0a67bf2aea8e1839a98528e607e030614c7a4bf4"
+        },
+        {
+          "path": "hybrid_book.py",
+          "sha256": "1a4b34843b04d8ec61acd59cc9e27c3e83856aeedd123a0ad8524615b901d5fb"
+        },
+        {
+          "path": "maker_collector.py",
+          "sha256": "edba8d7558c2acdae1090c0377cf8c7390dc18e68d9c935b69a00784d0709c11"
+        },
+        {
+          "path": "maker_core.py",
+          "sha256": "ec6af1dd8e157bfa3cc69f3810fcb6deba820bd81fa0eb4c9d0fe520d2a7d345"
+        },
+        {
+          "path": "maker_provenance.py",
+          "sha256": "d987780498fc8ad0de98dffe89487ef7f23a8ffd89f76eb31e4262b405ab60f9"
+        },
+        {
+          "path": "maker_resolver.py",
+          "sha256": "ed9456d6391726786e57e01ba5d872f5382fefc899164675fb5f8e3cb998caf5"
+        },
+        {
+          "path": "market_policy.py",
+          "sha256": "a5ef5e9ece202e94cb79e8531f0b06dd99db20237c358026bdd30a3ae622f697"
+        },
+        {
+          "path": "numeric_match.py",
+          "sha256": "b199633027bc5ace3944cf60c1e636ea50edfbda624870a2d9d396dcb4fd6bde"
+        },
+        {
+          "path": "personal_anchor.py",
+          "sha256": "1b8090ec01233d4091c27c2e9170679a03191cbf37a4d089c6e047b2ad816fc8"
+        },
+        {
+          "path": "personal_pg.py",
+          "sha256": "1c6dc2a1f349e4e85c58779f835164546deac3b25b05d28702db8a70cda8537f"
+        },
+        {
+          "path": "personal_range.py",
+          "sha256": "c64c5faa143c7ca5daeebae4386bf453b44662ad07bf930f241793cb96ace8f3"
+        },
+        {
+          "path": "personal_source.py",
+          "sha256": "391681a8d56a9610c6a33f84aadda0062b81f251e9c9e61a01fc3d697d9144bc"
+        },
+        {
+          "path": "personal_worker.py",
+          "sha256": "1a8cb7ad3f0890dcefdcb8ad8199607e3428e427e9e2dbbd749eff9cb09042a0"
+        },
+        {
+          "path": "pooled.py",
+          "sha256": "676461be5eea001de63719ab818503f9750b57211a04617bc9e44f52fbf0a2ea"
+        },
+        {
+          "path": "published_delay.py",
+          "sha256": "e21b740f8afff5b5ad38ae743c0fa55e0f6d785965e4163e052c1f7dd666a1d0"
+        },
+        {
+          "path": "resolver.py",
+          "sha256": "500eabb8e090c81fcd90d38180a433d9c9faedd3604f9fa208d01dcc35a45733"
+        },
+        {
+          "path": "route.py",
+          "sha256": "211b204aaebdd15e35d17d5cb94f7ca16c0ba4d523787ce8fb06c69da6cdf4d9"
+        },
+        {
+          "path": "rtds_operator.py",
+          "sha256": "c51c10f6e1cf53319f911946750d6306ab398d62d5e2b43104b0bf5abb9acb72"
+        },
+        {
+          "path": "rtds_provenance.py",
+          "sha256": "52af2eb5e69a05d5ada2a46e235aa3b0b54f27c6a2fc4b2cffe0df1be269a4fe"
+        },
+        {
+          "path": "source.py",
+          "sha256": "02a1be167369b667a9bbae0d39b7b5d0d3f39023d3f53904ee6e5c7a660a6728"
+        },
+        {
+          "path": "stage_driver.py",
+          "sha256": "eb4bdbffb6d3f9eaac1dcd30a333948e40542cd6a758d736e02d9e305632951b"
+        },
+        {
+          "path": "trader_address_probe.py",
+          "sha256": "32d71d84353e203f4ff202b0f871c58415227217a005a4c94316cefa1f2a1ec3"
+        },
+        {
+          "path": "trader_limitless.py",
+          "sha256": "1bf30dc394104a186d6da0d695f3a0ea981464b26c3bf10c1ad1f3c5f129fee9"
+        }
+      ]
+    },
+    "breakthebank": {
+      "oracle_release": "personal-buy-cc9ee9a7/breakthebank-timeout-d99e923a/worker",
+      "entrypoint": "personal_worker.py",
+      "state_at_observation": "failed",
+      "files": [
+        {
+          "path": "book_engine.py",
+          "sha256": "d32ce681927898d35c651ea7e756b63c77093d489afa2a100b9d4cf9f85966f7"
+        },
+        {
+          "path": "collectors.py",
+          "sha256": "d088d3c1bf875cbe1e000f21df5e3e4c5b76cb453479603a596127c30ac9a215"
+        },
+        {
+          "path": "guarded_source.py",
+          "sha256": "7ce0b81d7210f25415dcb873de51d7998844f4e427d730d7edaffba104fcf3a9"
+        },
+        {
+          "path": "hybrid_book.py",
+          "sha256": "1a4b34843b04d8ec61acd59cc9e27c3e83856aeedd123a0ad8524615b901d5fb"
+        },
+        {
+          "path": "maker_collector.py",
+          "sha256": "f15c62b70eb7e5cb32bb9fb57c8705d10f45d9e0e379ff871bdb71432ae6f7bc"
+        },
+        {
+          "path": "maker_core.py",
+          "sha256": "ec6af1dd8e157bfa3cc69f3810fcb6deba820bd81fa0eb4c9d0fe520d2a7d345"
+        },
+        {
+          "path": "maker_provenance.py",
+          "sha256": "d987780498fc8ad0de98dffe89487ef7f23a8ffd89f76eb31e4262b405ab60f9"
+        },
+        {
+          "path": "maker_resolver.py",
+          "sha256": "ed9456d6391726786e57e01ba5d872f5382fefc899164675fb5f8e3cb998caf5"
+        },
+        {
+          "path": "market_policy.py",
+          "sha256": "a5ef5e9ece202e94cb79e8531f0b06dd99db20237c358026bdd30a3ae622f697"
+        },
+        {
+          "path": "numeric_match.py",
+          "sha256": "b199633027bc5ace3944cf60c1e636ea50edfbda624870a2d9d396dcb4fd6bde"
+        },
+        {
+          "path": "personal_anchor.py",
+          "sha256": "1b8090ec01233d4091c27c2e9170679a03191cbf37a4d089c6e047b2ad816fc8"
+        },
+        {
+          "path": "personal_decisions.py",
+          "sha256": "4929a45e1b078dcff96b77cebe44977fd60804d7b646f4688926767b7b6d467f"
+        },
+        {
+          "path": "personal_pg.py",
+          "sha256": "094c5f533ac9971dcc7d9b62034d738409bfe466cbd4eb73acdd7abad19eb31b"
+        },
+        {
+          "path": "personal_range.py",
+          "sha256": "901f9f7a8634430e2a8db4a0f8b106a815ad9dc7a6167b372c723b7dcac20fa4"
+        },
+        {
+          "path": "personal_source.py",
+          "sha256": "78d802d005b61992c2dc0876b540d46f3b22c713b444855edd9a3338ac4b625a"
+        },
+        {
+          "path": "personal_worker.py",
+          "sha256": "428aaacd03c77acd2a38999ff518840a942d59eb6c45eedc61c5b7a8a37232e0"
+        },
+        {
+          "path": "pooled.py",
+          "sha256": "676461be5eea001de63719ab818503f9750b57211a04617bc9e44f52fbf0a2ea"
+        },
+        {
+          "path": "published_delay.py",
+          "sha256": "e21b740f8afff5b5ad38ae743c0fa55e0f6d785965e4163e052c1f7dd666a1d0"
+        },
+        {
+          "path": "resolver.py",
+          "sha256": "500eabb8e090c81fcd90d38180a433d9c9faedd3604f9fa208d01dcc35a45733"
+        },
+        {
+          "path": "route.py",
+          "sha256": "211b204aaebdd15e35d17d5cb94f7ca16c0ba4d523787ce8fb06c69da6cdf4d9"
+        },
+        {
+          "path": "rtds_operator.py",
+          "sha256": "6100edbac210a3caccc01383c4d9d42b5c62e9bc6284f2c633ba8bed8960c68a"
+        },
+        {
+          "path": "rtds_provenance.py",
+          "sha256": "52af2eb5e69a05d5ada2a46e235aa3b0b54f27c6a2fc4b2cffe0df1be269a4fe"
+        },
+        {
+          "path": "source.py",
+          "sha256": "02a1be167369b667a9bbae0d39b7b5d0d3f39023d3f53904ee6e5c7a660a6728"
+        },
+        {
+          "path": "stage_driver.py",
+          "sha256": "eb4bdbffb6d3f9eaac1dcd30a333948e40542cd6a758d736e02d9e305632951b"
+        },
+        {
+          "path": "trader_address_probe.py",
+          "sha256": "32d71d84353e203f4ff202b0f871c58415227217a005a4c94316cefa1f2a1ec3"
+        },
+        {
+          "path": "trader_limitless.py",
+          "sha256": "1bf30dc394104a186d6da0d695f3a0ea981464b26c3bf10c1ad1f3c5f129fee9"
+        }
+      ]
+    }
+  }
+}
