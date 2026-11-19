@@ -78,7 +78,9 @@ class State:
                     "closed_at": self.closed_at, "hold_seconds": self.hold_seconds}
 
 
-def handler(state):
+def handler(state, path="/verify"):
+    if path not in {"/verify", "/otp"}:
+        raise ValueError("unsupported isolated proxy path")
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, *_):
             pass
@@ -102,7 +104,7 @@ def handler(state):
         def do_POST(self):
             self.connection.settimeout(3)
             lengths = self.headers.get_all("Content-Length", [])
-            if (self.path != "/verify" or self.headers.get_all("Transfer-Encoding", [])
+            if (self.path != path or self.headers.get_all("Transfer-Encoding", [])
                     or len(lengths) != 1 or not re.fullmatch(r"[0-9]{1,4}", lengths[0])
                     or not 0 < int(lengths[0]) <= 1024
                     or self.headers.get_all("Content-Type", []) != ["application/json"]

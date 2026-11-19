@@ -5,6 +5,12 @@ Authorization was verified against the owner's management-chat message
 `01a1a6f3-387b-7cf0-82a2-66936cd8a3be`. Server chat is the sole Oracle operator.
 No production, live trading, new expenses, or admission to V01.
 
+The separate approved V00-07 [ordinary email-entry package](email-entry-manifest.md)
+adds real context creation, C01/C03, bounded send uncertainty and a source-pinned
+negative-code precheck through `email_serve.py` and the separate `v00_email` schema.
+The fixture-based profile described below remains distinct. New Oracle behavior is
+NOT RUN until the server records it; implementation does not close full Auth/V01.
+
 This package implements single-attempt email verification, closed private response
 decoding, capture/admission handoff, TOTP transaction orchestration, original
 completion, recovery/Q01, and delegation of the existing logout projection through
