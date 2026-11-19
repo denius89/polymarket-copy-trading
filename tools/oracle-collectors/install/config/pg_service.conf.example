@@ -1,0 +1,13 @@
+[personal_replace_writer]
+host=<approved-private-database-host>
+port=5432
+dbname=<isolated-baseline-database>
+user=<approved-writer-login>
+sslmode=verify-full
+
+[personal_replace_issuer]
+host=<approved-private-database-host>
+port=5432
+dbname=<isolated-baseline-database>
+user=<approved-separate-issuer-login>
+sslmode=verify-full
