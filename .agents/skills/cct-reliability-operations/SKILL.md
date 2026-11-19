@@ -16,6 +16,8 @@ description: Assess SLOs, capacity, observability, DDoS resilience and incident 
 5. Разбери dependency outage, DB saturation, stale controls, retry storm и unknown operations; safe degradation не должна рисовать финансовый успех.
 6. Подготовь incident/restore/drill и capacity/cost plan, recovery criteria и support escalation. Не включай настройки или рассылку алертов без соответствующего поручения.
 
+Для закрытого Oracle используй [рабочий порядок оператора](../../../docs/technical/first-session/v00-oci/workflow.md). Один раз зафиксируй среду, версию, состояние операции и последнюю подтверждённую отметку; для сравнения измерений используй одинаковые данные и окружение.
+
 ## Дополнительные материалы
 
 [пакет S09](../../../docs/ai-system/learning/S09.md) и нужный раздел [опор области](../../../docs/ai-system/knowledge/domains/operations.md). Открывай только если для текущего решения не хватает конкретного правила или источника. Учебные задания и исторические eval-кейсы нужны при обучении/оценке навыка, не при обычной работе.
