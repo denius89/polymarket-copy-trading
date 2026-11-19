@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "collector_baseline": "f638ea380ccd61a32bcd8ec3e1da37cbcd894252",
+  "target": {
+    "python": "CPython 3.14",
+    "platform": "Linux ARM64",
+    "personal_database": "PostgreSQL 17.11 with compatible Shadow baseline",
+    "shared_database": "Python sqlite3 with JSON support and verified shared-demo legacy schema"
+  },
+  "driver_wheels": {
+    "psycopg-3.3.9-py3-none-any.whl": "d2d7d04a1ce6dab4f5b27316bea3b52585cafa2f2d631e5b09dd69823f5c26f6",
+    "psycopg_binary-3.3.9-cp314-cp314-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl": "eed1ac135d652e4454777afb4e4bb52cf88520bbfa2f30ae83066cd4df656697"
+  },
+  "postgres_order": [
+    "010-writer.sql",
+    "020-segment.sql",
+    "030-decision-gap.sql",
+    "040-tradecraft.sql",
+    "050-history-cost.sql"
+  ],
+  "files": {
+    "sqlite/baseline-schema.json": {
+      "sha256": "012216431a87cf06617d58923a6e22c0c358197a909340383545ed4fd237d8a9",
+      "source": "app-buy-release-v4-reconnect / BASELINE-SCHEMA.json (schema only)"
+    },
+    "assets/maker-timestamp-observation.json": {
+      "sha256": "73d3791f3b810f7e31776fbde6786278f6f98c2b431464d2858cce8ee46b6bf4",
+      "source": "app-buy-release-v4-reconnect and personal-buy-rehearsal-candidate4 / maker-timestamp-observation.json"
+    },
+    "postgres/010-writer.sql": {
+      "sha256": "95b16692a25938fbb8e1d93b4e2b39f868ba1da1e09d6f8f33708f5482f9a127",
+      "source": "personal-app-db-20261118 / writer/install.sql"
+    },
+    "postgres/020-segment.sql": {
+      "sha256": "42524829eadd5fcc65cf9bd0139463dc12cfa10a8d38beba55141eae2457bbd9",
+      "source": "personal-app-db-20261118 / segment/install.sql"
+    },
+    "postgres/030-decision-gap.sql": {
+      "sha256": "1b4a4836ddb4d7357734a56ebd210476e19930afe34f278a1bf61d55834ddc53",
+      "source": "personal-app-db-20261118 / decision-gap/install.sql"
+    },
+    "postgres/040-tradecraft.sql": {
+      "sha256": "feb99da065c71bc2f9b0ac98795c3aaa2d45227b31e2d0d1095ef487c0b725e6",
+      "source": "personal-app-db-20261118 / tradecraft-gap/install.sql"
+    },
+    "postgres/050-history-cost.sql": {
+      "sha256": "974e4ac38e0d9b9602f1d544439e496f9dbc3ce49f3b7755e8cd05cc6835a8ba",
+      "source": "personal-app-db-20261118 / history-cost/install.sql"
+    },
+    "requirements-oracle-cp314-aarch64.txt": {
+      "sha256": "e8340e8a13d3c612b4a5e273978bc87cf66f4a5e4da13209be3842c268bc9417",
+      "source": "personal-buy-rehearsal-candidate4 / worker/requirements-oracle-cp314-aarch64.txt"
+    }
+  },
+  "required_postgres_function_preimages": {
+    "polygon_live_activity.binding_shape(jsonb)": "5888287a80cf91a6aa5f3ac25e44c3bbbc27a6ff7d3aeb33ba933a1f101a1dc3",
+    "polygon_live_activity.bound_ingest(jsonb,jsonb)": "6f246be1017721a8a10e003d54c41f65362234df1c57963619b65bc932722c35",
+    "polygon_live_activity.inner_resume(jsonb)": "4a44ffe83aea2e46d49e32a7f8c7883f9f054ff54e584273a4f9fad4cc51ee81",
+    "polygon_live_activity.role_valid(oid)": "406b1f1aea8a66db73f07bdac12038bc771b8e4789c5fd933d4abf2c7e76ca72"
+  }
+}
