@@ -1,0 +1,34 @@
+{
+  "schema": [
+    {
+      "type": "table",
+      "name": "events",
+      "table": "events",
+      "sql": "CREATE TABLE events(seq INTEGER PRIMARY KEY, venue TEXT, id TEXT, day TEXT,\n        market TEXT, token TEXT, debit INTEGER, quantity INTEGER, cost INTEGER, fee INTEGER, body TEXT,\n        UNIQUE(venue,id))"
+    },
+    {
+      "type": "table",
+      "name": "sales",
+      "table": "sales",
+      "sql": "CREATE TABLE sales(\n            venue TEXT NOT NULL, id TEXT NOT NULL, market TEXT NOT NULL, token TEXT NOT NULL,\n            quantity INTEGER NOT NULL, cost_exact TEXT NOT NULL, fee_exact TEXT NOT NULL,\n            credit INTEGER NOT NULL CHECK(credit>=0), body TEXT NOT NULL,\n            PRIMARY KEY(venue,id))"
+    },
+    {
+      "type": "table",
+      "name": "sell_targets",
+      "table": "sell_targets",
+      "sql": "CREATE TABLE sell_targets(\n            venue TEXT NOT NULL, market TEXT NOT NULL, token TEXT NOT NULL,\n            remainder TEXT NOT NULL, block INTEGER NOT NULL, tx_index INTEGER NOT NULL,\n            PRIMARY KEY(venue,market,token))"
+    },
+    {
+      "type": "table",
+      "name": "settings",
+      "table": "settings",
+      "sql": "CREATE TABLE settings(name TEXT PRIMARY KEY, value INTEGER)"
+    },
+    {
+      "type": "table",
+      "name": "settlements",
+      "table": "settlements",
+      "sql": "CREATE TABLE settlements(\n            venue TEXT NOT NULL, market TEXT NOT NULL, token TEXT NOT NULL,\n            payout INTEGER NOT NULL CHECK(payout>=0), pnl INTEGER NOT NULL, body TEXT NOT NULL,\n            PRIMARY KEY(venue,market,token))"
+    }
+  ]
+}
