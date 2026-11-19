@@ -1,0 +1,55 @@
+{
+  "format": "v00-recovery-runtime-source-v1",
+  "localSourceCommit": "7eb10f3da877d948e5212d05933c3519ab0ec7c5",
+  "remoteDependencyPr": 251,
+  "remoteDependencyHead": "68f3254dddf5d8cfb5903a14e9c0c5b03b5fe3f4",
+  "remoteDependencyBranch": "codex/v00-email-entry-20261104",
+  "runtimeArchiveSha256": "1447802586dab2285ca0c0433aa6a61d28288066f6ef12f66bc5407d69dbcc85",
+  "entries": [
+    {
+      "path": "tools/v00-recovery-quota/bootstrap.py",
+      "gitBlobSha": "91005450c4e90b76b5fa56b22148a88c1b929e5a",
+      "sha256": "3fdcf9648541e5b4acad6da8c29209dae07136c581a8ed800fc7fa587e1a8f17",
+      "bytes": 204
+    },
+    {
+      "path": "tools/v00-recovery-quota/recovery_app.py",
+      "gitBlobSha": "c76df621756d68eecd06b78850a37291b7fefe47",
+      "sha256": "a312338cb16935f798fdfd7e1ae97100a4d17df05b951f83afa26e712c3b4e46",
+      "bytes": 681
+    },
+    {
+      "path": "tools/v00-recovery-quota/recovery_bridge.py",
+      "gitBlobSha": "b165f12a3d67e830bb4ea079d7bd361a10e475d6",
+      "sha256": "bb9bb263f5c19179c395b71b4eb1f85cbd2b256498c4f3393e851d7eb209bd2c",
+      "bytes": 5736
+    },
+    {
+      "path": "tools/v00-recovery-quota/recovery_database.py",
+      "gitBlobSha": "4781bf919f352647891c15969a6e663160d65d4a",
+      "sha256": "d745e10a24fa7aca640601aeeaca17ae6d1b29a1c2b9e7267bbabe121046d641",
+      "bytes": 1101
+    },
+    {
+      "path": "tools/v00-recovery-quota/recovery_serve.py",
+      "gitBlobSha": "5755114beda4708dd76a0668d5bddcfd3d0273c3",
+      "sha256": "617c3dd51647b69c3deba829daae08f86f7c8a287c60e0de19cc7e17313e4ac3",
+      "bytes": 3746
+    }
+  ],
+  "scope": "Five byte-identical existing runtime files; no source behavior changes or runtime actions",
+  "limitations": [
+    "Local source commit was not found on GitHub; this package preserves these five files rather than claiming its history was published",
+    "Twenty-one companion runtime Python files match pinned PR251 blobs; operator polygon/SPA overlay remains separately owned",
+    "No private configs, credentials, fixture data, actual evidence, instrumentation or deployment are included",
+    "V00_RECOVERY_TEST_CONTROL_DIR instrumentation is excluded and must be unset for this source-only package"
+  ],
+  "operatorSourceCheck": {
+    "date": "2026-11-05",
+    "actor": "server chat; read-only Oracle inspection",
+    "artifactSha256": "f62311d0f22fadd18c98487de4250cd0ef8841b483d1a73200f0ce56b3b4f6ff",
+    "reportedTotalFiles": 28,
+    "matchedFilesHere": 5,
+    "claim": "Backend read the operator artifact and compared these five hashes; backend did not access Oracle"
+  }
+}

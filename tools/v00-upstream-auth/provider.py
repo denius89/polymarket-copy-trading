@@ -95,6 +95,11 @@ class Provider:
     def send_email(self, email, dispatch_id, fault="none"):
         return self.request("POST", "/otp", {"email": email, "create_user": True}, dispatch_id, fault=fault)
 
+    def send_existing_email(self, email, dispatch_id, fault="none"):
+        # Dedicated first C01/C03 V00 profile; never silently creates identities.
+        # Passwordless resend uses /otp again, NOT provider /resend.
+        return self.request("POST", "/otp", {"email": email, "create_user": False}, dispatch_id, fault=fault)
+
     def verify_email(self, email, code, dispatch_id, fault="none"):
         return self.request("POST", "/verify", {"email": email, "token": six_digits(code), "type": "email"}, dispatch_id, fault=fault)
 
