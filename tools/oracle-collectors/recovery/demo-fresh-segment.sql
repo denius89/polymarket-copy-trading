@@ -40,14 +40,16 @@ DECLARE
   guard text:=pg_get_functiondef('polygon_live_activity.stream_update_guard()'::regprocedure);
   history text:=pg_get_functiondef('polygon_live_activity.state_valid(uuid)'::regprocedure);
   guard_marker text:=$mark$OR (OLD.status<>'observing' AND NOT ($mark$;
+  replay_gate text:=$mark$state<>'observing' AND NOT ($mark$;
   replay_marker text:=$mark$ELSIF o.kind='start_segment' THEN$mark$;
 BEGIN
   IF (SELECT bool_and(cardinality(string_to_array(definition,marker))=2)
-      FROM (VALUES(guard,guard_marker),(history,replay_marker)) preimage(definition,marker)) IS DISTINCT FROM true
+      FROM (VALUES(guard,guard_marker),(history,replay_gate),(history,replay_marker)) preimage(definition,marker)) IS DISTINCT FROM true
   THEN RAISE EXCEPTION 'Unexpected activity recovery preimage'; END IF;
 
   guard:=replace(guard,guard_marker,guard_marker||$guard$
-    (OLD.status='stopped' AND NEW.status='observing'
+    ((OLD.status='stopped' OR (OLD.status='source_unavailable' AND polygon_buy.pinned_tradecraft(OLD.session_id)))
+     AND NEW.status='observing'
      AND (to_jsonb(NEW)-ARRAY['status','checkpoint','last_operation_id'])=(to_jsonb(OLD)-ARRAY['status','checkpoint','last_operation_id'])
      AND EXISTS (
        SELECT FROM polygon_buy.demo_fresh_segments evidence
@@ -56,16 +58,21 @@ BEGIN
              (OLD.session_id,NEW.last_operation_id,OLD.last_operation_id,OLD.checkpoint,OLD.high_watermark,NEW.checkpoint)
      )) OR
   $guard$);
+  history:=replace(history,replay_gate,replay_gate||$gate$
+    (state='source_unavailable' AND o.kind='start_segment' AND polygon_buy.pinned_tradecraft(sid)
+     AND polygon_buy.demo_fresh_gap(sid,o.id) IS NOT NULL) OR
+  $gate$);
   history:=replace(history,replay_marker,$history$
     ELSIF o.kind='start_segment' AND polygon_buy.demo_fresh_gap(sid,o.id) IS NOT NULL THEN
-      IF state<>'stopped' OR ordinal<=1
+      IF (state<>'stopped' AND NOT (state='source_unavailable' AND polygon_buy.pinned_tradecraft(sid))) OR ordinal<=1
        OR o.request->'gap' IS DISTINCT FROM polygon_buy.demo_fresh_gap(sid,o.id)
        OR NOT EXISTS (
         SELECT FROM polygon_buy.demo_fresh_segments x
         JOIN polygon_live_activity.operations prior ON (prior.session_id,prior.id)=(x.session_id,x.previous_stop)
         WHERE (x.session_id,x.operation_id,x.previous_stop,x.previous_checkpoint,x.previous_watermark) =
               (sid,o.id,previous_id,cp,water)
-         AND prior.kind='stop' AND prior.request->>'status'='stopped' AND prior.created_at<=x.recorded_at
+         AND prior.kind='stop' AND prior.request->>'status'=state AND prior.result->>'status'=state
+         AND prior.created_at<=x.recorded_at
          AND x.recorded_at=o.created_at AND (x.next_checkpoint->>'number')::bigint>(cp->>'number')::bigint
        )
       THEN RETURN false; END IF;
@@ -123,9 +130,10 @@ BEGIN
   SELECT * INTO STRICT assignment FROM polygon_live_activity.assignments WHERE session_id=sid;
   SELECT * INTO STRICT prior FROM polygon_live_activity.operations WHERE session_id=sid AND id=work.last_operation_id;
 
-  IF work.status<>'stopped' OR work.last_operation_id::text<>input->>'expectedStopId'
+  IF (work.status<>'stopped' AND NOT (work.status='source_unavailable' AND polygon_buy.pinned_tradecraft(sid)))
+    OR work.last_operation_id::text<>input->>'expectedStopId'
     OR work.checkpoint IS DISTINCT FROM input->'expectedCheckpoint' OR work.high_watermark::text<>input->>'expectedHighWatermark'
-    OR prior.kind<>'stop' OR prior.request->>'status' IS DISTINCT FROM 'stopped' OR prior.result->>'status' IS DISTINCT FROM 'stopped'
+    OR prior.kind<>'stop' OR prior.request->>'status' IS DISTINCT FROM work.status OR prior.result->>'status' IS DISTINCT FROM work.status
     OR prior.created_at>recorded OR (next_checkpoint->>'number')::bigint<=(work.checkpoint->>'number')::bigint
     OR snapshot.trade_count<>0 OR snapshot.position_count<>0 OR snapshot.order_count<>0 OR snapshot.reserved_n<>0
     OR EXISTS(SELECT FROM polygon_buy.admissions WHERE session_id=sid AND expires_at>recorded)
