@@ -1,0 +1,23 @@
+{
+  "version": "pilot-staff-runtime-v1",
+  "enabled": false,
+  "role": "reader",
+  "runId": "<runId from runtime-binding.json>",
+  "deploymentDigest": "<deploymentDigest from runtime-binding.json>",
+  "cutoffAt": "<cutoffAt from runtime-binding.json>",
+  "bindHost": "0.0.0.0",
+  "port": 8080,
+  "dbTransport": "isolated-private-network",
+  "database": {
+    "host": "pgtrial",
+    "port": 5432,
+    "name": "<prepared pilot database>",
+    "user": "pilot_http_reader",
+    "passwordFile": "/run/pilot/password"
+  },
+  "ingressKeyFile": "/run/pilot/ingress-reader.key",
+  "keys": {
+    "login": "/run/pilot/login.key",
+    "logout": "/run/pilot/logout.key"
+  }
+}

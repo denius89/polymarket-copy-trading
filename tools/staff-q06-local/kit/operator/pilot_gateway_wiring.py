@@ -38,7 +38,7 @@ def trusted_client_ip(handler):
         raise GatewayUnavailable('invalid trusted pilot client IP') from None
 
 
-def attach_pilot(base, origin, config):
+def attach_pilot(base, origin, config, client_ip=trusted_client_ip):
     required = {'format', 'enabled', 'deploymentDigest', 'cutoffAt', 'auth', 'reader', 'networkKeyFile'}
     if (type(config) is not dict or set(config) != required or config['format'] != 'pilot-edge-v1'
             or config['enabled'] is not True):
@@ -64,4 +64,4 @@ def attach_pilot(base, origin, config):
         secrets.append(key)
         peers[role] = PilotPrivateHttp(str(ip), p['port'], lambda value=key: value)
     edge = PilotEdge(origin, config['deploymentDigest'], peers, lambda: secrets[0], lambda: True, cutoff)
-    return pilot_handler(base, edge, trusted_client_ip)
+    return pilot_handler(base, edge, client_ip)

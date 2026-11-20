@@ -1,4 +1,5 @@
 """Offline operator material for the accepted synthetic pilot; no network or DB calls."""
+import argparse
 import base64
 from datetime import datetime, timedelta, time, timezone
 import hashlib
@@ -12,6 +13,7 @@ import stat
 import struct
 import sys
 import uuid
+from urllib.parse import urlsplit
 from zoneinfo import ZoneInfo
 
 UUID = re.compile(r'^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$')
@@ -39,9 +41,13 @@ def timestamp(value):
     return result
 
 
-def descriptor(value):
+def descriptor(value, expected_origin="https://localhost:18443"):
     exact(value, ('version', 'runId', 'origin', 'openedAt', 'cutoffAt'))
-    if value['version'] != 'pilot-staff-deployment-v1' or value['origin'] != 'https://localhost:18443':
+    parsed = urlsplit(expected_origin)
+    if parsed.scheme != 'https' or not parsed.hostname or parsed.username or parsed.password or (
+        expected_origin != f'https://{parsed.netloc}' or value['origin'] != expected_origin
+        or value['version'] != 'pilot-staff-deployment-v1'
+    ):
         raise ValueError('wrong deployment')
     identifier(value['runId'])
     opened, cutoff = timestamp(value['openedAt']), timestamp(value['cutoffAt'])
@@ -84,9 +90,9 @@ def read_input(path):
         return json.loads(f.read(), object_pairs_hook=pairs)
 
 
-def materialize(config, output):
+def materialize(config, output, expected_origin="https://localhost:18443"):
     exact(config, ('descriptor', 'targetUserIds'))
-    raw_descriptor, digest = descriptor(config['descriptor'])
+    raw_descriptor, digest = descriptor(config['descriptor'], expected_origin)
     targets = config['targetUserIds']
     if type(targets) is not list or len(targets) != 2 or len(set(targets)) != 2:
         raise ValueError('two distinct targets required')
@@ -133,10 +139,13 @@ def materialize(config, output):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('input')
+    parser.add_argument('output')
+    parser.add_argument('--expected-origin', default='https://localhost:18443')
+    args = parser.parse_args()
     try:
-        if len(sys.argv) != 3:
-            raise ValueError('usage')
-        digest = materialize(read_input(sys.argv[1]), sys.argv[2])
+        digest = materialize(read_input(args.input), args.output, args.expected_origin)
         print(json.dumps({'status': 'material_created', 'deploymentDigest': digest, 'databaseTouched': False}))
     except Exception:
         print('{"status":"material_failed","databaseTouched":false}', file=sys.stderr)
