@@ -105,3 +105,16 @@
   .landing-cta { max-width:none; grid-template-columns:166px 166px; }
   .landing-steps { max-width:560px; margin-top:56px; }
 }
+
+.web-demo-rows { margin:12px 0 0; padding:0; list-style:none; }
+.web-demo-rows li { padding:14px 0; border-bottom:1px solid #252c3d; }
+.web-demo-rows li:last-child { border-bottom:0; }
+.web-demo-rows p { margin:4px 0 0; }
+.web-demo-market { display:block; margin:3px 0; overflow-wrap:anywhere; }
+.web-demo-status { display:inline-block; padding:2px 6px; border-radius:5px; background:#27233c; color:#d5c9ff; }
+.web-demo-status[data-status="filled"] { background:#123b2e; color:#7ee2b1; }
+.web-demo-status[data-status="skipped"] { background:#382e1b; color:#ffdc9a; }
+.web-demo-metrics { display:grid; grid-template-columns:repeat(auto-fit,minmax(126px,1fr)); gap:10px 16px; margin:10px 0 0; padding:10px 12px; border-radius:8px; background:#0c1018; }
+.web-demo-metrics dt { color:#a3adc2; font-size:12px; }
+.web-demo-metrics dd { margin:2px 0 0; font-weight:650; font-variant-numeric:tabular-nums; }
+.web-demo-pages { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
