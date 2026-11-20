@@ -5,9 +5,13 @@ export interface ApiProblem { reasonCode: string; reasonDetails?: { code:string;
 export class ApiError extends Error {
   constructor(public readonly status:number, public readonly reasonCode:string, public readonly nextAction:NextAction=null, public readonly details:unknown=null) { super(reasonCode); }
 }
-let selectedLoginId: string|null = sessionStorage.getItem('shadow.selectedLoginId');
+const apiPrefix = import.meta.env.VITE_SHADOW_API_PREFIX ?? '';
+export const isDemoInvitation = apiPrefix !== '';
+export const authStoragePrefix = isDemoInvitation ? 'shadow.invited' : 'shadow';
+const selectedLoginKey = authStoragePrefix + '.selectedLoginId';
+let selectedLoginId: string|null = sessionStorage.getItem(selectedLoginKey);
 export function getSelectedLoginId() { return selectedLoginId; }
-export function setSelectedLoginId(value:string|null) { selectedLoginId=value; if(value)sessionStorage.setItem('shadow.selectedLoginId',value);else sessionStorage.removeItem('shadow.selectedLoginId'); }
+export function setSelectedLoginId(value:string|null) { selectedLoginId=value; if(value)sessionStorage.setItem(selectedLoginKey,value);else sessionStorage.removeItem(selectedLoginKey); }
 export interface ApiResult<T> { data:T; status:number; headers:Headers }
 export async function api<T>(path:string, init:RequestInit={}, options:{signal?:AbortSignal; loginId?:string|null; interactive?:boolean}={}):Promise<ApiResult<T>> {
   const method=(init.method||'GET').toUpperCase();
@@ -20,7 +24,7 @@ export async function api<T>(path:string, init:RequestInit={}, options:{signal?:
   const onAbort=()=>controller.abort();
   options.signal?.addEventListener('abort',onAbort,{once:true});
   try {
-    const response=await fetch(path,{...init,headers,credentials:'same-origin',cache:'no-store',signal:controller.signal});
+    const response=await fetch(apiPrefix + path,{...init,headers,credentials:'same-origin',cache:'no-store',signal:controller.signal});
     const raw=response.status===204?null:await response.json().catch(()=>null);
     if(!response.ok) {
       const problem=raw as Partial<ApiProblem>|null;
@@ -76,9 +80,9 @@ export async function launchSession(review:Review,commandId:string):Promise<Comm
 export async function resolveCommand(ref:CommandRef):Promise<{status:'committed'|'rejected'|'pending';receipt:CommandReceipt|null}> { const params=new URLSearchParams({requestSchemaVersion:'v1',commandType:ref.commandType,actorRealm:ref.actorRealm,actorId:ref.actorId});const r=await api<{status:'committed'|'rejected'|'pending';receipt:CommandReceipt|null}>(`/api/commands/${ref.clientCommandId}?${params}`);return r.data; }
 export interface MoneyValue { n:string; d:string }
 export interface CurrentSession {
-  summary:{mode:'paper';dataOrigin:'synthetic';traderDisplayName:string;venueId:string;controlState:string;contentState:string;asOf:string};
+  summary:{mode:'paper';dataOrigin:'synthetic'|'public_api';traderDisplayName:string;venueId:string;controlState:string;contentState:string;asOf:string};
   settings:{sizingMode:'fixed'|'percent';budget:MoneyValue;fixedAmount:MoneyValue|null;copyPercent:string|null;marketLimitPercent:string;dailyBuyLimitPercent:string};
-  financialSnapshot:{dataOrigin:'synthetic';controlState:string;free:MoneyValue;equity:MoneyValue;reserved:MoneyValue;positionValue:MoneyValue;tradingResult:MoneyValue;positionCount:string;orderCount:string;contentState:string;coverageState:string};
+  financialSnapshot:{dataOrigin:'synthetic'|'public_api';controlState:string;free:MoneyValue;equity:MoneyValue;reserved:MoneyValue;positionValue:MoneyValue;tradingResult:MoneyValue;positionCount:string;orderCount:string;contentState:string;coverageState:string};
 }
 export interface CurrentSessionResponse { session:CurrentSession|null }
 const record=(value:unknown):value is Record<string,unknown>=>typeof value==='object'&&value!==null&&!Array.isArray(value);
@@ -91,7 +95,7 @@ export async function currentSession(signal?:AbortSignal):Promise<CurrentSession
   if(!record(body.session))throw new ApiError(502,'INVALID_SESSION_RESPONSE');
   const {summary,settings,financialSnapshot}=body.session;
   if(!record(summary)||!record(settings)||!record(financialSnapshot)||
-    summary.mode!=='paper'||summary.dataOrigin!=='synthetic'||typeof summary.traderDisplayName!=='string'||typeof summary.venueId!=='string'||
+    summary.mode!=='paper'||(summary.dataOrigin!=='synthetic'&&summary.dataOrigin!=='public_api')||typeof summary.traderDisplayName!=='string'||typeof summary.venueId!=='string'||
     typeof summary.controlState!=='string'||typeof summary.contentState!=='string'||typeof summary.asOf!=='string'||Number.isNaN(Date.parse(summary.asOf))||
     !['fixed','percent'].includes(String(settings.sizingMode))||!moneyValue(settings.budget)||
     (settings.fixedAmount!==null&&!moneyValue(settings.fixedAmount))||
@@ -101,7 +105,7 @@ export async function currentSession(signal?:AbortSignal):Promise<CurrentSession
     !moneyValue(financialSnapshot.reserved)||!moneyValue(financialSnapshot.positionValue)||
     !moneyValue(financialSnapshot.tradingResult)||!/^\d+$/.test(String(financialSnapshot.positionCount))||
     !/^\d+$/.test(String(financialSnapshot.orderCount))||typeof financialSnapshot.contentState!=='string'||
-    financialSnapshot.dataOrigin!=='synthetic'||typeof financialSnapshot.controlState!=='string'||
+    financialSnapshot.dataOrigin!==summary.dataOrigin||typeof financialSnapshot.controlState!=='string'||
     typeof financialSnapshot.coverageState!=='string'||summary.contentState!==financialSnapshot.contentState||
     summary.controlState!==financialSnapshot.controlState||
     (summary.contentState==='EMPTY'&&(summary.controlState!=='copying_not_connected'||financialSnapshot.positionCount!=='0'||financialSnapshot.orderCount!=='0'))

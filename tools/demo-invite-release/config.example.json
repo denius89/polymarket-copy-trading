@@ -1,0 +1,17 @@
+{
+  "origin": "https://demo.example.invalid",
+  "participant": "participant-b",
+  "sessionId": "11111111-1111-4111-8111-111111111111",
+  "accessMinutes": 60,
+  "database": "/var/lib/shadow-demo-invite/invites.sqlite3",
+  "listenHost": "127.0.0.1",
+  "listenPort": 19445,
+  "edgeKeyFile": "/run/shadow-demo-invite/edge.key",
+  "upstreamHost": "192.168.100.10",
+  "upstreamPort": 8443,
+  "upstreamServerName": "localhost",
+  "upstreamCaFile": "/run/shadow-demo-invite/upstream.crt",
+  "upstreamClientCertFile": "/run/shadow-demo-invite/client.crt",
+  "upstreamClientKeyFile": "/run/shadow-demo-invite/client.key",
+  "distDir": "/srv/shadow-demo-invite/dist"
+}
