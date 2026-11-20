@@ -222,15 +222,50 @@ function PositionRows({session}:{session:CurrentSession}) {
   </ul>;
 }
 
-const activityDetail:Record<string,[string,string]>={
-  copy_decision_unavailable:['Причину пропуска подтвердить не удалось. Списания не было.','The skip reason could not be confirmed. Nothing was debited.'],
+const activityDetail:Record<string,[string,string]>=Object.assign(Object.create(null),{
+  copy_decision_unavailable:['Причину пропуска подтвердить не удалось.','The skip reason could not be confirmed.'],
+  not_buy:['Продажа не копировалась в этой сессии.','The sale was not copied in this session.'],
+  before_personal_activation:['Сделка прошла до запуска копирования.','The trade took place before copying started.'],
   signal_expired:['Сигнал пришёл слишком поздно.','The signal arrived too late.'],
-  book_stale:['Цена в книге устарела.','The order book was stale.'],
+  market_binding_unavailable:['Не удалось подтвердить рынок или исход сделки.','The market or outcome could not be confirmed.'],
+  market_unavailable:['На этом рынке пока нельзя скопировать сделку.','This market is currently unavailable for copying.'],
+  book_unavailable:['Не удалось получить котировку.','A quote could not be obtained.'],
+  book_stale:['Котировка устарела.','The quote was out of date.'],
+  clock_unproven:['Не удалось подтвердить время сделки.','The trade time could not be confirmed.'],
+  profile_unavailable:['Не удалось подтвердить условия исполнения на этом рынке.','Execution requirements could not be verified for this market.'],
   fee_profile_unavailable:['Комиссию не удалось подтвердить.','The fee could not be confirmed.'],
+  invalid_book:['Не удалось подтвердить котировку.','The quote could not be verified.'],
+  insufficient_liquidity:['По доступной цене недостаточно долей.','There were too few shares at the available price.'],
+  below_minimum:['Сумма меньше минимума для этого рынка.','The amount is below the market minimum.'],
+  precision_unavailable:['Не удалось подтвердить допустимый шаг цены или количества.','The required price or quantity increment could not be confirmed.'],
   insufficient_funds:['Недостаточно виртуальных средств.','Insufficient virtual funds.'],
   position_limit_exceeded:['Достигнут лимит позиции.','Position limit reached.'],
   daily_limit_exceeded:['Достигнут дневной лимит.','Daily limit reached.'],
-};
+  source_unavailable:['Источник данных временно недоступен.','The trade data source was temporarily unavailable.'],
+  one_buy_scope_complete:['Лимит покупок в этой сессии уже исчерпан.','The purchase limit for this session was reached.'],
+});
+
+function ActivityEventRow({event,trader}:{event:DemoEvent;trader:string}) {
+  const {locale}=useSession(),ru=locale==='ru';
+  const detail=event.detail?activityDetail[event.detail]:undefined;
+  const time=new Date(event.occurredAt).toLocaleTimeString(ru?'ru-RU':'en-US',{timeStyle:'short'});
+  const venue=event.venueCode==='polymarket'?'Polymarket':event.venueCode==='limitless'?'Limitless':event.venueCode;
+  const status=event.status==='filled'?(ru?'Скопировано':'Copied'):event.status==='pending'?(ru?'Ожидается':'Pending'):(ru?'Пропущено':'Skipped');
+  return <li>
+    <p className="web-meta">{trader} · {venue} · <time dateTime={event.occurredAt}>{time}</time></p>
+    <strong className="web-demo-market">{event.title??(event.side==='BUY'?(ru?'Покупка трейдера':'Trader buy'):(ru?'Продажа трейдера':'Trader sell'))}</strong>
+    <p className="web-meta">{event.outcome&&<>{ru?'Исход':'Outcome'} {event.outcome} · </>}<span className="web-demo-status" data-status={event.status}>{status}</span></p>
+    {event.status==='filled'&&event.notional&&event.quantity&&event.cashFee&&<dl className="web-demo-metrics">
+      <div><dt>{ru?'Сумма покупки':'Purchase amount'}</dt><dd>{money(event.notional,locale)}</dd></div>
+      <div><dt>{ru?'Количество долей':'Shares'}</dt><dd>{shares(event.quantity,locale)}</dd></div>
+      <div><dt>{ru?'Денежная комиссия':'Cash fee'}</dt><dd>{money(event.cashFee,locale)}</dd></div>
+    </dl>}
+    {event.status==='skipped'&&<details className="web-settings-details mt-2">
+      <summary>{ru?'Подробнее':'Details'}</summary>
+      <p>{detail?detail[ru?0:1]:(ru?'Точная причина не записана.':'No exact reason was recorded.')} {ru?'Списания не было.':'Nothing was debited.'}</p>
+    </details>}
+  </li>;
+}
 
 function ActivityRows({session}:{session:CurrentSession}) {
   const {locale}=useSession(),t=useText(),ru=locale==='ru';
@@ -241,6 +276,14 @@ function ActivityRows({session}:{session:CurrentSession}) {
   const lastPage=BigInt(data.highWatermark)>0n?(BigInt(data.highWatermark)-1n)/BigInt(ACTIVITY_LIMIT):0n;
   const pageNumbers=[0n,page-1n,page,page+1n,lastPage].filter((value,index,list)=>value>=0n&&value<=lastPage&&list.indexOf(value)===index)
     .sort((a,b)=>a<b?-1:a>b?1:0);
+  const days=new Map<string,DemoEvent[]>();
+  const sortedEvents=[...data.events].sort((a,b)=>Date.parse(b.occurredAt)-Date.parse(a.occurredAt));
+  for(const event of sortedEvents) {
+    const date=new Date(event.occurredAt).toLocaleDateString(ru?'ru-RU':'en-US',{dateStyle:'long'});
+    let events=days.get(date);
+    if(!events){events=[];days.set(date,events);}
+    events.push(event);
+  }
   const observation=({
     source_unavailable:ru?'Проверка сделок временно остановлена.':'Trade checks are temporarily paused.',
     reconciliation_required:ru?'Проверяем данные перед возобновлением.':'We’re checking the data before resuming.',
@@ -259,28 +302,12 @@ function ActivityRows({session}:{session:CurrentSession}) {
     {!data.events.length&&<p className="web-meta mt-4">{data.observation==='observing'
       ? (ru?'Ждём сделки трейдера. Здесь появится результат копирования.':'Waiting for trader activity. Copying results will appear here.')
       : (ru?'Пока нет событий.':'No activity yet.')}</p>}
-    {!!data.events.length&&<ul className="web-demo-rows">
-      {[...data.events].reverse().map(event=>{
-        const detail=event.detail?activityDetail[event.detail]:undefined;
-        const date=new Date(event.occurredAt).toLocaleString(ru?'ru-RU':'en-US',{dateStyle:'medium',timeStyle:'short'});
-        const venue=event.venueCode==='polymarket'?'Polymarket':event.venueCode==='limitless'?'Limitless':event.venueCode;
-        const status=event.status==='filled'?(ru?'Скопировано':'Copied'):event.status==='pending'?(ru?'Ожидается':'Pending'):(ru?'Пропущено':'Skipped');
-        return <li key={event.id}>
-          <p className="web-meta">{session.summary.traderDisplayName} · {venue} · {date}</p>
-          <strong className="web-demo-market">{event.title??(event.side==='BUY'?(ru?'Покупка трейдера':'Trader buy'):(ru?'Продажа трейдера':'Trader sell'))}</strong>
-          <p className="web-meta">{event.outcome&&<>{ru?'Исход':'Outcome'} {event.outcome} · </>}<span className="web-demo-status" data-status={event.status}>{status}</span></p>
-          {event.status==='filled'&&event.notional&&event.quantity&&event.cashFee&&<dl className="web-demo-metrics">
-            <div><dt>{ru?'Сумма покупки':'Purchase amount'}</dt><dd>{money(event.notional,locale)}</dd></div>
-            <div><dt>{ru?'Количество долей':'Shares'}</dt><dd>{shares(event.quantity,locale)}</dd></div>
-            <div><dt>{ru?'Денежная комиссия':'Cash fee'}</dt><dd>{money(event.cashFee,locale)}</dd></div>
-          </dl>}
-          {event.status==='skipped'&&<details className="web-settings-details mt-2">
-            <summary>{ru?'Подробнее':'Details'}</summary>
-            <p>{detail?detail[ru?0:1]:(ru?'Точная причина не указана. Списания не было.':'No exact reason is available. Nothing was debited.')}</p>
-          </details>}
-        </li>;
-      })}
-    </ul>}
+    {Array.from(days,([day,events])=><section className="web-demo-day" key={day}>
+      <h3>{day}</h3>
+      <ul className="web-demo-rows">
+        {events.map(event=><ActivityEventRow key={event.id} event={event} trader={session.summary.traderDisplayName}/>)}
+      </ul>
+    </section>)}
     {lastPage>0n&&<nav className="web-demo-pages" aria-label={ru?'Страницы активности':'Activity pages'}>
       {pageNumbers.map(number=><Button key={String(number)} variant="secondary" aria-current={page===number?'page':undefined}
         disabled={loading||page===number} onClick={()=>setSelectedPage(number)}>{String(number+1n)}</Button>)}
