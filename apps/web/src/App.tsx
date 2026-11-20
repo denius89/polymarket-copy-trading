@@ -17,6 +17,8 @@ function describe(error:unknown,locale:Locale) {
       SERVICE_UNAVAILABLE:['Сервис временно недоступен.','The service is temporarily unavailable.'],
       CATALOG_CHANGED:['Каталог изменился. Обновите список.','The catalog changed. Refresh the list.'],
       AUTH_VERIFICATION_FAILED:['Код не подошёл или истёк.','The code was incorrect or expired.'],
+      LOGIN_REQUEST_UNAVAILABLE:['Не удалось запросить код. Попробуй ещё раз.','Could not request a code. Try again.'],
+      LOGIN_RESTART_REQUIRED:['Эта попытка входа завершилась. Запроси новый код.','This sign-in attempt has ended. Request a new code.'],
       LOGIN_NOT_CONFIRMED:['Вход не подтверждён сервером.','The server did not confirm your sign-in.'],
       RESOURCE_NOT_FOUND:['Данные пока недоступны на полигоне.','This data is not available on the polygon yet.'],
       HTTP_404:['Этот интерфейс ещё не подключён к серверу полигона.','This interface is not connected to the polygon server yet.'],
@@ -68,11 +70,205 @@ function ReviewPage(){const {locale,loggedIn}=useSession(),t=useText(),nav=useNa
   async function claimAndRecheck(){if(!review||claimPending)return;setBusy(true);setError(null);try{const fresh=await readDraft(review.draftId);storeDraft({draftId:fresh.draft.draftId,draftVersion:fresh.draft.draftVersion});const next=await validateDraft(fresh.draft.draftId,fresh.draft.draftVersion,fresh.draft.proposedTimezone);storeReview(next);window.location.reload();}catch(e){setError(e);if(e instanceof ApiError&&(e.status===0||e.status===503))setClaimPending(true);}finally{setBusy(false);}}
   return <Frame narrow title={t.review}>{!review?<Notice tone="warning"><Link to="/setup" className="underline">{t.setup}</Link></Notice>:<div className="web-stack"><Card className="p-5"><div className="font-semibold mb-2">{trader?.displayName||t.traders}</div><div className="web-meta">{t.demo}</div><dl><div className="web-kv"><dt>{t.budget}</dt><dd>{review.rawBudget||'—'} $</dd></div><div className="web-kv"><dt>{review.selectedMode==='fixed'?t.fixedBuy:t.copyPercent}</dt><dd>{review.selectedMode==='fixed'?`${review.rawFixedAmount||'—'} $`:`${review.rawCopyPercent||'—'} %`}</dd></div><div className="web-kv"><dt>{locale==='ru'?'Действует до':'Valid until'}</dt><dd>{new Date(review.expiresAt).toLocaleString(locale)}</dd></div></dl></Card><Notice tone="warning">{t.notConnected} {locale==='ru'?'После запуска — пустая демо-сессия.':'Starting creates an empty demo session.'}</Notice>{review.warnings.map(w=><p key={w.code} className="web-meta">{w.code==='SYNTHETIC_DATA'?t.synthetic:w.code==='COPYING_NOT_CONNECTED'?t.notConnected:w.code}</p>)}{!review.allowedToStart&&<Notice tone="warning">{review.primaryReasonCode||t.loginRequired}</Notice>}{error!==null&&<Notice tone={unknown?'warning':'error'}>{describe(error,locale)}</Notice>}{unknown&&<Notice tone="warning">{t.unknown}</Notice>}{!loggedIn?<Button onClick={()=>{sessionStorage.setItem('shadow.afterLogin','/review');nav('/login');}}>{t.login}</Button>:review.requiresAuthentication?(review.ownerKind==='guest'?<Notice tone="warning">{locale==='ru'?'Гостевые настройки нельзя перенести на закрытом полигоне. Войдите и создайте настройку заново.':'Guest setups cannot be transferred on this closed polygon. Sign in and create a new setup.'}<Link className="block underline mt-2" to="/traders">{t.explore}</Link></Notice>:<Button disabled={busy||claimPending} onClick={()=>void claimAndRecheck()}>{busy?t.loading:(locale==='ru'?'Проверить снова':'Review again')}</Button>):unknown&&ref?<Button variant="secondary" disabled={busy} onClick={()=>void check()}>{t.checkOutcome}</Button>:<Button disabled={busy||unknown||!review.allowedToStart||review.expectedSlot.state==='not_applicable'} onClick={()=>void launch()}>{busy?t.loading:t.start}</Button>}{claimPending&&<Notice tone="warning">{locale==='ru'?'Исход повторной проверки неизвестен. Запустите новую проверку явно после сверки состояния.':'The review outcome is unknown. Start a new review only after checking the current state.'}</Notice>}{unknown&&!ref&&<p className="web-meta">{locale==='ru'?'Проверка исходной операции недоступна без подтверждённого номера ответа. Новый запуск заблокирован.':'The original outcome cannot be checked without the confirmed response reference. A new start is blocked.'}</p>}<Link to="/setup" className="text-sm text-secondary">← {t.back}</Link></div>}</Frame>;
 }
-function LoginPage(){const {locale,setLoggedIn}=useSession(),t=useText(),nav=useNavigate();const restored=React.useMemo(()=>{try{return JSON.parse(sessionStorage.getItem('shadow.authProgress')||'{}') as {stage?:'email'|'code'|'totp'|'enroll'|'unknown';contextId?:string;challengeId?:string;pending?:{operationId:string;commandType:string}};}catch{return {}; }},[]);const [stage,setStage]=useState<'email'|'code'|'totp'|'enroll'|'unknown'>(restored.stage||'email');const [contextId,setContextId]=useState<string|null>(restored.contextId||null),[challengeId,setChallengeId]=useState<string|null>(restored.challengeId||null),[email,setEmail]=useState(''),[code,setCode]=useState(''),[busy,setBusy]=useState(false),[error,setError]=useState<unknown>(null),[pending,setPending]=useState<{operationId:string;commandType:string}|null>(restored.pending||null);const destination=sessionStorage.getItem('shadow.afterLogin')||'/home';useEffect(()=>{sessionStorage.setItem('shadow.authProgress',JSON.stringify({stage,contextId,challengeId,pending}));},[stage,contextId,challengeId,pending]);
-  async function complete(reply:AuthReply){const completion=reply.completion||reply.result?.completion;if(completion?.loginId){await confirmLogin(completion.loginId);setLoggedIn(true);sessionStorage.removeItem('shadow.afterLogin');sessionStorage.removeItem('shadow.authProgress');nav(destination,{replace:true});return;}if(reply.result?.kind==='email_dispatch_accepted'&&reply.result.challengeId){setChallengeId(reply.result.challengeId);setStage('code');return;}if(reply.result?.kind==='auth_step_required'){if(reply.nextAction==='complete_totp'&&reply.result.challengeId){setChallengeId(reply.result.challengeId);setStage('totp');return;}if(reply.nextAction==='enroll_totp'){setStage('enroll');return;}}throw new ApiError(503,'AUTH_RESULT_UNAVAILABLE');}
-  async function execute(type:'C01'|'C02'|'AUTH_TOTP_VERIFY'){setBusy(true);setError(null);const operationId=id();setPending({operationId,commandType:type});try{let ctx=contextId;if(type==='C01'&&!ctx){const created=await createAuthContext();ctx=created.authContextId;setContextId(ctx);await confirmAuthContext(ctx);}if(!ctx)throw new ApiError(400,'AUTH_CONTEXT_MISSING');let reply:AuthReply;if(type==='C01')reply=await requestEmail(ctx,email,operationId);else if(type==='C02'){if(!challengeId)throw new ApiError(400,'CHALLENGE_MISSING');reply=await verifyEmail(ctx,challengeId,code,operationId);}else{if(!challengeId)throw new ApiError(400,'CHALLENGE_MISSING');reply=await verifyTotp(ctx,challengeId,code,operationId);}setPending(null);setCode('');await complete(reply);}catch(e){setError(e);if(e instanceof ApiError&&(e.status===0||e.status===503)){setStage('unknown');}else setPending(null);}finally{setBusy(false);}}
-  async function recover(){if(!contextId||!pending)return;setBusy(true);try{const reply=await readAuthOperation(contextId,pending.operationId,pending.commandType);if(reply.status==='unresolved'){setStage('unknown');return;}setPending(null);setError(null);setCode('');await complete(reply);}catch(e){setError(e);}finally{setBusy(false);}}
-  return <Frame narrow title={t.signIn} subtitle={t.signInInfo}><div className="web-stack max-w-[440px]">{stage==='email'&&<form className="web-stack" onSubmit={e=>{e.preventDefault();void execute('C01');}}><Field label={t.email} type="email" autoComplete="email" value={email} onChange={e=>setEmail(e.target.value)} required/><Button type="submit" disabled={busy}>{busy?t.loading:t.sendCode}</Button><p className="web-meta">{locale==='ru'?'На тестовом стенде письмо придёт на английском.':'On this test site, the email arrives in English.'}</p></form>}{stage==='code'&&<form className="web-stack" onSubmit={e=>{e.preventDefault();void execute('C02');}}><p className="text-sm text-secondary">{locale==='ru'?'Введите код из письма.':'Enter the code from your email.'}</p><Field label={t.emailCode} inputMode="numeric" autoComplete="one-time-code" pattern="[0-9]{6}" maxLength={6} value={code} onChange={e=>setCode(e.target.value)} required/><Button type="submit" disabled={busy||code.length!==6}>{busy?t.loading:t.confirm}</Button></form>}{stage==='totp'&&<form className="web-stack" onSubmit={e=>{e.preventDefault();void execute('AUTH_TOTP_VERIFY');}}><Field label={t.totpCode} inputMode="numeric" autoComplete="one-time-code" pattern="[0-9]{6}" maxLength={6} value={code} onChange={e=>setCode(e.target.value)} required/><Button type="submit" disabled={busy||code.length!==6}>{busy?t.loading:t.confirm}</Button><p className="web-meta">{t.recover} {locale==='ru'?'Обратитесь в поддержку для защищённого восстановления.':'Contact support for protected recovery.'}</p></form>}{stage==='enroll'&&<Notice tone="warning">{t.totpUnavailable}</Notice>}{stage==='unknown'&&<Notice tone="warning">{t.unknown}</Notice>}{error!==null&&<Notice tone={stage==='unknown'?'warning':'error'}>{describe(error,locale)}</Notice>}{stage==='unknown'&&<Button variant="secondary" disabled={busy||!pending} onClick={()=>void recover()}>{busy?t.loading:t.checkOutcome}</Button>}<p className="web-meta">{locale==='ru'?'Коды и адрес не сохраняются в браузере после закрытия страницы.':'Codes and the address are not stored after closing this page.'}</p></div></Frame>;
+type LoginStage = 'email' | 'code' | 'totp' | 'enroll' | 'unknown';
+type LoginCommand = 'C01' | 'C02' | 'AUTH_TOTP_VERIFY';
+type LoginAttempt = {operationId: string; commandType: LoginCommand};
+
+function LoginPage() {
+  const {locale, setLoggedIn} = useSession();
+  const t = useText();
+  const nav = useNavigate();
+  const progressKey = 'shadow.authProgress';
+  const restored = React.useMemo(() => {
+    try {
+      return JSON.parse(sessionStorage.getItem(progressKey) || '{}') as {
+        stage?: LoginStage; contextId?: string; challengeId?: string; pending?: LoginAttempt;
+      };
+    } catch {
+      return {};
+    }
+  }, []);
+  const [stage, setStage] = useState<LoginStage>(restored.pending ? 'unknown' : restored.stage || 'email');
+  const [contextId, setContextId] = useState(restored.contextId || null);
+  const [challengeId, setChallengeId] = useState(restored.challengeId || null);
+  const [pending, setPending] = useState(restored.pending || null);
+  const [email, setEmail] = useState('');
+  const [code, setCode] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<unknown>(null);
+  const destination = sessionStorage.getItem('shadow.afterLogin') || '/home';
+
+  useEffect(() => {
+    sessionStorage.setItem(progressKey, JSON.stringify({stage, contextId, challengeId, pending}));
+  }, [stage, contextId, challengeId, pending]);
+
+  function restart(cause: unknown = null) {
+    setPending(null);
+    setContextId(null);
+    setChallengeId(null);
+    setCode('');
+    setError(cause);
+    setStage('email');
+  }
+
+  async function complete(reply: AuthReply) {
+    const completion = reply.completion || reply.result?.completion;
+    if (completion?.loginId) {
+      try {
+        await confirmLogin(completion.loginId);
+      } catch (error) {
+        if (error instanceof ApiError && error.status === 401) {
+          restart(error);
+          return;
+        }
+        throw error;
+      }
+      setLoggedIn(true);
+      sessionStorage.removeItem('shadow.afterLogin');
+      sessionStorage.removeItem(progressKey);
+      nav(destination, {replace: true});
+      return;
+    }
+    if (reply.result?.kind === 'email_dispatch_accepted' && reply.result.challengeId) {
+      setChallengeId(reply.result.challengeId);
+      setStage('code');
+      return;
+    }
+    if (reply.result?.kind === 'auth_step_required') {
+      if (reply.nextAction === 'complete_totp' && reply.result.challengeId) {
+        setChallengeId(reply.result.challengeId);
+        setStage('totp');
+        return;
+      }
+      if (reply.nextAction === 'enroll_totp') {
+        setStage('enroll');
+        return;
+      }
+    }
+    if (reply.result?.kind === 'verification_rejected') throw new ApiError(401, 'AUTH_VERIFICATION_FAILED');
+    if (reply.result?.kind === 'auth_completion_not_issued') throw new ApiError(409, 'AUTH_CONTEXT_STATE_CONFLICT');
+    throw new ApiError(503, 'AUTH_RESULT_UNAVAILABLE');
+  }
+
+  function handleFailure(cause: unknown, attempt: LoginAttempt | null) {
+    if (cause instanceof ApiError && cause.reasonCode === 'AUTH_VERIFICATION_FAILED' && attempt) {
+      setPending(null);
+      setCode('');
+      setStage(attempt.commandType === 'AUTH_TOTP_VERIFY' ? 'totp' : 'code');
+      setError(cause);
+      return;
+    }
+    if (cause instanceof ApiError &&
+        ['AUTH_CONTEXT_EXPIRED', 'AUTH_CONTEXT_STATE_CONFLICT', 'AUTH_REQUIRED', 'RESOURCE_NOT_FOUND'].includes(cause.reasonCode)) {
+      restart(new ApiError(409, 'LOGIN_RESTART_REQUIRED'));
+      return;
+    }
+    setPending(null);
+    setError(cause);
+  }
+
+  async function recover(ctx: string, attempt: LoginAttempt) {
+    try {
+      const reply = await readAuthOperation(ctx, attempt.operationId, attempt.commandType);
+      if (reply.status === 'unresolved') return;
+      await complete(reply);
+      setPending(null);
+      setCode('');
+    } catch (cause) {
+      if (!(cause instanceof ApiError) || cause.status === 0 || cause.status >= 500) return;
+      handleFailure(cause, attempt);
+    }
+  }
+
+  async function execute(type: LoginCommand) {
+    setBusy(true);
+    setError(null);
+    let ctx = contextId;
+    let attempt: LoginAttempt | null = null;
+    try {
+      if (type === 'C01' && !ctx) {
+        const created = await createAuthContext();
+        await confirmAuthContext(created.authContextId);
+        ctx = created.authContextId;
+        setContextId(ctx);
+      }
+      if (!ctx) throw new ApiError(409, 'AUTH_CONTEXT_EXPIRED');
+      if (type !== 'C01' && !challengeId) throw new ApiError(409, 'AUTH_CONTEXT_EXPIRED');
+
+      attempt = {operationId: id(), commandType: type};
+      sessionStorage.setItem(progressKey, JSON.stringify({stage: 'unknown', contextId: ctx, challengeId, pending: attempt}));
+      setPending(attempt);
+      const reply = type === 'C01'
+        ? await requestEmail(ctx, email, attempt.operationId)
+        : type === 'C02'
+          ? await verifyEmail(ctx, challengeId!, code, attempt.operationId)
+          : await verifyTotp(ctx, challengeId!, code, attempt.operationId);
+      await complete(reply);
+      setPending(null);
+      setCode('');
+    } catch (cause) {
+      if (ctx && attempt && cause instanceof ApiError && (cause.status === 0 || cause.status >= 500)) {
+        setStage('unknown');
+        await recover(ctx, attempt);
+      } else if (!attempt && type === 'C01' && cause instanceof ApiError && (cause.status === 0 || cause.status >= 500)) {
+        setError(new ApiError(cause.status, 'LOGIN_REQUEST_UNAVAILABLE'));
+      } else {
+        handleFailure(cause, attempt);
+      }
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function checkAttempt() {
+    if (!contextId || !pending) return;
+    setBusy(true);
+    setError(null);
+    try {
+      await recover(contextId, pending);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  const recoverable = Boolean(contextId && pending);
+  return (
+    <Frame narrow title={t.signIn} subtitle={locale === 'ru' ? 'Войди по email, чтобы открыть своё демо.' : 'Sign in by email to open your demo.'}>
+      <div className="web-stack max-w-[440px]">
+        {stage === 'email' && <form className="web-stack" onSubmit={e => {e.preventDefault(); void execute('C01');}}>
+          <Field label={t.email} type="email" autoComplete="email" value={email} onChange={e => setEmail(e.target.value)} required />
+          <Button type="submit" disabled={busy}>{busy ? t.loading : t.sendCode}</Button>
+        </form>}
+        {(stage === 'code' || stage === 'totp') && <form className="web-stack" onSubmit={e => {
+          e.preventDefault();
+          void execute(stage === 'code' ? 'C02' : 'AUTH_TOTP_VERIFY');
+        }}>
+          <Field label={stage === 'code' ? t.emailCode : t.totpCode} inputMode="numeric" autoComplete="one-time-code"
+            pattern="[0-9]{6}" maxLength={6} value={code} onChange={e => setCode(e.target.value)} required />
+          <Button type="submit" disabled={busy || code.length !== 6}>{busy ? t.loading : t.confirm}</Button>
+          {stage === 'totp' && <p className="web-meta">{t.recover} {locale === 'ru' ? 'Обратись в поддержку.' : 'Contact support.'}</p>}
+          {stage === 'code' && <Button type="button" variant="secondary" disabled={busy} onClick={() => restart()}>
+            {locale === 'ru' ? 'Изменить email' : 'Change email'}
+          </Button>}
+        </form>}
+        {stage === 'enroll' && <Notice tone="warning">{t.totpUnavailable}</Notice>}
+        {stage === 'unknown' && <Notice tone="warning">
+          {busy
+            ? (locale === 'ru' ? 'Проверяем последнюю попытку входа…' : 'Checking your last sign-in attempt…')
+            : recoverable
+              ? (locale === 'ru' ? 'Вход пока не подтверждён. Можно проверить последнюю попытку или начать заново.' : 'Sign-in is still unconfirmed. Check the last attempt or start again.')
+              : (locale === 'ru' ? 'Эту попытку больше нельзя проверить. Начни вход заново.' : 'This attempt can no longer be checked. Start sign-in again.')}
+        </Notice>}
+        {error !== null && <Notice tone="error">{describe(error, locale)}</Notice>}
+        {stage === 'unknown' && recoverable && <Button variant="secondary" disabled={busy} onClick={() => void checkAttempt()}>
+          {t.checkOutcome}
+        </Button>}
+        {(stage === 'unknown' || stage === 'enroll') && <Button variant="secondary" disabled={busy} onClick={() => restart()}>
+          {locale === 'ru' ? 'Начать вход заново' : 'Start sign-in again'}
+        </Button>}
+      </div>
+    </Frame>
+  );
 }
 function useCurrentSessionRead() {
   const {loggedIn}=useSession();
