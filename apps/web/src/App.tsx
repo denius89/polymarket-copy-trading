@@ -78,19 +78,24 @@ function LoginPage(){const {locale,setLoggedIn}=useSession(),t=useText(),nav=use
 }
 function useCurrentSessionRead() {
   const {loggedIn}=useSession();
+  const loginId=loggedIn?getSelectedLoginId():null;
   const [reloadKey,setReloadKey]=useState(0);
-  const [state,setState]=useState<{loading:boolean;data:CurrentSessionResponse|null;error:unknown}>({loading:true,data:null,error:null});
+  const [state,setState]=useState<{loginId:string|null;loading:boolean;data:CurrentSessionResponse|null;error:unknown}>({loginId:null,loading:true,data:null,error:null});
   useEffect(()=>{
     const controller=new AbortController();
-    setState({loading:true,data:null,error:null});
+    setState(previous=>({loginId,loading:true,data:loginId&&loginId===previous.loginId?previous.data:null,error:null}));
     currentSession(controller.signal).then(data=>{
-      if(!controller.signal.aborted)setState({loading:false,data,error:null});
+      if(!controller.signal.aborted)setState({loginId,loading:false,data,error:null});
     }).catch(error=>{
-      if(!controller.signal.aborted)setState({loading:false,data:null,error});
+      if(!controller.signal.aborted)setState({loginId,loading:false,data:null,error});
     });
     return()=>controller.abort();
-  },[loggedIn,reloadKey]);
-  return {...state,reload:()=>setReloadKey(key=>key+1)};
+  },[loginId,reloadKey]);
+  return {...state,data:state.loginId===loginId?state.data:null,reload:()=>setReloadKey(key=>key+1)};
+}
+function RefreshDemoButton({loading,onRefresh}:{loading:boolean;onRefresh:()=>void}) {
+  const {locale}=useSession(),t=useText();
+  return <Button variant="secondary" disabled={loading} onClick={onRefresh}>{loading?t.loading:locale==='ru'?'Обновить':'Refresh'}</Button>;
 }
 function SessionReadState({loading,error,onRetry,children}:{loading:boolean;error:unknown;onRetry:()=>void;children:React.ReactNode}) {
   const {locale}=useSession(),t=useText();
@@ -106,12 +111,12 @@ function Home() {
   const ru=locale==='ru';
   const noValuation=ru?'Нет оценки':'No estimate';
   return <Frame title={t.home} subtitle={t.demo} className="web-home-page">
-    <SessionReadState loading={loading} error={error} onRetry={reload}>
+    <SessionReadState loading={loading&&!data} error={error} onRetry={reload}>
       {!session&&<div className="web-stack">
         <Notice>{ru?'У вас ещё нет демо-сессии. Выберите трейдера и проверьте настройки.':'You do not have a demo session yet. Choose a trader and review your setup.'}</Notice>
         <Button className="web-inline-action" onClick={()=>nav('/traders')}>{t.explore}</Button>
       </div>}
-      {session&&snapshot&&<div className="web-home-grid">
+      {session&&snapshot&&<div className="web-home-grid" aria-busy={loading}>
         <Card className="web-home-trader"><strong>{session.summary.traderDisplayName}</strong></Card>
         <Card className="web-home-balance">
           <p className="web-meta">{snapshot.equity?t.balance:t.available}</p>
@@ -135,6 +140,7 @@ function Home() {
         </Card>
         <Card className="web-home-actions">
           <h2>{ru?'Действия':'Actions'}</h2>
+          <RefreshDemoButton loading={loading} onRefresh={reload}/>
           <details className="web-settings-details">
             <summary>{ru?'Текущие лимиты':'Current limits'}</summary>
             <dl>
@@ -201,11 +207,13 @@ function PositionRows({session}:{session:CurrentSession}) {
   return <ul className="web-demo-rows">
     {positions.map(position=>{
       const key=position.conditionId+':'+position.tokenId, label=labels.get(key);
+      const entryPrice={n:String(BigInt(position.cost.n)*BigInt(position.quantity.d)),d:String(BigInt(position.cost.d)*BigInt(position.quantity.n))};
       return <li key={key}>
         <strong className="web-demo-market">{label?.title??(ru?'Название рынка недоступно':'Market title unavailable')}</strong>
         {label?.outcome&&<p className="web-meta">{ru?'Исход':'Outcome'} {label.outcome}</p>}
         <dl className="web-demo-metrics">
           <div><dt>{ru?'Количество долей':'Shares'}</dt><dd>{shares(position.quantity,locale)}</dd></div>
+          <div><dt>{ru?'Средняя цена входа':'Average entry price'}</dt><dd>{shares(entryPrice,locale)} USD</dd></div>
           <div><dt>{ru?'Себестоимость':'Cost basis'}</dt><dd>{money(position.cost,locale)}</dd></div>
           <div><dt>{ru?'Текущая стоимость':'Current value'}</dt><dd>{ru?'Нет оценки':'No estimate'}</dd></div>
         </dl>
@@ -246,9 +254,7 @@ function ActivityRows({session}:{session:CurrentSession}) {
           <time dateTime={data.lastObservedAt}>{new Date(data.lastObservedAt).toLocaleString(ru?'ru-RU':'en-US',{dateStyle:'medium',timeStyle:'short'})}</time>
         </p>}
       </div>
-      <Button variant="secondary" disabled={loading} onClick={()=>{setSelectedPage(null);retry();}}>
-        {loading?t.loading:ru?'Обновить':'Refresh'}
-      </Button>
+      <RefreshDemoButton loading={loading} onRefresh={()=>{setSelectedPage(null);retry();}}/>
     </div>
     {!data.events.length&&<p className="web-meta mt-4">{data.observation==='observing'
       ? (ru?'Ждём сделки трейдера. Здесь появится результат копирования.':'Waiting for trader activity. Copying results will appear here.')
@@ -288,14 +294,16 @@ function SessionListPage({kind}:{kind:'positions'|'activity'}) {
   const session=data?.session;
   const isPositions=kind==='positions',ru=locale==='ru';
   return <Frame title={t[kind]} className="web-list-page">
-    <SessionReadState loading={loading} error={error} onRetry={reload}>
+    <SessionReadState loading={loading&&!data} error={error} onRetry={reload}>
       {!session&&<div className="web-stack"><Notice>{ru?'Сначала создайте демо-сессию.':'Start a demo session first.'}</Notice>
         <Link className="ui-btn ui-btn-primary web-inline-action" to="/traders">{t.explore}</Link>
       </div>}
       {session&&<div className="web-list-grid">
-        <Card className="web-list-card">
-          <div className="web-list-heading"><h2>{session.summary.traderDisplayName}</h2></div>
-          {isPositions?<PositionRows session={session}/>:<ActivityRows key={session.summary.sessionId} session={session}/>}
+        <Card className="web-list-card" aria-busy={loading}>
+          <div className="web-list-heading"><h2>{session.summary.traderDisplayName}</h2>
+            {isPositions&&<RefreshDemoButton loading={loading} onRefresh={reload}/>}
+          </div>
+          {isPositions?<PositionRows key={`${session.summary.sessionId}:${session.summary.asOf}`} session={session}/>:<ActivityRows key={session.summary.sessionId} session={session}/>}
         </Card>
         <Card className="web-list-actions"><Link className="ui-btn ui-btn-secondary" to="/home">{ru?'На главную':'Go to Home'}</Link></Card>
       </div>}

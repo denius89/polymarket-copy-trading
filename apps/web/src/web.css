@@ -41,7 +41,8 @@
 .web-settings-details[open] summary { border-color:#7044e0; }
 .web-settings-details dl { margin:12px 0 0; }
 .web-settings-details .web-meta { margin:12px 0 0; }
-.web-list-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.web-list-heading { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+.web-list-heading h2 { overflow-wrap:anywhere; }
 .web-list-heading span { color:#a3adc2; font-size:12px; white-space:nowrap; }
 .web-empty-list { margin-top:12px; padding:4px 0 0; }
 .web-empty-list strong { font-size:14px; }
