@@ -1,0 +1,52 @@
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -88 +87,0 @@
+-        self.idle_statement_canceled = False
+@@ -214,2 +212,0 @@
+-                if self.idle_statement_canceled:
+-                    raise Skip('PERSONAL_WRITE_FENCED')
+@@ -255 +252 @@
+-    def advance_idle(self, scope):
++    def advance_idle(self, scope, *, max_blocks=16):
+@@ -262 +259,4 @@
+-        chain_range = read_range(self.rpc, cursor, deadline=deadline)
++        try:
++            chain_range = read_range(self.rpc, cursor, deadline=deadline, max_blocks=max_blocks)
++        except (KeyError, TypeError, ValueError):
++            raise Skip('PERSONAL_RANGE_INVALID_PROVIDER_DATA') from None
+@@ -287,2 +286,0 @@
+-                        self.idle_statement_canceled = True
+-                        self.halted.set()
+--- a/personal_worker.py
++++ b/personal_worker.py
+@@ -68,0 +69 @@
++    max_blocks = 16
+@@ -71 +72,8 @@
+-            transport.advance_idle(scope)
++            transport.advance_idle(scope, max_blocks=max_blocks)
++        except IdleIngestCanceled:
++            # The transaction context has rolled back. A new poll reads the
++            # stored cursor and verifies a smaller range without replaying a BUY.
++            if max_blocks == 1:
++                raise
++            max_blocks = max(1, max_blocks // 2)
++            report({'stage': 'personal-range', 'reason': 'PERSONAL_IDLE_RANGE_REDUCED'})
+@@ -110,0 +119 @@
++        worker_stages = ('taker-source', 'maker-source', 'finalized-range')
+@@ -125 +134 @@
+-            for worker in workers:
++            for stage, worker in zip(worker_stages, workers):
+@@ -129,0 +139 @@
++                    report({'stage': stage, 'status': 'stopped', 'reason': type(error).__name__.upper()})
+--- a/personal_range.py
++++ b/personal_range.py
+@@ -35 +35 @@
+-def read_range(rpc, cursor, *, target_number=None, deadline):
++def read_range(rpc, cursor, *, target_number=None, deadline, max_blocks=64):
+@@ -36,0 +37,3 @@
++    if type(max_blocks) is not int or not 1 <= max_blocks <= 64:
++        raise ValueError('Invalid idle range limit')
++
+@@ -58 +61 @@
+-    end = target_number if target_number is not None else min(int(final['number']), start + 63)
++    end = target_number if target_number is not None else min(int(final['number']), start + max_blocks - 1)
