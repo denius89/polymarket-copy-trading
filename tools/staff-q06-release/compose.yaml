@@ -1,0 +1,36 @@
+name: shadow-staff-q06
+services:
+  auth:
+    image: ${STAFF_NODE_IMAGE:?Use the Node digest from release-lock.json}
+    user: '1000:1000'
+    working_dir: /work/apps/api
+    command: ['node', 'src/pilot/runtime.ts', '/run/pilot/config.json']
+    volumes:
+      - ./src:/work:ro
+      - ${STAFF_AUTH_CONFIG_DIR:?Mount the private auth directory}:/run/pilot:ro
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    init: true
+    networks:
+      staff:
+        ipv4_address: ${STAFF_AUTH_IPV4:?Set the private auth address}
+  reader:
+    image: ${STAFF_NODE_IMAGE:?Use the Node digest from release-lock.json}
+    user: '1001:1001'
+    working_dir: /work/apps/api
+    command: ['node', 'src/pilot/runtime.ts', '/run/pilot/config.json']
+    volumes:
+      - ./src:/work:ro
+      - ${STAFF_READER_CONFIG_DIR:?Mount the private reader directory}:/run/pilot:ro
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    init: true
+    networks:
+      staff:
+        ipv4_address: ${STAFF_READER_IPV4:?Set the private reader address}
+networks:
+  staff:
+    external: true
+    name: ${STAFF_PRIVATE_NETWORK:?Set the isolated bridge with PostgreSQL}

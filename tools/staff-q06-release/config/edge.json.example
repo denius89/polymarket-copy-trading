@@ -1,0 +1,19 @@
+{
+  "origin": "https://staff.example.invalid:8443",
+  "listenHost": "127.0.0.1",
+  "listenPort": 8443,
+  "adminDist": "/srv/shadow-staff/src/apps/admin/dist",
+  "certificate": "/run/shadow-staff/edge/server-chain.pem",
+  "certificateKey": "/run/shadow-staff/edge/server-key.pem",
+  "clientCA": "/run/shadow-staff/edge/client-ca.pem",
+  "clientPins": ["<first client certificate SHA-256 in hex>", "<second client certificate SHA-256 in hex>"],
+  "pilot": {
+    "format": "pilot-edge-v1",
+    "enabled": false,
+    "deploymentDigest": "<deploymentDigest from runtime-binding.json>",
+    "cutoffAt": "<cutoffAt from runtime-binding.json>",
+    "networkKeyFile": "/run/shadow-staff/edge/network.key",
+    "auth": {"host": "10.80.0.21", "port": 8080, "ingressKeyFile": "/run/shadow-staff/edge/ingress-auth.key"},
+    "reader": {"host": "10.80.0.22", "port": 8080, "ingressKeyFile": "/run/shadow-staff/edge/ingress-reader.key"}
+  }
+}
