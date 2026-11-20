@@ -1,5 +1,8 @@
 --- a/personal_pg.py
 +++ b/personal_pg.py
+@@ -12 +12 @@
+-from psycopg.errors import QueryCanceled
++from psycopg.errors import QueryCanceled, SerializationFailure
 @@ -88 +87,0 @@
 -        self.idle_statement_canceled = False
 @@ -214,2 +212,0 @@
@@ -17,6 +20,12 @@
 @@ -287,2 +286,0 @@
 -                        self.idle_statement_canceled = True
 -                        self.halted.set()
+@@ -294 +292,4 @@
+-            except OperationalError:
++            except OperationalError as error:
++                if isinstance(error, SerializationFailure) and error.sqlstate == '40001' and error.diag.sqlstate == '40001':
++                    # PostgreSQL rejected the transaction; the next poll reads the current cursor.
++                    raise Skip('PERSONAL_IDLE_SERIALIZATION_ROLLBACK') from None
 --- a/personal_worker.py
 +++ b/personal_worker.py
 @@ -68,0 +69 @@

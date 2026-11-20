@@ -1,11 +1,19 @@
 --- a/personal_pg.py
 +++ b/personal_pg.py
-@@ -227 +227,4 @@
+@@ -11,0 +12 @@
++from psycopg.errors import SerializationFailure
+@@ -227 +228,4 @@
 -        chain_range = read_range(self.rpc, cursor, deadline=deadline)
 +        try:
 +            chain_range = read_range(self.rpc, cursor, deadline=deadline)
 +        except (KeyError, TypeError, ValueError):
 +            raise Skip('PERSONAL_RANGE_INVALID_PROVIDER_DATA') from None
+@@ -247 +251,4 @@
+-            except OperationalError:
++            except OperationalError as error:
++                if isinstance(error, SerializationFailure) and error.sqlstate == '40001' and error.diag.sqlstate == '40001':
++                    # PostgreSQL rejected the transaction; the next poll reads the current cursor.
++                    raise Skip('PERSONAL_IDLE_SERIALIZATION_ROLLBACK') from None
 --- a/personal_worker.py
 +++ b/personal_worker.py
 @@ -110,0 +111 @@
