@@ -1,8 +1,9 @@
 import React, {createContext, useContext, useEffect, useState} from 'react';
 import {Link, NavLink, Route, Routes, useLocation, useNavigate, useParams} from 'react-router-dom';
 import {Activity, ArrowLeft, ArrowRight, Bell, Button, Card, CircleHelp, Field, House, Layers3, Notice, Segmented, UserRound, UsersRound} from '@cct/ui';
-import {ApiError, api, commandRefFromError, parseCommandRef, readDraft, confirmAuthContext, confirmLogin, createAuthContext, currentSession, currentUser, getSelectedLoginId, getTrader, getTraders, id, launchSession, readAuthOperation, requestEmail, resolveCommand, saveDraft, setSelectedLoginId, validateDraft, verifyEmail, verifyTotp, type AuthReply, type CommandRef, type CopyInputs, type CurrentSessionResponse, type Locale, type Review, type Trader, type VenueCode} from './api';
+import {ApiError, api, commandRefFromError, parseCommandRef, readDraft, confirmAuthContext, confirmLogin, createAuthContext, currentSession, currentUser, getDemoActivity, getSelectedLoginId, getTrader, getTraders, id, launchSession, readAuthOperation, requestEmail, resolveCommand, saveDraft, setSelectedLoginId, validateDraft, verifyEmail, verifyTotp, type AuthReply, type CommandRef, type CopyInputs, type CurrentSessionResponse, type Locale, type Review, type Trader, type VenueCode} from './api';
 import {copy, getInitialLocale} from './i18n';
+import type {CurrentSession, DemoActivityPage, DemoEvent, MoneyValue} from './demoPayload';
 
 type SessionValue={locale:Locale;setLocale:(l:Locale)=>void;loggedIn:boolean;setLoggedIn:(b:boolean)=>void};
 const Session=createContext<SessionValue>(null!);
@@ -23,6 +24,7 @@ function describe(error:unknown,locale:Locale) {
       HTTP_500:['Сервер полигона пока не готов к этому разделу.','The polygon server is not ready for this section yet.'],
       HTTP_502:['Сервер полигона пока недоступен.','The polygon server is currently unavailable.'],
       INVALID_REQUEST:['Сервер отклонил запрос. Повторите чтение или обратитесь в поддержку.','The server rejected this request. Retry the read or contact support.'],
+      INVALID_ACTIVITY_RESPONSE:['Не удалось прочитать события этой демо-сессии.','Could not read activity for this demo session.'],
       INVALID_SESSION_RESPONSE:['Сервер вернул неполный снимок сессии. Повторите чтение.','The server returned an incomplete session snapshot. Retry the read.']
     };
     return (m[error.reasonCode]||[`${error.reasonCode} · обратитесь в поддержку, если ошибка повторится.`,`${error.reasonCode} · contact support if this continues.`])[locale==='ru'?0:1];
@@ -76,19 +78,24 @@ function LoginPage(){const {locale,setLoggedIn}=useSession(),t=useText(),nav=use
 }
 function useCurrentSessionRead() {
   const {loggedIn}=useSession();
+  const loginId=loggedIn?getSelectedLoginId():null;
   const [reloadKey,setReloadKey]=useState(0);
-  const [state,setState]=useState<{loading:boolean;data:CurrentSessionResponse|null;error:unknown}>({loading:true,data:null,error:null});
+  const [state,setState]=useState<{loginId:string|null;loading:boolean;data:CurrentSessionResponse|null;error:unknown}>({loginId:null,loading:true,data:null,error:null});
   useEffect(()=>{
     const controller=new AbortController();
-    setState({loading:true,data:null,error:null});
+    setState(previous=>({loginId,loading:true,data:loginId&&loginId===previous.loginId?previous.data:null,error:null}));
     currentSession(controller.signal).then(data=>{
-      if(!controller.signal.aborted)setState({loading:false,data,error:null});
+      if(!controller.signal.aborted)setState({loginId,loading:false,data,error:null});
     }).catch(error=>{
-      if(!controller.signal.aborted)setState({loading:false,data:null,error});
+      if(!controller.signal.aborted)setState({loginId,loading:false,data:null,error});
     });
     return()=>controller.abort();
-  },[loggedIn,reloadKey]);
-  return {...state,reload:()=>setReloadKey(key=>key+1)};
+  },[loginId,reloadKey]);
+  return {...state,data:state.loginId===loginId?state.data:null,reload:()=>setReloadKey(key=>key+1)};
+}
+function RefreshDemoButton({loading,onRefresh}:{loading:boolean;onRefresh:()=>void}) {
+  const {locale}=useSession(),t=useText();
+  return <Button variant="secondary" disabled={loading} onClick={onRefresh}>{loading?t.loading:locale==='ru'?'Обновить':'Refresh'}</Button>;
 }
 function SessionReadState({loading,error,onRetry,children}:{loading:boolean;error:unknown;onRetry:()=>void;children:React.ReactNode}) {
   const {locale}=useSession(),t=useText();
@@ -96,51 +103,236 @@ function SessionReadState({loading,error,onRetry,children}:{loading:boolean;erro
   if(error!==null)return <Notice tone="error"><div className="flex flex-wrap items-center justify-between gap-3"><span>{describe(error,locale)}</span><Button variant="secondary" onClick={onRetry}>{t.retry}</Button></div></Notice>;
   return <>{children}</>;
 }
-function Home(){
+function Home() {
   const {locale}=useSession(),t=useText(),nav=useNavigate();
   const {loading,error,data,reload}=useCurrentSessionRead();
   const session=data?.session;
   const snapshot=session?.financialSnapshot;
+  const ru=locale==='ru';
+  const noValuation=ru?'Нет оценки':'No estimate';
   return <Frame title={t.home} subtitle={t.demo} className="web-home-page">
-    <SessionReadState loading={loading} error={error} onRetry={reload}>
-      {!session&&<div className="web-stack"><Notice>{locale==='ru'?'У вас ещё нет демо-сессии. Выберите трейдера и проверьте настройки.':'You do not have a demo session yet. Choose a trader and review your setup.'}</Notice><Button className="web-inline-action" onClick={()=>nav('/traders')}>{t.explore}</Button></div>}
-      {session&&snapshot&&(
-        session.summary.contentState!=='EMPTY'||snapshot.contentState!=='EMPTY'?<Notice tone="warning">{locale==='ru'?'Сводка сессии изменилась. Подробные данные ещё не подключены к этому интерфейсу.':'The session summary has changed. Detailed data is not connected to this interface yet.'}</Notice>:
-        <div className="web-home-grid">
-          <Card className="web-home-trader"><strong>{session.summary.traderDisplayName}</strong></Card>
-          <Card className="web-home-balance">
-            <p className="web-meta">{t.balance}</p>
-            <strong className="web-home-value ui-number">{money(snapshot.equity,locale)}</strong>
-            <p className="web-home-breakdown">{t.available} {money(snapshot.free,locale)} · {t.inPositions} {money(snapshot.positionValue,locale)} · {t.inReserve} {money(snapshot.reserved,locale)}</p>
-            <p className="web-meta">{locale==='ru'?'Виртуальные средства · без пополнения и вывода':'Virtual funds · no deposits or withdrawals'}</p>
-          </Card>
-          <Card className="web-home-summary">
-            <h2>{locale==='ru'?'Копирование пока не подключено':'Copying is not connected yet'}</h2>
-            <p className="web-home-mobile-summary">{t.demo}.<br/>{t.available} {money(snapshot.free,locale)} · {t.inPositions} {money(snapshot.positionValue,locale)} · {t.inReserve} {money(snapshot.reserved,locale)}.</p>
-            <p className="web-home-desktop-summary">{session.summary.traderDisplayName} · {t.emptySession}. {locale==='ru'?'Исполнений нет.':'No fills yet.'}</p>
-            <p className="web-home-mobile-summary">{locale==='ru'?'Исполнений нет.':'No fills yet.'}</p>
-          </Card>
-          <Card className="web-home-positions"><h2>{locale==='ru'?'Пока нет позиций':'No positions yet'}</h2><p>{t.emptyCopy}</p></Card>
-          <Card className="web-home-actions"><h2>{locale==='ru'?'Действия':'Actions'}</h2><details className="web-settings-details"><summary>{locale==='ru'?'Текущие лимиты':'Current limits'}</summary><dl><div className="web-kv"><dt>{t.budget}</dt><dd>{money(session.settings.budget,locale)}</dd></div><div className="web-kv"><dt>{session.settings.sizingMode==='fixed'?t.fixedBuy:t.copyPercent}</dt><dd>{session.settings.sizingMode==='fixed'?money(session.settings.fixedAmount||undefined,locale):`${session.settings.copyPercent||'—'} %`}</dd></div><div className="web-kv"><dt>{t.marketLimit}</dt><dd>{session.settings.marketLimitPercent} %</dd></div><div className="web-kv"><dt>{t.dailyLimit}</dt><dd>{session.settings.dailyBuyLimitPercent} %</dd></div></dl><p className="web-meta">{locale==='ru'?'Изменение лимитов станет доступно после подключения управления сессией.':'Editing limits will become available when session controls are connected.'}</p></details><Link className="ui-btn ui-btn-secondary" to="/help">{t.help}</Link></Card>
-        </div>
-      )}
+    <SessionReadState loading={loading&&!data} error={error} onRetry={reload}>
+      {!session&&<div className="web-stack">
+        <Notice>{ru?'У вас ещё нет демо-сессии. Выберите трейдера и проверьте настройки.':'You do not have a demo session yet. Choose a trader and review your setup.'}</Notice>
+        <Button className="web-inline-action" onClick={()=>nav('/traders')}>{t.explore}</Button>
+      </div>}
+      {session&&snapshot&&<div className="web-home-grid" aria-busy={loading}>
+        <Card className="web-home-trader"><strong>{session.summary.traderDisplayName}</strong></Card>
+        <Card className="web-home-balance">
+          <p className="web-meta">{snapshot.equity?t.balance:t.available}</p>
+          <strong className="web-home-value ui-number">{money(snapshot.equity??snapshot.free,locale)}</strong>
+          <p className="web-home-breakdown">
+            {snapshot.equity&&<>{t.available} {money(snapshot.free,locale)} · </>}
+            {t.inPositions} {snapshot.positionValue?money(snapshot.positionValue,locale):noValuation} · {t.inReserve} {money(snapshot.reserved,locale)}
+          </p>
+          <p className="web-meta">{ru?'Виртуальные средства · без пополнения и вывода':'Virtual funds · no deposits or withdrawals'}</p>
+        </Card>
+        <Card className="web-home-summary">
+          <h2 className="web-home-desktop-summary">{session.summary.traderDisplayName}</h2>
+          <p className="web-home-mobile-summary">{t.available} {money(snapshot.free,locale)} · {t.inReserve} {money(snapshot.reserved,locale)}</p>
+          <p>{snapshot.positionCount==='0'?(ru?'Открытых позиций нет.':'No open positions.'):(ru?`Открытых позиций: ${snapshot.positionCount}`:`Open positions: ${snapshot.positionCount}`)}</p>
+        </Card>
+        <Card className="web-home-positions">
+          <h2>{t.positions}</h2>
+          {snapshot.positionCount==='0'
+            ? <p>{ru?'Открытых позиций нет.':'No open positions.'}</p>
+            : <Link className="ui-btn ui-btn-secondary mt-3" to="/positions">{ru?'Открыть позиции':'View positions'}</Link>}
+        </Card>
+        <Card className="web-home-actions">
+          <h2>{ru?'Действия':'Actions'}</h2>
+          <RefreshDemoButton loading={loading} onRefresh={reload}/>
+          <details className="web-settings-details">
+            <summary>{ru?'Текущие лимиты':'Current limits'}</summary>
+            <dl>
+              <div className="web-kv"><dt>{t.budget}</dt><dd>{money(session.settings.budget,locale)}</dd></div>
+              <div className="web-kv"><dt>{session.settings.sizingMode==='fixed'?t.fixedBuy:t.copyPercent}</dt><dd>{session.settings.sizingMode==='fixed'?money(session.settings.fixedAmount||undefined,locale):`${session.settings.copyPercent||'—'} %`}</dd></div>
+              <div className="web-kv"><dt>{t.marketLimit}</dt><dd>{session.settings.marketLimitPercent} %</dd></div>
+              <div className="web-kv"><dt>{t.dailyLimit}</dt><dd>{session.settings.dailyBuyLimitPercent} %</dd></div>
+            </dl>
+          </details>
+          <Link className="ui-btn ui-btn-secondary" to="/help">{t.help}</Link>
+        </Card>
+      </div>}
     </SessionReadState>
   </Frame>;
 }
+
+const ACTIVITY_LIMIT=20;
+function useDemoActivity(sessionId:string|null, page:bigint|null, limit=ACTIVITY_LIMIT) {
+  const [reload,setReload]=useState(0);
+  const [state,setState]=useState<{sessionId:string|null;loading:boolean;data:DemoActivityPage|null;page:bigint;error:unknown}>({sessionId:null,loading:true,data:null,page:0n,error:null});
+  useEffect(()=>{
+    if(!sessionId){
+      setState({sessionId:null,loading:false,data:null,page:0n,error:null});
+      return;
+    }
+    const controller=new AbortController();
+    setState(previous=>({sessionId,loading:true,data:previous.sessionId===sessionId?previous.data:null,page:previous.page,error:null}));
+    async function load(id:string) {
+      const width=BigInt(limit);
+      let index=page;
+      if(index===null){
+        const first=await getDemoActivity(id,'0',limit,controller.signal);
+        const high=BigInt(first.highWatermark);
+        if(high<=width){if(!controller.signal.aborted)setState({sessionId:id,loading:false,data:first,page:0n,error:null});return;}
+        index=(high-1n)/width;
+      }
+      const data=await getDemoActivity(id,String(index*width),limit,controller.signal);
+      if(!controller.signal.aborted)setState({sessionId:id,loading:false,data,page:index,error:null});
+    }
+    load(sessionId).catch(error=>{
+      if(!controller.signal.aborted)setState({sessionId,loading:false,data:null,page:0n,error});
+    });
+    return()=>controller.abort();
+  },[sessionId,page,limit,reload]);
+  return {...state,data:state.sessionId===sessionId?state.data:null,retry:()=>setReload(value=>value+1)};
+}
+
+function shares(value:MoneyValue,locale:Locale) {
+  const scale=1_000_000n, scaled=BigInt(value.n)*scale/BigInt(value.d);
+  const whole=(scaled/scale).toLocaleString(locale==='ru'?'ru-RU':'en-US');
+  const fraction=(scaled%scale).toString().padStart(6,'0').replace(/0+$/,'');
+  return fraction?whole+(locale==='ru'?',':'.')+fraction:whole;
+}
+
+function PositionRows({session}:{session:CurrentSession}) {
+  const {locale}=useSession(), t=useText(), ru=locale==='ru';
+  const positions=session.positions;
+  const {data}=useDemoActivity(positions.length?session.summary.sessionId:null,null,100);
+  if(!positions.length)return <p className="web-meta mt-4">
+    {session.financialSnapshot.positionCount==='0'?(ru?'Пока нет открытых позиций.':'No open positions yet.'):t.unavailable}
+  </p>;
+  const labels=new Map<string,DemoEvent>();
+  for(const event of data?.events??[])if(event.conditionId&&event.title)labels.set(event.conditionId+':'+event.tokenId,event);
+  return <ul className="web-demo-rows">
+    {positions.map(position=>{
+      const key=position.conditionId+':'+position.tokenId, label=labels.get(key);
+      const entryPrice={n:String(BigInt(position.cost.n)*BigInt(position.quantity.d)),d:String(BigInt(position.cost.d)*BigInt(position.quantity.n))};
+      return <li key={key}>
+        <strong className="web-demo-market">{label?.title??(ru?'Название рынка недоступно':'Market title unavailable')}</strong>
+        {label?.outcome&&<p className="web-meta">{ru?'Исход':'Outcome'} {label.outcome}</p>}
+        <dl className="web-demo-metrics">
+          <div><dt>{ru?'Количество долей':'Shares'}</dt><dd>{shares(position.quantity,locale)}</dd></div>
+          <div><dt>{ru?'Средняя цена входа':'Average entry price'}</dt><dd>{shares(entryPrice,locale)} USD</dd></div>
+          <div><dt>{ru?'Себестоимость':'Cost basis'}</dt><dd>{money(position.cost,locale)}</dd></div>
+          <div><dt>{ru?'Текущая стоимость':'Current value'}</dt><dd>{ru?'Нет оценки':'No estimate'}</dd></div>
+        </dl>
+      </li>;
+    })}
+  </ul>;
+}
+
+const activityDetail:Record<string,[string,string]>=Object.assign(Object.create(null),{
+  copy_decision_unavailable:['Причину пропуска подтвердить не удалось.','The skip reason could not be confirmed.'],
+  not_buy:['Продажа не копировалась в этой сессии.','The sale was not copied in this session.'],
+  before_personal_activation:['Сделка прошла до запуска копирования.','The trade took place before copying started.'],
+  signal_expired:['Сигнал пришёл слишком поздно.','The signal arrived too late.'],
+  market_binding_unavailable:['Не удалось подтвердить рынок или исход сделки.','The market or outcome could not be confirmed.'],
+  market_unavailable:['На этом рынке пока нельзя скопировать сделку.','This market is currently unavailable for copying.'],
+  book_unavailable:['Не удалось получить котировку.','A quote could not be obtained.'],
+  book_stale:['Котировка устарела.','The quote was out of date.'],
+  clock_unproven:['Не удалось подтвердить время сделки.','The trade time could not be confirmed.'],
+  profile_unavailable:['Не удалось подтвердить условия исполнения на этом рынке.','Execution requirements could not be verified for this market.'],
+  fee_profile_unavailable:['Комиссию не удалось подтвердить.','The fee could not be confirmed.'],
+  invalid_book:['Не удалось подтвердить котировку.','The quote could not be verified.'],
+  insufficient_liquidity:['По доступной цене недостаточно долей.','There were too few shares at the available price.'],
+  below_minimum:['Сумма меньше минимума для этого рынка.','The amount is below the market minimum.'],
+  precision_unavailable:['Не удалось подтвердить допустимый шаг цены или количества.','The required price or quantity increment could not be confirmed.'],
+  insufficient_funds:['Недостаточно виртуальных средств.','Insufficient virtual funds.'],
+  position_limit_exceeded:['Достигнут лимит позиции.','Position limit reached.'],
+  daily_limit_exceeded:['Достигнут дневной лимит.','Daily limit reached.'],
+  source_unavailable:['Источник данных временно недоступен.','The trade data source was temporarily unavailable.'],
+  one_buy_scope_complete:['Лимит покупок в этой сессии уже исчерпан.','The purchase limit for this session was reached.'],
+});
+
+function ActivityEventRow({event,trader}:{event:DemoEvent;trader:string}) {
+  const {locale}=useSession(),ru=locale==='ru';
+  const detail=event.detail?activityDetail[event.detail]:undefined;
+  const time=new Date(event.occurredAt).toLocaleTimeString(ru?'ru-RU':'en-US',{timeStyle:'short'});
+  const venue=event.venueCode==='polymarket'?'Polymarket':event.venueCode==='limitless'?'Limitless':event.venueCode;
+  const status=event.status==='filled'?(ru?'Скопировано':'Copied'):event.status==='pending'?(ru?'Ожидается':'Pending'):(ru?'Пропущено':'Skipped');
+  return <li>
+    <p className="web-meta">{trader} · {venue} · <time dateTime={event.occurredAt}>{time}</time></p>
+    <strong className="web-demo-market">{event.title??(event.side==='BUY'?(ru?'Покупка трейдера':'Trader buy'):(ru?'Продажа трейдера':'Trader sell'))}</strong>
+    <p className="web-meta">{event.outcome&&<>{ru?'Исход':'Outcome'} {event.outcome} · </>}<span className="web-demo-status" data-status={event.status}>{status}</span></p>
+    {event.status==='filled'&&event.notional&&event.quantity&&event.cashFee&&<dl className="web-demo-metrics">
+      <div><dt>{ru?'Сумма покупки':'Purchase amount'}</dt><dd>{money(event.notional,locale)}</dd></div>
+      <div><dt>{ru?'Количество долей':'Shares'}</dt><dd>{shares(event.quantity,locale)}</dd></div>
+      <div><dt>{ru?'Денежная комиссия':'Cash fee'}</dt><dd>{money(event.cashFee,locale)}</dd></div>
+    </dl>}
+    {event.status==='skipped'&&<details className="web-settings-details mt-2">
+      <summary>{ru?'Подробнее':'Details'}</summary>
+      <p>{detail?detail[ru?0:1]:(ru?'Точная причина не записана.':'No exact reason was recorded.')} {ru?'Списания не было.':'Nothing was debited.'}</p>
+    </details>}
+  </li>;
+}
+
+function ActivityRows({session}:{session:CurrentSession}) {
+  const {locale}=useSession(),t=useText(),ru=locale==='ru';
+  const [selectedPage,setSelectedPage]=useState<bigint|null>(null);
+  const {loading,error,data,page,retry}=useDemoActivity(session.summary.sessionId,selectedPage);
+  if(!session.summary.sessionId)return <p className="web-meta mt-4">{t.unavailable}</p>;
+  if(!data)return <SessionReadState loading={loading} error={error} onRetry={retry}>{null}</SessionReadState>;
+  const lastPage=BigInt(data.highWatermark)>0n?(BigInt(data.highWatermark)-1n)/BigInt(ACTIVITY_LIMIT):0n;
+  const pageNumbers=[0n,page-1n,page,page+1n,lastPage].filter((value,index,list)=>value>=0n&&value<=lastPage&&list.indexOf(value)===index)
+    .sort((a,b)=>a<b?-1:a>b?1:0);
+  const days=new Map<string,DemoEvent[]>();
+  const sortedEvents=[...data.events].sort((a,b)=>Date.parse(b.occurredAt)-Date.parse(a.occurredAt));
+  for(const event of sortedEvents) {
+    const date=new Date(event.occurredAt).toLocaleDateString(ru?'ru-RU':'en-US',{dateStyle:'long'});
+    let events=days.get(date);
+    if(!events){events=[];days.set(date,events);}
+    events.push(event);
+  }
+  const observation=({
+    source_unavailable:ru?'Проверка сделок временно остановлена.':'Trade checks are temporarily paused.',
+    reconciliation_required:ru?'Проверяем данные перед возобновлением.':'We’re checking the data before resuming.',
+    stopped:ru?'Проверка сделок остановлена.':'Trade checks have stopped.',
+  } as Record<string,string>)[data.observation];
+  return <div aria-busy={loading}>
+    <div className="web-demo-activity-toolbar">
+      <div className="web-demo-activity-status" role="status">
+        {observation&&<p>{observation}</p>}
+        {data.lastObservedAt&&<p className="web-meta">{ru?'Последняя проверка':'Last checked'}{' '}
+          <time dateTime={data.lastObservedAt}>{new Date(data.lastObservedAt).toLocaleString(ru?'ru-RU':'en-US',{dateStyle:'medium',timeStyle:'short'})}</time>
+        </p>}
+      </div>
+      <RefreshDemoButton loading={loading} onRefresh={()=>{setSelectedPage(null);retry();}}/>
+    </div>
+    {!data.events.length&&<p className="web-meta mt-4">{data.observation==='observing'
+      ? (ru?'Ждём сделки трейдера. Здесь появится результат копирования.':'Waiting for trader activity. Copying results will appear here.')
+      : (ru?'Пока нет событий.':'No activity yet.')}</p>}
+    {Array.from(days,([day,events])=><section className="web-demo-day" key={day}>
+      <h3>{day}</h3>
+      <ul className="web-demo-rows">
+        {events.map(event=><ActivityEventRow key={event.id} event={event} trader={session.summary.traderDisplayName}/>)}
+      </ul>
+    </section>)}
+    {lastPage>0n&&<nav className="web-demo-pages" aria-label={ru?'Страницы активности':'Activity pages'}>
+      {pageNumbers.map(number=><Button key={String(number)} variant="secondary" aria-current={page===number?'page':undefined}
+        disabled={loading||page===number} onClick={()=>setSelectedPage(number)}>{String(number+1n)}</Button>)}
+    </nav>}
+  </div>;
+}
+
 function SessionListPage({kind}:{kind:'positions'|'activity'}) {
   const {locale}=useSession(),t=useText();
   const {loading,error,data,reload}=useCurrentSessionRead();
   const session=data?.session;
-  const isPositions=kind==='positions';
-  return <Frame title={t[kind]} className="web-list-page" subtitle={isPositions?(locale==='ru'?'Позиции выбранной демо-сессии':'Positions in your demo session'):(locale==='ru'?'События выбранной демо-сессии':'Events in your demo session')}>
-    <SessionReadState loading={loading} error={error} onRetry={reload}>
-      {!session&&<div className="web-stack"><Notice>{locale==='ru'?'Сначала создайте демо-сессию.':'Start a demo session first.'}</Notice><Link className="ui-btn ui-btn-primary web-inline-action" to="/traders">{t.explore}</Link></div>}
+  const isPositions=kind==='positions',ru=locale==='ru';
+  return <Frame title={t[kind]} className="web-list-page">
+    <SessionReadState loading={loading&&!data} error={error} onRetry={reload}>
+      {!session&&<div className="web-stack"><Notice>{ru?'Сначала создайте демо-сессию.':'Start a demo session first.'}</Notice>
+        <Link className="ui-btn ui-btn-primary web-inline-action" to="/traders">{t.explore}</Link>
+      </div>}
       {session&&<div className="web-list-grid">
-        <Card className="web-list-card">
-          <div className="web-list-heading"><h2>{isPositions?(locale==='ru'?'Открытые позиции':'Open positions'):(locale==='ru'?'Последние события':'Recent activity')}</h2>{isPositions&&session.financialSnapshot.contentState==='EMPTY'&&<span>{locale==='ru'?'0 позиций':'0 positions'}</span>}</div>
-          {isPositions&&session.financialSnapshot.contentState==='EMPTY'?<div className="web-empty-list"><strong>{locale==='ru'?'Пока нет позиций':'No positions yet'}</strong><p>{locale==='ru'?'Демо-сессия создана, но копирование пока не подключено. Открытых позиций нет.':'Your demo session is ready, but copying is not connected yet. There are no open positions.'}</p></div>:<div className="web-empty-list"><strong>{locale==='ru'?'Список пока недоступен':'List not available yet'}</strong><p>{isPositions?(locale==='ru'?'Снимок сессии есть, но подробный список позиций ещё не подключён.':'The session snapshot is available, but the detailed position list is not connected yet.'):(locale==='ru'?'История событий ещё не подключена к серверу полигона.':'Activity history is not connected to the polygon server yet.')}</p></div>}
+        <Card className="web-list-card" aria-busy={loading}>
+          <div className="web-list-heading"><h2>{session.summary.traderDisplayName}</h2>
+            {isPositions&&<RefreshDemoButton loading={loading} onRefresh={reload}/>}
+          </div>
+          {isPositions?<PositionRows key={`${session.summary.sessionId}:${session.summary.asOf}`} session={session}/>:<ActivityRows key={session.summary.sessionId} session={session}/>}
         </Card>
-        <Card className="web-list-actions"><h2>{locale==='ru'?'Действия':'Actions'}</h2><Link className="ui-btn ui-btn-primary" to="/home">{locale==='ru'?'На главную':'Go to Home'}</Link></Card>
+        <Card className="web-list-actions"><Link className="ui-btn ui-btn-secondary" to="/home">{ru?'На главную':'Go to Home'}</Link></Card>
       </div>}
     </SessionReadState>
   </Frame>;
