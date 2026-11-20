@@ -1,7 +1,12 @@
-import { StrictMode, useEffect, useState } from 'react';
+import { lazy, StrictMode, Suspense, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Card, Notice, type Locale } from '@cct/ui';
+import { activeStaffDeployment } from './staff-deployment';
 import './admin.css';
+
+const PaperPilotAccess = lazy(async () => ({
+  default: (await import('./PaperPilotAccess')).PaperPilotAccess,
+}));
 
 const copy = {
   ru: {
@@ -60,12 +65,16 @@ function App() {
         </label>
       </header>
       <main className="admin-entry-content">
-        <Card className="admin-sign-in">
+        {activeStaffDeployment()?.paperPilot ? (
+          <Suspense fallback={<p role="status">{locale === 'ru' ? 'Загрузка…' : 'Loading…'}</p>}>
+            <PaperPilotAccess locale={locale} />
+          </Suspense>
+        ) : <Card className="admin-sign-in">
           <h1>{labels.title}</h1>
           <p className="ui-muted">{labels.description}</p>
           <Notice tone="warning">{labels.unavailable}</Notice>
           <p className="ui-muted">{labels.account}</p>
-        </Card>
+        </Card>}
       </main>
     </div>
   );
