@@ -37,7 +37,7 @@ def protected_file(name):
         return stream.read(16385)
 
 
-def load_profile(path):
+def load_profile(path, *, tls_preflight=False):
     data = protected_file(path)
     if len(data) > 16384:
         raise ValueError('Oversized edge profile')
@@ -60,7 +60,10 @@ def load_profile(path):
         isinstance(pin, str) and re.fullmatch('[a-f0-9]{64}', pin) for pin in pins
     ) or pins[0] == pins[1]:
         raise ValueError('Expect two distinct client certificate pins')
-    if profile['pilot'].get('enabled') is not True:
+    enabled = profile['pilot'].get('enabled')
+    if tls_preflight and enabled is not False:
+        raise ValueError('TLS preflight requires a disabled pilot')
+    if not tls_preflight and enabled is not True:
         raise ValueError('Pilot explicitly disabled')
     for field in ('adminDist', 'certificate', 'certificateKey', 'clientCA'):
         value = Path(profile[field])
@@ -83,6 +86,48 @@ class StaffServer(ThreadingHTTPServer):
     def handle_error(self, request, client_address):
         # Do not log TLS exception details, private paths, or request content.
         pass
+
+
+def tls_context(profile):
+    tls = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+    tls.minimum_version = ssl.TLSVersion.TLSv1_2
+    tls.load_cert_chain(profile['certificate'], profile['certificateKey'])
+    tls.load_verify_locations(cafile=profile['clientCA'])
+    tls.verify_mode = ssl.CERT_REQUIRED
+    return tls
+
+
+def matches_client(handler, pins, authority):
+    peer = handler.connection.getpeercert(binary_form=True)
+    return bool(peer and hashlib.sha256(peer).hexdigest() in pins
+                and handler.headers.get_all('Host') == [authority])
+
+
+def serve_tls_preflight(profile, authority):
+    pins = set(profile['clientPins'])
+
+    class Handler(BaseHTTPRequestHandler):
+        def log_message(self, *_):
+            pass
+
+        def dispatch(self):
+            if not matches_client(self, pins, authority):
+                status = 403
+            elif self.command == 'GET' and self.path == '/health/tls':
+                status = 204
+            else:
+                status = 404
+            self.send_response(status)
+            self.send_header('Cache-Control', 'no-store')
+            if status != 204:
+                self.send_header('Content-Length', '0')
+            self.end_headers()
+
+        do_GET = do_POST = do_PATCH = dispatch
+
+    with StaffServer((profile['listenHost'], profile['listenPort']), Handler, tls_context(profile)) as server:
+        print('STAFF_TLS_PREFLIGHT_READY', flush=True)
+        server.serve_forever()
 
 
 def serve(profile, authority):
@@ -129,8 +174,7 @@ def serve(profile, authority):
     class Handler(scoped):
         def dispatch(self):
             self._paper_deadline_ns = time.monotonic_ns() + 5_000_000_000
-            peer = self.connection.getpeercert(binary_form=True)
-            if not peer or hashlib.sha256(peer).hexdigest() not in pins or self.headers.get_all('Host') != [authority]:
+            if not matches_client(self, pins, authority):
                 return self.gateway_reply(403, {'reasonCode': 'ACCESS_DENIED'})
             if datetime.now(timezone.utc) >= cutoff:
                 return self.gateway_reply(503, {'reasonCode': 'SERVICE_UNAVAILABLE'})
@@ -138,12 +182,7 @@ def serve(profile, authority):
 
         do_GET = do_POST = do_PATCH = dispatch
 
-    tls = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-    tls.minimum_version = ssl.TLSVersion.TLSv1_2
-    tls.load_cert_chain(profile['certificate'], profile['certificateKey'])
-    tls.load_verify_locations(cafile=profile['clientCA'])
-    tls.verify_mode = ssl.CERT_REQUIRED
-    with StaffServer((profile['listenHost'], profile['listenPort']), Handler, tls) as server:
+    with StaffServer((profile['listenHost'], profile['listenPort']), Handler, tls_context(profile)) as server:
         print('STAFF_HTTPS_READY', flush=True)
         server.serve_forever()
 
@@ -151,8 +190,10 @@ def serve(profile, authority):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('config')
+    parser.add_argument('--tls-preflight', action='store_true')
     args = parser.parse_args()
     try:
-        serve(*load_profile(args.config))
+        start = serve_tls_preflight if args.tls_preflight else serve
+        start(*load_profile(args.config, tls_preflight=args.tls_preflight))
     except (OSError, ValueError, TypeError, KeyError, AttributeError):
         raise SystemExit('Staff HTTPS unavailable') from None
