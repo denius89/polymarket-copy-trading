@@ -1,0 +1,38 @@
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -57,0 +58,5 @@
++def serialization_rollback(error):
++    return (isinstance(error, SerializationFailure)
++            and error.sqlstate == '40001' and error.diag.sqlstate == '40001')
++
++
+@@ -125,2 +130,7 @@
+-        with self.connection(self.writer) as db:
+-            return result(call(db, READ_SCOPE, session), 'Personal cursor refused')
++        try:
++            with self.connection(self.writer) as db:
++                return result(call(db, READ_SCOPE, session), 'Personal cursor refused')
++        except SerializationFailure as error:
++            if not serialization_rollback(error):
++                raise
++            raise Skip('PERSONAL_READ_SERIALIZATION_ROLLBACK') from None
+@@ -146,2 +156,7 @@
+-        with self.connection(self.writer) as db:
+-            reply = call(db, LOOKUP, scope.session_id, event['executionId'])
++        try:
++            with self.connection(self.writer) as db:
++                reply = call(db, LOOKUP, scope.session_id, event['executionId'])
++        except SerializationFailure as error:
++            if not serialization_rollback(error):
++                raise
++            raise Skip('PERSONAL_READ_SERIALIZATION_ROLLBACK') from None
+@@ -247 +262,5 @@
+-            except OperationalError:
++            except OperationalError as error:
++                if serialization_rollback(error):
++                    # The failed transaction did not commit. Drop this signal; the
++                    # next quote is assessed independently against a new cursor.
++                    raise Skip('PERSONAL_BUY_SERIALIZATION_ROLLBACK') from None
+@@ -293 +312 @@
+-                if isinstance(error, SerializationFailure) and error.sqlstate == '40001' and error.diag.sqlstate == '40001':
++                if serialization_rollback(error):
