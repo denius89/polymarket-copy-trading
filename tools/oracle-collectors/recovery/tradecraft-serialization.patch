@@ -1,38 +1,51 @@
 --- a/personal_pg.py
 +++ b/personal_pg.py
+@@ -7 +7 @@
+-from threading import Event, Lock, local
++from threading import Event, RLock, local
+@@ -12 +12 @@
+-from psycopg.errors import QueryCanceled, SerializationFailure
++from psycopg.errors import LockNotAvailable, QueryCanceled, SerializationFailure
 @@ -57,0 +58,5 @@
-+def serialization_rollback(error):
-+    return (isinstance(error, SerializationFailure)
-+            and error.sqlstate == '40001' and error.diag.sqlstate == '40001')
++def rollback_conflict(error):
++    return (isinstance(error, (SerializationFailure, LockNotAvailable))
++            and error.sqlstate in ('40001', '55P03') and error.diag.sqlstate == error.sqlstate)
 +
 +
-@@ -125,2 +130,7 @@
+@@ -85 +90,2 @@
+-        self.write_lock = Lock()
++        # Scope and receipt queries use the same database row locks as ingest.
++        self.write_lock = RLock()
+@@ -125,2 +131,7 @@
 -        with self.connection(self.writer) as db:
 -            return result(call(db, READ_SCOPE, session), 'Personal cursor refused')
 +        try:
-+            with self.connection(self.writer) as db:
++            with self.write_lock, self.connection(self.writer) as db:
 +                return result(call(db, READ_SCOPE, session), 'Personal cursor refused')
-+        except SerializationFailure as error:
-+            if not serialization_rollback(error):
++        except (SerializationFailure, LockNotAvailable) as error:
++            if not rollback_conflict(error):
 +                raise
-+            raise Skip('PERSONAL_READ_SERIALIZATION_ROLLBACK') from None
-@@ -146,2 +156,7 @@
++            raise Skip('PERSONAL_READ_CONFLICT_ROLLBACK') from None
+@@ -146,2 +157,7 @@
 -        with self.connection(self.writer) as db:
 -            reply = call(db, LOOKUP, scope.session_id, event['executionId'])
 +        try:
-+            with self.connection(self.writer) as db:
++            with self.write_lock, self.connection(self.writer) as db:
 +                reply = call(db, LOOKUP, scope.session_id, event['executionId'])
-+        except SerializationFailure as error:
-+            if not serialization_rollback(error):
++        except (SerializationFailure, LockNotAvailable) as error:
++            if not rollback_conflict(error):
 +                raise
-+            raise Skip('PERSONAL_READ_SERIALIZATION_ROLLBACK') from None
-@@ -247 +262,5 @@
++            raise Skip('PERSONAL_READ_CONFLICT_ROLLBACK') from None
+@@ -247 +263,5 @@
 -            except OperationalError:
 +            except OperationalError as error:
-+                if serialization_rollback(error):
++                if rollback_conflict(error):
 +                    # The failed transaction did not commit. Drop this signal; the
 +                    # next quote is assessed independently against a new cursor.
-+                    raise Skip('PERSONAL_BUY_SERIALIZATION_ROLLBACK') from None
-@@ -293 +312 @@
++                    raise Skip('PERSONAL_BUY_CONFLICT_ROLLBACK') from None
+@@ -293 +313 @@
 -                if isinstance(error, SerializationFailure) and error.sqlstate == '40001' and error.diag.sqlstate == '40001':
-+                if serialization_rollback(error):
++                if rollback_conflict(error):
+@@ -295 +315 @@
+-                    raise Skip('PERSONAL_IDLE_SERIALIZATION_ROLLBACK') from None
++                    raise Skip('PERSONAL_IDLE_CONFLICT_ROLLBACK') from None
