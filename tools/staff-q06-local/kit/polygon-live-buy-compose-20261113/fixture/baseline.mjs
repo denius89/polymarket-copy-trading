@@ -25,9 +25,9 @@ export async function baseline(db){
  }
  return users;
 }
-export async function start(db,user,traderId){
+export async function start(db,user,traderId,rawBudget){
  const trader=(await db.query('SELECT * FROM polygon.traders WHERE id=$1',[traderId])).rows[0];await db.exec('BEGIN ISOLATION LEVEL SERIALIZABLE');
- const req={requestSchemaVersion:'v1',clientCommandId:randomUUID(),locale:'ru',step:'configure',entryContext:'catalog',venueId:trader.venue_id,traderId,selectedMode:'fixed',rawBudget:'MzAw',rawFixedAmount:'MTA=',rawCopyPercent:null,rawMarketLimitPercent:'MjA=',rawDailyBuyLimitPercent:'MTU=',proposedTimezone:'Europe/Warsaw'};
+ const req={requestSchemaVersion:'v1',clientCommandId:randomUUID(),locale:'ru',step:'configure',entryContext:'catalog',venueId:trader.venue_id,traderId,selectedMode:'fixed',rawBudget,rawFixedAmount:'MTA=',rawCopyPercent:null,rawMarketLimitPercent:'MjA=',rawDailyBuyLimitPercent:'MTU=',proposedTimezone:'Europe/Warsaw'};
  const run=async(name,p)=>(await db.query(`SELECT polygon.${name}($1) r`,[p])).rows[0].r;
  const save=await run('c04_save',{auth:user.auth,draft_id:null,raw_encoding:'utf8-base64-v1',request:req});if(save.http!==201)throw Error(JSON.stringify(save));
  const review=await run('c05_validate',{auth:user.auth,request:{requestSchemaVersion:'v1',draftId:save.receipt.result.draftId,expectedDraftVersion:'1',proposedTimezone:'Europe/Warsaw'}});if(!review.review?.allowedToStart)throw Error(JSON.stringify(review));
@@ -41,7 +41,7 @@ export async function loadLive(db,users){
  await db.exec('GRANT SELECT ON live_install_input TO polygon_owner;SET LOCAL ROLE polygon_owner;');
  for(const f of ['002-storage.sql','003-initial-derived.sql','004-public-source.sql','005-integrity.sql','006-completion.sql','007-start-derived.sql','008-review-derived.sql','009-resolver-derived.sql','010-staff-derived.sql'])await loadSource(db,new URL(f,sqlDir));
  await db.exec('REVOKE ALL ON ALL FUNCTIONS IN SCHEMA polygon_live FROM PUBLIC;COMMIT;');
- for(const user of users)user.sid=await start(db,user,'6e91ae7c-a813-4b98-9bbc-022c0e04c2ff');
+ for(const [index,user] of users.entries()) user.sid=await start(db,user,'6e91ae7c-a813-4b98-9bbc-022c0e04c2ff',index===0?'MzAw':'MjAw');
  const adir=new URL('polygon-live-db-20261113/activity-db/',root);
  await db.exec('BEGIN;CREATE SCHEMA polygon_live_activity AUTHORIZATION polygon_owner;CREATE TEMP TABLE live_activity_input(db text,run_id uuid);');await db.query('INSERT INTO live_activity_input VALUES(current_database(),$1)',[run]);await db.exec('GRANT SELECT ON live_activity_input TO polygon_owner;SET LOCAL ROLE polygon_owner;');
  for(const f of ['002-shapes.sql','002-installation.sql','003-storage-derived.sql','004-bound-contract.sql','005-guard.sql','006-runtime-derived.sql','007-ingest-derived.sql','008-integrity-derived.sql','009-bound-rpc-derived.sql','010-bound-integrity-derived.sql','011-item-derived.sql','012-wrappers.sql','013-read.sql'])await loadSource(db,new URL(f,adir));

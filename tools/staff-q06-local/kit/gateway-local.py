@@ -16,8 +16,10 @@ DIST = Path(__file__).resolve().parent / 'api/apps/admin/dist'
 def serve():
     config = json.loads((PRIVATE / 'gateway.json').read_text())
     expected_client = (PRIVATE / 'client.sha256').read_text().strip()
-    assets = {'/admin/': DIST / 'index.html'}
-    assets.update({f'/admin/assets/{path.name}': path for path in (DIST / 'assets').iterdir()})
+    default_dist = DIST.with_name('dist-default')
+    assets = {'/admin/': DIST / 'index.html', '/admin/__disabled': default_dist / 'index.html'}
+    for dist in (DIST, default_dist):
+        assets.update({f'/admin/assets/{path.name}': path for path in (dist / 'assets').iterdir()})
 
     class Base(BaseHTTPRequestHandler):
         def log_message(self, *_):

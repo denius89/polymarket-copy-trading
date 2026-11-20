@@ -12,6 +12,12 @@ for image in "$node_image" "$postgres_image"; do
   fi
 done
 docker run --pull never --rm -v "$PWD/api:/work" -w /work "$node_image" \
-  sh -ec 'npm ci --ignore-scripts --no-audit --no-fund --fetch-retries=1 && npm run build:admin'
+  sh -ec '
+    npm ci --ignore-scripts --no-audit --no-fund --fetch-retries=1
+    npm run build --workspace @cct/admin -- --outDir dist-default
+    export VITE_STAFF_Q06=1 VITE_STAFF_Q06_ORIGIN=http://127.0.0.1:52486
+    export VITE_STAFF_Q06_ORIGIN_SHA256=fdc03d5d4faa27371db32001ef6d37fb86bd0d19fb1a4527b476d1333e44e8c4
+    npm run build --workspace @cct/admin -- --mode staff-q06-local
+  '
 bash "$PWD/run-new.sh"
 exec bash "$PWD/start-gateway.sh"

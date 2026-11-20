@@ -139,7 +139,8 @@ function decodeEmptyPilotSession(value: unknown, sessionId: string): PilotSessio
   const balanceAllowed = !restricted.includes('session.financial_snapshot');
   const session = exact(root.session, ['summary', ...(settingsAllowed ? ['settings'] : []), ...(balanceAllowed ? ['financialSnapshot'] : [])]);
   const summary = object(session.summary);
-  if (summary.sessionId !== sessionId || summary.mode !== 'paper' || summary.dataOrigin !== 'synthetic'
+  if (summary.sessionId !== sessionId || summary.mode !== 'paper'
+    || (summary.dataOrigin !== 'synthetic' && summary.dataOrigin !== 'public_api')
     || summary.lifecycle !== 'active' || summary.controlState !== 'copying_not_connected'
     || summary.contentState !== 'EMPTY' || summary.coverageState !== 'no_trade_data') return invalid();
   const revision = text(summary.settingsRevisionId, uuid);

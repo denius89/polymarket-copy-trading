@@ -1,46 +1,97 @@
+"""Compare the browser's Q06 reads with the user API and PostgreSQL audit."""
+import http.client
+import json
 from pathlib import Path
-import hashlib,http.client,json,ssl,subprocess
-p=Path(__file__).resolve().parent
-target=json.loads((p/'targets.json').read_text())[0]
-sid=target['session']
-fixture=json.loads((p/'control/user-fixtures.json').read_text())[0]
-login=fixture['login']
-headers={'Host':'localhost:18443','X-Shadow-Login-Id':login,
-         'Cookie':f"__Host-shadow-user-login-{login}={fixture['proof']}"}
-def get(connection,path,headers):
- try:
-  connection.request('GET',path,headers=headers)
-  r=connection.getresponse()
-  return r.status,json.loads(r.read())
- finally:
-  connection.close()
-ip=(p/'control/ips').read_text().splitlines()[0]
-status,body=get(http.client.HTTPConnection(ip,8080,timeout=8),f'/api/sessions/{sid}?requestSchemaVersion=v1',headers)
-print(f'user_own_session_http={status}')
-assert status==200
-session=body['session']
-seed=json.loads((p/'control/seed-receipt.json').read_text())
-assert session['schemaVersion']=='live-buy-session-v1' and session['sessionId']==sid
-assert {k:session[k] for k in seed}==seed==json.loads((p/'control/staff-read-receipt.json').read_text())
-snapshot=session['financial']
-assert len(snapshot['positions'])==1
-cfg=p/'gatewaycfg'
-ctx=ssl.create_default_context(cafile=str(cfg/'gateway.crt'))
-ctx.load_cert_chain(cfg/'client.crt',cfg/'client.key')
-status,denied=get(http.client.HTTPSConnection('localhost',18443,context=ctx,timeout=8),
- f'/api/admin/sessions/{sid}?requestSchemaVersion=v1',
- headers|{'X-Shadow-Pilot-Client-IP':'192.0.2.30','Sec-Fetch-Site':'same-origin'})
-assert status in (401,403) and 'session' not in denied,(status,denied)
-safe={k:snapshot[k] for k in ('cash','reservedCash','freeCash','cashExpenses','positions')}
-print(json.dumps(dict(session=sid,snapshot_id=session['snapshotId'],snapshot_version=session['snapshotVersion'],user_snapshot=safe,user_admin_http=status,reason=denied.get('reasonCode'))))
-sql="""SELECT jsonb_build_object('action',a.action,'session',a.target_session_id,'snapshot',a.snapshot_version,
- 'service',a.actor_service,'staff_login',a.login_id IS NOT NULL,'audit_id',a.id,
- 'evidence',(SELECT jsonb_agg(granted_group ORDER BY granted_group) FROM pilot_staff.read_evidence e
- WHERE e.audit_id=a.id AND e.session_id=a.target_session_id AND e.snapshot_version=a.snapshot_version),
- 'snapshot_id',(SELECT min(e.snapshot_id::text) FROM pilot_staff.read_evidence e WHERE e.audit_id=a.id))
- FROM pilot_staff.audit a WHERE a.action='session_read' AND a.target_session_id=:'sid'::uuid;"""
-lines=subprocess.check_output(['docker','exec','-i','-u','postgres','staff-acceptance-db','psql','-XqAt','-U','postgres',
- '-d','pilot_trial_local','-v','ON_ERROR_STOP=1','-v',f'sid={sid}'],input=sql,text=True).splitlines()
-audits=[json.loads(line) for line in lines]
-assert len(audits)==1 and audits[0]['staff_login'] and audits[0]['service']=='pilot_http_reader' and len(audits[0]['evidence'])==3 and audits[0]['snapshot_id']==session['snapshotId'] and str(audits[0]['snapshot'])==session['snapshotVersion'],audits
-print(json.dumps(audits[0]))
+import ssl
+import subprocess
+
+ROOT = Path(__file__).resolve().parent
+
+
+def get(connection, path, headers):
+    try:
+        connection.request('GET', path, headers=headers)
+        response = connection.getresponse()
+        return response.status, json.loads(response.read())
+    finally:
+        connection.close()
+
+
+def read_audits():
+    sql = """SELECT jsonb_build_object(
+     'auditId',a.id,'sessionId',a.target_session_id,'version',a.snapshot_version,
+     'actorService',a.actor_service,'staffLogin',a.login_id IS NOT NULL,
+     'evidence',(SELECT jsonb_agg(jsonb_build_object(
+        'snapshotId',e.snapshot_id,'sessionId',e.session_id,'version',e.snapshot_version,'group',e.granted_group
+      ) ORDER BY e.granted_group) FROM pilot_staff.read_evidence e WHERE e.audit_id=a.id)
+    ) FROM pilot_staff.audit a WHERE a.action='session_read';"""
+    lines = subprocess.check_output([
+        'docker','exec','-i','-u','postgres','staff-acceptance-db','psql','-XqAt',
+        '-U','postgres','-d','pilot_trial_local','-v','ON_ERROR_STOP=1',
+    ], input=sql, text=True).splitlines()
+    return [json.loads(line) for line in lines]
+
+
+def run():
+    targets = json.loads((ROOT/'targets.json').read_text())
+    fixtures = json.loads((ROOT/'control/user-fixtures.json').read_text())
+    seed = json.loads((ROOT/'control/seed-receipt.json').read_text())
+    ip = (ROOT/'control/ips').read_text().splitlines()[0]
+    assert len(targets) == len(fixtures) == 2
+    expected = {}
+    results = []
+    for target, fixture in zip(targets, fixtures):
+        sid = target['session']
+        login = fixture['login']
+        headers = {'Host':'localhost:18443','X-Shadow-Login-Id':login,
+                   'Cookie':f"__Host-shadow-user-login-{login}={fixture['proof']}"}
+        status, body = get(http.client.HTTPConnection(ip,8080,timeout=8),
+                           f'/api/sessions/{sid}?requestSchemaVersion=v1', headers)
+        assert status == 200, status
+        session = body['session']
+        browser_session = json.loads((ROOT/'control'/f'staff-read-{sid}.json').read_text())
+        # The daily window is calculated at request time. The stored snapshot is shared.
+        user_snapshot = {key:value for key,value in session.items() if key != 'dailyContext'}
+        staff_snapshot = {key:value for key,value in browser_session.items() if key != 'dailyContext'}
+        assert user_snapshot == staff_snapshot, 'User and staff read different snapshots'
+        if seed['sessionId'] == sid:
+            assert {key:session[key] for key in seed} == seed
+            financial = session['financial']
+            assert len(financial['positions']) == 1
+            free, positions = financial['freeCash'], financial['positions']
+            snapshot, version = session['snapshotId'], session['snapshotVersion']
+            cfg = ROOT/'gatewaycfg'
+            tls = ssl.create_default_context(cafile=str(cfg/'gateway.crt'))
+            tls.load_cert_chain(cfg/'client.crt', cfg/'client.key')
+            denied, body = get(
+                http.client.HTTPSConnection('localhost',18443,context=tls,timeout=8),
+                f'/api/admin/sessions/{sid}?requestSchemaVersion=v1',
+                headers|{'X-Shadow-Pilot-Client-IP':'192.0.2.30','Sec-Fetch-Site':'same-origin'},
+            )
+            assert denied == 401 and body.get('reasonCode') == 'AUTH_REQUIRED' and 'session' not in body
+            print(json.dumps({'userAdminHttp':denied, 'reason':body['reasonCode']}))
+        else:
+            assert session['summary']['sessionId'] == sid
+            financial = session['financialSnapshot']
+            assert financial['positionCount'] == '0' and financial['free'] == {'n':'200','d':'1'}
+            free, positions = financial['free'], []
+            snapshot, version = financial['snapshotId'], financial['snapshotVersion']
+        expected[sid] = (snapshot, int(version))
+        results.append(dict(sessionId=sid,snapshotId=snapshot,version=version,free=free,positions=positions))
+
+    audits = read_audits()
+    assert {row['sessionId'] for row in audits} == set(expected)
+    for row in audits:
+        sid = row['sessionId']
+        snapshot, version = expected[sid]
+        assert row['staffLogin'] and row['actorService'] == 'pilot_http_reader'
+        assert row['version'] == version
+        assert row['evidence'] == [
+            dict(snapshotId=snapshot,sessionId=sid,version=version,group=group)
+            for group in ('session.financial_snapshot','session.settings','session.summary')
+        ]
+    print(json.dumps(dict(sessions=results,audits=[{k:r[k] for k in ('sessionId','auditId')} for r in audits])))
+
+
+if __name__ == '__main__':
+    run()
