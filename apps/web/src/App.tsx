@@ -154,32 +154,32 @@ function Home() {
 const ACTIVITY_LIMIT=20;
 function useDemoActivity(sessionId:string|null, page:bigint|null, limit=ACTIVITY_LIMIT) {
   const [reload,setReload]=useState(0);
-  const [state,setState]=useState<{loading:boolean;data:DemoActivityPage|null;page:bigint;error:unknown}>({loading:true,data:null,page:0n,error:null});
+  const [state,setState]=useState<{sessionId:string|null;loading:boolean;data:DemoActivityPage|null;page:bigint;error:unknown}>({sessionId:null,loading:true,data:null,page:0n,error:null});
   useEffect(()=>{
     if(!sessionId){
-      setState({loading:false,data:null,page:0n,error:null});
+      setState({sessionId:null,loading:false,data:null,page:0n,error:null});
       return;
     }
     const controller=new AbortController();
-    setState({loading:true,data:null,page:0n,error:null});
+    setState(previous=>({sessionId,loading:true,data:previous.sessionId===sessionId?previous.data:null,page:previous.page,error:null}));
     async function load(id:string) {
       const width=BigInt(limit);
       let index=page;
       if(index===null){
         const first=await getDemoActivity(id,'0',limit,controller.signal);
         const high=BigInt(first.highWatermark);
-        if(high<=width){if(!controller.signal.aborted)setState({loading:false,data:first,page:0n,error:null});return;}
+        if(high<=width){if(!controller.signal.aborted)setState({sessionId:id,loading:false,data:first,page:0n,error:null});return;}
         index=(high-1n)/width;
       }
       const data=await getDemoActivity(id,String(index*width),limit,controller.signal);
-      if(!controller.signal.aborted)setState({loading:false,data,page:index,error:null});
+      if(!controller.signal.aborted)setState({sessionId:id,loading:false,data,page:index,error:null});
     }
     load(sessionId).catch(error=>{
-      if(!controller.signal.aborted)setState({loading:false,data:null,page:0n,error});
+      if(!controller.signal.aborted)setState({sessionId,loading:false,data:null,page:0n,error});
     });
     return()=>controller.abort();
   },[sessionId,page,limit,reload]);
-  return {...state,retry:()=>setReload(value=>value+1)};
+  return {...state,data:state.sessionId===sessionId?state.data:null,retry:()=>setReload(value=>value+1)};
 }
 
 function shares(value:MoneyValue,locale:Locale) {
@@ -234,13 +234,25 @@ function ActivityRows({session}:{session:CurrentSession}) {
   const pageNumbers=[0n,page-1n,page,page+1n,lastPage].filter((value,index,list)=>value>=0n&&value<=lastPage&&list.indexOf(value)===index)
     .sort((a,b)=>a<b?-1:a>b?1:0);
   const observation=({
-    source_unavailable:ru?'Источник временно недоступен.':'The data source is temporarily unavailable.',
-    reconciliation_required:ru?'Наблюдение приостановлено для сверки данных.':'Observation is paused for reconciliation.',
-    stopped:ru?'Наблюдение остановлено.':'Observation is stopped.',
+    source_unavailable:ru?'Проверка сделок временно остановлена.':'Trade checks are temporarily paused.',
+    reconciliation_required:ru?'Проверяем данные перед возобновлением.':'We’re checking the data before resuming.',
+    stopped:ru?'Проверка сделок остановлена.':'Trade checks have stopped.',
   } as Record<string,string>)[data.observation];
-  return <>
-    {observation&&<p className="web-meta mt-4">{observation}</p>}
-    {!data.events.length&&<p className="web-meta mt-4">{ru?'Пока нет событий.':'No activity yet.'}</p>}
+  return <div aria-busy={loading}>
+    <div className="web-demo-activity-toolbar">
+      <div className="web-demo-activity-status" role="status">
+        {observation&&<p>{observation}</p>}
+        {data.lastObservedAt&&<p className="web-meta">{ru?'Последняя проверка':'Last checked'}{' '}
+          <time dateTime={data.lastObservedAt}>{new Date(data.lastObservedAt).toLocaleString(ru?'ru-RU':'en-US',{dateStyle:'medium',timeStyle:'short'})}</time>
+        </p>}
+      </div>
+      <Button variant="secondary" disabled={loading} onClick={()=>{setSelectedPage(null);retry();}}>
+        {loading?t.loading:ru?'Обновить':'Refresh'}
+      </Button>
+    </div>
+    {!data.events.length&&<p className="web-meta mt-4">{data.observation==='observing'
+      ? (ru?'Ждём сделки трейдера. Здесь появится результат копирования.':'Waiting for trader activity. Copying results will appear here.')
+      : (ru?'Пока нет событий.':'No activity yet.')}</p>}
     {!!data.events.length&&<ul className="web-demo-rows">
       {[...data.events].reverse().map(event=>{
         const detail=event.detail?activityDetail[event.detail]:undefined;
@@ -265,9 +277,9 @@ function ActivityRows({session}:{session:CurrentSession}) {
     </ul>}
     {lastPage>0n&&<nav className="web-demo-pages" aria-label={ru?'Страницы активности':'Activity pages'}>
       {pageNumbers.map(number=><Button key={String(number)} variant="secondary" aria-current={page===number?'page':undefined}
-        disabled={page===number} onClick={()=>setSelectedPage(number)}>{String(number+1n)}</Button>)}
+        disabled={loading||page===number} onClick={()=>setSelectedPage(number)}>{String(number+1n)}</Button>)}
     </nav>}
-  </>;
+  </div>;
 }
 
 function SessionListPage({kind}:{kind:'positions'|'activity'}) {

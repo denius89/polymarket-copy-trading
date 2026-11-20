@@ -149,6 +149,7 @@ export interface DemoActivityPage {
   events: DemoEvent[];
   highWatermark: string;
   observation: string;
+  lastObservedAt: string | null;
 }
 
 function optionalText(value: unknown, format?: RegExp): string | null {
@@ -180,5 +181,7 @@ export function decodeDemoActivity(value: unknown, sessionId: string, afterSeque
       cashFee: copy ? amount(copy.cashFee) : null, quantity: copy ? amount(copy.quantityNet) : null,
     } satisfies DemoEvent;
   });
-  return {events, highWatermark, observation: text(object(response.observation).status)};
+  const observation = object(response.observation);
+  return {events, highWatermark, observation: text(observation.status),
+    lastObservedAt: observation.lastObservedAt == null ? null : time(observation.lastObservedAt)};
 }
