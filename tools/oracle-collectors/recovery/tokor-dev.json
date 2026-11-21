@@ -1,0 +1,62 @@
+{
+  "mode": "paper-development",
+  "venue": "polymarket",
+  "trader": "Tokor",
+  "publicWallet": "0xa19cbababc312f9df185e49d7004c249ed1ade6b",
+  "standardExchangeFeeEvidence": {
+    "block": 97709619,
+    "exchange": "0xe111180000d2663c0091e4f400237545b87b996b",
+    "floorFeeRaw": 9970,
+    "grossRaw": 4750000,
+    "market": "will-bitcoin-reach-67pt5k-in-november-2026",
+    "matchLogIndex": 269,
+    "nearestFeeRaw": 9980,
+    "observedFeeRaw": 9970,
+    "rate": "0.01",
+    "receiptSha256": "41ed6e544c8f2cb62a69e0ba7059519a4648fd6dc48edded27d63a8b8a9e2448",
+    "shape": "single complementary match",
+    "sharesRaw": 6012659,
+    "side": "BUY",
+    "transaction": "0xaca93fa7cd610fc2222358e4f09cb39fff845b72e83d0871e8ecca2cb492ccac"
+  },
+  "exampleSignal": {
+    "block": 97711106,
+    "blockTimestamp": 1795272128,
+    "condition": "0xf4b26504acded5826693ddbaff70c8c0a76f35065a5d5785fce565822c4804ba",
+    "grossRaw": 71030400,
+    "onChainFeeRaw": 0,
+    "price": "0.32",
+    "priceMatchesExactly": true,
+    "receiptSha256": "29cdd79055dcf9debcea92d3f4168c8d4a398b58a67e1f384159ae381551784a",
+    "role": "maker",
+    "sharesRaw": 221970000,
+    "side": "BUY",
+    "size": "221.97",
+    "transaction": "0xe555fec071843c8e0bd31703deab51d3420a8ff3b0e7fdac2925a8a4d144c4ed"
+  },
+  "isolatedReplay": {
+    "quoteOrigin": "synthetic-book-with-verified-tokor-market-and-fee",
+    "market": "Will the price of Bitcoin be above $62,000 on November 26?",
+    "outcome": "Yes",
+    "condition": "0xf4b26504acded5826693ddbaff70c8c0a76f35065a5d5785fce565822c4804ba",
+    "token": "123",
+    "quote": {
+      "price": {
+        "n": "8",
+        "d": "25"
+      },
+      "quantity": {
+        "n": "125",
+        "d": "4"
+      },
+      "cashFee": {
+        "n": "17",
+        "d": "250"
+      }
+    },
+    "afterDebit": {
+      "n": "47483",
+      "d": "250"
+    }
+  }
+}
