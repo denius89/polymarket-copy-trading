@@ -1,0 +1,49 @@
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -19 +19 @@
+-from resolver import Skip
++from resolver import Skip, sha
+@@ -82,0 +83,22 @@
++
++
++def trim_verified_empty_prefix(prepared, current):
++    """Reuse the original quote after the cursor passes only verified empty blocks."""
++    if prepared.cursor == current:
++        return prepared.envelope
++
++    mutable = {'checkpoint', 'lastOperationId', 'lastObservedAt'}
++    old_identity = {key: value for key, value in prepared.cursor.items() if key not in mutable}
++    current_identity = {key: value for key, value in current.items() if key not in mutable}
++    if current_identity != old_identity:
++        raise Skip('PERSONAL_CURSOR_ADVANCED')
++
++    request = prepared.envelope['request']
++    batch = request['ingest']
++    checkpoint = current['checkpoint']
++    block = int(checkpoint['number'])
++    prefix = next((index for index, header in enumerate(batch['headers'])
++                   if header['number'] == checkpoint['number'] and header['hash'] == checkpoint['hash']), None)
++    if (prefix is None or block >= int(batch['finalized']['number'])
++            or any(int(log['blockNumber']) <= block for log in batch['logs'])):
++        raise Skip('PERSONAL_CURSOR_ADVANCED')
+@@ -83,0 +106,4 @@
++    trimmed = dict(batch, previous=checkpoint, headers=batch['headers'][prefix+1:])
++    del trimmed['evidenceSha256']
++    trimmed['evidenceSha256'] = sha(trimmed)
++    return dict(prepared.envelope, request=dict(request, ingest=trimmed))
+@@ -84,0 +111 @@
++
+@@ -234,2 +261,2 @@
+-            if self.cursor(sid) != prepared.cursor:
+-                raise Skip('PERSONAL_CURSOR_ADVANCED')
++            before_issue = self.cursor(sid)
++            envelope_before_issue = trim_verified_empty_prefix(prepared, before_issue)
+@@ -247,2 +274 @@
+-                    if current != prepared.cursor:
+-                        raise ScopeRefusal('Personal writer cursor advanced during preparation')
++                    envelope = envelope_before_issue if current == before_issue else trim_verified_empty_prefix(prepared, current)
+@@ -250,2 +276,2 @@
+-                    ingested = result(call(db, INGEST, Jsonb(prepared.envelope)), 'Personal ingest refused')
+-                    operation = prepared.envelope['request']['ingest']
++                    ingested = result(call(db, INGEST, Jsonb(envelope)), 'Personal ingest refused')
++                    operation = envelope['request']['ingest']

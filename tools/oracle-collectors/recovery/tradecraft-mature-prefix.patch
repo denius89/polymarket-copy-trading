@@ -1,0 +1,44 @@
+--- a/personal_range.py
++++ b/personal_range.py
+@@ -134,3 +134,2 @@
+-            if quote:
+-                raise Skip('PERSONAL_RANGE_UNCLASSIFIED_BUY')
+-            # Only the canonical row and its own observation fence may close it.
++            # A previous BUY can accompany a quote only if its independent
++            # canonical observation has already satisfied the regular fence.
+@@ -138,0 +138,2 @@
++                if quote:
++                    raise Skip('PERSONAL_RANGE_UNCLASSIFIED_BUY')
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -246,2 +246,6 @@
+-        envelope = ingest_envelope(cursor, chain_range, command_id(scope.session_id, execution, 'ingest'),
+-                                   quote=quote, binding=binding, now_ms=utc_ms())
++        with self.decisions.lock:
++            observed_at = utc_ms()
++            envelope = ingest_envelope(
++                cursor, chain_range, command_id(scope.session_id, execution, 'ingest'),
++                quote=quote, binding=binding, now_ms=observed_at,
++                close_buy=lambda log: self.decisions.evidence(log, observed_at))
+@@ -249,0 +254,16 @@
++    def check_prior_buy_decisions(self, prepared):
++        request = prepared.envelope['request']
++        decisions = {(item['transactionHash'], item['logIndex']): item['evidence']
++                     for item in request['evaluations']}
++        now = utc_ms()
++        for log in request['ingest']['logs']:
++            if log['side'] != 'BUY':
++                continue
++            original = decisions.get((log['transactionHash'], log['logIndex']))
++            if not original or original['kind'] != 'skip' or original['reason'] == 'before_personal_activation':
++                continue
++            current = self.decisions.evidence(log, now)
++            if (not current or (current['reason'], current['evidenceSha256'])
++                    != (original['reason'], original['evidenceSha256'])):
++                raise Skip('PERSONAL_RANGE_UNCLASSIFIED_BUY')
++
+@@ -254 +274 @@
+-        with self.write_lock:
++        with self.write_lock, self.decisions.lock:
+@@ -260,0 +281 @@
++            self.check_prior_buy_decisions(prepared)
