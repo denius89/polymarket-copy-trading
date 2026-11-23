@@ -75,7 +75,9 @@ def connection_policy(policy, profile):
         raise ValueError("The service profile must be private")
     os.environ["PGSERVICEFILE"]=str(service_file)
     scoped=policy["writerServices"][profile["writerRole"]]
-    fields={"writer","issuer"} if profile["venue"]=="polymarket" else {"writer","discoveryBlock","allowNo"}
+    fields={"writer","issuer"} if profile["venue"]=="polymarket" else {
+        "writer","discoveryBlock","allowNo","checkpointFile"
+    }
     if set(scoped)!=fields:
         raise ValueError("Invalid scoped credential configuration")
     for key in ("writer","issuer"):
@@ -119,7 +121,9 @@ def polymarket(profile, address, scoped, amount, seconds, check):
 
 def limitless(profile, address, scoped, amount, seconds, check):
     from book_engine import q
+    from closed_limitless_checkpoint import Checkpoint
     from personal_limitless_worker import PersonalLimitless, PersonalScope, finalize_buys, run_limitless
+    from source import BASE_DISCOVERY_FALLBACK, RPC, rpc
 
     micros=amount*1_000_000
     if micros.denominator!=1 or micros<=0:
@@ -146,6 +150,11 @@ def limitless(profile, address, scoped, amount, seconds, check):
         [current] = database.execute(
             "SELECT polygon.closed_limitless_runtime_scope(%s::uuid)", (profile["sessionId"],)
         ).fetchone()
+    if not isinstance(current,dict) or not isinstance(current.get("activatedAt"),str):
+        raise ValueError("Limitless writer did not return its activation time")
+    started=datetime.fromisoformat(current.pop("activatedAt"))
+    if started.tzinfo is None:
+        raise ValueError("Limitless activation time requires a timezone")
     identity={key:profile[key] for key in ("sessionId","ownerId","traderRevisionId","settingsRevisionId","wallet","runId")}
     if current != identity | {"maxBuyDebitMicros":str(int(micros))}:
         raise ValueError("Limitless assignment differs from the financial profile")
@@ -153,9 +162,6 @@ def limitless(profile, address, scoped, amount, seconds, check):
     adapter=PersonalLimitless(scope,db,waiting)
     if adapter.pending():
         waiting.set()
-    ready("limitless")
-    if check:
-        return 0
     for signum in (signal.SIGINT,signal.SIGTERM):
         signal.signal(signum,lambda *_:stop.set())
 
@@ -163,16 +169,40 @@ def limitless(profile, address, scoped, amount, seconds, check):
         safe={key:entry[key] for key in ("stage","status","state","reason","scannedThrough") if key in entry}
         print(json.dumps(safe),flush=True)
 
-    with ThreadPoolExecutor(max_workers=2) as pool:
-        workers=(
-            pool.submit(run_limitless,adapter,scope.wallet,stop,monotonic()+seconds,report,
-                        buy_budget=q(amount),allow_no=allow_no,discovery_cursor=cursor),
-            pool.submit(finalize_buys,adapter,stop,report,stop_after_first=False),
-        )
-        finished,_=wait(workers,return_when=FIRST_COMPLETED)
-        stop.set()
-        for worker in finished:
-            worker.result()
+    def checkpoint_witness(method,*params):
+        # Base finality for funds continues to use the financial adapter's pair.
+        # Coverage is verified independently against two block-only providers.
+        with ThreadPoolExecutor(max_workers=2) as pool:
+            requests=[pool.submit(rpc,method,*params,endpoint=endpoint)
+                      for endpoint in (RPC[1],BASE_DISCOVERY_FALLBACK)]
+            return tuple(request.result() for request in requests)
+
+    progress=Checkpoint(Path(scoped["checkpointFile"]),identity,cursor,checkpoint_witness,report)
+    with progress.lock():
+        for attempt in range(4):
+            try:
+                cursor=progress.resume(persist_seed=not check)
+                break
+            except OSError:
+                if attempt==3 or stop.wait(4):
+                    raise
+                report({"stage":"limitless-checkpoint-witness","status":"waiting"})
+        ready("limitless")
+        if check:
+            return 0
+        with ThreadPoolExecutor(max_workers=3) as pool:
+            checkpoint_task=pool.submit(progress.maintain,stop)
+            workers=(
+                pool.submit(run_limitless,adapter,scope.wallet,stop,monotonic()+seconds,report,
+                            buy_budget=q(amount),allow_no=allow_no,discovery_cursor=cursor,
+                            discovery_hash=progress.digest,started_ms=int(started.timestamp()*1000),
+                            range_processed=progress.complete),
+                pool.submit(finalize_buys,adapter,stop,report,stop_after_first=False),
+            )
+            finished,_=wait((*workers,checkpoint_task),return_when=FIRST_COMPLETED)
+            stop.set()
+            for worker in (*finished,checkpoint_task):
+                worker.result()
     return 0
 
 

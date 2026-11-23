@@ -1,0 +1,181 @@
+--- a/collectors.py
++++ b/collectors.py
+@@ -218,14 +218,15 @@
+             book = gate.wait_candidate(window, recompute=True)
+ 
+ 
+-def run_limitless(adapter, wallet, stop, deadline, report, *, buy_budget=None, allow_no=False, discovery_cursor=None):
++def run_limitless(adapter, wallet, stop, deadline, report, *, buy_budget=None, allow_no=False,
++                  discovery_cursor=None, discovery_hash=None, started_ms=None, range_processed=None):
+     wallet = wallet.lower()
+     gate = LimitlessBookGate() if allow_no else BookGate()
+     books = Books(gate, deadline)
+     subscriptions = limitless.Subscriptions(books, allow_no=allow_no)
+     counters, seen = Counter(), {}
+-    detector = BaseDetection(wallet, report, cursor=discovery_cursor)
+-    started_ms = source.observe()[1]
++    detector = BaseDetection(wallet, report, cursor=discovery_cursor, cursor_hash=discovery_hash)
++    started_ms = source.observe()[1] if started_ms is None else started_ms
+     refresh = heartbeat = 0
+     try:
+         while not stop.is_set() and time.monotonic() < deadline:
+@@ -251,11 +252,7 @@
+                 stop.wait(5)
+                 continue
+             seen, counters = next_seen, next_counts
+-            detector.acknowledge()
+-            if time.monotonic() >= heartbeat:
+-                report({'stage':'limitless-monitor','head':head,'scannedThrough':detector.cursor,'seen':len(seen),
+-                        'source':dict(counters),'bookFrames':sum(books.frames.values())})
+-                heartbeat = time.monotonic()+60
++            low,high=detector.unread
+             for item in candidates:
+                 if stop.is_set() or time.monotonic() >= deadline:
+                     break
+@@ -267,6 +264,15 @@
+                     continue
+                 if result and result['status'] == 'recorded':
+                     report({'stage':'app-venue-admission','venue':'limitless','status':'recorded'})
++            else:
++                if not stop.is_set():
++                    detector.acknowledge()
++                    if range_processed is not None:
++                        range_processed(low,high,detector.cursor_hash)
++                    if time.monotonic() >= heartbeat:
++                        report({'stage':'limitless-monitor','head':head,'scannedThrough':detector.cursor,'seen':len(seen),
++                                'source':dict(counters),'bookFrames':sum(books.frames.values())})
++                        heartbeat = time.monotonic()+60
+             stop.wait(limitless.POLL_S)
+     finally:
+         books.close()
+--- a/limitless_base_detection.py
++++ b/limitless_base_detection.py
+@@ -1,5 +1,6 @@
+ """Bounded public Base discovery. Admission and finality keep their own witness pair."""
+ from email.utils import parsedate_to_datetime
++import re
+ import time
+ from urllib.error import HTTPError
+ from urllib.parse import urlparse
+@@ -9,6 +10,7 @@
+ 
+ ENDPOINTS = (source.RPC[0], source.BASE_DISCOVERY_FALLBACK)
+ BATCH_SIZE = 16
++CATCHUP_BATCH_SIZE = 128
+ 
+ 
+ def cooldown(error):
+@@ -29,15 +31,23 @@
+     return 5
+ 
+ 
++class BaseBranchChanged(RuntimeError):
++    pass
++
++
+ class BaseDetection:
+-    def __init__(self, wallet, report, *, cursor=None):
++    def __init__(self, wallet, report, *, cursor=None, cursor_hash=None):
+         self.wallet = wallet
+         self.report = report
+         self.cursor = cursor
++        self.cursor_hash = cursor_hash
++        self.range_hash = None
++        self.catchup_batch = CATCHUP_BATCH_SIZE if cursor_hash is not None else BATCH_SIZE
+         self.unread = None
+         self.available_at = {}
+ 
+     def scan(self):
++        large_range_refused = False
+         for endpoint in ENDPOINTS:
+             if time.monotonic() < self.available_at.get(endpoint, 0):
+                 continue
+@@ -54,19 +64,49 @@
+                         self.unread = max(0, head - BATCH_SIZE + 1), head
+                     else:
+                         low = self.cursor + 1
+-                        self.unread = low, low + BATCH_SIZE - 1
++                        self.unread = low, min(head, low + self.catchup_batch - 1)
+                 low, high = self.unread
+                 # Some providers return only the portion below their head. Never
+                 # accept an empty or truncated response when the peer is behind.
+                 if head < high:
+                     raise ValueError('Base provider has not reached the unread range')
++                if self.cursor_hash is not None:
++                    previous = source.rpc('eth_getBlockByNumber',hex(self.cursor),False,endpoint=endpoint)
++                    if previous.get('hash') != self.cursor_hash:
++                        raise BaseBranchChanged('Base no longer agrees with the last processed range')
++                    first = reply if high == head else source.rpc('eth_getBlockByNumber',hex(high),False,endpoint=endpoint)
+                 method = 'eth_getLogs'
+                 logs = base_logs(low, high, (self.wallet,), endpoint=endpoint)
+                 if not isinstance(logs, list) or not all(
+                     low <= int(row['blockNumber'], 16) <= high for row in logs
+                 ):
+                     raise ValueError('Base provider returned logs outside the unread range')
++                if self.cursor_hash is not None:
++                    method = 'eth_getBlockByNumber'
++                    last = source.rpc(method,hex(high),False,endpoint=endpoint)
++                    digest = last.get('hash')
++                    if (int(first['number'],16)!=high or int(last['number'],16)!=high
++                            or first.get('hash')!=digest or not re.fullmatch(r'0x[0-9a-f]{64}',digest or '')):
++                        raise BaseBranchChanged('Base changed during the discovered range')
++                    verified = {high:digest}
++                    for row in logs:
++                        number = int(row['blockNumber'],16)
++                        if number not in verified:
++                            block = source.rpc(method,hex(number),False,endpoint=endpoint)
++                            if int(block['number'],16)!=number:
++                                raise ValueError('Base provider returned the wrong log block')
++                            verified[number]=block.get('hash')
++                        if row.get('blockHash')!=verified[number]:
++                            raise BaseBranchChanged('A Base log differs from its canonical block')
++                    # An overlap cannot join two different Base branches.
++                    previous = source.rpc(method,hex(self.cursor),False,endpoint=endpoint)
++                    if previous.get('hash')!=self.cursor_hash:
++                        raise BaseBranchChanged('Base continuity changed during discovery')
++                    self.range_hash=digest
+             except (OSError, ValueError, KeyError, TypeError, ArithmeticError) as error:
++                if method == 'eth_getLogs' and (isinstance(error, ValueError)
++                        or (isinstance(error, HTTPError) and error.code == 413)):
++                    large_range_refused = True
+                 delay = cooldown(error)
+                 self.available_at[endpoint] = time.monotonic() + delay
+                 self.report({
+@@ -76,9 +116,16 @@
+                 })
+                 continue
+             return head, logs
++        if large_range_refused and self.unread is not None:
++            low,high = self.unread
++            width = high-low+1
++            if width>BATCH_SIZE:
++                self.catchup_batch = max(BATCH_SIZE,width//2)
++                self.unread = low,low+self.catchup_batch-1
+         return None
+ 
+     def acknowledge(self):
+         # Acknowledge only after normalization of the complete detected range.
+         self.cursor = self.unread[1]
++        self.cursor_hash = self.range_hash
+         self.unread = None
+--- a/source.py
++++ b/source.py
+@@ -7,6 +7,7 @@
+ import hashlib
+ import json
+ import os
++import re
+ import select
+ import socket
+ import ssl
+@@ -205,7 +206,9 @@
+ 
+ def rpc(method, *params, endpoint=RPC[0]):
+     discovery = endpoint == BASE_DISCOVERY_FALLBACK and (
+-        method == 'eth_getLogs' or (method == 'eth_getBlockByNumber' and params == ('latest', False))
++        method == 'eth_getLogs' or (method == 'eth_getBlockByNumber' and len(params)==2
++            and params[1] is False and isinstance(params[0],str)
++            and (params[0] in ('latest','finalized') or re.fullmatch(r'0x[0-9a-f]{1,14}',params[0])))
+     )
+     if method not in {'eth_getBlockByNumber', 'eth_getLogs', 'eth_getTransactionReceipt'} or (endpoint not in RPC and not discovery):
+         raise ValueError('unsupported RPC operation')
