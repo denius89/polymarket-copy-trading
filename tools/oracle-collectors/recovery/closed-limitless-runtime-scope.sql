@@ -13,7 +13,7 @@ BEGIN
 END
 $gate$;
 
-CREATE FUNCTION polygon.closed_limitless_runtime_scope(p_session uuid)
+CREATE OR REPLACE FUNCTION polygon.closed_limitless_runtime_scope(p_session uuid)
 RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path=pg_catalog AS $scope$
 DECLARE
     binding limitless_buy.bindings;
@@ -24,6 +24,7 @@ BEGIN
     SELECT jsonb_build_object(
       'sessionId',s.id,'ownerId',s.user_id,'traderRevisionId',s.trader_revision_id,
       'settingsRevisionId',binding.settings_id,'wallet',binding.wallet,'maxBuyDebitMicros',binding.buy_cap::text,
+      'activatedAt',s.started_at,
       'runId',i.operator_run_id
     ) INTO result
     FROM polygon.paper_sessions s
