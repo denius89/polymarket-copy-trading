@@ -1,0 +1,54 @@
+--- a/apps/api/src/live-buy/reader.ts
++++ b/apps/api/src/live-buy/reader.ts
+@@ -56,6 +56,27 @@
+   let a=BigInt(x.n as string),b=BigInt(x.d as string);while(b){const c=a%b;a=b;b=c;}if(a!==1n)bad();
+   return x as {n:string;d:string};
+ };
++function attachPositionLabels(positions:CoreState['positions'], labels:unknown) {
++  if(labels===undefined)return positions;
++  if(!Array.isArray(labels)||labels.length>positions.length)bad();
++  const key=(position:{conditionId:string;tokenId:string})=>JSON.stringify([position.conditionId,position.tokenId]);
++  const positionKeys=new Set(positions.map(key));
++  const matched=new Map<string,{marketTitle:string;outcome:string}>();
++  for(const raw of labels as unknown[]){
++    const label=exactObject(raw,['conditionId','tokenId','marketTitle','outcome']);
++    if(typeof label.conditionId!=='string'||typeof label.tokenId!=='string'||
++      typeof label.marketTitle!=='string'||!label.marketTitle.trim()||label.marketTitle.length>2048||/\p{Cc}/u.test(label.marketTitle)||
++      typeof label.outcome!=='string'||!label.outcome.trim()||label.outcome.length>256||/\p{Cc}/u.test(label.outcome))bad();
++    const id=key({conditionId:label.conditionId as string,tokenId:label.tokenId as string});
++    if(!positionKeys.has(id)||matched.has(id))bad();
++    matched.set(id,{marketTitle:label.marketTitle as string,outcome:label.outcome as string});
++  }
++  return positions.map(position=>{
++    const label=matched.get(key(position));
++    return label?{...position,...label}:position;
++  });
++}
++
+ export function decodeBuySessionReply(value:unknown,expectedId:string|null):Record<string,any>|null {
+   try{
+     if(value&&typeof value==='object'&&Object.hasOwn(value,'buyState')){
+@@ -64,9 +85,11 @@
+         (v.sessionId!==null&&!uuid(v.sessionId))||(expectedId!==null&&v.sessionId!==expectedId))bad();
+       return null;
+     }
+-    const v=exactObject(value,['http','schemaVersion','sessionId','sessionVersion','snapshotId','snapshotVersion','ledgerSequence','asOf','ianaTimezone','financial','valuation','context','dailyContext']);
++    const keys=['http','schemaVersion','sessionId','sessionVersion','snapshotId','snapshotVersion','ledgerSequence','asOf','ianaTimezone','financial','valuation','context','dailyContext'];
++    if(value&&typeof value==='object'&&Object.hasOwn(value,'positionLabels'))keys.push('positionLabels');
++    const v=exactObject(value,keys);
+     if(v.http!==200)bad();
+-    const {http,context,dailyContext,...pointer}=v;
++    const {http,context,dailyContext,positionLabels,...pointer}=v;
+     const financial=decodeFinancialPointer(pointer,expectedId);
+     const c=decodeLiveBuyContext(context,financial.sessionId),summary=c.summary;
+     if(summary.updatedAt!==financial.asOf)bad();
+@@ -88,7 +111,8 @@
+     const accounted=addQ(addQ(financial.financial.cash,cost),financial.financial.cashExpenses);
+     if(totals ? !sameQ(addQ(accounted,totals.costReleased),addQ(c.settings.budget,totals.payout))
+               : !sameQ(accounted,c.settings.budget))bad();
+-    return {...financial,context:c,dailyContext:day};
++    const positions=attachPositionLabels(financial.financial.positions,positionLabels);
++    return {...financial,financial:{...financial.financial,positions},context:c,dailyContext:day};
+   }catch{throw new StorageRecordUnavailable();}
+ }
+ export async function readCurrentFinancial(tx:PolygonTransaction,auth:TrustedUserProof,sessionId:string|null):Promise<Record<string,any>>{
