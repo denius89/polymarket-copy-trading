@@ -1,0 +1,78 @@
+--- a/personal_worker.py
++++ b/personal_worker.py
+@@ -234,7 +234,7 @@
+         stop.wait(1 if catchup else 2)
+ 
+ 
+-def run(args):
++def run(args, on_ready=lambda: None):
+     stop = Event()
+     window = CopyWindow(args.until, stop) if args.until is not None else None
+     if args.closed_configured_wallet and args.seconds is not None:
+@@ -245,6 +245,7 @@
+     config = private_config(args.config, closed=args.closed_configured_wallet)
+     if args.closed_configured_wallet:
+         transport = ClosedPgTransport(BoundedRPC(), config, window)
++        transport.require_activation_anchor = getattr(args, 'require_activation_anchor', False)
+     else:
+         transport = PgTransport(BoundedRPC(), config['writerService'], config['issuerService'], window)
+     for name in (signal.SIGINT, signal.SIGTERM):
+@@ -254,11 +255,11 @@
+             cursor = transport.cursor(config['sessionId'], starting=True)
+             break
+         except Skip as error:
+-            if (window is None or args.check or args.lookup
++            if (window is None or args.lookup
+                     or error.reason not in ('PERSONAL_SCOPE_READ_BUSY', 'PERSONAL_SCOPE_READ_TIMEOUT')):
+                 raise
+             report({'stage': 'personal-scope-preflight', 'status': 'waiting', 'reason': error.reason})
+-            if stop.wait(5) or window.remaining() <= WRITE_DRAIN_SECONDS:
++            if stop.wait(.3 if args.check else 5) or window.remaining() <= WRITE_DRAIN_SECONDS:
+                 return 4
+     scope = bound_scope(config, cursor, closed=args.closed_configured_wallet)
+     wallet, budget = scope.wallet, scope.fixed_budget
+@@ -275,6 +276,7 @@
+         report({'stage': 'personal-scope-preflight', 'status': 'blocked_historical_gap'})
+         return 4
+     if args.check:
++        on_ready()
+         report({'stage': 'personal-scope-preflight', 'status': 'pass'})
+         return 0
+     lock_path = args.config.parent / (scope.session_id + '.worker.lock')
+@@ -282,11 +284,13 @@
+         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+         deadline = window.deadline if window is not None else monotonic() + args.seconds
+         adapter = SessionCollectorAdapter(scope, transport)
++        on_ready()
+         failures = []
+         worker_stages = ('taker-source', 'maker-source', 'finalized-range')
+         def report_trial(item):
+             report(item)
+-            if (args.closed_configured_wallet and item.get('stage') == 'app-venue-admission'
++            if (args.closed_configured_wallet and getattr(args, 'stop_after_first', True)
++                    and item.get('stage') == 'app-venue-admission'
+                     and item.get('status') == 'recorded'):
+                 stop.set()
+ 
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -68,6 +68,10 @@
+ def read_call(db, query, *parameters):
+     try:
+         return call(db, query, *parameters)
++    except SerializationFailure as error:
++        if error.sqlstate == error.diag.sqlstate == '40001':
++            raise Skip('PERSONAL_SCOPE_READ_BUSY') from None
++        raise
+     except LockNotAvailable as error:
+         if error.sqlstate == error.diag.sqlstate == '55P03':
+             raise Skip('PERSONAL_SCOPE_READ_BUSY') from None
+@@ -152,7 +156,7 @@
+         if cursor['status'] != 'observing':
+             raise ScopeRefusal('Personal stream is not observing')
+         start = cursor['personalStart']
+-        if scope.wallet == '0xa19cbababc312f9df185e49d7004c249ed1ade6b':
++        if getattr(self, 'require_activation_anchor', False) or scope.wallet == '0xa19cbababc312f9df185e49d7004c249ed1ade6b':
+             if (not isinstance(start, dict) or set(start) != {'chainId', 'number', 'hash', 'evidenceSha256'}
+                     or start['chainId'] != 137 or not re.fullmatch(r'0|[1-9][0-9]{0,18}', start['number'])
+                     or not re.fullmatch(r'0x[0-9a-f]{64}', start['hash'])
