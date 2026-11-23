@@ -9,7 +9,7 @@ from time import monotonic
 from uuid import UUID, uuid4, uuid5
 
 from psycopg import OperationalError, connect
-from psycopg.errors import QueryCanceled
+from psycopg.errors import QueryCanceled, SerializationFailure
 from psycopg.types.json import Jsonb
 
 from guarded_source import ScopeRefusal, exact
@@ -122,9 +122,19 @@ class PgTransport:
                     raise Skip('PERSONAL_WINDOW_CLOSING')
             yield db
 
+    def read(self, query, *parameters):
+        for attempt in range(2):
+            try:
+                with self.connection(self.writer) as db:
+                    return call(db, query, *parameters)
+            except SerializationFailure as error:
+                if error.sqlstate != '40001' or error.diag.sqlstate != '40001':
+                    raise
+                if attempt:
+                    raise Skip('PERSONAL_BUY_READ_SERIALIZATION_ROLLBACK') from None
+
     def cursor(self, session):
-        with self.connection(self.writer) as db:
-            return result(call(db, READ_SCOPE, session), 'Personal cursor refused')
+        return result(self.read(READ_SCOPE, session), 'Personal cursor refused')
 
     def scoped(self, scope, cursor):
         if (cursor['sessionId'], cursor['streamId'], cursor['settingsId'], cursor['wallet'],
@@ -144,8 +154,7 @@ class PgTransport:
             raise ScopeRefusal('Unexpected personal activation boundary')
 
     def lookup(self, scope, event):
-        with self.connection(self.writer) as db:
-            reply = call(db, LOOKUP, scope.session_id, event['executionId'])
+        reply = self.read(LOOKUP, scope.session_id, event['executionId'])
         if reply == {'http': 202, 'status': 'unknown'}:
             return None
         return self.receipt(result(reply, 'Personal lookup refused'), scope.session_id)
