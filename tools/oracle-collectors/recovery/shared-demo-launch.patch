@@ -1,0 +1,182 @@
+diff --git a/src/App.tsx b/src/App.tsx
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -12,7 +12,7 @@
+ import type {BuySession} from './buySession';
+ import './buy-financial.css';
+ import {CatalogTabs, PublicTraderCatalog} from './PublicTraderCatalog';
+-import {demoEntryPath,isPaperLaunchTarget,isPersonalLimitlessTarget,personalLimitlessEnabled,personalLimitlessProfile,personalDemoEnabled,personalDemoTraders,readRealTraderTarget,realTraderPaperPath,realTraderProfilePath} from './paperTraderRoute';
++import {demoEntryPath,isPaperLaunchTarget,isPersonalLimitlessTarget,normalizeTraderAddress,personalLimitlessEnabled,personalLimitlessProfile,personalDemoEnabled,personalDemoTraders,readRealTraderTarget,realTraderPaperPath,realTraderProfilePath} from './paperTraderRoute';
+ 
+ type SessionValue={locale:Locale;setLocale:(l:Locale)=>void;loggedIn:boolean;setLoggedIn:(b:boolean)=>void};
+ const Session=createContext<SessionValue>(null!);
+@@ -380,6 +380,7 @@
+   const requested = readRealTraderTarget(params);
+   const target = requested && isPaperLaunchTarget(requested.venue,requested.externalTraderId) ? requested : null;
+   const fromProfile=params.get('from')==='profile';
++  const profileAddress=fromProfile?normalizeTraderAddress(params.get('fromAddress')??''):null;
+   const venue = target?.venue, externalTraderId = target?.externalTraderId;
+   const [error,setError] = useState<unknown>(null);
+   const [attempt,setAttempt] = useState(0);
+@@ -406,7 +407,7 @@
+ 
+   const back = target
+     ? fromProfile||!personalDemoEnabled
+-      ? realTraderProfilePath(target.venue,target.externalTraderId)
++      ? realTraderProfilePath(target.venue,profileAddress??target.externalTraderId)
+       : demoCatalogPath(target.venue)
+     : personalDemoEnabled?demoEntryPath:'/traders';
+   return <Frame narrow title={locale==='ru'?'Демо-копирование':'Demo copying'}>
+@@ -421,7 +422,7 @@
+               <div className="flex flex-wrap items-center justify-between gap-3">
+                 <span>{locale==='ru'?'Войдите, чтобы настроить демо для выбранного трейдера.':'Sign in to set up a demo for the selected trader.'}</span>
+                 <Link to="/login" replace className="ui-btn ui-btn-secondary" onClick={()=>sessionStorage.setItem(
+-                  'shadow.afterLogin',realTraderPaperPath(target.venue,target.externalTraderId,fromProfile))}>{t.login}</Link>
++                  'shadow.afterLogin',realTraderPaperPath(target.venue,target.externalTraderId,fromProfile,profileAddress))}>{t.login}</Link>
+               </div>
+             </Notice>
+           : error
+diff --git a/src/PublicDemoLaunch.tsx b/src/PublicDemoLaunch.tsx
+new file mode 100644
+--- /dev/null
++++ b/src/PublicDemoLaunch.tsx
+@@ -0,0 +1,14 @@
++import {Link} from 'react-router-dom';
++import type {Locale,VenueCode} from './api';
++import {isPaperLaunchTarget,normalizeTraderAddress,realTraderPaperPath} from './paperTraderRoute';
++
++export function PublicDemoLaunch({locale,venue,address,profileAddress,className}:{
++  locale:Locale;venue:VenueCode;address:string;profileAddress?:string;className?:string;
++}) {
++  const canonical=normalizeTraderAddress(address);
++  if(!canonical||!isPaperLaunchTarget(venue,canonical))return null;
++  return <Link className={`ui-btn ui-btn-primary${className?' '+className:''}`}
++    to={realTraderPaperPath(venue,canonical,true,profileAddress)}>
++    {locale==='ru'?'Попробовать в демо':'Try in demo'}
++  </Link>;
++}
+diff --git a/src/PublicTraderAddress.tsx b/src/PublicTraderAddress.tsx
+--- a/src/PublicTraderAddress.tsx
++++ b/src/PublicTraderAddress.tsx
+@@ -2,12 +2,8 @@
+ import {Button, Card, Notice, UserRound} from '@cct/ui';
+ import {Link} from 'react-router-dom';
+ import {ApiError, api, type Locale, type VenueCode} from './api';
+-import {isPaperLaunchTarget, realTraderPaperPath, realTraderProfilePath} from './paperTraderRoute';
+-
+-const normalizedAddress = (text:string) => {
+-  const address=text.trim();
+-  return /^0x[0-9a-f]{40}$/i.test(address) ? address.toLowerCase() : null;
+-};
++import {PublicDemoLaunch} from './PublicDemoLaunch';
++import {isPaperLaunchTarget, normalizeTraderAddress, realTraderProfilePath} from './paperTraderRoute';
+ 
+ export function TraderAddressSearch({locale,onSearch}:{locale:Locale;onSearch:(address:string)=>void}) {
+   const ru=locale==='ru';
+@@ -15,7 +11,7 @@
+   const [invalid,setInvalid]=useState(false);
+   function search(event:React.FormEvent<HTMLFormElement>) {
+     event.preventDefault();
+-    const canonical=normalizedAddress(address);
++    const canonical=normalizeTraderAddress(address);
+     setInvalid(!canonical);
+     if(canonical)onSearch(canonical);
+   }
+@@ -48,7 +44,7 @@
+   const p=data?.profile;
+   if(data?.schemaVersion!=='public-trader-address-v1'||!p||p.venueCode!==venueCode||
+     p.requestedAddress!==address||typeof p.externalTraderId!=='string'||
+-    normalizedAddress(p.externalTraderId)!==p.externalTraderId||
++    normalizeTraderAddress(p.externalTraderId)!==p.externalTraderId||
+     (p.displayName!==null&&typeof p.displayName!=='string')||
+     (p.lastTradeAt!==null&&(typeof p.lastTradeAt!=='string'||!Number.isFinite(Date.parse(p.lastTradeAt))))) {
+     throw new ApiError(502,'INVALID_TRADER_RESPONSE');
+@@ -62,7 +58,7 @@
+   locale:Locale;venue:VenueCode;address:string;loggedIn:boolean;
+ }) {
+   const ru=locale==='ru';
+-  const canonical=normalizedAddress(address);
++  const canonical=normalizeTraderAddress(address);
+   const [lookup,setLookup]=useState<Lookup|null>(null);
+   const [attempt,setAttempt]=useState(0);
+   useEffect(()=>{
+@@ -91,9 +87,7 @@
+   if(!lookup)return <p role="status" className="web-meta">{ru?'Ищем трейдера…':'Looking up trader…'}</p>;
+   const linkedAddress=lookup.kind==='found'?lookup.profile.externalTraderId:canonical;
+   const demo=isPaperLaunchTarget(venue,linkedAddress)
+-    ? <Link className="ui-btn ui-btn-primary" to={realTraderPaperPath(venue,linkedAddress,true)}>
+-        {ru?'Попробовать в демо':'Try in demo'}
+-      </Link> : null;
++    ? <PublicDemoLaunch locale={locale} venue={venue} address={linkedAddress} profileAddress={canonical}/> : null;
+   if(lookup.kind==='missing')return <Notice>
+     {ru?'Площадка пока не вернула данные по этому адресу.':'The venue returned no data for this address.'} {demo}
+   </Notice>;
+diff --git a/src/PublicTraderCatalog.tsx b/src/PublicTraderCatalog.tsx
+--- a/src/PublicTraderCatalog.tsx
++++ b/src/PublicTraderCatalog.tsx
+@@ -1,8 +1,8 @@
+ import React, {useEffect, useState} from 'react';
+ import {ArrowLeft, ArrowRight, Button, Card, Notice, Segmented, UserRound} from '@cct/ui';
+-import {Link,useSearchParams} from 'react-router-dom';
++import {useSearchParams} from 'react-router-dom';
+ import type {Locale, VenueCode} from './api';
+-import {isPaperLaunchTarget,realTraderPaperPath} from './paperTraderRoute';
++import {PublicDemoLaunch} from './PublicDemoLaunch';
+ import {marketTitle, outcomeLabel, statusLabel} from './positionLabels';
+ 
+ import {MarketHeading,type MarketCategory} from './MarketHeading';
+@@ -334,8 +334,7 @@
+             <h1 className="web-page-title">{selected.name}</h1>
+             <p className="web-meta">{venueName}</p>
+           </div>
+-          {isPaperLaunchTarget(venue,selected.address) && <Link className="ui-btn ui-btn-primary web-real-demo-action"
+-            to={realTraderPaperPath(venue,selected.address,true)}>{tx('Попробовать в демо','Try in demo')}</Link>}
++          <PublicDemoLaunch locale={locale} venue={venue} address={selected.address} className="web-real-demo-action"/>
+         </div>
+         <div className="web-profile-summary">
+           <dl className="web-profile-key-stats">
+diff --git a/src/paperTraderRoute.ts b/src/paperTraderRoute.ts
+--- a/src/paperTraderRoute.ts
++++ b/src/paperTraderRoute.ts
+@@ -33,7 +33,14 @@
+   {address:activePolymarketDemoProfile.externalTraderId, name:activePolymarketDemoProfile.displayName},
+ ] : [];
+ 
+-export function isPaperLaunchTarget(venue:VenueCode, address:string) {
++export function normalizeTraderAddress(text:string) {
++  const address=text.trim();
++  return /^0x[0-9a-f]{40}$/i.test(address) ? address.toLowerCase() : null;
++}
++
++export function isPaperLaunchTarget(venue:VenueCode, rawAddress:string) {
++  const address=normalizeTraderAddress(rawAddress);
++  if(!address)return false;
+   return isPersonalLimitlessTarget(venue,address) || (
+     realTraderPaperEnabled && venue==='polymarket' &&
+     (address===pilotAddress || personalDemoTraders.some(trader=>trader.address===address))
+@@ -44,16 +51,21 @@
+   return '/traders?' + new URLSearchParams({venue,profile:externalTraderId});
+ }
+ 
+-export function realTraderPaperPath(venue:VenueCode, externalTraderId:string, fromProfile=false) {
++export function realTraderPaperPath(venue:VenueCode, externalTraderId:string, fromProfile=false, profileAddress?:string|null) {
+   const params=new URLSearchParams({venue,profile:externalTraderId});
+-  if(fromProfile)params.set('from','profile');
++  if(fromProfile){
++    params.set('from','profile');
++    const address=profileAddress&&normalizeTraderAddress(profileAddress);
++    if(address&&address!==externalTraderId)params.set('fromAddress',address);
++  }
+   return '/demo/trader?' + params;
+ }
+ 
+ export function readRealTraderTarget(params:URLSearchParams):{venue:VenueCode;externalTraderId:string}|null {
+   const venue = params.get('venue');
+-  const externalTraderId = params.get('profile');
+-  if ((venue !== 'polymarket' && venue !== 'limitless') || !externalTraderId?.trim()) return null;
++  const externalTraderId = normalizeTraderAddress(params.get('profile')??'');
++  if ((venue !== 'polymarket' && venue !== 'limitless') || !externalTraderId ||
++      params.getAll('venue').length!==1 || params.getAll('profile').length!==1) return null;
+   return {venue,externalTraderId};
+ }
+ 
