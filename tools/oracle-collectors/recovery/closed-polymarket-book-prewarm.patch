@@ -1,0 +1,208 @@
+diff --git a/collectors.py b/collectors.py
+index 9ceb7f0..8cb95e0 100644
+--- a/collectors.py
++++ b/collectors.py
+@@ -59,6 +59,8 @@ class PolymarketWriter:
+ def run_polymarket(adapter, wallet, stop, deadline, report, *, buy_budget=polymarket.BUY_BUDGET, start_ms=0, discovery='rtds'):
+     if discovery not in {'rtds','rtds+data','data'}:
+         raise ValueError('Unsupported Polymarket discovery mode')
++    from maker_collector import warm_book_targets
++
+     gate, counts = HybridBookGate(), Counter()
+     books = polymarket.ActiveBook(gate, deadline)
+     registry, queue = polymarket.Registry(), adapter.source_queue(maxsize=12)
+@@ -75,6 +77,10 @@ def run_polymarket(adapter, wallet, stop, deadline, report, *, buy_budget=polyma
+                                kwargs={'taker_only':True},daemon=True))
+     for reader in readers:
+         reader.start()
++    targets = Queue(maxsize=1)
++    warmer = threading.Thread(
++        target=warm_book_targets, args=(wallet.lower(), halt, deadline, targets), daemon=True)
++    warmer.start()
+     rpc = polymarket.BoundedRPC()
+     heartbeat = 0
+     try:
+@@ -87,6 +93,11 @@ def run_polymarket(adapter, wallet, stop, deadline, report, *, buy_budget=polyma
+             except Empty:
+                 if not any(reader.is_alive() for reader in readers) and time.monotonic() < deadline:
+                     raise RuntimeError('Polymarket public stream stopped')
++                try:
++                    target = targets.get_nowait()
++                except Empty:
++                    continue
++                books.prepare(target)
+                 continue
+             try:
+                 if captured.source_ms < armed_ms:
+@@ -106,6 +117,7 @@ def run_polymarket(adapter, wallet, stop, deadline, report, *, buy_budget=polyma
+         halt.set()
+         for reader in readers:
+             reader.join(timeout=5)
++        warmer.join(timeout=3)
+         books.close()
+         if any(reader.is_alive() for reader in readers):
+             raise RuntimeError('Polymarket reader did not stop')
+diff --git a/maker_collector.py b/maker_collector.py
+index 61752ae..14fa397 100644
+--- a/maker_collector.py
++++ b/maker_collector.py
+@@ -180,6 +180,44 @@ def fee_for_copy(resolved, policy, exchange):
+     verify_observed_fee(resolved,policy,exchange)
+
+
++def discover_book_target(wallet):
++    """Use recent buys only to choose a WebSocket subscription."""
++    raw, _, _ = fetch_page(wallet, int(time.time()) - 86400, None)
++    rows, _ = document_rows(raw)
++    used = set()
++    for row, _ in rows:
++        if str(row.get('proxy_wallet', '')).lower() != wallet or row.get('side') != 'BUY':
++            continue
++        slug = row.get('slug')
++        if not isinstance(slug, str) or not poly.SLUG.fullmatch(slug) or slug in used:
++            continue
++        try:
++            market = source.Market('polymarket', row['condition_id'], row['token_id'], wallet, slug)
++        except (KeyError, TypeError, ValueError, AttributeError):
++            continue
++        used.add(slug)
++        details = source.json_read(f'{source.POLY_MARKETS}/markets?' + urlencode({'slug': slug}))
++        for detail in details:
++            if (detail.get('slug') == slug and detail.get('conditionId') == market.market
++                    and detail.get('acceptingOrders') is True and detail.get('active') is True
++                    and detail.get('closed') is False and market.token in json.loads(detail['clobTokenIds'])):
++                return market
++        if len(used) == 4:
++            break
++    return None
++
++
++def warm_book_targets(wallet, halt, deadline, targets):
++    while not halt.is_set() and time.monotonic() < deadline:
++        try:
++            market = discover_book_target(wallet)
++            if market is not None:
++                targets.put_nowait(market)
++        except (KeyError, ValueError, TypeError, OSError, Full):
++            pass
++        halt.wait(min(90, max(0, deadline - time.monotonic())))
++
++
+ def run_makers(adapter, wallet, stop, deadline, report, *, buy_budget=poly.BUY_BUDGET, start_ms=0):
+     from maker_resolver import MakerResolver
+     import maker_provenance
+@@ -193,6 +231,9 @@ def run_makers(adapter, wallet, stop, deadline, report, *, buy_budget=poly.BUY_B
+     armed_ms=max(start_ms, source.observe()[1])
+     reader=threading.Thread(target=read_makers,args=(wallet,queue,halt,deadline,armed_ms,registry,counts),daemon=True)
+     reader.start()
++    targets = Queue(maxsize=1)
++    warmer = threading.Thread(target=warm_book_targets, args=(wallet, halt, deadline, targets), daemon=True)
++    warmer.start()
+     rpc=poly.BoundedRPC()
+     heartbeat=0
+     try:
+@@ -205,6 +246,11 @@ def run_makers(adapter, wallet, stop, deadline, report, *, buy_budget=poly.BUY_B
+             except Empty:
+                 if not reader.is_alive() and time.monotonic()<deadline:
+                     raise RuntimeError('public maker reader stopped')
++                try:
++                    target = targets.get_nowait()
++                except Empty:
++                    continue
++                books.prepare(target)
+                 continue
+             try:
+                 if poly.remaining(captured)<=0:
+@@ -246,5 +292,6 @@ def run_makers(adapter, wallet, stop, deadline, report, *, buy_budget=poly.BUY_B
+     finally:
+         halt.set()
+         reader.join(timeout=6)
++        warmer.join(timeout=3)
+         books.close()
+         if reader.is_alive():raise RuntimeError('public maker reader did not stop')
+diff --git a/rtds_operator.py b/rtds_operator.py
+index 2edaf57..680abb1 100644
+--- a/rtds_operator.py
++++ b/rtds_operator.py
+@@ -231,37 +231,61 @@ class ActiveBook:
+     def __init__(self, gate, deadline):
+         self.gate, self.deadline = gate, deadline
+         self.worker = self.stop = self.key = None
++        self.generation = None
++        self.attached_ns = 0
++        self.connected = False
++        self.lock = threading.Lock()
+         self.frames = self.errors = 0
+
+-    def follow(self, market, policy, baseline):
+-        generation = self.gate.configure(market, policy, baseline)
+-        key = market.market, market.token, generation
+-        if key == self.key and self.worker and self.worker.is_alive():
+-            return
++    def prepare(self, market):
++        """Open the transport. Only follow() can attach it to a verified policy."""
++        key = market.market, market.token
++        with self.lock:
++            if key == self.key and self.connected and self.worker and self.worker.is_alive():
++                return
+         self.close()
+         self.key = key
+-        self.stop = threading.Event()
++        stop = self.stop = threading.Event()
++        self.connected = True
+
+         def feed(frame):
+             received = self.gate.clock(), self.gate.utc()
+-            self.gate.publish(frame, generation, 'WS', received=received)
+-            self.frames += 1
++            with self.lock:
++                if self.generation is not None and received[0] >= self.attached_ns:
++                    self.gate.publish(frame, self.generation, 'WS', received=received)
++                    self.frames += 1
+
+         def invalidate(venue, condition, token, connection, *, stamp=None, terminal=False, disconnected=False):
+             if (venue, condition, token) != ('polymarket', market.market, market.token):
+                 raise GateSkip('BOOK_IDENTITY')
+-            self.gate.ws_invalidated(generation, stamp=snapshot_time(stamp) if stamp is not None else None,
+-                                     terminal=terminal, disconnected=disconnected)
++            with self.lock:
++                if terminal or disconnected:
++                    self.connected = False
++                if self.generation is not None:
++                    self.gate.ws_invalidated(
++                        self.generation, stamp=snapshot_time(stamp) if stamp is not None else None,
++                        terminal=terminal, disconnected=disconnected)
+
+         def collect():
+             try:
+-                source.stream_books(market, self.stop, self.deadline, feed, invalidate)
++                source.stream_books(market, stop, self.deadline, feed, invalidate)
+             except (OSError, EOFError, ValueError, KeyError, TypeError, GateSkip):
+                 self.errors += 1
++            finally:
++                with self.lock:
++                    self.connected = False
+
+         self.worker = threading.Thread(target=collect, daemon=True)
+         self.worker.start()
+
++    def follow(self, market, policy, baseline):
++        self.prepare(market)
++        with self.lock:
++            generation = self.gate.configure(market, policy, baseline)
++            if generation != self.generation:
++                self.attached_ns = self.gate.clock()
++                self.generation = generation
++
+     def close(self):
+         if self.worker:
+             self.stop.set()
+@@ -269,6 +293,8 @@ class ActiveBook:
+             if self.worker.is_alive():
+                 raise RuntimeError('book reader did not stop')
+             self.worker = None
++        self.generation = None
++
+
+ def process(captured, gate, books, rpc, db, stop, registry, deadline, *, writer_factory, buy_budget=BUY_BUDGET, on_refusal=None):
+     if remaining(captured) <= 0:
