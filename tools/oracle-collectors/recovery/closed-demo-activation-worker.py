@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 import re
 import signal
+import socket
 import stat
 from selectors import DefaultSelector, EVENT_READ
 from subprocess import DEVNULL, PIPE, Popen, TimeoutExpired
@@ -79,9 +80,47 @@ def prepare(adapter, job):
     return identity
 
 
-def activate(database, adapters, job, stop):
+def broker_path(value):
+    path = Path(value)
+    if not path.is_absolute() or path.resolve(strict=True) != path:
+        raise ValueError("Expected an exact runtime broker socket")
+    info = path.stat()
+    if info.st_uid != 0 or not stat.S_ISSOCK(info.st_mode):
+        raise ValueError("Expected an operator-managed launch broker")
+    for parent in path.parents:
+        info = parent.stat()
+        if info.st_uid != 0 or info.st_mode & 0o022:
+            raise ValueError("Expected an operator-controlled broker directory")
+    return path
+
+
+def prepare_with_broker(address, job):
+    payload = {key: job[key] for key in ("requestId", "token")}
+    with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as client:
+        client.settimeout(35)
+        client.connect(str(address))
+        client.sendall((json.dumps(payload)+"\n").encode())
+        with client.makefile("rb") as stream:
+            response = stream.readline(1025)
+    if len(response) > 1024 or not response.endswith(b"\n"):
+        raise ValueError("Invalid launch broker reply")
+    result = json.loads(response)
+    if (not isinstance(result, dict) or result.get("requestId") != job["requestId"]
+            or not isinstance(result.get("instanceId"), str)):
+        raise ValueError("The launch broker deferred this request")
+    instance = UUID(result["instanceId"])
+    if instance.int == 0:
+        raise ValueError("The launch broker did not confirm an instance")
+    return instance
+
+
+def activate(database, adapters, brokers, job, stop):
     try:
-        instance = prepare(adapters[job["venue"]], job)
+        venue = job["venue"]
+        if venue in brokers:
+            instance = prepare_with_broker(brokers[venue], job)
+        else:
+            instance = prepare(adapters[venue], job)
     except (OSError, TypeError, ValueError, TimeoutExpired):
         database.execute("SELECT demo_delivery.defer_activation(%s,%s)", (job["requestId"], job["token"]))
         return "retry"
@@ -98,16 +137,20 @@ def activate(database, adapters, job, stop):
 
 
 def observe(profile, stop):
-    if set(profile) != {"database", "serverAddress", "role", "service", "runId", "adapters"}:
+    profile_fields = {"database", "serverAddress", "role", "service", "runId", "adapters"}
+    if set(profile)-{"runtimeBrokers"} != profile_fields:
         raise ValueError("Unexpected activation profile fields")
     address = IPv4Address(profile["serverAddress"])
     role = profile["role"]
     if (not address.is_private or profile["database"] != "shadow_v00"
             or not re.fullmatch(r"demo_activation_[a-f0-9]{8}", role)):
         raise ValueError("Expected the private closed database and activation role")
-    if set(profile["adapters"]) != {"polymarket", "limitless"}:
-        raise ValueError("Expected one adapter per venue")
+    venues = set(profile["adapters"])
+    brokers = profile.get("runtimeBrokers", {})
+    if venues & brokers.keys() or venues | brokers.keys() != {"polymarket", "limitless"}:
+        raise ValueError("Expected one activation route per venue")
     adapters = {venue: adapter_path(path) for venue, path in profile["adapters"].items()}
+    brokers = {venue: broker_path(path) for venue, path in brokers.items()}
     while not stop.is_set():
         try:
             with connect(service=profile["service"], connect_timeout=3, autocommit=True,
@@ -124,7 +167,7 @@ def observe(profile, stop):
                     if job is None:
                         stop.wait(2)
                         continue
-                    status = activate(database, adapters, job, stop)
+                    status = activate(database, adapters, brokers, job, stop)
                     print(json.dumps({"venue": job["venue"], "status": status, "attempt": job["attempt"]}), flush=True)
         except OperationalError:
             stop.wait(5)
