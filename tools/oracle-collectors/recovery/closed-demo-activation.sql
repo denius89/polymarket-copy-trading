@@ -111,7 +111,7 @@ BEGIN
     JOIN polygon.user_session_slots slot
       ON (slot.id,slot.user_id,slot.current_session_id)=(s.slot_id,s.user_id,s.id)
     WHERE j.request_id=request AND s.lifecycle='active' AND s.evaluation_deadline_at>clock_timestamp()
-    FOR SHARE OF slot,s;
+    FOR SHARE OF slot,s SKIP LOCKED;
     IF NOT FOUND OR NOT EXISTS (
         SELECT FROM demo_delivery.session_writers w
         WHERE w.session_id=seat.session_id
