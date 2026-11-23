@@ -1,0 +1,20 @@
+--- a/personal_limitless_worker.py
++++ b/personal_limitless_worker.py
+@@ -129,7 +129,7 @@
+         self.call('SELECT polygon.limitless_buy_finalize_v1(%s::jsonb)', Jsonb(payload), precommit=verify)
+ 
+ 
+-def finalize_buys(adapter, stop, report):
++def finalize_buys(adapter, stop, report, *, stop_after_first=True):
+     while not stop.is_set():
+         for entry in adapter.pending():
+             if stop.is_set():
+@@ -144,7 +144,7 @@
+             state = {'finalized': 'confirmed', 'reverted': 'reverted'}[network_state]
+             adapter.finalize(entry, state, proof)
+             report({'stage': 'personal-limitless-buy', 'state': state})
+-            if state == 'confirmed':
++            if state == 'confirmed' and stop_after_first:
+                 stop.set()
+                 return
+             adapter.waiting.clear()
