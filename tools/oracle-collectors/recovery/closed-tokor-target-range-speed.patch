@@ -1,0 +1,106 @@
+diff --git a/guarded_source.py b/guarded_source.py
+index 4a57cb1..291bae4 100644
+--- a/guarded_source.py
++++ b/guarded_source.py
+@@ -4,6 +4,7 @@ from resolver import Skip
+ import copy
+ from dataclasses import dataclass
+ from fractions import Fraction
++from time import monotonic
+
+
+ class ScopeRefusal(Exception):
+@@ -65,9 +66,10 @@ class SessionCollectorAdapter:
+         self._check(event)
+         for attempt in range(2):
+             try:
++                started = monotonic()
+                 prior = self.transport.lookup(self.scope, event)
+                 if prior is None:
+-                    self.transport.prefetch(self.scope, event)
++                    self.transport.prefetch(self.scope, event, lookup_ms=round((monotonic() - started) * 1000))
+                 return prior
+             except SerializationFailure as error:
+                 if error.sqlstate != '40001' or error.diag.sqlstate != '40001':
+diff --git a/personal_pg.py b/personal_pg.py
+index 4652a36..0d7cc49 100644
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -1,4 +1,5 @@
+ """Private PostgreSQL transport for an enrolled paper-buy stream."""
++from concurrent.futures import ThreadPoolExecutor
+ from contextlib import contextmanager, nullcontext
+ from dataclasses import dataclass
+ from hashlib import sha256
+@@ -237,8 +238,9 @@ class PgTransport:
+             raise ScopeRefusal('Unexpected personal settlement receipt')
+         return dict(status='recorded', receipt=body)
+
+-    def prefetch(self, scope, event):
++    def prefetch(self, scope, event, *, lookup_ms=None):
+         self.prefetched.data = None
++        started = monotonic()
+         now_ms = utc_ms()
+         expires = event['signalAtMs'] + 30_000
+         if self.window is not None:
+@@ -249,21 +251,39 @@ class PgTransport:
+             raise Skip('PERSONAL_QUOTE_EXPIRED')
+         cursor = self.cursor(scope.session_id)
+         self.scoped(scope, cursor)
++        cursor_ms = round((monotonic() - started) * 1000)
+         if event['signalAtMs'] < timestamp(cursor['boundAt']).timestamp() * 1000:
+             raise Skip('PERSONAL_PREBIND')
+         proof_block = event['venueReceipt']['finality']['blockNumber']
+         start = cursor['personalStart']
+         if start and proof_block <= int(start['number']):
+             raise Skip('PERSONAL_BEFORE_ACTIVATION')
++        timing = {'stage':'personal-buy-prefetch', 'lookupMs':lookup_ms, 'cursorMs':cursor_ms}
++        def timed(key, func, *args, **kwargs):
++            begin = monotonic()
++            try:
++                return func(*args, **kwargs)
++            finally:
++                timing[key] = round((monotonic() - begin) * 1000)
++
+         try:
+-            chain_range = read_range(self.rpc, cursor, target_number=proof_block, deadline=deadline)
+-        except OSError:
+-            raise Skip('PERSONAL_RANGE_READ_UNAVAILABLE') from None
+-        try:
+-            binding = market_binding(event, deadline - monotonic())
+-        except OSError:
+-            raise Skip('PERSONAL_MARKET_READ_UNAVAILABLE') from None
+-        self.prefetched.data = (scope.session_id, event['executionId'], cursor, chain_range, binding)
++            with ThreadPoolExecutor(max_workers=1) as pool:
++                market = pool.submit(timed, 'marketMs', market_binding, event, deadline - monotonic())
++                try:
++                    chain_range = timed('rangeMs', read_range, self.rpc, cursor,
++                                        target_number=proof_block, deadline=deadline)
++                except OSError:
++                    raise Skip('PERSONAL_RANGE_READ_UNAVAILABLE') from None
++                try:
++                    binding = market.result(timeout=max(0, deadline - monotonic()))
++                except OSError:
++                    raise Skip('PERSONAL_MARKET_READ_UNAVAILABLE') from None
++            if monotonic() >= deadline:
++                raise Skip('PERSONAL_QUOTE_EXPIRED')
++            self.prefetched.data = (scope.session_id, event['executionId'], cursor, chain_range, binding)
++        finally:
++            timing['totalMs'] = round((monotonic() - started) * 1000)
++            print(json.dumps(timing),flush=True)
+
+     def prepare(self, scope, event, estimate, meta):
+         data = self.prefetched.data
+diff --git a/personal_range.py b/personal_range.py
+index ece6792..ca66dda 100644
+--- a/personal_range.py
++++ b/personal_range.py
+@@ -123,7 +123,7 @@ def read_range_with_head(rpc, cursor, *, target_number=None, deadline, max_block
+                     raise Skip('PERSONAL_RANGE_LOG_IDENTITY')
+                 logs[key] = row
+     blocks = {}
+-    batch_read = getattr(rpc, 'block_headers', None) if target_number is None else None
++    batch_read = getattr(rpc, 'block_headers', None)
+     if batch_read is not None:
+         before_head = range(start, min(end + 1, head_number))
+         for offset in range(0, len(before_head), 8):
