@@ -1,0 +1,78 @@
+diff --git a/personal_pg.py b/personal_pg.py
+index b8994c9..4652a36 100644
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -11,8 +11,11 @@ from uuid import UUID, uuid4, uuid5
+
+ from psycopg import OperationalError, connect
+ from psycopg.errors import CheckViolation, LockNotAvailable, QueryCanceled, SerializationFailure, RaiseException
++from psycopg.pq import TransactionStatus
+ from psycopg.types.json import Jsonb
+
++from book_engine import GateSkip
++
+ from guarded_source import ScopeRefusal, exact
+ from personal_decisions import DecisionGuard
+ from personal_range import checkpoint, ingest_envelope, read_range, read_idle_range, timestamp, utc_ms
+@@ -58,6 +61,10 @@ class UnresolvedResult(RuntimeError):
+         self.kind = kind
+
+
++class ConfirmedBookRollback(GateSkip):
++    """A pre-commit refusal whose PostgreSQL rollback was acknowledged."""
++
++
+ class ClosedWriteGuard:
+     """A durable marker survives a process crash until the operation is known."""
+
+@@ -90,7 +97,7 @@ class ClosedWriteGuard:
+         self.sync_directory()
+         try:
+             yield
+-        except (Skip, IdleIngestCanceled):
++        except (Skip, IdleIngestCanceled, ConfirmedBookRollback):
+             # These are the existing, explicitly non-committed refusal paths.
+             self.clear()
+             raise
+@@ -343,14 +350,20 @@ class PgTransport:
+                         if reply['status'] == 'skipped':
+                             if applied['observationId'] != quote['observationId']:
+                                 raise ScopeRefusal('Unexpected closed-market observation')
+-                            yield reply
+-                            self.check_write()
+-                            return
+-                        if applied.get('commandId') != quote['settleCommandId']:
++                        elif applied.get('commandId') != quote['settleCommandId']:
+                             raise ScopeRefusal('Unexpected personal command receipt')
+-                        yield reply
++                        try:
++                            yield reply
++                        except GateSkip as error:
++                            if error.reason != 'BOOK_AGE' or self.recovery is None:
++                                raise
++                            db.rollback()
++                            if db.info.transaction_status != TransactionStatus.IDLE:
++                                self.halted.set()
++                                raise UnresolvedResult(execution) from None
++                            raise ConfirmedBookRollback(error.reason) from None
+                         self.check_write()
+-                        if utc_ms() >= quote['expiresAtMs']:
++                        if reply['status'] != 'skipped' and utc_ms() >= quote['expiresAtMs']:
+                             raise ScopeRefusal('Personal quote expired before commit')
+                 except SerializationFailure as error:
+                     if error.sqlstate != '40001' or error.diag.sqlstate != '40001':
+@@ -431,12 +444,12 @@ class PgTransport:
+                                     and (error.diag.context or '').startswith(
+                                         'PL/pgSQL function polygon_buy.guard_decision_gap() ')):
+                                 rejected = [item for item in envelope['request']['evaluations']
+-                                            if item['evidence'].get('reason') == 'book_unavailable']
++                                            if item['evidence'].get('reason') in {'book_unavailable','book_stale'}]
+                                 if rejected:
+                                     for item in rejected:
+                                         key = item['transactionHash'], item['logIndex']
+                                         refusal = self.decisions.refusals.get(key)
+-                                        if refusal and refusal[1] == 'book_unavailable':
++                                        if refusal and refusal[1] == item['evidence']['reason']:
+                                             self.decisions.refusals[key] = (refusal[0], None, None)
+                                     # The statement rolled back. Re-read the same committed cursor
+                                     # and let the existing authenticated expiry check decide.
