@@ -39,7 +39,7 @@ DECLARE
 BEGIN
     IF cardinality(string_to_array(body,marker))<>2
     THEN RAISE EXCEPTION 'Unexpected Polygon quote source allowlist'; END IF;
-    EXECUTE replace(body,marker,marker || '
+    EXECUTE replace(body,marker,'(' || marker || '
     OR (
        ev#>>''{venueReceipt,source}''=''polymarket-polygon-finalized-queue-v1''
        AND ev->>''signalAtMs''=fin->>''blockTimestampMs''
@@ -64,7 +64,7 @@ BEGIN
                            WHERE earlier.session_id=j.session_id AND earlier.finished_at IS NULL
                              AND earlier.signal_id<j.signal_id)
        )
-    )');
+    ))');
 END
 $issuer$;
 COMMIT;
