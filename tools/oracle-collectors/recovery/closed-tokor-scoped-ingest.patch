@@ -1,0 +1,47 @@
+diff --git a/personal_pg.py b/personal_pg.py
+index 23338fd..f067ac6 100644
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -432,24 +432,29 @@ class PgTransport:
+                         self.check_write()
+                     record('issueAndCommitMs')
+                     with self.connection(self.writer, mutation=True) as db:
+-                        current = result(read_call(db, READ_SCOPE, sid), 'Personal writer scope unavailable')
+-                        record('writerScopeMs')
+-                        self.scoped(scope, current)
+                         envelope = prepared.envelope
+-                        if current != prepared.cursor:
+-                            # A payout can advance the financial version after ISSUE
+-                            # but before ingest. Retain the original finalized block
+-                            # and log set and use the latest version only for a
+-                            # verified terminal market. A moved chain cursor still
+-                            # needs the ordinary recovery path.
++                        self.scoped(scope, prepared.cursor)
++                        self.check_write()
++                        checked = call(db, INGEST, Jsonb(dict(session_id=sid, expected_scope=prepared.cursor, envelope=envelope)))
++                        if not isinstance(checked, dict) or not isinstance(checked.get('scope'), dict):
++                            raise ScopeRefusal('Personal writer scope unavailable')
++                        current = checked['scope']
++                        self.scoped(scope, current)
++                        if current == prepared.cursor:
++                            reply = checked.get('ingest')
++                        else:
++                            # Only a terminal market can use a changed financial version.
++                            # The scoped entry point makes no write on a scope mismatch.
+                             same_source = (current | {'version': prepared.cursor['version']}) == prepared.cursor
+-                            if not same_source or call(db, LOOKUP, sid, execution) != {'http': 202, 'status': 'settled_market'}:
++                            if (set(checked) != {'scope'} or not same_source
++                                    or call(db, LOOKUP, sid, execution) != {'http': 202, 'status': 'settled_market'}):
+                                 raise ScopeRefusal('Personal writer cursor advanced during preparation')
+                             envelope = envelope | {'request': envelope['request'] | {
+                                 'expectedSnapshotVersion': current['version']}}
+-                        self.check_write()
+-                        ingested = result(call(db, INGEST, Jsonb(envelope)), 'Personal ingest refused')
+-                        record('ingestMs')
++                            self.check_write()
++                            reply = call(db, INGEST, Jsonb(envelope))
++                        ingested = result(reply, 'Personal ingest refused')
++                        record('scopeAndIngestMs')
+                         operation = prepared.envelope['request']['ingest']
+                         if (ingested.get('kind'), ingested.get('sessionId'), ingested.get('operationId')) != (
+                                 'ingest', sid, operation['operationId']):
