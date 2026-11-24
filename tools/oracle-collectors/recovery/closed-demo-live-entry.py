@@ -167,6 +167,19 @@ def limitless(profile, address, scoped, amount, seconds, check):
 
     def report(entry):
         safe={key:entry[key] for key in ("stage","status","state","reason","scannedThrough") if key in entry}
+        if entry.get("stage")=="limitless-read":
+            if entry.get("operation") in ("eth_getBlockByNumber","eth_getLogs"):
+                safe["operation"]=entry["operation"]
+            provider=entry.get("provider")
+            if isinstance(provider,str) and re.fullmatch(r"[a-zA-Z0-9.-]{1,253}",provider):
+                safe["provider"]=provider
+            delay=entry.get("retrySeconds")
+            if type(delay) in (int,float) and 0<=delay<=1_000_000_000:
+                safe["retrySeconds"]=delay
+            blocks=entry.get("unreadRange")
+            if (isinstance(blocks,(tuple,list)) and len(blocks)==2
+                    and all(type(block) is int and block>=0 for block in blocks) and blocks[0]<=blocks[1]):
+                safe["unreadRange"]=blocks
         print(json.dumps(safe),flush=True)
 
     def checkpoint_witness(method,*params):

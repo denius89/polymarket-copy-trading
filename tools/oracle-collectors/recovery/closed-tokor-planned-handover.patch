@@ -1,0 +1,97 @@
+diff --git a/personal_worker.py b/personal_worker.py
+index f1c325b..0538913 100644
+--- a/personal_worker.py
++++ b/personal_worker.py
+@@ -236,8 +236,12 @@ def advance(transport, scope, stop, deadline, max_ingest_headers):
+
+ def run(args):
+     stop = Event()
++    handover = Event()
++    terminal_stop = Event()
+     window = CopyWindow(args.until, stop) if args.until is not None else None
+-    if args.closed_configured_wallet and args.seconds is not None:
++    if args.closed_handover_until is not None:
++        window = WriteWindow(int(timestamp(args.closed_handover_until).timestamp()*1000), stop)
++    elif args.closed_configured_wallet and args.seconds is not None:
+         window = WriteWindow(utc_ms() + args.seconds * 1000, stop)
+     if window is not None and window.remaining() <= WRITE_DRAIN_SECONDS:
+         report({'stage': 'personal-window', 'status': 'closed'})
+@@ -247,8 +251,18 @@ def run(args):
+         transport = ClosedPgTransport(BoundedRPC(), config, window)
+     else:
+         transport = PgTransport(BoundedRPC(), config['writerService'], config['issuerService'], window)
++    def terminal(*_):
++        terminal_stop.set()
++        stop.set()
++
++    def handoff(*_):
++        handover.set()
++        stop.set()
++
+     for name in (signal.SIGINT, signal.SIGTERM):
+-        signal.signal(name, lambda *_: stop.set())
++        signal.signal(name, terminal)
++    if args.closed_handover_until is not None:
++        signal.signal(signal.SIGUSR1, handoff)
+     while True:
+         try:
+             cursor = transport.cursor(config['sessionId'], starting=True)
+@@ -267,6 +281,9 @@ def run(args):
+         report({'stage': 'personal-lookup', 'status': 'recorded' if row else 'unresolved'})
+         return 0 if row else 3
+     transport.scoped(scope, cursor)
++    if args.closed_handover_until is not None:
++        print(json.dumps({'stage': 'personal-handover-ready', 'session': scope.session_id,
++                          'checkpoint': cursor['checkpoint']}), flush=True)
+     max_ingest_headers = cursor.get('maxIngestHeaders', 64)
+     if type(max_ingest_headers) is not int or not 1 <= max_ingest_headers <= 256:
+         raise ValueError('Invalid Polymarket ingest limit')
+@@ -288,7 +305,7 @@ def run(args):
+             report(item)
+             if (args.closed_configured_wallet and item.get('stage') == 'app-venue-admission'
+                     and item.get('status') == 'recorded'):
+-                stop.set()
++                terminal()
+
+         taker = partial(run_polymarket, discovery='rtds+data') if args.data_taker else run_polymarket
+         with ThreadPoolExecutor(3) as pool:
+@@ -313,6 +330,18 @@ def run(args):
+                     report({'stage': stage, 'status': 'stopped', 'reason': type(error).__name__.upper()})
+         if ended_early and not failures:
+             failures.append(RuntimeError('A personal source worker stopped early'))
++        if (handover.is_set() and not terminal_stop.is_set() and not failures
++                and not ended_early and window.remaining() > WRITE_DRAIN_SECONDS):
++            try:
++                saved = transport.cursor(scope.session_id, starting=True)
++                transport.scoped(scope, saved)
++            except Exception as error:
++                failures.append(error)
++            else:
++                if not terminal_stop.is_set() and window.remaining() > WRITE_DRAIN_SECONDS:
++                    print(json.dumps({'stage': 'personal-handover', 'session': scope.session_id,
++                                      'checkpoint': saved['checkpoint']}), flush=True)
++                    return 0
+         unknown = next((error for error in failures if isinstance(error, UnresolvedResult)), None)
+         if window is not None:
+             status = 'reconciliation_required' if unknown else 'source_unavailable' if failures else 'stopped'
+@@ -345,6 +374,7 @@ def main():
+     parser.add_argument('--data-taker', action='store_true', help='Enable the staged Data API taker source')
+     parser.add_argument('--closed-configured-wallet', action='store_true',
+                         help='Use the configured wallet and its bound settings in an isolated database')
++    parser.add_argument('--closed-handover-until')
+     mode = parser.add_mutually_exclusive_group(required=True)
+     mode.add_argument('--check', action='store_true')
+     mode.add_argument('--lookup')
+@@ -353,6 +383,12 @@ def main():
+     args = parser.parse_args()
+     if args.closed_configured_wallet and not (args.check or args.seconds is not None):
+         parser.error('The isolated wallet option supports --check or --seconds only')
++    if args.closed_handover_until is not None:
++        if not (args.closed_configured_wallet and args.seconds is not None):
++            parser.error('Only a timed closed operator may hand over a worker')
++        cutoff = int(timestamp(args.closed_handover_until).timestamp()*1000)
++        if cutoff - utc_ms() > args.seconds * 1000:
++            parser.error('Handover deadline exceeds the closed trial window')
+     if args.lookup is not None and not re.fullmatch('[0-9a-f]{64}', args.lookup):
+         parser.error('Invalid original execution key')
+     if args.seconds is not None and not 15 <= args.seconds <= (21600 if args.closed_configured_wallet else 900):
