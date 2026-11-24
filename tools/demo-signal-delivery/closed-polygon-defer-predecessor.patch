@@ -1,0 +1,136 @@
+--- a/maker_collector.py
++++ b/maker_collector.py
+@@ -17,6 +17,7 @@
+ from collectors import PolymarketWriter
+ from hybrid_book import HybridBookGate
+ from market_policy import MARKET_PREPARATION, VERIFIED_FLOOR, prepare_market, verify_observed_fee
++from polygon_deferred_frames import DeferredFrames
+ from route import execute_resolved
+ import rtds_operator as poly
+ import source
+@@ -236,6 +237,7 @@
+     warmer = threading.Thread(target=warm_book_targets, args=(wallet, halt, deadline, targets), daemon=True)
+     warmer.start()
+     rpc=poly.BoundedRPC()
++    frames=DeferredFrames(queue)
+     heartbeat=0
+     try:
+         while not stop.is_set() and time.monotonic()<deadline:
+@@ -243,7 +245,7 @@
+                 report({'stage':'polymarket-maker-monitor','source':dict(counts),'bookFrames':books.frames})
+                 heartbeat=time.monotonic()+60
+             try:
+-                captured=queue.get(timeout=.25)
++                captured=frames.get(timeout=.25)
+             except Empty:
+                 if not reader.is_alive() and time.monotonic()<deadline:
+                     raise RuntimeError('public maker reader stopped')
+@@ -253,6 +255,7 @@
+                     continue
+                 books.prepare(target)
+                 continue
++            deferred = False
+             try:
+                 if poly.remaining(captured)<=0:
+                     counts['signal_expired'] += 1
+@@ -261,7 +264,9 @@
+                 preparation = MARKET_PREPARATION.submit(prepare_market, market)
+                 books.prepare(market)
+                 resolved = None
+-                timing = {'sourceSeenMs': captured.first_utc - captured.source_ms}
++                started_ns = time.monotonic_ns()
++                timing = {'sourceSeenMs': captured.first_utc - captured.source_ms,
++                          'sourceQueueWaitMs': (started_ns - captured.first_mono) // 1_000_000}
+                 try:
+                     binding={'wallet':wallet,'marketId':captured.market,'outcomeId':captured.token,
+                              'evidenceRef':'verified-active-clob-market-and-token:'+captured.market}
+@@ -270,7 +275,7 @@
+                     observed=resolver.observe(captured.raw,captured.connection,first_seen_ms=captured.first_utc,
+                                                first_ns=captured.first_mono)
+                     resolved=resolver.resolve(observed)
+-                    timing['confirmMs'] = (time.monotonic_ns() - captured.first_mono) // 1_000_000
++                    timing['confirmMs'] = (time.monotonic_ns() - started_ns) // 1_000_000
+                     try:
+                         (delay,delay_evidence,policy,baseline,exchange), timing['marketMs'] = preparation.result(
+                             timeout=max(0, poly.remaining(captured) / 1_000_000_000))
+@@ -288,6 +293,10 @@
+                                             policy=policy,delay_ms=delay,delay_evidence=delay_evidence,
+                                             budget=buy_budget,wait=stop.wait)
+                 except (GateSkip,poly.Skip) as error:
++                    deferred = frames.defer(captured, error.reason, poly.remaining(captured))
++                    if deferred:
++                        counts['deferred_candidates'] += 1
++                        continue
+                     if resolved is not None:
+                         adapter.remember_rejection(resolved, error.reason)
+                     report({'stage':'polymarket-maker-skip','reason':error.reason,'proof':getattr(error,'details',None),
+@@ -301,8 +310,10 @@
+                 if result['status']=='recorded':
+                     report({'stage':'app-venue-admission','venue':'polymarket','source':'public-v2-maker','status':'recorded'})
+             finally:
+-                queue.complete(captured)
++                if not deferred:
++                    queue.complete(captured)
+     finally:
++        frames.close()
+         halt.set()
+         reader.join(timeout=6)
+         warmer.join(timeout=3)
+--- a/collectors.py
++++ b/collectors.py
+@@ -11,6 +11,7 @@
+ from book_engine import BookGate, GateSkip, q, quote
+ from hybrid_book import HybridBookGate
+ from pooled import Books
++from polygon_deferred_frames import DeferredFrames
+ import source
+ import trader_limitless as limitless
+ from trader_address_probe import base_logs
+@@ -94,6 +95,7 @@
+         target=warm_book_targets, args=(wallet.lower(), halt, deadline, targets), daemon=True)
+     warmer.start()
+     rpc = polymarket.BoundedRPC()
++    frames = DeferredFrames(queue)
+     heartbeat = 0
+     try:
+         while not stop.is_set() and time.monotonic() < deadline:
+@@ -101,7 +103,7 @@
+                 report({'stage':'polymarket-monitor','source':dict(counts),'bookFrames':books.frames})
+                 heartbeat = time.monotonic()+60
+             try:
+-                captured = queue.get(timeout=.25)
++                captured = frames.get(timeout=.25)
+             except Empty:
+                 if not any(reader.is_alive() for reader in readers) and time.monotonic() < deadline:
+                     raise RuntimeError('Polymarket public stream stopped')
+@@ -111,6 +113,7 @@
+                     continue
+                 books.prepare(target)
+                 continue
++            deferred = False
+             try:
+                 if captured.source_ms < armed_ms or registry.was_recorded(captured.event_key):
+                     continue
+@@ -119,6 +122,10 @@
+                         writer_factory=lambda reg, key, end: PolymarketWriter(adapter, captured, reg),
+                         buy_budget=buy_budget, on_refusal=adapter.remember_rejection)
+                 except (polymarket.Skip, GateSkip) as error:
++                    deferred = frames.defer(captured, error.reason, polymarket.remaining(captured))
++                    if deferred:
++                        counts['deferred_candidates'] += 1
++                        continue
+                     report({'stage':'polymarket-skip','reason':error.reason,'proof':getattr(error,'details',None),
+                             'bookTiming':getattr(error,'book_timing',None)})
+                     continue
+@@ -126,8 +133,10 @@
+                     registry.record(captured.event_key)
+                     report({'stage':'app-venue-admission','venue':'polymarket','status':'recorded'})
+             finally:
+-                queue.complete(captured)
++                if not deferred:
++                    queue.complete(captured)
+     finally:
++        frames.close()
+         halt.set()
+         for reader in readers:
+             reader.join(timeout=5)

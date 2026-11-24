@@ -8,10 +8,19 @@ RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path = pg_catalog AS 
 DECLARE
     target record;
     leased record;
+    wallet text;
 BEGIN
-    IF current_setting('transaction_isolation') <> 'serializable'
-       OR demo_delivery.closed_polygon_scope(p_session) IS NULL
+    wallet := demo_delivery.closed_polygon_scope(p_session)->>'wallet';
+    IF current_setting('transaction_isolation') <> 'serializable' OR wallet IS NULL
     THEN RETURN NULL; END IF;
+    IF EXISTS (
+        SELECT FROM demo_delivery.jobs j JOIN demo_delivery.signals s ON s.id=j.signal_id
+        WHERE j.session_id=p_session AND j.finished_at IS NULL AND s.venue='polymarket'
+          AND s.trader_key=wallet AND s.payload->>'kind'='polygon-finalized-buy'
+          AND s.payload->'log'=p_log AND s.expires_at>clock_timestamp()
+          AND EXISTS (SELECT FROM demo_delivery.jobs earlier
+              WHERE earlier.session_id=j.session_id AND earlier.finished_at IS NULL AND earlier.signal_id<j.signal_id)
+    ) THEN RETURN jsonb_build_object('state','predecessor'); END IF;
     SELECT j.signal_id, o.id AS observation_id INTO target
     FROM demo_delivery.jobs j
     JOIN demo_delivery.signals s ON s.id=j.signal_id
@@ -19,7 +28,7 @@ BEGIN
         AND o.raw_log=s.payload->'log' AND o.header=s.payload->'header'
     JOIN polygon_live_activity.decisions d ON (d.session_id,d.observation_id)=(o.session_id,o.id)
     WHERE j.session_id=p_session AND j.finished_at IS NULL AND o.raw_log=p_log
-      AND s.venue='polymarket' AND s.payload->>'kind'='polygon-finalized-buy'
+      AND s.venue='polymarket' AND s.trader_key=wallet AND s.payload->>'kind'='polygon-finalized-buy'
       AND s.expires_at>clock_timestamp()
       AND d.checks->>'executionAdmission'='awaiting_quote'
       AND demo_delivery.polygon_waiting_valid(o.id,d.checks->'evidence',true)

@@ -56,12 +56,15 @@ class QueuedQuoteTransport:
             raise Skip('PERSONAL_QUOTE_EXPIRED')
         binding = market_binding(event, min(remaining, 3))
         started = monotonic()
-        # Leave room to acquire the book and commit after staging the observation.
-        deadline = started + max(0, min(14, (event['signalAtMs'] + 30_000 - utc_ms()) / 1000 - 8))
+        # A not-ready candidate yields to the next source frame after a short
+        # wait. Its original source clock remains in force on retry.
+        deadline = started + max(0, min(0.5, (event['signalAtMs'] + 30_000 - utc_ms()) / 1000 - 8))
         while True:
             with self.base.connection(self.base.writer) as db:
                 job = read_call(db, CLAIM, scope.session_id, Jsonb(log))
             if job:
+                if job.get('state') == 'predecessor':
+                    raise Skip('POLYGON_QUEUE_PREDECESSOR')
                 break
             if monotonic() + 0.25 > deadline:
                 raise Skip('POLYGON_QUEUE_NOT_READY')

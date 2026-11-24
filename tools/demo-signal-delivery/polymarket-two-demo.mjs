@@ -267,7 +267,7 @@ async function verifyWaiting(user, run, header, jobs) {
     if (refuseBook) {
         await db.exec(`GRANT EXECUTE ON FUNCTION demo_delivery.complete_polygon_refusal(uuid,bigint,uuid,text)
             TO ${user.writer}`);
-        assert.equal(await claimQuote(logs[1]),null);
+        assert.deepEqual(await claimQuote(logs[1]),{state:'predecessor'});
         const first = await claimQuote(logs[0]);
         assert.equal(first.signalId,String(jobs[0].signal_id));
         const refusal = token => tx(user.writer,async () => (await db.query(

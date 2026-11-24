@@ -1,5 +1,14 @@
 --- a/personal_worker.py
 +++ b/personal_worker.py
+@@ -193,7 +193,7 @@
+         row['reason'] = 'CHECK_REFUSED'
+     phase = item.get('timing')
+     if item.get('stage') == 'polymarket-maker-timing' and isinstance(phase, dict):
+-        fields = ('sourceSeenMs','confirmMs','marketMs','delayMs','totalMs')
++        fields = ('sourceSeenMs','sourceQueueWaitMs','confirmMs','marketMs','delayMs','totalMs')
+         row['timing'] = {key: phase[key] for key in fields
+                          if key in phase and type(phase[key]) is int and 0 <= phase[key] <= 60_000}
+     timing = item.get('bookTiming')
 @@ -265,6 +265,7 @@
          transport = ClosedPgTransport(BoundedRPC(), config, window)
      else:
