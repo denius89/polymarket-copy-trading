@@ -1,0 +1,294 @@
+--- a/route.py
++++ b/route.py
+@@ -1,4 +1,6 @@
+ """Private local RTDS-only route; finalized before delay/book/financial recording."""
++from contextlib import nullcontext
++from functools import wraps
+ import copy
+ import time
+
+@@ -26,6 +28,15 @@
+         raise GateSkip('RTDS_ONLY_RESOLVED_ROUTE_REQUIRED')
+
+
++def purchase_turn(function):
++    @wraps(function)
++    def execute(ledger, *args, **kwargs):
++        with getattr(ledger, 'purchase_turn', nullcontext)():
++            return function(ledger, *args, **kwargs)
++    return execute
++
++
++@purchase_turn
+ def execute_resolved(ledger, provenance_validator, db, gate, resolved, *, session_id, owner_id,
+                      command_id, policy, delay_ms, delay_evidence, budget=None, sell_quantity=None,
+                      wait=time.sleep):
+--- a/collectors.py
++++ b/collectors.py
+@@ -1,6 +1,6 @@
+ """Read-only venue collectors for the existing shared demo writer."""
+ from collections import Counter
+-from contextlib import contextmanager
++from contextlib import contextmanager, nullcontext
+ import hashlib
+ import json
+ from queue import Empty, Queue
+@@ -28,6 +28,7 @@
+ class PolymarketWriter:
+     def __init__(self, adapter, captured, registry):
+         self.adapter, self.captured, self.registry = adapter, captured, registry
++        self.purchase_turn = getattr(adapter, 'purchase_turn', nullcontext)
+
+     def lookup_command(self, *args, event):
+         return self.adapter.lookup_command(*args, event=event)
+--- a/guarded_source.py
++++ b/guarded_source.py
+@@ -38,6 +38,9 @@
+         self.transport = transport
+         self.metadata = metadata
+
++    def purchase_turn(self):
++        return self.transport.purchase_turn()
++
+     def bind(self, metadata):
+         if metadata['venue'] != 'polymarket' or metadata['wallet'] != self.scope.wallet:
+             raise ScopeRefusal('Wrong personal trader')
+@@ -67,10 +70,11 @@
+         for attempt in range(2):
+             try:
+                 started = monotonic()
+-                prior = self.transport.lookup(self.scope, event)
+-                if prior is None:
+-                    self.transport.prefetch(self.scope, event, lookup_ms=round((monotonic() - started) * 1000))
+-                return prior
++                prior, cursor = self.transport.lookup_scope(self.scope, event)
++                if prior is not None:
++                    return prior
++                return self.transport.prefetch(self.scope, event, cursor,
++                                               lookup_ms=round((monotonic() - started) * 1000))
+             except SerializationFailure as error:
+                 if error.sqlstate != '40001' or error.diag.sqlstate != '40001':
+                     raise
+@@ -98,7 +102,7 @@
+
+         prepared = self.transport.prepare(self.scope, event, estimate, copy.deepcopy(meta))
+         # The chain is read outside the book lock. The DB commit uses those exact bytes.
+-        with guard.commit_lock:
++        with self.transport.write_lock, guard.commit_lock:
+             if guard(event, estimate) is not True:
+                 raise ScopeRefusal('Personal quote rejected at admission')
+             with self.transport.transaction(self.scope, prepared) as result:
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -1,12 +1,12 @@
+ """Private PostgreSQL transport for an enrolled paper-buy stream."""
+ from concurrent.futures import ThreadPoolExecutor
+-from contextlib import contextmanager, nullcontext
++from contextlib import ExitStack, contextmanager, nullcontext
+ from dataclasses import dataclass, replace
+ from hashlib import sha256
+ import json
+ import os
+ import re
+-from threading import Event, Lock, local
++from threading import Event, Lock, RLock, local
+ from time import monotonic
+ from uuid import UUID, uuid4, uuid5
+
+@@ -30,6 +30,8 @@
+ INGEST = 'SELECT polygon.live_activity_ingest(%s::jsonb)'
+ APPLY = 'SELECT polygon.personal_quote_apply_v1(%s::uuid,%s::text)'
+ LOOKUP = 'SELECT polygon.personal_quote_lookup_v1(%s::uuid,%s::text)'
++LOOKUP_SCOPE = '''SELECT jsonb_build_array(polygon.personal_quote_lookup_v1(%s::uuid,%s::text),
++                                           polygon.personal_quote_scope_v1(%s::uuid))'''
+ STOP = 'SELECT polygon.live_activity_stop(%s::jsonb)'
+ CAP_WRITE_TRANSACTION = """
+ SELECT CASE WHEN remaining_ms > 5000
+@@ -181,7 +183,9 @@
+         self.history_rpc = BoundedRPC(HISTORY_RPC)
+         self.writer = writer_service
+         self.issuer = issuer_service
+-        self.write_lock = Lock()
++        self.write_lock = RLock()
++        self.priority_lock = Lock()
++        self.active_buys = 0
+         self.prefetched = local()
+         self.halted = Event()
+         self.window = window
+@@ -189,6 +193,21 @@
+         self.last_range_wait = None
+         self.recovery = None
+
++    @contextmanager
++    def purchase_turn(self):
++        with self.priority_lock:
++            self.active_buys += 1
++        try:
++            with ExitStack() as turn:
++                self.prefetched.turn = turn
++                self.prefetched.ready = None
++                yield
++        finally:
++            self.prefetched.turn = None
++            self.prefetched.ready = None
++            with self.priority_lock:
++                self.active_buys -= 1
++
+     def tracking(self, kind, identity):
+         return self.recovery.track(kind, identity) if self.recovery is not None else nullcontext()
+
+@@ -252,9 +271,19 @@
+     def lookup(self, scope, event):
+         with self.connection(self.writer) as db:
+             reply = read_call(db, LOOKUP, scope.session_id, event['executionId'])
++        return self.lookup_receipt(reply, scope.session_id)
++
++    def lookup_scope(self, scope, event):
++        sid = scope.session_id
++        with self.connection(self.writer) as db:
++            reply, cursor = read_call(db, LOOKUP_SCOPE, sid, event['executionId'], sid)
++        prior = self.lookup_receipt(reply, sid)
++        return prior, result(cursor, 'Personal cursor refused') if prior is None else None
++
++    def lookup_receipt(self, reply, sid):
+         if reply in ({'http': 202, 'status': 'unknown'}, {'http': 202, 'status': 'settled_market'}):
+             return None
+-        return self.receipt(result(reply, 'Personal lookup refused'), scope.session_id)
++        return self.receipt(result(reply, 'Personal lookup refused'), sid)
+
+     @staticmethod
+     def receipt(body, session_id):
+@@ -268,7 +297,7 @@
+             raise ScopeRefusal('Unexpected personal settlement receipt')
+         return dict(status='recorded', receipt=body)
+
+-    def prefetch(self, scope, event, *, lookup_ms=None):
++    def prefetch(self, scope, event, cursor, *, lookup_ms=None):
+         self.prefetched.data = None
+         started = monotonic()
+         now_ms = utc_ms()
+@@ -279,16 +308,14 @@
+         deadline = monotonic() + min(8, (expires - now_ms) / 1000)
+         if deadline <= monotonic():
+             raise Skip('PERSONAL_QUOTE_EXPIRED')
+-        cursor = self.cursor(scope.session_id)
+         self.scoped(scope, cursor)
+-        cursor_ms = round((monotonic() - started) * 1000)
+         if event['signalAtMs'] < timestamp(cursor['boundAt']).timestamp() * 1000:
+             raise Skip('PERSONAL_PREBIND')
+         proof_block = event['venueReceipt']['finality']['blockNumber']
+         start = cursor['personalStart']
+         if start and proof_block <= int(start['number']):
+             raise Skip('PERSONAL_BEFORE_ACTIVATION')
+-        timing = {'stage':'personal-buy-prefetch', 'lookupMs':lookup_ms, 'cursorMs':cursor_ms}
++        timing = {'stage':'personal-buy-prefetch', 'lookupAndScopeMs':lookup_ms}
+         def timed(key, func, *args, **kwargs):
+             begin = monotonic()
+             try:
+@@ -310,6 +337,21 @@
+                     raise Skip('PERSONAL_MARKET_READ_UNAVAILABLE') from None
+             if monotonic() >= deadline:
+                 raise Skip('PERSONAL_QUOTE_EXPIRED')
++            turn = getattr(self.prefetched, 'turn', None)
++            if turn is not None:
++                # Let the current idle write finish alongside range/market reads.
++                # Acquire the writer before the book and release it on every route exit.
++                begin = monotonic()
++                if not self.write_lock.acquire(timeout=max(0, (expires - utc_ms()) / 1000)):
++                    raise Skip('PERSONAL_QUOTE_EXPIRED')
++                turn.callback(self.write_lock.release)
++                timing['preBookWriterWaitMs'] = round((monotonic() - begin) * 1000)
++                if self.halted.is_set():
++                    raise ScopeRefusal('Personal writer awaits reconciliation')
++                prior, current = timed('lockedLookupAndScopeMs', self.lookup_scope, scope, event)
++                if prior is not None:
++                    return prior
++                self.prefetched.ready = (scope.session_id, event['executionId'], current)
+             self.prefetched.data = (scope.session_id, event['executionId'], cursor, chain_range, binding)
+         finally:
+             timing['totalMs'] = round((monotonic() - started) * 1000)
+@@ -344,17 +386,41 @@
+
+     @contextmanager
+     def transaction(self, scope, prepared):
++        timing = {'stage': 'personal-buy-write-timing', 'executionId': prepared.quote['executionId']}
++        started = previous = monotonic()
++
++        def record(stage):
++            nonlocal previous
++            now = monotonic()
++            timing[stage] = round((now - previous) * 1000)
++            previous = now
++
++        try:
++            with self._transaction(scope, prepared, record) as reply:
++                yield reply
++            record('finishMs')
++        finally:
++            timing['totalMs'] = round((monotonic() - started) * 1000)
++            print(json.dumps(timing), flush=True)
++
++    @contextmanager
++    def _transaction(self, scope, prepared, record):
+         quote = prepared.quote
+         sid, execution = scope.session_id, quote['executionId']
+         with self.write_lock:
+             if self.halted.is_set():
+                 raise ScopeRefusal('Personal writer awaits reconciliation')
+-            prior = self.lookup(scope, quote['event'])
+-            if prior is not None:
+-                yield prior
+-                return
+-            current = self.cursor(sid)
++            ready = getattr(self.prefetched, 'ready', None)
++            if ready is not None and ready[:2] == (sid, execution):
++                current = ready[2]
++                self.prefetched.ready = None
++            else:
++                prior, current = self.lookup_scope(scope, quote['event'])
++                if prior is not None:
++                    yield prior
++                    return
+             prepared = prepared.after_idle_prefix(current, utc_ms())
++            record('beforeIssueMs')
+             self.check_write()
+             with self.tracking('purchase', execution):
+                 try:
+@@ -364,8 +430,10 @@
+                         if issued != {key: quote[key] for key in ('reserveId', 'observationId')}:
+                             raise ScopeRefusal('Personal quote issuer returned a different identity')
+                         self.check_write()
++                    record('issueAndCommitMs')
+                     with self.connection(self.writer, mutation=True) as db:
+                         current = result(read_call(db, READ_SCOPE, sid), 'Personal writer scope unavailable')
++                        record('writerScopeMs')
+                         self.scoped(scope, current)
+                         envelope = prepared.envelope
+                         if current != prepared.cursor:
+@@ -381,6 +449,7 @@
+                                 'expectedSnapshotVersion': current['version']}}
+                         self.check_write()
+                         ingested = result(call(db, INGEST, Jsonb(envelope)), 'Personal ingest refused')
++                        record('ingestMs')
+                         operation = prepared.envelope['request']['ingest']
+                         if (ingested.get('kind'), ingested.get('sessionId'), ingested.get('operationId')) != (
+                                 'ingest', sid, operation['operationId']):
+@@ -396,6 +465,7 @@
+                                     and context.startswith('PL/pgSQL function live_buy_core.reserve(uuid,jsonb) ')):
+                                 raise Skip('PERSONAL_CAPACITY_REFUSED') from None
+                             raise
++                        record('applyMs')
+                         reply = self.receipt(applied, sid)
+                         if reply['status'] == 'skipped':
+                             if applied['observationId'] != quote['observationId']:
+@@ -453,6 +523,10 @@
+             self.report_range_wait('PERSONAL_RANGE_CAUGHT_UP')
+             return
+         with self.write_lock, self.decisions.lock:
++            with self.priority_lock:
++                if self.active_buys:
++                    self.report_range_wait('PERSONAL_RANGE_BUY_IN_PROGRESS')
++                    return
+             record("lockWaitMs")
+             if self.halted.is_set():
+                 raise ScopeRefusal('Personal writer awaits reconciliation')
