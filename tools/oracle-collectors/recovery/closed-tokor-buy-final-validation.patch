@@ -1,0 +1,20 @@
+diff --git a/personal_pg.py b/personal_pg.py
+index f067ac6..49d7ed0 100644
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -477,6 +477,15 @@ class PgTransport:
+                                 raise ScopeRefusal('Unexpected closed-market observation')
+                         elif applied.get('commandId') != quote['settleCommandId']:
+                             raise ScopeRefusal('Unexpected personal command receipt')
++                        if reply['status'] == 'recorded':
++                            self.check_write()
++                            flush = dict(session_id=sid, flush_buy_operation_id=operation['operationId'],
++                                         source_execution_id=execution)
++                            verified = call(db, INGEST, Jsonb(flush))
++                            if verified not in ({'flushed': True}, {'flushed': False}):
++                                raise ScopeRefusal('Unexpected buy validation receipt')
++                            print(json.dumps({'stage': 'personal-buy-final-validation',
++                                              'executionId': execution, 'flushed': verified['flushed']}), flush=True)
+                         try:
+                             yield reply
+                         except GateSkip as error:
