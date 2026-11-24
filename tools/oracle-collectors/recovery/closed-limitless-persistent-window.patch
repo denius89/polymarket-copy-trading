@@ -1,0 +1,26 @@
+diff --git a/profile-entry.py b/profile-entry.py
+index cdd2234..727fa8a 100644
+--- a/profile-entry.py
++++ b/profile-entry.py
+@@ -223,6 +223,7 @@ def main():
+     parser=ArgumentParser(description=__doc__)
+     parser.add_argument("profile",type=Path)
+     parser.add_argument("--check",action="store_true")
++    parser.add_argument("--persistent-limitless",action="store_true")
+     args=parser.parse_args()
+     script=Path(__file__).resolve()
+     profile=read_operator(args.profile)
+@@ -231,7 +232,12 @@ def main():
+     maximum=policy["seconds"]
+     if type(maximum) is not int or not 15<=maximum<=21600:
+         raise ValueError("Expected a bounded closed runtime window")
+-    remaining=min(maximum,int((expires-datetime.now(timezone.utc)).total_seconds()))
++    remaining=int((expires-datetime.now(timezone.utc)).total_seconds())
++    if args.persistent_limitless:
++        if profile["venue"]!="limitless":
++            parser.error("Persistent mode requires a closed Limitless profile")
++    else:
++        remaining=min(maximum,remaining)
+     if remaining<15:
+         raise ValueError("Demo session has insufficient time left")
+     address,scoped=connection_policy(policy,profile)
