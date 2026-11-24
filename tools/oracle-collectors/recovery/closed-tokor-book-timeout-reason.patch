@@ -1,0 +1,217 @@
+diff --git a/collectors.py b/collectors.py
+index bb3cf47..2d5b0df 100644
+--- a/collectors.py
++++ b/collectors.py
+@@ -108,7 +108,8 @@ def run_polymarket(adapter, wallet, stop, deadline, report, *, buy_budget=polyma
+                         writer_factory=lambda reg, key, end: PolymarketWriter(adapter, captured, reg),
+                         buy_budget=buy_budget, on_refusal=adapter.remember_rejection)
+                 except (polymarket.Skip, GateSkip) as error:
+-                    report({'stage':'polymarket-skip','reason':error.reason,'proof':getattr(error,'details',None)})
++                    report({'stage':'polymarket-skip','reason':error.reason,'proof':getattr(error,'details',None),
++                            'bookTiming':getattr(error,'book_timing',None)})
+                     continue
+                 if result['status'] == 'recorded':
+                     registry.record(captured.event_key)
+diff --git a/hybrid_book.py b/hybrid_book.py
+index 76736a5..9cbbe95 100644
+--- a/hybrid_book.py
++++ b/hybrid_book.py
+@@ -32,6 +32,14 @@ class HybridBookGate(RtdsBookGate):
+         self.terminal = False
+         self.counts = Counter()
+         self.observations = deque(maxlen=12)
++        self.window_counts = Counter()
++        self.first_frame_ns = {}
++        self.ws_opened_ns = None
++
++    def note_ws_open(self, generation, opened_ns):
++        with self.changed:
++            if generation == self.generation:
++                self.ws_opened_ns = opened_ns
+
+     def configure(self, market, policy, baseline):
+         with self.changed:
+@@ -73,6 +81,8 @@ class HybridBookGate(RtdsBookGate):
+                 return False
+             if window and (self.window != window or received_ns > window.deadline_ns):
+                 return False
++            if self.window and self.window.start_ns <= received_ns <= self.window.deadline_ns:
++                self.first_frame_ns.setdefault(transport, received_ns)
+             reason = 'BOOK_' + transport
+             self.observations.append({'transport': transport, 'snapshotAtMs': stamp,
+                                       'receivedAtMs': received_ms, 'receivedMonotonicNs': str(received_ns)})
+@@ -113,8 +123,10 @@ class HybridBookGate(RtdsBookGate):
+             if stamp is not None and stamp < self.last_stamp:
+                 return
+             if stamp is not None:
++                self.counts['BOOK_WS_DELTA'] += 1
+                 self.delta_stamp = max(self.delta_stamp, stamp)
+             if disconnected:
++                self.counts['BOOK_WS_DISCONNECT'] += 1
+                 self.last_stamp = self.delta_stamp = 0
+             self.terminal |= terminal
+             self.invalidate(*self.key, disconnected=disconnected)
+@@ -126,6 +138,8 @@ class HybridBookGate(RtdsBookGate):
+             window = replace(window, deadline_ns=min(window.deadline_ns, signal_deadline))
+             self.window, self.window_start_ms = window, self.utc()
+             self.observations.clear()
++            self.window_counts = self.counts.copy()
++            self.first_frame_ns.clear()
+             if self.slots.acquire(blocking=False):
+                 threading.Thread(target=self.read_rest, args=(window, self.generation, self.market), daemon=True).start()
+             else:
+@@ -174,7 +188,21 @@ class HybridBookGate(RtdsBookGate):
+             return book
+
+     def wait_candidate(self, window, *, recompute=False):
+-        return super().wait_candidate(window, recompute=False)
++        try:
++            return super().wait_candidate(window, recompute=False)
++        except GateSkip as error:
++            if error.reason in {'BOOK_WAIT_TIMEOUT', 'BOOK_AGE'}:
++                with self.changed:
++                    ws, rest = self.first_frame_ns.get('WS'), self.first_frame_ns.get('REST')
++                    opened = self.ws_opened_ns
++                    error.book_timing = {
++                        'windowMs': max(0, (window.deadline_ns - window.start_ns) // 1_000_000),
++                        'wsOpenedMs': None if opened is None else (opened - window.start_ns) // 1_000_000,
++                        'firstWsMs': None if ws is None else (ws - window.start_ns) // 1_000_000,
++                        'firstRestMs': None if rest is None else (rest - window.start_ns) // 1_000_000,
++                        'counts': dict(self.counts - self.window_counts),
++                    }
++            raise
+
+     def finish(self):
+         with self.changed:
+diff --git a/maker_collector.py b/maker_collector.py
+index 60bde88..bc2da79 100644
+--- a/maker_collector.py
++++ b/maker_collector.py
+@@ -282,7 +282,8 @@ def run_makers(adapter, wallet, stop, deadline, report, *, buy_budget=poly.BUY_B
+                 except (GateSkip,poly.Skip) as error:
+                     if resolved is not None:
+                         adapter.remember_rejection(resolved, error.reason)
+-                    report({'stage':'polymarket-maker-skip','reason':error.reason,'proof':getattr(error,'details',None)})
++                    report({'stage':'polymarket-maker-skip','reason':error.reason,'proof':getattr(error,'details',None),
++                            'bookTiming':getattr(error,'book_timing',None)})
+                     continue
+                 finally:
+                     gate.finish()
+diff --git a/personal_pg.py b/personal_pg.py
+index a3d6f2e..b8994c9 100644
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -41,6 +41,7 @@ EXACT_REFUSALS = {
+     'FEE_ROUNDING_UNPROVEN': 'fee_profile_unavailable',
+     'FEE_ROUNDING_INDETERMINATE': 'fee_profile_unavailable',
+     'BOOK_AGE': 'book_stale',
++    'BOOK_WAIT_TIMEOUT': 'book_unavailable',
+     'SIGNAL_EXPIRED': 'signal_expired',
+ }
+
+@@ -426,6 +427,20 @@ class PgTransport:
+                                 'personal activation chain mismatch': 'ACTIVATION_HASH',
+                                 'accepted personal buy missing financial commit': 'FINANCIAL_COMMIT_REQUIRED',
+                             }
++                            if (failure.get(error.diag.message_primary) == 'DECISION_ADMISSION_CONFLICT'
++                                    and (error.diag.context or '').startswith(
++                                        'PL/pgSQL function polygon_buy.guard_decision_gap() ')):
++                                rejected = [item for item in envelope['request']['evaluations']
++                                            if item['evidence'].get('reason') == 'book_unavailable']
++                                if rejected:
++                                    for item in rejected:
++                                        key = item['transactionHash'], item['logIndex']
++                                        refusal = self.decisions.refusals.get(key)
++                                        if refusal and refusal[1] == 'book_unavailable':
++                                            self.decisions.refusals[key] = (refusal[0], None, None)
++                                    # The statement rolled back. Re-read the same committed cursor
++                                    # and let the existing authenticated expiry check decide.
++                                    raise Skip('PERSONAL_BOOK_REFUSAL_NEEDS_ADMISSION_CHECK') from None
+                             print(json.dumps({
+                                 'stage': 'personal-idle-range-rejected',
+                                 'reason': failure.get(error.diag.message_primary, 'DATABASE_INVARIANT'),
+diff --git a/personal_worker.py b/personal_worker.py
+index 16f1965..a807c4a 100644
+--- a/personal_worker.py
++++ b/personal_worker.py
+@@ -191,6 +191,15 @@ def report(item):
+     row = {key: item[key] for key in ('stage', 'status', 'reason', 'venue', 'source', 'bookFrames') if key in item}
+     if 'reason' in row and (not isinstance(row['reason'], str) or not re.fullmatch('[A-Z_0-9]{1,100}', row['reason'])):
+         row['reason'] = 'CHECK_REFUSED'
++    timing = item.get('bookTiming')
++    if isinstance(timing, dict):
++        allowed = ('windowMs', 'wsOpenedMs', 'firstWsMs', 'firstRestMs')
++        row['bookTiming'] = {key: timing[key] for key in allowed
++                             if key in timing and (timing[key] is None or type(timing[key]) is int)}
++        counts = timing.get('counts', {})
++        row['bookTiming']['counts'] = {key: value for key, value in counts.items()
++                                      if re.fullmatch(r'BOOK_(?:WS|REST)_[A-Z_0-9]{1,40}',key)
++                                      and type(value) is int and value > 0}
+     print(json.dumps(row, separators=(',', ':')), flush=True)
+
+
+diff --git a/rtds_operator.py b/rtds_operator.py
+index 8329287..248b1f1 100644
+--- a/rtds_operator.py
++++ b/rtds_operator.py
+@@ -284,6 +284,7 @@ class ActiveBook:
+         self.worker = self.stop = self.key = None
+         self.generation = None
+         self.attached_ns = 0
++        self.opened_ns = None
+         self.connected = False
+         self.lock = threading.Lock()
+         self.frames = self.errors = 0
+@@ -298,6 +299,13 @@ class ActiveBook:
+         self.key = key
+         stop = self.stop = threading.Event()
+         self.connected = True
++        self.opened_ns = None
++
++        def opened():
++            with self.lock:
++                self.opened_ns = self.gate.clock()
++                if self.generation is not None:
++                    self.gate.note_ws_open(self.generation, self.opened_ns)
+
+         def feed(frame):
+             received = self.gate.clock(), self.gate.utc()
+@@ -319,7 +327,7 @@ class ActiveBook:
+
+         def collect():
+             try:
+-                source.stream_books(market, stop, self.deadline, feed, invalidate)
++                source.stream_books(market, stop, self.deadline, feed, invalidate, on_open=opened)
+             except (OSError, EOFError, ValueError, KeyError, TypeError, GateSkip):
+                 self.errors += 1
+             finally:
+@@ -336,6 +344,7 @@ class ActiveBook:
+             if generation != self.generation:
+                 self.attached_ns = self.gate.clock()
+                 self.generation = generation
++                self.gate.note_ws_open(generation, self.opened_ns)
+
+     def close(self):
+         if self.worker:
+diff --git a/source.py b/source.py
+index 7fe2ab6..5347b23 100644
+--- a/source.py
++++ b/source.py
+@@ -302,7 +302,7 @@ def limitless_books(message, market, connection, send, book):
+         book(book_message(market, connection, data['timestamp'], orderbook, version=version))
+
+
+-def stream_books(market, stop, deadline, book, invalidate):
++def stream_books(market, stop, deadline, book, invalidate, *, on_open=None):
+     """Keep the subscription open during source polling and decision commit."""
+     host, path = ((POLY_WS, '/ws/market') if market.venue == 'polymarket'
+                   else (LIMITLESS_WS, '/socket.io/?EIO=4&transport=websocket'))
+@@ -314,6 +314,8 @@ def stream_books(market, stop, deadline, book, invalidate):
+                     upgrade(conn, stream, host, path)
+                     if market.venue == 'polymarket':
+                         send_frame(conn, json.dumps({'assets_ids': [market.token], 'type': 'market'}).encode())
++                        if on_open is not None:
++                            on_open()
+                     ping = time.monotonic() + 8
+                     while not stop.is_set() and time.monotonic() < deadline:
+                         now = time.monotonic()
