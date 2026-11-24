@@ -1,0 +1,24 @@
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -529,10 +529,17 @@
+             last_stage = now
+         self.check_write()
+         queued_quotes = getattr(self, 'queued_quotes', False)
+-        if queued_quotes:
+-            with self.connection(self.writer, mutation=True) as db:
+-                call(db, EXPIRE_QUEUE, scope.session_id)
+-        cursor = self.cursor(scope.session_id, idle_cursor=True)
++        try:
++            if queued_quotes:
++                with self.connection(self.writer, mutation=True) as db:
++                    call(db, EXPIRE_QUEUE, scope.session_id)
++            cursor = self.cursor(scope.session_id, idle_cursor=True)
++        except SerializationFailure as error:
++            if not queued_quotes or error.sqlstate != '40001' or error.diag.sqlstate != '40001':
++                raise
++            # The expiration or read transaction rolled back. No financial
++            # command was started; reload the committed state on the next poll.
++            raise Skip('POLYGON_QUEUE_MAINTENANCE_RETRY') from None
+         self.scoped(scope, cursor)
+         record("cursorMs")
+         deadline = monotonic() + 8

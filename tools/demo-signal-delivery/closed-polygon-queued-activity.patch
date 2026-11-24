@@ -1,0 +1,31 @@
+--- a/api/src/activity-live/reader.ts
++++ b/api/src/activity-live/reader.ts
+@@ -85,7 +85,7 @@
+         if(t.side!=='BUY'||!bound)bad();
+         decodeCopyDecision(d,session,received);
+       }else if(d.status!=='skipped'||d.reasonCode!=='context_invalid'||!['not_buy', 'before_personal_activation', 'copy_decision_unavailable', 'signal_expired', 'market_binding_unavailable', 'market_unavailable', 'market_resolved', 'book_unavailable', 'book_stale', 'clock_unproven', 'profile_unavailable', 'fee_profile_unavailable', 'invalid_book', 'insufficient_liquidity', 'below_minimum', 'precision_unavailable', 'insufficient_funds', 'position_limit_exceeded', 'daily_limit_exceeded', 'source_unavailable', 'one_buy_scope_complete'].includes(d.detailCode as string)||
+-        d.policyVersion!=='paper-bound-skip-v1'||d.copy!==null||!timestamp(d.decidedAt)||Date.parse(d.decidedAt as string)<received)bad();
++        (d.policyVersion!=='paper-bound-skip-v1'&&!(buy&&t.side==='BUY'&&d.policyVersion==='paper-buy-queued-v1'))||d.copy!==null||!timestamp(d.decidedAt)||Date.parse(d.decidedAt as string)<received)bad();
+     }
+     if(p.nextAfterSequence!==String(next)||p.hasMore!==(next<high))bad();
+     return {schemaVersion:buy?'live-buy-activity-v1':'paper-source-activity-v3',sessionId:request.sessionId,bindingStatus:binding===null?'unavailable':'verified',binding,observation:o,items,page:p,session,nextAction:null,nextActionParams:{}};
+--- a/web/src/api.ts
++++ b/web/src/api.ts
+@@ -194,7 +194,7 @@
+     size:null;price:null;sizeUnit:null;priceUnit:null};
+   decision:
+     | {status:'skipped';reasonCode:'context_invalid';detailCode:PaperActivitySkipReason;
+-       decidedAt:string;policyVersion:'paper-chain-observation-skip-v1'|'paper-bound-skip-v1';copy:null}
++       decidedAt:string;policyVersion:'paper-chain-observation-skip-v1'|'paper-bound-skip-v1'|'paper-buy-queued-v1';copy:null}
+     | {status:'pending';reasonCode:null;detailCode:null;decidedAt:string;policyVersion:'paper-buy-queued-v1';
+        copy:{kind:'pending';intentId:string|null;reservedCash:MoneyValue|null;reservedNotional:MoneyValue|null;admittedAt:string|null}}
+     | {status:'filled';reasonCode:null;detailCode:null;decidedAt:string;policyVersion:'paper-buy-queued-v1';
+@@ -223,7 +223,7 @@
+   const bound=hexId(trade.conditionId)&&typeof trade.marketTitle==='string'&&trade.marketTitle.length>0&&trade.marketTitle.length<=2048&&
+     typeof trade.outcome==='string'&&trade.outcome.length>0&&trade.outcome.length<=256;
+   const validSkip=decision.status==='skipped'&&decision.reasonCode==='context_invalid'&&decision.copy===null&&
+-    (boundVersion ? decision.policyVersion==='paper-bound-skip-v1'&&paperActivitySkipReasons.some(reason=>reason===decision.detailCode)
++    (boundVersion ? (decision.policyVersion==='paper-bound-skip-v1'||(liveBuy&&trade.side==='BUY'&&decision.policyVersion==='paper-buy-queued-v1'))&&paperActivitySkipReasons.some(reason=>reason===decision.detailCode)
+       : decision.policyVersion==='paper-chain-observation-skip-v1'&&decision.detailCode==='market_binding_unavailable');
+   const copy=decision.copy;
+   const validBuy=liveBuy&&bound&&trade.side==='BUY'&&decision.reasonCode===null&&decision.detailCode===null&&
