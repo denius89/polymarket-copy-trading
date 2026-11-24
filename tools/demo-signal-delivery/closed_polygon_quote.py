@@ -56,7 +56,10 @@ class QueuedQuoteTransport:
         remaining = (event['signalAtMs'] + 30_000 - utc_ms()) / 1000
         if remaining <= 0:
             raise Skip('PERSONAL_QUOTE_EXPIRED')
-        binding = market_binding(event, min(remaining, 3))
+        if event['venueReceipt']['source'] == 'polymarket-polygon-finalized-queue-v1':
+            binding = self.resolved.evidence['marketBinding']
+        else:
+            binding = market_binding(event, min(remaining, 3))
         started = monotonic()
         # A not-ready candidate yields to the next source frame after a short
         # wait. Its original source clock remains in force on retry.
