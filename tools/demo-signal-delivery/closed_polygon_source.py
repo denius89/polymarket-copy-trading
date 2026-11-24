@@ -61,7 +61,10 @@ def cycle(config, primary, backup, anchors):
     scope.update(anchors)
 
     started = monotonic()
-    chain_range, _, _ = read_idle_range(primary, backup, scope, deadline=started + 8, max_blocks=16)
+    try:
+        chain_range, _, _ = read_idle_range(primary, backup, scope, deadline=started + 8, max_blocks=16)
+    except (KeyError, TypeError, ValueError):
+        raise Skip('PERSONAL_RANGE_INVALID_PROVIDER_DATA') from None
     if chain_range is None:
         with connection(config) as db:
             completed, = db.execute('SELECT demo_delivery.reconcile_closed_polygon_results(%s,NULL,NULL)',
