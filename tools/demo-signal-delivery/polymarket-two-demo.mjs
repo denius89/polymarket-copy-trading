@@ -180,6 +180,7 @@ async function prepareQueue(users) {
             INSERT INTO demo_delivery.pilot_marker VALUES ('isolated-public-market-pilot-v1')`);
         await db.exec(await readFile(new URL('./polygon-result-ack.sql', import.meta.url), 'utf8'));
         await db.exec(await readFile(new URL('./polygon-pending-jobs.sql', import.meta.url), 'utf8'));
+        await db.exec(await readFile(new URL('./closed-polygon-source.sql', import.meta.url), 'utf8'));
     }
     await db.query('INSERT INTO demo_delivery.traders VALUES ($1,$2)', ['polymarket', wallet]);
     for (const user of users) {
@@ -376,7 +377,28 @@ try {
     if (pair) {
         await db.query("INSERT INTO demo_delivery.source_cursors VALUES ('polymarket',$1,$2,$3)",
             [wallet,baselineHeader.number,baselineHeader.hash]);
-        const send = () => publishFinalizedPolygonBlock(db,wallet,header,pair.map(item => item.log),new Date());
+        const publisher = users[0];
+        await db.query(`INSERT INTO demo_delivery.closed_polygon_source
+            SELECT session_id,run_id,writer_oid,owner_address,clock_timestamp()+interval '5 minutes'
+            FROM polygon_live_activity.assignments WHERE session_id=$1`,[publisher.sid]);
+        await db.exec(`GRANT EXECUTE ON FUNCTION demo_delivery.closed_polygon_scope(uuid),
+            demo_delivery.publish_closed_polygon_range(uuid,jsonb) TO ${publisher.writer}`);
+        const send = () => publishFinalizedPolygonBlock({
+            async query(_sql, parameters) {
+                const block = [{header,events:JSON.parse(parameters[4])}];
+                await db.exec('BEGIN ISOLATION LEVEL READ COMMITTED');
+                try {
+                    await db.exec('SET LOCAL SESSION AUTHORIZATION ' + publisher.writer);
+                    const output = await db.query('SELECT demo_delivery.publish_closed_polygon_range($1,$2) AS saved',
+                        [publisher.sid,JSON.stringify(block)]);
+                    await db.exec('COMMIT');
+                    return output;
+                } catch (error) {
+                    await db.exec('ROLLBACK');
+                    throw error;
+                }
+            },
+        },wallet,header,pair.map(item => item.log),new Date());
         assert.equal((await send()).enqueued,4);
         assert.equal((await send()).enqueued,0);
         // Advance only the first signal's delivery deadline in the isolated fixture.
