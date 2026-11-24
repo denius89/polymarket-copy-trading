@@ -174,12 +174,18 @@ async function prepareQueue(users) {
         return;
     }
     await db.exec(await readFile(new URL('./schema.sql', import.meta.url), 'utf8'));
+    if (pair) {
+        await db.exec(`CREATE TABLE demo_delivery.pilot_marker (kind text PRIMARY KEY);
+            INSERT INTO demo_delivery.pilot_marker VALUES ('isolated-public-market-pilot-v1')`);
+        await db.exec(await readFile(new URL('./polygon-result-ack.sql', import.meta.url), 'utf8'));
+    }
     await db.query('INSERT INTO demo_delivery.traders VALUES ($1,$2)', ['polymarket', wallet]);
     for (const user of users) {
         await db.query('SELECT demo_delivery.subscribe($1,$2,$3)', [user.sid,'polymarket',wallet]);
         await db.query('INSERT INTO demo_delivery.session_writers VALUES ($1,$2::regrole::oid)', [user.sid,user.writer]);
+        const ack = pair ? 'acknowledge_polygon_result(bigint,uuid,uuid)' : 'acknowledge_bound(bigint,uuid,uuid,text,text)';
         await db.exec(`GRANT USAGE ON SCHEMA demo_delivery TO ${user.writer};
-            GRANT EXECUTE ON FUNCTION demo_delivery.acknowledge_bound(bigint,uuid,uuid,text,text) TO ${user.writer}`);
+            GRANT EXECUTE ON FUNCTION demo_delivery.${ack} TO ${user.writer}`);
     }
 }
 
@@ -202,8 +208,11 @@ async function publish(users) {
 }
 
 async function acknowledge(job) {
-    const {rows: [{accepted}]} = await db.query('SELECT demo_delivery.acknowledge_bound($1,$2,$3,$4,$5) accepted',
-        [job.signal_id,job.session_id,job.lease_token,'polymarket',job.execution_key]);
+    const keys = [job.signal_id,job.session_id,job.lease_token];
+    const {rows: [{accepted}]} = pair
+        ? await db.query('SELECT demo_delivery.acknowledge_polygon_result($1,$2,$3) accepted', keys)
+        : await db.query('SELECT demo_delivery.acknowledge_bound($1,$2,$3,$4,$5) accepted',
+            [...keys,'polymarket',job.execution_key]);
     return accepted;
 }
 
@@ -238,6 +247,7 @@ async function applyBuy(user, run, job, header) {
     let purchaseJob = job;
     if (pair) {
         await tx(user.writer, async () => {
+            assert.equal(await acknowledge(job), false, 'The queue cannot acknowledge a missing Activity decision');
             const ingest = await must('live_activity_ingest', envelope);
             assert.equal(ingest.result.accepted, '2');
             assert.equal(await acknowledge(job), true);
@@ -251,6 +261,8 @@ async function applyBuy(user, run, job, header) {
         const { rows: [claimed] } = await db.query("SELECT * FROM demo_delivery.claim(1,interval '25 seconds')");
         assert.equal(claimed.session_id,user.sid);
         assert.equal(claimed.execution_key,`137:${publicTx}:${logIndex}`);
+        assert.equal(await tx(user.writer,() => acknowledge(claimed)),false,
+            'A pending admission is not a purchase receipt');
         purchaseJob = claimed;
     }
     const settled = await tx(user.writer, async () => {
