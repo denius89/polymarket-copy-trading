@@ -1,0 +1,40 @@
+diff --git a/personal_pg.py b/personal_pg.py
+index df09cdf..4e7c436 100644
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -9,7 +9,7 @@ from time import monotonic
+ from uuid import UUID, uuid4, uuid5
+
+ from psycopg import OperationalError, connect
+-from psycopg.errors import CheckViolation, LockNotAvailable, QueryCanceled, SerializationFailure
++from psycopg.errors import CheckViolation, LockNotAvailable, QueryCanceled, SerializationFailure, RaiseException
+ from psycopg.types.json import Jsonb
+
+ from guarded_source import ScopeRefusal, exact
+@@ -363,6 +363,26 @@ class PgTransport:
+                     self.check_write()
+                     try:
+                         applied = result(call(db, INGEST, Jsonb(envelope)), 'Personal idle ingest refused')
++                    except RaiseException as error:
++                        if error.sqlstate != 'P0001':
++                            raise
++                        failure = {
++                            'missing authenticated BUY decision closure': 'DECISION_FENCE',
++                            'missing authenticated BUY decision closure or existing admission': 'DECISION_ADMISSION_CONFLICT',
++                            'outside approved BreakTheBank segment': 'DECISION_SCOPE',
++                            'outside approved historical range': 'HISTORY_SCOPE',
++                            'pre-activation decision required': 'ACTIVATION_BOUNDARY',
++                            'personal activation chain mismatch': 'ACTIVATION_HASH',
++                            'accepted personal buy missing financial commit': 'FINANCIAL_COMMIT_REQUIRED',
++                        }
++                        print(json.dumps({
++                            'stage': 'personal-idle-range-rejected',
++                            'reason': failure.get(error.diag.message_primary, 'DATABASE_INVARIANT'),
++                            'operationId': envelope['request']['ingest']['operationId'],
++                            'after': cursor['checkpoint']['number'],
++                            'through': envelope['request']['ingest']['finalized']['number'],
++                        }), flush=True)
++                        raise
+                     except LockNotAvailable as error:
+                         if error.sqlstate != '55P03' or error.diag.sqlstate != '55P03':
+                             raise
