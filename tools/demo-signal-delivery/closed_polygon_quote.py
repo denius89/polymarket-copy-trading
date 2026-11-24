@@ -1,6 +1,7 @@
 """Use the stock Polymarket quote route for a previously staged delivery."""
 from contextlib import contextmanager
 from dataclasses import dataclass
+import json
 from time import monotonic, sleep
 
 from psycopg import OperationalError
@@ -55,7 +56,8 @@ class QueuedQuoteTransport:
             raise Skip('PERSONAL_QUOTE_EXPIRED')
         binding = market_binding(event, min(remaining, 3))
         started = monotonic()
-        deadline = started + max(0, min(7, (event['signalAtMs'] + 30_000 - utc_ms()) / 1000 - 3))
+        # Leave room to acquire the book and commit after staging the observation.
+        deadline = started + max(0, min(14, (event['signalAtMs'] + 30_000 - utc_ms()) / 1000 - 8))
         while True:
             with self.base.connection(self.base.writer) as db:
                 job = read_call(db, CLAIM, scope.session_id, Jsonb(log))
@@ -66,6 +68,8 @@ class QueuedQuoteTransport:
             sleep(0.25)
         self.prepared = (log, cursor['version'], binding, job)
         self.claim_ms = round((monotonic() - started) * 1000)
+        print(json.dumps({'stage': 'polygon-queue-quote-claim', 'signalId': job['signalId'],
+                          'claimMs': self.claim_ms, 'signalAgeMs': utc_ms() - event['signalAtMs']}), flush=True)
 
     def prepare(self, scope, event, estimate, meta):
         if self.prepared is None:
