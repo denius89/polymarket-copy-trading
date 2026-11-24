@@ -1,0 +1,70 @@
+diff --git a/personal_pg.py b/personal_pg.py
+index 0d7cc49..8dace5d 100644
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -1,7 +1,7 @@
+ """Private PostgreSQL transport for an enrolled paper-buy stream."""
+ from concurrent.futures import ThreadPoolExecutor
+ from contextlib import contextmanager, nullcontext
+-from dataclasses import dataclass
++from dataclasses import dataclass, replace
+ from hashlib import sha256
+ import json
+ import os
+@@ -143,6 +143,36 @@ class PreparedBuy:
+     cursor: dict
+     quote: dict
+     envelope: dict
++    chain_range: tuple
++    binding: dict
++
++    def after_idle_prefix(self, current, now_ms):
++        if current == self.cursor:
++            return self
++
++        # The idle writer may commit empty blocks before this trade. A
++        # nonempty prefix would require reconciling the stored observations.
++        progress_fields = {'checkpoint', 'lastOperationId', 'lastObservedAt', 'highWatermark'}
++        previous_scope = {key: value for key, value in self.cursor.items() if key not in progress_fields}
++        current_scope = {key: value for key, value in current.items() if key not in progress_fields}
++        headers, logs = self.chain_range
++        height = int(current['checkpoint']['number'])
++        previous = int(self.cursor['checkpoint']['number'])
++        target = int(self.quote['normalizedLog']['blockNumber'])
++        if (current_scope != previous_scope or not previous < height < target
++                or height not in headers or checkpoint(headers[height]) != current['checkpoint']
++                or current['highWatermark'] != self.cursor['highWatermark']
++                or any(int(log['blockNumber']) <= height for log in logs)):
++            raise Skip('PERSONAL_CURSOR_ADVANCED')
++
++        suffix = (
++            {number: block for number, block in headers.items() if number > height},
++            logs,
++        )
++        operation = self.envelope['request']['ingest']['operationId']
++        envelope = ingest_envelope(current, suffix, operation, quote=self.quote,
++                                   binding=self.binding, now_ms=now_ms)
++        return replace(self, cursor=current, envelope=envelope, chain_range=suffix)
+
+
+ class PgTransport:
+@@ -310,7 +340,7 @@ class PgTransport:
+             quote[key] = command_id(scope.session_id, execution, key)
+         envelope = ingest_envelope(cursor, chain_range, command_id(scope.session_id, execution, 'ingest'),
+                                    quote=quote, binding=binding, now_ms=utc_ms())
+-        return PreparedBuy(cursor, quote, envelope)
++        return PreparedBuy(cursor, quote, envelope, chain_range, binding)
+
+     @contextmanager
+     def transaction(self, scope, prepared):
+@@ -323,8 +353,8 @@ class PgTransport:
+             if prior is not None:
+                 yield prior
+                 return
+-            if self.cursor(sid) != prepared.cursor:
+-                raise Skip('PERSONAL_CURSOR_ADVANCED')
++            current = self.cursor(sid)
++            prepared = prepared.after_idle_prefix(current, utc_ms())
+             self.check_write()
+             with self.tracking('purchase', execution):
+                 try:
