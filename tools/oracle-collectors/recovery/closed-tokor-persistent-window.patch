@@ -1,0 +1,23 @@
+diff --git a/personal_worker.py b/personal_worker.py
+index 16f1965..cc6acca 100644
+--- a/personal_worker.py
++++ b/personal_worker.py
+@@ -379,6 +379,7 @@ def main():
+                         help='Use the configured wallet and its bound settings in an isolated database')
+     parser.add_argument('--closed-handover-until')
+     parser.add_argument('--closed-auto-recovery', action='store_true')
++    parser.add_argument('--closed-persistent', action='store_true')
+     mode = parser.add_mutually_exclusive_group(required=True)
+     mode.add_argument('--check', action='store_true')
+     mode.add_argument('--lookup')
+@@ -391,7 +392,9 @@ def main():
+         if not (args.closed_configured_wallet and args.seconds is not None):
+             parser.error('Only a timed closed operator may hand over a worker')
+         cutoff = int(timestamp(args.closed_handover_until).timestamp()*1000)
+-        if cutoff - utc_ms() > args.seconds * 1000:
++        if args.closed_persistent and not args.closed_auto_recovery:
++            parser.error('A persistent closed profile requires recovery protection')
++        if cutoff - utc_ms() > (604800 if args.closed_persistent else args.seconds) * 1000:
+             parser.error('Handover deadline exceeds the closed trial window')
+     if args.closed_auto_recovery and args.closed_handover_until is None:
+         parser.error('Automatic recovery requires a fixed closed handover deadline')
