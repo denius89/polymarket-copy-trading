@@ -1,0 +1,58 @@
+diff --git a/limitless_base_detection.py b/limitless_base_detection.py
+index 6ad4d41..bc7cc90 100644
+--- a/limitless_base_detection.py
++++ b/limitless_base_detection.py
+@@ -11,6 +11,7 @@ from trader_address_probe import base_logs
+ ENDPOINTS = (source.RPC[0], source.BASE_DISCOVERY_FALLBACK)
+ BATCH_SIZE = 16
+ CATCHUP_BATCH_SIZE = 128
++DRPC_LOG_BLOCK_LIMIT = 100
+
+
+ def cooldown(error):
+@@ -45,16 +46,22 @@ class BaseDetection:
+         self.catchup_batch = CATCHUP_BATCH_SIZE if cursor_hash is not None else BATCH_SIZE
+         self.unread = None
+         self.available_at = {}
++        self.last_head = None
+
+     def scan(self):
+         large_range_refused = False
+-        for endpoint in ENDPOINTS:
++        wide_catchup = (self.cursor is not None and self.catchup_batch > DRPC_LOG_BLOCK_LIMIT
++                        and (self.last_head is None or self.last_head - self.cursor > DRPC_LOG_BLOCK_LIMIT))
++        endpoints = reversed(ENDPOINTS) if wide_catchup else ENDPOINTS
++        for endpoint in endpoints:
+             if time.monotonic() < self.available_at.get(endpoint, 0):
+                 continue
+             method = 'eth_getBlockByNumber'
++            requested = None
+             try:
+                 reply = source.rpc(method, 'latest', False, endpoint=endpoint)
+                 head = int(reply['number'], 16)
++                self.last_head = head
+                 if self.unread is None:
+                     if self.cursor is not None and self.cursor >= head:
+                         return None
+@@ -66,6 +73,9 @@ class BaseDetection:
+                         low = self.cursor + 1
+                         self.unread = low, min(head, low + self.catchup_batch - 1)
+                 low, high = self.unread
++                if endpoint == source.RPC[0]:
++                    high = min(high, low + DRPC_LOG_BLOCK_LIMIT - 1)
++                requested = low, high
+                 # Some providers return only the portion below their head. Never
+                 # accept an empty or truncated response when the peer is behind.
+                 if head < high:
+@@ -112,9 +122,10 @@ class BaseDetection:
+                 self.report({
+                     'stage': 'limitless-read', 'reason': f'HTTP_{error.code}' if isinstance(error, HTTPError)
+                     else type(error).__name__, 'operation': method, 'provider': urlparse(endpoint).hostname,
+-                    'retrySeconds': round(delay, 2), 'unreadRange': self.unread,
++                    'retrySeconds': round(delay, 2), 'unreadRange': requested or self.unread,
+                 })
+                 continue
++            self.unread = requested
+             return head, logs
+         if large_range_refused and self.unread is not None:
+             low,high = self.unread
