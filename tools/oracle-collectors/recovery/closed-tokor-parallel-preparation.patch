@@ -1,0 +1,237 @@
+diff --git a/hybrid_book.py b/hybrid_book.py
+index 9cbbe95..a78f546 100644
+--- a/hybrid_book.py
++++ b/hybrid_book.py
+@@ -148,7 +148,7 @@ class HybridBookGate(RtdsBookGate):
+
+     def read_rest(self, window, generation, market):
+         try:
+-            for _ in range(3):
++            for attempt in range(3):
+                 remaining = (window.deadline_ns - self.clock()) / NS
+                 if remaining <= 0:
+                     return
+@@ -174,7 +174,11 @@ class HybridBookGate(RtdsBookGate):
+                 with self.changed:
+                     if self.window != window:
+                         return
+-                    self.changed.wait(timeout=min(.25, max(0, (window.deadline_ns - self.clock()) / NS)))
++                    if attempt < 2:
++                        # Spread the fallback requests across the available window.
++                        next_attempt = window.start_ns + (window.deadline_ns - window.start_ns) * (attempt + 1) // 3
++                        while self.window == window and self.clock() < next_attempt:
++                            self.changed.wait(timeout=(next_attempt - self.clock()) / NS)
+         finally:
+             self.slots.release()
+
+diff --git a/maker_collector.py b/maker_collector.py
+index bc2da79..11a091a 100644
+--- a/maker_collector.py
++++ b/maker_collector.py
+@@ -16,7 +16,7 @@ from urllib.request import Request
+ from book_engine import GateSkip, rational
+ from collectors import PolymarketWriter
+ from hybrid_book import HybridBookGate
+-from market_policy import VERIFIED_FLOOR, load_market, verify_observed_fee
++from market_policy import MARKET_PREPARATION, VERIFIED_FLOOR, prepare_market, verify_observed_fee
+ from route import execute_resolved
+ import rtds_operator as poly
+ import source
+@@ -258,14 +258,11 @@ def run_makers(adapter, wallet, stop, deadline, report, *, buy_budget=poly.BUY_B
+                     counts['signal_expired'] += 1
+                     continue
+                 market=source.Market('polymarket',captured.market,captured.token,wallet,captured.slug)
+-                try:
+-                    delay,delay_evidence,policy,baseline,exchange=load_market(market)
+-                except (OSError,ValueError,KeyError,TypeError,ArithmeticError) as error:
+-                    report({'stage':'polymarket-maker-skip','reason':getattr(error,'reason','MARKET_PARAMETERS_UNPROVEN')})
+-                    continue
++                preparation = MARKET_PREPARATION.submit(prepare_market, market)
++                books.prepare(market)
+                 resolved = None
++                timing = {'sourceSeenMs': captured.first_utc - captured.source_ms}
+                 try:
+-                    books.follow(market,policy,baseline)
+                     binding={'wallet':wallet,'marketId':captured.market,'outcomeId':captured.token,
+                              'evidenceRef':'verified-active-clob-market-and-token:'+captured.market}
+                     resolver=MakerResolver(rpc,endpoint_id=poly.RPC,binding=binding,timestamp_evidence=timestamp_evidence,
+@@ -273,6 +270,17 @@ def run_makers(adapter, wallet, stop, deadline, report, *, buy_budget=poly.BUY_B
+                     observed=resolver.observe(captured.raw,captured.connection,first_seen_ms=captured.first_utc,
+                                                first_ns=captured.first_mono)
+                     resolved=resolver.resolve(observed)
++                    timing['confirmMs'] = (time.monotonic_ns() - captured.first_mono) // 1_000_000
++                    try:
++                        (delay,delay_evidence,policy,baseline,exchange), timing['marketMs'] = preparation.result(
++                            timeout=max(0, poly.remaining(captured) / 1_000_000_000))
++                    except (OSError,ValueError,KeyError,TypeError,ArithmeticError) as error:
++                        report({'stage':'polymarket-maker-skip','reason':getattr(error,'reason','MARKET_PARAMETERS_UNPROVEN')})
++                        continue
++                    if poly.remaining(captured) <= 0:
++                        raise poly.Skip('SIGNAL_EXPIRED')
++                    books.follow(market,policy,baseline)
++                    timing['delayMs'] = delay
+                     fee_for_copy(resolved,policy,exchange)
+                     writer=PolymarketWriter(adapter,captured,registry)
+                     result=execute_resolved(writer,maker_provenance.validate,None,gate,resolved,
+@@ -286,6 +294,9 @@ def run_makers(adapter, wallet, stop, deadline, report, *, buy_budget=poly.BUY_B
+                             'bookTiming':getattr(error,'book_timing',None)})
+                     continue
+                 finally:
++                    preparation.cancel()
++                    timing['totalMs'] = (time.monotonic_ns() - captured.first_mono) // 1_000_000
++                    report({'stage':'polymarket-maker-timing','timing':timing})
+                     gate.finish()
+                 if result['status']=='recorded':
+                     report({'stage':'app-venue-admission','venue':'polymarket','source':'public-v2-maker','status':'recorded'})
+diff --git a/market_policy.py b/market_policy.py
+index a10069a..e36636c 100644
+--- a/market_policy.py
++++ b/market_policy.py
+@@ -1,5 +1,7 @@
+ """Read a Polymarket BUY policy and bind its fees to the observed CTF form."""
++from concurrent.futures import ThreadPoolExecutor
+ from decimal import Decimal
++from time import monotonic_ns
+ from urllib.parse import urlencode
+
+ import source
+@@ -30,18 +32,27 @@ VERIFIED_FLOOR = {
+ QUANTITY_PRECISION = {'0.1': 3, '0.01': 4, '0.005': 5, '0.0025': 6, '0.001': 5, '0.0001': 6}
+
+
++_MARKET_INPUTS = ThreadPoolExecutor(max_workers=4)
++MARKET_PREPARATION = ThreadPoolExecutor(max_workers=2)
++
++
+ def load_market(market):
+-    details = source.json_read(f'{source.POLY_MARKETS}/markets?{urlencode({"slug": market.slug})}')
++    token = urlencode({'token_id': market.token})
++    read = _MARKET_INPUTS.submit
++    details_request = read(source.json_read, f'{source.POLY_MARKETS}/markets?{urlencode({"slug": market.slug})}')
++    info_request = read(source.json_read, f'{source.POLY_CLOB}/clob-markets/{market.market}')
++    book_request = read(source.json_read, f'{source.POLY_CLOB}/book?{token}')
++    fee_request = read(source.json_read, f'{source.POLY_CLOB}/fee-rate?{token}')
++    details = details_request.result()
+     detail = next((row for row in details if row.get('conditionId') == market.market), None)
+     if (not detail or detail.get('slug') != market.slug or detail.get('active') is not True
+             or detail.get('acceptingOrders') is not True or detail.get('closed') is not False):
+         raise MarketParameterError('MARKET_IDENTITY_OR_TRADABILITY_UNPROVEN')
+-    info = source.json_read(f'{source.POLY_CLOB}/clob-markets/{market.market}')
++    info = info_request.result()
+     outcomes = [row for row in info['t'] if row['t'] == market.token]
+     if len(outcomes) != 1:
+         raise MarketParameterError('MARKET_IDENTITY_OR_TRADABILITY_UNPROVEN')
+-    token = urlencode({'token_id': market.token})
+-    book = source.json_read(f'{source.POLY_CLOB}/book?{token}')
++    book = book_request.result()
+     if book.get('market') != market.market or book.get('asset_id') != market.token:
+         raise MarketParameterError('MARKET_BOOK_IDENTITY_UNPROVEN')
+     delay, delay_ref = delay_for_market(detail, info)
+@@ -56,7 +67,7 @@ def load_market(market):
+         raise MarketParameterError('MARKET_CONTRACT_SHAPE_UNPROVEN')
+     curve = info.get('fd') or {}
+     rate = Decimal(str(curve.get('r', '0')))
+-    token_base = source.json_read(f'{source.POLY_CLOB}/fee-rate?{token}').get('base_fee')
++    token_base = fee_request.result().get('base_fee')
+     free = detail.get('feesEnabled') is False and rate == 0 and type(token_base) is int and token_base == 0
+     paid = (detail.get('feesEnabled') is True and rate.is_finite() and 0 < rate <= 1
+             and type(curve.get('e')) is int and curve['e'] == 1 and curve.get('to') is True
+@@ -75,6 +86,12 @@ def load_market(market):
+     return delay, delay_ref, policy, book, CTF_EXCHANGES[neg_risk]
+
+
++def prepare_market(market):
++    started = monotonic_ns()
++    policy = load_market(market)
++    return policy, (monotonic_ns() - started) // 1_000_000
++
++
+ class FeeEvidenceError(MarketParameterError):
+     def __init__(self, reason, **details):
+         super().__init__(reason)
+diff --git a/personal_worker.py b/personal_worker.py
+index a807c4a..4291f82 100644
+--- a/personal_worker.py
++++ b/personal_worker.py
+@@ -191,6 +191,11 @@ def report(item):
+     row = {key: item[key] for key in ('stage', 'status', 'reason', 'venue', 'source', 'bookFrames') if key in item}
+     if 'reason' in row and (not isinstance(row['reason'], str) or not re.fullmatch('[A-Z_0-9]{1,100}', row['reason'])):
+         row['reason'] = 'CHECK_REFUSED'
++    phase = item.get('timing')
++    if item.get('stage') == 'polymarket-maker-timing' and isinstance(phase, dict):
++        fields = ('sourceSeenMs','confirmMs','marketMs','delayMs','totalMs')
++        row['timing'] = {key: phase[key] for key in fields
++                         if key in phase and type(phase[key]) is int and 0 <= phase[key] <= 60_000}
+     timing = item.get('bookTiming')
+     if isinstance(timing, dict):
+         allowed = ('windowMs', 'wsOpenedMs', 'firstWsMs', 'firstRestMs')
+@@ -315,7 +320,8 @@ def run(args):
+         worker_stages = ('taker-source', 'maker-source', 'finalized-range')
+         def report_trial(item):
+             report(item)
+-            if (args.closed_configured_wallet and item.get('stage') == 'app-venue-admission'
++            if (args.closed_configured_wallet and not getattr(args,'closed_persistent',False)
++                    and item.get('stage') == 'app-venue-admission'
+                     and item.get('status') == 'recorded'):
+                 terminal()
+
+diff --git a/rtds_operator.py b/rtds_operator.py
+index 248b1f1..875ba3c 100644
+--- a/rtds_operator.py
++++ b/rtds_operator.py
+@@ -9,7 +9,7 @@ import rtds_provenance
+ import source
+ from book_engine import GateSkip, q
+ from hybrid_book import snapshot_time
+-from market_policy import load_market, verify_observed_fee
++from market_policy import MARKET_PREPARATION, prepare_market, verify_observed_fee
+ from numeric_match import price_key
+ from resolver import Resolver, Skip
+ from route import execute_resolved
+@@ -360,15 +360,8 @@ def process(captured, gate, books, rpc, db, stop, registry, deadline, *, writer_
+     if remaining(captured) <= 0:
+         raise Skip('SIGNAL_EXPIRED')
+     market = source.Market('polymarket', captured.market, captured.token, captured.wallet, captured.slug)
+-    try:
+-        delay, delay_evidence, policy, baseline, exchange = load_market(market)
+-    except HTTPError as error:
+-        raise Skip(f'MARKET_PARAMETERS_HTTP_{error.code}') from None
+-    except (OSError, ValueError, KeyError, TypeError, ArithmeticError) as error:
+-        raise Skip(getattr(error, 'reason', 'MARKET_PARAMETERS_UNPROVEN')) from None
+-    if remaining(captured) <= 0:
+-        raise Skip('SIGNAL_EXPIRED')
+-    books.follow(market, policy, baseline)
++    pending_market = MARKET_PREPARATION.submit(prepare_market, market)
++    books.prepare(market)
+     binding = {'wallet': captured.wallet, 'marketId': captured.market, 'outcomeId': captured.token,
+                'evidenceRef': 'verified-active-clob-market-and-token:' + captured.market}
+     observing = True
+@@ -382,9 +375,25 @@ def process(captured, gate, books, rpc, db, stop, registry, deadline, *, writer_
+         mono=lambda: captured.first_mono if observing else time.monotonic_ns(),
+         utc=lambda: captured.first_utc if observing else time.time_ns() // 1_000_000,
+         wait=stop.wait)
+-    observed = resolver.observe(captured.raw, captured.connection)
+-    observing = False
+-    resolved = resolver.resolve(observed)
++    try:
++        observed = resolver.observe(captured.raw, captured.connection)
++        observing = False
++        resolved = resolver.resolve(observed)
++    except (Skip, GateSkip):
++        pending_market.cancel()
++        raise
++    try:
++        (delay, delay_evidence, policy, baseline, exchange), _ = pending_market.result(
++            timeout=max(0, remaining(captured) / 1_000_000_000))
++    except HTTPError as error:
++        raise Skip(f'MARKET_PARAMETERS_HTTP_{error.code}') from None
++    except (OSError, ValueError, KeyError, TypeError, ArithmeticError) as error:
++        raise Skip(getattr(error, 'reason', 'MARKET_PARAMETERS_UNPROVEN')) from None
++    finally:
++        pending_market.cancel()
++    if remaining(captured) <= 0:
++        raise Skip('SIGNAL_EXPIRED')
++    books.follow(market, policy, baseline)
+     try:
+         verify_observed_fee(resolved, policy, exchange)
+     except ValueError as error:
