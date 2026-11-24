@@ -12,6 +12,7 @@ from psycopg.types.json import Jsonb
 
 from personal_range import read_idle_range, timestamp, utc_ms, wire_time
 from personal_worker import ClosedPgTransport, bound_scope, closed_services, private_config
+from polygon_queue_wakeup import SOURCE_READY
 from resolver import Skip
 from rtds_operator import BoundedRPC, HISTORY_RPC
 
@@ -76,8 +77,14 @@ def cycle(config, primary, backup, anchors):
     batches = block_batch(chain_range, utc_ms())
     started = monotonic()
     with connection(config) as db:
-        receipt, = db.execute('SELECT demo_delivery.publish_closed_polygon_range(%s,%s)',
-                              (sid, Jsonb(batches))).fetchone()
+        receipt, _ = db.execute('''
+            WITH published AS MATERIALIZED (
+                SELECT demo_delivery.publish_closed_polygon_range(%s,%s) AS receipt
+            )
+            SELECT receipt, CASE WHEN (receipt->>'enqueued')::integer > 0
+                                 THEN pg_notify(%s,'') END
+            FROM published
+        ''', (sid, Jsonb(batches), SOURCE_READY)).fetchone()
         completed, = db.execute('SELECT demo_delivery.reconcile_closed_polygon_results(%s,NULL,NULL)',
                                 (sid,)).fetchone()
     print(json.dumps({'stage': 'polygon-queue-range', 'fromBlock': int(scope['checkpoint']['number']) + 1,
