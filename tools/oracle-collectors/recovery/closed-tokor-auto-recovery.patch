@@ -1,0 +1,398 @@
+diff --git a/personal_pg.py b/personal_pg.py
+index 4e7c436..a3d6f2e 100644
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -1,8 +1,9 @@
+ """Private PostgreSQL transport for an enrolled paper-buy stream."""
+-from contextlib import contextmanager
++from contextlib import contextmanager, nullcontext
+ from dataclasses import dataclass
+ from hashlib import sha256
+ import json
++import os
+ import re
+ from threading import Event, Lock, local
+ from time import monotonic
+@@ -56,6 +57,50 @@ class UnresolvedResult(RuntimeError):
+         self.kind = kind
+
+
++class ClosedWriteGuard:
++    """A durable marker survives a process crash until the operation is known."""
++
++    def __init__(self, directory, session_id):
++        self.path = directory / (session_id + '.unresolved-write')
++
++    def require_clear(self):
++        try:
++            self.path.lstat()
++        except FileNotFoundError:
++            return
++        # Even a partially written marker blocks all subsequent writers.
++        raise UnresolvedResult(self.path.name, 'recovery')
++
++    def sync_directory(self):
++        fd = os.open(self.path.parent, os.O_RDONLY | os.O_DIRECTORY)
++        try:
++            os.fsync(fd)
++        finally:
++            os.close(fd)
++
++    @contextmanager
++    def track(self, kind, identity):
++        self.require_clear()
++        fd = os.open(self.path, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
++        with os.fdopen(fd, 'w') as file:
++            json.dump({'kind': kind, 'identity': identity}, file)
++            file.flush()
++            os.fsync(file.fileno())
++        self.sync_directory()
++        try:
++            yield
++        except (Skip, IdleIngestCanceled):
++            # These are the existing, explicitly non-committed refusal paths.
++            self.clear()
++            raise
++        else:
++            self.clear()
++
++    def clear(self):
++        self.path.unlink()
++        self.sync_directory()
++
++
+ def command_id(session, execution, purpose):
+     # Old accounting decoders require the UUID v4 variant on the wire.
+     return str(UUID(bytes=uuid5(UUID(session), execution + ':' + purpose).bytes, version=4))
+@@ -103,6 +148,10 @@ class PgTransport:
+         self.window = window
+         self.decisions = DecisionGuard()
+         self.last_range_wait = None
++        self.recovery = None
++
++    def tracking(self, kind, identity):
++        return self.recovery.track(kind, identity) if self.recovery is not None else nullcontext()
+
+     def remember_rejection(self, resolved, reason):
+         disposition = EXACT_REFUSALS.get(reason)
+@@ -249,68 +298,69 @@ class PgTransport:
+             if self.cursor(sid) != prepared.cursor:
+                 raise Skip('PERSONAL_CURSOR_ADVANCED')
+             self.check_write()
+-            try:
+-                with self.connection(self.issuer, mutation=True) as db:
+-                    self.check_write()
+-                    issued = call(db, ISSUE, Jsonb(quote))
+-                    if issued != {key: quote[key] for key in ('reserveId', 'observationId')}:
+-                        raise ScopeRefusal('Personal quote issuer returned a different identity')
+-                    self.check_write()
+-                with self.connection(self.writer, mutation=True) as db:
+-                    current = result(read_call(db, READ_SCOPE, sid), 'Personal writer scope unavailable')
+-                    self.scoped(scope, current)
+-                    envelope = prepared.envelope
+-                    if current != prepared.cursor:
+-                        # A payout can advance the financial version after ISSUE
+-                        # but before ingest. Retain the original finalized block
+-                        # and log set and use the latest version only for a
+-                        # verified terminal market. A moved chain cursor still
+-                        # needs the ordinary recovery path.
+-                        same_source = (current | {'version': prepared.cursor['version']}) == prepared.cursor
+-                        if not same_source or call(db, LOOKUP, sid, execution) != {'http': 202, 'status': 'settled_market'}:
+-                            raise ScopeRefusal('Personal writer cursor advanced during preparation')
+-                        envelope = envelope | {'request': envelope['request'] | {
+-                            'expectedSnapshotVersion': current['version']}}
+-                    self.check_write()
+-                    ingested = result(call(db, INGEST, Jsonb(envelope)), 'Personal ingest refused')
+-                    operation = prepared.envelope['request']['ingest']
+-                    if (ingested.get('kind'), ingested.get('sessionId'), ingested.get('operationId')) != (
+-                            'ingest', sid, operation['operationId']):
+-                        raise ScopeRefusal('Personal ingest did not accept the prepared range')
+-                    self.check_write()
+-                    try:
+-                        applied = result(call(db, APPLY, sid, execution), 'Personal purchase refused')
+-                    except CheckViolation as error:
+-                        # A bound rejected reserve leaves both the purchase and its range uncommitted.
+-                        context = error.diag.context or ''
+-                        if (error.sqlstate == '23514'
+-                                and error.diag.message_primary == 'full desired capacity unavailable'
+-                                and context.startswith('PL/pgSQL function live_buy_core.reserve(uuid,jsonb) ')):
+-                            raise Skip('PERSONAL_CAPACITY_REFUSED') from None
+-                        raise
+-                    reply = self.receipt(applied, sid)
+-                    if reply['status'] == 'skipped':
+-                        if applied['observationId'] != quote['observationId']:
+-                            raise ScopeRefusal('Unexpected closed-market observation')
++            with self.tracking('purchase', execution):
++                try:
++                    with self.connection(self.issuer, mutation=True) as db:
++                        self.check_write()
++                        issued = call(db, ISSUE, Jsonb(quote))
++                        if issued != {key: quote[key] for key in ('reserveId', 'observationId')}:
++                            raise ScopeRefusal('Personal quote issuer returned a different identity')
++                        self.check_write()
++                    with self.connection(self.writer, mutation=True) as db:
++                        current = result(read_call(db, READ_SCOPE, sid), 'Personal writer scope unavailable')
++                        self.scoped(scope, current)
++                        envelope = prepared.envelope
++                        if current != prepared.cursor:
++                            # A payout can advance the financial version after ISSUE
++                            # but before ingest. Retain the original finalized block
++                            # and log set and use the latest version only for a
++                            # verified terminal market. A moved chain cursor still
++                            # needs the ordinary recovery path.
++                            same_source = (current | {'version': prepared.cursor['version']}) == prepared.cursor
++                            if not same_source or call(db, LOOKUP, sid, execution) != {'http': 202, 'status': 'settled_market'}:
++                                raise ScopeRefusal('Personal writer cursor advanced during preparation')
++                            envelope = envelope | {'request': envelope['request'] | {
++                                'expectedSnapshotVersion': current['version']}}
++                        self.check_write()
++                        ingested = result(call(db, INGEST, Jsonb(envelope)), 'Personal ingest refused')
++                        operation = prepared.envelope['request']['ingest']
++                        if (ingested.get('kind'), ingested.get('sessionId'), ingested.get('operationId')) != (
++                                'ingest', sid, operation['operationId']):
++                            raise ScopeRefusal('Personal ingest did not accept the prepared range')
++                        self.check_write()
++                        try:
++                            applied = result(call(db, APPLY, sid, execution), 'Personal purchase refused')
++                        except CheckViolation as error:
++                            # A bound rejected reserve leaves both the purchase and its range uncommitted.
++                            context = error.diag.context or ''
++                            if (error.sqlstate == '23514'
++                                    and error.diag.message_primary == 'full desired capacity unavailable'
++                                    and context.startswith('PL/pgSQL function live_buy_core.reserve(uuid,jsonb) ')):
++                                raise Skip('PERSONAL_CAPACITY_REFUSED') from None
++                            raise
++                        reply = self.receipt(applied, sid)
++                        if reply['status'] == 'skipped':
++                            if applied['observationId'] != quote['observationId']:
++                                raise ScopeRefusal('Unexpected closed-market observation')
++                            yield reply
++                            self.check_write()
++                            return
++                        if applied.get('commandId') != quote['settleCommandId']:
++                            raise ScopeRefusal('Unexpected personal command receipt')
+                         yield reply
+                         self.check_write()
+-                        return
+-                    if applied.get('commandId') != quote['settleCommandId']:
+-                        raise ScopeRefusal('Unexpected personal command receipt')
+-                    yield reply
+-                    self.check_write()
+-                    if utc_ms() >= quote['expiresAtMs']:
+-                        raise ScopeRefusal('Personal quote expired before commit')
+-            except SerializationFailure as error:
+-                if error.sqlstate != '40001' or error.diag.sqlstate != '40001':
+-                    raise
+-                # A server-confirmed rollback did not debit this signal.
+-                # The next observation reads the committed cursor and quote receipts.
+-                raise Skip('PERSONAL_BUY_SERIALIZATION_ROLLBACK') from None
+-            except OperationalError:
+-                # Never resubmit after a lost response.
+-                self.halted.set()
+-                raise UnresolvedResult(execution) from None
++                        if utc_ms() >= quote['expiresAtMs']:
++                            raise ScopeRefusal('Personal quote expired before commit')
++                except SerializationFailure as error:
++                    if error.sqlstate != '40001' or error.diag.sqlstate != '40001':
++                        raise
++                    # A server-confirmed rollback did not debit this signal.
++                    # The next observation reads the committed cursor and quote receipts.
++                    raise Skip('PERSONAL_BUY_SERIALIZATION_ROLLBACK') from None
++                except OperationalError:
++                    # Never resubmit after a lost response.
++                    self.halted.set()
++                    raise UnresolvedResult(execution) from None
+
+     def advance_idle(self, scope, *, max_blocks=16, timing=None):
+         last_stage = monotonic()
+@@ -352,67 +402,68 @@ class PgTransport:
+             if envelope is None:
+                 self.report_range_wait(self.decisions.wait_reason or 'PERSONAL_RANGE_DECISION_UNPROVEN')
+                 return
+-            try:
+-                with self.connection(self.writer, mutation=True, idle_ingest=True) as db:
+-                    current = result(read_call(db, READ_SCOPE, scope.session_id), 'Personal checkpoint unavailable')
+-                    record("writerScopeMs")
+-                    if current != cursor:
+-                        self.report_range_wait('PERSONAL_RANGE_CURSOR_CHANGED')
+-                        return
+-                    self.last_range_wait = None
+-                    self.check_write()
+-                    try:
+-                        applied = result(call(db, INGEST, Jsonb(envelope)), 'Personal idle ingest refused')
+-                    except RaiseException as error:
+-                        if error.sqlstate != 'P0001':
+-                            raise
+-                        failure = {
+-                            'missing authenticated BUY decision closure': 'DECISION_FENCE',
+-                            'missing authenticated BUY decision closure or existing admission': 'DECISION_ADMISSION_CONFLICT',
+-                            'outside approved BreakTheBank segment': 'DECISION_SCOPE',
+-                            'outside approved historical range': 'HISTORY_SCOPE',
+-                            'pre-activation decision required': 'ACTIVATION_BOUNDARY',
+-                            'personal activation chain mismatch': 'ACTIVATION_HASH',
+-                            'accepted personal buy missing financial commit': 'FINANCIAL_COMMIT_REQUIRED',
+-                        }
+-                        print(json.dumps({
+-                            'stage': 'personal-idle-range-rejected',
+-                            'reason': failure.get(error.diag.message_primary, 'DATABASE_INVARIANT'),
+-                            'operationId': envelope['request']['ingest']['operationId'],
+-                            'after': cursor['checkpoint']['number'],
+-                            'through': envelope['request']['ingest']['finalized']['number'],
+-                        }), flush=True)
+-                        raise
+-                    except LockNotAvailable as error:
+-                        if error.sqlstate != '55P03' or error.diag.sqlstate != '55P03':
+-                            raise
+-                        # The ingest statement failed before COMMIT. Read the saved range again on the next poll.
+-                        raise Skip('PERSONAL_IDLE_INGEST_BUSY') from None
+-                    except QueryCanceled as error:
+-                        if error.sqlstate != '57014' or error.diag.sqlstate != '57014':
++            with self.tracking('ingest', envelope['request']['ingest']['operationId']):
++                try:
++                    with self.connection(self.writer, mutation=True, idle_ingest=True) as db:
++                        current = result(read_call(db, READ_SCOPE, scope.session_id), 'Personal checkpoint unavailable')
++                        record("writerScopeMs")
++                        if current != cursor:
++                            self.report_range_wait('PERSONAL_RANGE_CURSOR_CHANGED')
++                            return
++                        self.last_range_wait = None
++                        self.check_write()
++                        try:
++                            applied = result(call(db, INGEST, Jsonb(envelope)), 'Personal idle ingest refused')
++                        except RaiseException as error:
++                            if error.sqlstate != 'P0001':
++                                raise
++                            failure = {
++                                'missing authenticated BUY decision closure': 'DECISION_FENCE',
++                                'missing authenticated BUY decision closure or existing admission': 'DECISION_ADMISSION_CONFLICT',
++                                'outside approved BreakTheBank segment': 'DECISION_SCOPE',
++                                'outside approved historical range': 'HISTORY_SCOPE',
++                                'pre-activation decision required': 'ACTIVATION_BOUNDARY',
++                                'personal activation chain mismatch': 'ACTIVATION_HASH',
++                                'accepted personal buy missing financial commit': 'FINANCIAL_COMMIT_REQUIRED',
++                            }
++                            print(json.dumps({
++                                'stage': 'personal-idle-range-rejected',
++                                'reason': failure.get(error.diag.message_primary, 'DATABASE_INVARIANT'),
++                                'operationId': envelope['request']['ingest']['operationId'],
++                                'after': cursor['checkpoint']['number'],
++                                'through': envelope['request']['ingest']['finalized']['number'],
++                            }), flush=True)
+                             raise
+-                        raise IdleIngestCanceled(envelope['request']['ingest']['operationId']) from None
+-                    record('ingestMs')
+-                    if applied.get('kind') != 'ingest':
+-                        raise ScopeRefusal('Personal idle ingest blocked')
+-                    self.check_write()
+-                record('commitMs')
+-                committed = envelope['request']['ingest']['finalized']
+-                if timing is not None:
+-                    timing['checkpoint'] = committed['number']
+-                committed_number = int(committed['number'])
+-                self.decisions.retire(committed_number)
+-                # Only shorten polling after the transaction committed a full range behind the sampled head.
+-                return (applied.get('checkpoint') == checkpoint(committed)
+-                        and committed_number == max(chain_range[0]) and committed_number < head_number)
+-            except OperationalError as error:
+-                if isinstance(error, SerializationFailure) and error.sqlstate == '40001' and error.diag.sqlstate == '40001':
+-                    # PostgreSQL rejected the transaction; the next poll reads the current cursor.
+-                    raise Skip('PERSONAL_IDLE_SERIALIZATION_ROLLBACK') from None
+-                self.halted.set()
+-                if self.window is None:
+-                    raise ScopeRefusal('Personal ingest needs checkpoint reconciliation') from None
+-                raise UnresolvedResult(envelope['request']['ingest']['operationId'], 'ingest') from None
++                        except LockNotAvailable as error:
++                            if error.sqlstate != '55P03' or error.diag.sqlstate != '55P03':
++                                raise
++                            # The ingest statement failed before COMMIT. Read the saved range again on the next poll.
++                            raise Skip('PERSONAL_IDLE_INGEST_BUSY') from None
++                        except QueryCanceled as error:
++                            if error.sqlstate != '57014' or error.diag.sqlstate != '57014':
++                                raise
++                            raise IdleIngestCanceled(envelope['request']['ingest']['operationId']) from None
++                        record('ingestMs')
++                        if applied.get('kind') != 'ingest':
++                            raise ScopeRefusal('Personal idle ingest blocked')
++                        self.check_write()
++                    record('commitMs')
++                    committed = envelope['request']['ingest']['finalized']
++                    if timing is not None:
++                        timing['checkpoint'] = committed['number']
++                    committed_number = int(committed['number'])
++                    self.decisions.retire(committed_number)
++                    # Only shorten polling after the transaction committed a full range behind the sampled head.
++                    return (applied.get('checkpoint') == checkpoint(committed)
++                            and committed_number == max(chain_range[0]) and committed_number < head_number)
++                except OperationalError as error:
++                    if isinstance(error, SerializationFailure) and error.sqlstate == '40001' and error.diag.sqlstate == '40001':
++                        # PostgreSQL rejected the transaction; the next poll reads the current cursor.
++                        raise Skip('PERSONAL_IDLE_SERIALIZATION_ROLLBACK') from None
++                    self.halted.set()
++                    if self.window is None:
++                        raise ScopeRefusal('Personal ingest needs checkpoint reconciliation') from None
++                    raise UnresolvedResult(envelope['request']['ingest']['operationId'], 'ingest') from None
+
+     def report_range_wait(self, reason):
+         if self.last_range_wait != reason:
+@@ -422,7 +473,7 @@ class PgTransport:
+     def finish(self, scope, status, cutoff_ms):
+         """Close observation after collectors join; this operation never issues a quote."""
+         sid, operation = scope.session_id, str(uuid4())
+-        with self.write_lock:
++        with self.write_lock, self.tracking('stop', operation):
+             try:
+                 with self.connection(self.writer) as db:
+                     # STOP verifies the saved stream history. Keep it within systemd's shutdown window.
+diff --git a/personal_worker.py b/personal_worker.py
+index 0538913..16f1965 100644
+--- a/personal_worker.py
++++ b/personal_worker.py
+@@ -19,7 +19,7 @@ from uuid import UUID
+ from collectors import run_polymarket
+ from guarded_source import FollowScope, SessionCollectorAdapter, exact
+ from maker_collector import run_makers
+-from personal_pg import IdleIngestCanceled, PgTransport, UnresolvedResult
++from personal_pg import ClosedWriteGuard, IdleIngestCanceled, PgTransport, UnresolvedResult
+ from personal_range import timestamp, utc_ms
+ from resolver import Skip
+ from rtds_operator import BoundedRPC
+@@ -281,9 +281,6 @@ def run(args):
+         report({'stage': 'personal-lookup', 'status': 'recorded' if row else 'unresolved'})
+         return 0 if row else 3
+     transport.scoped(scope, cursor)
+-    if args.closed_handover_until is not None:
+-        print(json.dumps({'stage': 'personal-handover-ready', 'session': scope.session_id,
+-                          'checkpoint': cursor['checkpoint']}), flush=True)
+     max_ingest_headers = cursor.get('maxIngestHeaders', 64)
+     if type(max_ingest_headers) is not int or not 1 <= max_ingest_headers <= 256:
+         raise ValueError('Invalid Polymarket ingest limit')
+@@ -297,6 +294,12 @@ def run(args):
+     lock_path = args.config.parent / (scope.session_id + '.worker.lock')
+     with os.fdopen(os.open(lock_path, os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW, 0o600), 'w') as lock:
+         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
++        if args.closed_auto_recovery:
++            transport.recovery = ClosedWriteGuard(args.config.parent, scope.session_id)
++            transport.recovery.require_clear()
++        if args.closed_handover_until is not None:
++            print(json.dumps({'stage': 'personal-handover-ready', 'session': scope.session_id,
++                              'checkpoint': cursor['checkpoint']}), flush=True)
+         deadline = window.deadline if window is not None else monotonic() + args.seconds
+         adapter = SessionCollectorAdapter(scope, transport)
+         failures = []
+@@ -375,6 +378,7 @@ def main():
+     parser.add_argument('--closed-configured-wallet', action='store_true',
+                         help='Use the configured wallet and its bound settings in an isolated database')
+     parser.add_argument('--closed-handover-until')
++    parser.add_argument('--closed-auto-recovery', action='store_true')
+     mode = parser.add_mutually_exclusive_group(required=True)
+     mode.add_argument('--check', action='store_true')
+     mode.add_argument('--lookup')
+@@ -389,6 +393,8 @@ def main():
+         cutoff = int(timestamp(args.closed_handover_until).timestamp()*1000)
+         if cutoff - utc_ms() > args.seconds * 1000:
+             parser.error('Handover deadline exceeds the closed trial window')
++    if args.closed_auto_recovery and args.closed_handover_until is None:
++        parser.error('Automatic recovery requires a fixed closed handover deadline')
+     if args.lookup is not None and not re.fullmatch('[0-9a-f]{64}', args.lookup):
+         parser.error('Invalid original execution key')
+     if args.seconds is not None and not 15 <= args.seconds <= (21600 if args.closed_configured_wallet else 900):
