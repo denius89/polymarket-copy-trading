@@ -1,0 +1,39 @@
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -32,6 +32,7 @@
+ LOOKUP = 'SELECT polygon.personal_quote_lookup_v1(%s::uuid,%s::text)'
+ LOOKUP_SCOPE = '''SELECT jsonb_build_array(polygon.personal_quote_lookup_v1(%s::uuid,%s::text),
+                                            polygon.personal_quote_scope_v1(%s::uuid))'''
++RECONCILE_QUEUE = 'SELECT demo_delivery.reconcile_closed_polygon_results(%s::uuid,%s::bigint,%s::bigint)'
+ STOP = 'SELECT polygon.live_activity_stop(%s::jsonb)'
+ CAP_WRITE_TRANSACTION = """
+ SELECT CASE WHEN remaining_ms > 5000
+@@ -477,6 +478,12 @@
+                                 raise ScopeRefusal('Unexpected closed-market observation')
+                         elif applied.get('commandId') != quote['settleCommandId']:
+                             raise ScopeRefusal('Unexpected personal command receipt')
++                        height = int(quote['normalizedLog']['blockNumber'])
++                        completed = call(db, RECONCILE_QUEUE, sid, height, height)
++                        if completed:
++                            print(json.dumps({'stage': 'personal-queue-outcomes', 'count': completed,
++                                              'through': height}), flush=True)
++                        record('queueOutcomeMs')
+                         if reply['status'] == 'recorded':
+                             self.check_write()
+                             validation = dict(session_id=sid, queue_buy_operation_id=operation['operationId'],
+@@ -612,6 +619,15 @@
+                         record('ingestMs')
+                         if applied.get('kind') != 'ingest':
+                             raise ScopeRefusal('Personal idle ingest blocked')
++                        batch = envelope['request']['ingest']
++                        if any(log['side'] == 'BUY' for log in batch['logs']):
++                            first = int(batch['previous']['number']) + 1
++                            last = int(batch['finalized']['number'])
++                            completed = call(db, RECONCILE_QUEUE, scope.session_id, first, last)
++                            if completed:
++                                print(json.dumps({'stage': 'personal-queue-outcomes', 'count': completed,
++                                                  'through': last}), flush=True)
++                            record('queueOutcomeMs')
+                         self.check_write()
+                     record('commitMs')
+                     committed = envelope['request']['ingest']['finalized']

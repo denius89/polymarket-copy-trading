@@ -63,6 +63,11 @@ def cycle(config, primary, backup, anchors):
     started = monotonic()
     chain_range, _, _ = read_idle_range(primary, backup, scope, deadline=started + 8, max_blocks=16)
     if chain_range is None:
+        with connection(config) as db:
+            completed, = db.execute('SELECT demo_delivery.reconcile_closed_polygon_results(%s,NULL,NULL)',
+                                    (sid,)).fetchone()
+        if completed:
+            print(json.dumps({'stage': 'polygon-queue-recovered-outcomes', 'count': completed}), flush=True)
         return
     read_ms = round((monotonic() - started) * 1000)
     batches = block_batch(chain_range, utc_ms())
@@ -70,8 +75,11 @@ def cycle(config, primary, backup, anchors):
     with connection(config) as db:
         receipt, = db.execute('SELECT demo_delivery.publish_closed_polygon_range(%s,%s)',
                               (sid, Jsonb(batches))).fetchone()
+        completed, = db.execute('SELECT demo_delivery.reconcile_closed_polygon_results(%s,NULL,NULL)',
+                                (sid,)).fetchone()
     print(json.dumps({'stage': 'polygon-queue-range', 'fromBlock': int(scope['checkpoint']['number']) + 1,
-                      **receipt, 'readMs': read_ms, 'commitMs': round((monotonic() - started) * 1000)}), flush=True)
+                      **receipt, 'reconciled': completed, 'readMs': read_ms,
+                      'commitMs': round((monotonic() - started) * 1000)}), flush=True)
 
 
 def main():

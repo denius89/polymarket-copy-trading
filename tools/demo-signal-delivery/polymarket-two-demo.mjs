@@ -181,6 +181,7 @@ async function prepareQueue(users) {
         await db.exec(await readFile(new URL('./polygon-result-ack.sql', import.meta.url), 'utf8'));
         await db.exec(await readFile(new URL('./polygon-pending-jobs.sql', import.meta.url), 'utf8'));
         await db.exec(await readFile(new URL('./closed-polygon-source.sql', import.meta.url), 'utf8'));
+        await db.exec(await readFile(new URL('./closed-polygon-reconcile.sql', import.meta.url), 'utf8'));
     }
     await db.query('INSERT INTO demo_delivery.traders VALUES ($1,$2)', ['polymarket', wallet]);
     for (const user of users) {
@@ -225,6 +226,12 @@ async function claimPolygon(user, session = user.sid) {
         "SELECT * FROM demo_delivery.claim_polygon_result($1,interval '25 seconds')", [session])).rows);
 }
 
+async function reconcilePolygon(user) {
+    const {rows:[{completed}]} = await db.query(
+        'SELECT demo_delivery.reconcile_closed_polygon_results($1,NULL,NULL) completed',[user.sid]);
+    return completed;
+}
+
 async function applyBuy(user, run, job, header) {
     const {rows: [{settings}]} = await db.query('SELECT current_settings_revision_id settings FROM polygon.paper_sessions WHERE id=$1', [user.sid]);
     const request = {commandId: randomUUID(), intentId: randomUUID(), observationId: randomUUID(),
@@ -267,13 +274,18 @@ async function applyBuy(user, run, job, header) {
         const before = await tx(null,() => must('q04_session',{auth:user.auth,session_id:user.sid}));
         assert.deepEqual(before.session.financialSnapshot.free,q(200));
         assert.equal(before.session.financialSnapshot.positionCount,'0');
-        const [claimed] = await claimPolygon(user);
-        assert.equal(claimed.status,'claimed');
-        assert.equal(claimed.session_id,user.sid);
-        assert.equal(claimed.execution_key,`137:${publicTx}:${logIndex}`);
-        assert.equal(await tx(user.writer,() => acknowledge(claimed)),false,
-            'A pending admission is not a purchase receipt');
-        purchaseJob = claimed;
+        if (user.reconcileUnleased) {
+            assert.equal(await tx(user.writer,() => reconcilePolygon(user)),0,
+                'A pending admission is not a purchase receipt');
+        } else {
+            const [claimed] = await claimPolygon(user);
+            assert.equal(claimed.status,'claimed');
+            assert.equal(claimed.session_id,user.sid);
+            assert.equal(claimed.execution_key,`137:${publicTx}:${logIndex}`);
+            assert.equal(await tx(user.writer,() => acknowledge(claimed)),false,
+                'A pending admission is not a purchase receipt');
+            purchaseJob = claimed;
+        }
     }
     const settled = await tx(user.writer, async () => {
         if (!pair) {
@@ -293,7 +305,8 @@ async function applyBuy(user, run, job, header) {
         await db.exec('SET LOCAL SESSION AUTHORIZATION ' + user.writer);
         const payload = {session_id:user.sid,request:settle,admission_id:settleId};
         const receipt = await must('live_buy_settle_v1',payload);
-        assert.equal(await acknowledge(purchaseJob), true);
+        if (user.reconcileUnleased) assert.equal(await reconcilePolygon(user),1);
+        else assert.equal(await acknowledge(purchaseJob), true);
         return {payload, receipt};
     });
     const replay = await tx(user.writer, () => must('live_buy_settle_v1',settled.payload));
@@ -378,11 +391,13 @@ try {
         await db.query("INSERT INTO demo_delivery.source_cursors VALUES ('polymarket',$1,$2,$3)",
             [wallet,baselineHeader.number,baselineHeader.hash]);
         const publisher = users[0];
+        publisher.reconcileUnleased = true;
         await db.query(`INSERT INTO demo_delivery.closed_polygon_source
             SELECT session_id,run_id,writer_oid,owner_address,clock_timestamp()+interval '5 minutes'
             FROM polygon_live_activity.assignments WHERE session_id=$1`,[publisher.sid]);
         await db.exec(`GRANT EXECUTE ON FUNCTION demo_delivery.closed_polygon_scope(uuid),
-            demo_delivery.publish_closed_polygon_range(uuid,jsonb) TO ${publisher.writer}`);
+            demo_delivery.publish_closed_polygon_range(uuid,jsonb),
+            demo_delivery.reconcile_closed_polygon_results(uuid,bigint,bigint) TO ${publisher.writer}`);
         const send = () => publishFinalizedPolygonBlock({
             async query(_sql, parameters) {
                 const block = [{header,events:JSON.parse(parameters[4])}];
@@ -401,6 +416,7 @@ try {
         },wallet,header,pair.map(item => item.log),new Date());
         assert.equal((await send()).enqueued,4);
         assert.equal((await send()).enqueued,0);
+        assert.equal(await tx(publisher.writer,() => reconcilePolygon(publisher)),0);
         // Advance only the first signal's delivery deadline in the isolated fixture.
         await db.exec("UPDATE demo_delivery.signals SET expires_at=occurred_at WHERE id=(SELECT min(id) FROM demo_delivery.signals)");
         assert.deepEqual((await db.query("SELECT * FROM demo_delivery.claim(2,interval '25 seconds')")).rows,[]);
