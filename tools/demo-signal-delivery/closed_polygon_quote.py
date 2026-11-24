@@ -122,6 +122,18 @@ class QueuedQuoteTransport:
             return False
         job = self.prepared[3]
         self.base.check_write()
+        # A confirmed serialization rollback of the later completion must not
+        # erase the book gate's observation. Both transactions use the same lease.
+        for attempt in range(2):
+            try:
+                with self.base.connection(self.base.writer, mutation=True) as db:
+                    read_call(db, REFUSE_BOOK, scope.session_id, job['signalId'], job['lease'], 'record_book_timeout')
+                break
+            except SerializationFailure as error:
+                if error.sqlstate != '40001' or attempt:
+                    break
+            except (OperationalError, Skip):
+                break
         try:
             with self.base.connection(self.base.writer, mutation=True) as db:
                 return read_call(db, REFUSE_BOOK, scope.session_id, job['signalId'], job['lease'], 'book_unavailable')

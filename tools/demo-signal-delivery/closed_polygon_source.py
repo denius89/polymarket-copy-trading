@@ -53,7 +53,7 @@ def connection(config):
         yield db
 
 
-def cycle(config, primary, backup, anchors):
+def cycle(config, primary, backup, anchors, previous_finality):
     sid = config['sessionId']
     with connection(config) as db:
         scope, = db.execute('SELECT demo_delivery.closed_polygon_scope(%s)', (sid,)).fetchone()
@@ -62,8 +62,10 @@ def cycle(config, primary, backup, anchors):
     scope.update(anchors)
 
     started = monotonic()
+    finality = {}
     try:
-        chain_range, _, _ = read_idle_range(primary, backup, scope, deadline=started + 8, max_blocks=16)
+        chain_range, _, _ = read_idle_range(primary, backup, scope, deadline=started + 8, max_blocks=16,
+                                            finality_observation=finality)
     except (KeyError, TypeError, ValueError):
         raise Skip('PERSONAL_RANGE_INVALID_PROVIDER_DATA') from None
     if chain_range is None:
@@ -72,7 +74,7 @@ def cycle(config, primary, backup, anchors):
                                     (sid,)).fetchone()
         if completed:
             print(json.dumps({'stage': 'polygon-queue-recovered-outcomes', 'count': completed}), flush=True)
-        return
+        return finality
     read_ms = round((monotonic() - started) * 1000)
     batches = block_batch(chain_range, utc_ms())
     started = monotonic()
@@ -87,9 +89,30 @@ def cycle(config, primary, backup, anchors):
         ''', (sid, Jsonb(batches), SOURCE_READY)).fetchone()
         completed, = db.execute('SELECT demo_delivery.reconcile_closed_polygon_results(%s,NULL,NULL)',
                                 (sid,)).fetchone()
-    print(json.dumps({'stage': 'polygon-queue-range', 'fromBlock': int(scope['checkpoint']['number']) + 1,
-                      **receipt, 'reconciled': completed, 'readMs': read_ms,
-                      'commitMs': round((monotonic() - started) * 1000)}), flush=True)
+    publish_finished = monotonic()
+    timing = {'stage': 'polygon-queue-range', 'fromBlock': int(scope['checkpoint']['number']) + 1,
+              **receipt, 'reconciled': completed, 'readMs': read_ms,
+              'commitMs': round((monotonic() - started) * 1000), 'finalizedHead': finality['head']}
+    if receipt['enqueued']:
+        timing['buyTiming'] = [
+            buy_timing(batch['header'], finality, previous_finality, publish_finished)
+            for batch in batches if batch['events']
+        ]
+    print(json.dumps(timing), flush=True)
+    return finality
+
+
+def buy_timing(block, finality, previous_finality, publish_finished):
+    block_at = int(block['timestampSeconds']) * 1000
+    observed = finality['observedAtMs']
+    previous_read = None
+    if (previous_finality is not None and previous_finality['usedBackup'] == finality['usedBackup']
+            and previous_finality['head'] < int(block['number'])):
+        previous_read = previous_finality['observedAtMs'] - block_at
+    return {'block': block['number'], 'blockToObservedFinalityMs': observed - block_at,
+            'blockToPreviousHeadReadMs': previous_read,
+            'observedFinalityToPublishMs': round((publish_finished - finality['observedMono']) * 1000),
+            'usedBackup': finality['usedBackup'], 'batchedAnchors': finality['batchedAnchors']}
 
 
 def main():
@@ -102,14 +125,17 @@ def main():
     cutoff = int(timestamp(args.until).timestamp() * 1000)
     primary, backup = BoundedRPC(), BoundedRPC(HISTORY_RPC)
     transport = ClosedPgTransport(primary, config, None)
-    anchors = None
+    anchors = previous_finality = None
     while utc_ms() < cutoff:
+        cycle_started = monotonic()
+        pause = 3
         try:
             if anchors is None:
                 cursor = transport.cursor(config['sessionId'], starting=True)
                 transport.scoped(bound_scope(config, cursor, closed=True), cursor)
                 anchors = {key: cursor.get(key) for key in ('personalStart', 'coverageGap')}
-            cycle(config, primary, backup, anchors)
+            previous_finality = cycle(config, primary, backup, anchors, previous_finality)
+            pause = max(1, 3 - (monotonic() - cycle_started))
         except (OSError, Skip, OperationalError, InterfaceError, SerializationFailure) as error:
             print(json.dumps({'stage': 'polygon-queue-retry', 'error': type(error).__name__}), flush=True)
             if args.once:
@@ -119,7 +145,7 @@ def main():
             raise SystemExit(1) from None
         if args.once:
             return
-        sleep(3)
+        sleep(max(0, min(pause, (cutoff - utc_ms()) / 1000)))
 
 
 if __name__ == '__main__':
