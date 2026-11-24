@@ -5,7 +5,7 @@ import json
 from time import monotonic, sleep
 
 from psycopg import OperationalError
-from psycopg.errors import SerializationFailure
+from psycopg.errors import CheckViolation, SerializationFailure
 from psycopg.pq import TransactionStatus
 from psycopg.types.json import Jsonb
 
@@ -154,6 +154,15 @@ class QueuedQuoteTransport:
                     if error.sqlstate != '40001':
                         raise
                     raise Skip('PERSONAL_BUY_SERIALIZATION_ROLLBACK') from None
+                except CheckViolation as error:
+                    if (error.sqlstate == '23514'
+                            and error.diag.message_primary == 'full desired capacity unavailable'
+                            and (error.diag.context or '').startswith(
+                                'PL/pgSQL function live_buy_core.reserve(uuid,jsonb) ')):
+                        # The writer transaction has rolled back. The immutable
+                        # quote remains, so the job can close through normal expiry.
+                        raise Skip('PERSONAL_CAPACITY_REFUSED') from None
+                    raise
                 except (OperationalError, UnresolvedResult):
                     self.base.halted.set()
                     raise UnresolvedResult(execution) from None
