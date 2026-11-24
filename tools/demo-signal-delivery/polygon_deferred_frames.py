@@ -4,19 +4,25 @@ from queue import Empty
 from time import monotonic
 
 
-QUEUE_WAIT_REASONS = frozenset({'POLYGON_QUEUE_PREDECESSOR', 'POLYGON_QUEUE_NOT_READY'})
+QUEUE_WAIT_REASONS = frozenset({
+    'POLYGON_QUEUE_PREDECESSOR',
+    'POLYGON_QUEUE_NOT_READY',
+    'PERSONAL_BUY_READ_SERIALIZATION_ROLLBACK',
+    'PERSONAL_SCOPE_READ_BUSY',
+})
 RETRY_SECONDS = 0.25
 
 
 class DeferredFrames:
-    def __init__(self, source, *, clock=monotonic, max_deferred=12):
+    def __init__(self, source, *, enabled=True, clock=monotonic, max_deferred=12):
         self.source = source
+        self.enabled = enabled
         self.clock = clock
         self.max_deferred = max_deferred
         self.pending = deque()
 
     def defer(self, frame, reason, remaining_ns):
-        if (reason not in QUEUE_WAIT_REASONS or remaining_ns <= RETRY_SECONDS * 1_000_000_000
+        if (not self.enabled or reason not in QUEUE_WAIT_REASONS or remaining_ns <= RETRY_SECONDS * 1_000_000_000
                 or len(self.pending) >= self.max_deferred):
             return False
         self.pending.append((self.clock() + RETRY_SECONDS, frame))

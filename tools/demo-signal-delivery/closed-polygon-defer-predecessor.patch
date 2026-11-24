@@ -12,7 +12,7 @@
      warmer = threading.Thread(target=warm_book_targets, args=(wallet, halt, deadline, targets), daemon=True)
      warmer.start()
      rpc=poly.BoundedRPC()
-+    frames=DeferredFrames(queue)
++    frames=DeferredFrames(queue, enabled=getattr(getattr(adapter, 'transport', None), 'queued_quotes', False))
      heartbeat=0
      try:
          while not stop.is_set() and time.monotonic()<deadline:
@@ -90,7 +90,7 @@
          target=warm_book_targets, args=(wallet.lower(), halt, deadline, targets), daemon=True)
      warmer.start()
      rpc = polymarket.BoundedRPC()
-+    frames = DeferredFrames(queue)
++    frames = DeferredFrames(queue, enabled=getattr(getattr(adapter, 'transport', None), 'queued_quotes', False))
      heartbeat = 0
      try:
          while not stop.is_set() and time.monotonic() < deadline:
