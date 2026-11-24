@@ -2,6 +2,7 @@
 from concurrent.futures import ThreadPoolExecutor
 from fractions import Fraction
 import json
+import os
 from time import monotonic, monotonic_ns
 from types import SimpleNamespace
 
@@ -156,8 +157,17 @@ def build_resolution(job, rpc, binding, first_at, first_ns):
 def run_direct_polygon(adapter, wallet, stop, deadline, report, *, buy_budget, start_ms=0):
     transport = adapter.transport
     wake = transport.queue_wake
-    gate, rpc, registry = HybridBookGate(), poly.BoundedRPC(), poly.Registry()
-    books = poly.ActiveBook(gate, deadline)
+    rpc, registry = poly.BoundedRPC(), poly.Registry()
+    socket = os.environ.get('CCT_CLOSED_SHARED_BOOK_SOCKET')
+    if socket:
+        from closed_shared_polygon_book import SharedPolygonBookGate
+        gate = SharedPolygonBookGate(socket, os.environ['CCT_CLOSED_SHARED_BOOK_PARTICIPANT'])
+        books = None
+        load_parameters = gate.prepare_market
+    else:
+        gate = HybridBookGate()
+        books = poly.ActiveBook(gate, deadline)
+        load_parameters = prepare_market
     seen = 0
     prepared = None
     try:
@@ -181,16 +191,20 @@ def run_direct_polygon(adapter, wallet, stop, deadline, report, *, buy_budget, s
                     if not isinstance(slug, str) or not poly.SLUG.fullmatch(slug):
                         raise Skip('POLYGON_DIRECT_MARKET_SLUG')
                     market = source.Market('polymarket', binding['conditionId'], log['tokenId'], wallet, slug)
-                    books.prepare(market)
+                    if books is not None:
+                        books.prepare(market)
                     with ThreadPoolExecutor(1) as pool:
-                        parameters = pool.submit(prepare_market, market)
+                        parameters = pool.submit(load_parameters, market)
                         resolved = build_resolution(job, rpc, binding, first_at, first_ns)
                         (delay, delay_ref, policy, baseline, exchange), _ = parameters.result()
                     if resolved.event['venueReceipt']['match']['role'] == 'maker':
                         fee_for_copy(resolved, policy, exchange)
                     else:
                         verify_observed_fee(resolved, policy, exchange)
-                    books.follow(market, policy, baseline)
+                    if books is None:
+                        gate.configure(market, policy, baseline)
+                    else:
+                        books.follow(market, policy, baseline)
                     prepared = (signal, resolved, market, policy, delay, delay_ref)
                     print(json.dumps({'stage': 'polygon-direct-signal', 'signalId': signal,
                                       'publishedMs': job['publishedAtMs'] - resolved.event['signalAtMs'],
@@ -219,4 +233,5 @@ def run_direct_polygon(adapter, wallet, stop, deadline, report, *, buy_budget, s
                 gate.finish()
             seen, prepared = signal, None
     finally:
-        books.close()
+        if books is not None:
+            books.close()

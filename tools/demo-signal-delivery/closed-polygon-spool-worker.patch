@@ -1,0 +1,22 @@
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -549,10 +549,15 @@
+         if self.window is not None:
+             deadline = min(deadline, self.window.deadline)
+         try:
+-            chain_range, head_number, used_backup = read_idle_range(
+-                self.rpc, self.history_rpc, cursor, deadline=deadline, max_blocks=max_blocks)
+-            if timing is not None and used_backup:
+-                timing['provider'] = HISTORY_RPC.removeprefix('https://')
++            spool = os.environ.get('CCT_CLOSED_POLYGON_SPOOL')
++            if spool:
++                from closed_polygon_spool_read import read_spool_range
++                chain_range, head_number = read_spool_range(spool, cursor, max_blocks)
++            else:
++                chain_range, head_number, used_backup = read_idle_range(
++                    self.rpc, self.history_rpc, cursor, deadline=deadline, max_blocks=max_blocks)
++                if timing is not None and used_backup:
++                    timing['provider'] = HISTORY_RPC.removeprefix('https://')
+         except (KeyError, TypeError, ValueError):
+             raise Skip('PERSONAL_RANGE_INVALID_PROVIDER_DATA') from None
+         record("readRangeMs")
