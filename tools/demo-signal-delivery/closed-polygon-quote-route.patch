@@ -1,0 +1,41 @@
+--- a/route.py
++++ b/route.py
+@@ -41,6 +41,9 @@
+                      command_id, policy, delay_ms, delay_evidence, budget=None, sell_quantity=None,
+                      wait=time.sleep):
+     """Only BOOK_CHANGED after a confirmed rollback recomputes; unknown DB errors propagate."""
++    bind_resolved = getattr(ledger, 'bind_resolved', None)
++    if bind_resolved is not None:
++        bind_resolved(resolved)
+     original = ledger.lookup_command(db, session_id, owner_id, command_id, event=resolved.event)
+     if original is not None:
+         return original
+--- a/collectors.py
++++ b/collectors.py
+@@ -33,6 +33,11 @@
+     def lookup_command(self, *args, event):
+         return self.adapter.lookup_command(*args, event=event)
+ 
++    def bind_resolved(self, resolved):
++        binder = getattr(self.adapter, 'for_resolved', None)
++        if binder is not None:
++            self.adapter = binder(resolved)
++
+     def submit(self, db, session, owner, command, event, estimate, guard):
+         policy = estimate['evidence']['policy']
+         if policy['feeModel'] == 'polymarket-v2-single-match' and len(estimate['fills']) != 1:
+--- a/guarded_source.py
++++ b/guarded_source.py
+@@ -46,6 +46,12 @@
+             raise ScopeRefusal('Wrong personal trader')
+         return SessionCollectorAdapter(self.scope, self.transport, copy.deepcopy(metadata))
+ 
++    def for_resolved(self, resolved):
++        if not getattr(self.transport, 'queued_quotes', False):
++            return self
++        from closed_polygon_quote import queued_quote_adapter
++        return queued_quote_adapter(self.scope, self.transport, resolved)
++
+     def source_queue(self, maxsize):
+         return self.transport.decisions.queue(maxsize)
+ 

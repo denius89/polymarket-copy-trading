@@ -184,7 +184,10 @@ async function prepareQueue(users) {
         await db.exec(await readFile(new URL('./polygon-pending-jobs.sql', import.meta.url), 'utf8'));
         await db.exec(await readFile(new URL('./closed-polygon-source.sql', import.meta.url), 'utf8'));
         await db.exec(await readFile(new URL('./closed-polygon-reconcile.sql', import.meta.url), 'utf8'));
-        if (waitForQuote) await db.exec(await readFile(new URL('./polygon-waiting-observation.sql', import.meta.url), 'utf8'));
+        if (waitForQuote) {
+            await db.exec(await readFile(new URL('./polygon-waiting-observation.sql', import.meta.url), 'utf8'));
+            await db.exec(await readFile(new URL('./polygon-quote-job.sql', import.meta.url), 'utf8'));
+        }
     }
     await db.query('INSERT INTO demo_delivery.traders VALUES ($1,$2)', ['polymarket', wallet]);
     for (const user of users) {
@@ -237,36 +240,44 @@ async function reconcilePolygon(user) {
 
 async function verifyWaiting(user, run, header, jobs) {
     const logs = pair.map(item => item.log);
-    const evaluations = logs.map((log,index) => ({
-        transactionHash:log.transactionHash, logIndex:log.logIndex,
-        evidence:{schemaVersion:'polygon-queue-waiting-v1',kind:'awaiting_quote',
-            signalId:String(jobs[index].signal_id),binding:null,evidenceSha256:log.receiptSha256},
-    }));
+    await db.exec(`GRANT EXECUTE ON FUNCTION demo_delivery.polygon_waiting_evaluations(uuid,jsonb),
+        demo_delivery.expire_next_polygon_job(uuid) TO ${user.writer}`);
+    const {rows:[{evaluations}]} = await tx(user.writer,() => db.query(
+        'SELECT demo_delivery.polygon_waiting_evaluations($1,$2) evaluations',[user.sid,JSON.stringify(logs)]));
+    assert.equal(evaluations.length,2);
     const envelope = {session_id:user.sid, request:{
         ingest:operation(user,run,{previous:user.checkpoint,baselineCanonicalHash:user.checkpoint.hash,
             finalized:header,headers:[header],observedAt:new Date().toISOString(),logs}).request,
         expectedSnapshotVersion:'1', evaluations,
     }};
     await db.exec(`GRANT EXECUTE ON FUNCTION demo_delivery.complete_polygon_expiry(uuid,bigint,uuid) TO ${user.writer}`);
+    await db.exec(`GRANT EXECUTE ON FUNCTION demo_delivery.claim_polygon_quote(uuid,jsonb) TO ${user.writer}`);
     assert.equal((await tx(user.writer,() => must('live_activity_ingest',envelope))).result.accepted,'2');
     assert.equal(await tx(user.writer,() => reconcilePolygon(user)),0);
     const readActivity = () => tx(null,() => must('buy_activity_read_v1',
         {auth:user.auth,session_id:user.sid,after_sequence:'0',limit:20}));
     assert.equal((await readActivity()).items.filter(item => item.decision.status==='pending').length,2);
-    const first = jobs[0];
     const {rows:[{done}]} = await tx(user.writer,() => db.query(
-        'SELECT demo_delivery.complete_polygon_expiry($1,$2,$3) AS done',
-        [user.sid,first.signal_id,first.lease_token]));
+        'SELECT demo_delivery.expire_next_polygon_job($1) AS done',[user.sid]));
     assert.equal(done,true);
     const activity = await readActivity();
     assert.equal(activity.items.filter(item => item.decision.detailCode==='signal_expired').length,1);
-    const [next] = await claimPolygon(user);
-    assert.equal(next.signal_id,jobs[1].signal_id);
+    const claimQuote = async log => {
+        const {rows:[{job}]} = await tx(user.writer,() => db.query(
+            'SELECT demo_delivery.claim_polygon_quote($1,$2) job',[user.sid,log]));
+        return job;
+    };
+    assert.equal(await claimQuote({...logs[1],logIndex:logs[0].logIndex}),null);
+    const job = await claimQuote(logs[1]);
+    assert.equal(job.signalId,String(jobs[1].signal_id));
+    const next = {signal_id:job.signalId,session_id:user.sid,lease_token:job.lease};
+    assert.equal(await claimQuote(logs[1]),null);
     const balance = await tx(null,() => must('q04_session',{auth:user.auth,session_id:user.sid}));
     assert.deepEqual(balance.session.financialSnapshot.free,q(200));
     assert.equal(balance.session.financialSnapshot.positionCount,'0');
     const {rows:[{id}]} = await db.query(`SELECT id FROM polygon_live_activity.observations
         WHERE session_id=$1 AND transaction_hash=$2 AND log_index=$3`,[user.sid,publicTx,logIndex]);
+    assert.equal(job.observationId,id);
     user.waitingObservation = id;
     user.reconcileUnleased = false;
     await applyBuy(user,run,next,header);
@@ -475,10 +486,12 @@ try {
         assert.deepEqual((await db.query("SELECT * FROM demo_delivery.claim(2,interval '25 seconds')")).rows,[]);
         assert.deepEqual(await claimPolygon(users[0],users[1].sid),[]);
         jobs = [];
-        for (const user of users) jobs.push(...await claimPolygon(user));
-        assert.equal(jobs.length,2);
-        assert.ok(jobs.every(job => job.payload.log.logIndex === pair[0].log.logIndex && job.status === 'expired'));
-        assert.deepEqual(await claimPolygon(users[0]),[]);
+        if (!waitForQuote) {
+            for (const user of users) jobs.push(...await claimPolygon(user));
+            assert.equal(jobs.length,2);
+            assert.ok(jobs.every(job => job.payload.log.logIndex === pair[0].log.logIndex && job.status === 'expired'));
+            assert.deepEqual(await claimPolygon(users[0]),[]);
+        }
     } else {
         jobs = await publish(users);
     }
