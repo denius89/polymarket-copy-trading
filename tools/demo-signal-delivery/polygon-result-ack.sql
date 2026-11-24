@@ -21,13 +21,16 @@ CREATE FUNCTION demo_delivery.acknowledge_polygon_result(
 ) RETURNS boolean LANGUAGE plpgsql SECURITY DEFINER SET search_path = pg_catalog AS $ack$
 DECLARE
     execution_key text;
+    is_skip boolean;
+    deadline timestamptz;
 BEGIN
     IF current_setting('transaction_isolation') <> 'serializable'
        OR NOT EXISTS (SELECT FROM demo_delivery.session_writers
                       WHERE session_id = p_session AND writer_oid = session_user::regrole::oid)
     THEN RETURN false; END IF;
 
-    SELECT s.execution_key INTO execution_key
+    SELECT s.execution_key, d.status = 'skipped' AND i.id IS NULL, s.expires_at
+    INTO execution_key, is_skip, deadline
     FROM demo_delivery.signals s
     JOIN polygon_live_activity.assignments a
       ON a.session_id = p_session AND a.owner_address = s.trader_key
@@ -49,6 +52,17 @@ BEGIN
       AND ((d.status = 'skipped' AND i.id IS NULL) OR r.command_id IS NOT NULL);
 
     IF NOT FOUND THEN RETURN false; END IF;
+    IF deadline <= clock_timestamp() THEN
+        IF NOT is_skip OR (polygon_buy.writer(p_session)->>'http') IS DISTINCT FROM '200'
+        THEN RETURN false; END IF;
+        UPDATE demo_delivery.jobs j
+        SET finished_at = clock_timestamp(), finish_reason = 'acknowledged', lease_token = NULL, lease_until = NULL
+        WHERE (j.signal_id, j.session_id, j.lease_token) = (p_signal, p_session, p_token)
+          AND j.finished_at IS NULL AND j.lease_until > clock_timestamp();
+        IF NOT FOUND THEN RETURN false; END IF;
+        PERFORM pg_notify('demo_delivery_ready','');
+        RETURN true;
+    END IF;
     RETURN demo_delivery.acknowledge_bound(p_signal, p_session, p_token, 'polymarket', execution_key);
 END
 $ack$;

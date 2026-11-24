@@ -175,9 +175,11 @@ async function prepareQueue(users) {
     }
     await db.exec(await readFile(new URL('./schema.sql', import.meta.url), 'utf8'));
     if (pair) {
+        await db.exec(await readFile(new URL('./source-checkpoints.sql', import.meta.url),'utf8'));
         await db.exec(`CREATE TABLE demo_delivery.pilot_marker (kind text PRIMARY KEY);
             INSERT INTO demo_delivery.pilot_marker VALUES ('isolated-public-market-pilot-v1')`);
         await db.exec(await readFile(new URL('./polygon-result-ack.sql', import.meta.url), 'utf8'));
+        await db.exec(await readFile(new URL('./polygon-pending-jobs.sql', import.meta.url), 'utf8'));
     }
     await db.query('INSERT INTO demo_delivery.traders VALUES ($1,$2)', ['polymarket', wallet]);
     for (const user of users) {
@@ -186,6 +188,7 @@ async function prepareQueue(users) {
         const ack = pair ? 'acknowledge_polygon_result(bigint,uuid,uuid)' : 'acknowledge_bound(bigint,uuid,uuid,text,text)';
         await db.exec(`GRANT USAGE ON SCHEMA demo_delivery TO ${user.writer};
             GRANT EXECUTE ON FUNCTION demo_delivery.${ack} TO ${user.writer}`);
+        if (pair) await db.exec(`GRANT EXECUTE ON FUNCTION demo_delivery.claim_polygon_result(uuid,interval) TO ${user.writer}`);
     }
 }
 
@@ -216,6 +219,11 @@ async function acknowledge(job) {
     return accepted;
 }
 
+async function claimPolygon(user, session = user.sid) {
+    return tx(user.writer, async () => (await db.query(
+        "SELECT * FROM demo_delivery.claim_polygon_result($1,interval '25 seconds')", [session])).rows);
+}
+
 async function applyBuy(user, run, job, header) {
     const {rows: [{settings}]} = await db.query('SELECT current_settings_revision_id settings FROM polygon.paper_sessions WHERE id=$1', [user.sid]);
     const request = {commandId: randomUUID(), intentId: randomUUID(), observationId: randomUUID(),
@@ -236,7 +244,7 @@ async function applyBuy(user, run, job, header) {
     if (pair) {
         const first = logs[0];
         evaluations.unshift({transactionHash:first.transactionHash,logIndex:first.logIndex,evidence:{
-            schemaVersion:'paper-buy-evidence-v1',kind:'skip',reason:'book_unavailable',
+            schemaVersion:'paper-buy-evidence-v1',kind:'skip',reason:'signal_expired',
             evidenceSha256:first.receiptSha256,binding:null}});
     }
     const envelope = {session_id:user.sid, request:{
@@ -254,11 +262,12 @@ async function applyBuy(user, run, job, header) {
         });
         const skipped = await tx(null,() => must('buy_activity_read_v1',
             {auth:user.auth,session_id:user.sid,after_sequence:'0',limit:20}));
-        assert.equal(skipped.items.find(item => item.decision.status === 'skipped')?.decision.detailCode, 'book_unavailable');
+        assert.equal(skipped.items.find(item => item.decision.status === 'skipped')?.decision.detailCode, 'signal_expired');
         const before = await tx(null,() => must('q04_session',{auth:user.auth,session_id:user.sid}));
         assert.deepEqual(before.session.financialSnapshot.free,q(200));
         assert.equal(before.session.financialSnapshot.positionCount,'0');
-        const { rows: [claimed] } = await db.query("SELECT * FROM demo_delivery.claim(1,interval '25 seconds')");
+        const [claimed] = await claimPolygon(user);
+        assert.equal(claimed.status,'claimed');
         assert.equal(claimed.session_id,user.sid);
         assert.equal(claimed.execution_key,`137:${publicTx}:${logIndex}`);
         assert.equal(await tx(user.writer,() => acknowledge(claimed)),false,
@@ -365,15 +374,20 @@ try {
         timestampSeconds:String(Math.floor(Date.now()/1000))};
     let jobs;
     if (pair) {
-        await db.exec(await readFile(new URL('./source-checkpoints.sql',import.meta.url),'utf8'));
         await db.query("INSERT INTO demo_delivery.source_cursors VALUES ('polymarket',$1,$2,$3)",
             [wallet,baselineHeader.number,baselineHeader.hash]);
         const send = () => publishFinalizedPolygonBlock(db,wallet,header,pair.map(item => item.log),new Date());
         assert.equal((await send()).enqueued,4);
         assert.equal((await send()).enqueued,0);
-        ({rows:jobs} = await db.query("SELECT * FROM demo_delivery.claim(2,interval '25 seconds')"));
+        // Advance only the first signal's delivery deadline in the isolated fixture.
+        await db.exec("UPDATE demo_delivery.signals SET expires_at=occurred_at WHERE id=(SELECT min(id) FROM demo_delivery.signals)");
+        assert.deepEqual((await db.query("SELECT * FROM demo_delivery.claim(2,interval '25 seconds')")).rows,[]);
+        assert.deepEqual(await claimPolygon(users[0],users[1].sid),[]);
+        jobs = [];
+        for (const user of users) jobs.push(...await claimPolygon(user));
         assert.equal(jobs.length,2);
-        assert.ok(jobs.every(job => job.payload.log.logIndex === pair[0].log.logIndex));
+        assert.ok(jobs.every(job => job.payload.log.logIndex === pair[0].log.logIndex && job.status === 'expired'));
+        assert.deepEqual(await claimPolygon(users[0]),[]);
     } else {
         jobs = await publish(users);
     }
@@ -389,7 +403,7 @@ try {
             item.source.transactionHash === publicTx && item.decision.status === 'filled');
         assert.equal(matches.length,1);
         if (pair) assert.equal(activity.items.filter(item => item.decision.status === 'skipped' &&
-            item.decision.detailCode === 'book_unavailable').length,1);
+            item.decision.detailCode === 'signal_expired').length,1);
         assert.equal(matches[0].decision.status,'filled');
         assert.equal(matches[0].decision.copy.snapshotId,state.snapshotId);
         assert.equal(state.financial.positions.length,1);
@@ -422,6 +436,7 @@ try {
             assert.deepEqual(state.financial.positions[0].quantity,reports[index].shares);
             const activity = await tx(null, () => must('buy_activity_read_v1',
                 {auth:user.auth,session_id:user.sid,after_sequence:'0',limit:20}));
+            if (pair) assert.equal(activity.items.filter(item => item.decision.detailCode==='signal_expired').length,1);
             assert.equal(activity.items.filter(item => item.source.transactionHash===publicTx &&
                 item.decision.status==='filled').length,1);
         }
