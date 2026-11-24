@@ -1,0 +1,192 @@
+diff --git a/collectors.py b/collectors.py
+index cd1c040..efc1ae8 100644
+--- a/collectors.py
++++ b/collectors.py
+@@ -219,7 +219,7 @@ def copy_limitless_signal(scoped, gate, stop, event, match, proof, delay, eviden
+
+
+ def run_limitless(adapter, wallet, stop, deadline, report, *, buy_budget=None, allow_no=False,
+-                  discovery_cursor=None, discovery_hash=None, started_ms=None, range_processed=None):
++                  discovery_cursor=None, discovery_hash=None, started_ms=None, range_processed=None, warm_tip=False):
+     wallet = wallet.lower()
+     gate = LimitlessBookGate() if allow_no else BookGate()
+     books = Books(gate, deadline)
+@@ -228,6 +228,15 @@ def run_limitless(adapter, wallet, stop, deadline, report, *, buy_budget=None, a
+     detector = BaseDetection(wallet, report, cursor=discovery_cursor, cursor_hash=discovery_hash)
+     started_ms = source.observe()[1] if started_ms is None else started_ms
+     refresh = heartbeat = 0
++    tip_worker = None
++    if warm_tip:
++        from limitless_tip_hint import watch
++        tip_stop = threading.Event()
++        tip_hints = Queue(maxsize=1)
++        tip_worker = threading.Thread(target=watch,
++            args=(wallet, tip_stop, deadline, tip_hints, report),
++            kwargs={'allow_no': allow_no}, daemon=True)
++        tip_worker.start()
+     try:
+         while not stop.is_set() and time.monotonic() < deadline:
+             if time.monotonic() >= refresh:
+@@ -237,6 +246,11 @@ def run_limitless(adapter, wallet, stop, deadline, report, *, buy_budget=None, a
+                 except SOURCE_ERRORS as error:
+                     report({'stage':'limitless-warm','reason':type(error).__name__})
+                 refresh = time.monotonic() + limitless.REFRESH_S
++            if tip_worker is not None:
++                try:
++                    subscriptions.tip = tip_hints.get_nowait()
++                except Empty:
++                    pass
+             subscriptions.sync(source.observe()[1])
+             result = detector.scan()
+             if result is None:
+@@ -276,6 +290,9 @@ def run_limitless(adapter, wallet, stop, deadline, report, *, buy_budget=None, a
+                         heartbeat = time.monotonic()+60
+             stop.wait(limitless.POLL_S)
+     finally:
++        if tip_worker is not None:
++            tip_stop.set()
++            tip_worker.join(timeout=4)
+         subscriptions.close()
+         books.close()
+
+diff --git a/limitless_tip_hint.py b/limitless_tip_hint.py
+new file mode 100644
+index 0000000..80621da
+--- /dev/null
++++ b/limitless_tip_hint.py
+@@ -0,0 +1,93 @@
++"""Unfinalized Base notifications can warm a book, never authorize a purchase."""
++from collections import OrderedDict, Counter
++import json
++from queue import Empty, Full
++import select
++import socket
++import ssl
++import time
++
++from book_engine import GateSkip
++import source
++from trader_address_probe import resolve_limitless
++from trader_limitless import collect, market_from_detail
++
++HOST = 'base-rpc.publicnode.com'
++TTL_MS = 30_000
++
++
++def hint_for(log, wallet, observed, allow_no):
++    if (log.get('removed') is not False or len(log.get('topics', ())) != 4
++            or log['topics'][2] != source.address_topic(wallet)):
++        return None
++    item = next(collect([log], {wallet}, observed, {}, Counter()), None)
++    if item is None:
++        return None
++    _, _, token, _ = item
++    mapped, _ = resolve_limitless(log, wallet, token, 'BUY', None)
++    if mapped is None:
++        return None
++    detail, outcome = mapped
++    expiration = detail.get('expirationTimestamp')
++    if type(expiration) is not int:
++        return None
++    market = market_from_detail(detail, wallet, token, outcome, allow_no).book_market()
++    until = min(expiration, observed[1] + TTL_MS)
++    return (market, until) if until > source.observe()[1] else None
++
++
++def offer(queue, hint):
++    try:
++        queue.put_nowait(hint)
++    except Full:
++        try:
++            queue.get_nowait()
++        except Empty:
++            pass
++        queue.put_nowait(hint)
++
++
++def watch(wallet, stop, deadline, hints, report, *, allow_no):
++    filters = {'address': sorted(source.FEE_MODULES),
++               'topics': [source.MATCH, None, source.address_topic(wallet)]}
++    request = {'jsonrpc': '2.0', 'id': 1, 'method': 'eth_subscribe', 'params': ['logs', filters]}
++    seen = OrderedDict()
++    while not stop.is_set() and time.monotonic() < deadline:
++        try:
++            with socket.create_connection((HOST, 443), timeout=3) as raw:
++                with ssl.create_default_context().wrap_socket(raw, server_hostname=HOST) as conn:
++                    with conn.makefile('rb', buffering=0) as stream:
++                        source.upgrade(conn, stream, HOST, '/')
++                        source.send_frame(conn, json.dumps(request).encode())
++                        reply = json.loads(source.read_frame(conn, stream))
++                        subscription = reply.get('result')
++                        if reply.get('id') != 1 or not isinstance(subscription, str) or not subscription:
++                            raise ValueError('Base did not accept the log subscription')
++                        report({'stage': 'limitless-tip', 'status': 'subscribed'})
++                        while not stop.is_set() and time.monotonic() < deadline:
++                            if not conn.pending() and not select.select([conn], [], [], .25)[0]:
++                                continue
++                            frame = source.read_frame(conn, stream)
++                            if frame is None:
++                                continue
++                            notice = json.loads(frame)
++                            params = notice.get('params') or {}
++                            if notice.get('method') != 'eth_subscription' or params.get('subscription') != subscription:
++                                continue
++                            log = params['result']
++                            key = log['blockHash'], log['transactionHash'], log['logIndex']
++                            if key in seen:
++                                continue
++                            seen[key] = None
++                            if len(seen) > 256:
++                                seen.popitem(last=False)
++                            try:
++                                hint = hint_for(log, wallet, source.observe(), allow_no)
++                            except (OSError, KeyError, ValueError, TypeError, AttributeError, GateSkip):
++                                continue
++                            if hint:
++                                offer(hints, hint)
++                                report({'stage': 'limitless-tip', 'status': 'book_hint'})
++        except (OSError, EOFError, KeyError, TypeError, ValueError, AttributeError):
++            report({'stage': 'limitless-tip', 'status': 'retry'})
++            stop.wait(min(5, max(0, deadline - time.monotonic())))
+diff --git a/profile-entry.py b/profile-entry.py
+index cdd2234..1c2fd00 100644
+--- a/profile-entry.py
++++ b/profile-entry.py
+@@ -209,7 +209,7 @@ def limitless(profile, address, scoped, amount, seconds, check):
+                 pool.submit(run_limitless,adapter,scope.wallet,stop,monotonic()+seconds,report,
+                             buy_budget=q(amount),allow_no=allow_no,discovery_cursor=cursor,
+                             discovery_hash=progress.digest,started_ms=int(started.timestamp()*1000),
+-                            range_processed=progress.complete),
++                            range_processed=progress.complete,warm_tip=True),
+                 pool.submit(finalize_buys,adapter,stop,report,stop_after_first=False),
+             )
+             finished,_=wait((*workers,checkpoint_task),return_when=FIRST_COMPLETED)
+diff --git a/trader_limitless.py b/trader_limitless.py
+index 788e555..e56ad99 100644
+--- a/trader_limitless.py
++++ b/trader_limitless.py
+@@ -59,10 +59,13 @@ class Subscriptions:
+         self.catalog_pool = ThreadPoolExecutor(max_workers=1)
+         self.catalog_query = None
+         self.hot = None
++        self.tip = None
+
+     def prune(self, now):
+         self.warm = {key: entry for key, entry in self.warm.items() if entry[1] > now}
+         self.catalog = {key: entry for key, entry in self.catalog.items() if entry[1] > now}
++        if self.tip and self.tip[1] <= now:
++            self.tip = None
+         if self.hot and self.hot[1] <= now:
+             self.hot = None
+
+@@ -75,7 +78,9 @@ class Subscriptions:
+             self.catalog_query = None
+         self.prune(now)
+         active = {key: entry[0] for key, entry in self.warm.items()}
+-        for key, (market, _) in self.catalog.items():
++        candidates = ([self.tip] if self.tip else []) + list(self.catalog.values())
++        for market, _ in candidates:
++            key = market_key(market)
+             if len(active) >= WARM_SLOTS:
+                 break
+             active.setdefault(key, market)
