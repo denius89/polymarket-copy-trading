@@ -92,25 +92,27 @@ REVOKE ALL ON FUNCTION demo_delivery.polygon_waiting_shape(jsonb),
 GRANT EXECUTE ON FUNCTION demo_delivery.polygon_waiting_shape(jsonb),
     demo_delivery.polygon_waiting_valid(uuid,jsonb,boolean) TO polygon_owner;
 
-CREATE TABLE demo_delivery.polygon_waiting_expiries (
+CREATE TABLE demo_delivery.polygon_waiting_outcomes (
     session_id uuid NOT NULL,
     signal_id bigint NOT NULL,
     observation_id uuid NOT NULL UNIQUE REFERENCES polygon_live_activity.observations(id),
-    expired_at timestamptz NOT NULL,
+    reason text NOT NULL CHECK (reason IN ('signal_expired','book_unavailable')),
+    completed_at timestamptz NOT NULL,
     PRIMARY KEY (signal_id,session_id),
     FOREIGN KEY (signal_id,session_id) REFERENCES demo_delivery.jobs
 );
-CREATE TRIGGER polygon_waiting_expiries_immutable
-    BEFORE UPDATE OR DELETE ON demo_delivery.polygon_waiting_expiries
+CREATE TRIGGER polygon_waiting_outcomes_immutable
+    BEFORE UPDATE OR DELETE ON demo_delivery.polygon_waiting_outcomes
     FOR EACH ROW EXECUTE FUNCTION live_buy_core.immutable();
-GRANT SELECT ON demo_delivery.polygon_waiting_expiries TO polygon_owner;
+GRANT SELECT ON demo_delivery.polygon_waiting_outcomes TO polygon_owner;
 
-CREATE FUNCTION demo_delivery.complete_polygon_expiry(p_session uuid,p_signal bigint,p_token uuid)
+CREATE FUNCTION demo_delivery.complete_polygon_refusal(p_session uuid,p_signal bigint,p_token uuid,p_reason text)
 RETURNS boolean LANGUAGE plpgsql SECURITY DEFINER SET search_path = pg_catalog AS $expiry$
 DECLARE
     target uuid;
 BEGIN
-    IF current_setting('transaction_isolation') <> 'serializable'
+    IF p_reason IS NULL OR p_reason NOT IN ('signal_expired','book_unavailable')
+       OR current_setting('transaction_isolation') <> 'serializable'
        OR demo_delivery.closed_polygon_scope(p_session) IS NULL
        OR (polygon_buy.writer(p_session)->>'http') IS DISTINCT FROM '200'
     THEN RETURN false; END IF;
@@ -123,24 +125,30 @@ BEGIN
     JOIN polygon_live_activity.decisions d ON (d.session_id,d.observation_id) = (o.session_id,o.id)
     WHERE (j.signal_id,j.session_id,j.lease_token) = (p_signal,p_session,p_token)
       AND j.finished_at IS NULL AND j.lease_until > clock_timestamp()
-      AND s.expires_at <= clock_timestamp()
+      AND ((p_reason = 'signal_expired' AND s.expires_at <= clock_timestamp())
+           OR (p_reason = 'book_unavailable' AND s.expires_at > clock_timestamp()))
       AND d.checks->>'executionAdmission' = 'awaiting_quote'
       AND d.checks#>>'{evidence,signalId}' = s.id::text
       AND demo_delivery.polygon_waiting_valid(o.id,d.checks->'evidence',false)
       AND NOT EXISTS (SELECT FROM live_buy_core.intents i WHERE (i.session_id,i.observation_id) = (o.session_id,o.id))
       AND NOT EXISTS (SELECT FROM polygon_buy.admissions a WHERE
           (a.session_id,a.transaction_hash,a.log_index) = (o.session_id,o.transaction_hash,o.log_index)
-          AND a.expires_at > clock_timestamp())
+          AND (p_reason = 'book_unavailable' OR a.expires_at > clock_timestamp()))
     FOR UPDATE OF j;
     IF target IS NULL THEN RETURN false; END IF;
-    INSERT INTO demo_delivery.polygon_waiting_expiries VALUES (p_session,p_signal,target,clock_timestamp());
+    INSERT INTO demo_delivery.polygon_waiting_outcomes VALUES (p_session,p_signal,target,p_reason,clock_timestamp());
     UPDATE demo_delivery.jobs SET finished_at = clock_timestamp(),finish_reason = 'acknowledged',
         lease_token = NULL,lease_until = NULL WHERE (signal_id,session_id) = (p_signal,p_session);
     PERFORM pg_notify('demo_delivery_ready','');
     RETURN true;
 END
 $expiry$;
-REVOKE ALL ON FUNCTION demo_delivery.complete_polygon_expiry(uuid,bigint,uuid)
+CREATE FUNCTION demo_delivery.complete_polygon_expiry(p_session uuid,p_signal bigint,p_token uuid)
+RETURNS boolean LANGUAGE sql SECURITY DEFINER SET search_path = pg_catalog AS $expiry$
+    SELECT demo_delivery.complete_polygon_refusal(p_session,p_signal,p_token,'signal_expired')
+$expiry$;
+REVOKE ALL ON FUNCTION demo_delivery.complete_polygon_expiry(uuid,bigint,uuid),
+    demo_delivery.complete_polygon_refusal(uuid,bigint,uuid,text)
     FROM PUBLIC,polygon_executor;
 
 CREATE FUNCTION demo_delivery.polygon_waiting_open(ob_id uuid,e jsonb)
@@ -164,7 +172,7 @@ DECLARE
     guard text := 'AND d.policy_version=''paper-buy-queued-v1'' AND e.evidence->>''admissionId''=v.reserve_id::text;';
     order_prefix text := 'd.policy_version=''paper-buy-queued-v1'' AND NOT EXISTS';
     order_guard text := 'd.policy_version=''paper-buy-queued-v1''
-      AND NOT EXISTS (SELECT FROM demo_delivery.polygon_waiting_expiries skipped
+      AND NOT EXISTS (SELECT FROM demo_delivery.polygon_waiting_outcomes skipped
                       WHERE (skipped.session_id,skipped.observation_id)=(d.session_id,d.observation_id))
       AND NOT EXISTS';
 BEGIN
@@ -178,7 +186,7 @@ BEGIN
     THEN RAISE EXCEPTION 'Unexpected Polygon dispatch ordering'; END IF;
     EXECUTE replace(definition,
         'AND NOT EXISTS(SELECT FROM live_buy_core.intents x WHERE x.session_id=sid AND x.observation_id=d.observation_id)',
-        'AND NOT EXISTS (SELECT FROM demo_delivery.polygon_waiting_expiries skipped
+        'AND NOT EXISTS (SELECT FROM demo_delivery.polygon_waiting_outcomes skipped
                          WHERE (skipped.session_id,skipped.observation_id)=(d.session_id,d.observation_id))
          AND NOT EXISTS(SELECT FROM live_buy_core.intents x WHERE x.session_id=sid AND x.observation_id=d.observation_id)');
 
@@ -207,11 +215,13 @@ BEGIN
     THEN RAISE EXCEPTION 'Unexpected Polygon Activity projection'; END IF;
     EXECUTE replace(definition,marker,marker || '
         IF d.checks->>''executionAdmission''=''awaiting_quote'' THEN
-            IF EXISTS (SELECT FROM demo_delivery.polygon_waiting_expiries skipped
+            IF EXISTS (SELECT FROM demo_delivery.polygon_waiting_outcomes skipped
                        WHERE (skipped.session_id,skipped.observation_id)=(ob.session_id,ob.id)) THEN
                 RETURN body || jsonb_build_object(''decision'', (body->''decision'') ||
                     jsonb_build_object(''status'',''skipped'',''reasonCode'',''context_invalid'',
-                                       ''detailCode'',''signal_expired'',''copy'',NULL));
+                                       ''detailCode'',(SELECT skipped.reason FROM demo_delivery.polygon_waiting_outcomes skipped
+                                            WHERE (skipped.session_id,skipped.observation_id)=(ob.session_id,ob.id)),
+                                       ''copy'',NULL));
             END IF;
             IF NOT EXISTS (SELECT FROM live_buy_core.intents waiting
                 WHERE (waiting.session_id,waiting.observation_id)=(ob.session_id,ob.id))

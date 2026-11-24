@@ -17,6 +17,7 @@ from resolver import Skip
 
 CLAIM = 'SELECT demo_delivery.claim_polygon_quote(%s::uuid,%s::jsonb)'
 ACK = 'SELECT demo_delivery.acknowledge_polygon_result(%s::bigint,%s::uuid,%s::uuid)'
+REFUSE_BOOK = 'SELECT demo_delivery.complete_polygon_refusal(%s::uuid,%s::bigint,%s::uuid,%s::text)'
 
 
 @dataclass(frozen=True)
@@ -88,6 +89,18 @@ class QueuedQuoteTransport:
         for key in ('reserveId', 'settleId', 'reserveCommandId', 'settleCommandId', 'intentId', 'fillId', 'confirmationId'):
             quote[key] = command_id(scope.session_id, execution, key)
         return QueuedQuote(quote, job)
+
+    def finish_book_refusal(self, scope, reason):
+        if reason != 'BOOK_WAIT_TIMEOUT' or self.prepared is None:
+            return False
+        job = self.prepared[3]
+        self.base.check_write()
+        try:
+            with self.base.connection(self.base.writer, mutation=True) as db:
+                return read_call(db, REFUSE_BOOK, scope.session_id, job['signalId'], job['lease'], 'book_unavailable')
+        except (SerializationFailure, OperationalError, Skip):
+            # A later iteration can reconcile a committed refusal or expire the lease.
+            return False
 
     @contextmanager
     def transaction(self, scope, prepared):

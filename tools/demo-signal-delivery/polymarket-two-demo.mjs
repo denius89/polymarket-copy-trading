@@ -23,7 +23,9 @@ const retainedState = process.env.CCT_DEMO_PM_STATE_DIRECTORY;
 const appStart = process.env.CCT_DEMO_REPLAY_APP_STARTS === '1';
 const pairSource = process.env.CCT_DEMO_POLYGON_PAIR;
 const waitForQuote = process.env.CCT_DEMO_POLYGON_WAITING === '1';
+const refuseBook = process.env.CCT_DEMO_POLYGON_BOOK_REFUSAL === '1';
 assert.ok(!waitForQuote || pairSource, 'A Polygon pair is required for the waiting test');
+assert.ok(!refuseBook || waitForQuote, 'The book refusal uses the waiting profile');
 assert.ok(!pairSource || (!freshSource && !appStart), 'The archived pair uses the isolated replay profile');
 const pair = pairSource ? JSON.parse(await readFile(pairSource, 'utf8')).slice(0, 2) : null;
 if (pair) {
@@ -257,16 +259,34 @@ async function verifyWaiting(user, run, header, jobs) {
     const readActivity = () => tx(null,() => must('buy_activity_read_v1',
         {auth:user.auth,session_id:user.sid,after_sequence:'0',limit:20}));
     assert.equal((await readActivity()).items.filter(item => item.decision.status==='pending').length,2);
-    const {rows:[{done}]} = await tx(user.writer,() => db.query(
-        'SELECT demo_delivery.expire_next_polygon_job($1) AS done',[user.sid]));
-    assert.equal(done,true);
-    const activity = await readActivity();
-    assert.equal(activity.items.filter(item => item.decision.detailCode==='signal_expired').length,1);
     const claimQuote = async log => {
         const {rows:[{job}]} = await tx(user.writer,() => db.query(
             'SELECT demo_delivery.claim_polygon_quote($1,$2) job',[user.sid,log]));
         return job;
     };
+    if (refuseBook) {
+        await db.exec(`GRANT EXECUTE ON FUNCTION demo_delivery.complete_polygon_refusal(uuid,bigint,uuid,text)
+            TO ${user.writer}`);
+        assert.equal(await claimQuote(logs[1]),null);
+        const first = await claimQuote(logs[0]);
+        assert.equal(first.signalId,String(jobs[0].signal_id));
+        const refusal = token => tx(user.writer,async () => (await db.query(
+            "SELECT demo_delivery.complete_polygon_refusal($1,$2,$3,'book_unavailable') AS done",
+            [user.sid,first.signalId,token])).rows[0].done);
+        assert.equal(await refusal(randomUUID()),false);
+        assert.equal(await refusal(first.lease),true);
+        const {rows:[{sameLiveDeadline}]} = await db.query(`SELECT count(DISTINCT s.expires_at)=1
+          AND min(s.expires_at)>clock_timestamp() AS "sameLiveDeadline"
+          FROM demo_delivery.signals s JOIN demo_delivery.jobs j ON j.signal_id=s.id WHERE j.session_id=$1`,[user.sid]);
+        assert.equal(sameLiveDeadline,true);
+    } else {
+        const {rows:[{done}]} = await tx(user.writer,() => db.query(
+            'SELECT demo_delivery.expire_next_polygon_job($1) AS done',[user.sid]));
+        assert.equal(done,true);
+    }
+    const reason = refuseBook ? 'book_unavailable' : 'signal_expired';
+    const activity = await readActivity();
+    assert.equal(activity.items.filter(item => item.decision.detailCode===reason).length,1);
     assert.equal(await claimQuote({...logs[1],logIndex:logs[0].logIndex}),null);
     const job = await claimQuote(logs[1]);
     assert.equal(job.signalId,String(jobs[1].signal_id));
@@ -289,7 +309,7 @@ async function verifyWaiting(user, run, header, jobs) {
     const {rows:[{pending}]} = await db.query(
         'SELECT count(*)::int pending FROM demo_delivery.jobs WHERE session_id=$1 AND finished_at IS NULL',[user.sid]);
     assert.equal(pending,0);
-    console.log(JSON.stringify({block:header.number,observations:2,expired:1,nextDelivery:'claimed',
+    console.log(JSON.stringify({block:header.number,observations:2,firstReason:reason,nextDelivery:'claimed',
         cashBefore:balance.session.financialSnapshot.free,cashAfter:checked.financial.freeCash,
         shares:checked.financial.positions[0].quantity}));
 }
@@ -482,7 +502,8 @@ try {
         assert.equal((await send()).enqueued,0);
         assert.equal(await tx(publisher.writer,() => reconcilePolygon(publisher)),0);
         // Advance only the first signal's delivery deadline in the isolated fixture.
-        await db.exec("UPDATE demo_delivery.signals SET expires_at=occurred_at WHERE id=(SELECT min(id) FROM demo_delivery.signals)");
+        if (!refuseBook)
+            await db.exec("UPDATE demo_delivery.signals SET expires_at=occurred_at WHERE id=(SELECT min(id) FROM demo_delivery.signals)");
         assert.deepEqual((await db.query("SELECT * FROM demo_delivery.claim(2,interval '25 seconds')")).rows,[]);
         assert.deepEqual(await claimPolygon(users[0],users[1].sid),[]);
         jobs = [];
