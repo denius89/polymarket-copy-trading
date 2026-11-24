@@ -169,6 +169,8 @@ class QueuedQuoteTransport:
                         'issueMs': round((issued_at - started) * 1000),
                         'writeCommitMs': round((monotonic() - issued_at) * 1000),
                         'sourceToCommitMs': utc_ms() - quote['event']['signalAtMs'],
+                        'sourceToBookMs': quote['estimate']['book']['receivedAtMs'] - quote['event']['signalAtMs'],
+                        'bookTransport': quote['estimate']['book']['evidenceRef'].partition(':')[2].partition(':')[0],
                     }), flush=True)
                 except SerializationFailure as error:
                     if error.sqlstate != '40001':

@@ -1,0 +1,59 @@
+--- a/hybrid_book.py
++++ b/hybrid_book.py
+@@ -14,6 +14,7 @@
+ import source
+ 
+ BOOK_WAIT_NS = 3 * NS
++REST_RETRY_MIN_NS = NS // 10
+ 
+ 
+ def snapshot_time(value):
+@@ -155,9 +156,10 @@
+                 if remaining <= 0:
+                     return
+                 with self.changed:
+-                    if self.window != window or self.key != window.signal.key or self.generation != generation:
++                    if self.window != window or self.key != window.signal.key or self.generation != generation or self.terminal:
+                         return
+                     self.counts['BOOK_REST_REQUEST'] += 1
++                    launched_at, known_delta = self.clock(), self.delta_stamp
+                 try:
+                     payload, received = self.fetch(market, remaining)
+                     with self.changed:
+@@ -173,17 +175,28 @@
+                     with self.changed:
+                         self.counts[getattr(error, 'reason', 'BOOK_REST_TRANSPORT_OR_FORMAT')] += 1
+                     return
+-                with self.changed:
+-                    if self.window != window:
+-                        return
+-                    if attempt < 2:
+-                        # Spread the fallback requests across the available window.
+-                        next_attempt = window.start_ns + (window.deadline_ns - window.start_ns) * (attempt + 1) // 3
+-                        while self.window == window and self.clock() < next_attempt:
+-                            self.changed.wait(timeout=(next_attempt - self.clock()) / NS)
++                if attempt < 2:
++                    self.wait_rest_retry(window, attempt, launched_at, known_delta)
+         finally:
+             self.slots.release()
+ 
++    def wait_rest_retry(self, window, attempt, launched_at, known_delta):
++        planned = window.start_ns + (window.deadline_ns - window.start_ns) * (attempt + 1) // 3
++        with self.changed:
++            while self.window == window and not self.terminal:
++                now = self.clock()
++                if now >= planned:
++                    return
++                # A delta cannot be quoted. It can bring forward the second
++                # full snapshot request. Keep the final request near the end.
++                next_attempt = planned
++                if (attempt == 0 and self.delta_stamp > max(known_delta, self.window_start_ms)):
++                    next_attempt = min(planned, launched_at + REST_RETRY_MIN_NS)
++                    if now >= next_attempt:
++                        self.counts['BOOK_REST_DELTA_WAKE'] += 1
++                        return
++                self.changed.wait(timeout=(next_attempt - now) / NS)
++
+     def candidate(self, window, *, recompute=False):
+         with self.changed:
+             if self.terminal or self.key != window.signal.key or self.window != window:
