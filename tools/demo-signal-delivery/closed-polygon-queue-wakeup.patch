@@ -1,0 +1,82 @@
+--- a/personal_worker.py
++++ b/personal_worker.py
+@@ -2,7 +2,7 @@
+ import argparse
+ from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
+ from configparser import ConfigParser
+-from contextlib import contextmanager
++from contextlib import contextmanager, nullcontext
+ from functools import partial
+ import fcntl
+ from ipaddress import IPv4Address, IPv4Network
+@@ -327,7 +327,11 @@
+                 terminal()
+ 
+         taker = partial(run_polymarket, discovery='rtds+data') if args.data_taker else run_polymarket
+-        with ThreadPoolExecutor(3) as pool:
++        watcher = nullcontext()
++        if args.queue_financial:
++            from polygon_queue_wakeup import watch_queue
++            watcher = watch_queue(partial(transport.connection, transport.writer))
++        with watcher as transport.queue_wake, ThreadPoolExecutor(3) as pool:
+             workers = [pool.submit(fn, adapter, wallet, stop, deadline, report_trial, buy_budget=budget,
+                                    start_ms=scope.started_at_ms) for fn in (taker, run_makers)]
+             workers.append(pool.submit(advance, transport, scope, stop, deadline, max_ingest_headers))
+--- a/maker_collector.py
++++ b/maker_collector.py
+@@ -238,6 +238,7 @@
+     warmer.start()
+     rpc=poly.BoundedRPC()
+     frames=DeferredFrames(queue, enabled=getattr(getattr(adapter, 'transport', None), 'queued_quotes', False))
++    deferred_proofs = {}
+     heartbeat=0
+     try:
+         while not stop.is_set() and time.monotonic()<deadline:
+@@ -256,6 +257,7 @@
+                 books.prepare(target)
+                 continue
+             deferred = False
++            resolved = deferred_proofs.pop(captured.event_key, None)
+             try:
+                 if poly.remaining(captured)<=0:
+                     counts['signal_expired'] += 1
+@@ -263,19 +265,19 @@
+                 market=source.Market('polymarket',captured.market,captured.token,wallet,captured.slug)
+                 preparation = MARKET_PREPARATION.submit(prepare_market, market)
+                 books.prepare(market)
+-                resolved = None
+                 started_ns = time.monotonic_ns()
+                 timing = {'sourceSeenMs': captured.first_utc - captured.source_ms,
+                           'sourceQueueWaitMs': (started_ns - captured.first_mono) // 1_000_000}
+                 try:
+-                    binding={'wallet':wallet,'marketId':captured.market,'outcomeId':captured.token,
+-                             'evidenceRef':'verified-active-clob-market-and-token:'+captured.market}
+-                    resolver=MakerResolver(rpc,endpoint_id=poly.RPC,binding=binding,timestamp_evidence=timestamp_evidence,
+-                                          mono=time.monotonic_ns,utc=lambda:time.time_ns()//1_000_000,wait=stop.wait)
+-                    observed=resolver.observe(captured.raw,captured.connection,first_seen_ms=captured.first_utc,
+-                                               first_ns=captured.first_mono)
+-                    resolved=resolver.resolve(observed)
+-                    timing['confirmMs'] = (time.monotonic_ns() - started_ns) // 1_000_000
++                    if resolved is None:
++                        binding={'wallet':wallet,'marketId':captured.market,'outcomeId':captured.token,
++                                 'evidenceRef':'verified-active-clob-market-and-token:'+captured.market}
++                        resolver=MakerResolver(rpc,endpoint_id=poly.RPC,binding=binding,timestamp_evidence=timestamp_evidence,
++                                              mono=time.monotonic_ns,utc=lambda:time.time_ns()//1_000_000,wait=stop.wait)
++                        observed=resolver.observe(captured.raw,captured.connection,first_seen_ms=captured.first_utc,
++                                                   first_ns=captured.first_mono)
++                        resolved=resolver.resolve(observed)
++                        timing['confirmMs'] = (time.monotonic_ns() - started_ns) // 1_000_000
+                     try:
+                         (delay,delay_evidence,policy,baseline,exchange), timing['marketMs'] = preparation.result(
+                             timeout=max(0, poly.remaining(captured) / 1_000_000_000))
+@@ -295,6 +297,10 @@
+                 except (GateSkip,poly.Skip) as error:
+                     deferred = frames.defer(captured, error.reason, poly.remaining(captured))
+                     if deferred:
++                        # The original frame keeps its age. The execution route
++                        # still checks provenance, conflicts and a fresh book.
++                        if resolved is not None:
++                            deferred_proofs[captured.event_key] = resolved
+                         counts['deferred_candidates'] += 1
+                         continue
+                     if resolved is not None:

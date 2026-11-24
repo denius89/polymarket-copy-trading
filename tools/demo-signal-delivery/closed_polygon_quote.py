@@ -28,6 +28,8 @@ class QueuedQuote:
 
 
 class QueuedQuoteTransport:
+    multiple_buy_levels = True
+
     def __init__(self, base, resolved):
         self.base = base
         self.resolved = resolved
@@ -59,16 +61,26 @@ class QueuedQuoteTransport:
         # A not-ready candidate yields to the next source frame after a short
         # wait. Its original source clock remains in force on retry.
         deadline = started + max(0, min(0.5, (event['signalAtMs'] + 30_000 - utc_ms()) / 1000 - 8))
+        wake = getattr(self.base, 'queue_wake', None)
         while True:
+            generation = wake.generation if wake is not None else None
             with self.base.connection(self.base.writer) as db:
                 job = read_call(db, CLAIM, scope.session_id, Jsonb(log))
             if job:
                 if job.get('state') == 'predecessor':
                     raise Skip('POLYGON_QUEUE_PREDECESSOR')
                 break
-            if monotonic() + 0.25 > deadline:
+            remaining = deadline - monotonic()
+            if remaining <= 0:
                 raise Skip('POLYGON_QUEUE_NOT_READY')
-            sleep(0.25)
+            if wake is None:
+                if remaining < 0.25:
+                    raise Skip('POLYGON_QUEUE_NOT_READY')
+                sleep(0.25)
+            else:
+                wake.wait(generation, min(remaining, 0.25))
+                if monotonic() >= deadline:
+                    raise Skip('POLYGON_QUEUE_NOT_READY')
         self.prepared = (log, cursor['version'], binding, job)
         self.claim_ms = round((monotonic() - started) * 1000)
         print(json.dumps({'stage': 'polygon-queue-quote-claim', 'signalId': job['signalId'],
@@ -95,6 +107,11 @@ class QueuedQuoteTransport:
                      observationId=job['observationId'])
         for key in ('reserveId', 'settleId', 'reserveCommandId', 'settleCommandId', 'intentId', 'fillId', 'confirmationId'):
             quote[key] = command_id(scope.session_id, execution, key)
+        if len(estimate['fills']) > 1:
+            quote['fillIds'] = [quote['fillId']] + [
+                command_id(scope.session_id, execution, f'fillId:{index}')
+                for index in range(1, len(estimate['fills']))
+            ]
         return QueuedQuote(quote, job)
 
     def finish_book_refusal(self, scope, reason):
