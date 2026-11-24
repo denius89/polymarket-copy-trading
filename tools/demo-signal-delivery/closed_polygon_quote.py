@@ -118,10 +118,12 @@ class QueuedQuoteTransport:
                 raise Skip('PERSONAL_QUOTE_EXPIRED')
             with self.base.tracking('purchase', execution):
                 try:
+                    started = monotonic()
                     with self.base.connection(self.base.issuer, mutation=True) as db:
                         issued = call(db, ISSUE, Jsonb(quote))
                         if issued != {key: quote[key] for key in ('reserveId','observationId')}:
                             raise ScopeRefusal('Personal quote issuer returned a different identity')
+                    issued_at = monotonic()
                     with self.base.connection(self.base.writer, mutation=True) as db:
                         call(db, "SELECT set_config('demo_delivery.polygon_lease',%s,true)", job['lease'])
                         applied = result(call(db, APPLY, sid, execution), 'Polygon queued purchase refused')
@@ -140,6 +142,14 @@ class QueuedQuoteTransport:
                         self.base.check_write()
                         if utc_ms() >= quote['expiresAtMs']:
                             raise Skip('PERSONAL_QUOTE_EXPIRED')
+                    print(json.dumps({
+                        'stage': 'polygon-queue-purchase-committed',
+                        'signalId': job['signalId'],
+                        'executionId': execution,
+                        'issueMs': round((issued_at - started) * 1000),
+                        'writeCommitMs': round((monotonic() - issued_at) * 1000),
+                        'sourceToCommitMs': utc_ms() - quote['event']['signalAtMs'],
+                    }), flush=True)
                 except SerializationFailure as error:
                     if error.sqlstate != '40001':
                         raise
