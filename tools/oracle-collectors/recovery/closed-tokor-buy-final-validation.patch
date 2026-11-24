@@ -1,5 +1,5 @@
 diff --git a/personal_pg.py b/personal_pg.py
-index f067ac6..49d7ed0 100644
+index f067ac6..c4340ca 100644
 --- a/personal_pg.py
 +++ b/personal_pg.py
 @@ -477,6 +477,15 @@ class PgTransport:
@@ -8,13 +8,13 @@ index f067ac6..49d7ed0 100644
                              raise ScopeRefusal('Unexpected personal command receipt')
 +                        if reply['status'] == 'recorded':
 +                            self.check_write()
-+                            flush = dict(session_id=sid, flush_buy_operation_id=operation['operationId'],
-+                                         source_execution_id=execution)
-+                            verified = call(db, INGEST, Jsonb(flush))
-+                            if verified not in ({'flushed': True}, {'flushed': False}):
++                            validation = dict(session_id=sid, queue_buy_operation_id=operation['operationId'],
++                                              source_execution_id=execution)
++                            scheduled = call(db, INGEST, Jsonb(validation))
++                            if scheduled not in ({'queued': True}, {'queued': False}):
 +                                raise ScopeRefusal('Unexpected buy validation receipt')
-+                            print(json.dumps({'stage': 'personal-buy-final-validation',
-+                                              'executionId': execution, 'flushed': verified['flushed']}), flush=True)
++                            print(json.dumps({'stage': 'personal-buy-validation-queued',
++                                              'executionId': execution, 'queued': scheduled['queued']}), flush=True)
                          try:
                              yield reply
                          except GateSkip as error:
