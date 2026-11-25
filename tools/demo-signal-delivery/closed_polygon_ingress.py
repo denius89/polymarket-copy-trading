@@ -18,6 +18,17 @@ BATCH_BLOCKS = 16
 MAX_BYTES = 262144
 
 
+class IngressRPC(BoundedRPC):
+    def __call__(self, method, params, timeout_seconds):
+        try:
+            return super().__call__(method, params, timeout_seconds)
+        except ValueError as error:
+            if not isinstance(error, json.JSONDecodeError) and str(error) != 'invalid RPC response envelope':
+                raise
+            # The range reader retries a complete range on another endpoint.
+            raise OSError('Invalid response from Polygon RPC') from error
+
+
 def wake_path(path):
     return path.with_suffix('.sock')
 
@@ -101,7 +112,7 @@ def main():
         raise ValueError('Invalid watched Polygon wallet')
     anchor = anchor_header(args.anchor)
     cutoff = int(timestamp(args.until).timestamp() * 1000)
-    primary, backup = BoundedRPC(), BoundedRPC(HISTORY_RPC)
+    primary, backup = IngressRPC(), IngressRPC(HISTORY_RPC)
     with closing(spool_connection(args.spool, create=True)) as db, socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM) as wake:
         initialize(db, args.wallet, anchor)
         wake.setblocking(False)
