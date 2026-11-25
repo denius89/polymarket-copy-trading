@@ -105,8 +105,12 @@ class SharedPolygonBookGate(RtdsBookGate):
 
     def begin(self, signal, delay_ms, delay_evidence):
         window = super().begin(signal, delay_ms, delay_evidence)
+        finality = signal.event['venueReceipt']['finality']
+        # The direct resolver checked this proof before opening its session's
+        # queue entry. Queue latency cannot move the market's execution delay.
+        eligible_ns = int(finality['checkedMonotonicNs']) + delay_ms * 1_000_000
         signal_deadline = signal.first_ns + 30 * NS - signal.age_ms * 1_000_000
-        return replace(window, deadline_ns=min(window.start_ns + BOOK_WAIT_NS, signal_deadline))
+        return replace(window, start_ns=eligible_ns, deadline_ns=min(window.start_ns + BOOK_WAIT_NS, signal_deadline))
 
     def wait_candidate(self, window, *, recompute=False):
         # An immutable pin never switches books halfway through fanout.
@@ -126,7 +130,9 @@ class SharedPolygonBookGate(RtdsBookGate):
         with self.exchange('book', request, (deadline - self.clock()) / NS) as (_, response):
             book = decode_book(response['book'])
         if (book.key != window.signal.key or book.received_ns <= window.start_ns
-                or book.received_ns > window.deadline_ns or not book.eligible):
+                or book.received_ns > window.deadline_ns
+                or book.received_ms < event['venueReceipt']['finality']['checkedAtMs']
+                or not book.eligible):
             raise GateSkip('BOOK_BROKER_PROTOCOL')
         if not 0 <= self.clock() - book.received_ns <= 2 * NS or not 0 <= self.utc() - book.source_time <= 2000:
             raise GateSkip('BOOK_AGE')
@@ -200,7 +206,7 @@ class MarketFeed:
 class PendingBook:
     def __init__(self, identity, feed, expires):
         self.identity, self.feed, self.expires = identity, feed, expires
-        self.waiting = {}
+        self.served = set()
         self.failed = False
         self.pinned = None
 
@@ -249,7 +255,8 @@ class BookBroker:
         if (not all(isinstance(value, str) and re.fullmatch('[a-f0-9]{64}', value)
                     for value in (execution, fingerprint))
                 or not all(type(value) is int for value in (start, deadline, source_at))
-                or not 0 <= start <= now_ns < deadline <= start + BOOK_WAIT_NS
+                or not 0 <= now_ns - start < 30 * NS
+                or not now_ns < deadline <= now_ns + BOOK_WAIT_NS
                 or not 0 <= now_ms - source_at < 30_000):
             raise GateSkip('BOOK_WAIT_TIMEOUT')
         identity = fingerprint, market, source_at
@@ -260,44 +267,45 @@ class BookBroker:
             if managed is None or market != managed.market or not managed.preparation.done():
                 raise GateSkip('BOOK_MARKET_CHANGED')
             record = self.signals.get(execution)
-            if record is None:
+            acquire = record is None
+            if acquire:
                 if len(self.signals) >= MAX_SIGNALS:
                     raise GateSkip('BOOK_WAIT_TIMEOUT')
                 record = self.signals[execution] = PendingBook(identity, managed, now + (30_000 - now_ms + source_at) / 1000)
-            if record.identity != identity or record.feed is not managed:
+            elif record.identity != identity or record.feed is not managed:
                 raise GateSkip('BOOK_IDENTITY_CONFLICT')
-            if participant in record.waiting:
-                # Overlapping requests from the same worker cannot move the agreed clock boundary.
-                raise GateSkip('BOOK_WAIT_TIMEOUT')
-            record.waiting[participant] = (start, deadline)
-            elected = not record.failed and record.waiting.keys() == self.participants
-            if not elected:
-                while not record.failed and record.pinned is None and time.monotonic_ns() < deadline:
+            if not acquire:
+                while record.pinned is None and not record.failed and time.monotonic_ns() < deadline:
                     self.changed.wait(max(0, (deadline - time.monotonic_ns()) / NS))
-                if record.pinned is None:
-                    record.failed = True
-                    self.changed.notify_all()
-                    raise GateSkip('BOOK_WAIT_TIMEOUT')
-                return record.pinned
-            common_deadline = min(finish for _, finish in record.waiting.values())
+                return self.book_for(record, participant, start, deadline)
 
         try:
-            book = self.acquire(managed, source_at, common_deadline)
+            book = self.acquire(managed, source_at, deadline)
         except (GateSkip, ValueError, KeyError, TypeError, OSError, ArithmeticError):
             with self.changed:
                 record.failed = True
                 self.changed.notify_all()
             raise
         with self.changed:
-            if record.failed:
-                raise GateSkip('BOOK_WAIT_TIMEOUT')
             record.pinned = book
             self.changed.notify_all()
+            book = self.book_for(record, participant, start, deadline)
         print(json.dumps({'stage': 'shared-polygon-book', 'executionId': execution,
                           'bookHash': book.identity, 'levelsHash': book.levels_hash,
                           'evidenceRef': book.evidence_ref, 'sourceTimestampMs': book.source_time,
                           'receivedAtMs': book.received_ms, 'receivedMonotonicNs': str(book.received_ns),
-                          'participants': len(record.waiting)}), flush=True)
+                          'participantsAtPin': len(record.served)}), flush=True)
+        return book
+
+    @staticmethod
+    def book_for(record, participant, start, deadline):
+        book = record.pinned
+        if book is None or not start < book.received_ns <= deadline:
+            raise GateSkip('BOOK_WAIT_TIMEOUT')
+        now_ns, now_ms = time.monotonic_ns(), time.time_ns() // 1_000_000
+        if not 0 <= now_ns - book.received_ns <= 2 * NS or not 0 <= now_ms - book.source_time <= 2000:
+            raise GateSkip('BOOK_AGE')
+        record.served.add(participant)
         return book
 
     @staticmethod
@@ -309,9 +317,8 @@ class BookBroker:
         try:
             signal = Signal({}, (feed.market.venue, feed.market.market, feed.market.token), gate.clock(),
                             gate.utc() - source_at, gate.clock())
-            # Both participants registered before the venue acquisition window opened.
-            # This also preserves the original rule that a baseline alone is never a quote.
-            window = gate.begin(signal, 0, 'closed-shared-book-rendezvous')
+            # A baseline alone does not qualify as an execution quote.
+            window = gate.begin(signal, 0, 'closed-shared-book-first-ready')
             with gate.changed:
                 while True:
                     if gate.clock() >= deadline_ns - CLOCK_MARGIN_NS:
@@ -332,7 +339,7 @@ class BookBroker:
     def lease(self, participant, execution, evidence_ref):
         with self.changed:
             record = self.signals.get(execution)
-            if record is None or participant not in record.waiting or record.pinned is None:
+            if record is None or participant not in record.served or record.pinned is None:
                 raise GateSkip('BOOK_WAIT_TIMEOUT')
             book = record.pinned
             if book.evidence_ref != evidence_ref:
