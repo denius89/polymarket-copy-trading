@@ -13,9 +13,11 @@ from psycopg.types.json import Jsonb
 
 from closed_polygon_ingress import BATCH_BLOCKS, spool_connection, wake_path
 from closed_polygon_source import connection
+from closed_polygon_write_turn import shared_write_turn
 from personal_range import timestamp, utc_ms, wire_time
 from personal_worker import private_config
 from polygon_queue_wakeup import SOURCE_READY
+from resolver import Skip
 
 
 def dispatchable(row, wallet):
@@ -94,7 +96,7 @@ def main():
                 rows = spool.execute('SELECT height,header,logs,received_ms FROM ingress_blocks '
                                      'WHERE height>? ORDER BY height LIMIT ?', (height, BATCH_BLOCKS)).fetchall()
                 if rows:
-                    with connection(config) as db:
+                    with shared_write_turn(), connection(config) as db:
                         result = deliver(db, config, rows)
                     height = int(result['height'])
                     print(json.dumps({'stage': 'polygon-trader-range', 'fromBlock': rows[0][0],
@@ -104,6 +106,10 @@ def main():
                         wake.recv(1)
                     except TimeoutError:
                         pass
+            except Skip as error:
+                if error.reason != 'POLYGON_WRITER_TURN_BUSY':
+                    raise
+                sleep(0.03)  # No SQL was submitted. Keep the current cursor.
             except (OperationalError, InterfaceError, sqlite3.OperationalError) as error:
                 # After a lost commit reply, re-read the DB cursor before consuming again.
                 height = None

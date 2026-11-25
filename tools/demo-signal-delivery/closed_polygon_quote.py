@@ -2,7 +2,7 @@
 from contextlib import contextmanager
 from dataclasses import dataclass
 import json
-from time import monotonic, sleep
+from time import monotonic, monotonic_ns, sleep
 
 from psycopg import OperationalError
 from psycopg.errors import CheckViolation, SerializationFailure
@@ -10,6 +10,7 @@ from psycopg.pq import TransactionStatus
 from psycopg.types.json import Jsonb
 
 from book_engine import GateSkip
+from closed_polygon_write_turn import shared_write_turn
 from guarded_source import ScopeRefusal, SessionCollectorAdapter
 from personal_pg import APPLY, ISSUE, ConfirmedBookRollback, UnresolvedResult, call, command_id, read_call, result
 from personal_range import timestamp, utc_ms
@@ -67,8 +68,14 @@ class QueuedQuoteTransport:
         wake = getattr(self.base, 'queue_wake', None)
         while True:
             generation = wake.generation if wake is not None else None
-            with self.base.connection(self.base.writer) as db:
-                job = read_call(db, CLAIM, scope.session_id, Jsonb(log))
+            try:
+                with self.base.connection(self.base.writer, closed_slot=True) as db:
+                    job = read_call(db, CLAIM, scope.session_id, Jsonb(log))
+            except Skip as error:
+                if error.reason != 'POLYGON_WRITER_TURN_BUSY':
+                    raise
+                # No lease was written. Let the same signal wait for its turn.
+                job = None
             if job:
                 if job.get('state') == 'predecessor':
                     raise Skip('POLYGON_QUEUE_PREDECESSOR')
@@ -122,18 +129,6 @@ class QueuedQuoteTransport:
             return False
         job = self.prepared[3]
         self.base.check_write()
-        # A confirmed serialization rollback of the later completion must not
-        # erase the book gate's observation. Both transactions use the same lease.
-        for attempt in range(2):
-            try:
-                with self.base.connection(self.base.writer, mutation=True) as db:
-                    read_call(db, REFUSE_BOOK, scope.session_id, job['signalId'], job['lease'], 'record_book_timeout')
-                break
-            except SerializationFailure as error:
-                if error.sqlstate != '40001' or attempt:
-                    break
-            except (OperationalError, Skip):
-                break
         try:
             with self.base.connection(self.base.writer, mutation=True) as db:
                 return read_call(db, REFUSE_BOOK, scope.session_id, job['signalId'], job['lease'], 'book_unavailable')
@@ -145,7 +140,15 @@ class QueuedQuoteTransport:
     def transaction(self, scope, prepared):
         quote, job = prepared.quote, prepared.job
         sid, execution = scope.session_id, quote['executionId']
-        with self.write_lock:
+        book = quote['estimate']['book']
+        budget = min(
+            (int(book['receivedMonotonicNs']) + 2_000_000_000 - monotonic_ns()) / 1_000_000_000,
+            (int(book['sourceTimestamp']) + 2000 - utc_ms()) / 1000,
+            (quote['expiresAtMs'] - utc_ms()) / 1000,
+        )
+        # Keep the issuer and protected financial commit together. The book
+        # has already been acquired, and the normal guard checks it again.
+        with self.write_lock, shared_write_turn(wait_seconds=budget):
             if self.base.halted.is_set():
                 raise ScopeRefusal('Personal writer awaits reconciliation')
             self.base.check_write()
@@ -188,7 +191,7 @@ class QueuedQuoteTransport:
                         'bookTransport': quote['estimate']['book']['evidenceRef'].partition(':')[2].partition(':')[0],
                     }), flush=True)
                 except SerializationFailure as error:
-                    if error.sqlstate != '40001':
+                    if error.sqlstate != '40001' or error.diag.sqlstate != '40001':
                         raise
                     raise Skip('PERSONAL_BUY_SERIALIZATION_ROLLBACK') from None
                 except CheckViolation as error:
