@@ -1,0 +1,24 @@
+--- a/profile-entry.py
++++ b/profile-entry.py
+@@ -180,6 +180,7 @@
+     parser=ArgumentParser(description=__doc__)
+     parser.add_argument("profile",type=Path)
+     parser.add_argument("--check",action="store_true")
++    parser.add_argument("--persistent-polymarket",action="store_true")
+     args=parser.parse_args()
+     script=Path(__file__).resolve()
+     profile=read_operator(args.profile)
+@@ -188,7 +189,12 @@
+     maximum=policy["seconds"]
+     if type(maximum) is not int or not 15<=maximum<=21600:
+         raise ValueError("Expected a bounded closed runtime window")
+-    remaining=min(maximum,int((expires-datetime.now(timezone.utc)).total_seconds()))
++    remaining=int((expires-datetime.now(timezone.utc)).total_seconds())
++    if args.persistent_polymarket:
++        if profile["venue"]!="polymarket":
++            parser.error("Persistent mode requires a closed Polymarket profile")
++    else:
++        remaining=min(maximum,remaining)
+     if remaining<15:
+         raise ValueError("Demo session has insufficient time left")
+     address,scoped=connection_policy(policy,profile)
