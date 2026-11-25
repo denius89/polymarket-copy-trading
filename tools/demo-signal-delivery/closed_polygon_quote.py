@@ -21,6 +21,7 @@ from resolver import Skip
 CLAIM = 'SELECT demo_delivery.claim_polygon_quote(%s::uuid,%s::jsonb)'
 PEERS_READY = 'SELECT demo_delivery.polygon_quote_peers_ready(%s::uuid,%s::bigint,%s::uuid)'
 ACK = 'SELECT demo_delivery.acknowledge_polygon_result(%s::bigint,%s::uuid,%s::uuid)'
+FLUSH_PURCHASE = 'SELECT demo_delivery.flush_recorded_polygon_purchase(%s::uuid,%s::bigint,%s::uuid,%s::text)'
 REFUSE_BOOK = 'SELECT demo_delivery.complete_polygon_refusal(%s::uuid,%s::bigint,%s::uuid,%s::text)'
 
 
@@ -107,7 +108,7 @@ class QueuedQuoteTransport:
         # and no writer slot or database transaction held between checks.
         expires = int(timestamp(job['expiresAt']).timestamp() * 1000)
         start = monotonic()
-        deadline = start + max(0, min(2.5, (expires - utc_ms() - 5000) / 1000))
+        deadline = start + max(0, min(5, (expires - utc_ms() - 5000) / 1000))
         ready = False
         while monotonic() < deadline:
             generation = wake.generation if wake is not None else None
@@ -223,6 +224,9 @@ class QueuedQuoteTransport:
                             raise ScopeRefusal('Unexpected Polygon queued purchase receipt')
                         if call(db, ACK, job['signalId'], sid, job['lease']) is not True:
                             raise Skip('POLYGON_QUEUE_LEASE_LOST')
+                        if os.environ.get('CCT_CLOSED_POLYGON_PURCHASE_FLUSH'):
+                            if call(db, FLUSH_PURCHASE, sid, job['signalId'], quote['settleCommandId'], execution) is not True:
+                                raise ScopeRefusal('Closed financial validation scope refused')
                         try:
                             yield receipt
                         except GateSkip as error:
