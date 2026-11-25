@@ -183,6 +183,7 @@ def run_direct_polygon(adapter, wallet, stop, deadline, report, *, buy_budget, s
             log = packet['log']
             if log['owner'] != wallet or int(packet['header']['timestampSeconds']) * 1000 < start_ms:
                 raise RuntimeError('Direct Polygon job does not match active scope')
+            writer = None
             try:
                 if prepared is None or prepared[0] != signal:
                     first_at, first_ns = utc_ms(), monotonic_ns()
@@ -223,6 +224,8 @@ def run_direct_polygon(adapter, wallet, stop, deadline, report, *, buy_budget, s
                 if reason in QUEUE_WAIT_REASONS:
                     wake.wait(generation, 0.25)
                     continue
+                if writer is not None and reason in ('BOOK_AGE', 'BOOK_DEPTH'):
+                    writer.finish_book_refusal(reason)
                 print(json.dumps({'stage': 'polygon-direct-skip', 'signalId': signal, 'reason': reason,
                                   'bookTiming': getattr(error, 'book_timing', None)}), flush=True)
             else:

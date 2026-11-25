@@ -2,6 +2,7 @@
 from contextlib import contextmanager
 from dataclasses import dataclass
 import json
+import os
 from time import monotonic, monotonic_ns, sleep
 
 from psycopg import OperationalError
@@ -18,6 +19,7 @@ from personal_source import market_binding, normalized_candidate, normalized_pro
 from resolver import Skip
 
 CLAIM = 'SELECT demo_delivery.claim_polygon_quote(%s::uuid,%s::jsonb)'
+PEERS_READY = 'SELECT demo_delivery.polygon_quote_peers_ready(%s::uuid,%s::bigint,%s::uuid)'
 ACK = 'SELECT demo_delivery.acknowledge_polygon_result(%s::bigint,%s::uuid,%s::uuid)'
 REFUSE_BOOK = 'SELECT demo_delivery.complete_polygon_refusal(%s::uuid,%s::bigint,%s::uuid,%s::text)'
 
@@ -71,6 +73,8 @@ class QueuedQuoteTransport:
             try:
                 with self.base.connection(self.base.writer, closed_slot=True) as db:
                     job = read_call(db, CLAIM, scope.session_id, Jsonb(log))
+                    if job and job.get('lease') and os.environ.get('CCT_CLOSED_POLYGON_FANOUT'):
+                        db.execute("SELECT pg_notify('demo_delivery_ready','')")
             except Skip as error:
                 if error.reason != 'POLYGON_WRITER_TURN_BUSY':
                     raise
@@ -93,8 +97,42 @@ class QueuedQuoteTransport:
                     raise Skip('POLYGON_QUEUE_NOT_READY')
         self.prepared = (log, cursor['version'], binding, job)
         self.claim_ms = round((monotonic() - started) * 1000)
+        if os.environ.get('CCT_CLOSED_POLYGON_FANOUT'):
+            self.wait_for_peers(scope, job, wake)
         print(json.dumps({'stage': 'polygon-queue-quote-claim', 'signalId': job['signalId'],
                           'claimMs': self.claim_ms, 'signalAgeMs': utc_ms() - event['signalAtMs']}), flush=True)
+
+    def wait_for_peers(self, scope, job, wake):
+        # Wait for already published jobs, with the quote window still ahead
+        # and no writer slot or database transaction held between checks.
+        expires = int(timestamp(job['expiresAt']).timestamp() * 1000)
+        start = monotonic()
+        deadline = start + max(0, min(2.5, (expires - utc_ms() - 5000) / 1000))
+        ready = False
+        while monotonic() < deadline:
+            generation = wake.generation if wake is not None else None
+            remaining_ms = min(250, int((deadline - monotonic()) * 1000))
+            if remaining_ms <= 0:
+                break
+            try:
+                with self.base.connection(self.base.writer) as db:
+                    db.execute("SELECT set_config('statement_timeout', %s, true)", (f'{remaining_ms}ms',))
+                    ready = read_call(db, PEERS_READY, scope.session_id, job['signalId'], job['lease']) is True
+            except SerializationFailure as error:
+                if error.sqlstate != '40001' or error.diag.sqlstate != '40001':
+                    raise
+            except Skip as error:
+                if error.reason not in ('PERSONAL_SCOPE_READ_BUSY', 'PERSONAL_SCOPE_READ_TIMEOUT'):
+                    raise
+            if ready:
+                break
+            remaining = min(.12, max(0, deadline - monotonic()))
+            if wake is None:
+                sleep(remaining)
+            else:
+                wake.wait(generation, remaining)
+        print(json.dumps({'stage': 'polygon-fanout-ready', 'signalId': job['signalId'],
+                          'ready': ready, 'waitMs': round((monotonic() - start) * 1000)}), flush=True)
 
     def prepare(self, scope, event, estimate, meta):
         if self.prepared is None:
@@ -125,15 +163,30 @@ class QueuedQuoteTransport:
         return QueuedQuote(quote, job)
 
     def finish_book_refusal(self, scope, reason):
-        if reason != 'BOOK_WAIT_TIMEOUT' or self.prepared is None:
+        details = {'BOOK_WAIT_TIMEOUT': 'book_unavailable', 'BOOK_AGE': 'book_stale',
+                   'BOOK_DEPTH': 'insufficient_liquidity'}
+        detail = details.get(reason)
+        if (detail is None or self.prepared is None
+                or (reason != 'BOOK_WAIT_TIMEOUT' and not os.environ.get('CCT_CLOSED_POLYGON_FANOUT'))):
             return False
         job = self.prepared[3]
         self.base.check_write()
+        if reason == 'BOOK_WAIT_TIMEOUT':
+            # A later expiry can retain the observed timeout if immediate completion conflicts.
+            for attempt in range(2):
+                try:
+                    with self.base.connection(self.base.writer, mutation=True) as db:
+                        read_call(db, REFUSE_BOOK, scope.session_id, job['signalId'], job['lease'], 'record_book_timeout')
+                    break
+                except SerializationFailure as error:
+                    if error.sqlstate != '40001' or error.diag.sqlstate != '40001' or attempt:
+                        break
+                except (OperationalError, Skip):
+                    break
         try:
             with self.base.connection(self.base.writer, mutation=True) as db:
-                return read_call(db, REFUSE_BOOK, scope.session_id, job['signalId'], job['lease'], 'book_unavailable')
+                return read_call(db, REFUSE_BOOK, scope.session_id, job['signalId'], job['lease'], detail)
         except (SerializationFailure, OperationalError, Skip):
-            # A later iteration can reconcile a committed refusal or expire the lease.
             return False
 
     @contextmanager
