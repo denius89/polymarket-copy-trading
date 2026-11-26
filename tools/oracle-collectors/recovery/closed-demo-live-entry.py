@@ -136,7 +136,7 @@ def polymarket(profile, address, scoped, amount, seconds, check, anchor):
         return run(args,on_ready=lambda:ready("polymarket"))
 
 
-def limitless(profile, address, scoped, amount, seconds, check, anchor):
+def limitless(profile, address, scoped, amount, seconds, check, anchor, *, persistent=False):
     from book_engine import q
     from closed_limitless_checkpoint import Checkpoint
     from personal_limitless_worker import PersonalLimitless, PersonalScope, finalize_buys, run_limitless
@@ -217,20 +217,26 @@ def limitless(profile, address, scoped, amount, seconds, check, anchor):
             try:
                 cursor=progress.resume(persist_seed=not check)
                 break
-            except OSError:
+            except (OSError,ValueError) as error:
+                finality_lag=isinstance(error,ValueError) and str(error)==(
+                    "Limitless checkpoint is above common Base finality")
+                if isinstance(error,ValueError) and not finality_lag:
+                    raise
                 if attempt==3 or stop.wait(4):
                     raise
-                report({"stage":"limitless-checkpoint-witness","status":"waiting"})
+                report({"stage":"limitless-checkpoint-witness","status":"waiting",
+                        "reason":"BASE_FINALITY_LAG" if finality_lag else "RPC_UNAVAILABLE"})
         ready("limitless")
         if check:
             return 0
         with ThreadPoolExecutor(max_workers=3) as pool:
             checkpoint_task=pool.submit(progress.maintain,stop)
+            scanner_options={"warm_tip":True} if persistent else {}
             workers=(
                 pool.submit(run_limitless,adapter,scope.wallet,stop,monotonic()+seconds,report,
                             buy_budget=q(amount),allow_no=allow_no,discovery_cursor=cursor,
                             discovery_hash=progress.digest,started_ms=int(started.timestamp()*1000),
-                            range_processed=progress.complete),
+                            range_processed=progress.complete,**scanner_options),
                 pool.submit(finalize_buys,adapter,stop,report,stop_after_first=False),
             )
             finished,_=wait((*workers,checkpoint_task),return_when=FIRST_COMPLETED)
@@ -245,6 +251,7 @@ def main():
     parser.add_argument("profile",type=Path)
     parser.add_argument("--check",action="store_true")
     parser.add_argument("--require-prepared-anchor", action="store_true")
+    parser.add_argument("--persistent-limitless",action="store_true")
     args=parser.parse_args()
     script=Path(__file__).resolve()
     profile=read_operator(args.profile)
@@ -253,13 +260,19 @@ def main():
     maximum=policy["seconds"]
     if type(maximum) is not int or not 15<=maximum<=21600:
         raise ValueError("Expected a bounded closed runtime window")
-    remaining=min(maximum,int((expires-datetime.now(timezone.utc)).total_seconds()))
+    remaining=int((expires-datetime.now(timezone.utc)).total_seconds())
+    if args.persistent_limitless:
+        if profile["venue"]!="limitless":
+            parser.error("Persistent mode requires a closed Limitless profile")
+    else:
+        remaining=min(maximum,remaining)
     if remaining<15:
         raise ValueError("Demo session has insufficient time left")
     address, scoped, anchor = connection_policy(policy, profile, args.require_prepared_anchor)
     venue=profile["venue"]
-    runner=polymarket if venue=="polymarket" else limitless
-    return runner(profile, address, scoped, amount, remaining, args.check, anchor)
+    if venue=="polymarket":
+        return polymarket(profile,address,scoped,amount,remaining,args.check,anchor)
+    return limitless(profile,address,scoped,amount,remaining,args.check,anchor,persistent=args.persistent_limitless)
 
 
 if __name__=="__main__":
