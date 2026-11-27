@@ -1,0 +1,98 @@
+--- a/book_engine.py
++++ b/book_engine.py
+@@ -278,6 +278,8 @@
+         raise GateSkip('FEE_FAMILY_MISMATCH')
+     if policy['feeModel'].startswith('polymarket-') and book.key[0] != 'polymarket':
+         raise GateSkip('FEE_FAMILY_MISMATCH')
++    multi_level = (side == 'BUY' and policy.get('demoMultiLevelBuy') is True
++                   and policy['feeModel'] == 'polymarket-v2-single-match' and policy['feeRounding'] == 'floor-5dp')
+     rows = book.asks if side == 'BUY' else book.bids if side == 'SELL' else ()
+     if not rows or any(p % tick for p, _ in rows):
+         raise GateSkip('BOOK_DEPTH_OR_TICK')
+@@ -325,7 +327,9 @@
+         low, high = 0, int(total // step)
+         while low < high:
+             mid = (low + high + 1) // 2
+-            _, cash, fee = fill(mid * step)
++            selected, cash, fee = fill(mid * step)
++            if multi_level:
++                cash = mid * step * selected[-1][1]
+             if cash + fee <= budget:
+                 low = mid
+             else:
+@@ -355,8 +359,18 @@
+         raise GateSkip('RAW_AMOUNT_PRECISION')
+     if gross < min_cash or (side == 'SELL' and gross <= fee):
+         raise GateSkip('ORDER_MINIMUM')
+-    wire = [{'quantity': q(size), 'price': q(price), 'cashFee': q(fee if i == len(fills)-1 else 0)}
+-            for i, (size, price) in enumerate(fills)]
++    if multi_level:
++        # Allocate increments of the rounded order fee, so all level fees add
++        # up to the same order-level total even at the rounding boundary.
++        accrued, allocated, wire = F(0), F(0), []
++        for size, price in fills:
++            accrued += rate * size * price * (1 - price)
++            rounded = (accrued * 100_000 // 1) / F(100_000)
++            wire.append({'quantity': q(size), 'price': q(price), 'cashFee': q(rounded - allocated)})
++            allocated = rounded
++    else:
++        wire = [{'quantity': q(size), 'price': q(price), 'cashFee': q(fee if i == len(fills)-1 else 0)}
++                for i, (size, price) in enumerate(fills)]
+     return {'fills': wire,
+             'book': {'venue': book.key[0], 'market': book.key[1], 'token': book.key[2],
+                      'connectionId': book.connection, 'revision': book.revision,
+--- a/collectors.py
++++ b/collectors.py
+@@ -43,10 +43,14 @@
+         finish = getattr(self.adapter, 'finish_book_refusal', None)
+         if finish is not None:
+             return finish(reason)
++
++    def allows_multiple_buy_levels(self):
++        return getattr(getattr(self.adapter, 'transport', None), 'multiple_buy_levels', False)
+ 
+     def submit(self, db, session, owner, command, event, estimate, guard):
+         policy = estimate['evidence']['policy']
+-        if policy['feeModel'] == 'polymarket-v2-single-match' and len(estimate['fills']) != 1:
++        if (policy['feeModel'] == 'polymarket-v2-single-match' and len(estimate['fills']) != 1
++                and not self.allows_multiple_buy_levels()):
+             raise GateSkip('FEE_QUOTE_MULTIPLE_PRICE_LEVELS')
+         metadata = estimate_metadata('polymarket', self.captured.wallet, self.captured.slug, event, policy)
+         captured, registry = self.captured, self.registry
+--- a/guarded_source.py
++++ b/guarded_source.py
+@@ -107,12 +107,17 @@
+             raise ScopeRefusal('Personal execution metadata mismatch')
+         fills = estimate['fills']
+         evidence = estimate['evidence']
+-        if len(fills) != 1:
++        multiple = getattr(self.transport, 'multiple_buy_levels', False)
++        if not fills or (len(fills) != 1 and not multiple):
+             raise ScopeRefusal('Only the verified single-fill profile is supported')
+-        fill = fills[0]
+-        quantity, price, fee = (exact(fill[key]) for key in ('quantity', 'price', 'cashFee'))
+-        gross = quantity * price
+-        if not (quantity > 0 and 0 < price < 1 and fee >= 0 and gross + fee <= self.scope.fixed_budget):
++        legs = [tuple(exact(fill[k]) for k in ('quantity', 'price', 'cashFee')) for fill in fills]
++        if any(quantity <= 0 or not 0 < price < 1 or fee < 0 for quantity, price, fee in legs):
++            raise ScopeRefusal('Invalid personal fill')
++        quantity = sum(leg[0] for leg in legs)
++        gross = sum(quantity * price for quantity, price, _ in legs)
++        fee = sum(leg[2] for leg in legs)
++        reserve = quantity * max(leg[1] for leg in legs)
++        if reserve + fee > self.scope.fixed_budget:
+             raise ScopeRefusal('Personal budget or quote mismatch')
+         if (exact(evidence['quantity']), exact(evidence['gross']), exact(evidence['cashFee'])) != (quantity, gross, fee):
+             raise ScopeRefusal('Personal fill arithmetic mismatch')
+--- a/route.py
++++ b/route.py
+@@ -44,6 +44,9 @@
+     bind_resolved = getattr(ledger, 'bind_resolved', None)
+     if bind_resolved is not None:
+         bind_resolved(resolved)
++    allow_multiple = getattr(ledger, 'allows_multiple_buy_levels', None)
++    if resolved.event['side'] == 'BUY' and allow_multiple is not None and allow_multiple():
++        policy = {**policy, 'demoMultiLevelBuy': True}
+     original = ledger.lookup_command(db, session_id, owner_id, command_id, event=resolved.event)
+     if original is not None:
+         return original

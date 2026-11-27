@@ -1,0 +1,35 @@
+--- a/personal_worker.py
++++ b/personal_worker.py
+@@ -193,7 +193,7 @@
+         row['reason'] = 'CHECK_REFUSED'
+     phase = item.get('timing')
+     if item.get('stage') == 'polymarket-maker-timing' and isinstance(phase, dict):
+-        fields = ('sourceSeenMs','confirmMs','marketMs','delayMs','totalMs')
++        fields = ('sourceSeenMs','sourceQueueWaitMs','confirmMs','marketMs','delayMs','totalMs')
+         row['timing'] = {key: phase[key] for key in fields
+                          if key in phase and type(phase[key]) is int and 0 <= phase[key] <= 60_000}
+     timing = item.get('bookTiming')
+@@ -265,6 +265,7 @@
+         transport = ClosedPgTransport(BoundedRPC(), config, window)
+     else:
+         transport = PgTransport(BoundedRPC(), config['writerService'], config['issuerService'], window)
++    transport.queued_quotes = args.queue_financial
+     def terminal(*_):
+         terminal_stop.set()
+         stop.set()
+@@ -395,12 +396,15 @@
+     parser.add_argument('--closed-handover-until')
+     parser.add_argument('--closed-auto-recovery', action='store_true')
+     parser.add_argument('--closed-persistent', action='store_true')
++    parser.add_argument('--queue-financial', action='store_true')
+     mode = parser.add_mutually_exclusive_group(required=True)
+     mode.add_argument('--check', action='store_true')
+     mode.add_argument('--lookup')
+     mode.add_argument('--seconds', type=int)
+     mode.add_argument('--until', choices=[APPROVED_UNTIL])
+     args = parser.parse_args()
++    if args.queue_financial and not (args.closed_configured_wallet and args.closed_handover_until):
++        parser.error('Queued financial execution requires a timed isolated scope')
+     if args.closed_configured_wallet and not (args.check or args.seconds is not None):
+         parser.error('The isolated wallet option supports --check or --seconds only')
+     if args.closed_handover_until is not None:

@@ -1,0 +1,32 @@
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -237,14 +237,18 @@
+             self.window.check_write()
+
+     @contextmanager
+-    def connection(self, service, *, mutation=False, idle_ingest=False, starting=False, idle_cursor=False):
++    def connection(self, service, *, mutation=False, idle_ingest=False, starting=False, idle_cursor=False, closed_slot=False, stop_slot=False):
+         # Service names resolve only through the operator's protected local
+         # service/pass files. No URL, credentials or statements in diagnostics.
+         statement_timeout_ms = 20000 if idle_ingest else 15000 if starting else 2500
+         if idle_cursor:
+             statement_timeout_ms = 6000
+         lock_timeout_ms = 4000 if starting else 1000
+-        with connect(service=service, connect_timeout=2,
++        turn = nullcontext()
++        if (mutation or closed_slot or stop_slot) and os.environ.get('CCT_CLOSED_POLYGON_WRITE_TURN'):
++            from closed_polygon_write_turn import shared_write_turn
++            turn = shared_write_turn(wait_seconds=8 if stop_slot else .6)
++        with turn, connect(service=service, connect_timeout=2,
+                      options=f'-c statement_timeout={statement_timeout_ms} -c lock_timeout={lock_timeout_ms}') as db:
+             db.execute('SET TRANSACTION ISOLATION LEVEL SERIALIZABLE')
+             if mutation and self.window is not None:
+@@ -711,7 +715,7 @@
+             for attempt in range(len(STOP_RETRY_DELAYS) + 1):
+                 submitted = committing = False
+                 try:
+-                    with self.connection(self.writer) as db:
++                    with self.connection(self.writer, stop_slot=True) as db:
+                         db.execute("SET LOCAL transaction_timeout = '16s'")
+                         db.execute("SET LOCAL statement_timeout = '12s'")
+                         cursor = result(call(db, READ_SCOPE, sid), 'Personal stop scope unavailable')

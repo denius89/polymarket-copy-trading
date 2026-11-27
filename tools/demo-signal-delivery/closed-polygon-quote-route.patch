@@ -1,0 +1,66 @@
+--- a/route.py
++++ b/route.py
+@@ -41,6 +41,9 @@
+                      command_id, policy, delay_ms, delay_evidence, budget=None, sell_quantity=None,
+                      wait=time.sleep):
+     """Only BOOK_CHANGED after a confirmed rollback recomputes; unknown DB errors propagate."""
++    bind_resolved = getattr(ledger, 'bind_resolved', None)
++    if bind_resolved is not None:
++        bind_resolved(resolved)
+     original = ledger.lookup_command(db, session_id, owner_id, command_id, event=resolved.event)
+     if original is not None:
+         return original
+@@ -51,7 +54,13 @@
+     if delay_ms:
+         wait(delay_ms/1000)
+     window = gate.begin(signal, delay_ms, delay_evidence)
+-    book = gate.wait_candidate(window)
++    try:
++        book = gate.wait_candidate(window)
++    except GateSkip as error:
++        finish = getattr(ledger, 'finish_book_refusal', None)
++        if error.reason == 'BOOK_WAIT_TIMEOUT' and finish is not None:
++            finish(error.reason)
++        raise
+     while True:
+         estimate = quote(book, signal.event['side'], policy, budget=budget, sell_quantity=sell_quantity)
+         estimate['evidence'].update(sourceProof=copy.deepcopy(resolved.evidence),
+--- a/collectors.py
++++ b/collectors.py
+@@ -32,6 +32,16 @@
+ 
+     def lookup_command(self, *args, event):
+         return self.adapter.lookup_command(*args, event=event)
++
++    def bind_resolved(self, resolved):
++        binder = getattr(self.adapter, 'for_resolved', None)
++        if binder is not None:
++            self.adapter = binder(resolved)
++
++    def finish_book_refusal(self, reason):
++        finish = getattr(self.adapter, 'finish_book_refusal', None)
++        if finish is not None:
++            return finish(reason)
+ 
+     def submit(self, db, session, owner, command, event, estimate, guard):
+         policy = estimate['evidence']['policy']
+--- a/guarded_source.py
++++ b/guarded_source.py
+@@ -46,6 +46,17 @@
+             raise ScopeRefusal('Wrong personal trader')
+         return SessionCollectorAdapter(self.scope, self.transport, copy.deepcopy(metadata))
+ 
++    def for_resolved(self, resolved):
++        if not getattr(self.transport, 'queued_quotes', False):
++            return self
++        from closed_polygon_quote import queued_quote_adapter
++        return queued_quote_adapter(self.scope, self.transport, resolved)
++
++    def finish_book_refusal(self, reason):
++        finish = getattr(self.transport, 'finish_book_refusal', None)
++        if finish is not None:
++            return finish(self.scope, reason)
++
+     def source_queue(self, maxsize):
+         return self.transport.decisions.queue(maxsize)
+ 

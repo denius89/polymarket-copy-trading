@@ -1,0 +1,63 @@
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -35,6 +35,7 @@
+ RECONCILE_QUEUE = 'SELECT demo_delivery.reconcile_closed_polygon_results(%s::uuid,%s::bigint,%s::bigint)'
+ WAITING_QUEUE = 'SELECT demo_delivery.polygon_waiting_evaluations(%s::uuid,%s::jsonb)'
+ EXPIRE_QUEUE = 'SELECT demo_delivery.expire_next_polygon_job(%s::uuid)'
++VALIDATE_WAITING_RANGE = 'SELECT demo_delivery.queue_waiting_range_validation(%s::uuid,%s::uuid)'
+ STOP = 'SELECT polygon.live_activity_stop(%s::jsonb)'
+ CAP_WRITE_TRANSACTION = """
+ SELECT CASE WHEN remaining_ms > 5000
+@@ -580,18 +581,33 @@
+             if envelope is None:
+                 self.report_range_wait(self.decisions.wait_reason or 'PERSONAL_RANGE_DECISION_UNPROVEN')
+                 return
++            waiting_range = queued_quotes and any(
++                row['evidence'].get('kind') == 'awaiting_quote'
++                for row in envelope['request']['evaluations'])
+             with self.tracking('ingest', envelope['request']['ingest']['operationId']):
+                 try:
+                     with self.connection(self.writer, mutation=True, idle_ingest=True) as db:
+-                        current = result(read_call(db, READ_SCOPE, scope.session_id), 'Personal checkpoint unavailable')
+-                        record("writerScopeMs")
+-                        if current != cursor:
+-                            self.report_range_wait('PERSONAL_RANGE_CURSOR_CHANGED')
+-                            return
++                        if not waiting_range:
++                            current = result(read_call(db, READ_SCOPE, scope.session_id), 'Personal checkpoint unavailable')
++                            record("writerScopeMs")
++                            if current != cursor:
++                                self.report_range_wait('PERSONAL_RANGE_CURSOR_CHANGED')
++                                return
+                         self.last_range_wait = None
+                         self.check_write()
+                         try:
+-                            applied = result(call(db, INGEST, Jsonb(envelope)), 'Personal idle ingest refused')
++                            if waiting_range:
++                                scoped = call(db, INGEST, Jsonb(dict(
++                                    session_id=scope.session_id, expected_scope=cursor, envelope=envelope)))
++                                if not isinstance(scoped, dict) or not isinstance(scoped.get('scope'), dict):
++                                    raise ScopeRefusal('Polygon waiting range scope unavailable')
++                                if scoped['scope'] != cursor:
++                                    self.report_range_wait('PERSONAL_RANGE_CURSOR_CHANGED')
++                                    return
++                                reply = scoped.get('ingest')
++                            else:
++                                reply = call(db, INGEST, Jsonb(envelope))
++                            applied = result(reply, 'Personal idle ingest refused')
+                         except RaiseException as error:
+                             if error.sqlstate != 'P0001':
+                                 raise
+@@ -638,6 +654,12 @@
+                         record('ingestMs')
+                         if applied.get('kind') != 'ingest':
+                             raise ScopeRefusal('Personal idle ingest blocked')
++                        if waiting_range:
++                            queued = call(db, VALIDATE_WAITING_RANGE, scope.session_id,
++                                          envelope['request']['ingest']['operationId'])
++                            if timing is not None:
++                                timing['waitingValidationQueued'] = queued is True
++                            record('validationQueueMs')
+                         batch = envelope['request']['ingest']
+                         if any(log['side'] == 'BUY' for log in batch['logs']):
+                             first = int(batch['previous']['number']) + 1

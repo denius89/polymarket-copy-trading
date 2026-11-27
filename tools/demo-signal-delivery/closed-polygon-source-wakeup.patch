@@ -1,0 +1,26 @@
+--- a/personal_worker.py
++++ b/personal_worker.py
+@@ -212,7 +212,9 @@
+     max_blocks = max_ingest_headers
+     full_ranges = 0
+     next_profile = 0
++    wake = getattr(transport, 'queue_wake', None)
+     while monotonic() < deadline and not stop.is_set():
++        source_generation = wake.source_generation if wake is not None else None
+         catchup = False
+         now = monotonic()
+         timing = {} if now >= next_profile else None
+@@ -245,7 +247,12 @@
+             # Recover capacity gradually after a dense interval rejects a large request.
+             max_blocks = min(max_ingest_headers, max_blocks + 16)
+             full_ranges = 0
+-        stop.wait(1 if catchup else 2)
++        interval = max(0, min(1 if catchup else 2, deadline - monotonic()))
++        if wake is None or stop.is_set():
++            stop.wait(interval)
++        elif wake.wait_for_source(source_generation, interval):
++            print(json.dumps({'stage':'polygon-range-source-wake',
++                              'notificationCutsIdleWait':True}), flush=True)
+ 
+ 
+ def run(args):

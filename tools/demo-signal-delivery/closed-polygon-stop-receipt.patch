@@ -1,0 +1,107 @@
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -7,7 +7,7 @@
+ import os
+ import re
+ from threading import Event, Lock, RLock, local
+-from time import monotonic
++from time import monotonic, sleep
+ from uuid import UUID, uuid4, uuid5
+
+ from psycopg import OperationalError, connect
+@@ -36,6 +36,9 @@
+ WAITING_QUEUE = 'SELECT demo_delivery.polygon_waiting_evaluations(%s::uuid,%s::jsonb)'
+ EXPIRE_QUEUE = 'SELECT demo_delivery.expire_next_polygon_job(%s::uuid)'
+ STOP = 'SELECT polygon.live_activity_stop(%s::jsonb)'
++STOP_LOOKUP = 'SELECT polygon.live_activity_lookup(%s::jsonb)'
++STOP_RETRY_STATES = {'40001', '55P03', '57014'}
++STOP_RETRY_DELAYS = (0.2, 0.5)
+ CAP_WRITE_TRANSACTION = """
+ SELECT CASE WHEN remaining_ms > 5000
+        THEN set_config('transaction_timeout', remaining_ms::text, true) END
+@@ -677,27 +680,66 @@
+         if self.last_range_wait != reason:
+             self.last_range_wait = reason
+             raise Skip(reason)
++
++    def stop_receipt(self, db, session, run, operation, status):
++        reply = call(db, STOP_LOOKUP, Jsonb({
++            'session_id': session, 'request': {
++                'sessionId': session, 'runId': run, 'operationId': operation,
++            },
++        }))
++        receipt = result(reply, 'Personal stop receipt unavailable')
++        if reply.get('status') != 'committed':
++            raise ScopeRefusal('Personal stop receipt unavailable')
++        return self.check_stop_receipt(receipt, session, operation, status)
+
++    @staticmethod
++    def check_stop_receipt(receipt, session, operation, status):
++        if (receipt.get('kind'), receipt.get('sessionId'), receipt.get('operationId'), receipt.get('status')) != (
++                'stop', session, operation, status):
++            raise ScopeRefusal('Unexpected personal stop receipt')
++        return receipt
++
+     def finish(self, scope, status, cutoff_ms):
+         """Close observation after collectors join; this operation never issues a quote."""
+         sid, operation = scope.session_id, str(uuid4())
+         with self.write_lock, self.tracking('stop', operation):
+-            try:
+-                with self.connection(self.writer) as db:
+-                    # STOP verifies the saved stream history. Keep it within systemd's shutdown window.
+-                    db.execute("SET LOCAL transaction_timeout = '16s'")
+-                    db.execute("SET LOCAL statement_timeout = '12s'")
+-                    cursor = result(call(db, READ_SCOPE, sid), 'Personal stop scope unavailable')
+-                    if cursor['status'] == status:
+-                        return
+-                    self.scoped(scope, cursor)
+-                    evidence = json.dumps({'status': status, 'cutoffMs': cutoff_ms, 'checkpoint': cursor['checkpoint']},
+-                                          sort_keys=True, separators=(',', ':')).encode()
+-                    request = {'sessionId': sid, 'runId': cursor['runId'], 'operationId': operation,
+-                               'status': status, 'evidenceSha256': sha256(evidence).hexdigest()}
+-                    receipt = result(call(db, STOP, Jsonb({'session_id': sid, 'request': request})),
+-                                     'Personal stop refused')
+-                    if (receipt.get('sessionId'), receipt.get('operationId'), receipt.get('status')) != (sid, operation, status):
+-                        raise ScopeRefusal('Unexpected personal stop receipt')
+-            except OperationalError:
+-                raise UnresolvedResult(operation, 'stop') from None
++            for attempt in range(len(STOP_RETRY_DELAYS) + 1):
++                submitted = committing = False
++                try:
++                    with self.connection(self.writer) as db:
++                        db.execute("SET LOCAL transaction_timeout = '16s'")
++                        db.execute("SET LOCAL statement_timeout = '12s'")
++                        cursor = result(call(db, READ_SCOPE, sid), 'Personal stop scope unavailable')
++                        run = cursor['runId']
++                        if cursor['status'] == status:
++                            return self.stop_receipt(db, sid, run, cursor['lastOperationId'], status)
++                        self.scoped(scope, cursor)
++                        evidence = json.dumps({
++                            'status': status, 'cutoffMs': cutoff_ms, 'checkpoint': cursor['checkpoint'],
++                        }, sort_keys=True, separators=(',', ':')).encode()
++                        request = {'sessionId': sid, 'runId': run, 'operationId': operation,
++                                   'status': status, 'evidenceSha256': sha256(evidence).hexdigest()}
++                        submitted = True
++                        receipt = result(call(db, STOP, Jsonb({'session_id': sid, 'request': request})),
++                                         'Personal stop refused')
++                        self.check_stop_receipt(receipt, sid, operation, status)
++                        committing = True
++                    return receipt
++                except OperationalError as error:
++                    sqlstate = error.sqlstate
++                    if (sqlstate in STOP_RETRY_STATES and error.diag.sqlstate == sqlstate
++                            and (sqlstate != '57014' or not committing)):
++                        if attempt == len(STOP_RETRY_DELAYS):
++                            raise Skip('PERSONAL_STOP_RETRY_EXHAUSTED') from None
++                        print(json.dumps({'stage': 'personal-stop-retry', 'sqlstate': sqlstate}), flush=True)
++                        sleep(STOP_RETRY_DELAYS[attempt])
++                        continue
++
++                    # No new write if the COMMIT or its response may have been lost.
++                    if submitted:
++                        try:
++                            with self.connection(self.writer) as db:
++                                return self.stop_receipt(db, sid, run, operation, status)
++                        except (OperationalError, ScopeRefusal):
++                            pass
++                    raise UnresolvedResult(operation, 'stop') from None

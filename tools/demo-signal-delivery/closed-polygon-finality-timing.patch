@@ -1,0 +1,108 @@
+--- a/rtds_operator.py
++++ b/rtds_operator.py
+@@ -218,8 +218,17 @@
+         if not 1 <= len(numbers) <= 8 or len(set(numbers)) != len(numbers) or any(
+                 type(n) is not int or n < 0 for n in numbers):
+             raise ValueError('invalid Polygon header batch')
+-        requests = [{'jsonrpc': '2.0', 'id': index, 'method': 'eth_getBlockByNumber', 'params': [hex(n), False]}
+-                    for index, n in enumerate(numbers, 1)]
++        return self._block_batch([hex(n) for n in numbers], timeout_seconds)
++
++    def range_anchor_headers(self, numbers, timeout_seconds):
++        if not 1 <= len(numbers) <= 2 or len(set(numbers)) != len(numbers) or any(
++                type(n) is not int or n < 0 for n in numbers):
++            raise ValueError('invalid Polygon range anchors')
++        return self._block_batch([*(hex(n) for n in numbers), 'finalized'], timeout_seconds)
++
++    def _block_batch(self, tags, timeout_seconds):
++        requests = [{'jsonrpc': '2.0', 'id': index, 'method': 'eth_getBlockByNumber', 'params': [tag, False]}
++                    for index, tag in enumerate(tags, 1)]
+         response = self._request(requests, timeout_seconds)
+         if not isinstance(response, list) or len(response) != len(requests):
+             raise ValueError('invalid Polygon header batch response')
+--- a/personal_range.py
++++ b/personal_range.py
+@@ -40,10 +40,18 @@
+     return chain_range
+ 
+ 
+-def read_idle_range(primary, backup, cursor, *, deadline, max_blocks):
++def read_idle_range(primary, backup, cursor, *, deadline, max_blocks, finality_observation=None):
+     """Retry a complete finalized range once, with the same cursor and deadline."""
++    def read_from(provider, limit, used_backup):
++        observed = {} if finality_observation is not None else None
++        result = read_range_with_head(provider, cursor, deadline=deadline, max_blocks=limit,
++                                      finality_observation=observed)
++        if observed is not None:
++            finality_observation.update(observed, usedBackup=used_backup)
++        return result
++
+     try:
+-        chain_range, head = read_range_with_head(primary, cursor, deadline=deadline, max_blocks=max_blocks)
++        chain_range, head = read_from(primary, max_blocks, False)
+     except OSError as error:
+         temporary_http = not isinstance(error, HTTPError) or error.code in (408, 429, 500, 502, 503, 504)
+         tls_failure = isinstance(error, SSLError) or isinstance(getattr(error, 'reason', None), SSLError)
+@@ -52,11 +60,11 @@
+     else:
+         return chain_range, head, False
+     # Never combine logs, receipts, or block headers from two partial attempts.
+-    chain_range, head = read_range_with_head(backup, cursor, deadline=deadline, max_blocks=min(max_blocks, 16))
++    chain_range, head = read_from(backup, min(max_blocks, 16), True)
+     return chain_range, head, True
+ 
+ 
+-def read_range_with_head(rpc, cursor, *, target_number=None, deadline, max_blocks=64):
++def read_range_with_head(rpc, cursor, *, target_number=None, deadline, max_blocks=64, finality_observation=None):
+     """Check the whole finalized prefix. The trade receipt never substitutes for eth_getLogs."""
+     limit = 256 if target_number is None else 64
+     if type(max_blocks) is not int or not 1 <= max_blocks <= limit:
+@@ -78,15 +86,41 @@
+         raise Skip('PERSONAL_RANGE_CHAIN')
+     base, previous = cursor['baseline'], cursor['checkpoint']
+     segment = cursor.get('coverageGap')
+-    if segment:
+-        start = segment['through']
+-        if checkpoint(block_at(int(start['number']))) != start:
+-            raise Skip('PERSONAL_BASELINE_CHANGED')
+-    elif block_at(int(base['number'])) != base:
++    anchor = segment['through'] if segment else base
++    anchor_num, previous_num = int(anchor['number']), int(previous['number'])
++    batch_anchors = getattr(rpc, 'range_anchor_headers', None) if finality_observation is not None else None
++    anchor_reply = None
++    if batch_anchors is not None:
++        numbers = list(dict.fromkeys((anchor_num, previous_num)))
++        left = deadline - monotonic()
++        if left <= 0:
++            raise Skip('PERSONAL_RANGE_TIME')
++        try:
++            anchor_reply = batch_anchors(numbers, left)
++        except ValueError:
++            # Some providers allow batches of numbered blocks but no tags.
++            # Recheck every anchor and the head through the original path.
++            pass
++    if anchor_reply is not None:
++        *raw_anchors, raw_final = anchor_reply
++        observed_at, observed_mono = utc_ms(), monotonic()
++        by_number = {number: header(raw) for number, raw in zip(numbers, raw_anchors, strict=True)}
++        checked_anchor, checked_previous = by_number[anchor_num], by_number[previous_num]
++        if int(checked_anchor['number']) != anchor_num or int(checked_previous['number']) != previous_num:
++            raise Skip('PERSONAL_RANGE_HEADER')
++        final = header(raw_final)
++    else:
++        checked_anchor, checked_previous = block_at(anchor_num), block_at(previous_num)
++        final = header(read('eth_getBlockByNumber', ['finalized', False]))
++        if finality_observation is not None:
++            observed_at, observed_mono = utc_ms(), monotonic()
++    if (checkpoint(checked_anchor) if segment else checked_anchor) != anchor:
+         raise Skip('PERSONAL_BASELINE_CHANGED')
+-    if checkpoint(block_at(int(previous['number']))) != previous:
++    if checkpoint(checked_previous) != previous:
+         raise Skip('PERSONAL_CHECKPOINT_CHANGED')
+-    final = header(read('eth_getBlockByNumber', ['finalized', False]))
++    if finality_observation is not None:
++        finality_observation.update(head=int(final['number']), observedAtMs=observed_at,
++                                    observedMono=observed_mono, batchedAnchors=anchor_reply is not None)
+     start = int(previous['number']) + 1
+     head_number = int(final['number'])
+     end = target_number if target_number is not None else min(head_number, start + max_blocks - 1)

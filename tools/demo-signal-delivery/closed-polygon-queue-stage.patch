@@ -1,0 +1,55 @@
+--- a/personal_pg.py
++++ b/personal_pg.py
+@@ -33,6 +33,8 @@
+ LOOKUP_SCOPE = '''SELECT jsonb_build_array(polygon.personal_quote_lookup_v1(%s::uuid,%s::text),
+                                            polygon.personal_quote_scope_v1(%s::uuid))'''
+ RECONCILE_QUEUE = 'SELECT demo_delivery.reconcile_closed_polygon_results(%s::uuid,%s::bigint,%s::bigint)'
++WAITING_QUEUE = 'SELECT demo_delivery.polygon_waiting_evaluations(%s::uuid,%s::jsonb)'
++EXPIRE_QUEUE = 'SELECT demo_delivery.expire_next_polygon_job(%s::uuid)'
+ STOP = 'SELECT polygon.live_activity_stop(%s::jsonb)'
+ CAP_WRITE_TRANSACTION = """
+ SELECT CASE WHEN remaining_ms > 5000
+@@ -526,6 +528,10 @@
+                 timing[stage] = round((now - last_stage) * 1000)
+             last_stage = now
+         self.check_write()
++        queued_quotes = getattr(self, 'queued_quotes', False)
++        if queued_quotes:
++            with self.connection(self.writer, mutation=True) as db:
++                call(db, EXPIRE_QUEUE, scope.session_id)
+         cursor = self.cursor(scope.session_id, idle_cursor=True)
+         self.scoped(scope, cursor)
+         record("cursorMs")
+@@ -545,7 +551,7 @@
+             return
+         with self.write_lock, self.decisions.lock:
+             with self.priority_lock:
+-                if self.active_buys:
++                if self.active_buys and not queued_quotes:
+                     self.report_range_wait('PERSONAL_RANGE_BUY_IN_PROGRESS')
+                     return
+             record("lockWaitMs")
+@@ -554,9 +560,22 @@
+             self.check_write()
+             now = utc_ms()
+             self.decisions.observe(chain_range[1], now)
++            if queued_quotes:
++                buys = [log for log in chain_range[1] if log['side'] == 'BUY']
++                with self.connection(self.writer) as db:
++                    records = read_call(db, WAITING_QUEUE, scope.session_id, Jsonb(buys)) if buys else []
++                if not isinstance(records, list):
++                    raise ScopeRefusal('Polygon waiting scope unavailable')
++                evidence = {(row['transactionHash'],row['logIndex']): row['evidence'] for row in records}
++
++                def close_buy(log):
++                    return evidence.get((log['transactionHash'],log['logIndex']))
++            else:
++                def close_buy(log):
++                    return self.decisions.evidence(log, now)
+             envelope = ingest_envelope(
+                 cursor, chain_range, str(uuid4()), now_ms=now,
+-                close_buy=lambda log: self.decisions.evidence(log, now))
++                close_buy=close_buy)
+             record("envelopeMs")
+             if envelope is None:
+                 self.report_range_wait(self.decisions.wait_reason or 'PERSONAL_RANGE_DECISION_UNPROVEN')

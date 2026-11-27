@@ -1,0 +1,270 @@
+"""Use the stock Polymarket quote route for a previously staged delivery."""
+from contextlib import contextmanager
+from dataclasses import dataclass
+import json
+import os
+from time import monotonic, monotonic_ns, sleep
+
+from psycopg import OperationalError
+from psycopg.errors import CheckViolation, SerializationFailure
+from psycopg.pq import TransactionStatus
+from psycopg.types.json import Jsonb
+
+from book_engine import GateSkip
+from closed_polygon_write_turn import shared_write_turn
+from guarded_source import ScopeRefusal, SessionCollectorAdapter
+from personal_pg import APPLY, ISSUE, ConfirmedBookRollback, UnresolvedResult, call, command_id, read_call, result
+from personal_range import timestamp, utc_ms
+from personal_source import market_binding, normalized_candidate, normalized_proof_fill, provenance
+from resolver import Skip
+
+CLAIM = 'SELECT demo_delivery.claim_polygon_quote(%s::uuid,%s::jsonb)'
+PEERS_READY = 'SELECT demo_delivery.polygon_quote_peers_ready(%s::uuid,%s::bigint,%s::uuid)'
+ACK = 'SELECT demo_delivery.acknowledge_polygon_result(%s::bigint,%s::uuid,%s::uuid)'
+FLUSH_PURCHASE = 'SELECT demo_delivery.flush_recorded_polygon_purchase(%s::uuid,%s::bigint,%s::uuid,%s::text)'
+REFUSE_BOOK = 'SELECT demo_delivery.complete_polygon_refusal(%s::uuid,%s::bigint,%s::uuid,%s::text)'
+
+
+@dataclass(frozen=True)
+class QueuedQuote:
+    quote: dict
+    job: dict
+
+
+class QueuedQuoteTransport:
+    multiple_buy_levels = True
+
+    def __init__(self, base, resolved):
+        self.base = base
+        self.resolved = resolved
+        self.write_lock = base.write_lock
+        self.prepared = None
+
+    def lookup(self, scope, event):
+        return self.base.lookup(scope, event)
+
+    def lookup_scope(self, scope, event):
+        return self.base.lookup_scope(scope, event)
+
+    def prefetch(self, scope, event, cursor=None, *, lookup_ms=None):
+        self.prepared = None
+        if event != self.resolved.event:
+            raise ScopeRefusal('Queue candidate changed after confirmation')
+        provenance(event).validate(event, utc_ms())
+        log = normalized_proof_fill(event, self.resolved.evidence)
+        if cursor is None:
+            prior, cursor = self.base.lookup_scope(scope, event)
+            if prior is not None:
+                return prior
+        self.base.scoped(scope, cursor)
+        remaining = (event['signalAtMs'] + 30_000 - utc_ms()) / 1000
+        if remaining <= 0:
+            raise Skip('PERSONAL_QUOTE_EXPIRED')
+        if event['venueReceipt']['source'] == 'polymarket-polygon-finalized-queue-v1':
+            binding = self.resolved.evidence['marketBinding']
+        else:
+            binding = market_binding(event, min(remaining, 3))
+        started = monotonic()
+        # A not-ready candidate yields to the next source frame after a short
+        # wait. Its original source clock remains in force on retry.
+        deadline = started + max(0, min(0.5, (event['signalAtMs'] + 30_000 - utc_ms()) / 1000 - 8))
+        wake = getattr(self.base, 'queue_wake', None)
+        while True:
+            generation = wake.generation if wake is not None else None
+            try:
+                with self.base.connection(self.base.writer, closed_slot=True) as db:
+                    job = read_call(db, CLAIM, scope.session_id, Jsonb(log))
+                    if job and job.get('lease') and os.environ.get('CCT_CLOSED_POLYGON_FANOUT'):
+                        db.execute("SELECT pg_notify('demo_delivery_ready','')")
+            except Skip as error:
+                if error.reason != 'POLYGON_WRITER_TURN_BUSY':
+                    raise
+                # No lease was written. Let the same signal wait for its turn.
+                job = None
+            if job:
+                if job.get('state') == 'predecessor':
+                    raise Skip('POLYGON_QUEUE_PREDECESSOR')
+                break
+            remaining = deadline - monotonic()
+            if remaining <= 0:
+                raise Skip('POLYGON_QUEUE_NOT_READY')
+            if wake is None:
+                if remaining < 0.25:
+                    raise Skip('POLYGON_QUEUE_NOT_READY')
+                sleep(0.25)
+            else:
+                wake.wait(generation, min(remaining, 0.25))
+                if monotonic() >= deadline:
+                    raise Skip('POLYGON_QUEUE_NOT_READY')
+        self.prepared = (log, cursor['version'], binding, job)
+        self.claim_ms = round((monotonic() - started) * 1000)
+        if os.environ.get('CCT_CLOSED_POLYGON_FANOUT'):
+            self.wait_for_peers(scope, job, wake)
+        print(json.dumps({'stage': 'polygon-queue-quote-claim', 'signalId': job['signalId'],
+                          'claimMs': self.claim_ms, 'signalAgeMs': utc_ms() - event['signalAtMs']}), flush=True)
+
+    def wait_for_peers(self, scope, job, wake):
+        # Wait for already published jobs, with the quote window still ahead
+        # and no writer slot or database transaction held between checks.
+        expires = int(timestamp(job['expiresAt']).timestamp() * 1000)
+        start = monotonic()
+        deadline = start + max(0, min(5, (expires - utc_ms() - 5000) / 1000))
+        ready = False
+        while monotonic() < deadline:
+            generation = wake.generation if wake is not None else None
+            remaining_ms = min(250, int((deadline - monotonic()) * 1000))
+            if remaining_ms <= 0:
+                break
+            try:
+                with self.base.connection(self.base.writer) as db:
+                    db.execute("SELECT set_config('statement_timeout', %s, true)", (f'{remaining_ms}ms',))
+                    ready = read_call(db, PEERS_READY, scope.session_id, job['signalId'], job['lease']) is True
+            except SerializationFailure as error:
+                if error.sqlstate != '40001' or error.diag.sqlstate != '40001':
+                    raise
+            except Skip as error:
+                if error.reason not in ('PERSONAL_SCOPE_READ_BUSY', 'PERSONAL_SCOPE_READ_TIMEOUT'):
+                    raise
+            if ready:
+                break
+            remaining = min(.12, max(0, deadline - monotonic()))
+            if wake is None:
+                sleep(remaining)
+            else:
+                wake.wait(generation, remaining)
+        print(json.dumps({'stage': 'polygon-fanout-ready', 'signalId': job['signalId'],
+                          'ready': ready, 'waitMs': round((monotonic() - start) * 1000)}), flush=True)
+
+    def prepare(self, scope, event, estimate, meta):
+        if self.prepared is None:
+            raise ScopeRefusal('Missing canonical Polygon lease')
+        log, version, binding, job = self.prepared
+        if normalized_candidate(event, estimate, utc_ms()) != log:
+            raise Skip('PERSONAL_TARGET_RECEIPT_CHANGED')
+        if (binding['marketTitle'], binding['outcome']) != (meta['marketTitle'], meta['outcomeTitle']):
+            raise Skip('PERSONAL_MARKET_CHANGED')
+
+        execution = event['executionId']
+        expires = min(event['signalAtMs'] + 30_000,
+                      int(timestamp(job['expiresAt']).timestamp() * 1000))
+        if self.base.window is not None:
+            self.base.check_write()
+            expires = min(expires, self.base.window.cutoff_ms)
+        quote = dict(sessionId=scope.session_id, assignmentId=scope.assignment_id,
+                     settingsId=scope.settings_revision_id, executionId=execution, event=event, estimate=estimate,
+                     normalizedLog=log, expectedVersion=version, expiresAtMs=expires,
+                     observationId=job['observationId'])
+        for key in ('reserveId', 'settleId', 'reserveCommandId', 'settleCommandId', 'intentId', 'fillId', 'confirmationId'):
+            quote[key] = command_id(scope.session_id, execution, key)
+        if len(estimate['fills']) > 1:
+            quote['fillIds'] = [quote['fillId']] + [
+                command_id(scope.session_id, execution, f'fillId:{index}')
+                for index in range(1, len(estimate['fills']))
+            ]
+        return QueuedQuote(quote, job)
+
+    def finish_book_refusal(self, scope, reason):
+        details = {'BOOK_WAIT_TIMEOUT': 'book_unavailable', 'BOOK_AGE': 'book_stale',
+                   'BOOK_DEPTH': 'insufficient_liquidity'}
+        detail = details.get(reason)
+        if (detail is None or self.prepared is None
+                or (reason != 'BOOK_WAIT_TIMEOUT' and not os.environ.get('CCT_CLOSED_POLYGON_FANOUT'))):
+            return False
+        job = self.prepared[3]
+        self.base.check_write()
+        if reason == 'BOOK_WAIT_TIMEOUT':
+            # A later expiry can retain the observed timeout if immediate completion conflicts.
+            for attempt in range(2):
+                try:
+                    with self.base.connection(self.base.writer, mutation=True) as db:
+                        read_call(db, REFUSE_BOOK, scope.session_id, job['signalId'], job['lease'], 'record_book_timeout')
+                    break
+                except SerializationFailure as error:
+                    if error.sqlstate != '40001' or error.diag.sqlstate != '40001' or attempt:
+                        break
+                except (OperationalError, Skip):
+                    break
+        try:
+            with self.base.connection(self.base.writer, mutation=True) as db:
+                return read_call(db, REFUSE_BOOK, scope.session_id, job['signalId'], job['lease'], detail)
+        except (SerializationFailure, OperationalError, Skip):
+            return False
+
+    @contextmanager
+    def transaction(self, scope, prepared):
+        quote, job = prepared.quote, prepared.job
+        sid, execution = scope.session_id, quote['executionId']
+        book = quote['estimate']['book']
+        budget = min(
+            (int(book['receivedMonotonicNs']) + 2_000_000_000 - monotonic_ns()) / 1_000_000_000,
+            (int(book['sourceTimestamp']) + 2000 - utc_ms()) / 1000,
+            (quote['expiresAtMs'] - utc_ms()) / 1000,
+        )
+        # Keep the issuer and protected financial commit together. The book
+        # has already been acquired, and the normal guard checks it again.
+        with self.write_lock, shared_write_turn(wait_seconds=budget):
+            if self.base.halted.is_set():
+                raise ScopeRefusal('Personal writer awaits reconciliation')
+            self.base.check_write()
+            if utc_ms() >= quote['expiresAtMs']:
+                raise Skip('PERSONAL_QUOTE_EXPIRED')
+            with self.base.tracking('purchase', execution):
+                try:
+                    started = monotonic()
+                    with self.base.connection(self.base.issuer, mutation=True) as db:
+                        issued = call(db, ISSUE, Jsonb(quote))
+                        if issued != {key: quote[key] for key in ('reserveId','observationId')}:
+                            raise ScopeRefusal('Personal quote issuer returned a different identity')
+                    issued_at = monotonic()
+                    with self.base.connection(self.base.writer, mutation=True) as db:
+                        call(db, "SELECT set_config('demo_delivery.polygon_lease',%s,true)", job['lease'])
+                        applied = result(call(db, APPLY, sid, execution), 'Polygon queued purchase refused')
+                        receipt = self.base.receipt(applied, sid)
+                        if receipt['status'] != 'recorded' or applied.get('commandId') != quote['settleCommandId']:
+                            raise ScopeRefusal('Unexpected Polygon queued purchase receipt')
+                        if call(db, ACK, job['signalId'], sid, job['lease']) is not True:
+                            raise Skip('POLYGON_QUEUE_LEASE_LOST')
+                        if os.environ.get('CCT_CLOSED_POLYGON_PURCHASE_FLUSH'):
+                            if call(db, FLUSH_PURCHASE, sid, job['signalId'], quote['settleCommandId'], execution) is not True:
+                                raise ScopeRefusal('Closed financial validation scope refused')
+                        try:
+                            yield receipt
+                        except GateSkip as error:
+                            db.rollback()
+                            if db.info.transaction_status != TransactionStatus.IDLE:
+                                raise UnresolvedResult(execution) from None
+                            raise ConfirmedBookRollback('POLYGON_QUEUE_BOOK_REFUSED') from error
+                        self.base.check_write()
+                        if utc_ms() >= quote['expiresAtMs']:
+                            raise Skip('PERSONAL_QUOTE_EXPIRED')
+                    print(json.dumps({
+                        'stage': 'polygon-queue-purchase-committed',
+                        'signalId': job['signalId'],
+                        'executionId': execution,
+                        'issueMs': round((issued_at - started) * 1000),
+                        'writeCommitMs': round((monotonic() - issued_at) * 1000),
+                        'sourceToCommitMs': utc_ms() - quote['event']['signalAtMs'],
+                        'sourceToBookMs': quote['estimate']['book']['receivedAtMs'] - quote['event']['signalAtMs'],
+                        'bookTransport': quote['estimate']['book']['evidenceRef'].partition(':')[2].partition(':')[0],
+                    }), flush=True)
+                except SerializationFailure as error:
+                    if error.sqlstate != '40001' or error.diag.sqlstate != '40001':
+                        raise
+                    raise Skip('PERSONAL_BUY_SERIALIZATION_ROLLBACK') from None
+                except CheckViolation as error:
+                    if (error.sqlstate == '23514'
+                            and error.diag.message_primary == 'full desired capacity unavailable'
+                            and (error.diag.context or '').startswith(
+                                'PL/pgSQL function live_buy_core.reserve(uuid,jsonb) ')):
+                        # The writer transaction has rolled back. The immutable
+                        # quote remains, so the job can close through normal expiry.
+                        raise Skip('PERSONAL_CAPACITY_REFUSED') from None
+                    raise
+                except (OperationalError, UnresolvedResult):
+                    self.base.halted.set()
+                    raise UnresolvedResult(execution) from None
+
+
+def queued_quote_adapter(scope, transport, resolved):
+    """Called after the normal source resolver and before opening the quote window."""
+    return SessionCollectorAdapter(scope, QueuedQuoteTransport(transport, resolved))
